@@ -80,6 +80,7 @@ const Dash = (() => {
   }
   // Returns the record for a direction & period. Months: explicit record, or roll-up of weeks (+ extra month items).
   function record(dir, mode, id) {
+    if (!dir.periods) return null;
     if (mode === 'week') { const r = dir.periods[key('week', id)]; return r ? { ...r, source: 'week' } : null; }
     const ex = dir.periods[key('month', id)];
     if (ex && !ex.rollup) return { ...ex, source: 'explicit' };
@@ -129,7 +130,7 @@ const Dash = (() => {
     return (dir.breakdowns || []).filter(b => b.period == null || b.period === key(mode, id));
   }
   function overview(mode = S.mode, id = pid(), cur = S.cur === 'native' ? 'USD' : S.cur) {
-    const rows = D.directions.map(d => ({ dir: d, s: summary(d, mode, id, cur) }));
+    const rows = D.directions.filter(d => d.kind !== 'people').map(d => ({ dir: d, s: summary(d, mode, id, cur) }));
     const tot = { income: 0, expenses: 0, profit: 0, n: 0 };
     rows.forEach(r => { if (r.s.income != null) { tot.income += r.s.income; tot.profit += r.s.profit; tot.n++; } if (r.s.expenses != null) tot.expenses += r.s.expenses; });
     return { rows, tot, cur };

@@ -4,7 +4,7 @@
   "owner": "Rostyslav Yermakov",
   "city": "Medellín",
   "version": "0.1-mockup",
-  "generated_at": "2026-10-19T20:19-05:00",
+  "generated_at": "2026-10-24T18:58-05:00",
   "timezone": "America/Bogota",
   "default_week": "2026-10-12",
   "default_month": "2026-10",
@@ -2391,6 +2391,62 @@
     "Недели до 05.10 и месяцы до октября по направлению не выгружены",
     "Прибыль — валовая, без опер. расходов",
     "Число заказов по каналам не снято (BAS лагает)"
+   ]
+  },
+  {
+   "id": "coaching",
+   "name": "Коучинг",
+   "subtitle": "Люди и их боты · подпроекты",
+   "kind": "people",
+   "currency": "USD",
+   "color": "#fb7185",
+   "icon": "🤝",
+   "periods": {},
+   "breakdowns": [],
+   "goals": [],
+   "tasks": [],
+   "gaps": [],
+   "people": [
+    {
+     "name": "Бабушка",
+     "icon": "👵",
+     "role": "Бот для добавления товаров",
+     "status": "ok",
+     "note": "Бот работает, участие Rost не нужно",
+     "items": [],
+     "src": "Rost, 24.10.2026"
+    },
+    {
+     "name": "Алехандра",
+     "icon": "👩",
+     "role": "Коучинг",
+     "status": "attention",
+     "items": [
+      "Взять под контроль",
+      "Сделать по ней план"
+     ],
+     "src": "Rost, 24.10.2026"
+    },
+    {
+     "name": "Мама",
+     "icon": "👩‍🦳",
+     "role": "Её бот",
+     "status": "attention",
+     "items": [
+      "Помощь с общением с её ботом"
+     ],
+     "src": "Rost, 24.10.2026"
+    },
+    {
+     "name": "Андре Многотуров",
+     "icon": "🧑",
+     "role": "Бот",
+     "status": "attention",
+     "items": [
+      "Подключить к боту"
+     ],
+     "src": "Rost, 24.10.2026"
+    }
    ]
   }
  ],
