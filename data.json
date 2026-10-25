@@ -4,10 +4,15 @@
   "owner": "Rostyslav Yermakov",
   "city": "Medellín",
   "version": "0.1-mockup",
-  "generated_at": "2026-10-24T22:59-05:00",
+  "generated_at": "2026-10-24T23:03-05:00",
   "timezone": "America/Bogota",
   "default_week": "2026-10-19",
   "default_month": "2026-10",
+  "stage_legend": {
+   "money": "🟢 есть деньги",
+   "launched": "🟠 запустились, денег пока нет",
+   "starting": "🟡 стартуем"
+  },
   "week_to_month_rule": "Неделя (пн–вс) относится к месяцу, в котором её понедельник",
   "fx": {
    "USD_COP": {
@@ -162,6 +167,7 @@
  "directions": [
   {
    "id": "peptides",
+   "stage": "money",
    "name": "Пептиды",
    "subtitle": "Peso Saludable · Медельин",
    "currency": "COP",
@@ -387,6 +393,7 @@
   },
   {
    "id": "of",
+   "stage": "money",
    "name": "ОФ",
    "subtitle": "OnlyFans · агентство моделей",
    "currency": "USD",
@@ -1449,6 +1456,7 @@
   },
   {
    "id": "realestate",
+   "stage": "money",
    "name": "Недвижимость",
    "subtitle": "Испания · Украина · Колумбия",
    "currency": "EUR",
@@ -1918,6 +1926,7 @@
   },
   {
    "id": "tabakevich",
+   "stage": "money",
    "name": "Табакевич / кальяны",
    "subtitle": "Украина · e-shop + магазин",
    "currency": "USD",
@@ -2395,6 +2404,7 @@
   },
   {
    "id": "defense",
+   "stage": "launched",
    "name": "Оборонка",
    "subtitle": "Спецтехноэкспорт (STE) · агентский экспорт",
    "currency": "USD",
@@ -2809,15 +2819,6 @@
      }
     },
     {
-     "name": "Бабушка",
-     "icon": "👵",
-     "role": "Бот для добавления товаров",
-     "status": "ok",
-     "note": "Бот работает, участие Rost не нужно",
-     "items": [],
-     "src": "Rost, 24.10.2026"
-    },
-    {
      "name": "Андрей Многотуров",
      "icon": "🧑",
      "role": "Бот · TripAdvisor",
@@ -2834,6 +2835,15 @@
       "status": "to do",
       "url": "https://rosmater.github.io/cu/?t=86ba2y9ke"
      }
+    },
+    {
+     "name": "Бабушка",
+     "icon": "👵",
+     "role": "Бот для добавления товаров",
+     "status": "ok",
+     "note": "Бот работает, участие Rost не нужно",
+     "items": [],
+     "src": "Rost, 24.10.2026"
     }
    ]
   }
