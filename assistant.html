@@ -1,0 +1,388 @@
+<!doctype html>
+<html lang="ru"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#f5f6fa"><meta name="apple-mobile-web-app-capable" content="yes">
+<title>Дашборд — вариант A (Light SaaS)</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f5f6fa;--panel:#ffffff;--panel2:#ffffff;--line:#e4e7f0;--txt:#1b2033;--mut:#6b7390;--acc:#6d4dff;--pos:#0e9f74;--neg:#e5484d;--warn:#c77d0a;--shadow:0 1px 2px #1b20330a,0 6px 18px #1b203309}
+*{box-sizing:border-box}html,body{margin:0;background:var(--bg);color:var(--txt);font-family:Inter,system-ui,-apple-system,sans-serif;-webkit-font-smoothing:antialiased}
+body{background:radial-gradient(1200px 600px at 10% -10%,#ebe5ff,transparent 60%),radial-gradient(900px 500px at 100% 0,#e0f6ee,transparent 60%),var(--bg);min-height:100vh}
+.wrap{max-width:1280px;margin:0 auto;padding:20px 18px calc(30px + env(safe-area-inset-bottom))}
+header{display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between;margin-bottom:16px}
+.brand{display:flex;gap:12px;align-items:center}.logo{width:42px;height:42px;border-radius:12px;background:conic-gradient(from 200deg,#7c5cff,#22d3a6,#38bdf8,#7c5cff);display:grid;place-items:center;font-weight:800;color:#fff;box-shadow:0 6px 18px #7c5cff33}
+.brand h1{font-size:19px;margin:0;font-weight:800;letter-spacing:-.02em}.brand small{color:var(--mut);font-size:12px}
+.ctrls{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.seg{display:inline-flex;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:3px;box-shadow:var(--shadow)}
+.seg button{background:none;border:0;color:var(--mut);padding:7px 13px;border-radius:9px;font:600 13px Inter;cursor:pointer}
+.seg button.on{background:linear-gradient(135deg,#7c5cff,#5b8cff);color:#fff;box-shadow:0 4px 12px #7c5cff33}
+select{background:var(--panel);color:var(--txt);border:1px solid var(--line);border-radius:10px;padding:8px 10px;font:500 13px Inter}
+nav.tabs{display:flex;gap:6px;overflow-x:auto;padding:8px 2px 6px;margin-bottom:18px;scrollbar-width:none}nav.tabs::-webkit-scrollbar{display:none}
+nav.tabs button{position:relative;flex:0 0 auto;box-shadow:var(--shadow);background:var(--panel);border:1px solid var(--line);color:var(--mut);padding:10px 15px;border-radius:999px;font:600 13.5px Inter;cursor:pointer;white-space:nowrap}
+nav.tabs button.on{color:color-mix(in srgb,var(--c,#7c5cff) 55%,#000);border-color:var(--c,#7c5cff);background:color-mix(in srgb,var(--c,#7c5cff) 14%,#fff);box-shadow:0 4px 14px color-mix(in srgb,var(--c,#7c5cff) 25%,transparent)}
+.abadge{display:inline-grid;place-items:center;min-width:18px;height:18px;padding:0 5px;margin-left:6px;border-radius:99px;background:var(--neg);color:#fff;font:700 10.5px Inter;vertical-align:1px;box-shadow:0 0 0 2px #fff}.adot{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--neg);margin-left:6px;box-shadow:0 0 0 2px #fff}
+.attn{background:#fff5f5;border:1px solid #f5c2c4;border-left:4px solid var(--neg);border-radius:14px;padding:12px 14px;margin-bottom:14px;box-shadow:var(--shadow)}.attn h4{margin:0 0 8px;font-size:13px;color:#b42318;display:flex;gap:8px;align-items:center}
+.attn .grp{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--mut);margin:8px 0 2px}.attn .ln{display:flex;gap:8px;align-items:baseline;font-size:13px;line-height:1.4;padding:2px 0}.attn .ln a{color:var(--txt);text-decoration:none}.attn .ln a:hover{color:var(--acc)}
+.attn .why{flex:0 0 auto;font-size:10.5px;font-weight:700;padding:1px 7px;border-radius:99px;background:#ffe3e5;color:#b42318}.attn .why.gap{background:#fff1d6;color:#9a5b07}.attn summary{cursor:pointer;font-size:12px;color:var(--acc);margin-top:6px}.attn .go{cursor:pointer}.attn .ok{color:var(--pos)}
+.pcol{display:flex;flex-direction:column;gap:14px}
+.person .st-ok{background:#e6f7f0;color:#0b7a59;border-color:#bfe9d8}.person .st-at{background:#ffe3e5;color:#b42318;border-color:#f5c2c4}.person.at{border-color:#f5c2c4}.person ul{margin:8px 0 0;padding-left:18px;font-size:13.5px;line-height:1.5}
+.mx{margin-top:10px;border:1px solid var(--line);border-radius:14px;padding:10px 12px;background:#fafbff}.mx .goal{font-weight:700;font-size:13.5px;color:#0b5a73;background:#ecf8fd;border:1px solid #bfe6f5;border-radius:10px;padding:8px 10px;margin-bottom:8px}.mx .bar{height:8px;border-radius:6px;background:#eef0f6;overflow:hidden;margin:4px 0 2px}.mx .bar i{display:block;height:100%;background:#38bdf8}.mx h5{margin:10px 0 4px;font-size:11.5px;text-transform:uppercase;letter-spacing:.04em;color:var(--mut,#667085)}.mx table{width:100%;border-collapse:collapse;font-size:13px}.mx td{padding:5px 4px;border-top:1px dashed var(--line)}.mx td.v{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap;color:#98a2b3}.mx tr.tot td{font-weight:700;border-top:1px solid var(--line)}.mx tr.tot td.v{color:inherit}.mx tr.ex td{color:#98a2b3;font-style:italic}.mx .hint{display:block;font-size:11px;color:#98a2b3;font-style:normal;font-weight:400}
+.grid{display:grid;gap:14px;align-items:start}.g4{grid-template-columns:repeat(4,1fr)}.g2{grid-template-columns:2fr 1fr}.g2e{grid-template-columns:1fr 1fr}
+@media(max-width:980px){.g4{grid-template-columns:repeat(2,1fr)}.g2,.g2e{grid-template-columns:1fr}}
+@media(max-width:520px){.g4{grid-template-columns:1fr 1fr;gap:10px}.wrap{padding:14px 12px}.kpi .v{font-size:20px!important}}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:16px;position:relative;overflow:hidden;box-shadow:var(--shadow)}
+.card h3{margin:0 0 12px;font-size:13px;color:var(--mut);font-weight:600;text-transform:uppercase;letter-spacing:.06em;display:flex;justify-content:space-between;align-items:center;gap:8px}
+.kpi .l{color:var(--mut);font-size:12.5px;font-weight:500}.kpi .v{font-size:26px;font-weight:800;letter-spacing:-.02em;margin:6px 0 2px}.kpi .s{font-size:12px;color:var(--mut)}
+.kpi canvas{position:absolute;right:0;bottom:0;width:55%!important;height:46px!important;opacity:.9}
+.kpi::after{content:"";position:absolute;inset:auto -40px -60px auto;width:140px;height:140px;border-radius:50%;background:var(--glow,#7c5cff);filter:blur(60px);opacity:.12}
+.pos{color:var(--pos)}.neg{color:var(--neg)}.warn{color:var(--warn)}
+.hero{padding:22px;background:linear-gradient(135deg,#efeaff,#eef2ff 55%,#e2f6ef);border:1px solid #ddd5ff}
+.hero .big{font-size:40px;font-weight:800;letter-spacing:-.03em}@media(max-width:520px){.hero .big{font-size:30px}}
+.chip{display:inline-flex;gap:6px;align-items:center;font-size:11.5px;padding:3px 9px;border-radius:999px;background:#f1f3f8;border:1px solid var(--line);color:var(--mut);margin:2px 4px 2px 0}
+.chip.partial{color:var(--warn);background:#fff6e5;border-color:#f3d7a3}.chip.full{color:var(--pos);background:#e8f8f2;border-color:#bfe9d8}
+.ex-badge{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;background:#fff3dc;color:var(--warn);border:1px dashed var(--warn);padding:1px 6px;border-radius:6px;margin-left:6px;vertical-align:middle}
+.sdot{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:6px;vertical-align:1px;box-shadow:0 0 0 2px #fff,0 0 0 3px rgba(0,0,0,.08)}.sdot.money{background:#16a34a}.sdot.launched{background:#f97316}.sdot.starting{background:#facc15}.slegend{display:flex;gap:14px;flex-wrap:wrap;font-size:12px;color:var(--mut);margin-top:8px}
+.dircard{cursor:pointer;transition:transform .15s}.dircard:hover{transform:translateY(-2px)}
+.dircard .top{display:flex;justify-content:space-between;align-items:center}.dircard .ic{font-size:22px}
+.dircard .name{font-weight:700;font-size:15px}.dircard .sub{color:var(--mut);font-size:11.5px}
+.bar{height:8px;background:#eef0f6;border-radius:99px;overflow:hidden;margin:8px 0 4px}.bar i{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,var(--c,#7c5cff),#38bdf8)}
+.goal{padding:10px 0;border-bottom:1px dashed var(--line)}.goal:last-child{border:0}.goal .row{display:flex;justify-content:space-between;gap:8px;font-size:13.5px}.goal small{color:var(--mut);font-size:11.5px}
+table{width:100%;border-collapse:collapse;font-size:12.5px}th,td{text-align:left;padding:7px 6px;border-bottom:1px solid var(--line);white-space:nowrap}th{color:var(--mut);font-weight:600;font-size:11.5px}td.n,th.n{text-align:right}
+.tblwrap{overflow-x:auto}
+.task{display:flex;gap:10px;padding:10px 0;border-bottom:1px solid var(--line);align-items:flex-start}.task:last-child{border:0}
+.task a{color:var(--txt);text-decoration:none;font-size:13.5px;line-height:1.35}.task a:hover{color:var(--acc)}
+.pill{font-size:10.5px;font-weight:700;padding:2px 8px;border-radius:99px;white-space:nowrap}.p-urgent{background:#ffe3e5;color:#c22f3a}.p-high{background:#fff1d6;color:#a5620a}.p-normal{background:#e3f3fd;color:#1f7fb3}
+.st{font-size:10.5px;color:var(--mut);border:1px solid var(--line);padding:1px 7px;border-radius:99px;white-space:nowrap}
+.note{font-size:12.5px;color:var(--mut);line-height:1.5}.gap li{margin:4px 0;font-size:12.5px;color:#3a4160}
+.items li{font-size:12.5px;margin:5px 0;color:#3a4160}.items .amt{float:right;font-weight:600;color:var(--txt);margin-left:8px}
+.metrics{display:flex;flex-wrap:wrap;gap:8px}.metric{background:#f7f8fb;border:1px solid var(--line);border-radius:12px;padding:8px 12px}.metric b{display:block;font-size:16px}.metric span{font-size:11px;color:var(--mut)}
+footer{margin-top:22px;color:var(--mut);font-size:11.5px;line-height:1.6;border-top:1px solid var(--line);padding-top:14px}
+.chartbox{position:relative;height:280px}@media(max-width:520px){.chartbox{height:220px}}
+.empty{color:var(--mut);font-size:13px;padding:10px 0}
+.sdot.tdot{width:8px;height:8px;margin:0 5px 1px 0;vertical-align:middle;box-shadow:0 0 0 2px #fff}
+</style></head><body><div class="wrap">
+<header><div class="brand"><div class="logo">R</div><div><h1>Бизнес-дашборд</h1><small id="sub"></small></div></div>
+<div class="ctrls"><div class="seg" id="mode"><button data-m="week">Неделя</button><button data-m="month">Месяц</button></div>
+<select id="period"></select><select id="cur"><option value="native">Родная валюта</option><option value="USD">USD</option><option value="COP">COP</option><option value="EUR">EUR</option></select></div></header>
+<nav class="tabs" id="tabs"></nav><main id="main"></main><footer id="foot"></footer></div>
+<script>window.DASH_ENC='data-asst.enc.json';window.DASH_LS='dash_key_asst_v1';window.DASH_TITLE='Дашборд (ассистент)';</script>
+<script>/* ===== Password gate (Rost 24.10): data.enc.json расшифровывается паролем; ключ помнится в localStorage до «Выйти» ===== */
+const Gate = (() => {
+  const LS = window.DASH_LS || 'dash_key_v1';
+  const b2u = s => Uint8Array.from(atob(s), c => c.charCodeAt(0));
+  const u2b = u => btoa(String.fromCharCode(...new Uint8Array(u)));
+  async function decrypt(enc, key) {
+    const pt = await crypto.subtle.decrypt({ name: 'AES-GCM', iv: b2u(enc.iv) }, key, b2u(enc.ct));
+    return JSON.parse(new TextDecoder().decode(pt));
+  }
+  async function derive(pw, enc) {
+    const base = await crypto.subtle.importKey('raw', new TextEncoder().encode(pw), 'PBKDF2', false, ['deriveKey']);
+    return crypto.subtle.deriveKey({ name: 'PBKDF2', hash: 'SHA-256', salt: b2u(enc.salt), iterations: enc.iter }, base, { name: 'AES-GCM', length: 256 }, true, ['decrypt']);
+  }
+  const imp = raw => crypto.subtle.importKey('raw', b2u(raw), 'AES-GCM', true, ['decrypt']);
+  function css() {
+    const s = document.createElement('style');
+    s.textContent = `
+.gate-blur .wrap{filter:blur(14px);pointer-events:none;user-select:none}
+#gate{position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;background:rgba(15,23,42,.35);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);font-family:Inter,system-ui,-apple-system,sans-serif}
+#gate form{background:#fff;color:#0f172a;border-radius:20px;padding:28px 26px 22px;width:min(360px,calc(100vw - 32px));box-shadow:0 24px 60px rgba(15,23,42,.25);text-align:center}
+#gate .lg{width:48px;height:48px;border-radius:14px;margin:0 auto 12px;display:flex;align-items:center;justify-content:center;font-size:22px;background:#eef2ff}
+#gate h2{margin:0 0 4px;font-size:19px}#gate p{margin:0 0 16px;color:#64748b;font-size:13px}
+#gate .row{position:relative}
+#gate input{width:100%;box-sizing:border-box;padding:12px 44px 12px 14px;border:1.5px solid #cbd5e1;border-radius:12px;font-size:16px;outline:none}
+#gate input:focus{border-color:#6366f1;box-shadow:0 0 0 3px rgba(99,102,241,.15)}
+#gate .eye{position:absolute;right:8px;top:50%;transform:translateY(-50%);border:0;background:none;font-size:18px;cursor:pointer;padding:4px}
+#gate button.go{margin-top:12px;width:100%;padding:12px;border:0;border-radius:12px;background:#4f46e5;color:#fff;font-size:15px;font-weight:600;cursor:pointer}
+#gate button.go:disabled{opacity:.6}
+#gate .err{color:#dc2626;font-size:13px;min-height:18px;margin-top:8px}
+#gate .hint{color:#94a3b8;font-size:12px;margin-top:6px}
+#gate form.shake{animation:gsh .35s}@keyframes gsh{25%{transform:translateX(-8px)}75%{transform:translateX(8px)}}
+#gate-out{position:fixed;right:14px;bottom:14px;z-index:50;border:1px solid #e2e8f0;background:#fff;color:#64748b;border-radius:999px;padding:6px 12px;font-size:12px;cursor:pointer;box-shadow:0 2px 8px rgba(15,23,42,.08)}
+#gate-out:hover{color:#0f172a}`;
+    document.head.appendChild(s);
+  }
+  function logoutBtn() {
+    const b = document.createElement('button');
+    b.id = 'gate-out'; b.textContent = '🔒 Выйти'; b.title = 'Забыть пароль на этом устройстве';
+    b.onclick = () => { try { localStorage.removeItem(LS); } catch (e) {} location.reload(); };
+    document.body.appendChild(b);
+  }
+  function prompt(enc) {
+    return new Promise(res => {
+      document.body.classList.add('gate-blur');
+      const g = document.createElement('div'); g.id = 'gate';
+      g.innerHTML = `<form autocomplete="on"><div class="lg">🔒</div><h2>${window.DASH_TITLE || 'Бизнес-дашборд'}</h2><p>Введите пароль, чтобы открыть</p>
+<input type="text" name="username" value="rost" autocomplete="username" hidden>
+<div class="row"><input id="gate-pw" type="password" autocomplete="current-password" placeholder="Пароль" autofocus><button type="button" class="eye" title="Показать пароль">👁</button></div>
+<button class="go" type="submit">Открыть</button><div class="err"></div>
+<div class="hint">Один раз ввёл — на этом устройстве больше не спрашиваем (до «Выйти»).</div></form>`;
+      document.body.appendChild(g);
+      const f = g.querySelector('form'), i = g.querySelector('#gate-pw'), err = g.querySelector('.err'), go = g.querySelector('.go');
+      g.querySelector('.eye').onclick = () => { i.type = i.type === 'password' ? 'text' : 'password'; i.focus(); };
+      setTimeout(() => i.focus(), 50);
+      f.onsubmit = async e => {
+        e.preventDefault(); if (!i.value) return;
+        go.disabled = true; go.textContent = 'Проверяю…'; err.textContent = '';
+        try {
+          const key = await derive(i.value.trim().normalize('NFC').toLowerCase(), enc);
+          const data = await decrypt(enc, key);
+          try { localStorage.setItem(LS, u2b(await crypto.subtle.exportKey('raw', key))); } catch (e2) {}
+          g.remove(); document.body.classList.remove('gate-blur'); res(data);
+        } catch (e1) {
+          err.textContent = 'Неверный пароль'; f.classList.remove('shake'); void f.offsetWidth; f.classList.add('shake');
+          go.disabled = false; go.textContent = 'Открыть'; i.select();
+        }
+      };
+    });
+  }
+  async function unlock(src) {
+    css();
+    const r = await fetch(src, { cache: 'no-store' });
+    if (!r.ok) throw new Error(src + ': HTTP ' + r.status);
+    const enc = await r.json();
+    let data = null;
+    try { const raw = localStorage.getItem(LS); if (raw) data = await decrypt(enc, await imp(raw)); } catch (e) { try { localStorage.removeItem(LS); } catch (e2) {} }
+    if (!data) data = await prompt(enc);
+    logoutBtn();
+    return data;
+  }
+  return { unlock };
+})();
+
+/* ===== Dash core (shared by all variants; inlined at build) ===== */
+const Dash = (() => {
+  let D = null;
+  const S = { mode: 'week', week: null, month: null, cur: 'native', tab: 'overview' };
+  const qs = new URLSearchParams(location.search);
+  async function load() {
+    if (window.DASH_DATA) { D = window.DASH_DATA; }
+    else {
+      const src = qs.get('data');
+      if (src) { // локальная отладка: ?data=data.json (плоский файл в репо не пушится)
+        const r = await fetch(src, { cache: 'no-store' });
+        if (!r.ok) throw new Error(src + ': HTTP ' + r.status);
+        D = await r.json();
+      } else D = await Gate.unlock(window.DASH_ENC || 'data.enc.json');
+    }
+    // По умолчанию — ТЕКУЩАЯ неделя/месяц по дате браузера (Rost 24.10), а не зашитая неделя.
+    const t = new Date(), today = new Date(t - t.getTimezoneOffset() * 6e4).toISOString().slice(0, 10);
+    const W = D.meta.weeks, M = D.meta.months;
+    const curW = W.find(w => w.start <= today && today <= w.end) || [...W].reverse().find(w => w.start <= today) || W[W.length - 1];
+    const curM = M.find(m => m.id === today.slice(0, 7)) || [...M].reverse().find(m => m.id <= today.slice(0, 7)) || M[M.length - 1];
+    S.week = qs.get('week') || curW.id;
+    S.month = qs.get('month') || curM.id;
+    S.mode = qs.get('mode') || 'week';
+    S.tab = qs.get('tab') || 'overview';
+    // Из localStorage восстанавливаем только вкладку и валюту; период всегда открывается текущий.
+    try { const saved = JSON.parse(localStorage.getItem('dash_state') || '{}'); if (!qs.get('tab') && saved.tab) S.tab = saved.tab; if (saved.cur) S.cur = saved.cur; } catch (e) {}
+    if (S.tab !== 'overview' && !D.directions.some(d => d.id === S.tab)) S.tab = 'overview';
+    return D;
+  }
+  const save = () => { try { localStorage.setItem('dash_state', JSON.stringify(S)); } catch (e) {} };
+  const toUSD = cur => { const fx = D.meta.fx; return { USD: 1, COP: 1 / fx.USD_COP.rate, EUR: fx.EUR_USD.rate, UAH: 1 / fx.USD_UAH.rate }[cur]; };
+  const conv = (a, from, to) => (a == null ? null : a * toUSD(from) / toUSD(to));
+  const curOf = dir => (S.cur === 'native' ? dir.currency : S.cur);
+  const pid = () => (S.mode === 'week' ? S.week : S.month);
+  const key = (mode, id) => (mode === 'week' ? 'W:' : 'M:') + id;
+  const weeksOfMonth = m => D.meta.weeks.filter(w => w.month === m);
+
+  function sumItems(items, cur) {
+    let s = 0, any = false;
+    for (const it of items || []) { if (it.amount == null) continue; s += conv(it.amount, it.cur, cur); any = true; }
+    return any ? s : null;
+  }
+  // Returns the record for a direction & period. Months: explicit record, or roll-up of weeks (+ extra month items).
+  function record(dir, mode, id) {
+    if (!dir.periods) return null;
+    if (mode === 'week') { const r = dir.periods[key('week', id)]; return r ? { ...r, source: 'week' } : null; }
+    const ex = dir.periods[key('month', id)];
+    if (ex && !ex.rollup) return { ...ex, source: 'explicit' };
+    const ws = weeksOfMonth(id).map(w => dir.periods['W:' + w.start]).filter(Boolean);
+    if (!ws.length && !ex) return null;
+    const inc = [], exp = [], notes = []; let partial = false; const metrics = {};
+    ws.forEach(w => { inc.push(...(w.income || [])); exp.push(...(w.expenses || [])); if (w.status === 'partial') partial = true; });
+    if (ex) { inc.push(...(ex.income || [])); exp.push(...(ex.expenses || [])); if (ex.note) notes.push(ex.note); Object.assign(metrics, ex.metrics || {}); }
+    const today = new Date().toISOString().slice(0, 10);
+    const allW = weeksOfMonth(id).filter(w => w.start <= today);
+    if (ws.length < allW.length) partial = true;
+    return { income: inc, expenses: exp, metrics, status: partial ? 'partial' : 'full', note: notes.join(' '), source: 'rollup', weeks: ws.length, weeksTotal: allW.length };
+  }
+  function summary(dir, mode = S.mode, id = pid(), cur = curOf(dir)) {
+    const r = record(dir, mode, id);
+    if (!r) return { has: false, cur };
+    const income = sumItems(r.income, cur), expenses = sumItems(r.expenses, cur);
+    const profit = income == null ? null : income - (expenses || 0);
+    const roi = income != null && expenses ? profit / expenses * 100 : null;
+    const unknownInc = (r.income || []).some(i => i.amount == null);
+    const has = income != null || expenses != null || Object.keys(r.metrics || {}).length > 0 || unknownInc;
+    return { has, cur, income, expenses, profit, roi, expensesKnown: expenses != null, rec: r, status: r.status, unknownInc };
+  }
+  function periods(mode = S.mode) {
+    const list = mode === 'week' ? D.meta.weeks : D.meta.months;
+    return list.map(p => ({ id: p.id, label: p.label, iso: p.iso }));
+  }
+  function periodLabel(mode = S.mode, id = pid()) { const p = periods(mode).find(x => x.id === id); return p ? p.label : id; }
+  function series(dir, mode = S.mode, cur = curOf(dir), opts = {}) {
+    let ps = periods(mode);
+    if (opts.onlyData) ps = ps.filter(p => summary(dir, mode, p.id, cur).has);
+    if (opts.last) ps = ps.slice(-opts.last);
+    const s = ps.map(p => summary(dir, mode, p.id, cur));
+    return { labels: ps.map(p => p.label), ids: ps.map(p => p.id), income: s.map(x => x.income ?? null), expenses: s.map(x => x.expenses ?? null), profit: s.map(x => x.profit ?? null) };
+  }
+  function goals(dir, mode = S.mode, id = pid()) {
+    return (dir.goals || []).filter(g => (g.period_type || 'week') === mode).map(g => {
+      let actual = g.by_period ? g.by_period[key(mode, id)] : undefined;
+      if (actual === undefined && g.auto_month === 'income' && mode === 'month') { const s = summary(dir, 'month', id, dir.currency); actual = s.income ?? undefined; }
+      const has = actual !== undefined && actual !== null;
+      let pct = null;
+      if (has) pct = g.lower_is_better ? (actual <= g.target ? 100 : Math.max(0, 100 - (actual - g.target) / Math.max(g.target, 1) * 100)) : (g.target ? actual / g.target * 100 : null);
+      return { ...g, actual: has ? actual : null, pct };
+    });
+  }
+  function breakdowns(dir, mode = S.mode, id = pid()) {
+    return (dir.breakdowns || []).filter(b => b.period == null || b.period === key(mode, id));
+  }
+  function overview(mode = S.mode, id = pid(), cur = S.cur === 'native' ? 'USD' : S.cur) {
+    const rows = D.directions.filter(d => d.kind !== 'people' && !d.no_overview_totals).map(d => ({ dir: d, s: summary(d, mode, id, cur) }));
+    const tot = { income: 0, expenses: 0, profit: 0, n: 0 };
+    rows.forEach(r => { if (r.s.income != null) { tot.income += r.s.income; tot.profit += r.s.profit; tot.n++; } if (r.s.expenses != null) tot.expenses += r.s.expenses; });
+    return { rows, tot, cur };
+  }
+  const SYM = { USD: '$', EUR: '€', COP: 'COP', UAH: '₴' };
+  function fmt(v, cur, compact) {
+    if (v == null || Number.isNaN(v)) return '—';
+    const a = Math.abs(v); let s;
+    if (compact && a >= 1e6) s = (v / 1e6).toLocaleString('ru-RU', { maximumFractionDigits: a >= 1e8 ? 0 : 1 }) + ' млн';
+    else if (compact && a >= 1e4) s = (v / 1e3).toLocaleString('ru-RU', { maximumFractionDigits: 1 }) + ' тыс';
+    else s = v.toLocaleString('ru-RU', { maximumFractionDigits: (cur === 'COP' || cur === 'UAH' || a >= 1000) ? 0 : 2 });
+    if (!cur) return s;
+    return cur === 'USD' || cur === 'EUR' ? SYM[cur] + s : s + ' ' + SYM[cur];
+  }
+  const num = v => (typeof v === 'number' ? v.toLocaleString('ru-RU', { maximumFractionDigits: 2 }) : (v ?? '—'));
+  const pct = v => (v == null ? '—' : (v > 0 ? '+' : '') + v.toFixed(0) + '%');
+  const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+  function fxFooter() {
+    const f = D.meta.fx;
+    return `Курсы: 1 USD = ${f.USD_COP.rate.toLocaleString('ru-RU')} COP — ${esc(f.USD_COP.source)}, ${f.USD_COP.date} · 1 EUR = ${f.EUR_USD.rate} USD (${esc(f.EUR_USD.source)}, ${f.EUR_USD.date}) · 1 USD = ${f.USD_UAH.rate} UAH (${esc(f.USD_UAH.source)}). ` +
+      `Данные: data.json v${esc(D.meta.version)}, собрано ${esc(D.meta.generated_at)} (Богота). ${esc(D.meta.week_to_month_rule)}. Значок «пример» = не реальная цифра.`;
+  }
+  const EX = '<span class="ex-badge" title="Не реальная цифра — пример">пример</span>';
+  const PRI = { urgent: 'срочно', high: 'высокий', normal: 'обычный', low: 'низкий' };
+  function trend(dir, mode = S.mode, id = pid(), cur = curOf(dir)) {
+    const ps = periods(mode); const i = ps.findIndex(p => p.id === id);
+    if (i <= 0) return null;
+    const a = summary(dir, mode, id, cur), b = summary(dir, mode, ps[i - 1].id, cur);
+    if (a.profit == null || b.profit == null || !b.profit) return null;
+    return (a.profit - b.profit) / Math.abs(b.profit) * 100;
+  }
+  // Weekly breakdown of a month + total row (total = month record: roll-up or explicit)
+  function rollup(dir, monthId, cur = curOf(dir)) {
+    const ws = weeksOfMonth(monthId).map(w => ({ w, s: summary(dir, 'week', w.id, cur) }));
+    const total = summary(dir, 'month', monthId, cur);
+    return { weeks: ws, total, explicit: total.rec && total.rec.source === 'explicit' };
+  }
+  return { rollup, load, S, save, get D() { return D; }, conv, curOf, pid, record, summary, series, goals, breakdowns, overview, periods, periodLabel, fmt, num, pct, esc, fxFooter, EX, PRI, trend, weeksOfMonth };
+})();
+</script>
+<script>
+const $=s=>document.querySelector(s);const {S,fmt,esc,EX}=Dash;let charts=[];
+const kill=()=>{charts.forEach(c=>c.destroy());charts=[]};
+Chart.defaults.color='#6b7390';Chart.defaults.font.family='Inter';Chart.defaults.borderColor='#e9ecf3';
+function spark(el,data,color){if(!el)return;const c=new Chart(el,{type:'line',data:{labels:data.map((_,i)=>i),datasets:[{data,borderColor:color,borderWidth:2,fill:true,backgroundColor:color+'22',tension:.4,pointRadius:0,spanGaps:true}]},options:{responsive:false,animation:false,plugins:{legend:{display:false},tooltip:{enabled:false}},scales:{x:{display:false},y:{display:false}}}});charts.push(c)}
+function controls(){document.querySelectorAll('#mode button').forEach(b=>{b.classList.toggle('on',b.dataset.m===S.mode);b.onclick=()=>{S.mode=b.dataset.m;render()}});
+ const sel=$('#period');sel.innerHTML=Dash.periods().map(p=>`<option value="${p.id}">${S.mode==='week'?(p.iso+' · '):''}${esc(p.label)}</option>`).join('');sel.value=Dash.pid();
+ sel.onchange=()=>{S.mode==='week'?S.week=sel.value:S.month=sel.value;render()};$('#cur').value=S.cur;$('#cur').onchange=e=>{S.cur=e.target.value;render()};
+ const D=Dash.D;$('#tabs').innerHTML=[{id:'overview',name:'Общий',icon:'✦',color:'#7c5cff'},...D.directions].map(d=>{const n=d.id==='overview'?attnAll().n:attn(d).length;return `<button data-t="${d.id}" style="--c:${d.color}" class="${S.tab===d.id?'on':''}" title="${n?'Требует внимания: '+n:''}">${d.stage?`<span class="sdot tdot ${d.stage}" title="${STAGE_T[d.stage]||''}"></span>`:''}${d.icon} ${esc(d.name)}${n?`<span class="abadge">${n}</span>`:''}</button>`}).join('');
+ document.querySelectorAll('#tabs button').forEach(b=>b.onclick=()=>{S.tab=b.dataset.t;render();scrollTo({top:0,behavior:'smooth'})});
+ $('#sub').textContent=`${S.mode==='week'?'Неделя':'Месяц'}: ${Dash.periodLabel()}`;}
+function tasksHTML(ts){if(!ts.length)return '<div class="empty">Нет задач</div>';return ts.map(t=>`<div class="task"><span class="pill p-${t.priority||'normal'}">${Dash.PRI[t.priority]||t.priority||''}</span><div style="flex:1"><a href="${t.url}" target="_blank" rel="noopener">${esc(t.name)}</a><div style="margin-top:4px"><span class="st">${esc(t.status)}</span> <span class="st">до ${esc(t.due||'—')}</span></div></div></div>`).join('')}
+const prioRank={urgent:0,high:1,normal:2,low:3};
+function overview(){const D=Dash.D,o=Dash.overview(),cur=o.cur;const m=S.mode;
+ const covered=o.rows.filter(r=>r.s.income!=null).map(r=>r.dir.name);
+ let h=attnOverviewHTML()+`<div class="grid g2"><div class="card hero"><h3 style="color:#5b4bc4">Общая прибыль · ${esc(Dash.periodLabel())}</h3><div class="big ${o.tot.profit>=0?'':'neg'}">${fmt(o.tot.profit,cur)}</div>
+ <div class="note" style="color:#4a4f6a">Доход ${fmt(o.tot.income,cur)} · Расходы ${fmt(o.tot.expenses,cur)} · в сумме: ${covered.join(', ')||'нет данных'}</div>
+ <div class="note" style="color:#7a72a8;margin-top:6px">${D.directions.filter(d=>d.overview_note).map(d=>esc(d.overview_note)).join(' ')}</div><div style="margin-top:10px">${o.rows.map(r=>`<span class="chip ${r.s.has?(r.s.status||''):''}">${r.dir.icon} ${esc(r.dir.name)}: ${r.s.has?(r.s.status==='partial'?'частично':'полные данные'):'нет данных'}</span>`).join('')}</div></div>
+ <div class="card"><h3>Структура прибыли</h3><div class="chartbox" style="height:200px"><canvas id="donut"></canvas></div></div></div><div style="height:14px"></div><div class="grid g4">`;
+ o.rows.forEach(r=>{const s=r.s,d=r.dir,t=Dash.trend(d,m,Dash.pid(),cur);h+=`<div class="card kpi dircard" style="--glow:${d.color}" data-t="${d.id}"><div class="top"><div><div class="name">${stageDot(d)}${d.icon} ${esc(d.name)}</div><div class="sub">${esc(d.subtitle)}</div></div>${t!=null?`<span class="${t>=0?'pos':'neg'}" style="font-weight:700;font-size:13px">${Dash.pct(t)}</span>`:''}</div>
+ <div class="v">${fmt(s.profit,cur,true)}</div><div class="s">прибыль · доход ${fmt(s.income,cur,true)}</div><canvas id="sp-${d.id}" width="160" height="46"></canvas></div>`});
+ h+=`</div>${stageLegend()}<div style="height:14px"></div><div class="grid g2"><div class="card"><h3>Прибыль по направлениям (${cur}) · ${m==='week'?'недели':'месяцы'}</h3><div class="chartbox"><canvas id="stack"></canvas></div></div>
+ <div class="card"><h3>Топ задач (ClickUp)</h3>${tasksHTML([...D.directions.flatMap(d=>d.tasks.map(t=>({...t,name:d.icon+' '+t.name}))),...D.overview.tasks].sort((a,b)=>(prioRank[a.priority]-prioRank[b.priority])||String(a.due).localeCompare(b.due)).slice(0,9))}</div></div>`;
+ $('#main').innerHTML=h;
+ document.querySelectorAll('.dircard,.attn .go').forEach(c=>c.onclick=()=>{S.tab=c.dataset.t;render();scrollTo({top:0,behavior:'smooth'})});
+ o.rows.forEach(r=>spark(document.getElementById('sp-'+r.dir.id),Dash.series(r.dir,m,cur,{last:8}).profit,r.dir.color));
+ const ps=Dash.periods(m).filter(p=>o.rows.some(r=>Dash.summary(r.dir,m,p.id,cur).has)).slice(-10);
+ charts.push(new Chart($('#stack'),{type:'bar',data:{labels:ps.map(p=>p.label),datasets:o.rows.map(r=>r.dir).map(d=>({label:d.name,backgroundColor:d.color,borderRadius:6,data:ps.map(p=>Dash.summary(d,m,p.id,cur).profit)}))},options:{maintainAspectRatio:false,plugins:{legend:{position:'bottom',labels:{boxWidth:10}},tooltip:{callbacks:{label:c=>c.dataset.label+': '+fmt(c.raw,cur)}}},scales:{x:{stacked:true,grid:{display:false}},y:{stacked:true,ticks:{callback:v=>fmt(v,null,true)}}}}}));
+ const pr=o.rows.filter(r=>r.s.profit>0);charts.push(new Chart($('#donut'),{type:'doughnut',data:{labels:pr.map(r=>r.dir.name),datasets:[{data:pr.map(r=>r.s.profit),backgroundColor:pr.map(r=>r.dir.color),borderWidth:0}]},options:{maintainAspectRatio:false,cutout:'68%',plugins:{legend:{position:'right',labels:{boxWidth:10}},tooltip:{callbacks:{label:c=>c.label+': '+fmt(c.raw,cur)}}}}}));}
+function itemsHTML(items,cur){if(!items||!items.length)return '<div class="empty">нет данных</div>';return '<ul class="items" style="padding-left:16px;margin:0">'+items.map(i=>`<li>${esc(i.label)}${i.example?EX:''}<span class="amt">${i.amount==null?'сумма ?':fmt(Dash.conv(i.amount,i.cur,cur),cur)}</span>${i.note?`<br><small style="color:var(--mut)">${esc(i.note)}</small>`:''}</li>`).join('')+'</ul>'}
+function direction(d){const cur=Dash.curOf(d),s=Dash.summary(d),m=S.mode,ser=Dash.series(d,m,cur,{onlyData:true,last:10});
+ const kp=(l,v,sub,data,color,cls='')=>`<div class="card kpi" style="--glow:${color}"><div class="l">${l}</div><div class="v ${cls}">${v}</div><div class="s">${sub}</div><canvas class="sp" width="160" height="46" data-c="${color}" data-d='${JSON.stringify(data)}'></canvas></div>`;
+ let h=`<div class="card" style="margin-bottom:14px;border-color:#bfe6f555;background:linear-gradient(135deg,#ecf8fd,var(--panel))"><div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;align-items:center"><div><div style="font-size:22px;font-weight:800">${d.icon} ${esc(d.name)}</div><div class="note">${esc(d.subtitle)} · ${esc(Dash.periodLabel())}</div></div>
+ <div>${d.monthly_only?'<span class="chip">учёт только помесячно</span>':''}${s.has?`<span class="chip ${s.status}">${s.status==='partial'?'неделя/месяц не закрыт':'закрытый период'}</span>`:'<span class="chip">нет данных за период</span>'}${s.rec&&s.rec.source==='rollup'?`<span class="chip">свёртка ${s.rec.weeks} нед.</span>`:''}${s.rec&&s.rec.source==='explicit'&&m==='month'?'<span class="chip">итог месяца из источника</span>':''}</div></div></div>`+attnHTML(d);
+ h+=`<div class="grid g4">${kp('Доход',fmt(s.income,cur),s.unknownInc?'есть продажи без суммы':'за период',ser.income,'#22d3a6')}${kp('Расходы',s.expensesKnown?fmt(s.expenses,cur):'—',s.expensesKnown?'учтённые':'нет данных о расходах',ser.expenses,'#ff5d7a')}
+ ${kp('Прибыль',fmt(s.profit,cur),s.expensesKnown?'доход − расходы':'расходы не учтены',ser.profit,d.color,s.profit<0?'neg':'')}${kp('ROI',s.roi==null?'—':Dash.pct(s.roi),'прибыль / расходы',[],'#38bdf8',s.roi<0?'neg':'pos')}</div><div style="height:14px"></div>`;
+ const mt=s.rec&&s.rec.metrics||{};
+ h+=`<div class="grid g2"><div class="card"><h3>Доходы и расходы · ${m==='week'?'по неделям':'по месяцам'} (${cur})</h3><div class="chartbox"><canvas id="main-ch"></canvas></div></div>
+ <div class="card"><h3>Цели vs факт</h3>${goalsHTML(d)}</div></div><div style="height:14px"></div>
+ <div class="grid g2e"><div class="card"><h3>Из чего сложилось</h3><div class="note" style="margin-bottom:6px">Доходы</div>${itemsHTML(s.rec&&s.rec.income,cur)}<div class="note" style="margin:10px 0 6px">Расходы</div>${itemsHTML(s.rec&&s.rec.expenses,cur)}
+ ${Object.keys(mt).length?`<div class="note" style="margin:12px 0 6px">Показатели</div><div class="metrics">${Object.entries(mt).map(([k,v])=>`<div class="metric"><b>${esc(Dash.num(v))}</b><span>${esc(k)}</span></div>`).join('')}</div>`:''}
+ ${s.rec&&s.rec.note?`<p class="note">ℹ️ ${esc(s.rec.note)}</p>`:''}</div><div class="card"><h3>Приоритеты · задачи ClickUp</h3>${tasksHTML(d.tasks)}</div></div>`;
+ if(m==='month'&&!d.monthly_only)h+=`<div style="height:14px"></div><div class="card"><h3>Недели → месяц (${cur})</h3>${rollupHTML(d,cur)}</div>`;
+ Dash.breakdowns(d).forEach(b=>{h+=`<div style="height:14px"></div><div class="card"><h3>${esc(b.title)}</h3><div class="tblwrap"><table><tr>${b.columns.map((c,i)=>`<th class="${i?'n':''}">${esc(c)}</th>`).join('')}</tr>${b.rows.map(r=>`<tr>${r.map((c,i)=>`<td class="${i?'n':''}">${esc(Dash.num(c))}</td>`).join('')}</tr>`).join('')}</table></div></div>`});
+ if((d.monitors||[]).length)h+=`<div style="height:14px"></div><div class="card"><h3>Мониторы <span class="st">структура · наполняем</span></h3>${d.monitors.map(x=>`<div class="task"><span class="pill ${x.status==='active'?'p-normal':'p-high'}">${x.status==='active'?'работает':'план'}</span><div style="flex:1"><b style="font-size:13.5px">${esc(x.name)}</b><div class="note">${esc(x.note||'')}${x.src?' · '+esc(x.src):''}</div></div></div>`).join('')}</div>`;
+ h+=`<div style="height:14px"></div><div class="card"><h3>Пробелы в данных</h3><ul class="gap" style="margin:0;padding-left:18px">${(d.gaps||[]).map(g=>`<li>${esc(g)}</li>`).join('')}</ul></div>`;
+ $('#main').innerHTML=h;
+ document.querySelectorAll('canvas.sp').forEach(c=>spark(c,JSON.parse(c.dataset.d),c.dataset.c));
+ charts.push(new Chart($('#main-ch'),{data:{labels:ser.labels,datasets:[{type:'bar',label:'Доход',data:ser.income,backgroundColor:'#22c59bcc',borderRadius:6},{type:'bar',label:'Расходы',data:ser.expenses,backgroundColor:'#ff5d7acc',borderRadius:6},{type:'line',label:'Прибыль',data:ser.profit,borderColor:d.color,backgroundColor:d.color,tension:.35,borderWidth:3,spanGaps:true}]},options:{maintainAspectRatio:false,plugins:{legend:{position:'bottom',labels:{boxWidth:10}},tooltip:{callbacks:{label:c=>c.dataset.label+': '+fmt(c.raw,cur)}}},scales:{x:{grid:{display:false}},y:{ticks:{callback:v=>fmt(v,null,true)}}}}}));}
+function rollupHTML(d,cur){const r=Dash.rollup(d,S.month,cur);const row=(l,x,b)=>`<tr${b?' style="font-weight:700"':''}><td>${l}</td><td class="n">${x.has?fmt(x.income,cur):'—'}</td><td class="n">${x.expensesKnown?fmt(x.expenses,cur):'—'}</td><td class="n">${x.has?fmt(x.profit,cur):'—'}</td><td class="n">${x.has?(x.status==='partial'?'частично':'полная'):'нет данных'}</td></tr>`;
+ return `<div class="tblwrap"><table><tr><th>Неделя</th><th class="n">Доход</th><th class="n">Расходы</th><th class="n">Прибыль</th><th class="n">Статус</th></tr>${r.weeks.map(x=>row(x.w.iso+' · '+x.w.label,x.s)).join('')}${row(r.explicit?'Итог месяца (из источника)':'Итог месяца = сумма недель'+(r.total.rec&&r.total.rec.note?' + доп. статьи':''),r.total,true)}</table></div>`}
+function goalsHTML(d){const gs=Dash.goals(d);if(!gs.length)return `<div class="empty">Целей для режима «${S.mode==='week'?'неделя':'месяц'}» нет — переключите период</div>`;
+ return gs.map(g=>`<div class="goal" style="--c:${d.color}"><div class="row"><span>${esc(g.label)}</span><b>${g.actual==null?'—':Dash.num(g.actual)} / ${Dash.num(g.target)} ${esc(g.unit)}${g.example?EX:''}</b></div><div class="bar"><i style="width:${Math.min(100,g.pct||0)}%;${g.pct!=null&&g.pct<50?'background:linear-gradient(90deg,#ff5d7a,#ffb547)':''}"></i></div><small>${g.actual==null?'факт: нет данных · ':''}${esc(g.src||'')}</small></div>`).join('')}
+
+/* ===== Attention («требует внимания») — only from real data.json fields ===== */
+const TODAY=(()=>{const t=new Date();return new Date(t-t.getTimezoneOffset()*6e4).toISOString().slice(0,10)})();
+const DONE=/complete|closed|done|выполн|закрыт/i,BLOCK=/block|блок|stuck|wait|жд[её]м/i;
+function attn(d){const it=[];
+ (d.tasks||[]).forEach(t=>{const st=String(t.status||'');if(DONE.test(st))return;const over=t.due&&t.due<TODAY;let why=null;
+  if(t.priority==='urgent')why='срочно'+(over?' · просрочено':'');else if(BLOCK.test(st))why='заблокировано';else if(t.priority==='high'&&over)why='высокий · просрочено';
+  if(why)it.push({grp:t.list||'Задачи',text:t.name,url:t.url,why,cls:''})});
+ (d.people||[]).forEach(p=>{if(p.status==='attention')(p.items&&p.items.length?p.items:['Требует внимания']).forEach(x=>it.push({grp:(p.icon?p.icon+' ':'')+p.name,text:x,why:'внимание',cls:''}))});
+ (d.gaps||[]).forEach(g=>it.push({grp:'Пробелы в данных',text:g,why:'пробел',cls:'gap'}));
+ if(d.kind!=='people'){const s=Dash.summary(d);if(s.has&&s.status==='partial')it.push({grp:'Период',text:'«'+Dash.periodLabel()+'» не закрыт — данные частичные',why:'частично',cls:'gap'})}
+ return it}
+function attnAll(){const D=Dash.D;const own=attn({tasks:D.overview.tasks});const per=D.directions.map(d=>({d,it:attn(d)}));return {own,per,n:own.length+per.reduce((a,x)=>a+x.it.length,0)}}
+function linesHTML(it,max=5){const grp={};it.forEach(x=>(grp[x.grp]=grp[x.grp]||[]).push(x));let out=[],i=0;
+ const ln=x=>`<div class="ln"><span class="why ${x.cls}">${esc(x.why)}</span>${x.url?`<a href="${x.url}" target="_blank" rel="noopener">${esc(x.text)}</a>`:`<span>${esc(x.text)}</span>`}</div>`;
+ const vis=[],hid=[];Object.entries(grp).forEach(([g,xs])=>xs.forEach((x,j)=>{const h=(j===0?`<div class="grp">${esc(g)}</div>`:'')+ln(x);(i++<max?vis:hid).push(h)}));
+ return vis.join('')+(hid.length?`<details><summary>ещё ${hid.length}</summary>${hid.join('')}</details>`:'')}
+function attnHTML(d){const it=attn(d);if(!it.length)return '';
+ const nt=it.filter(x=>x.cls!=='gap').length;
+ return `<div class="attn"><h4>🔴 Требует внимания · ${it.length}</h4>${linesHTML(it.filter(x=>x.cls!=='gap').concat(it.filter(x=>x.cls==='gap')),nt>5?nt:5)}</div>`}
+function attnOverviewHTML(){const a=attnAll();if(!a.n)return '';
+ const rows=a.per.filter(x=>x.it.length).map(({d,it})=>{const t=it.filter(x=>x.cls!=='gap').length,g=it.length-t;
+  return `<div class="ln go" data-t="${d.id}"><span class="why">${it.length}</span><span><b>${d.icon} ${esc(d.name)}</b> — ${[t?t+' задач/вопросов':'',g?g+' пробел(ов)/частично':''].filter(Boolean).join(', ')} →</span></div>`}).join('');
+ return `<div class="attn"><h4>🔴 Требует внимания · ${a.n}</h4>${rows}${a.own.length?linesHTML(a.own):''}</div>`}
+function metricsHTML(p){const m=p.metrics;if(!m&&!p.goal)return '';
+ const num=v=>v==null||v===''?null:+v,fmt=(v,u)=>v==null?'—':(u==='$'?'$':'')+v.toLocaleString('ru-RU')+(u&&u!=='$'?' '+u:'');
+ const rows=(m&&m.groups||[]).flatMap(g=>g.rows),plat=rows.filter(r=>r.platform).map(r=>num(r.value)),platSum=plat.some(v=>v!=null)?plat.reduce((a,v)=>a+(v||0),0):null;
+ const tv=r=>r.total?platSum:num(r.value),pct=m&&m.target&&platSum!=null?Math.min(100,platSum/m.target*100):0;
+ let h=`<div class="mx">${p.goal?`<div class="goal">🎯 ${esc(p.goal)}</div>`:''}`;
+ if(m){if(m.target)h+=`<div class="note" style="display:flex;justify-content:space-between"><span>${esc(m.target_label||'Цель')}</span><b>${fmt(platSum,'$')} / $${m.target.toLocaleString('ru-RU')}</b></div><div class="bar"><i style="width:${pct}%"></i></div>`;
+  h+=m.groups.map(g=>`<h5>${esc(g.title)}</h5><table>${g.rows.map(r=>`<tr class="${r.total?'tot':''} ${r.excluded?'ex':''}"><td>${esc(r.label)}${r.hint?`<span class="hint">${esc(r.hint)}</span>`:''}</td><td class="v">${fmt(tv(r),r.unit)}</td></tr>`).join('')}</table>`).join('');
+  if(m.note)h+=`<div class="note" style="font-size:11px;margin-top:6px">${esc(m.note)}</div>`}
+ return h+'</div>'}
+const STAGE_T={money:'есть деньги',launched:'запустились, денег пока нет',starting:'стартуем'};
+function stageDot(d){return d.stage?`<span class="sdot ${d.stage}" title="${STAGE_T[d.stage]||''}"></span>`:''}
+function stageLegend(){return `<div class="slegend">${Object.keys(STAGE_T).map(k=>`<span><span class="sdot ${k}"></span>${STAGE_T[k]}</span>`).join('')}</div>`}
+// Я: всегда выше Он:/Она:; подпункты «— …» остаются под своим родителем
+function meFirst(items){const g=[];items.forEach(x=>{if(/^\s*—/.test(x)&&g.length)g[g.length-1].push(x);else g.push([x])});const me=x=>/^Я:/.test(x[0]);return g.filter(me).concat(g.filter(x=>!me(x))).flat()}
+function people(d){const ps=d.people||[];
+ let h=`<div class="card" style="margin-bottom:14px;border-color:#bfe6f555;background:linear-gradient(135deg,#ecf8fd,var(--panel))"><div style="font-size:22px;font-weight:800">${d.icon} ${esc(d.name)}</div><div class="note">${esc(d.subtitle)} · ${ps.length} чел. · требуют внимания: ${ps.filter(p=>p.status==='attention').length}</div></div>`;
+ const pc=p=>{const at=p.status==='attention';return `<div class="card person ${at?'at':''}"><div style="display:flex;justify-content:space-between;gap:8px;align-items:center"><div><div style="font-weight:700;font-size:16px">${p.icon||'👤'} ${esc(p.name)}</div><div class="note">${esc(p.role||'')}</div></div><span class="chip ${at?'st-at':'st-ok'}">${at?'🔴 требует внимания':'🟢 ок'}</span></div>
+ ${!p.metrics&&p.goal?metricsHTML(p):''}${p.items&&p.items.length?`<ul>${meFirst(p.items).map(x=>`<li>${esc(x)}</li>`).join('')}</ul>`:''}${p.metrics?metricsHTML(p):''}${p.cu?[].concat(p.cu).map(c=>`<div style="margin-top:8px"><a href="${c.url}" target="_blank" rel="noopener" style="font-size:13px;color:var(--acc);text-decoration:none">🔗 ${esc(c.label)}</a> <span class="st">${esc(c.status||'')}</span></div>`).join(''):''}${p.note?`<p class="note" style="margin:8px 0 0">${esc(p.note)}</p>`:''}${p.src?`<div class="note" style="font-size:11px;margin-top:6px">источник: ${esc(p.src)}</div>`:''}</div>`};
+ h+=`<div class="grid g2e"><div class="pcol">${ps.slice(0,1).map(pc).join('')}</div><div class="pcol">${ps.slice(1).map(pc).join('')}</div></div>`;
+ if((d.tasks||[]).length)h+=`<div style="height:14px"></div><div class="card"><h3>Задачи ClickUp</h3>${tasksHTML(d.tasks)}</div>`;
+ $('#main').innerHTML=h}
+function render(){kill();Dash.save();controls();const d=Dash.D.directions.find(x=>x.id===S.tab);d?(d.kind==='people'?people(d):direction(d)):overview();$('#foot').textContent=Dash.fxFooter();}
+Dash.load().then(()=>document.fonts.ready).then(render).catch(e=>{$('#main').innerHTML='<div class="card">Не удалось загрузить data.json: '+esc(e.message)+'</div>'});
+</script></body></html>

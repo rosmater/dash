@@ -50,7 +50,7 @@ ul.g{margin:0;padding-left:18px}ul.g li{font-size:12.5px;margin:4px 0}
 <nav id="tabs"></nav></div><main id="main"></main><footer id="foot"></footer>
 <script>/* ===== Password gate (Rost 24.10): data.enc.json расшифровывается паролем; ключ помнится в localStorage до «Выйти» ===== */
 const Gate = (() => {
-  const LS = 'dash_key_v1';
+  const LS = window.DASH_LS || 'dash_key_v1';
   const b2u = s => Uint8Array.from(atob(s), c => c.charCodeAt(0));
   const u2b = u => btoa(String.fromCharCode(...new Uint8Array(u)));
   async function decrypt(enc, key) {
@@ -93,7 +93,7 @@ const Gate = (() => {
     return new Promise(res => {
       document.body.classList.add('gate-blur');
       const g = document.createElement('div'); g.id = 'gate';
-      g.innerHTML = `<form autocomplete="on"><div class="lg">🔒</div><h2>Бизнес-дашборд</h2><p>Введите пароль, чтобы открыть</p>
+      g.innerHTML = `<form autocomplete="on"><div class="lg">🔒</div><h2>${window.DASH_TITLE || 'Бизнес-дашборд'}</h2><p>Введите пароль, чтобы открыть</p>
 <input type="text" name="username" value="rost" autocomplete="username" hidden>
 <div class="row"><input id="gate-pw" type="password" autocomplete="current-password" placeholder="Пароль" autofocus><button type="button" class="eye" title="Показать пароль">👁</button></div>
 <button class="go" type="submit">Открыть</button><div class="err"></div>
@@ -106,7 +106,7 @@ const Gate = (() => {
         e.preventDefault(); if (!i.value) return;
         go.disabled = true; go.textContent = 'Проверяю…'; err.textContent = '';
         try {
-          const key = await derive(i.value.trim(), enc);
+          const key = await derive(i.value.trim().normalize('NFC').toLowerCase(), enc);
           const data = await decrypt(enc, key);
           try { localStorage.setItem(LS, u2b(await crypto.subtle.exportKey('raw', key))); } catch (e2) {}
           g.remove(); document.body.classList.remove('gate-blur'); res(data);
@@ -144,7 +144,7 @@ const Dash = (() => {
         const r = await fetch(src, { cache: 'no-store' });
         if (!r.ok) throw new Error(src + ': HTTP ' + r.status);
         D = await r.json();
-      } else D = await Gate.unlock('data.enc.json');
+      } else D = await Gate.unlock(window.DASH_ENC || 'data.enc.json');
     }
     // По умолчанию — ТЕКУЩАЯ неделя/месяц по дате браузера (Rost 24.10), а не зашитая неделя.
     const t = new Date(), today = new Date(t - t.getTimezoneOffset() * 6e4).toISOString().slice(0, 10);
