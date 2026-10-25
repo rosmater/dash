@@ -4,7 +4,7 @@
   "owner": "Rostyslav Yermakov",
   "city": "Medellín",
   "version": "0.1-mockup",
-  "generated_at": "2026-10-24T22:44-05:00",
+  "generated_at": "2026-10-24T22:45-05:00",
   "timezone": "America/Bogota",
   "default_week": "2026-10-19",
   "default_month": "2026-10",
@@ -2712,7 +2712,13 @@
       "Взять под контроль",
       "Сделать по ней план"
      ],
-     "src": "Rost, 24.10.2026"
+     "src": "Rost, 24.10.2026",
+     "cu": {
+      "id": "86bcn44nh",
+      "label": "Задача коучинга (ClickUp · Personal)",
+      "status": "to do",
+      "url": "https://app.clickup.com/t/86bcn44nh"
+     }
     },
     {
      "name": "Мама",
