@@ -1,10 +1,10 @@
 {
  "meta": {
-  "title": "Бизнес-дашборд Rost",
+  "title": "Бизнес-дашборд",
   "owner": "Rostyslav Yermakov",
   "city": "Medellín",
   "version": "0.1-mockup",
-  "generated_at": "2026-10-24T18:58-05:00",
+  "generated_at": "2026-10-24T22:41-05:00",
   "timezone": "America/Bogota",
   "default_week": "2026-10-12",
   "default_month": "2026-10",
@@ -2394,6 +2394,246 @@
    ]
   },
   {
+   "id": "defense",
+   "name": "Оборонка",
+   "subtitle": "Спецтехноэкспорт (STE) · агентский экспорт",
+   "currency": "USD",
+   "color": "#64748b",
+   "icon": "🛡️",
+   "monthly_only": true,
+   "overview_note": "Оборонка и Личное: только месячный учёт; дохода пока нет.",
+   "periods": {
+    "M:2026-10": {
+     "status": "partial",
+     "income": [],
+     "expenses": [],
+     "metrics": {
+      "Писем отправлено (первые касания + FU)": 30,
+      "Ответов компаний": 1,
+      "Bounce": 1,
+      "На паузе (hold)": 12,
+      "В очереди (pending)": 255,
+      "Живых тендеров (дедлайн ≥ 25.10)": 49,
+      "из них HIGH fit": 22,
+      "RFQ / сделок": 0
+     },
+     "note": "Рассылка стартовала 21.10. Дохода (комиссии STE) пока нет — сделок нет; расходы направления не учтены. Только месячный учёт."
+    }
+   },
+   "breakdowns": [
+    {
+     "period": "M:2026-10",
+     "title": "Рассылка STE: отправлено по странам (октябрь)",
+     "columns": [
+      "Страна",
+      "Писем"
+     ],
+     "rows": [
+      [
+       "Mexico",
+       20
+      ],
+      [
+       "Peru",
+       6
+      ],
+      [
+       "Colombia",
+       2
+      ],
+      [
+       "Guatemala",
+       2
+      ]
+     ]
+    },
+    {
+     "period": "M:2026-10",
+     "title": "Рассылка STE: по дням",
+     "columns": [
+      "Дата",
+      "Писем"
+     ],
+     "rows": [
+      [
+       "2026-10-21",
+       10
+      ],
+      [
+       "2026-10-22",
+       9
+      ],
+      [
+       "2026-10-23",
+       8
+      ],
+      [
+       "2026-10-24",
+       3
+      ]
+     ]
+    },
+    {
+     "period": null,
+     "title": "Ближайшие живые тендеры (HIGH fit)",
+     "columns": [
+      "Дедлайн",
+      "Страна",
+      "Тендер"
+     ],
+     "rows": [
+      [
+       "2026-10-26",
+       "Brazil",
+       "PF Pregao 352/2026 portable anti-drone weapon"
+      ],
+      [
+       "2026-10-27",
+       "Sri Lanka",
+       "AHQ/26/FS/M17/1005 Mi-17 spares for MINUSCA (LICB)"
+      ],
+      [
+       "2026-10-27",
+       "Sri Lanka",
+       "AHQ/26/FR/M17/1002 Overhaul fan drive cardan shaft Mi-17 (LICB)"
+      ],
+      [
+       "2026-10-28",
+       "Lithuania",
+       "GRA C-UAS 322 detectors + 289 EW jammers #8596359"
+      ],
+      [
+       "2026-11-01",
+       "Sweden",
+       "FMV J-UAV interceptor drones RFI"
+      ],
+      [
+       "2026-11-05",
+       "Egypt",
+       "EU EPF VTOL tactical drones Egyptian AF EPF-2025-50_AO4"
+      ],
+      [
+       "2026-11-05",
+       "Egypt",
+       "Supply of fixed-wing VTOL tactical drones + services (EPF-2025-50_AO4)"
+      ],
+      [
+       "2026-11-10",
+       "India",
+       "IAF Mi-17 IV spares 2026_IAF_791670_1"
+      ]
+     ]
+    }
+   ],
+   "goals": [
+    {
+     "label": "Писем за 3 мес (план 20.10)",
+     "unit": "шт",
+     "target": 300,
+     "period_type": "month",
+     "by_period": {
+      "M:2026-10": 30
+     },
+     "src": "PROJECT.md «первые клиенты»: 300–400 писем за 3 мес"
+    },
+    {
+     "label": "Диалогов за 3 мес (план 20.10)",
+     "unit": "шт",
+     "target": 10,
+     "period_type": "month",
+     "by_period": {
+      "M:2026-10": 1
+     },
+     "src": "PROJECT.md: 10–20 диалогов"
+    },
+    {
+     "label": "RFQ за 3 мес (план 20.10)",
+     "unit": "шт",
+     "target": 2,
+     "period_type": "month",
+     "by_period": {
+      "M:2026-10": 0
+     },
+     "src": "PROJECT.md: 2–3 RFQ"
+    }
+   ],
+   "tasks": [],
+   "gaps": [
+    "Доход (комиссия STE) — сделок нет, ставка комиссии в базе не зафиксирована",
+    "Расходы направления (почта, сервисы, время) не учтены",
+    "Задачи ClickUp по STE не в снапшоте",
+    "Агентский договор / доверенность от STE — статус не подтверждён",
+    "Тендеры: снимок 10.10, не обновлялся"
+   ]
+  },
+  {
+   "id": "personal",
+   "name": "Личное",
+   "subtitle": "Личные финансы · здоровье",
+   "currency": "USD",
+   "color": "#14b8a6",
+   "icon": "🧍",
+   "no_overview_totals": true,
+   "monthly_only": true,
+   "overview_note": "Личное не входит в итоги «Общего» (не бизнес).",
+   "periods": {
+    "M:2026-09": {
+     "status": "partial",
+     "income": [],
+     "expenses": [
+      {
+       "label": "Траты с BTC-карты 24–30.09 (20 опер.)",
+       "amount": 1053.29,
+       "cur": "USD",
+       "src": "knowledge/finance/btc-reserves-repayment.md (скрины BTC-карты, 27 операций)",
+       "note": "только BTC-карта; часть операций доплачена USDT — не учтено"
+      }
+     ],
+     "metrics": {
+      "Операций по BTC-карте": 20
+     },
+     "note": "Видны только траты с BTC-карты с 24.09; остальные счета/наличные не сведены."
+    },
+    "M:2026-10": {
+     "status": "partial",
+     "income": [],
+     "expenses": [
+      {
+       "label": "Траты с BTC-карты 01–13.10 (7 опер.)",
+       "amount": 818.85,
+       "cur": "USD",
+       "src": "knowledge/finance/btc-reserves-repayment.md (скрины BTC-карты, 27 операций)",
+       "note": "после 13.10 скринов нет"
+      }
+     ],
+     "metrics": {
+      "BTC вернуть в резерв (на 20.10)": "0.04865462 BTC",
+      "Дней с дневником питания (окт.)": 15
+     },
+     "note": "Личных доходов в базе нет → прибыль не считается. Только месячный учёт."
+    }
+   },
+   "breakdowns": [],
+   "goals": [],
+   "tasks": [
+    {
+     "id": "86b6qq509",
+     "name": "БОТ-ЧАСТЬ: Фин подбить баланс (30м) (отчет Алексей)",
+     "status": "in progress",
+     "priority": "high",
+     "due": "2026-10-18",
+     "list": "Personal",
+     "url": "https://app.clickup.com/t/86b6qq509"
+    }
+   ],
+   "gaps": [
+    "Личные доходы не сведены",
+    "Траты: только BTC-карта 24.09–13.10; остальные карты/счета/наличные нет",
+    "Бюджет/лимит трат на месяц не задан",
+    "После 13.10 скринов BTC-карты нет"
+   ]
+  },
+  {
    "id": "coaching",
    "name": "Коучинг",
    "subtitle": "Люди и их боты · подпроекты",
@@ -2451,16 +2691,6 @@
   }
  ],
  "overview": {
-  "tasks": [
-   {
-    "id": "86b6qq509",
-    "name": "БОТ-ЧАСТЬ: Фин подбить баланс (30м) (отчет Алексей)",
-    "status": "in progress",
-    "priority": "high",
-    "due": "2026-10-18",
-    "list": "Personal",
-    "url": "https://app.clickup.com/t/86b6qq509"
-   }
-  ]
+  "tasks": []
  }
 }

@@ -2,7 +2,7 @@
 <html lang="ru"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#f5f6fa"><meta name="apple-mobile-web-app-capable" content="yes">
-<title>Rost · Дашборд — вариант A (Light SaaS)</title>
+<title>Дашборд — вариант A (Light SaaS)</title>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
@@ -58,7 +58,7 @@ footer{margin-top:22px;color:var(--mut);font-size:11.5px;line-height:1.6;border-
 .chartbox{position:relative;height:280px}@media(max-width:520px){.chartbox{height:220px}}
 .empty{color:var(--mut);font-size:13px;padding:10px 0}
 </style></head><body><div class="wrap">
-<header><div class="brand"><div class="logo">R</div><div><h1>Бизнес-дашборд Rost</h1><small id="sub"></small></div></div>
+<header><div class="brand"><div class="logo">R</div><div><h1>Бизнес-дашборд</h1><small id="sub"></small></div></div>
 <div class="ctrls"><div class="seg" id="mode"><button data-m="week">Неделя</button><button data-m="month">Месяц</button></div>
 <select id="period"></select><select id="cur"><option value="native">Родная валюта</option><option value="USD">USD</option><option value="COP">COP</option><option value="EUR">EUR</option></select></div></header>
 <nav class="tabs" id="tabs"></nav><main id="main"></main><footer id="foot"></footer></div>
@@ -147,7 +147,7 @@ const Dash = (() => {
     return (dir.breakdowns || []).filter(b => b.period == null || b.period === key(mode, id));
   }
   function overview(mode = S.mode, id = pid(), cur = S.cur === 'native' ? 'USD' : S.cur) {
-    const rows = D.directions.filter(d => d.kind !== 'people').map(d => ({ dir: d, s: summary(d, mode, id, cur) }));
+    const rows = D.directions.filter(d => d.kind !== 'people' && !d.no_overview_totals).map(d => ({ dir: d, s: summary(d, mode, id, cur) }));
     const tot = { income: 0, expenses: 0, profit: 0, n: 0 };
     rows.forEach(r => { if (r.s.income != null) { tot.income += r.s.income; tot.profit += r.s.profit; tot.n++; } if (r.s.expenses != null) tot.expenses += r.s.expenses; });
     return { rows, tot, cur };
@@ -198,7 +198,7 @@ function controls(){document.querySelectorAll('#mode button').forEach(b=>{b.clas
  sel.onchange=()=>{S.mode==='week'?S.week=sel.value:S.month=sel.value;render()};$('#cur').value=S.cur;$('#cur').onchange=e=>{S.cur=e.target.value;render()};
  const D=Dash.D;$('#tabs').innerHTML=[{id:'overview',name:'Общий',icon:'✦',color:'#7c5cff'},...D.directions].map(d=>{const n=d.id==='overview'?attnAll().n:attn(d).length;return `<button data-t="${d.id}" style="--c:${d.color}" class="${S.tab===d.id?'on':''}" title="${n?'Требует внимания: '+n:''}">${d.icon} ${esc(d.name)}${n?`<span class="abadge">${n}</span>`:''}</button>`}).join('');
  document.querySelectorAll('#tabs button').forEach(b=>b.onclick=()=>{S.tab=b.dataset.t;render();scrollTo({top:0,behavior:'smooth'})});
- $('#sub').textContent=`${S.mode==='week'?'Неделя':'Месяц'}: ${Dash.periodLabel()} · Medellín`;}
+ $('#sub').textContent=`${S.mode==='week'?'Неделя':'Месяц'}: ${Dash.periodLabel()}`;}
 function tasksHTML(ts){if(!ts.length)return '<div class="empty">Нет задач</div>';return ts.map(t=>`<div class="task"><span class="pill p-${t.priority||'normal'}">${Dash.PRI[t.priority]||t.priority||''}</span><div style="flex:1"><a href="${t.url}" target="_blank" rel="noopener">${esc(t.name)}</a><div style="margin-top:4px"><span class="st">${esc(t.status)}</span> <span class="st">до ${esc(t.due||'—')}</span></div></div></div>`).join('')}
 const prioRank={urgent:0,high:1,normal:2,low:3};
 function overview(){const D=Dash.D,o=Dash.overview(),cur=o.cur;const m=S.mode;
@@ -221,7 +221,7 @@ function itemsHTML(items,cur){if(!items||!items.length)return '<div class="empty
 function direction(d){const cur=Dash.curOf(d),s=Dash.summary(d),m=S.mode,ser=Dash.series(d,m,cur,{onlyData:true,last:10});
  const kp=(l,v,sub,data,color,cls='')=>`<div class="card kpi" style="--glow:${color}"><div class="l">${l}</div><div class="v ${cls}">${v}</div><div class="s">${sub}</div><canvas class="sp" width="160" height="46" data-c="${color}" data-d='${JSON.stringify(data)}'></canvas></div>`;
  let h=`<div class="card" style="margin-bottom:14px;border-color:${d.color}55;background:linear-gradient(135deg,${d.color}1f,var(--panel))"><div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;align-items:center"><div><div style="font-size:22px;font-weight:800">${d.icon} ${esc(d.name)}</div><div class="note">${esc(d.subtitle)} · ${esc(Dash.periodLabel())}</div></div>
- <div>${s.has?`<span class="chip ${s.status}">${s.status==='partial'?'неделя/месяц не закрыт':'закрытый период'}</span>`:'<span class="chip">нет данных за период</span>'}${s.rec&&s.rec.source==='rollup'?`<span class="chip">свёртка ${s.rec.weeks} нед.</span>`:''}${s.rec&&s.rec.source==='explicit'&&m==='month'?'<span class="chip">итог месяца из источника</span>':''}</div></div></div>`+attnHTML(d);
+ <div>${d.monthly_only?'<span class="chip">учёт только помесячно</span>':''}${s.has?`<span class="chip ${s.status}">${s.status==='partial'?'неделя/месяц не закрыт':'закрытый период'}</span>`:'<span class="chip">нет данных за период</span>'}${s.rec&&s.rec.source==='rollup'?`<span class="chip">свёртка ${s.rec.weeks} нед.</span>`:''}${s.rec&&s.rec.source==='explicit'&&m==='month'?'<span class="chip">итог месяца из источника</span>':''}</div></div></div>`+attnHTML(d);
  h+=`<div class="grid g4">${kp('Доход',fmt(s.income,cur),s.unknownInc?'есть продажи без суммы':'за период',ser.income,'#22d3a6')}${kp('Расходы',s.expensesKnown?fmt(s.expenses,cur):'—',s.expensesKnown?'учтённые':'нет данных о расходах',ser.expenses,'#ff5d7a')}
  ${kp('Прибыль',fmt(s.profit,cur),s.expensesKnown?'доход − расходы':'расходы не учтены',ser.profit,d.color,s.profit<0?'neg':'')}${kp('ROI',s.roi==null?'—':Dash.pct(s.roi),'прибыль / расходы',[],'#38bdf8',s.roi<0?'neg':'pos')}</div><div style="height:14px"></div>`;
  const mt=s.rec&&s.rec.metrics||{};
@@ -230,7 +230,7 @@ function direction(d){const cur=Dash.curOf(d),s=Dash.summary(d),m=S.mode,ser=Das
  <div class="grid g2e"><div class="card"><h3>Из чего сложилось</h3><div class="note" style="margin-bottom:6px">Доходы</div>${itemsHTML(s.rec&&s.rec.income,cur)}<div class="note" style="margin:10px 0 6px">Расходы</div>${itemsHTML(s.rec&&s.rec.expenses,cur)}
  ${Object.keys(mt).length?`<div class="note" style="margin:12px 0 6px">Показатели</div><div class="metrics">${Object.entries(mt).map(([k,v])=>`<div class="metric"><b>${esc(Dash.num(v))}</b><span>${esc(k)}</span></div>`).join('')}</div>`:''}
  ${s.rec&&s.rec.note?`<p class="note">ℹ️ ${esc(s.rec.note)}</p>`:''}</div><div class="card"><h3>Приоритеты · задачи ClickUp</h3>${tasksHTML(d.tasks)}</div></div>`;
- if(m==='month')h+=`<div style="height:14px"></div><div class="card"><h3>Недели → месяц (${cur})</h3>${rollupHTML(d,cur)}</div>`;
+ if(m==='month'&&!d.monthly_only)h+=`<div style="height:14px"></div><div class="card"><h3>Недели → месяц (${cur})</h3>${rollupHTML(d,cur)}</div>`;
  Dash.breakdowns(d).forEach(b=>{h+=`<div style="height:14px"></div><div class="card"><h3>${esc(b.title)}</h3><div class="tblwrap"><table><tr>${b.columns.map((c,i)=>`<th class="${i?'n':''}">${esc(c)}</th>`).join('')}</tr>${b.rows.map(r=>`<tr>${r.map((c,i)=>`<td class="${i?'n':''}">${esc(Dash.num(c))}</td>`).join('')}</tr>`).join('')}</table></div></div>`});
  h+=`<div style="height:14px"></div><div class="card"><h3>Пробелы в данных</h3><ul class="gap" style="margin:0;padding-left:18px">${(d.gaps||[]).map(g=>`<li>${esc(g)}</li>`).join('')}</ul></div>`;
  $('#main').innerHTML=h;
