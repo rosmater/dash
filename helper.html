@@ -519,19 +519,19 @@ function overviewToday(){const D=Dash.D,dirs=D.directions.filter(d=>d.kind!=='ca
  h+=`</div>${stageLegend()}<div style="margin-top:12px">${toWeek('📊 сводка по деньгам за неделю →')}</div>`;
  $('#main').innerHTML=h;bindToday();if(t)tlScroll(t.sc)}
 /* Пептиды (Rost 25.10): Итого сначала, потом период — Сегодня→за вчера, Неделя→за неделю, Месяц→за месяц. Источник — GSheet PEPTIDOS VENTAS */
-function ledgerKPI(L,inR){let n=0,u=0,rev=0,exp=0,unk=0;(L.sales||[]).forEach(x=>{if(!inR(x.date))return;n++;u+=x.units||0;rev+=x.price||0;exp+=x.commission||0;x.cogs==null?unk++:exp+=x.cogs});
- (L.costs||[]).forEach(c=>{if(c.date?inR(c.date):(inR.month&&inR.month(c.month)))exp+=c.amount||0});return {n,u,rev,exp,profit:rev-exp,unk}}
+function ledgerKPI(L,inR){let n=0,u=0,rev=0,exp=0;(L.sales||[]).forEach(x=>{if(!inR(x.date))return;n++;u+=x.units||0;rev+=x.price||0;exp+=x.commission||0});
+ (L.costs||[]).forEach(c=>{if(c.date?inR(c.date):(inR.month&&inR.month(c.month)))exp+=Dash.conv(c.amount||0,c.cur||L.cur,L.cur)});return {n,u,rev,exp,profit:rev-exp}}
 function ledgerHTML(d){const L=d.ledger;if(!L)return '';const cur=Dash.curOf(d),f=v=>fmt(Dash.conv(v,L.cur,cur),cur),m=S.mode,today=bDay(new Date().toISOString());
  const all=Object.assign(()=>true,{month:()=>true});let pr,pl;
  if(m==='today'){const y=calAdd(today,-1);pr=Object.assign(x=>x===y,{month:()=>false});pl='За вчера · '+y.slice(8,10)+'.'+y.slice(5,7)}
  else if(m==='week'){const a=Dash.pid(),b=calAdd(a,6);pr=Object.assign(x=>x>=a&&x<=b,{month:()=>false});pl='За неделю · '+Dash.periodLabel()}
  else{const mo=Dash.pid();pr=Object.assign(x=>x.slice(0,7)===mo,{month:x=>x===mo});pl='За месяц · '+Dash.periodLabel()}
- const T=ledgerKPI(L,all),P=ledgerKPI(L,pr),first=(L.sales||[]).map(x=>x.date).sort()[0]||'';
+ const T=ledgerKPI(L,all),P=ledgerKPI(L,pr),first=[...(L.sales||[]),...(L.costs||[])].map(x=>x.date).filter(Boolean).sort()[0]||'';
  const tile=(l,v,sub,cls='')=>`<div class="card kpi"><div class="l">${l}</div><div class="v ${cls}">${v}</div><div class="s">${sub}</div></div>`;
- const row=(K,ttl,sub)=>`<h3 style="margin:0 0 8px">${ttl} <span class="st">${esc(sub)}</span></h3><div class="grid g4">${tile('🛒 Продажи',K.n,K.u!==K.n?K.u+' ед. товара':'шт.')}${tile('💰 Деньги',f(K.rev),'выручка')}${tile('💸 Расходы',f(K.exp),K.unk?'+ '+K.unk+' без себестоимости':'учтённые')}${tile('📈 Прибыль',f(K.profit),'деньги − расходы',K.profit<0?'neg':'')}</div>`;
+ const row=(K,ttl,sub)=>`<h3 style="margin:0 0 8px">${ttl} <span class="st">${esc(sub)}</span></h3><div class="grid g4">${tile('🛒 Продажи',K.n,K.u!==K.n?K.u+' ед. товара':'шт.')}${tile('💰 Деньги',f(K.rev),'выручка')}${tile('💸 Расходы',f(K.exp),'по таблице расходов')}${tile('📈 Прибыль',f(K.profit),'деньги − расходы',K.profit<0?'neg':'')}</div>`;
  const snap=(L.fetched_at||'').slice(0,10),stale=m==='today'&&snap&&snap<today;
  return `<div class="card" style="margin-bottom:14px">${row(T,'Итого',first?'с '+first.slice(8,10)+'.'+first.slice(5,7)+'.'+first.slice(0,4):'')}<div style="height:14px"></div>${row(P,pl,P.n?'':'продаж нет')}
- <p class="note" style="margin:10px 0 0">Продажи — <a href="https://docs.google.com/spreadsheets/d/1VqMt81ZX1ZoSj4maK1o99xUPaDyqTvvEU1KxTw6kO9M/edit#gid=1025277545" target="_blank" rel="noopener">таблица PEPTIDOS VENTAS ↗</a> · снимок ${esc(L.fetched_at||'—')}${stale?' <b style="color:#d93025">— снимок не сегодняшний, «вчера» может быть неполным</b>':''}. ${esc(L.note||'')}</p></div>`}
+ <p class="note" style="margin:10px 0 0">Продажи — <a href="https://docs.google.com/spreadsheets/d/1VqMt81ZX1ZoSj4maK1o99xUPaDyqTvvEU1KxTw6kO9M/edit#gid=1025277545" target="_blank" rel="noopener">PEPTIDOS VENTAS ↗</a> · расходы — <a href="https://docs.google.com/spreadsheets/d/1-X24SE_ZfP7mXm9_WUFRwCo-H45ryI9R2yvYpOu-bIE/edit#gid=0" target="_blank" rel="noopener">Expensed Peso Saludable ↗</a> · снимок ${esc(L.fetched_at||'—')}${stale?' <b style="color:#d93025">— снимок не сегодняшний, «вчера» может быть неполным</b>':''}. ${esc(L.note||'')}</p></div>`}
 function directionToday(d){const c=calDir(),ev=c?todayEvents(d.id):[],dt=dueToday(d.tasks),ov=overdue(d.tasks),rest=openT(d.tasks).filter(t=>!dt.includes(t)&&!ov.includes(t));
  let h=`<div class="card" style="margin-bottom:14px;border-color:#bfe6f555;background:linear-gradient(135deg,#ecf8fd,var(--panel))"><div class="today-h"><div><div style="font-size:22px;font-weight:800">${stageDot(d)}${d.icon} ${esc(d.name)}</div><div class="note">${esc(d.subtitle||'')} · сегодня</div></div>${toWeek()}</div></div>`+ledgerHTML(d)+attnHTML(d);
  h+=`<div class="grid ${c?'g2e':''}">${c?`<div class="card"><div class="today-h"><h3 style="margin:0">📅 Сегодня в календаре</h3>${c?'<button class="tolink" data-calgo="1">таймлайн дня →</button>':''}</div><div style="margin-top:8px">${c?agendaHTML(ev,'Событий этого направления со временем на сегодня нет.'):'<div class="empty">Календарь скрыт</div>'}</div></div>`:''}
