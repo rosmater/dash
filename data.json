@@ -4,7 +4,7 @@
   "owner": "Rostyslav Yermakov",
   "city": "Medellín",
   "version": "0.1-mockup",
-  "generated_at": "2026-10-24T22:45-05:00",
+  "generated_at": "2026-10-24T22:46-05:00",
   "timezone": "America/Bogota",
   "default_week": "2026-10-19",
   "default_month": "2026-10",
@@ -2714,10 +2714,11 @@
      ],
      "src": "Rost, 24.10.2026",
      "cu": {
-      "id": "86bcn44nh",
-      "label": "Задача коучинга (ClickUp · Personal)",
+      "id": "86baf556j",
+      "label": "AI Алехандра — генерация риллсов: как успехи? план? (ClickUp · OF)",
       "status": "to do",
-      "url": "https://app.clickup.com/t/86bcn44nh"
+      "url": "https://rosmater.github.io/cu/?t=86baf556j",
+      "fallback": "https://app.clickup.com/t/86baf556j"
      }
     },
     {
@@ -2743,7 +2744,8 @@
       "id": "86ba2y9ke",
       "label": "ТрипЭдвайсер (как дела?) — ClickUp · Personal",
       "status": "to do",
-      "url": "https://app.clickup.com/t/86ba2y9ke"
+      "url": "https://rosmater.github.io/cu/?t=86ba2y9ke",
+      "fallback": "https://app.clickup.com/t/86ba2y9ke"
      }
     }
    ]
