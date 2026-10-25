@@ -379,6 +379,7 @@ function goalsHTML(d){const gs=Dash.goals(d);if(!gs.length)return `<div class="e
 const TODAY=(()=>{const t=new Date();return new Date(t-t.getTimezoneOffset()*6e4).toISOString().slice(0,10)})();
 const DONE=/complete|closed|done|выполн|закрыт/i,BLOCK=/block|блок|stuck|wait|жд[её]м/i;
 function attn(d){const it=[];
+ if(d.id==='defense'){(d.unanswered_replies||(d.board&&d.board.unanswered_replies)||[]).forEach(r=>{const who=r.company||r.from||'компания';const subj=r.subject||'ответ';it.push({grp:'Ответы без ответа',text:who+' — '+subj+(r.note?': '+r.note:''),url:r.url||null,why:'ответ',cls:''})});return it}
  (d.tasks||[]).forEach(t=>{const st=String(t.status||'');if(DONE.test(st))return;const over=t.due&&t.due<TODAY;let why=null;
   if(t.priority==='urgent')why='срочно'+(over?' · просрочено':'');else if(BLOCK.test(st))why='заблокировано';else if(t.priority==='high'&&over)why='высокий · просрочено';
   if(why)it.push({grp:t.list||'Задачи',text:t.name,url:t.url,why,cls:''})});
