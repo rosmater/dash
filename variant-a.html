@@ -91,6 +91,7 @@ const Gate = (() => {
 #gate .row{position:relative}
 #gate input{width:100%;box-sizing:border-box;padding:12px 44px 12px 14px;border:1.5px solid #cbd5e1;border-radius:12px;font-size:16px;outline:none}
 #gate input:focus{border-color:#6366f1;box-shadow:0 0 0 3px rgba(99,102,241,.15)}
+#gate input.masked{-webkit-text-security:disc;text-security:disc}
 #gate .eye{position:absolute;right:8px;top:50%;transform:translateY(-50%);border:0;background:none;font-size:18px;cursor:pointer;padding:4px}
 #gate button.go{margin-top:12px;width:100%;padding:12px;border:0;border-radius:12px;background:#4f46e5;color:#fff;font-size:15px;font-weight:600;cursor:pointer}
 #gate button.go:disabled{opacity:.6}
@@ -113,12 +114,12 @@ const Gate = (() => {
       const g = document.createElement('div'); g.id = 'gate';
       g.innerHTML = `<form autocomplete="on"><div class="lg">🔒</div><h2>${window.DASH_TITLE || 'Бизнес-дашборд'}</h2><p>Введите пароль, чтобы открыть</p>
 <input type="text" name="username" value="rost" autocomplete="username" hidden>
-<div class="row"><input id="gate-pw" type="password" autocomplete="current-password" placeholder="Пароль" autofocus><button type="button" class="eye" title="Показать пароль">👁</button></div>
+<div class="row"><input id="gate-pw" class="masked" type="text" lang="ru" inputmode="text" autocomplete="current-password" autocapitalize="off" autocorrect="off" spellcheck="false" enterkeyhint="go" placeholder="Пароль" autofocus><button type="button" class="eye" title="Показать пароль">👁</button></div>
 <button class="go" type="submit">Открыть</button><div class="err"></div>
 <div class="hint">Один раз ввёл — на этом устройстве больше не спрашиваем (до «Выйти»).</div></form>`;
       document.body.appendChild(g);
       const f = g.querySelector('form'), i = g.querySelector('#gate-pw'), err = g.querySelector('.err'), go = g.querySelector('.go');
-      g.querySelector('.eye').onclick = () => { i.type = i.type === 'password' ? 'text' : 'password'; i.focus(); };
+      g.querySelector('.eye').onclick = () => { i.classList.toggle('masked'); i.focus(); };
       setTimeout(() => i.focus(), 50);
       f.onsubmit = async e => {
         e.preventDefault(); if (!i.value) return;
