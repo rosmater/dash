@@ -4,9 +4,9 @@
   "owner": "Rostyslav Yermakov",
   "city": "Medellín",
   "version": "0.1-mockup",
-  "generated_at": "2026-10-24T22:41-05:00",
+  "generated_at": "2026-10-24T22:44-05:00",
   "timezone": "America/Bogota",
-  "default_week": "2026-10-12",
+  "default_week": "2026-10-19",
   "default_month": "2026-10",
   "week_to_month_rule": "Неделя (пн–вс) относится к месяцу, в котором её понедельник",
   "fx": {
@@ -2558,6 +2558,30 @@
     }
    ],
    "tasks": [],
+   "monitors": [
+    {
+     "name": "Рассылка STE — отправка",
+     "status": "active",
+     "note": "рутина «Оборонные системы», каждые 30 мин, лимит 10/день → 15/день с 26.10",
+     "src": "defense-export/routines-inventory-DEFENSE.md"
+    },
+    {
+     "name": "Рассылка STE — вечерняя сводка",
+     "status": "active",
+     "note": "~18:30 Богота ежедневно",
+     "src": "defense-export/routines-inventory-DEFENSE.md"
+    },
+    {
+     "name": "Ответы компаний (входящие)",
+     "status": "planned",
+     "note": "сейчас: 1 ответ (MER Group) — в дашборд пока вручную"
+    },
+    {
+     "name": "Тендеры (живые дедлайны)",
+     "status": "planned",
+     "note": "ждёт «да» от Rost; сейчас снимок 10.10"
+    }
+   ],
    "gaps": [
     "Доход (комиссия STE) — сделок нет, ставка комиссии в базе не зафиксирована",
     "Расходы направления (почта, сервисы, время) не учтены",
@@ -2626,6 +2650,29 @@
      "url": "https://app.clickup.com/t/86b6qq509"
     }
    ],
+   "monitors": [
+    {
+     "name": "Питание / БЖУ",
+     "status": "active",
+     "note": "дневник ведётся (today-*.md + Google Sheet); в дашборд — только счёт дней",
+     "src": "shared-health/nutrition-bju"
+    },
+    {
+     "name": "BTC-резерв: сколько вернуть",
+     "status": "planned",
+     "note": "сейчас ручная запись на 20.10"
+    },
+    {
+     "name": "Личные траты (карты / нал)",
+     "status": "planned",
+     "note": "источник не подключён"
+    },
+    {
+     "name": "Сон / режим",
+     "status": "planned",
+     "note": "источник не подключён"
+    }
+   ],
    "gaps": [
     "Личные доходы не сведены",
     "Траты: только BTC-карта 24.09–13.10; остальные карты/счета/наличные нет",
@@ -2678,7 +2725,7 @@
      "src": "Rost, 24.10.2026"
     },
     {
-     "name": "Андре Многотуров",
+     "name": "Андрей Многотуров",
      "icon": "🧑",
      "role": "Бот",
      "status": "attention",

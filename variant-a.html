@@ -75,11 +75,18 @@ const Dash = (() => {
       if (!r.ok) throw new Error('data.json: HTTP ' + r.status);
       D = await r.json();
     }
-    S.week = qs.get('week') || D.meta.default_week;
-    S.month = qs.get('month') || D.meta.default_month;
+    // По умолчанию — ТЕКУЩАЯ неделя/месяц по дате браузера (Rost 24.10), а не зашитая неделя.
+    const t = new Date(), today = new Date(t - t.getTimezoneOffset() * 6e4).toISOString().slice(0, 10);
+    const W = D.meta.weeks, M = D.meta.months;
+    const curW = W.find(w => w.start <= today && today <= w.end) || [...W].reverse().find(w => w.start <= today) || W[W.length - 1];
+    const curM = M.find(m => m.id === today.slice(0, 7)) || [...M].reverse().find(m => m.id <= today.slice(0, 7)) || M[M.length - 1];
+    S.week = qs.get('week') || curW.id;
+    S.month = qs.get('month') || curM.id;
     S.mode = qs.get('mode') || 'week';
     S.tab = qs.get('tab') || 'overview';
-    try { const saved = JSON.parse(localStorage.getItem('dash_state') || '{}'); if (!qs.get('mode') && saved.mode) Object.assign(S, saved); } catch (e) {}
+    // Из localStorage восстанавливаем только вкладку и валюту; период всегда открывается текущий.
+    try { const saved = JSON.parse(localStorage.getItem('dash_state') || '{}'); if (!qs.get('tab') && saved.tab) S.tab = saved.tab; if (saved.cur) S.cur = saved.cur; } catch (e) {}
+    if (S.tab !== 'overview' && !D.directions.some(d => d.id === S.tab)) S.tab = 'overview';
     return D;
   }
   const save = () => { try { localStorage.setItem('dash_state', JSON.stringify(S)); } catch (e) {} };
@@ -232,6 +239,7 @@ function direction(d){const cur=Dash.curOf(d),s=Dash.summary(d),m=S.mode,ser=Das
  ${s.rec&&s.rec.note?`<p class="note">ℹ️ ${esc(s.rec.note)}</p>`:''}</div><div class="card"><h3>Приоритеты · задачи ClickUp</h3>${tasksHTML(d.tasks)}</div></div>`;
  if(m==='month'&&!d.monthly_only)h+=`<div style="height:14px"></div><div class="card"><h3>Недели → месяц (${cur})</h3>${rollupHTML(d,cur)}</div>`;
  Dash.breakdowns(d).forEach(b=>{h+=`<div style="height:14px"></div><div class="card"><h3>${esc(b.title)}</h3><div class="tblwrap"><table><tr>${b.columns.map((c,i)=>`<th class="${i?'n':''}">${esc(c)}</th>`).join('')}</tr>${b.rows.map(r=>`<tr>${r.map((c,i)=>`<td class="${i?'n':''}">${esc(Dash.num(c))}</td>`).join('')}</tr>`).join('')}</table></div></div>`});
+ if((d.monitors||[]).length)h+=`<div style="height:14px"></div><div class="card"><h3>Мониторы <span class="st">структура · наполняем</span></h3>${d.monitors.map(x=>`<div class="task"><span class="pill ${x.status==='active'?'p-normal':'p-high'}">${x.status==='active'?'работает':'план'}</span><div style="flex:1"><b style="font-size:13.5px">${esc(x.name)}</b><div class="note">${esc(x.note||'')}${x.src?' · '+esc(x.src):''}</div></div></div>`).join('')}</div>`;
  h+=`<div style="height:14px"></div><div class="card"><h3>Пробелы в данных</h3><ul class="gap" style="margin:0;padding-left:18px">${(d.gaps||[]).map(g=>`<li>${esc(g)}</li>`).join('')}</ul></div>`;
  $('#main').innerHTML=h;
  document.querySelectorAll('canvas.sp').forEach(c=>spark(c,JSON.parse(c.dataset.d),c.dataset.c));

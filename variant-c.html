@@ -58,11 +58,18 @@ const Dash = (() => {
       if (!r.ok) throw new Error('data.json: HTTP ' + r.status);
       D = await r.json();
     }
-    S.week = qs.get('week') || D.meta.default_week;
-    S.month = qs.get('month') || D.meta.default_month;
+    // По умолчанию — ТЕКУЩАЯ неделя/месяц по дате браузера (Rost 24.10), а не зашитая неделя.
+    const t = new Date(), today = new Date(t - t.getTimezoneOffset() * 6e4).toISOString().slice(0, 10);
+    const W = D.meta.weeks, M = D.meta.months;
+    const curW = W.find(w => w.start <= today && today <= w.end) || [...W].reverse().find(w => w.start <= today) || W[W.length - 1];
+    const curM = M.find(m => m.id === today.slice(0, 7)) || [...M].reverse().find(m => m.id <= today.slice(0, 7)) || M[M.length - 1];
+    S.week = qs.get('week') || curW.id;
+    S.month = qs.get('month') || curM.id;
     S.mode = qs.get('mode') || 'week';
     S.tab = qs.get('tab') || 'overview';
-    try { const saved = JSON.parse(localStorage.getItem('dash_state') || '{}'); if (!qs.get('mode') && saved.mode) Object.assign(S, saved); } catch (e) {}
+    // Из localStorage восстанавливаем только вкладку и валюту; период всегда открывается текущий.
+    try { const saved = JSON.parse(localStorage.getItem('dash_state') || '{}'); if (!qs.get('tab') && saved.tab) S.tab = saved.tab; if (saved.cur) S.cur = saved.cur; } catch (e) {}
+    if (S.tab !== 'overview' && !D.directions.some(d => d.id === S.tab)) S.tab = 'overview';
     return D;
   }
   const save = () => { try { localStorage.setItem('dash_state', JSON.stringify(S)); } catch (e) {} };
