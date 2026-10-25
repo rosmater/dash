@@ -2713,13 +2713,22 @@
       "Сделать по ней план"
      ],
      "src": "Rost, 24.10.2026",
-     "cu": {
-      "id": "86bcn44nh",
-      "label": "Коучинг Алекса Херрера (ClickUp · Personal)",
-      "status": "to do",
-      "url": "https://rosmater.github.io/cu/?t=86bcn44nh",
-      "fallback": "https://app.clickup.com/t/86bcn44nh"
-     }
+     "cu": [
+      {
+       "id": "86baf556j",
+       "label": "(результаты АИ) AI Алехандра — генерация риллсов: как успехи? план?",
+       "status": "to do",
+       "url": "https://rosmater.github.io/cu/?t=86baf556j",
+       "fallback": "https://app.clickup.com/t/86baf556j"
+      },
+      {
+       "id": "86bcn44nh",
+       "label": "Коучинг Алекса Херрера (Personal)",
+       "status": "to do",
+       "url": "https://rosmater.github.io/cu/?t=86bcn44nh",
+       "fallback": "https://app.clickup.com/t/86bcn44nh"
+      }
+     ]
     },
     {
      "name": "Мама",
