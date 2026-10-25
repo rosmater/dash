@@ -2710,23 +2710,18 @@
      "status": "attention",
      "items": [
       "Взять под контроль",
-      "Сделать по ней план"
+      "Сделать по ней план",
+      "— выкладка раз в неделю на Clips4Sale",
+      "— выкладка раз в неделю на Curvage",
+      "Настроить анализ её OnlyFans в таблицу через сервер"
      ],
      "src": "Rost, 24.10.2026",
-     "cu": [
-      {
-       "id": "86baf556j",
-       "label": "(результаты АИ) AI Алехандра — генерация риллсов: как успехи? план?",
-       "status": "to do",
-       "url": "https://rosmater.github.io/cu/?t=86baf556j"
-      },
-      {
-       "id": "86bcn44nh",
-       "label": "Коучинг Алекса Херрера (Personal)",
-       "status": "to do",
-       "url": "https://rosmater.github.io/cu/?t=86bcn44nh"
-      }
-     ]
+     "cu": {
+      "id": "86bcn44nh",
+      "label": "Коучинг Алекса Херрера (Personal)",
+      "status": "to do",
+      "url": "https://rosmater.github.io/cu/?t=86bcn44nh"
+     }
     },
     {
      "name": "Мама",
