@@ -46,7 +46,7 @@ ul.g{margin:0;padding-left:18px}ul.g li{font-size:12.5px;margin:4px 0}
 </style></head><body>
 <div class="top"><div class="in"><div><h1><em>Executive</em> Dashboard</h1><div class="sub" id="sub"></div></div>
 <div class="ctrl"><div class="tog" id="mode"><button data-m="week">Неделя</button><button data-m="month">Месяц</button></div><select id="period"></select>
-<select id="cur"><option value="native">Родная валюта</option><option value="USD">USD</option><option value="COP">COP</option><option value="EUR">EUR</option></select></div></div>
+<select id="cur" hidden><option value="USD">USD</option></select></div></div>
 <nav id="tabs"></nav></div><main id="main"></main><footer id="foot"></footer>
 <script>/* ===== Password gate (Rost 24.10): data.enc.json расшифровывается паролем; ключ помнится в localStorage до «Выйти» ===== */
 const Gate = (() => {
@@ -135,7 +135,7 @@ const Gate = (() => {
 /* ===== Dash core (shared by all variants; inlined at build) ===== */
 const Dash = (() => {
   let D = null;
-  const S = { mode: 'week', week: null, month: null, cur: 'native', tab: 'overview' };
+  const S = { mode: 'week', week: null, month: null, cur: 'USD', tab: 'overview' }; // Rost 25.10: всё в USD по курсу, переключателя валют нет
   const qs = new URLSearchParams(location.search);
   async function load() {
     if (window.DASH_DATA) { D = window.DASH_DATA; }
@@ -157,7 +157,7 @@ const Dash = (() => {
     S.mode = qs.get('mode') || 'week';
     S.tab = qs.get('tab') || 'overview';
     // Из localStorage восстанавливаем только вкладку и валюту; период всегда открывается текущий.
-    try { const saved = JSON.parse(localStorage.getItem('dash_state') || '{}'); if (!qs.get('tab') && saved.tab) S.tab = saved.tab; if (saved.cur) S.cur = saved.cur; } catch (e) {}
+    try { const saved = JSON.parse(localStorage.getItem('dash_state') || '{}'); if (!qs.get('tab') && saved.tab) S.tab = saved.tab; } catch (e) {}
     if (S.tab !== 'overview' && !D.directions.some(d => d.id === S.tab)) S.tab = 'overview';
     return D;
   }
@@ -244,7 +244,9 @@ const Dash = (() => {
   const num = v => (typeof v === 'number' ? v.toLocaleString('ru-RU', { maximumFractionDigits: 2 }) : (v ?? '—'));
   const pct = v => (v == null ? '—' : (v > 0 ? '+' : '') + v.toFixed(0) + '%');
   const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
-  function fxFooter() {
+  function fxFooter() { return ''; // Rost 25.10: футер с курсами/версией/правилами не показываем, конвертация в USD остаётся
+  }
+  function fxFooterOld() {
     const f = D.meta.fx;
     return `Курсы: 1 USD = ${f.USD_COP.rate.toLocaleString('ru-RU')} COP — ${esc(f.USD_COP.source)}, ${f.USD_COP.date} · 1 EUR = ${f.EUR_USD.rate} USD (${esc(f.EUR_USD.source)}, ${f.EUR_USD.date}) · 1 USD = ${f.USD_UAH.rate} UAH (${esc(f.USD_UAH.source)}). ` +
       `Данные: data.json v${esc(D.meta.version)}, собрано ${esc(D.meta.generated_at)} (Богота). ${esc(D.meta.week_to_month_rule)}. Значок «пример» = не реальная цифра.`;

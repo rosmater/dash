@@ -66,10 +66,19 @@ footer{margin-top:22px;color:var(--mut);font-size:11.5px;line-height:1.6;border-
 .cal-ev a{color:var(--txt);text-decoration:none}.cal-ev a:hover{color:var(--acc)}.cal-ev.past{opacity:.45}.cal-ev.now{background:#eef4ff;border-radius:8px;padding-left:6px}.cal-ev .ls{color:var(--mut);font-size:11.5px}
 .src{flex:0 0 auto;font-size:10px;font-weight:700;padding:1px 7px;border-radius:99px}.src.gcal{background:#e8f0fe;color:#1a56c4}.src.clickup{background:#f1eaff;color:#6d28d9}
 .calf button{font-size:12px}
+.calnav{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:12px}.calnav input[type=date]{font:inherit;font-size:13px;padding:5px 8px;border:1px solid var(--line);border-radius:8px;background:var(--panel);color:var(--txt)}
+.tl-wrap{max-height:72vh;overflow-y:auto;padding:8px 10px 8px 4px;margin-bottom:14px}.tl{position:relative}
+.tl-h{position:absolute;left:0;right:0;border-top:1px solid var(--line);height:0}.tl-h span{position:absolute;left:4px;top:-8px;font-size:11px;color:var(--mut);background:var(--panel);padding-right:4px;font-variant-numeric:tabular-nums}
+.tl-ev{position:absolute;box-sizing:border-box;border-radius:8px;padding:3px 8px;font-size:12.5px;overflow:hidden;display:flex;gap:8px;justify-content:space-between;align-items:flex-start;border-left:4px solid #4285f4;background:#e8f0fe}
+.tl-ev.clickup{border-left-color:#7b68ee;background:#f0edff}.tl-ev.past{opacity:.5}.tl-ev.now{box-shadow:0 0 0 2px #4285f455}
+.tl-ev a{color:var(--txt);text-decoration:none}.tl-ev a:hover{color:var(--acc)}.tl-ev .tm{color:var(--mut);font-variant-numeric:tabular-nums;font-size:11.5px}.tl-ev .ls{color:var(--mut);font-size:11px}
+.tl-main{flex:1;min-width:0;overflow:hidden}.tl-cu{display:flex;flex-direction:column;gap:2px;align-items:flex-end;max-width:45%;flex:0 1 auto}
+.culink{display:inline-block;font-size:11px;background:#7b68ee;color:#fff!important;border-radius:6px;padding:1px 6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}
+.tl-now{position:absolute;left:52px;right:0;border-top:2px solid #ea4335;z-index:3}.tl-now:before{content:'';position:absolute;left:-5px;top:-6px;width:10px;height:10px;border-radius:50%;background:#ea4335}
 </style></head><body><div class="wrap">
 <header><div class="brand"><div class="logo">R</div><div><h1>Бизнес-дашборд</h1><small id="sub"></small></div></div>
 <div class="ctrls"><div class="seg" id="mode"><button data-m="week">Неделя</button><button data-m="month">Месяц</button></div>
-<select id="period"></select><select id="cur"><option value="native">Родная валюта</option><option value="USD">USD</option><option value="COP">COP</option><option value="EUR">EUR</option></select></div></header>
+<select id="period"></select><select id="cur" hidden><option value="USD">USD</option></select></div></header>
 <nav class="tabs" id="tabs"></nav><main id="main"></main><footer id="foot"></footer></div>
 <script>window.DASH_ENC='data-asst.enc.json';window.DASH_LS='dash_key_asst_v1';window.DASH_TITLE='Дашборд (ассистент)';</script>
 <script>/* ===== Password gate (Rost 24.10): data.enc.json расшифровывается паролем; ключ помнится в localStorage до «Выйти» ===== */
@@ -159,7 +168,7 @@ const Gate = (() => {
 /* ===== Dash core (shared by all variants; inlined at build) ===== */
 const Dash = (() => {
   let D = null;
-  const S = { mode: 'week', week: null, month: null, cur: 'native', tab: 'overview' };
+  const S = { mode: 'week', week: null, month: null, cur: 'USD', tab: 'overview' }; // Rost 25.10: всё в USD по курсу, переключателя валют нет
   const qs = new URLSearchParams(location.search);
   async function load() {
     if (window.DASH_DATA) { D = window.DASH_DATA; }
@@ -181,7 +190,7 @@ const Dash = (() => {
     S.mode = qs.get('mode') || 'week';
     S.tab = qs.get('tab') || 'overview';
     // Из localStorage восстанавливаем только вкладку и валюту; период всегда открывается текущий.
-    try { const saved = JSON.parse(localStorage.getItem('dash_state') || '{}'); if (!qs.get('tab') && saved.tab) S.tab = saved.tab; if (saved.cur) S.cur = saved.cur; } catch (e) {}
+    try { const saved = JSON.parse(localStorage.getItem('dash_state') || '{}'); if (!qs.get('tab') && saved.tab) S.tab = saved.tab; } catch (e) {}
     if (S.tab !== 'overview' && !D.directions.some(d => d.id === S.tab)) S.tab = 'overview';
     return D;
   }
@@ -268,7 +277,9 @@ const Dash = (() => {
   const num = v => (typeof v === 'number' ? v.toLocaleString('ru-RU', { maximumFractionDigits: 2 }) : (v ?? '—'));
   const pct = v => (v == null ? '—' : (v > 0 ? '+' : '') + v.toFixed(0) + '%');
   const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
-  function fxFooter() {
+  function fxFooter() { return ''; // Rost 25.10: футер с курсами/версией/правилами не показываем, конвертация в USD остаётся
+  }
+  function fxFooterOld() {
     const f = D.meta.fx;
     return `Курсы: 1 USD = ${f.USD_COP.rate.toLocaleString('ru-RU')} COP — ${esc(f.USD_COP.source)}, ${f.USD_COP.date} · 1 EUR = ${f.EUR_USD.rate} USD (${esc(f.EUR_USD.source)}, ${f.EUR_USD.date}) · 1 USD = ${f.USD_UAH.rate} UAH (${esc(f.USD_UAH.source)}). ` +
       `Данные: data.json v${esc(D.meta.version)}, собрано ${esc(D.meta.generated_at)} (Богота). ${esc(D.meta.week_to_month_rule)}. Значок «пример» = не реальная цифра.`;
@@ -391,25 +402,35 @@ function people(d){const ps=d.people||[];
  $('#main').innerHTML=h}
 const BOG='America/Bogota';const bDay=iso=>iso.length===10?iso:new Intl.DateTimeFormat('en-CA',{timeZone:BOG,year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date(iso));
 const bTime=iso=>new Date(iso).toLocaleTimeString('ru-RU',{timeZone:BOG,hour:'2-digit',minute:'2-digit'});
-let calSrc='all';
-function calendar(d){const ev=d.events||[],now=new Date(),today=bDay(now.toISOString());
- const lim=new Date(now.getTime()+14*864e5).toISOString().slice(0,10);
- const vis=ev.filter(e=>(calSrc==='all'||e.src===calSrc)&&bDay(e.start)<=lim&&(e.end?(e.all_day?e.end>today:bDay(e.end)>=today):bDay(e.start)>=today));
- const days={};vis.forEach(e=>{let k=bDay(e.start);if(!e.all_day&&k<today)k=today;(days[k]=days[k]||[]).push(e)});
- const nG=ev.filter(e=>e.src==='gcal').length,nC=ev.filter(e=>e.src==='clickup').length;
- let h=`<div class="card" style="margin-bottom:14px;background:linear-gradient(135deg,#e8f0fe,var(--panel));border-color:#c6dafc"><div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:center"><div><div style="font-size:22px;font-weight:800">${d.icon} ${esc(d.name)}</div><div class="note">${esc(d.subtitle)} · снимок GCal ${esc(d.gcal_fetched_at||'—')} · ClickUp ${esc(d.cu_fetched_at||'—')}</div></div>
- <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap"><div class="seg calf">${[['all','Все'],['gcal','Google ('+nG+')'],['clickup','ClickUp ('+nC+')']].map(([k,l])=>`<button data-s="${k}" class="${calSrc===k?'on':''}">${l}</button>`).join('')}</div>${d.gcal_url?`<a class="chip" href="${d.gcal_url}" target="_blank" rel="noopener" style="text-decoration:none">Открыть Google Календарь ↗</a>`:''}</div></div>
- <div class="slegend"><span><span class="src gcal">Google</span> событие календаря</span><span><span class="src clickup">ClickUp</span> задача (срок со временем или на день)</span></div></div>`;
- if(!ev.length)h+=`<div class="card empty">Событий нет в снимке. ${esc(d.refresh||'')}</div>`;
+let calSrc='all',calDay=null;
+const calAdd=(k,n)=>{const t=new Date(k+'T12:00:00Z');t.setUTCDate(t.getUTCDate()+n);return t.toISOString().slice(0,10)};
+function calendar(d){const ev=(d.events||[]).filter(e=>!e.all_day),now=new Date(),today=bDay(now.toISOString()),tmr=calAdd(today,1);
+ if(!calDay)calDay=today;const k=calDay,PX=46,d0=new Date(k+'T00:00:00-05:00').getTime(),d1=d0+864e5;
+ const fit=e=>calSrc==='all'||e.src===calSrc||(calSrc==='clickup'&&(e.cu||[]).length);
+ const xs=ev.filter(fit).map(e=>{const s=new Date(e.start).getTime(),en=e.end?new Date(e.end).getTime():s+30*6e4;return{e,s,en}}).filter(o=>o.en>d0&&o.s<d1).sort((a,b)=>a.s-b.s||b.en-a.en);
+ const lanes=[];xs.forEach(o=>{let i=lanes.findIndex(t=>t<=o.s);if(i<0){i=lanes.length;lanes.push(0)}lanes[i]=o.en;o.l=i});
+ xs.forEach(o=>{o.n=Math.max(1,...xs.filter(p=>p.s<o.en&&p.en>o.s).map(p=>p.l+1))});
+ const nG=ev.filter(e=>e.src==='gcal').length,nC=ev.filter(e=>e.src==='clickup').length+ev.reduce((a,e)=>a+(e.cu||[]).length,0);
  const WD=new Intl.DateTimeFormat('ru-RU',{timeZone:'UTC',weekday:'long',day:'numeric',month:'long'});
- Object.keys(days).sort().forEach(k=>{const xs=days[k].sort((a,b)=>(b.all_day-a.all_day)||a.start.localeCompare(b.start));
-  h+=`<div class="card cal-day ${k===today?'today':''}"><h4>${k===today?'<span class="chip" style="background:#4285f4;color:#fff;border-color:#4285f4">Сегодня</span>':''}${esc(WD.format(new Date(k+'T12:00:00Z')))}</h4>`+xs.map(e=>{
-   const past=!e.all_day&&(e.end?new Date(e.end)<now:new Date(e.start)<now),cur=!e.all_day&&e.end&&new Date(e.start)<=now&&now<new Date(e.end);
-   const tm=e.all_day?'весь день':e.due?'до '+bTime(e.start):(bDay(e.start)<k?'…':bTime(e.start))+'–'+bTime(e.end);
-   const t=e.url?`<a href="${e.url}" target="_blank" rel="noopener">${esc(e.title)}</a>`:esc(e.title);
-   return `<div class="cal-ev ${past?'past':''} ${cur?'now':''}"><span class="tm">${tm}</span><span class="src ${e.src}">${e.src==='gcal'?'Google':'ClickUp'}</span><span style="flex:1">${t}${e.list?` <span class="ls">· ${esc(e.list)}</span>`:''}</span></div>`}).join('')+`</div>`});
- h+=`<div class="note" style="font-size:11px">${esc(d.refresh||'')}</div>`;
- $('#main').innerHTML=h;document.querySelectorAll('.calf button').forEach(b=>b.onclick=()=>{calSrc=b.dataset.s;calendar(d)})}
+ const bt=(on,a,l)=>`<button data-nav="${a}" class="${on?'on':''}">${l}</button>`;
+ let h=`<div class="card" style="margin-bottom:14px;background:linear-gradient(135deg,#e8f0fe,var(--panel));border-color:#c6dafc"><div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:center"><div><div style="font-size:22px;font-weight:800">${d.icon} ${esc(d.name)}</div><div class="note">${esc(d.subtitle)} · снимок GCal ${esc(d.gcal_fetched_at||'—')} · ClickUp ${esc(d.cu_fetched_at||'—')}</div></div>
+ <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap"><div class="seg calf">${[['all','Все'],['gcal','Google ('+nG+')'],['clickup','ClickUp ('+nC+')']].map(([s,l])=>`<button data-s="${s}" class="${calSrc===s?'on':''}">${l}</button>`).join('')}</div>${d.gcal_url?`<a class="chip" href="${d.gcal_url}" target="_blank" rel="noopener" style="text-decoration:none">Google Календарь ↗</a>`:''}</div></div>
+ <div class="calnav"><div class="seg">${bt(0,-1,'‹')}${bt(k===today,'today','Сегодня')}${bt(k===tmr,'tmr','Завтра')}${bt(0,1,'›')}</div><input type="date" id="calpick" value="${k}"><b style="font-size:15px;text-transform:capitalize">${esc(WD.format(new Date(k+'T12:00:00Z')))}</b>${k===today?'<span class="chip" style="background:#4285f4;color:#fff;border-color:#4285f4">Сегодня</span>':''}</div>
+ <div class="slegend"><span><span class="src gcal">Google</span> событие</span><span><span class="src clickup">ClickUp</span> задача со временем</span><span><span class="culink">🔗 ClickUp</span> карточка, привязанная к событию (справа)</span></div></div>`;
+ h+=`<div class="card tl-wrap"><div class="tl" id="tl" style="height:${24*PX}px">`;
+ for(let i=0;i<24;i++)h+=`<div class="tl-h" style="top:${i*PX}px"><span>${String(i).padStart(2,'0')}:00</span></div>`;
+ xs.forEach(({e,s,en,l,n})=>{const top=Math.max(0,(s-d0)/36e5*PX),bot=Math.min(24*PX,(en-d0)/36e5*PX),ht=Math.max(22,bot-top);
+  const past=en<now,cur=s<=now&&now<en,tm=e.due?'до '+bTime(e.start):(s<d0?'…':bTime(e.start))+'–'+(en>d1?'…':bTime(e.end));
+  const t=e.url?`<a href="${e.url}" target="_blank" rel="noopener">${esc(e.title)}</a>`:esc(e.title);
+  const cu=(e.cu||[]).map(c=>`<a class="culink" href="${c.url}" target="_blank" rel="noopener" title="${esc((c.list||'')+' · до '+bTime(c.due))}">🔗 ${esc(c.title)}</a>`).join('');
+  h+=`<div class="tl-ev ${e.src} ${past?'past':''} ${cur?'now':''}" style="top:${top}px;height:${ht}px;left:calc(56px + (100% - 60px)*${l}/${n});width:calc((100% - 60px)/${n} - 4px)"><div class="tl-main"><span class="tm">${tm}</span> ${t}${e.list?` <span class="ls">· ${esc(e.list)}</span>`:''}</div>${cu?`<div class="tl-cu">${cu}</div>`:''}</div>`});
+ if(k===today){const y=(now-d0)/36e5*PX;h+=`<div class="tl-now" style="top:${y}px"></div>`}
+ h+=`</div>${xs.length?'':`<div class="empty" style="padding:14px">На этот день событий со временем нет в снимке.</div>`}</div>`;
+ $('#main').innerHTML=h;
+ document.querySelectorAll('.calf button').forEach(b=>b.onclick=()=>{calSrc=b.dataset.s;calendar(d)});
+ document.querySelectorAll('[data-nav]').forEach(b=>b.onclick=()=>{const a=b.dataset.nav;calDay=a==='today'?today:a==='tmr'?tmr:calAdd(calDay,+a);calendar(d)});
+ const pk=$('#calpick');pk.onchange=()=>{if(pk.value){calDay=pk.value;calendar(d)}};
+ const sc=k===today?Math.max(0,(now-d0)/36e5*PX-120):7*PX;requestAnimationFrame(()=>{const w=document.querySelector('.tl-wrap');if(w)w.scrollTop=sc})}
 function render(){kill();Dash.save();controls();const d=Dash.D.directions.find(x=>x.id===S.tab);d?(d.kind==='people'?people(d):d.kind==='calendar'?calendar(d):direction(d)):overview();$('#foot').textContent=Dash.fxFooter();}
 Dash.load().then(()=>document.fonts.ready).then(render).catch(e=>{$('#main').innerHTML='<div class="card">Не удалось загрузить data.json: '+esc(e.message)+'</div>'});
 </script></body></html>
