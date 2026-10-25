@@ -4,7 +4,7 @@
   "owner": "Rostyslav Yermakov",
   "city": "Medellín",
   "version": "0.1-mockup",
-  "generated_at": "2026-10-24T22:49-05:00",
+  "generated_at": "2026-10-24T22:50-05:00",
   "timezone": "America/Bogota",
   "default_week": "2026-10-19",
   "default_month": "2026-10",
@@ -2710,8 +2710,7 @@
      "status": "attention",
      "items": [
       "Взять под контроль",
-      "Сделать по ней план",
-      "Не забывать выводить деньги с платформы"
+      "Сделать по ней план"
      ],
      "src": "Rost, 24.10.2026",
      "cu": [
@@ -2752,7 +2751,8 @@
      "status": "attention",
      "items": [
       "Подключить к боту — чтобы сам мог править",
-      "Найти 50 отзывов (TripAdvisor)"
+      "Найти 50 отзывов (TripAdvisor)",
+      "Не забывать выводить деньги с их платформы"
      ],
      "src": "Rost, 24.10.2026",
      "cu": {
