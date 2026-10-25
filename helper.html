@@ -374,7 +374,7 @@ function metricsHTML(p){const m=p.metrics;if(!m&&!p.goal)return '';
  const tv=r=>r.total?platSum:num(r.value),pct=m&&m.target&&platSum!=null?Math.min(100,platSum/m.target*100):0;
  let h=`<div class="mx">${p.goal?`<div class="goal">🎯 ${esc(p.goal)}</div>`:''}`;
  if(m){if(m.target)h+=`<div class="note" style="display:flex;justify-content:space-between"><span>${esc(m.target_label||'Цель')}</span><b>${fmt(platSum,'$')} / $${m.target.toLocaleString('ru-RU')}</b></div><div class="bar"><i style="width:${pct}%"></i></div>`;
-  h+=m.groups.map(g=>`<h5>${esc(g.title)}</h5><table>${g.rows.map(r=>`<tr class="${r.total?'tot':''} ${r.excluded?'ex':''}"><td>${esc(r.label)}${r.hint?`<span class="hint">${esc(r.hint)}</span>`:''}</td><td class="v">${fmt(tv(r),r.unit)}</td></tr>`).join('')}</table>`).join('');
+  h+=m.groups.map(g=>`<h5>${esc(g.title)}</h5><table>${g.rows.map(r=>`<tr class="${r.total?'tot':''} ${r.excluded?'ex':''}"><td>${r.url?`<a href="${esc(r.url)}" target="_blank" rel="noopener" style="color:inherit">${esc(r.label)} ↗</a>`:esc(r.label)}${r.hint||r.measured?`<span class="hint">${esc([r.hint,r.measured?'замер '+r.measured:''].filter(Boolean).join(' · '))}</span>`:''}</td><td class="v">${fmt(tv(r),r.unit)}</td></tr>`).join('')}</table>`).join('');
   if(m.note)h+=`<div class="note" style="font-size:11px;margin-top:6px">${esc(m.note)}</div>`}
  return h+'</div>'}
 const STAGE_T={money:'есть деньги',launched:'запустились, денег пока нет',starting:'стартуем'};
