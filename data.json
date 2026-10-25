@@ -4,7 +4,7 @@
   "owner": "Rostyslav Yermakov",
   "city": "Medellín",
   "version": "0.1-mockup",
-  "generated_at": "2026-10-24T22:47-05:00",
+  "generated_at": "2026-10-24T22:49-05:00",
   "timezone": "America/Bogota",
   "default_week": "2026-10-19",
   "default_month": "2026-10",
@@ -2747,10 +2747,11 @@
     {
      "name": "Андрей Многотуров",
      "icon": "🧑",
-     "role": "Бот",
+     "role": "Бот · TripAdvisor",
      "status": "attention",
      "items": [
-      "Подключить к боту"
+      "Подключить к боту — чтобы сам мог править",
+      "Найти 50 отзывов (TripAdvisor)"
      ],
      "src": "Rost, 24.10.2026",
      "cu": {
