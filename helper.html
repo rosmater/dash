@@ -78,6 +78,7 @@ footer{margin-top:22px;color:var(--mut);font-size:11.5px;line-height:1.6;border-
 .today-h{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}.tolink{font-size:12.5px;color:var(--acc);cursor:pointer;text-decoration:none;font-weight:600;background:none;border:0;padding:0}
 .ag{display:flex;gap:10px;align-items:baseline;padding:7px 0;border-bottom:1px dashed var(--line);font-size:13.5px}.ag:last-child{border:0}.ag .tm{flex:0 0 92px;font-variant-numeric:tabular-nums;color:var(--mut);font-size:12.5px}.ag a{color:var(--txt);text-decoration:none}.ag a:hover{color:var(--acc)}.ag.past{opacity:.45}.ag.now{background:#eef4ff;border-radius:8px;padding-left:6px}
 .tdcard{cursor:pointer}.tdcard .cnt{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+.g3b{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}@media(max-width:720px){.g3b{grid-template-columns:1fr}}.kpi.bt .v{font-size:30px}.kpi.bt.at{border-color:#f5c2c4;background:#fff5f5}.kpi.bt.ok{border-color:#bfe9d8}.kpi.bt.at .v{color:#b42318;font-size:22px}.kpi.bt.ok .v{color:#0b7a59;font-size:22px}.bgoal{border-color:#bfe6f5;background:linear-gradient(135deg,#ecf8fd,var(--panel))}.bgoal .bar{height:10px;border-radius:99px;background:#e6edf5;overflow:hidden}.bgoal .bar i{display:block;height:100%;background:#38bdf8}
 </style><link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%2322c3a6%22/%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%237b5cff%22/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2216%22%20fill%3D%22url%28%23g%29%22/%3E%3Crect%20x%3D%2215%22%20y%3D%2234%22%20width%3D%228%22%20height%3D%2215%22%20rx%3D%223%22%20fill%3D%22%23fff%22/%3E%3Crect%20x%3D%2228%22%20y%3D%2224%22%20width%3D%228%22%20height%3D%2225%22%20rx%3D%223%22%20fill%3D%22%23fff%22/%3E%3Crect%20x%3D%2241%22%20y%3D%2215%22%20width%3D%228%22%20height%3D%2234%22%20rx%3D%223%22%20fill%3D%22%23fff%22%20opacity%3D%22.92%22/%3E%3C/svg%3E">
 </head><body><div class="wrap">
 <header><div class="brand"><div class="logo">R</div><div><h1>Бизнес-дашборд</h1><small id="sub"></small></div></div>
@@ -377,6 +378,7 @@ function attn(d){const it=[];
   if(why)it.push({grp:t.list||'Задачи',text:t.name,url:t.url,why,cls:''})});
  (d.people||[]).forEach(p=>{if(p.status==='attention')(p.items||[]).filter(x=>/^\s*Я:/.test(x)).forEach(x=>it.push({grp:(p.icon?p.icon+' ':'')+p.name,text:x,why:'внимание',cls:''}))}); // Rost 25.10: в счёт идут только пункты «Я:»
  (d.gaps||[]).forEach(g=>it.push({grp:'Пробелы в данных',text:g,why:'пробел',cls:'gap'}));
+ if(d.board){const b=boardSt(d.board);if(!b.ok)it.push({grp:'Рассылка',text:b.why,why:'рассылка',cls:''})} // Rost 25.10: Оборонка — внимание, если вчера не было рассылки
  if(d.kind!=='people'&&S.mode!=='today'){const s=Dash.summary(d);if(s.has&&s.status==='partial')it.push({grp:'Период',text:'«'+Dash.periodLabel()+'» не закрыт — данные частичные',why:'частично',cls:'gap'})}
  return it}
 function attnAll(){const D=Dash.D;const own=attn({tasks:D.overview.tasks});const per=D.directions.map(d=>({d,it:attn(d)}));return {own,per,n:own.length+per.reduce((a,x)=>a+x.it.length,0)}}
@@ -400,6 +402,22 @@ function metricsHTML(p){const m=p.metrics;if(!m&&!p.goal)return '';
   h+=m.groups.map(g=>`<h5>${esc(g.title)}</h5><table>${g.rows.map(r=>`<tr class="${r.total?'tot':''} ${r.excluded?'ex':''}"><td>${r.url?`<a href="${esc(r.url)}" target="_blank" rel="noopener" style="color:inherit">${esc(r.label)} ↗</a>`:esc(r.label)}${r.hint||r.measured?`<span class="hint">${esc([r.hint,r.measured?'замер '+r.measured:''].filter(Boolean).join(' · '))}</span>`:''}</td><td class="v">${fmt(tv(r),r.unit)}</td></tr>`).join('')}</table>`).join('');
   if(m.note)h+=`<div class="note" style="font-size:11px;margin-top:6px">${esc(m.note)}</div>`}
  return h+'</div>'}
+
+/* ===== Табло Оборонки (Rost 25.10): без денег; цель 1 сделка; Всего разослано; статус рассылки (вчера по Боготе была отправка?); Сколько ответили ===== */
+function boardSt(b){const today=bDay(new Date().toISOString()),y=calAdd(today,-1),n=(b.sent_by_day||{})[y]||0,snap=(b.snapshot_at||'').slice(0,10);
+ const yl=new Intl.DateTimeFormat('ru-RU',{day:'numeric',month:'short',timeZone:'UTC'}).format(new Date(y+'T12:00:00Z'));
+ if(n>0)return {ok:true,y,n,yl,why:`вчера (${yl}) отправлено ${n}`};
+ return {ok:false,y,n,yl,stale:snap&&snap<y,why:snap&&snap<y?`нет данных за вчера (${yl}) — снимок рассылки от ${snap}; обновить дашборд`:`вчера (${yl}) рассылки не было`}}
+function board(d){const b=d.board,st=boardSt(b),fd=x=>x?new Intl.DateTimeFormat('ru-RU',{day:'numeric',month:'short',hour:'2-digit',minute:'2-digit',timeZone:BOG}).format(new Date(x.replace(' ','T').slice(0,16)+':00-05:00')):'—';
+ const tile=(l,v,sub,c,cls='')=>`<div class="card kpi bt ${cls}" style="--glow:${c}"><div class="l">${l}</div><div class="v">${v}</div><div class="s">${sub}</div></div>`;
+ const pct=Math.min(100,(b.deals||0)/(b.goal_target||1)*100);
+ let h=`<div class="card" style="margin-bottom:14px;border-color:#bfe6f555;background:linear-gradient(135deg,#ecf8fd,var(--panel))"><div style="font-size:22px;font-weight:800">${stageDot(d)}${d.icon} ${esc(d.name)}</div><div class="note">${esc(d.subtitle)} · табло рассылки</div></div>`+attnHTML(d);
+ h+=`<div class="card bgoal" style="margin-bottom:14px"><div style="display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap"><div style="font-size:18px;font-weight:800">🎯 ${esc(b.goal)}</div><b style="font-size:16px">${b.deals||0} / ${b.goal_target||1}</b></div><div class="bar" style="margin-top:8px"><i style="width:${pct}%"></i></div></div>`;
+ h+=`<div class="grid g3b">${tile('📤 Всего разослано',Dash.num(b.sent_total),`писем · последнее ${fd(b.last_sent_at)}`,'#64748b')}
+ ${tile('Статус рассылки',st.ok?'🟢 активна':'🔴 требует внимания',esc(st.why),st.ok?'#16a34a':'#e11d48',st.ok?'ok':'at')}
+ ${tile('💬 Ответили',Dash.num(b.replies),`${b.replies_companies&&b.replies_companies.length?esc(b.replies_companies.join(', ')):'пока никто'}${b.auto_replies?` · +${b.auto_replies} автоответ(а) не считаем`:''}`,'#7c5cff')}</div>`;
+ h+=`<p class="note" style="margin-top:10px">Данные: снимок рассылки ${esc((b.snapshot_at||'').replace('T',' '))} (Богота)${b.gmail_checked_at?` · ящик STE проверен ${esc(b.gmail_checked_at.replace('T',' '))}`:''}. Статус считается по вчерашнему дню (Богота).</p>`;
+ $('#main').innerHTML=h}
 const STAGE_T={money:'есть деньги',launched:'запустились, денег пока нет',starting:'стартуем'};
 function stageDot(d){return d.stage?`<span class="sdot ${d.stage}" title="${STAGE_T[d.stage]||''}"></span>`:''}
 function stageLegend(){return `<div class="slegend">${Object.keys(STAGE_T).map(k=>`<span><span class="sdot ${k}"></span>${STAGE_T[k]}</span>`).join('')}</div>`}
@@ -477,6 +495,6 @@ function directionToday(d){const c=calDir(),ev=c?todayEvents(d.id):[],dt=dueToda
  if(rest.length)h+=`<div style="height:14px"></div><div class="card"><h3>Остальные открытые задачи</h3>${tasksHTML(rest.sort((a,b)=>(prioRank[a.priority]-prioRank[b.priority])||String(a.due).localeCompare(b.due)))}</div>`;
  if((d.monitors||[]).length)h+=`<div style="height:14px"></div><div class="card"><h3>Мониторы</h3>${d.monitors.map(x=>`<div class="task"><span class="pill ${x.status==='active'?'p-normal':'p-high'}">${x.status==='active'?'работает':'план'}</span><div style="flex:1"><b style="font-size:13.5px">${esc(x.name)}</b><div class="note">${esc(x.note||'')}</div></div></div>`).join('')}</div>`;
  $('#main').innerHTML=h;bindToday()}
-function render(){kill();Dash.save();controls();const d=Dash.D.directions.find(x=>x.id===S.tab),td=S.mode==='today';d?(d.kind==='people'?people(d):d.kind==='calendar'?calendar(d):td?directionToday(d):direction(d)):td?overviewToday():overview();$('#foot').textContent=Dash.fxFooter();}
+function render(){kill();Dash.save();controls();const d=Dash.D.directions.find(x=>x.id===S.tab),td=S.mode==='today';d?(d.kind==='people'?people(d):d.kind==='calendar'?calendar(d):d.board?board(d):td?directionToday(d):direction(d)):td?overviewToday():overview();$('#foot').textContent=Dash.fxFooter();}
 Dash.load().then(()=>document.fonts.ready).then(render).catch(e=>{$('#main').innerHTML='<div class="card">Не удалось загрузить data.json: '+esc(e.message)+'</div>'});
 </script></body></html>

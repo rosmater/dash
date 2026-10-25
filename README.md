@@ -76,7 +76,7 @@
 | Недвижимость | Base Loft: варианты 2,6 / 2,5 / 1,75 млн COP/мес | `knowledge/shared-personal/places/base-loft-rental-search.md` |
 | Табакевич | Направление кальяны: недели 05–11.10, 12–18.10, октябрь 01–19.10 (выручка, валовая прибыль, по каналам), USD | `knowledge/tbk-1c-reports/kalyan-weekly/2026-10-19-EXTRACT.md` (BAS) |
 | Табакевич | P&L компании июль–сентябрь (грн), выводы Rost (USD): авг 34 132,03, сен 27 618,79, 01–10.10 6 566,15 | `knowledge/tbk-1c-reports/README.md` |
-| Оборонка | Рассылка STE: 30 писем 21–24.10 (MX 20, PE 6, CO 2, GT 2), 1 ответ (MER Group), 1 bounce, 12 hold; 49 живых тендеров (22 HIGH) | `knowledge/defense-export/outreach/send_queue.csv`, `/workspace/defense-export/live-tenders.csv` (снимок 10.10). Цели — план «первые клиенты» 20.10 (300 писем / 10 диалогов / 2 RFQ за 3 мес). **Только месяц** |
+| Оборонка | **Табло без денег (Rost 25.10):** 🎯 «Цель: получить 1 сделку» (0/1, `deals` в `src/defense_extra.json`); «Всего разослано» = строки status=sent; статус «рассылка активна», если вчера (Богота) была отправка, иначе «требует внимания» (считается в браузере по `board.sent_by_day`); «Ответили» = живые ответы (reply_status / REPLY в заметке), автоответы не считаются | `/workspace/defense-export/outreach/send_queue.csv`, `plan15_recipients.csv`, ручные находки из ящика STE — `src/defense_extra.json` |
 | Личное | Траты с BTC-карты: сен (24–30.09) $1 053,29, окт (01–13.10) $818,85; BTC вернуть 0,04865462 (20.10); дней с дневником питания в октябре | `knowledge/finance/btc-reserves-repayment.md`, `knowledge/shared-health/nutrition-bju/`. Не входит в итоги «Общего». **Только месяц** |
 | Задачи | 24 открытых срочных/высоких/for check задачи | ClickUp workspace 9014731752 (чтение 19.10) |
 
