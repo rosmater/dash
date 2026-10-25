@@ -2738,7 +2738,13 @@
      "items": [
       "Подключить к боту"
      ],
-     "src": "Rost, 24.10.2026"
+     "src": "Rost, 24.10.2026",
+     "cu": {
+      "id": "86ba2y9ke",
+      "label": "ТрипЭдвайсер (как дела?) — ClickUp · Personal",
+      "status": "to do",
+      "url": "https://app.clickup.com/t/86ba2y9ke"
+     }
     }
    ]
   }
