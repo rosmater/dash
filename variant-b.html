@@ -136,7 +136,7 @@ const Gate = (() => {
 /* ===== Dash core (shared by all variants; inlined at build) ===== */
 const Dash = (() => {
   let D = null;
-  const S = { mode: 'week', week: null, month: null, cur: 'USD', tab: 'overview' }; // Rost 25.10: всё в USD по курсу, переключателя валют нет
+  const S = { mode: 'today', mv: 2, week: null, month: null, cur: 'USD', tab: 'overview' }; // Rost 25.10: всё в USD по курсу, переключателя валют нет
   const qs = new URLSearchParams(location.search);
   async function load() {
     if (window.DASH_DATA) { D = window.DASH_DATA; }
@@ -155,10 +155,10 @@ const Dash = (() => {
     const curM = M.find(m => m.id === today.slice(0, 7)) || [...M].reverse().find(m => m.id <= today.slice(0, 7)) || M[M.length - 1];
     S.week = qs.get('week') || curW.id;
     S.month = qs.get('month') || curM.id;
-    S.mode = qs.get('mode') || 'week';
+    S.mode = qs.get('mode') || 'today'; // Rost 25.10: по умолчанию «Сегодня» (рабочий экран); неделя/месяц — сводка
     S.tab = qs.get('tab') || 'overview';
     // Из localStorage восстанавливаем только вкладку и валюту; период всегда открывается текущий.
-    try { const saved = JSON.parse(localStorage.getItem('dash_state') || '{}'); if (!qs.get('tab') && saved.tab) S.tab = saved.tab; } catch (e) {}
+    try { const saved = JSON.parse(localStorage.getItem('dash_state') || '{}'); if (!qs.get('tab') && saved.tab) S.tab = saved.tab; if (!qs.get('mode') && saved.mv === 2 && ['today','week','month'].includes(saved.mode)) S.mode = saved.mode; } catch (e) {}
     if (S.tab !== 'overview' && !D.directions.some(d => d.id === S.tab)) S.tab = 'overview';
     return D;
   }
@@ -166,8 +166,8 @@ const Dash = (() => {
   const toUSD = cur => { const fx = D.meta.fx; return { USD: 1, COP: 1 / fx.USD_COP.rate, EUR: fx.EUR_USD.rate, UAH: 1 / fx.USD_UAH.rate }[cur]; };
   const conv = (a, from, to) => (a == null ? null : a * toUSD(from) / toUSD(to));
   const curOf = dir => (S.cur === 'native' ? dir.currency : S.cur);
-  const pid = () => (S.mode === 'week' ? S.week : S.month);
-  const key = (mode, id) => (mode === 'week' ? 'W:' : 'M:') + id;
+  const pid = () => (S.mode === 'month' ? S.month : S.week); // today → текущая неделя для фоновых расчётов
+  const key = (mode, id) => (mode !== 'month' ? 'W:' : 'M:') + id;
   const weeksOfMonth = m => D.meta.weeks.filter(w => w.month === m);
 
   function sumItems(items, cur) {
@@ -177,6 +177,7 @@ const Dash = (() => {
   }
   // Returns the record for a direction & period. Months: explicit record, or roll-up of weeks (+ extra month items).
   function record(dir, mode, id) {
+    if (mode === 'today') mode = 'week';
     if (!dir.periods) return null;
     if (mode === 'week') { const r = dir.periods[key('week', id)]; return r ? { ...r, source: 'week' } : null; }
     const ex = dir.periods[key('month', id)];
@@ -202,6 +203,7 @@ const Dash = (() => {
     return { has, cur, income, expenses, profit, roi, expensesKnown: expenses != null, rec: r, status: r.status, unknownInc };
   }
   function periods(mode = S.mode) {
+    if (mode === 'today') mode = 'week';
     const list = mode === 'week' ? D.meta.weeks : D.meta.months;
     return list.map(p => ({ id: p.id, label: p.label, iso: p.iso }));
   }
@@ -214,6 +216,7 @@ const Dash = (() => {
     return { labels: ps.map(p => p.label), ids: ps.map(p => p.id), income: s.map(x => x.income ?? null), expenses: s.map(x => x.expenses ?? null), profit: s.map(x => x.profit ?? null) };
   }
   function goals(dir, mode = S.mode, id = pid()) {
+    if (mode === 'today') mode = 'week';
     return (dir.goals || []).filter(g => (g.period_type || 'week') === mode).map(g => {
       let actual = g.by_period ? g.by_period[key(mode, id)] : undefined;
       if (actual === undefined && g.auto_month === 'income' && mode === 'month') { const s = summary(dir, 'month', id, dir.currency); actual = s.income ?? undefined; }

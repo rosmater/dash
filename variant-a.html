@@ -75,10 +75,13 @@ footer{margin-top:22px;color:var(--mut);font-size:11.5px;line-height:1.6;border-
 .tl-main{flex:1;min-width:0;overflow:hidden}.tl-cu{display:flex;flex-direction:column;gap:2px;align-items:flex-end;max-width:45%;flex:0 1 auto}
 .culink{display:inline-block;font-size:11px;background:#7b68ee;color:#fff!important;border-radius:6px;padding:1px 6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}
 .tl-now{position:absolute;left:52px;right:0;border-top:2px solid #ea4335;z-index:3}.tl-now:before{content:'';position:absolute;left:-5px;top:-6px;width:10px;height:10px;border-radius:50%;background:#ea4335}
+.today-h{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}.tolink{font-size:12.5px;color:var(--acc);cursor:pointer;text-decoration:none;font-weight:600;background:none;border:0;padding:0}
+.ag{display:flex;gap:10px;align-items:baseline;padding:7px 0;border-bottom:1px dashed var(--line);font-size:13.5px}.ag:last-child{border:0}.ag .tm{flex:0 0 92px;font-variant-numeric:tabular-nums;color:var(--mut);font-size:12.5px}.ag a{color:var(--txt);text-decoration:none}.ag a:hover{color:var(--acc)}.ag.past{opacity:.45}.ag.now{background:#eef4ff;border-radius:8px;padding-left:6px}
+.tdcard{cursor:pointer}.tdcard .cnt{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
 </style><link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%2322c3a6%22/%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%237b5cff%22/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2216%22%20fill%3D%22url%28%23g%29%22/%3E%3Crect%20x%3D%2215%22%20y%3D%2234%22%20width%3D%228%22%20height%3D%2215%22%20rx%3D%223%22%20fill%3D%22%23fff%22/%3E%3Crect%20x%3D%2228%22%20y%3D%2224%22%20width%3D%228%22%20height%3D%2225%22%20rx%3D%223%22%20fill%3D%22%23fff%22/%3E%3Crect%20x%3D%2241%22%20y%3D%2215%22%20width%3D%228%22%20height%3D%2234%22%20rx%3D%223%22%20fill%3D%22%23fff%22%20opacity%3D%22.92%22/%3E%3C/svg%3E">
 </head><body><div class="wrap">
 <header><div class="brand"><div class="logo">R</div><div><h1>Бизнес-дашборд</h1><small id="sub"></small></div></div>
-<div class="ctrls"><div class="seg" id="mode"><button data-m="week">Неделя</button><button data-m="month">Месяц</button></div>
+<div class="ctrls"><div class="seg" id="mode"><button data-m="today">Сегодня</button><button data-m="week">Неделя</button><button data-m="month">Месяц</button></div><div class="seg" id="calbtn"><button data-t="calendar">📅 Календарь</button></div>
 <select id="period"></select><select id="cur" hidden><option value="USD">USD</option></select></div></header>
 <nav class="tabs" id="tabs"></nav><main id="main"></main><footer id="foot"></footer></div>
 <script>/* ===== Password gate (Rost 24.10): data.enc.json расшифровывается паролем; ключ помнится в localStorage до «Выйти» ===== */
@@ -168,7 +171,7 @@ const Gate = (() => {
 /* ===== Dash core (shared by all variants; inlined at build) ===== */
 const Dash = (() => {
   let D = null;
-  const S = { mode: 'week', week: null, month: null, cur: 'USD', tab: 'overview' }; // Rost 25.10: всё в USD по курсу, переключателя валют нет
+  const S = { mode: 'today', mv: 2, week: null, month: null, cur: 'USD', tab: 'overview' }; // Rost 25.10: всё в USD по курсу, переключателя валют нет
   const qs = new URLSearchParams(location.search);
   async function load() {
     if (window.DASH_DATA) { D = window.DASH_DATA; }
@@ -187,10 +190,10 @@ const Dash = (() => {
     const curM = M.find(m => m.id === today.slice(0, 7)) || [...M].reverse().find(m => m.id <= today.slice(0, 7)) || M[M.length - 1];
     S.week = qs.get('week') || curW.id;
     S.month = qs.get('month') || curM.id;
-    S.mode = qs.get('mode') || 'week';
+    S.mode = qs.get('mode') || 'today'; // Rost 25.10: по умолчанию «Сегодня» (рабочий экран); неделя/месяц — сводка
     S.tab = qs.get('tab') || 'overview';
     // Из localStorage восстанавливаем только вкладку и валюту; период всегда открывается текущий.
-    try { const saved = JSON.parse(localStorage.getItem('dash_state') || '{}'); if (!qs.get('tab') && saved.tab) S.tab = saved.tab; } catch (e) {}
+    try { const saved = JSON.parse(localStorage.getItem('dash_state') || '{}'); if (!qs.get('tab') && saved.tab) S.tab = saved.tab; if (!qs.get('mode') && saved.mv === 2 && ['today','week','month'].includes(saved.mode)) S.mode = saved.mode; } catch (e) {}
     if (S.tab !== 'overview' && !D.directions.some(d => d.id === S.tab)) S.tab = 'overview';
     return D;
   }
@@ -198,8 +201,8 @@ const Dash = (() => {
   const toUSD = cur => { const fx = D.meta.fx; return { USD: 1, COP: 1 / fx.USD_COP.rate, EUR: fx.EUR_USD.rate, UAH: 1 / fx.USD_UAH.rate }[cur]; };
   const conv = (a, from, to) => (a == null ? null : a * toUSD(from) / toUSD(to));
   const curOf = dir => (S.cur === 'native' ? dir.currency : S.cur);
-  const pid = () => (S.mode === 'week' ? S.week : S.month);
-  const key = (mode, id) => (mode === 'week' ? 'W:' : 'M:') + id;
+  const pid = () => (S.mode === 'month' ? S.month : S.week); // today → текущая неделя для фоновых расчётов
+  const key = (mode, id) => (mode !== 'month' ? 'W:' : 'M:') + id;
   const weeksOfMonth = m => D.meta.weeks.filter(w => w.month === m);
 
   function sumItems(items, cur) {
@@ -209,6 +212,7 @@ const Dash = (() => {
   }
   // Returns the record for a direction & period. Months: explicit record, or roll-up of weeks (+ extra month items).
   function record(dir, mode, id) {
+    if (mode === 'today') mode = 'week';
     if (!dir.periods) return null;
     if (mode === 'week') { const r = dir.periods[key('week', id)]; return r ? { ...r, source: 'week' } : null; }
     const ex = dir.periods[key('month', id)];
@@ -234,6 +238,7 @@ const Dash = (() => {
     return { has, cur, income, expenses, profit, roi, expensesKnown: expenses != null, rec: r, status: r.status, unknownInc };
   }
   function periods(mode = S.mode) {
+    if (mode === 'today') mode = 'week';
     const list = mode === 'week' ? D.meta.weeks : D.meta.months;
     return list.map(p => ({ id: p.id, label: p.label, iso: p.iso }));
   }
@@ -246,6 +251,7 @@ const Dash = (() => {
     return { labels: ps.map(p => p.label), ids: ps.map(p => p.id), income: s.map(x => x.income ?? null), expenses: s.map(x => x.expenses ?? null), profit: s.map(x => x.profit ?? null) };
   }
   function goals(dir, mode = S.mode, id = pid()) {
+    if (mode === 'today') mode = 'week';
     return (dir.goals || []).filter(g => (g.period_type || 'week') === mode).map(g => {
       let actual = g.by_period ? g.by_period[key(mode, id)] : undefined;
       if (actual === undefined && g.auto_month === 'income' && mode === 'month') { const s = summary(dir, 'month', id, dir.currency); actual = s.income ?? undefined; }
@@ -307,12 +313,17 @@ const $=s=>document.querySelector(s);const {S,fmt,esc,EX}=Dash;let charts=[];
 const kill=()=>{charts.forEach(c=>c.destroy());charts=[]};
 Chart.defaults.color='#6b7390';Chart.defaults.font.family='Inter';Chart.defaults.borderColor='#e9ecf3';
 function spark(el,data,color){if(!el)return;const c=new Chart(el,{type:'line',data:{labels:data.map((_,i)=>i),datasets:[{data,borderColor:color,borderWidth:2,fill:true,backgroundColor:color+'22',tension:.4,pointRadius:0,spanGaps:true}]},options:{responsive:false,animation:false,plugins:{legend:{display:false},tooltip:{enabled:false}},scales:{x:{display:false},y:{display:false}}}});charts.push(c)}
-function controls(){document.querySelectorAll('#mode button').forEach(b=>{b.classList.toggle('on',b.dataset.m===S.mode);b.onclick=()=>{S.mode=b.dataset.m;render()}});
- const sel=$('#period');sel.innerHTML=Dash.periods().map(p=>`<option value="${p.id}">${S.mode==='week'?(p.iso+' · '):''}${esc(p.label)}</option>`).join('');sel.value=Dash.pid();
+function controls(){document.querySelectorAll('#mode button').forEach(b=>{b.classList.toggle('on',b.dataset.m===S.mode&&S.tab!=='calendar');b.onclick=()=>{if(b.dataset.m==='today')calDay=null;S.mode=b.dataset.m;if(S.tab==='calendar')S.tab='overview';render()}});
+ const D=Dash.D,calD=D.directions.find(x=>x.kind==='calendar');const cb=$('#calbtn');cb.hidden=!calD;
+ cb.querySelector('button').classList.toggle('on',S.tab==='calendar');cb.querySelector('button').onclick=()=>{S.tab='calendar';calDay=null;render();scrollTo({top:0,behavior:'smooth'})};
+ const sel=$('#period');sel.hidden=S.mode==='today'||S.tab==='calendar';
+ if(!sel.hidden){sel.innerHTML=Dash.periods().map(p=>`<option value="${p.id}">${S.mode==='week'?(p.iso+' · '):''}${esc(p.label)}</option>`).join('');sel.value=Dash.pid();}
  sel.onchange=()=>{S.mode==='week'?S.week=sel.value:S.month=sel.value;render()};$('#cur').value=S.cur;$('#cur').onchange=e=>{S.cur=e.target.value;render()};
- const D=Dash.D;$('#tabs').innerHTML=[{id:'overview',name:'Общий',icon:'✦',color:'#7c5cff'},...D.directions].map(d=>{const n=d.id==='overview'?attnAll().n:attn(d).length;return `<button data-t="${d.id}" style="--c:${d.color}" class="${S.tab===d.id?'on':''}" title="${n?'Требует внимания: '+n:''}">${d.stage?`<span class="sdot tdot ${d.stage}" title="${STAGE_T[d.stage]||''}"></span>`:''}${d.icon} ${esc(d.name)}${n?`<span class="abadge">${n}</span>`:''}</button>`}).join('');
+ // Rost 25.10: Календарь — не вкладка направления, а кнопка сверху рядом с Сегодня/Неделя/Месяц
+ $('#tabs').innerHTML=[{id:'overview',name:'Общий',icon:'✦',color:'#7c5cff'},...D.directions.filter(d=>d.kind!=='calendar')].map(d=>{const n=d.id==='overview'?attnAll().n:attn(d).length;return `<button data-t="${d.id}" style="--c:${d.color}" class="${S.tab===d.id?'on':''}" title="${n?'Требует внимания: '+n:''}">${d.stage?`<span class="sdot tdot ${d.stage}" title="${STAGE_T[d.stage]||''}"></span>`:''}${d.icon} ${esc(d.name)}${n?`<span class="abadge">${n}</span>`:''}</button>`}).join('');
  document.querySelectorAll('#tabs button').forEach(b=>b.onclick=()=>{S.tab=b.dataset.t;render();scrollTo({top:0,behavior:'smooth'})});
- $('#sub').textContent=`${S.mode==='week'?'Неделя':'Месяц'}: ${Dash.periodLabel()}`;}
+ const TD=new Intl.DateTimeFormat('ru-RU',{timeZone:BOG,weekday:'short',day:'numeric',month:'short'}).format(new Date());
+ $('#sub').textContent=S.tab==='calendar'?'Календарь · день':S.mode==='today'?`Сегодня · ${TD}`:`${S.mode==='week'?'Неделя':'Месяц'}: ${Dash.periodLabel()}`;}
 function tasksHTML(ts){if(!ts.length)return '<div class="empty">Нет задач</div>';return ts.map(t=>`<div class="task"><span class="pill p-${t.priority||'normal'}">${Dash.PRI[t.priority]||t.priority||''}</span><div style="flex:1"><a href="${t.url}" target="_blank" rel="noopener">${esc(t.name)}</a><div style="margin-top:4px"><span class="st">${esc(t.status)}</span> <span class="st">до ${esc(t.due||'—')}</span></div></div></div>`).join('')}
 const prioRank={urgent:0,high:1,normal:2,low:3};
 function overview(){const D=Dash.D,o=Dash.overview(),cur=o.cur;const m=S.mode;
@@ -365,7 +376,7 @@ function attn(d){const it=[];
   if(why)it.push({grp:t.list||'Задачи',text:t.name,url:t.url,why,cls:''})});
  (d.people||[]).forEach(p=>{if(p.status==='attention')(p.items||[]).filter(x=>/^\s*Я:/.test(x)).forEach(x=>it.push({grp:(p.icon?p.icon+' ':'')+p.name,text:x,why:'внимание',cls:''}))}); // Rost 25.10: в счёт идут только пункты «Я:»
  (d.gaps||[]).forEach(g=>it.push({grp:'Пробелы в данных',text:g,why:'пробел',cls:'gap'}));
- if(d.kind!=='people'){const s=Dash.summary(d);if(s.has&&s.status==='partial')it.push({grp:'Период',text:'«'+Dash.periodLabel()+'» не закрыт — данные частичные',why:'частично',cls:'gap'})}
+ if(d.kind!=='people'&&S.mode!=='today'){const s=Dash.summary(d);if(s.has&&s.status==='partial')it.push({grp:'Период',text:'«'+Dash.periodLabel()+'» не закрыт — данные частичные',why:'частично',cls:'gap'})}
  return it}
 function attnAll(){const D=Dash.D;const own=attn({tasks:D.overview.tasks});const per=D.directions.map(d=>({d,it:attn(d)}));return {own,per,n:own.length+per.reduce((a,x)=>a+x.it.length,0)}}
 function linesHTML(it,max=5){const grp={};it.forEach(x=>(grp[x.grp]=grp[x.grp]||[]).push(x));let out=[],i=0;
@@ -413,10 +424,10 @@ function calendar(d){const ev=(d.events||[]).filter(e=>!e.all_day),now=new Date(
  const nG=ev.filter(e=>e.src==='gcal').length,nC=ev.filter(e=>e.src==='clickup').length+ev.reduce((a,e)=>a+(e.cu||[]).length,0);
  const WD=new Intl.DateTimeFormat('ru-RU',{timeZone:'UTC',weekday:'long',day:'numeric',month:'long'});
  const bt=(on,a,l)=>`<button data-nav="${a}" class="${on?'on':''}">${l}</button>`;
- let h=`<div class="card" style="margin-bottom:14px;background:linear-gradient(135deg,#e8f0fe,var(--panel));border-color:#c6dafc"><div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:center"><div><div style="font-size:22px;font-weight:800">${d.icon} ${esc(d.name)}</div><div class="note">${esc(d.subtitle)} · снимок GCal ${esc(d.gcal_fetched_at||'—')} · ClickUp ${esc(d.cu_fetched_at||'—')}</div></div>
- <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap"><div class="seg calf">${[['all','Все'],['gcal','Google ('+nG+')'],['clickup','ClickUp ('+nC+')']].map(([s,l])=>`<button data-s="${s}" class="${calSrc===s?'on':''}">${l}</button>`).join('')}</div>${d.gcal_url?`<a class="chip" href="${d.gcal_url}" target="_blank" rel="noopener" style="text-decoration:none">Google Календарь ↗</a>`:''}</div></div>
+ let h=`<div class="card" style="margin-bottom:14px;background:linear-gradient(135deg,#e8f0fe,var(--panel));border-color:#c6dafc"><div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:center"><div><div style="font-size:22px;font-weight:800">${d.icon} ${esc(d.name)}</div><div class="note">${esc(d.subtitle)} ${d.cu_only?'':'· снимок GCal '+esc(d.gcal_fetched_at||'—')} · ClickUp ${esc(d.cu_fetched_at||'—')}</div></div>
+ <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap"><div class="seg calf" ${d.cu_only?'hidden':''}>${[['all','Все'],['gcal','Google ('+nG+')'],['clickup','ClickUp ('+nC+')']].map(([s,l])=>`<button data-s="${s}" class="${calSrc===s?'on':''}">${l}</button>`).join('')}</div>${d.gcal_url?`<a class="chip" href="${d.gcal_url}" target="_blank" rel="noopener" style="text-decoration:none">Google Календарь ↗</a>`:''}</div></div>
  <div class="calnav"><div class="seg">${bt(0,-1,'‹')}${bt(k===today,'today','Сегодня')}${bt(k===tmr,'tmr','Завтра')}${bt(0,1,'›')}</div><input type="date" id="calpick" value="${k}"><b style="font-size:15px;text-transform:capitalize">${esc(WD.format(new Date(k+'T12:00:00Z')))}</b>${k===today?'<span class="chip" style="background:#4285f4;color:#fff;border-color:#4285f4">Сегодня</span>':''}</div>
- <div class="slegend"><span><span class="src gcal">Google</span> событие</span><span><span class="src clickup">ClickUp</span> задача со временем</span><span><span class="culink">🔗 ClickUp</span> карточка, привязанная к событию (справа)</span></div></div>`;
+ <div class="slegend">${d.cu_only?'':'<span><span class="src gcal">Google</span> событие</span>'}<span><span class="src clickup">ClickUp</span> задача со временем</span>${d.cu_only?'':'<span><span class="culink">🔗 ClickUp</span> карточка, привязанная к событию (справа)</span>'}</div></div>`;
  h+=`<div class="card tl-wrap"><div class="tl" id="tl" style="height:${24*PX}px">`;
  for(let i=0;i<24;i++)h+=`<div class="tl-h" style="top:${i*PX}px"><span>${String(i).padStart(2,'0')}:00</span></div>`;
  xs.forEach(({e,s,en,l,n})=>{const top=Math.max(0,(s-d0)/36e5*PX),bot=Math.min(24*PX,(en-d0)/36e5*PX),ht=Math.max(22,bot-top);
@@ -431,6 +442,40 @@ function calendar(d){const ev=(d.events||[]).filter(e=>!e.all_day),now=new Date(
  document.querySelectorAll('[data-nav]').forEach(b=>b.onclick=()=>{const a=b.dataset.nav;calDay=a==='today'?today:a==='tmr'?tmr:calAdd(calDay,+a);calendar(d)});
  const pk=$('#calpick');pk.onchange=()=>{if(pk.value){calDay=pk.value;calendar(d)}};
  const sc=k===today?Math.max(0,(now-d0)/36e5*PX-120):7*PX;requestAnimationFrame(()=>{const w=document.querySelector('.tl-wrap');if(w)w.scrollTop=sc})}
-function render(){kill();Dash.save();controls();const d=Dash.D.directions.find(x=>x.id===S.tab);d?(d.kind==='people'?people(d):d.kind==='calendar'?calendar(d):direction(d)):overview();$('#foot').textContent=Dash.fxFooter();}
+/* ===== Режим «Сегодня» (Rost 25.10): рабочий экран; неделя/месяц — только сводка ===== */
+const calDir=()=>Dash.D.directions.find(x=>x.kind==='calendar');
+const tIdOf=u=>{const m=/[?&]t=([^&#]+)/.exec(u||'');return m?m[1]:null};
+function listOwner(){const D=Dash.D,cnt={};D.directions.forEach(d=>(d.tasks||[]).forEach(t=>{if(!t.list)return;(cnt[t.list]=cnt[t.list]||{})[d.id]=(cnt[t.list][d.id]||0)+1}));
+ const o={};Object.entries(cnt).forEach(([l,c])=>{o[l]=Object.entries(c).sort((a,b)=>b[1]-a[1])[0][0]});return o}
+function evDirs(e){const D=Dash.D,lo=listOwner(),out=new Set();
+ const byId=id=>D.directions.forEach(d=>(d.tasks||[]).forEach(t=>{if(t.id===id)out.add(d.id)}));
+ [e,...(e.cu||[])].forEach(x=>{const id=tIdOf(x.url);if(id)byId(id);if(x.list&&lo[x.list])out.add(lo[x.list])});return out}
+function todayEvents(dirId){const c=calDir();if(!c)return [];const today=bDay(new Date().toISOString()),d0=new Date(today+'T00:00:00-05:00').getTime(),d1=d0+864e5;
+ return (c.events||[]).filter(e=>!e.all_day).map(e=>{const s=new Date(e.start).getTime(),en=e.end?new Date(e.end).getTime():s+30*6e4;return{e,s,en}}).filter(o=>o.en>d0&&o.s<d1&&(!dirId||evDirs(o.e).has(dirId))).sort((a,b)=>a.s-b.s)}
+function agendaHTML(xs,empty){if(!xs.length)return `<div class="empty">${empty}</div>`;const now=Date.now();
+ return xs.map(({e,s,en})=>{const tm=e.due?'до '+bTime(e.start):bTime(e.start)+(e.end?'–'+bTime(e.end):'');const t=e.url?`<a href="${e.url}" target="_blank" rel="noopener">${esc(e.title)}</a>`:esc(e.title);
+  const cu=(e.cu||[]).map(c=>` <a class="culink" href="${c.url}" target="_blank" rel="noopener">🔗 ${esc(c.title)}</a>`).join('');
+  return `<div class="ag ${en<now?'past':''} ${s<=now&&now<en?'now':''}"><span class="tm">${tm}</span><span class="src ${e.src}">${e.src==='gcal'?'Google':'ClickUp'}</span><span style="flex:1">${t}${e.list?` <span class="st">${esc(e.list)}</span>`:''}${cu}</span></div>`}).join('')}
+const openT=ts=>(ts||[]).filter(t=>!DONE.test(String(t.status||'')));
+const dueToday=ts=>openT(ts).filter(t=>t.due===TODAY),overdue=ts=>openT(ts).filter(t=>t.due&&t.due<TODAY).sort((a,b)=>(prioRank[a.priority]-prioRank[b.priority])||String(a.due).localeCompare(b.due));
+const toWeek=(l='сводка за неделю →')=>`<button class="tolink" data-tow="1">${l}</button>`;
+function bindToday(){document.querySelectorAll('[data-tow]').forEach(b=>b.onclick=()=>{S.mode='week';render()});document.querySelectorAll('[data-calgo]').forEach(b=>b.onclick=()=>{S.tab='calendar';calDay=null;render()});
+ document.querySelectorAll('.tdcard,.attn .go').forEach(c=>c.onclick=()=>{S.tab=c.dataset.t;render();scrollTo({top:0,behavior:'smooth'})})}
+function overviewToday(){const D=Dash.D,dirs=D.directions.filter(d=>d.kind!=='calendar'),c=calDir(),ag=todayEvents();
+ const allT=[...dirs.flatMap(d=>(d.tasks||[]).map(t=>({...t,name:d.icon+' '+t.name}))),...D.overview.tasks];
+ let h=attnOverviewHTML()+`<div class="grid g2"><div class="card"><div class="today-h"><h3 style="margin:0">📅 Сегодня по календарю</h3>${c?'<button class="tolink" data-calgo="1">таймлайн дня →</button>':''}</div><div style="margin-top:8px">${c?agendaHTML(ag,'На сегодня событий со временем нет в снимке.'):'<div class="empty">Календарь скрыт</div>'}</div></div>
+ <div class="card"><h3>Задачи ClickUp · срок сегодня</h3>${tasksHTML(dueToday(allT))}<h3 style="margin-top:14px">Просрочено <span class="st">${overdue(allT).length}</span></h3>${tasksHTML(overdue(allT).slice(0,8))}</div></div><div style="height:14px"></div><div class="grid g4">`;
+ dirs.forEach(d=>{const a=attn(d).filter(x=>x.cls!=='gap').length,dt=dueToday(d.tasks).length,ov=overdue(d.tasks).length,ev=c?todayEvents(d.id).length:0,me=(d.people||[]).flatMap(p=>(p.items||[]).filter(x=>/^\s*Я:/.test(x))).length;
+  h+=`<div class="card tdcard dircard" data-t="${d.id}" style="--glow:${d.color}"><div class="name">${stageDot(d)}${d.icon} ${esc(d.name)}</div><div class="sub">${esc(d.subtitle||'')}</div><div class="cnt">${a?`<span class="chip st-at" style="background:#ffe3e5;color:#b42318">🔴 ${a} внимание</span>`:''}${dt?`<span class="chip">сегодня ${dt}</span>`:''}${ov?`<span class="chip partial">просрочено ${ov}</span>`:''}${ev?`<span class="chip">📅 ${ev}</span>`:''}${me?`<span class="chip">Я: ${me}</span>`:''}${!a&&!dt&&!ov&&!ev&&!me?'<span class="chip full">на сегодня пусто</span>':''}</div></div>`});
+ h+=`</div>${stageLegend()}<div style="margin-top:12px">${toWeek('📊 сводка по деньгам за неделю →')}</div>`;
+ $('#main').innerHTML=h;bindToday()}
+function directionToday(d){const c=calDir(),ev=c?todayEvents(d.id):[],dt=dueToday(d.tasks),ov=overdue(d.tasks),rest=openT(d.tasks).filter(t=>!dt.includes(t)&&!ov.includes(t));
+ let h=`<div class="card" style="margin-bottom:14px;border-color:#bfe6f555;background:linear-gradient(135deg,#ecf8fd,var(--panel))"><div class="today-h"><div><div style="font-size:22px;font-weight:800">${stageDot(d)}${d.icon} ${esc(d.name)}</div><div class="note">${esc(d.subtitle||'')} · сегодня</div></div>${toWeek()}</div></div>`+attnHTML(d);
+ h+=`<div class="grid g2e"><div class="card"><div class="today-h"><h3 style="margin:0">📅 Сегодня в календаре</h3>${c?'<button class="tolink" data-calgo="1">таймлайн дня →</button>':''}</div><div style="margin-top:8px">${c?agendaHTML(ev,'Событий этого направления со временем на сегодня нет.'):'<div class="empty">Календарь скрыт</div>'}</div></div>
+ <div class="card"><h3>Срок сегодня · ClickUp</h3>${tasksHTML(dt)}<h3 style="margin-top:14px">Просрочено <span class="st">${ov.length}</span></h3>${tasksHTML(ov)}</div></div>`;
+ if(rest.length)h+=`<div style="height:14px"></div><div class="card"><h3>Остальные открытые задачи</h3>${tasksHTML(rest.sort((a,b)=>(prioRank[a.priority]-prioRank[b.priority])||String(a.due).localeCompare(b.due)))}</div>`;
+ if((d.monitors||[]).length)h+=`<div style="height:14px"></div><div class="card"><h3>Мониторы</h3>${d.monitors.map(x=>`<div class="task"><span class="pill ${x.status==='active'?'p-normal':'p-high'}">${x.status==='active'?'работает':'план'}</span><div style="flex:1"><b style="font-size:13.5px">${esc(x.name)}</b><div class="note">${esc(x.note||'')}</div></div></div>`).join('')}</div>`;
+ $('#main').innerHTML=h;bindToday()}
+function render(){kill();Dash.save();controls();const d=Dash.D.directions.find(x=>x.id===S.tab),td=S.mode==='today';d?(d.kind==='people'?people(d):d.kind==='calendar'?calendar(d):td?directionToday(d):direction(d)):td?overviewToday():overview();$('#foot').textContent=Dash.fxFooter();}
 Dash.load().then(()=>document.fonts.ready).then(render).catch(e=>{$('#main').innerHTML='<div class="card">Не удалось загрузить data.json: '+esc(e.message)+'</div>'});
 </script></body></html>
