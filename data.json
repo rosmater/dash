@@ -4,7 +4,7 @@
   "owner": "Rostyslav Yermakov",
   "city": "Medellín",
   "version": "0.1-mockup",
-  "generated_at": "2026-10-24T22:46-05:00",
+  "generated_at": "2026-10-24T22:47-05:00",
   "timezone": "America/Bogota",
   "default_week": "2026-10-19",
   "default_month": "2026-10",
@@ -2704,9 +2704,9 @@
      "src": "Rost, 24.10.2026"
     },
     {
-     "name": "Алехандра",
+     "name": "Алехандра Херерра",
      "icon": "👩",
-     "role": "Коучинг",
+     "role": "Коучинг · свой доход (OF + доп. продажи)",
      "status": "attention",
      "items": [
       "Взять под контроль",
@@ -2714,11 +2714,11 @@
      ],
      "src": "Rost, 24.10.2026",
      "cu": {
-      "id": "86baf556j",
-      "label": "AI Алехандра — генерация риллсов: как успехи? план? (ClickUp · OF)",
+      "id": "86bcn44nh",
+      "label": "Коучинг Алекса Херрера (ClickUp · Personal)",
       "status": "to do",
-      "url": "https://rosmater.github.io/cu/?t=86baf556j",
-      "fallback": "https://app.clickup.com/t/86baf556j"
+      "url": "https://rosmater.github.io/cu/?t=86bcn44nh",
+      "fallback": "https://app.clickup.com/t/86bcn44nh"
      }
     },
     {
