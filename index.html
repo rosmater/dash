@@ -355,7 +355,7 @@ function itemsHTML(items,cur){if(!items||!items.length)return '<div class="empty
 function direction(d){const cur=Dash.curOf(d),s=Dash.summary(d),m=S.mode,ser=Dash.series(d,m,cur,{onlyData:true,last:10});
  const kp=(l,v,sub,data,color,cls='')=>`<div class="card kpi" style="--glow:${color}"><div class="l">${l}</div><div class="v ${cls}">${v}</div><div class="s">${sub}</div><canvas class="sp" width="160" height="46" data-c="${color}" data-d='${JSON.stringify(data)}'></canvas></div>`;
  let h=`<div class="card" style="margin-bottom:14px;border-color:#bfe6f555;background:linear-gradient(135deg,#ecf8fd,var(--panel))"><div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;align-items:center"><div><div style="font-size:22px;font-weight:800">${d.icon} ${esc(d.name)}</div><div class="note">${esc(d.subtitle)} · ${esc(Dash.periodLabel())}</div></div>
- <div>${d.monthly_only?'<span class="chip">учёт только помесячно</span>':''}${s.has?`<span class="chip ${s.status}">${s.status==='partial'?'неделя/месяц не закрыт':'закрытый период'}</span>`:'<span class="chip">нет данных за период</span>'}${s.rec&&s.rec.source==='rollup'?`<span class="chip">свёртка ${s.rec.weeks} нед.</span>`:''}${s.rec&&s.rec.source==='explicit'&&m==='month'?'<span class="chip">итог месяца из источника</span>':''}</div></div></div>`+attnHTML(d)+ofBlocksHTML(d)+reBlocksHTML(d)+pepPlanHTML(d)+pepMonHTML(d,'ads')+pepMonHTML(d,'replies')+ledgerHTML(d)+pepMonHTML(d,'repeat');/* Rost 25.10: «Требует внимания» выше показателей; мониторы Пептидов под продажами */
+ <div>${d.monthly_only?'<span class="chip">учёт только помесячно</span>':''}${s.has?`<span class="chip ${s.status}">${s.status==='partial'?'неделя/месяц не закрыт':'закрытый период'}</span>`:'<span class="chip">нет данных за период</span>'}${s.rec&&s.rec.source==='rollup'?`<span class="chip">свёртка ${s.rec.weeks} нед.</span>`:''}${s.rec&&s.rec.source==='explicit'&&m==='month'?'<span class="chip">итог месяца из источника</span>':''}</div></div></div>`+attnHTML(d)+ofBlocksHTML(d)+reBlocksHTML(d)+tbkBlocksHTML(d)+pepPlanHTML(d)+pepMonHTML(d,'ads')+pepMonHTML(d,'replies')+ledgerHTML(d)+pepMonHTML(d,'repeat');/* Rost 25.10: «Требует внимания» выше показателей; мониторы Пептидов под продажами */
  if(!d.ledger)h+=`<div class="grid g4">${kp('Доход',fmt(s.income,cur),s.unknownInc?'есть продажи без суммы':'за период',ser.income,'#22d3a6')}${kp('Расходы',s.expensesKnown?fmt(s.expenses,cur):'—',s.expensesKnown?'учтённые':'нет данных о расходах',ser.expenses,'#ff5d7a')}
  ${kp('Прибыль',fmt(s.profit,cur),s.expensesKnown?'доход − расходы':'расходы не учтены',ser.profit,d.color,s.profit<0?'neg':'')}${kp('ROI',s.roi==null?'—':Dash.pct(s.roi),'прибыль / расходы',[],'#38bdf8',s.roi<0?'neg':'pos')}</div><div style="height:14px"></div>`;
  const mt=s.rec&&s.rec.metrics||{};
@@ -399,7 +399,7 @@ function repAttn(d){const R=d.repeat_sales;if(!R)return [];const out=[];(R.items
  else if(st==='pending_ping'&&x.kind==='due')out.push({grp:'🔁 Повторные продажи',text:x.client+' — пора повторную, '+who+' ещё не напомнили',url:R.cu_url,why:'пора',cls:''})});return out}
 const itemText=x=>typeof x==='string'?x:(x&&x.text)||'';const isYa=x=>/^\s*Я:/.test(itemText(x));const isChk=x=>x&&typeof x==='object'&&x.id&&localStorage.getItem('dash_check_'+x.id)==='1';
 function togChk(id,v){localStorage.setItem('dash_check_'+id,v?'1':'0');if(typeof render==='function')render();else location.reload()}
-function attn(d){const it=dataIssues(d).concat(repAttn(d)).concat(ofFarmAttn(d)).concat(reAttn(d));
+function attn(d){const it=dataIssues(d).concat(repAttn(d)).concat(ofFarmAttn(d)).concat(reAttn(d)).concat(tbkAttn(d));
  if(d.id==='defense'){(d.unanswered_replies||(d.board&&d.board.unanswered_replies)||[]).filter(r=>r&&r.status!=='scheduled'&&!r.scheduled_at).forEach(r=>{const who=r.company||r.from||'компания';const subj=r.subject||'ответ';it.push({grp:'Ответы без ответа',text:who+' — '+subj+(r.note?': '+r.note:''),url:r.url||null,why:'ответ',cls:''})});return it} // Rost 25.10: attn только если нужно решать сейчас; запланированный ответ/запуск — не attn
  (d.tasks||[]).forEach(t=>{const st=String(t.status||'');if(DONE.test(st))return;const over=t.due&&t.due<TODAY;let why=null;
   if(t.priority==='urgent')why='срочно'+(over?' · просрочено':'');else if(BLOCK.test(st))why='заблокировано';else if(t.priority==='high'&&over)why='высокий · просрочено';
@@ -621,6 +621,80 @@ function reBlocksHTML(d){if(d.id!=='realestate'||!d.re_blocks)return '';const B=
  const I=B.investors;if(I){h+=card(`${H('🤝 '+esc(I.title),esc(I.src||''))}
   ${I.people.map(p=>`<div class="task"><span class="pill p-high">${p.icon||''} ${esc(p.name)}</span><div style="flex:1">${p.items.map(x=>'<b style="font-size:13.5px">'+esc(x)+'</b>').join('<br>')}${p.debt!==undefined?`<div class="note">сумма долга: <b>${p.debt==null?'—':fmt(p.debt,p.debt_cur||'EUR')}</b>${p.debt_note?' · '+esc(p.debt_note):''}</div>`:''}${p.url?`<div class="note">${cul(p.url,'CU: '+(p.cu_label||p.cu))}</div>`:''}</div></div>`).join('')}`)}
  return h}
+function tbkAttn(d){const B=d.tbk_blocks;if(!B)return [];const out=[];/* Rost: attn только то, что требует действия сейчас; пустой 3-й слот и плановое — не attn */
+ ((B.decisions&&B.decisions.items)||[]).forEach(x=>{if(x.placeholder||!x.cu||DONE.test(String(x.status||'')))return;if(x.due&&x.due<TODAY)out.push({grp:'🧭 На решение',text:x.slot+' — '+x.name,url:x.url,why:'просрочено',cls:''})});
+ ((B.opt&&B.opt.problems)||[]).forEach(p=>{if(p.flag&&(p.weeks||0)>=4)out.push({grp:'💳 Дебиторка',text:p.name+' — '+Dash.num(p.amt)+' ₴ без движения '+p.weeks+' срезов',url:B.opt.url,why:'долг стоит',cls:''})});
+ return out}
+function tbkBlocksHTML(d){if(d.id!=='tabakevich'||!d.tbk_blocks)return '';const B=d.tbk_blocks,cur=Dash.curOf(d),$u=v=>v==null?'—':fmt(Dash.conv(v,'USD',cur),cur),n=v=>v==null?'—':esc(Dash.num(v)),uah=v=>v==null?'—':fmt(v,'UAH'),dd=s=>s?s.slice(8,10)+'.'+s.slice(5,7):'—';
+ const H=(t,sub)=>`<h3>${t}${sub?` <span class="st">${sub}</span>`:''}</h3>`,card=x=>`<div class="card" style="margin-bottom:14px">${x}</div>`;
+ const cul=(url,t)=>url?`<a href="${url}" target="_blank" rel="noopener">${esc(t)}</a>`:esc(t);
+ const mk=v=>v===true?'✅':v===false?'—':'<span class="note">?</span>';
+ const per=P=>(P||[]).map(p=>`<th class="n">${esc(p)}</th>`).join('');
+ const rg=(r,g)=>(r||[]).map((v,i)=>`<td class="n">${$u(v)}${g&&g[i]!=null&&v?`<div class="note">вал. ${$u(g[i])}</div>`:''}</td>`).join('');
+ const tbl=(head,rows)=>`<div class="tblwrap" style="margin-top:6px;overflow:auto"><table><tr>${head}</tr>${rows}</table></div>`;
+ let h='';
+ /* 1) На решение */
+ const Dc=B.decisions;if(Dc){h+=card(`${H('🧭 '+esc(Dc.title),'задачи для Rost')}
+  ${Dc.items.map(x=>x.placeholder?`<div class="task"><span class="pill p-normal">слот</span><div style="flex:1"><span class="note">${esc(x.slot)} — пусто</span></div></div>`:`<div class="task"><span class="pill p-high">${esc(x.status||'—')}</span><div style="flex:1"><b style="font-size:13.5px">${esc(x.slot)}</b><div>${cul(x.url,x.name)}</div><div class="note">срок ${dd(x.due)} · ${esc(x.who||'')} · CU ${esc(x.cu)}</div></div></div>`).join('')}
+  <div class="note">${esc(Dc.src||'')}</div>`)}
+ /* 2) Фин-сводки */
+ const F=B.fin;if(F){h+=card(`${H('📑 '+esc(F.title),'ссылки на отчёты')}
+  ${F.links.map(x=>`<div class="task"><span class="pill p-normal">${x.cu?'CU':'GSheet'}</span><div style="flex:1">${cul(x.url,x.label)}${x.status||x.due||x.note?`<div class="note">${[x.status?'статус '+esc(x.status):'',x.due?'срок '+dd(x.due):'',x.note?esc(x.note):''].filter(Boolean).join(' · ')}</div>`:''}</div></div>`).join('')}
+  ${F.kb?`<div class="note">выгрузки BAS / разборы: <span class="st">${esc(F.kb)}</span></div>`:''}`)}
+ /* 3) Интернет-магазин */
+ const E=B.eshop;if(E){h+=card(`${H('🛒 '+esc(E.title),'сайтов '+E.sites.length)}
+  ${tbl(`<th>Сайт</th><th>SEO</th><th>Контекст</th><th class="n">Товаров</th><th class="n">Текстов (прошл. мес)</th><th class="n">Купл. ссылок</th><th class="n">DR-срез</th><th class="n">Органика</th>`,
+   E.sites.map(s=>`<tr><td><b>${esc(s.name)}</b>${s.cu_site?`<div class="note">${cul('https://rosmater.github.io/cu/?t='+s.cu_site,'CU монитор')}</div>`:''}</td><td>${mk(s.seo)}<div class="note">${esc(s.seo_who||'')}</div></td><td>${mk(s.ctx)}${s.ctx_note?`<div class="note">${esc(s.ctx_note)}</div>`:''}</td><td class="n">${n(s.products)}</td><td class="n">${n(s.texts_last_month)}</td><td class="n">${n(s.links_bought)}</td><td class="n">${n(s.dr)}</td><td class="n">${s.organic?'см. ниже':'—'}</td></tr>`).join(''))}
+  ${E.sites.filter(s=>s.organic).map(s=>`<div class="note">🌱 <b>${esc(s.name)}</b> органика: ${esc(s.organic)}</div>`).join('')}${E.sites.filter(s=>s.seo_report).map(s=>`<div class="note">📝 <b>${esc(s.name)}</b> SEO-отчёт: ${esc(s.seo_report)}</div>`).join('')}
+  <div class="grp" style="font-weight:700;font-size:13px;margin:10px 0 4px">Выручка по сайтам (вал. прибыль под суммой)</div>
+  ${tbl(`<th>Сайт / канал</th>${per(E.periods)}<th class="n">Заказы (нед.)</th>`,
+   E.sites.map(s=>`<tr><td>${esc(s.name)}</td>${rg(s.rev,s.gp)}<td class="n">${n(s.orders&&s.orders[0])}${s.orders_note?'*':''}</td></tr>`).join('')+
+   (E.other||[]).map(s=>`<tr><td>${esc(s.name)}${s.note?`<div class="note">${esc(s.note)}</div>`:''}</td>${rg(s.rev,s.gp)}<td class="n">—</td></tr>`).join('')+
+   (E.total?`<tr><td><b>${esc(E.total.label)}</b></td>${rg(E.total.rev,E.total.gp)}<td class="n">—</td></tr>`:''))}
+  ${E.sites.filter(s=>s.orders_note).map(s=>`<div class="note">* ${esc(s.name)}: ${esc(s.orders_note)}</div>`).join('')}
+  ${E.orders_all?`<div class="note">Заказов всего по компании: неделя <b>${n(E.orders_all.w)}</b> · MTD <b>${n(E.orders_all.mtd)}</b> (${esc(E.orders_all.note)})</div>`:''}
+  <div class="note" style="margin-top:4px">${esc(E.missing||'')}</div><div class="note">${esc(E.src||'')}</div>`)}
+ /* 4) Дропшипперы */
+ const Dr=B.dropship;if(Dr){h+=card(`${H('📦 '+esc(Dr.title),'действующих '+Dr.list.length)}
+  ${tbl(`<th>Дропшиппер</th><th>с</th>${per(Dr.periods)}<th class="n">Заказы</th>`,Dr.list.map(x=>`<tr><td><b>${esc(x.name)}</b>${x.note?`<div class="note">${esc(x.note)}</div>`:''}</td><td>${esc(x.since?x.since.slice(8,10)+'.'+x.since.slice(5,7)+'.'+x.since.slice(2,4):'')}</td>${rg(x.rev,x.gp)}<td class="n">—</td></tr>`).join(''))}
+  <div class="note">${esc(Dr.alltime||'')}</div>
+  ${Dr.debt&&Dr.debt.length?`<div class="note">Долги дроп-клиентов (на 20.10): ${Dr.debt.map(x=>esc(x.name)+' <b>'+uah(x.amt)+'</b> (было '+uah(x.prev)+')').join(' · ')}</div>`:''}
+  <div class="note">${esc(Dr.src||'')}</div>`)}
+ /* 5) Маркетплейсы */
+ const M=B.marketplaces;if(M){h+=card(`${H('🏬 '+esc(M.title),'площадок '+M.list.length)}
+  ${tbl(`<th>Площадка</th>${per(M.periods)}<th class="n">Заказы</th>`,M.list.map(x=>`<tr><td><b>${esc(x.name)}</b>${x.note?`<div class="note">${esc(x.note)}</div>`:''}</td>${rg(x.rev,x.gp)}<td class="n">—</td></tr>`).join(''))}
+  <div class="note">${esc(M.src||'')}</div>`)}
+ /* 6) Менеджеры */
+ const Mg=B.managers;if(Mg){const C=Mg.calls,Ch=Mg.chats;h+=card(`${H('🎧 '+esc(Mg.title),esc(Mg.week))}
+  <div class="grp" style="font-weight:700;font-size:13px;margin:4px 0">Звонки (Binotel) — оценено ${n(C.scored)} из ${n(C.of)} (вх. ${n(C.inc)} / исх. ${n(C.out)})</div>
+  ${tbl('<th>Менеджер</th><th class="n">Оценка</th><th class="n">Звонков</th><th class="n">Плохих</th>',C.people.map(p=>`<tr><td>${esc(p.name)}</td><td class="n"><b>${p.pct}%</b></td><td class="n">${n(p.calls)}</td><td class="n">${n(p.bad)}</td></tr>`).join(''))}
+  <div class="note">${esc(C.note)} · ${cul(C.url,'CU '+C.cu)}</div>
+  <div class="grp" style="font-weight:700;font-size:13px;margin:10px 0 4px">Диалоги (HelpCrunch) — скорость ответа</div>
+  <div class="note">чатов <b>${n(Ch.chats)}</b> · обращений <b>${n(Ch.asks)}</b> · без ответа <b>${n(Ch.unanswered)}</b> · медиана <b>${esc(Ch.median)}</b> · ≤10 мин ${esc(Ch.le10)} · >4 ч <b>${n(Ch.gt4h)}</b> · худший ${esc(Ch.worst)} · 1-й ответ в новых (медиана) ${esc(Ch.first_new_median)} · оценки ${esc(Ch.ratings)}</div>
+  ${Ch.prev?`<div class="note">пред. ${esc(Ch.prev.week)}: чатов ${n(Ch.prev.chats)}, без ответа ${n(Ch.prev.unanswered)}, медиана ${esc(Ch.prev.median)}, >4 ч ${n(Ch.prev.gt4h)}</div>`:''}
+  ${tbl('<th>Менеджер</th><th class="n">Обращений</th><th class="n">Медиана</th><th class="n">>4 ч</th>',Ch.people.map(p=>`<tr><td>${esc(p.name)}</td><td class="n">${n(p.asks)}</td><td class="n">${esc(p.median)}</td><td class="n">${n(p.gt4h)}</td></tr>`).join(''))}
+  <div class="note">${esc(Mg.resp_trend||'')}</div><div class="note">${esc(Mg.stale_note||'')} · ${esc(C.src)} · ${esc(Ch.src)}</div>`)}
+ /* 7) Розница */
+ const R=B.retail;if(R){h+=card(`${H('🏪 '+esc(R.title),esc(R.shop))}
+  ${tbl(`<th></th>${per(R.periods)}`,`<tr><td>Выручка</td>${R.rev.map(v=>`<td class="n">${$u(v)}</td>`).join('')}</tr><tr><td>Валовая прибыль</td>${R.gp.map(v=>`<td class="n">${$u(v)}</td>`).join('')}</tr><tr><td>Маржа</td>${R.margin.map(v=>`<td class="n">${esc(v)}</td>`).join('')}</tr><tr><td>Единиц товара</td>${R.units.map(v=>`<td class="n">${n(v)}</td>`).join('')}</tr>`)}
+  <div class="note" style="margin-top:6px">Чеков: вчера <b>${n(R.checks.yesterday)}</b> · неделя <b>${n(R.checks.week)}</b> · месяц <b>${n(R.checks.month)}</b> — ${esc(R.checks_note)}</div>
+  <div class="note">${esc(R.src||'')}</div>`)}
+ /* 8) Опт + дебиторка */
+ const O=B.opt;if(O){const Db=O.debt;h+=card(`${H('🚚 '+esc(O.title),'срез '+esc(Db.col))}
+  <div class="note">Продажи опта по периодам: <b>—</b> — ${esc(O.sales_note||'')}</div>
+  <div style="display:flex;gap:18px;flex-wrap:wrap;margin:8px 0;align-items:baseline">
+   <div><div class="note">Общий долг (Инт+Фр+Опт)</div><div style="font-size:24px;font-weight:800">${uah(Db.total)}</div><div class="note">было ${uah(Db.prev_total)} (${esc(Db.prev_col)}) · Δ ${Db.delta>0?'+':''}${uah(Db.delta)}</div></div>
+   <div><div class="note">Вернули за неделю</div><div style="font-size:20px;font-weight:700;color:#127a3e">${uah(Db.repaid_week)}</div></div>
+   <div><div class="note">Дано в долг за неделю</div><div style="font-size:20px;font-weight:700;color:#b42318">${uah(Db.lent_week)}</div></div>
+   <div><div class="note">Опт / Франшиза / Интернет</div><div style="font-size:14px;font-weight:700">${uah(Db.opt)} / ${uah(Db.franchise)} / ${uah(Db.internet)}</div><div class="note">сотрудники ${uah(Db.staff)} · авансовые ${uah(Db.advances)}</div></div></div>
+  <div class="note">${esc(Db.flows_note)}</div>
+  <div class="grp" style="font-weight:700;font-size:13px;margin:10px 0 4px">Проблемные клиенты</div>
+  ${O.problems.map(p=>`<div class="task"><span class="pill ${p.flag?'p-urgent':'p-high'}">${p.weeks?p.weeks+' нед.':'рост'}</span><div style="flex:1"><b style="font-size:13.5px">${esc(p.name)}</b> — ${uah(p.amt)}<div class="note">${esc(p.note)}</div></div></div>`).join('')}
+  <div class="note" style="margin-top:4px">${esc(O.suppliers_note||'')}</div>
+  <details style="margin-top:8px"><summary style="cursor:pointer;font-weight:700;font-size:13px">Долг по срезам (${Db.history.length})</summary>${tbl('<th>Срез</th><th class="n">Интернет</th><th class="n">Франшиза</th><th class="n">Опт</th><th class="n">Итого</th>',Db.history.map(x=>`<tr><td>${esc(x.col)}</td><td class="n">${uah(x.internet)}</td><td class="n">${uah(x.franchise)}</td><td class="n">${uah(x.opt)}</td><td class="n"><b>${uah(x.total)}</b></td></tr>`).join(''))}</details>
+  <div class="note" style="margin-top:6px">${cul(O.url,'CU '+O.cu)} · ${esc(O.next||'')} · ${esc(O.src||'')}</div>`)}
+ h+=`<div class="note" style="margin:-6px 0 14px">Блоки Табакевича — снимок ${esc((B.fetched_at||'').slice(0,16).replace('T',' '))} Богота (UTC−5). ${esc(B._note||'')}</div>`;
+ return h}
 function ofBlocksHTML(d){if(d.id!=='of'||!d.of_blocks)return '';const B=d.of_blocks,cur=Dash.curOf(d),$u=v=>v==null?'—':fmt(Dash.conv(v,'USD',cur),cur),n=v=>v==null?'—':esc(Dash.num(v)),m=S.mode;
  const PL={today:'вчера',week:'неделя',month:'месяц'},pk=m==='today'||m==='week'||m==='month'?m:'week';
  const tile=(l,v,s,cls)=>`<div class="card kpi${cls?' bt '+cls:''}"><div class="l">${l}</div><div class="v" style="font-size:22px">${v}</div><div class="s">${s||''}</div></div>`;
@@ -723,7 +797,7 @@ function pepMonHTML(d,part){if(d.id!=='peptides')return '';const cur=Dash.curOf(
  /* Rost 25.10 ~10:25: порядок План работ → Монитор рекламы → Монитор ответов → Итого → Повторные */
  return part==='ads'?hAds:part==='replies'?hQ:part==='repeat'?hRep:hAds+hQ+hRep}
 function directionToday(d){const c=calDir(),ev=c?todayEvents(d.id):[],dt=dueToday(d.tasks),ov=overdue(d.tasks),rest=openT(d.tasks).filter(t=>!dt.includes(t)&&!ov.includes(t));
- let h=`<div class="card" style="margin-bottom:14px;border-color:#bfe6f555;background:linear-gradient(135deg,#ecf8fd,var(--panel))"><div class="today-h"><div><div style="font-size:22px;font-weight:800">${stageDot(d)}${d.icon} ${esc(d.name)}</div><div class="note">${esc(d.subtitle||'')} · сегодня</div></div>${toWeek()}</div></div>`+attnHTML(d)+ofBlocksHTML(d)+reBlocksHTML(d)+pepPlanHTML(d)+pepMonHTML(d,'ads')+pepMonHTML(d,'replies')+ledgerHTML(d)+pepMonHTML(d,'repeat');/* Rost 25.10: «Требует внимания» выше показателей; мониторы Пептидов под продажами */
+ let h=`<div class="card" style="margin-bottom:14px;border-color:#bfe6f555;background:linear-gradient(135deg,#ecf8fd,var(--panel))"><div class="today-h"><div><div style="font-size:22px;font-weight:800">${stageDot(d)}${d.icon} ${esc(d.name)}</div><div class="note">${esc(d.subtitle||'')} · сегодня</div></div>${toWeek()}</div></div>`+attnHTML(d)+ofBlocksHTML(d)+reBlocksHTML(d)+tbkBlocksHTML(d)+pepPlanHTML(d)+pepMonHTML(d,'ads')+pepMonHTML(d,'replies')+ledgerHTML(d)+pepMonHTML(d,'repeat');/* Rost 25.10: «Требует внимания» выше показателей; мониторы Пептидов под продажами */
  h+=`<div class="grid ${c?'g2e':''}">${c?`<div class="card"><div class="today-h"><h3 style="margin:0">📅 Сегодня в календаре</h3>${c?'<button class="tolink" data-calgo="1">таймлайн дня →</button>':''}</div><div style="margin-top:8px">${c?agendaHTML(ev,'Событий этого направления со временем на сегодня нет.'):'<div class="empty">Календарь скрыт</div>'}</div></div>`:''}
  <div class="card"><h3>Срок сегодня · ClickUp</h3>${tasksHTML(dt)}<h3 style="margin-top:14px">Просрочено <span class="st">${ov.length}</span></h3>${tasksHTML(ov)}</div></div>`;
  if(rest.length)h+=`<div style="height:14px"></div><div class="card"><h3>Остальные открытые задачи</h3>${tasksHTML(rest.sort((a,b)=>(prioRank[a.priority]-prioRank[b.priority])||String(a.due).localeCompare(b.due)))}</div>`;
