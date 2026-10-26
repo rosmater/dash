@@ -598,7 +598,7 @@ function reBlocksHTML(d){if(d.id!=='realestate'||!d.re_blocks)return '';const B=
   <div class="note">${esc(S_.note||'')} · ${esc(S_.src||'')}</div>`)}
  /* 3) Окупасы */
  const O=B.okupas;if(O){const M=O.market||[];
-  h+=card(`${H('🚪 '+esc(O.title),'наши объекты: '+O.ours.length)}
+  h+=card(`${H('🚪 '+esc(O.title),'квартир '+(O.count!=null?O.count:O.ours.reduce((a,o)=>a+(o.count_as||1),0))+' · карточек '+O.ours.length)}
   ${O.ours.map(o=>`<details style="border-top:1px solid var(--line);padding:6px 0"><summary style="cursor:pointer;font-size:13.5px"><b>${esc(o.name)}</b> <span class="note">· ${esc(o.city)} · ${esc(o.address)}</span> · <span class="st">${esc(o.stage)}</span></summary>
    <div class="note" style="margin:4px 0">последнее: ${esc(o.last||'—')}</div>${tk(o.cu)}
    <div class="note" style="margin-top:4px">этапы деокупации: ${o.steps.map(s=>(/заверш|complete/i.test(s.status)?'✅ ':'◻️ ')+esc(s.name)).join(' → ')}</div></details>`).join('')}

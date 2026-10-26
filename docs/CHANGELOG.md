@@ -1,3 +1,6 @@
+## 26.10.2026 ~01:30 Bogotá — Окупасы: 4 квартиры
+- Хуан 23 двойная (×2) + Новельда + Pasaje 3B; шапка блока показывает count=4.
+
 # Дашборд — история работ (CHANGELOG)
 Репо `rosmater/dash` → https://rosmater.github.io/dash/ (главный, Light A) и /dash/helper.html (помощница). Локальная работа: `/workspace/dashboard-mockup/`, пуш — когда версия ок. Детали решений — DECISIONS.md, рутины — ROUTINES.md.
 
