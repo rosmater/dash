@@ -384,7 +384,11 @@ const DONE=/complete|closed|done|выполн|закрыт/i,BLOCK=/block|бло
 const DAY_MS=864e5;function dataIssues(d){const out=[];const add=t=>out.push({grp:'⚠️ Данные не получены',text:t,why:'данные',cls:''});
  (d.data_issues||[]).forEach(add);
  const NM={ads_monitor:'Монитор рекламы',replies_monitor:'Монитор ответов',repeat_sales:'Повторные продажи',ledger:'Продажи/расходы',board:'Табло'};
- Object.entries(d).forEach(([k,v])=>{if(v&&typeof v==='object'&&!Array.isArray(v)&&v.stale===true)add((NM[k]||k)+': '+(v.stale_label||'данные устарели')+(v.last_verify&&v.last_verify!=='дата ?'?' (проверка '+v.last_verify+')':''))});
+ /* Rost 25.10: ads/replies «устарели» ≠ attn если просто пауза/нет перепроверки; attn только при cron_failed / fetch_failed */
+ Object.entries(d).forEach(([k,v])=>{if(!(v&&typeof v==='object'&&!Array.isArray(v)))return;
+  const fail=v.cron_failed===true||v.fetch_failed===true||v.routine_failed===true;
+  if(k==='ads_monitor'||k==='replies_monitor'){if(!fail)return;add((NM[k]||k)+': сбой крона/рутины'+(v.stale_label?' — '+v.stale_label:'')+(v.last_verify&&v.last_verify!=='дата ?'?' (проверка '+v.last_verify+')':''));return}
+  if(v.stale===true)add((NM[k]||k)+': '+(v.stale_label||'данные устарели')+(v.last_verify&&v.last_verify!=='дата ?'?' (проверка '+v.last_verify+')':''))});
  const old=(lbl,ts)=>{if(!ts)return;const t=Date.parse(String(ts).replace(' ','T'));if(isNaN(t))return;if(Date.now()-t>1.5*DAY_MS)add(lbl+': снимок от '+String(ts).slice(0,16).replace('T',' ')+' — синк не обновлялся')};
  const L=d.ledger;if(L){old('Продажи (GSheet)',L.fetched_at);old('Расходы (GSheet)',L.exp_fetched_at)}
  old('Google Calendar',d.gcal_fetched_at);old('ClickUp',d.cu_fetched_at);
