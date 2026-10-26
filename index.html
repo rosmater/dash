@@ -355,7 +355,7 @@ function itemsHTML(items,cur){if(!items||!items.length)return '<div class="empty
 function direction(d){const cur=Dash.curOf(d),s=Dash.summary(d),m=S.mode,ser=Dash.series(d,m,cur,{onlyData:true,last:10});
  const kp=(l,v,sub,data,color,cls='')=>`<div class="card kpi" style="--glow:${color}"><div class="l">${l}</div><div class="v ${cls}">${v}</div><div class="s">${sub}</div><canvas class="sp" width="160" height="46" data-c="${color}" data-d='${JSON.stringify(data)}'></canvas></div>`;
  let h=`<div class="card" style="margin-bottom:14px;border-color:#bfe6f555;background:linear-gradient(135deg,#ecf8fd,var(--panel))"><div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;align-items:center"><div><div style="font-size:22px;font-weight:800">${d.icon} ${esc(d.name)}</div><div class="note">${esc(d.subtitle)} · ${esc(Dash.periodLabel())}</div></div>
- <div>${d.monthly_only?'<span class="chip">учёт только помесячно</span>':''}${s.has?`<span class="chip ${s.status}">${s.status==='partial'?'неделя/месяц не закрыт':'закрытый период'}</span>`:'<span class="chip">нет данных за период</span>'}${s.rec&&s.rec.source==='rollup'?`<span class="chip">свёртка ${s.rec.weeks} нед.</span>`:''}${s.rec&&s.rec.source==='explicit'&&m==='month'?'<span class="chip">итог месяца из источника</span>':''}</div></div></div>`+attnHTML(d)+ofBlocksHTML(d)+pepPlanHTML(d)+pepMonHTML(d,'ads')+pepMonHTML(d,'replies')+ledgerHTML(d)+pepMonHTML(d,'repeat');/* Rost 25.10: «Требует внимания» выше показателей; мониторы Пептидов под продажами */
+ <div>${d.monthly_only?'<span class="chip">учёт только помесячно</span>':''}${s.has?`<span class="chip ${s.status}">${s.status==='partial'?'неделя/месяц не закрыт':'закрытый период'}</span>`:'<span class="chip">нет данных за период</span>'}${s.rec&&s.rec.source==='rollup'?`<span class="chip">свёртка ${s.rec.weeks} нед.</span>`:''}${s.rec&&s.rec.source==='explicit'&&m==='month'?'<span class="chip">итог месяца из источника</span>':''}</div></div></div>`+attnHTML(d)+ofBlocksHTML(d)+reBlocksHTML(d)+pepPlanHTML(d)+pepMonHTML(d,'ads')+pepMonHTML(d,'replies')+ledgerHTML(d)+pepMonHTML(d,'repeat');/* Rost 25.10: «Требует внимания» выше показателей; мониторы Пептидов под продажами */
  if(!d.ledger)h+=`<div class="grid g4">${kp('Доход',fmt(s.income,cur),s.unknownInc?'есть продажи без суммы':'за период',ser.income,'#22d3a6')}${kp('Расходы',s.expensesKnown?fmt(s.expenses,cur):'—',s.expensesKnown?'учтённые':'нет данных о расходах',ser.expenses,'#ff5d7a')}
  ${kp('Прибыль',fmt(s.profit,cur),s.expensesKnown?'доход − расходы':'расходы не учтены',ser.profit,d.color,s.profit<0?'neg':'')}${kp('ROI',s.roi==null?'—':Dash.pct(s.roi),'прибыль / расходы',[],'#38bdf8',s.roi<0?'neg':'pos')}</div><div style="height:14px"></div>`;
  const mt=s.rec&&s.rec.metrics||{};
@@ -399,7 +399,7 @@ function repAttn(d){const R=d.repeat_sales;if(!R)return [];const out=[];(R.items
  else if(st==='pending_ping'&&x.kind==='due')out.push({grp:'🔁 Повторные продажи',text:x.client+' — пора повторную, '+who+' ещё не напомнили',url:R.cu_url,why:'пора',cls:''})});return out}
 const itemText=x=>typeof x==='string'?x:(x&&x.text)||'';const isYa=x=>/^\s*Я:/.test(itemText(x));const isChk=x=>x&&typeof x==='object'&&x.id&&localStorage.getItem('dash_check_'+x.id)==='1';
 function togChk(id,v){localStorage.setItem('dash_check_'+id,v?'1':'0');if(typeof render==='function')render();else location.reload()}
-function attn(d){const it=dataIssues(d).concat(repAttn(d)).concat(ofFarmAttn(d));
+function attn(d){const it=dataIssues(d).concat(repAttn(d)).concat(ofFarmAttn(d)).concat(reAttn(d));
  if(d.id==='defense'){(d.unanswered_replies||(d.board&&d.board.unanswered_replies)||[]).filter(r=>r&&r.status!=='scheduled'&&!r.scheduled_at).forEach(r=>{const who=r.company||r.from||'компания';const subj=r.subject||'ответ';it.push({grp:'Ответы без ответа',text:who+' — '+subj+(r.note?': '+r.note:''),url:r.url||null,why:'ответ',cls:''})});return it} // Rost 25.10: attn только если нужно решать сейчас; запланированный ответ/запуск — не attn
  (d.tasks||[]).forEach(t=>{const st=String(t.status||'');if(DONE.test(st))return;const over=t.due&&t.due<TODAY;let why=null;
   if(t.priority==='urgent')why='срочно'+(over?' · просрочено':'');else if(BLOCK.test(st))why='заблокировано';else if(t.priority==='high'&&over)why='высокий · просрочено';
@@ -572,6 +572,55 @@ function cvTable(C,base,usd){if(!C||!C.sales_total)return '';const n=v=>v==null?
  ${C.undated&&C.undated.length&&!C.dialogs_exact?`<div class="note">· не учтено (нет даты старта): ${esc(C.undated.join('; '))}</div>`:''}<p class="note" style="margin:6px 0 0">продажи = наборы (UNIDADES)</p></details>`}
 /* Rost 25.10 23:33: ОФ — 4 блока: Ферма / ТС партнёрка / ОФТВ / Своя модель LolaPop. null → «—», ничего не выдумываем */
 function ofFarmAttn(d){const F=d.of_blocks&&d.of_blocks.farm;if(!F||!(F.idle>0))return [];return [{grp:'🌱 Ферма',text:'Не отработали '+F.idle+' живых акк.'+(F.current&&F.current.as_of?' (снимок '+F.current.as_of.slice(8,10)+'.'+F.current.as_of.slice(5,7)+')':''),why:'ферма',cls:'',url:F.cu_task&&F.cu_task.url}]}
+/* Rost 25.10 23:38: Недвижимость — блоки Цель / Solvia / Окупасы / Аренда / Инвесторы (данные src/re_blocks.json) */
+function reAttn(d){const S_=d.re_blocks&&d.re_blocks.solvia;if(!S_||S_.status!=='attention')return [];const u=S_.unread_count||0,o=S_.new_objects||0;return [{grp:'🏦 Solvia',text:'Непросмотрено: '+u+' письм.'+(o?' · новых объектов '+o:'')+(S_.fit_60k?' · под ≤60k: '+S_.fit_60k:' · под ≤60k нет'),why:'solvia',cls:'',url:S_.cu_url}]}
+function reBlocksHTML(d){if(d.id!=='realestate'||!d.re_blocks)return '';const B=d.re_blocks,n=v=>v==null?'—':esc(Dash.num(v)),dd=s=>s?s.slice(8,10)+'.'+s.slice(5,7):'—';
+ const H=(t,sub)=>`<h3>${t}${sub?` <span class="st">${sub}</span>`:''}</h3>`,card=x=>`<div class="card" style="margin-bottom:14px">${x}</div>`;
+ const badge=st=>st==='attention'?'<span class="pill p-urgent">требует внимания</span>':st==='ok'?'<span class="pill p-low" style="background:#e7f8ee;color:#127a3e">🟢 ок</span>':'<span class="pill p-normal">—</span>';
+ const cul=(url,t)=>url?`<a href="${url}" target="_blank" rel="noopener">${esc(t)}</a>`:esc(t);
+ const tk=ts=>ts&&ts.length?ts.map(t=>`<div class="task"><span class="pill p-normal">${esc(t.status||'—')}</span><div style="flex:1">${cul(t.url,t.name)}</div></div>`).join(''):'<div class="empty">открытых подзадач нет</div>';
+ let h='';
+ /* 1) Цель */
+ const G=B.goal;if(G){const F=G.fact||{},fu=F.amount!=null?Dash.conv(F.amount,F.cur,'USD'):null,pc=fu!=null?Math.round(fu/G.main.amount*100):null;
+  h+=card(`${H('🎯 '+esc(G.title),'основная цель в USD')}
+  <div style="display:flex;gap:14px;flex-wrap:wrap;align-items:baseline"><div style="font-size:26px;font-weight:800">${esc(G.main.label)}</div>
+  <div class="note">факт ${esc(F.period||'')}: <b>${F.amount!=null?fmt(F.amount,'EUR'):'—'}</b>${fu!=null?' ≈ <b>'+fmt(fu,'USD')+'</b> · '+pc+'% цели':''}${F.partial?' (месяц может быть неполным)':''}</div></div>
+  <div class="note">${esc(G.fact_note||'')}</div>
+  <details style="margin-top:8px"><summary style="cursor:pointer;font-weight:700;font-size:13px">Подцели (${G.sub.length})</summary>${G.sub.map(x=>`<div class="task"><span class="pill p-normal">цель</span><div style="flex:1"><b style="font-size:13.5px">${esc(x.text)}</b>${x.kb?`<div class="note">знания: ${esc(x.kb_label||x.kb)} <span class="st">${esc(x.kb)}</span></div>`:''}</div></div>`).join('')}</details>`)}
+ /* 2) Монитор Solvia */
+ const S_=B.solvia;if(S_){const st=S_.status;
+  h+=card(`${H('🏦 '+esc(S_.title),'письма-алерты + ClickUp')}
+  <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">${st==='attention'?'<span class="pill p-urgent">требует внимания</span>':st==='ok'?'<span class="pill" style="background:#e7f8ee;color:#127a3e">🟢 ок — непросмотренных нет, новых объектов нет</span>':'<span class="pill p-normal">нет данных</span>'}
+   <span class="note">непросмотрено: <b>${n(S_.unread_count)}</b> · новых объектов: <b>${n(S_.new_objects)}</b> · под ≤60k: <b>${n(S_.fit_60k)}</b></span></div>
+  ${(S_.pending||[]).map(x=>`<div class="task"><span class="pill p-high">${dd(x.date)}</span><div style="flex:1"><b style="font-size:13.5px">${esc(x.text)}</b><div class="note">${x.fit?'подходит под модель':'выше порога ≤60k'}</div></div></div>`).join('')}
+  <div class="note" style="margin-top:6px">CU: ${cul(S_.cu_url,S_.cu_name)} · статус <b>${esc(S_.cu_status||'—')}</b> · последний отчёт в CU ${dd(S_.last_cu_report_at)}${S_.last_cu_report?' — '+esc(S_.last_cu_report):''}</div>
+  <div class="note">${esc(S_.note||'')} · ${esc(S_.src||'')}</div>`)}
+ /* 3) Окупасы */
+ const O=B.okupas;if(O){const M=O.market||[];
+  h+=card(`${H('🚪 '+esc(O.title),'наши объекты: '+O.ours.length)}
+  ${O.ours.map(o=>`<details style="border-top:1px solid var(--line);padding:6px 0"><summary style="cursor:pointer;font-size:13.5px"><b>${esc(o.name)}</b> <span class="note">· ${esc(o.city)} · ${esc(o.address)}</span> · <span class="st">${esc(o.stage)}</span></summary>
+   <div class="note" style="margin:4px 0">последнее: ${esc(o.last||'—')}</div>${tk(o.cu)}
+   <div class="note" style="margin-top:4px">этапы деокупации: ${o.steps.map(s=>(/заверш|complete/i.test(s.status)?'✅ ':'◻️ ')+esc(s.name)).join(' → ')}</div></details>`).join('')}
+  ${M.length?`<details style="margin-top:8px"><summary style="cursor:pointer;font-weight:700;font-size:13px">Рынок: занятые (okupado) объекты Мурсии — справочно (${M.length})</summary><div class="tblwrap" style="margin-top:6px;max-height:360px;overflow:auto"><table><tr><th>Адрес</th><th>Тип</th><th class="n">м²</th><th class="n">Цена</th><th>Источник</th></tr>${M.map(x=>`<tr><td>${x.url?`<a href="${esc(x.url)}" target="_blank" rel="noopener">${esc(x.address||'—')}</a>`:esc(x.address||'—')}</td><td>${esc(x.type||'')}</td><td class="n">${n(x.m2)}</td><td class="n">${x.price!=null?fmt(x.price,'EUR'):'—'}</td><td>${esc(x.src)}${x.own&&!/^100/.test(x.own)?' · '+esc(x.own):''}</td></tr>`).join('')}</table></div><div class="note">${esc(O.market_src||'')}</div></details>`:''}`)}
+ /* 4) Аренда */
+ const R=B.rent;if(R){const fl=R.flats||[],na=fl.filter(f=>f.status==='attention').length;
+  h+=card(`${H('🔑 '+esc(R.title),'квартир '+fl.length+(na?' · требуют внимания '+na:''))}
+  <div class="grp" style="font-weight:700;font-size:13px;margin:4px 0">Свободные к сдаче (${R.free.length})</div>
+  ${R.free.length?R.free.map(x=>`<div class="task"><span class="pill p-high">с ${dd(x.since)}</span><div style="flex:1">${cul(x.url,x.unit)}<div class="note">${esc(x.note||'')}${x.verified===false?' · не перепроверено после '+dd(x.since):''}</div></div></div>`).join(''):'<div class="empty">свободных нет</div>'}
+  <div class="grp" style="font-weight:700;font-size:13px;margin:10px 0 4px">Квартиры в аренде</div>
+  ${fl.map(f=>`<details style="border-top:1px solid var(--line);padding:6px 0"><summary style="cursor:pointer;font-size:13.5px">${badge(f.status)} <b>${esc(f.name)}</b> <span class="note">· ${f.units.length?esc(f.units.join(', ')):'юниты не указаны'}</span> · заполненность <b>${f.occ_pct==null?'—':f.occ_pct+'%'}</b>${f.problems.length?' · <span style="color:#b42318">'+esc(f.problems.join(' · '))+'</span>':''} · <span class="st">подзадач ${f.tasks.length}</span></summary>
+   <div class="note" style="margin:4px 0">карточка: ${cul(f.url,'ClickUp '+f.name)}${f.free_units&&f.free_units.length?' · свободно: '+esc(f.free_units.join(', ')):''}</div>${tk(f.tasks)}</details>`).join('')}
+  <div class="note" style="margin-top:4px">${esc(R.ua_note||'')} · заполненность «—» = занятость по юнитам не сведена (нет источника); 🟢 ок только при 100% и без проблем</div>
+  ${R.prep&&R.prep.length?`<details style="margin-top:8px"><summary style="cursor:pointer;font-weight:700;font-size:13px">В ремонте / подготовке — ещё не в аренде (${R.prep.length})</summary>${R.prep.map(x=>`<div class="task"><span class="pill p-normal">ремонт</span><div style="flex:1">${cul(x.url,x.name)}<div class="note">${esc(x.note||'')}</div></div></div>`).join('')}</details>`:''}
+  ${R.unknown&&R.unknown.length?`<div class="note" style="margin-top:6px">Карточки CU без открытых задач (статус аренды не сведён): ${esc(R.unknown.join(', '))}</div>`:''}
+  <div class="grp" style="font-weight:700;font-size:13px;margin:12px 0 4px">🚚 Жильцы на выселение (${R.evict.length})</div>
+  ${R.evict.map(x=>`<div class="task"><span class="pill p-urgent">${esc(x.status||'—')}</span><div style="flex:1"><b style="font-size:13.5px">${esc(x.who)}</b> <span class="note">· ${esc(x.where)}</span><div class="note">${esc(x.stage)} · ${cul(x.url,'CU')}</div></div></div>`).join('')}
+  ${R.other_pay&&R.other_pay.length?`<div class="note" style="margin-top:4px">Не платят (не выселение): ${R.other_pay.map(x=>'<b>'+esc(x.who)+'</b> — '+esc(x.stage)+' · '+cul(x.url,'CU')).join('; ')}</div>`:''}
+  <div class="note" style="margin-top:6px">${esc(R.src||'')}</div>`)}
+ /* 5) Инвесторы */
+ const I=B.investors;if(I){h+=card(`${H('🤝 '+esc(I.title),esc(I.src||''))}
+  ${I.people.map(p=>`<div class="task"><span class="pill p-high">${p.icon||''} ${esc(p.name)}</span><div style="flex:1">${p.items.map(x=>'<b style="font-size:13.5px">'+esc(x)+'</b>').join('<br>')}${p.debt!==undefined?`<div class="note">сумма долга: <b>${p.debt==null?'—':fmt(p.debt,p.debt_cur||'EUR')}</b>${p.debt_note?' · '+esc(p.debt_note):''}</div>`:''}${p.url?`<div class="note">${cul(p.url,'CU: '+(p.cu_label||p.cu))}</div>`:''}</div></div>`).join('')}`)}
+ return h}
 function ofBlocksHTML(d){if(d.id!=='of'||!d.of_blocks)return '';const B=d.of_blocks,cur=Dash.curOf(d),$u=v=>v==null?'—':fmt(Dash.conv(v,'USD',cur),cur),n=v=>v==null?'—':esc(Dash.num(v)),m=S.mode;
  const PL={today:'вчера',week:'неделя',month:'месяц'},pk=m==='today'||m==='week'||m==='month'?m:'week';
  const tile=(l,v,s,cls)=>`<div class="card kpi${cls?' bt '+cls:''}"><div class="l">${l}</div><div class="v" style="font-size:22px">${v}</div><div class="s">${s||''}</div></div>`;
@@ -674,7 +723,7 @@ function pepMonHTML(d,part){if(d.id!=='peptides')return '';const cur=Dash.curOf(
  /* Rost 25.10 ~10:25: порядок План работ → Монитор рекламы → Монитор ответов → Итого → Повторные */
  return part==='ads'?hAds:part==='replies'?hQ:part==='repeat'?hRep:hAds+hQ+hRep}
 function directionToday(d){const c=calDir(),ev=c?todayEvents(d.id):[],dt=dueToday(d.tasks),ov=overdue(d.tasks),rest=openT(d.tasks).filter(t=>!dt.includes(t)&&!ov.includes(t));
- let h=`<div class="card" style="margin-bottom:14px;border-color:#bfe6f555;background:linear-gradient(135deg,#ecf8fd,var(--panel))"><div class="today-h"><div><div style="font-size:22px;font-weight:800">${stageDot(d)}${d.icon} ${esc(d.name)}</div><div class="note">${esc(d.subtitle||'')} · сегодня</div></div>${toWeek()}</div></div>`+attnHTML(d)+ofBlocksHTML(d)+pepPlanHTML(d)+pepMonHTML(d,'ads')+pepMonHTML(d,'replies')+ledgerHTML(d)+pepMonHTML(d,'repeat');/* Rost 25.10: «Требует внимания» выше показателей; мониторы Пептидов под продажами */
+ let h=`<div class="card" style="margin-bottom:14px;border-color:#bfe6f555;background:linear-gradient(135deg,#ecf8fd,var(--panel))"><div class="today-h"><div><div style="font-size:22px;font-weight:800">${stageDot(d)}${d.icon} ${esc(d.name)}</div><div class="note">${esc(d.subtitle||'')} · сегодня</div></div>${toWeek()}</div></div>`+attnHTML(d)+ofBlocksHTML(d)+reBlocksHTML(d)+pepPlanHTML(d)+pepMonHTML(d,'ads')+pepMonHTML(d,'replies')+ledgerHTML(d)+pepMonHTML(d,'repeat');/* Rost 25.10: «Требует внимания» выше показателей; мониторы Пептидов под продажами */
  h+=`<div class="grid ${c?'g2e':''}">${c?`<div class="card"><div class="today-h"><h3 style="margin:0">📅 Сегодня в календаре</h3>${c?'<button class="tolink" data-calgo="1">таймлайн дня →</button>':''}</div><div style="margin-top:8px">${c?agendaHTML(ev,'Событий этого направления со временем на сегодня нет.'):'<div class="empty">Календарь скрыт</div>'}</div></div>`:''}
  <div class="card"><h3>Срок сегодня · ClickUp</h3>${tasksHTML(dt)}<h3 style="margin-top:14px">Просрочено <span class="st">${ov.length}</span></h3>${tasksHTML(ov)}</div></div>`;
  if(rest.length)h+=`<div style="height:14px"></div><div class="card"><h3>Остальные открытые задачи</h3>${tasksHTML(rest.sort((a,b)=>(prioRank[a.priority]-prioRank[b.priority])||String(a.due).localeCompare(b.due)))}</div>`;
