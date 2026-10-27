@@ -1,0 +1,28 @@
+{
+  "fetched_at": "2026-10-27T18:42:00-05:00",
+  "src": "ClickUp Defense Systems space 90148618420",
+  "checked": "filter open Defense: urgent 86bctg47u; call 86bctgc67 14:00–15:00 Bogotá (Defense agent)",
+  "urgent_tasks": [
+    {
+      "id": "86bctg47u",
+      "name": "Подготовить каталог, взять актуальные данные у Александра",
+      "url": "https://app.clickup.com/t/86bctg47u",
+      "status": "to do",
+      "priority": "urgent",
+      "due": "2026-11-03",
+      "due_t": "04:00"
+    }
+  ],
+  "scheduled_calls": [
+    {
+      "id": "86bctgc67",
+      "name": "Созвон Dronamex — Juan Carlos Pérez Juárez",
+      "url": "https://app.clickup.com/t/86bctgc67",
+      "status": "to do",
+      "due": "2026-10-28",
+      "due_t": "15:00",
+      "start": "2026-10-28T14:00",
+      "note": "14:00–15:00 Богота / 13:00–14:00 CDMX (Meet-приглашение)"
+    }
+  ]
+}
