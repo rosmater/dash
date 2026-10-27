@@ -1176,7 +1176,7 @@ function maRtQ(b){const R=b.routines||[],F=R.filter(r=>r.st==='fail'),O=R.filter
  const rli=r=>`<li>${r.st==='fail'?'🔴':r.st==='new'?'⚪':'🟢'} <b>${esc(r.name)}</b> <span class="note" style="font-size:10px" title="последний запуск">(${r.last?esc(r.last):'посл. запуск: нет данных'})</span> <span class="note">· ${esc(r.sched||'')}${r.note?' · '+esc(r.note):''}${r.st==='new'?' · ещё не запускалась':''}</span></li>`;
  if(O.length)h+=`<details class="okfold"><summary>🟢 Рутины · ок (${O.length})</summary><ul>${O.map(rli).join('')}</ul><div class="note">источник: ${esc(b.routines_src||'')}</div></details>`;
  else if(b.routines_note)h+=`<div class="note">⚙️ Рутины: ${esc(b.routines_note)}</div>`;
- if(Q.length)h+=`<details class="okfold"><summary>📋 Задачи в очереди (${Q.length})</summary><ul>${Q.map(q=>`<li><span class="pill ${/blocked|waiting user|rost/i.test(q.st)?'st-open':'p-normal'}">${esc(q.st)}</span> ${esc(q.t)}</li>`).join('')}</ul><div class="note">источник: ${esc(b.queue_src||'')}</div></details>`;
+ if(Q.length)h+=`<details class="okfold"><summary>📋 Задачи в очереди (${Q.length})</summary><ul>${Q.map(q=>`<li><span class="pill ${/blocked|waiting user|rost/i.test(q.st)?'st-open':'p-normal'}">${esc(q.st)}</span> <span class="pill p-normal" style="opacity:.8">🤖 ${esc(q.bot||b.name||'')}</span> ${esc(q.t)}</li>`).join('')}</ul><div class="note">источник: ${esc(b.queue_src||'')}</div></details>`;
  return h}
 function botsTab(d){const B=d.bots||[];const open=B.reduce((a,b)=>a+(b.qs||[]).filter(q=>!q.answered).length,0);
  /* Rost 26.10: по каждому боту — выпадающий список: статус-чип + вопросы + задачи CU (for check) со статусами; 🟡 = свежие отчёты/обновления сегодня */
