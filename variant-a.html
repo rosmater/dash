@@ -29,6 +29,7 @@ nav.tabs button.on{color:color-mix(in srgb,var(--c,#7c5cff) 55%,#000);border-col
 .person .st-ok{background:#e6f7f0;color:#0b7a59;border-color:#bfe9d8}.person .st-at{background:#ffe3e5;color:#b42318;border-color:#f5c2c4}.person.at{border-color:#f5c2c4}.person ul{margin:8px 0 0;padding-left:18px;font-size:13.5px;line-height:1.5}
 .mx{margin-top:10px;border:1px solid var(--line);border-radius:14px;padding:10px 12px;background:#fafbff}.mx .goal{font-weight:700;font-size:13.5px;color:#0b5a73;background:#ecf8fd;border:1px solid #bfe6f5;border-radius:10px;padding:8px 10px;margin-bottom:8px}.mx .bar{height:8px;border-radius:6px;background:#eef0f6;overflow:hidden;margin:4px 0 2px}.mx .bar i{display:block;height:100%;background:#38bdf8}.mx h5{margin:10px 0 4px;font-size:11.5px;text-transform:uppercase;letter-spacing:.04em;color:var(--mut,#667085)}.mx table{width:100%;border-collapse:collapse;font-size:13px}.mx td{padding:5px 4px;border-top:1px dashed var(--line)}.mx td.v{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap;color:#98a2b3}.mx tr.tot td{font-weight:700;border-top:1px solid var(--line)}.mx tr.tot td.v{color:inherit}.mx tr.ex td{color:#98a2b3;font-style:italic}.mx .hint{display:block;font-size:11px;color:#98a2b3;font-style:normal;font-weight:400}
 .grid{display:grid;gap:14px;align-items:start}.g4{grid-template-columns:repeat(4,1fr)}.g2{grid-template-columns:2fr 1fr}.g2e{grid-template-columns:1fr 1fr}
+.dlgc h3{margin-bottom:6px}.dlgsts{display:flex;flex-wrap:wrap;gap:4px;margin:0 0 8px}.dlgst{font-size:10.5px;font-weight:700;padding:2px 7px;border-radius:99px;border:1px solid #f1d29a;color:#a5620a;background:#fffaf0;white-space:nowrap}.dlgst.ok{border-color:#a6e3c4;color:#127a4a;background:#f0fbf5}.dlgt{display:grid;grid-template-columns:auto 1fr 1fr;gap:4px 6px;align-items:center}.dlgt .dh{font-size:11px;font-weight:700;color:var(--mut);text-align:center;letter-spacing:.04em}.dlgt .dl{font-size:12px;color:var(--mut);white-space:nowrap;padding-right:4px}.dlgt .dc{background:linear-gradient(135deg,#f6f4ff,#fbfbfe);border:1px solid #ecebf7;border-radius:10px;padding:6px 8px;text-align:center;line-height:1.15}.dlgt .dc b{display:block;font-size:22px;font-weight:800;letter-spacing:-.02em}.dlgt .dc i{display:block;font-style:normal;font-size:10.5px;color:var(--mut);margin-top:1px}.dlgf{margin:8px 0 0;font-size:11.5px;line-height:1.35}
 .dlgrow{display:grid;grid-template-columns:minmax(240px,1fr) 2.6fr;gap:14px;align-items:stretch;margin-bottom:14px}.dlgrow>.card{margin-bottom:0!important}.dlgrow>.card:first-child .grid.g4{grid-template-columns:1fr}@media(max-width:900px){.dlgrow{grid-template-columns:1fr}}
 @media(max-width:980px){.g4{grid-template-columns:repeat(2,1fr)}.g2,.g2e{grid-template-columns:1fr}}
 @media(max-width:520px){.g4{grid-template-columns:1fr 1fr;gap:10px}.wrap{padding:14px 12px}.kpi .v{font-size:20px!important}}
@@ -917,13 +918,22 @@ function pepDlgHTML(d){if(d.id!=='peptides')return '';const T=d.dialogs_today||{
  const I=T.ig||{},ist=I.status||'missing',iLive=ist==='live'||ist==='snapshot',iN=T.ig_count;
  const igChip=iLive?'<span class="st" style="color:#127a4a;border-color:#a6e3c4">IG '+(ist==='live'?'считается':'снимок '+hm(I.as_of))+'</span>':'<span class="st" style="color:#a5620a;border-color:#f1d29a">IG ещё не считаем</span>';
  const nv=v=>v==null?'—':esc(Dash.num(v)),yd=dd(T.yesterday);
- return `<div class="card" style="margin-bottom:14px"><h3>💬 Диалогов сегодня <span class="st">WA</span>${stChip}${qChip} ${igChip}</h3>
- <div class="grid g4"><div class="card kpi"><div class="l">Сегодня · WhatsApp (уникальных)</div><div class="v">${N==null?'—':esc(Dash.num(N))}</div><div class="s">${N==null?'счётчик начнёт считать после установки':isToday&&T.count?'уведомлений '+esc(Dash.num(T.events||0))+' · первое '+hm(T.first_event_at)+' · последнее '+hm(T.last_event_at):'сегодня ещё никто не писал'}</div></div>
- <div class="card kpi"><div class="l">Сегодня · Instagram Direct</div><div class="v">${nv(iN)}</div><div class="s">${iN==null?'ещё не считали (нет данных, не 0)':(T.ig_new_today!=null?'новых '+nv(T.ig_new_today)+' · ':'')+(I.as_of?'обновлено '+hm(I.as_of):'')}</div></div>
- <div class="card kpi"><div class="l">Новых вчера (${yd}) · WhatsApp</div><div class="v">${nv(T.yesterday_new_wa)}</div><div class="s">${T.yesterday_new_wa==null?'ночной сводки за вчера нет':'первое сообщение, по ночной WA-сводке'}</div></div>
- <div class="card kpi"><div class="l">Новых вчера (${yd}) · Instagram</div><div class="v">${nv(T.yesterday_new_ig)}</div><div class="s">${T.yesterday_new_ig==null?'IG до 27.10 не считали':'первое сообщение в Direct'}</div></div></div>
- <p class="note" style="margin:8px 0 0">${T.total_today!=null?'Всего сегодня WA+IG: <b>'+nv(T.total_today)+'</b>'+(iN==null?' (без IG)':'')+' · ':''}${T.yesterday_new_total!=null?'новых вчера WA+IG: <b>'+nv(T.yesterday_new_total)+'</b>'+(T.yesterday_new_ig==null?' (без IG)':''):''}${hist.length?'<br>WA по вотчеру, прошлые дни: '+hist.slice(0,5).map(h=>dd(h.date)+': <b>'+esc(Dash.num(h.count||0))+'</b>').join(' · '):''}</p>
- <p class="note" style="margin:4px 0 0">${esc(T.definition||'')}${T.as_of?'<br>WA обновлено '+dd(T.as_of)+' '+hm(T.as_of):''}<br>Instagram: ${esc(I.definition||'')}</p></div>`}
+ /* Rost 27.10 t3908u: компактно — таблица 2×2 (Сегодня/Вчера × WA/IG), без простыни пояснений; чипы только статус */
+ const okDot=(ok,t)=>`<span class="dlgst ${ok?'ok':'wa'}">${t}</span>`;
+ const waSt=live?okDot(1,'WA ● вотчер'):okDot(0,st==='dry_run'?'WA тест-режим':'WA вотчера нет');
+ const igSt=iLive?okDot(1,'IG ● '+(ist==='live'?'live':'снимок')):okDot(0,'IG не считаем');
+ const qSt=quiet?okDot(0,'тихо >2 ч'):'';
+ const cell=(v,sub,tip)=>`<div class="dc"${tip?` title="${esc(tip)}"`:''}><b>${v}</b>${sub?`<i>${sub}</i>`:''}</div>`;
+ const waToday=N==null?'—':esc(Dash.num(N)),waSub=N!=null&&isToday&&T.count?hm(T.first_event_at)+'–'+hm(T.last_event_at):'';
+ const igSub=iN!=null&&T.ig_new_today!=null?'новых '+nv(T.ig_new_today):'';
+ const upd=[T.as_of?'WA '+hm(T.as_of):'',I.as_of?'IG '+hm(I.as_of):''].filter(Boolean).join(' · ');
+ const prev=hist.slice(0,3).map(h=>dd(h.date)+': '+esc(Dash.num(h.count||0))).join(' · ');
+ return `<div class="card dlgc" style="margin-bottom:14px"><h3>💬 Диалогов сегодня</h3>
+ <div class="dlgsts">${waSt}${igSt}${qSt}</div>
+ <div class="dlgt"><div></div><div class="dh">WA</div><div class="dh">IG</div>
+ <div class="dl">Сегодня</div>${cell(waToday,waSub,'уникальные люди, написавшие сегодня (Bogotá)'+(T.events?' · уведомлений '+T.events:''))}${cell(nv(iN),igSub,I.definition||'')}
+ <div class="dl">Новых ${yd}</div>${cell(nv(T.yesterday_new_wa),'','по ночной WA-сводке')}${cell(nv(T.yesterday_new_ig),'','первое сообщение в Direct')}</div>
+ <div class="note dlgf">${T.total_today!=null?'Всего <b>'+nv(T.total_today)+'</b>':''}${upd?(T.total_today!=null?' · ':'')+'обновлено '+upd:''}${prev?'<br>Прошлые дни WA: '+prev:''}</div></div>`}
 /* Rost 26.10 ~20:55: «💬 Диалогов сегодня» и «💬 Монитор ответов» — в один ряд */
 function pepDlgRepRow(d){const a=pepDlgHTML(d),b=pepMonHTML(d,'replies');return a&&b?`<div class="dlgrow">${a}${b}</div>`:a+b}
 function pepMonHTML(d,part){if(d.id!=='peptides')return '';const cur=Dash.curOf(d),f=v=>v==null?'—':fmt(Dash.conv(v,'COP',cur),cur),n=v=>v==null?'—':esc(Dash.num(v)),dd=x=>x&&/^20/.test(x)?x.slice(8,10)+'.'+x.slice(5,7)+(x.length>10?' '+x.slice(11,16):''):esc(x||'—');
