@@ -441,6 +441,8 @@ function linesHTML(it,max=5){const grp={};it.forEach(x=>(grp[x.grp]=grp[x.grp]||
  const vis=[],hid=[];Object.entries(grp).forEach(([g,xs])=>xs.forEach((x,j)=>{const h=(j===0?`<div class="grp">${esc(g)}</div>`:'')+ln(x);(i++<max?vis:hid).push(h)}));
  return vis.join('')+(hid.length?`<details><summary>ещё ${hid.length}</summary>${hid.join('')}</details>`:'')}
 function attnHTML(d){const it=attn(d);if(!it.length)return '';
+ if(MA_KINDS.includes(d.kind)){const G={};it.forEach(x=>(G[x.grp]=G[x.grp]||[]).push(x));/* Rost 26.10: у ассистентов/мессенджеров — свёрнутый ▼ на каждого с количеством, чтобы блок не был огромным */
+  return `<div class="attn"><h4>🔴 Требует внимания · ${it.length}</h4>${Object.entries(G).map(([g,xs])=>`<details class="okfold"><summary><b>${esc(g)}</b> <span class="abadge">${xs.length}</span></summary>${xs.map(x=>`<div class="ln"><span class="why ${x.cls}">${esc(x.why)}</span>${x.url?`<a href="${x.url}" target="_blank" rel="noopener">${esc(x.text)}</a>`:`<span>${esc(x.text)}</span>`}</div>`).join('')}</details>`).join('')}</div>`}
  const nt=it.filter(x=>x.cls!=='gap').length;
  return `<div class="attn"><h4>🔴 Требует внимания · ${it.length}</h4>${linesHTML(it.filter(x=>x.cls!=='gap').concat(it.filter(x=>x.cls==='gap')),nt>5?nt:5)}</div>`}
 function attnOverviewHTML(){const a=attnAll();if(!a.n)return '';
