@@ -1057,8 +1057,8 @@ function directionToday(d){const c=calDir(),ev=c?todayEvents(d.id):[],dt=dueToda
 /* Rost 26.10: вкладки Мессенджеры + «Ассистенты · боты» (одна общая, Rost: «1 вкладки достаточно»; раньше только test-messengers-assistants.html). Только метаданные, тексты сообщений не показываются. */
 const MA_KINDS=['msgs','assistants','bots','unsorted'];
 /* Rost t4004u: короткие значки мессенджеров (полное имя — в подсказке) */
-const mSHORT=c=>/Telegram/.test(c)?'TG':/UKR/.test(c)?'WP UKR':/ESP/.test(c)?'WP ESP':/^WhatsApp$/.test(c)?'WP':/Viber/.test(c)?'Vib':/Tinder/.test(c)?'Tin':c;
-const mLBL=c=>{const k=/ClickUp/.test(c)?'cu':/Telegram/.test(c)?'tg':/UKR/.test(c)?'wu':/ESP/.test(c)?'we':/Viber/.test(c)?'vb':/Tinder/.test(c)?'tn':/mail/i.test(c)?'em':'';return `<span class="mlabel ml-${k}" title="${esc(c)}">${esc(mSHORT(c))}</span>`};
+const mSHORT=c=>/telegram/i.test(c)?'TG':/UKR/.test(c)?'WP UKR':/ESP/.test(c)?'WP ESP':/^whatsapp$/i.test(c)?'WP':/viber/i.test(c)?'Vib':/tinder/i.test(c)?'Tin':c;
+const mLBL=c=>{const k=/ClickUp/.test(c)?'cu':/telegram/i.test(c)?'tg':/UKR/.test(c)?'wu':/ESP/.test(c)?'we':/viber/i.test(c)?'vb':/tinder/i.test(c)?'tn':/mail/i.test(c)?'em':'';return `<span class="mlabel ml-${k}" title="${esc(c)}">${esc(mSHORT(c))}</span>`};
 /* Rost t4004u: «(N дн.)» — сколько дней диалог висит; hang_since (YYYY-MM-DD Богота) пишет сборка (src/hang_since.json), дни считаются от сегодняшней даты Боготы — сами растут каждый день */
 const bogDay=()=>new Date(Date.now()-5*3600e3).toISOString().slice(0,10);
 const hangD=r=>{const s=r&&r.hang_since;if(!s||rDone(r))return '';const n=Math.max(0,Math.round((Date.parse(bogDay())-Date.parse(String(s).slice(0,10)))/864e5));return isNaN(n)?'':`<span class="hdays" title="висит с ${esc(String(s).slice(0,10))} (Богота)">(${n} дн.)</span>`};
