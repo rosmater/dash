@@ -1290,8 +1290,8 @@ function maRtQ(b){const R=b.routines||[],F=R.filter(r=>r.st==='fail'),O=R.filter
 /* Rost 27.10 t3944u: «🔴 Требует внимания · N» = число открытых вопросов к Rost (видимые 🙋, после ✓ на даше). 0 → бейджа нет (статус сборки не форсит).
    t3949u: рутины отчитываются ок → не «⚪ нет данных», а 🟢/🔵 по факту; «нет данных» — только когда нет ни статуса, ни рутин. */
 function maROK(b){const R=b.routines||[];return R.length>0&&!R.some(r=>r.st==='fail')}
-function maSt(b,n,ST){if(n)return ['🔴 Требует внимания · '+n,'st-open'];let k=b.status;const busy=b.new_count||(b.tasks||[]).length||(b.qs||[]).some(q=>!q.answered)||(b.waiting||[]).length;
- if(k==='attention')k=busy?'working':'ok';if(k==='nodata'&&maROK(b))k=busy?'working':'ok';return ST[k]||ST.ok}
+function maSt(b,n,ST){if(n)return ['🔴 Требует внимания · '+n,'st-open'];let k=b.status;const busy=(b.queue||[]).some(q=>/in.?progress|чин/i.test(q.st||'')); /* Rost t3992u: нет 🙋 вопросов и упавших рутин → 🟢 всё ок (отчёты/for check/ждём других не делают «в работе»); 🔵 только если бот реально что-то делает (in progress / чинит в очереди) */
+ if(k==='attention'||k==='working')k=busy?'working':'ok';if(k==='nodata'&&maROK(b))k=busy?'working':'ok';return ST[k]||ST.ok}
 const BOT_ALIAS={'Оборонные':'Оборонка'};/* Rost t3948u: видимое имя */
 function botsTab(d){const B=d.bots||[];const open=B.reduce((a,b)=>a+(b.qs||[]).filter(q=>!q.answered).length,0);
  /* Rost 26.10: по каждому боту — выпадающий список: статус-чип + вопросы + задачи CU (for check) со статусами; 🟡 = свежие отчёты/обновления сегодня */
