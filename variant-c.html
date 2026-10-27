@@ -267,7 +267,9 @@ const Dash = (() => {
     const total = summary(dir, 'month', monthId, cur);
     return { weeks: ws, total, explicit: total.rec && total.rec.source === 'explicit' };
   }
-  return { rollup, load, S, save, get D() { return D; }, conv, curOf, pid, record, summary, series, goals, breakdowns, overview, periods, periodLabel, fmt, num, pct, esc, fxFooter, EX, PRI, trend, weeksOfMonth };
+  /* Rost 26.10: ↻ у вопросов — перечитать свежий data.enc.json без перезагрузки страницы (ключ уже в localStorage) */
+  async function reload() { document.getElementById('gate-out')?.remove(); D = await Gate.unlock((window.DASH_ENC || 'data.enc.json') + '?t=' + Date.now()); return D; }
+  return { reload, rollup, load, S, save, get D() { return D; }, conv, curOf, pid, record, summary, series, goals, breakdowns, overview, periods, periodLabel, fmt, num, pct, esc, fxFooter, EX, PRI, trend, weeksOfMonth };
 })();
 </script>
 <script>
