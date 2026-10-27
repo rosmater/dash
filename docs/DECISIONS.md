@@ -353,3 +353,5 @@ Rost asked: (1) ads Active+Archive (2) repeat sales «Пора делать по
 - CU на строке — только иконка (имя в подсказке), клик открывает задачу в ClickUp. Привязку делает бот по слову Rost (🔗 → чат Секретаря) → запись в `src/msg_row_overrides.json` cu{key:{id,name,src:'rost'}}; ✕ = {unlinked:true} (глушит и binding из contacts).
 - Источник правды строк — `src/msg_row_overrides.json` (пишут sync_dash_taps и бот; применяет test_ma_build). Автосовпадения помечены src:auto + why.
 - Пункты внимания/вопросов — простым списком без рамок (t3973u). Рутина упала — те же 💬/✓/↻, что у вопросов (t3972u).
+
+- t3975u–t3977u (27.10 ~15:05 Bogotá): тег Личного — выпадающий список после выбора (выбор одного тега, мульти-теги авто показываются «быт + задача»); «Рутина упала» рендерится rtItem() как maQ (details.bq.bqd), подпункты в .okin (padding-left 16px); maLink — только 💬, имя в title.
