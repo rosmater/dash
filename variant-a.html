@@ -166,18 +166,27 @@ const Gate = (() => {
       g.innerHTML = `<form autocomplete="on"><div class="lg">🔒</div><h2>${window.DASH_TITLE || 'Бизнес-дашборд'}</h2><p>Введите пароль, чтобы открыть</p>
 <input type="text" name="username" value="rost" autocomplete="username" hidden>
 <div class="row"><input id="gate-pw" class="masked" type="text" lang="ru" inputmode="text" autocomplete="current-password" autocapitalize="off" autocorrect="off" spellcheck="false" enterkeyhint="go" placeholder="Пароль" autofocus><button type="button" class="eye" title="Показать пароль">👁</button></div>
+<button type="button" class="ru" style="margin:8px 0 0;padding:6px 12px;border:1.5px solid #cbd5e1;border-radius:10px;background:#fff;font-size:14px">⌨️ RU: выкл</button>
+<div class="hint" style="margin-top:4px">Нет русской раскладки? Включи RU и печатай латиницей на тех же клавишах (Ш=i, Е=t…).</div>
 <button class="go" type="submit">Открыть</button><div class="err"></div>
 <div class="hint">Один раз ввёл — на этом устройстве больше не спрашиваем (до «Выйти»).</div></form>`;
       document.body.appendChild(g);
       const f = g.querySelector('form'), i = g.querySelector('#gate-pw'), err = g.querySelector('.err'), go = g.querySelector('.go');
       g.querySelector('.eye').onclick = () => { i.classList.toggle('masked'); i.focus(); };
       setTimeout(() => i.focus(), 50);
+      const L2R = {q:'й',w:'ц',e:'у',r:'к',t:'е',y:'н',u:'г',i:'ш',o:'щ',p:'з','[':'х',']':'ъ',a:'ф',s:'ы',d:'в',f:'а',g:'п',h:'р',j:'о',k:'л',l:'д',';':'ж',"'":'э',z:'я',x:'ч',c:'с',v:'м',b:'и',n:'т',m:'ь',',':'б','.':'ю','`':'ё'};
+      const toRu = v => v.toLowerCase().split('').map(c => L2R[c] || c).join('');
+      let ru = false; const rb = g.querySelector('.ru');
+      rb.onclick = () => { ru = !ru; rb.textContent = '⌨️ RU: ' + (ru ? 'вкл' : 'выкл'); rb.style.background = ru ? '#e0e7ff' : '#fff'; if (ru) i.value = toRu(i.value); i.focus(); };
+      i.addEventListener('input', () => { if (ru) { const p = i.selectionStart; i.value = toRu(i.value); try { i.setSelectionRange(p, p); } catch (e3) {} } });
       f.onsubmit = async e => {
         e.preventDefault(); if (!i.value) return;
         go.disabled = true; go.textContent = 'Проверяю…'; err.textContent = '';
         try {
-          const key = await derive(i.value.trim().normalize('NFC').toLowerCase(), enc);
-          const data = await decrypt(enc, key);
+          const pv = i.value.trim().normalize('NFC').toLowerCase();
+          let key = await derive(pv, enc), data;
+          try { data = await decrypt(enc, key); }
+          catch (eL) { const pr = toRu(pv); if (pr === pv) throw eL; key = await derive(pr, enc); data = await decrypt(enc, key); }
           try { localStorage.setItem(LS, u2b(await crypto.subtle.exportKey('raw', key))); } catch (e2) {}
           g.remove(); document.body.classList.remove('gate-blur'); res(data);
         } catch (e1) {
@@ -1114,6 +1123,7 @@ function msgsTab(d){const G0=(d.messengers||[]).map(g=>({sphere:g.sphere,rows:(g
  const wfold=g=>`<details class="okfold" style="font-size:11px"><summary style="color:#9ca3af;font-weight:400">⏳ ждём ответ (${g.wt.length})</summary>${g.wt.length?`<ul style="font-size:11px">${g.wt.map(wli).join('')}</ul>`:'<div class="note">сейчас никого не ждём</div>'}<div class="note" style="font-size:10px">мы написали — ждём человека (эта сфера)</div></details>`;
  const zch=c=>/telegram/i.test(c)?'Telegram':/esp|business/i.test(c)?'WhatsApp ESP':/ukr|personal/i.test(c)?'WhatsApp UKR':/whatsapp/i.test(c)?'WhatsApp':c||'—';
  const zli=r=>{const wi=r.watcher_st==='red'?'🔴':r.watcher_st==='warn'?'🟡':r.watcher?'🟢':'';return `<li>${mLBL(r.channel)} <b>${esc(r.sender)}</b> <span class="note">· непрочитано: ${r.unread_chat??'нет данных'}${r.last?' · последн. '+esc(r.last.slice(5)):''}${r.watcher?` · ${wi} вочер: ${esc(r.watcher)}`:''}</span>${maLink(r.owner,r.owner_link,'Мессенджеры · без сообщений',r.channel+' · '+r.sender)}</li>`};
+ if(window.DASH_HELPER){$('#main').innerHTML=maHead(d,'',true)+maMonitor(d,G0);return}/* Rost t3933u: у ассистента только монитор */
  let h=maHead(d,'',true)+maMonitor(d,G0)+attnHTML(d)+(G.some(g=>g.rows.length)?'':'<div class="empty">Висящих сообщений нет</div>')+maGrid(G,g=>
   `<div class="card"><h3>${maSphT(g.sphere)}<span class="st">${g.rows.length} с сообщ.${g.wt.length?' · ⏳ '+g.wt.length+' ждём':''}${(g.zero.length+g.zc.length)?' · '+(g.zero.length+g.zc.length)+' без':''}</span></h3>`+g.rows.map(r=>maRowHTML(d,r)).join('')+wfold(g)+((g.zero.length+g.zc.length)?`<details class="okfold" style="font-size:11px"><summary style="color:#9ca3af;font-weight:400">▸ Без сообщений (${g.zero.length+g.zc.length})</summary><ul style="font-size:11px">${g.zero.map(zli).join('')}${g.zc.map(z=>`<li>${mLBL(zch(z.channel))} ${esc(z.title)}${z.status&&z.status!=='active'?` <span class="note">· ${esc(z.status)}</span>`:''}</li>`).join('')}</ul><div class="note" style="font-size:10px">контакты/чаты этой ниши из contacts (chats.csv), сейчас без висящих</div></details>`:'')+`</div>`)+maCov(d)+unsortedHTML(d)+maRecH(d);
  $('#main').innerHTML=h}
