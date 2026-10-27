@@ -355,3 +355,6 @@ Rost asked: (1) ads Active+Archive (2) repeat sales «Пора делать по
 - Пункты внимания/вопросов — простым списком без рамок (t3973u). Рутина упала — те же 💬/✓/↻, что у вопросов (t3972u).
 
 - t3975u–t3977u (27.10 ~15:05 Bogotá): тег Личного — выпадающий список после выбора (выбор одного тега, мульти-теги авто показываются «быт + задача»); «Рутина упала» рендерится rtItem() как maQ (details.bq.bqd), подпункты в .okin (padding-left 16px); maLink — только 💬, имя в title.
+
+## 27.10 Rost t4074–t4076 — закрыл QUEUE → само снимается с даша (все боты)
+- `[done]/[x]/[closed]` в QUEUE.md бота → `tap_relay.py` (60 с) → `queue_autoclear.py` → пересборка + push; `test_ma_build.py` убирает вопросы с `ctx: QUEUE.md <slug>`. Общее правило: `knowledge/rules/queue-close-clears-dash.md`. Новый бот — путь в `Q` и `_Q`.
