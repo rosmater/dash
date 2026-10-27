@@ -296,3 +296,5 @@ Rost asked: (1) ads Active+Archive (2) repeat sales «Пора делать по
 - IG DM → WA handoff (t459u): шаблон ES + https://wa.me/573108478347?text=Hola%2C%20quiero%20mi%20asesor%C3%ADa%20gratis в knowledge/peptides/ig-dm-to-wa-handoff.md. Авто-отправка выключена — решает parent.
 - 27.10 cu-dash-sort §2: src/cu_dated.json (из cu-rost-dated.csv; сопоставлено направлению, needs_sort=N, id ещё нигде нет в data.json) → d.cu_dated → свёрнутая карточка «🗂 ClickUp · задачи с датой · N» внизу вкладки направления (week/month/today/board), сортировка по due, просрочка красным, ДР/Celebraciones — вложенный свёрнутый блок. В attn НЕ входят (правило 25.10).
 - 27.10 (Rost t3887u–t3889u): игнор чата в дашборде = скрыт, кроме нового @-тега Rost (TG @username / WA-группа @имя); личка — до ручного возврата. Сфера Dating → «Дейтинг» 🩶.
+
+- **27.10 (Rost t3927–t3929, STANDING):** helper (ассистент) всегда обновляется вместе с main. Меню Мессенджеры/Ассистенты у helper НЕ убирать: в Мессенджерах только монитор (вочеры/покрытие), контент-блоки чатов вырезаны в data-asst; Ассистенты видны, скрыт только бот «Дейтинг». Конфиг: src/assistant_hide.json (messengers_monitor_only, hide_bots).
