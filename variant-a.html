@@ -1045,9 +1045,13 @@ function maToast(t){let c=document.getElementById('ctx');if(!c){c=document.creat
 function maGo(a){const t='[Из дашборда · '+(a.dataset.w||'')+'] '+(a.dataset.ctx||'');try{navigator.clipboard.writeText(t)}catch(e){}maToast('Открываю «'+(a.dataset.o||'бот')+'». Контекст скопирован — вставь в чат: '+t.slice(0,90));return true}
 const maLink=(own,link,where,ctx)=>link?`<a class="st" style="margin-left:6px" href="${esc(link)}" data-o="${esc(own||'')}" data-w="${esc(where)}" data-ctx="${esc(ctx)}" onclick="event.stopPropagation();return maGo(this)" title="Открыть чат «${esc(own||'')}» с контекстом">💬 ${esc(own||'бот')} ↗</a>`:'';
 const maSph=k=>{try{const v=localStorage.getItem('dash_sph_'+k)||'';return v==='Личное · Dating'?'Дейтинг':v}catch(e){return ''}};
+/* Rost t3954u: тап по сфере/направлению — молча сохранить; раскрытые списки НЕ сворачивать (сворачивает только сам Rost), без тоста */
+function keepOpen(fn){const key=e=>{const m=e.querySelector(':scope>summary');return (m?m.textContent:'').replace(/[\d\s·()]+/g,' ').trim().slice(0,60)};
+ const O=new Map();document.querySelectorAll('#main details').forEach(e=>{const k=key(e);O.set(k,(O.get(k)||[]).concat(e.open))});const y=scrollY;fn();
+ const C=new Map();document.querySelectorAll('#main details').forEach(e=>{const k=key(e),i=C.get(k)||0;C.set(k,i+1);const L=O.get(k);if(L&&i<L.length)e.open=L[i]});scrollTo(0,y)}
 function maSetSph(btn){const k=btn.dataset.k,v=btn.dataset.v;localStorage.setItem('dash_sph_'+k,maSph(k)===v?'':v);
  try{navigator.clipboard.writeText('[Из дашборда · Нерассортированные] «'+btn.dataset.t+'» ('+btn.dataset.c+') → сфера: '+v+'. Запиши в contacts (chats.csv direction).')}catch(e){}
- maToast('«'+btn.dataset.t+'» → '+v+'. Сохранено в браузере; текст для бота скопирован.');render()}
+ keepOpen(render)}
 /* Rost 27.10 t3887u–t3889u: 🔕 «игнор» чата в сортировке. Игнорируемый чат скрыт отовсюду (Нерассортированные, сферы, бейдж),
    снова виден ТОЛЬКО если в новом сообщении тебя @-тегнули (TG: @username; WA-группа: @имя), т.е. mention_at > max(ignored_at, seen_at).
    Личка (kind='dm'): тегов нет → скрыта, пока сам не вернёшь. Модель: d.ignored=[{id:'канал|чат',channel,title,kind:'dm|group|?',ignored_at,mention_at?}]
