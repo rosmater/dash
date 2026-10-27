@@ -427,7 +427,7 @@ function repAttn(d){const R=d.repeat_sales;if(!R)return [];const out=[];(R.items
  else if(st==='pending_ping'&&x.kind==='due')out.push({grp:'🔁 Повторные продажи',text:x.client+' — пора повторную, '+who+' ещё не напомнили',url:R.cu_url,why:'пора',cls:''})});return out}
 const itemText=x=>typeof x==='string'?x:(x&&x.text)||'';const isYa=x=>/^\s*Я:/.test(itemText(x));const isChk=x=>x&&typeof x==='object'&&x.id&&localStorage.getItem('dash_check_'+x.id)==='1';
 function togChk(id,v){localStorage.setItem('dash_check_'+id,v?'1':'0');if(typeof render==='function')render();else location.reload()}
-function attn(d){if(MA_KINDS.includes(d.kind))return maAttn(d);const it=dataIssues(d).concat(repAttn(d)).concat(ofFarmAttn(d)).concat(reAttn(d)).concat(tbkAttn(d)).concat(persAttn(d));
+function attnRaw(d){if(MA_KINDS.includes(d.kind))return maAttn(d);const it=dataIssues(d).concat(repAttn(d)).concat(ofFarmAttn(d)).concat(reAttn(d)).concat(tbkAttn(d)).concat(persAttn(d));
  if(d.id==='defense'){(d.unanswered_replies||(d.board&&d.board.unanswered_replies)||[]).filter(r=>r&&r.status!=='scheduled'&&!r.scheduled_at).forEach(r=>{const who=r.company||r.from||'компания';const subj=r.subject||'ответ';it.push({grp:'Ответы без ответа',text:who+' — '+subj+(r.note?': '+r.note:''),url:r.url||null,why:'разобрать',cls:''})});return it} // Rost 25.10: attn только если нужно решать сейчас; запланированный ответ/запуск — не attn
  (d.tasks||[]).forEach(t=>{const st=String(t.status||'');if(DONE.test(st))return;const over=t.due&&t.due<TODAY;let why=null;
   if(t.priority==='urgent')why='срочно'+(over?' · просрочено':'');else if(BLOCK.test(st))why='заблокировано';else if(t.priority==='high'&&over)why='высокий · просрочено';
@@ -437,20 +437,46 @@ function attn(d){if(MA_KINDS.includes(d.kind))return maAttn(d);const it=dataIssu
  if(d.board){const b=boardSt(d.board);if(b.stale)it.push({grp:'Рассылка',text:b.why,why:'данные',cls:''})} // Rost 25.10: 0 писем вчера / запланированный запуск ≠ attn; attn только stale/сбой данных
  if(d.kind!=='people'&&S.mode!=='today'){const s=Dash.summary(d);if(s.has&&s.status==='partial')it.push({grp:'Период',text:'«'+Dash.periodLabel()+'» не закрыт — данные частичные',why:'частично',cls:'gap'})}
  return it}
+/* Rost 26.10 21:20: на ВСЕХ «🔴 Требует внимания» у каждой строки — 💬 в чат (единственная навигация) / ✓ решено / ↻ обновить (button, без перехода в чат).
+   ✓ = сразу скрыть у тебя (localStorage dash_attn_v1) + текст проверки в буфер ответственному боту; запись стирается сама, когда пункта больше нет в данных (подтверждено). ↻ = перечитать data.enc.json на месте. */
+const ATK='dash_attn_v1',AT_OWN={defense:'Оборонные',peptides:'Пептид',of:'ОФ Маркетинг',personal:'Секретарь',realestate:'Секретарь',tabakevich:'Секретарь',coaching:'Секретарь',messengers:'Секретарь',assistants:'Секретарь',overview:'Секретарь'};
+let AT_REG=[];
+function atLS(){try{return JSON.parse(localStorage.getItem(ATK)||'{}')}catch(e){return {}}}
+function atSave(o){try{localStorage.setItem(ATK,JSON.stringify(o))}catch(e){}}
+const atKey=(d,x)=>(d.id||'overview')+'|'+x.grp+'|'+x.text;
+function attn(d){const it=attnRaw(d),O=atLS(),did=d.id||'overview',keys=new Set(it.map(x=>atKey(d,x)));let ch=false;
+ for(const k in O){if(O[k].dir===did&&!keys.has(k)){delete O[k];ch=true}}if(ch)atSave(O);
+ return it.filter(x=>!O[atKey(d,x)])}
+function atBot(d,x){const A=Dash.D&&Dash.D.directions.find(z=>z.kind==='bots'),B=(A&&A.bots)||[];let n=null;
+ const m=/^🤖 (.+)$/.exec(x.grp||'');if(m)n=m[1];else if(d.id==='of'&&/ферм|farm/i.test(x.grp||''))n='Фермовод';else n=AT_OWN[d.id||'overview']||'Секретарь';
+ return B.find(b=>b.name===n)||B.find(b=>b.name==='Секретарь')||null}
+function atBtns(d,x){const i=AT_REG.push({d,x})-1,b=atBot(d,x),ctx=`[Из дашборда · ${d.name||'Общий'} · 🔴 Требует внимания · ${x.grp}] ${x.why}: ${x.text}`;
+ const chat=b?`<a class="qchat" href="${esc(maPL(b,ctx))}" data-o="${esc(b.name)}" data-w="${esc((d.name||'Общий')+' · внимание')}" data-ctx="${esc(x.grp+' — '+x.text)}" onclick="event.stopPropagation();return maGo(this)" title="Открыть чат «${esc(b.name)}» по этой строке">💬 в чат</a>`:'';
+ return `<span class="atb" style="margin-left:auto;display:inline-flex;gap:4px;flex:none">${chat}<button type="button" class="qchat qok" style="border:0;cursor:pointer;font-family:inherit" data-ai="${i}" onclick="event.preventDefault();event.stopPropagation();return atDone(this)" title="✓ Решено: сразу убрать, на проверку боту (чат не открывается)">✓</button><button type="button" class="qchat" style="border:0;cursor:pointer;font-family:inherit" data-ai="${i}" onclick="event.preventDefault();event.stopPropagation();return atRef(this)" title="↻ Обновить: перечитать данные даша (чат не открывается)">↻</button></span>`}
+function atLn(d,x){return `<div class="ln" style="display:flex;align-items:center;gap:6px;flex-wrap:wrap"><span class="why ${x.cls}">${esc(x.why)}</span>${x.url?`<a href="${x.url}" target="_blank" rel="noopener">${esc(x.text)}</a>`:`<span>${esc(x.text)}</span>`}${atBtns(d,x)}</div>`}
+function atDone(btn){const r=AT_REG[+btn.dataset.ai];if(!r)return false;const {d,x}=r,b=atBot(d,x),O=atLS(),k=atKey(d,x);O[k]={t:oqNow(),dir:d.id||'overview',dn:d.name||'Общий',grp:x.grp,text:x.text,bot:b?b.name:''};atSave(O);
+ const t=`[✓ Решено на дашборде · ${d.name||'Общий'} · ${x.grp}] ${x.why}: ${x.text} — Проверь и закрой в источнике (ClickUp/данные направления), затем пересобери даш. Если ещё не решено — верни пункт.`;
+ try{navigator.clipboard.writeText(t)}catch(e){}try{const A=JSON.parse(localStorage.getItem(OQA)||'[]');A.push({at:oqNow(),op:'attn-resolve',dir:d.id||'overview',grp:x.grp,q:x.text,bot:b?b.name:''});localStorage.setItem(OQA,JSON.stringify(A.slice(-50)))}catch(e){}
+ setTimeout(render,50);maToast('✓ убрано → на проверке'+(b?' у «'+b.name+'»':'')+'. Текст проверки в буфере. Если зря — ↩ в «На проверке».');return false}
+function atRef(btn){const r=AT_REG[+btn.dataset.ai];try{const A=JSON.parse(localStorage.getItem(OQA)||'[]');A.push({at:oqNow(),op:'attn-refresh',dir:r?(r.d.id||'overview'):'',q:r?r.x.text:''});localStorage.setItem(OQA,JSON.stringify(A.slice(-50)))}catch(e){}
+ maToast('↻ Перечитываю данные…');Dash.reload().then(()=>{render();maToast('↻ Данные перечитаны (сборка '+((Dash.D&&Dash.D.meta&&Dash.D.meta.generated_at)||'?')+')')}).catch(e=>maToast('↻ не удалось перечитать: '+e.message));return false}
+function atUndo(btn){const O=atLS(),k=btn.dataset.k;delete O[k];atSave(O);render();maToast('↩ вернул пункт на даш (у тебя в браузере)')}
+function atChk(d){const did=d.id||'overview',C=Object.entries(atLS()).filter(([k,e])=>e.dir===did);if(!C.length)return '';
+ return `<details class="okfold"><summary>☑ На проверке (${C.length})</summary>${C.map(([k,e])=>`<div class="ln" style="display:flex;gap:8px;align-items:center;opacity:.75"><span style="flex:1"><s>${esc(e.text)}</s> <span class="note" style="font-size:10px">(${esc(e.grp)} · ✓ ${esc(e.t)}${e.bot?' · '+esc(e.bot):''})</span></span><button type="button" class="qchat" style="border:0;cursor:pointer;font-family:inherit" data-k="${esc(k)}" onclick="event.stopPropagation();atUndo(this)">↩ вернуть</button></div>`).join('')}</details>`}
 function attnAll(){const D=Dash.D;const own=attn({tasks:D.overview.tasks});const per=D.directions.map(d=>({d,it:attn(d)}));return {own,per,n:own.length+per.reduce((a,x)=>a+x.it.length,0)}}
-function linesHTML(it,max=5){const grp={};it.forEach(x=>(grp[x.grp]=grp[x.grp]||[]).push(x));let out=[],i=0;
- const ln=x=>`<div class="ln"><span class="why ${x.cls}">${esc(x.why)}</span>${x.url?`<a href="${x.url}" target="_blank" rel="noopener">${esc(x.text)}</a>`:`<span>${esc(x.text)}</span>`}</div>`;
+function linesHTML(it,max=5,d){const grp={};it.forEach(x=>(grp[x.grp]=grp[x.grp]||[]).push(x));let out=[],i=0;
+ const ln=x=>d?atLn(d,x):`<div class="ln"><span class="why ${x.cls}">${esc(x.why)}</span>${x.url?`<a href="${x.url}" target="_blank" rel="noopener">${esc(x.text)}</a>`:`<span>${esc(x.text)}</span>`}</div>`;
  const vis=[],hid=[];Object.entries(grp).forEach(([g,xs])=>xs.forEach((x,j)=>{const h=(j===0?`<div class="grp">${esc(g)}</div>`:'')+ln(x);(i++<max?vis:hid).push(h)}));
  return vis.join('')+(hid.length?`<details><summary>ещё ${hid.length}</summary>${hid.join('')}</details>`:'')}
-function attnHTML(d){const it=attn(d);if(!it.length)return '';
+function attnHTML(d){const it=attn(d);if(!it.length)return atChk(d)?`<div class="attn">${atChk(d)}</div>`:'';
  if(MA_KINDS.includes(d.kind)){const G={};it.forEach(x=>(G[x.grp]=G[x.grp]||[]).push(x));/* Rost 26.10: у ассистентов/мессенджеров — свёрнутый ▼ на каждого с количеством, чтобы блок не был огромным */
-  return `<div class="attn"><h4>🔴 Требует внимания · ${it.length}</h4>${Object.entries(G).map(([g,xs])=>`<details class="okfold"><summary><b>${esc(g)}</b> <span class="abadge">${xs.length}</span></summary>${xs.map(x=>`<div class="ln"><span class="why ${x.cls}">${esc(x.why)}</span>${x.url?`<a href="${x.url}" target="_blank" rel="noopener">${esc(x.text)}</a>`:`<span>${esc(x.text)}</span>`}</div>`).join('')}</details>`).join('')}</div>`}
+  return `<div class="attn"><h4>🔴 Требует внимания · ${it.length}</h4>${Object.entries(G).map(([g,xs])=>`<details class="okfold"><summary><b>${esc(g)}</b> <span class="abadge">${xs.length}</span></summary>${xs.map(x=>atLn(d,x)).join('')}</details>`).join('')}${atChk(d)}</div>`}
  const nt=it.filter(x=>x.cls!=='gap').length;
- return `<div class="attn"><h4>🔴 Требует внимания · ${it.length}</h4>${linesHTML(it.filter(x=>x.cls!=='gap').concat(it.filter(x=>x.cls==='gap')),nt>5?nt:5)}</div>`}
+ return `<div class="attn"><h4>🔴 Требует внимания · ${it.length}</h4>${linesHTML(it.filter(x=>x.cls!=='gap').concat(it.filter(x=>x.cls==='gap')),nt>5?nt:5,d)}${atChk(d)}</div>`}
 function attnOverviewHTML(){const a=attnAll();if(!a.n)return '';
  const rows=a.per.filter(x=>x.it.length).map(({d,it})=>{const t=it.filter(x=>x.cls!=='gap').length,g=it.length-t;
   return `<div class="ln go" data-t="${d.id}"><span class="why">${it.length}</span><span><b>${d.icon} ${esc(d.name)}</b> — ${[t?t+' задач/вопросов':'',g?g+' пробел(ов)/частично':''].filter(Boolean).join(', ')} →</span></div>`}).join('');
- return `<div class="attn"><h4>🔴 Требует внимания · ${a.n}</h4>${rows}${a.own.length?linesHTML(a.own):''}</div>`}
+ return `<div class="attn"><h4>🔴 Требует внимания · ${a.n}</h4>${rows}${a.own.length?linesHTML(a.own,5,{id:'overview',name:'Общий'}):''}</div>`}
 function metricsHTML(p){const m=p.metrics;if(!m&&!p.goal)return '';
  const num=v=>v==null||v===''?null:+v,fmt=(v,u)=>v==null?'—':(u==='$'?'$':'')+v.toLocaleString('ru-RU')+(u&&u!=='$'?' '+u:'');
  const rows=(m&&m.groups||[]).flatMap(g=>g.rows),plat=rows.filter(r=>r.platform).map(r=>num(r.value)),platSum=plat.some(v=>v!=null)?plat.reduce((a,v)=>a+(v||0),0):null;
@@ -1087,6 +1113,6 @@ function botsTab(d){const B=d.bots||[];const open=B.reduce((a,b)=>a+(b.qs||[]).f
  const coH=bad.length?/* Rost 26.10 20:13: блок Коучинг только если у бота есть вопрос/внимание; задачи — во вкладке Коучинг */`<details class="card mrow" style="margin-bottom:10px"><summary><b>🤝 Коучинг</b><span class="pill ${bad.length?'st-open':'st-ans'}">${bad.length?'🔴 проблемы у '+bad.length:'🟢 всё ок'}</span><span class="note">${bad.length?bad.length+' с вопросом · ':''}${CO.length} человек</span></summary><div class="mbody">${bad.map(([b,bi])=>one(b,bi,true)).join('')}${okc.length?`<details class="okfold"><summary>🟢 Без вопросов (${okc.length})</summary><ul>${okc.map(([b])=>`<li>${esc(b.name.replace(/^Коучинг · /,''))}</li>`).join('')}</ul></details>`:''}</div></details>`:'';
  $('#main').innerHTML=maHead(d,open+' открытых вопросов · 🟡 '+tot+' новых отчётов')+attnHTML(d)+maCUBots()+B.map((b,bi)=>b.coach?'':one(b,bi)).join('')+coH+`
   <p class="note">🔴 встало / нужен Rost · 🔵 в работе · 🟢 всё ок · ⚪ нет данных · 🟡 = свежие отчёты (вопросы с new + задачи CU, обновлённые сегодня). Источник: последние сообщения ботов (аудит 26.10 ~19:35 Bogotá) + ClickUp for check на Rost. «💬 открыть чат» у каждого вопроса — открывает чат ответственного бота с этим вопросом в поле ввода (<code>grokbot://app/v1/prompt?id=…&amp;text=…</code>, отправляешь сам); если приложение ещё без prompt-ссылок — просто открывает чат бота, а вопрос лежит в буфере (Ctrl/⌘+V). <b>✓</b> = решено: вопрос сразу скрыт и уходит на проверку (☑ На проверке, ↩ вернуть) — прямо на даше, чат не открывается. <b>↻</b> = перечитать свежие данные — тоже на месте. В чат бота ведёт только «💬 открыть чат» / «открыть чат ↗». Вопросы — снимок сборки ${esc((d.oq&&d.oq.built)||'')}, общая база ботов: /workspace/queue/ma_open_questions.json. Коучинг/«Мама»: только если у бота есть вопрос (задачи — во вкладке Коучинг); TG «Общение ботов» — любое новое → 🔴 сверху у «Мама».</p>`}
-function render(){try{maOqApply()}catch(e){}kill();Dash.save();controls();const d=Dash.D.directions.find(x=>x.id===S.tab),td=S.mode==='today';d?(d.kind==='msgs'?msgsTab(d):d.kind==='unsorted'?unsortedTab(d):d.kind==='assistants'?asstTab(d):d.kind==='bots'?botsTab(d):d.kind==='people'?people(d):d.kind==='calendar'?calendar(d):d.board?board(d):td?directionToday(d):direction(d)):td?overviewToday():overview();$('#foot').textContent=Dash.fxFooter();}
+function render(){AT_REG=[];try{maOqApply()}catch(e){}kill();Dash.save();controls();const d=Dash.D.directions.find(x=>x.id===S.tab),td=S.mode==='today';d?(d.kind==='msgs'?msgsTab(d):d.kind==='unsorted'?unsortedTab(d):d.kind==='assistants'?asstTab(d):d.kind==='bots'?botsTab(d):d.kind==='people'?people(d):d.kind==='calendar'?calendar(d):d.board?board(d):td?directionToday(d):direction(d)):td?overviewToday():overview();$('#foot').textContent=Dash.fxFooter();}
 Dash.load().then(()=>document.fonts.ready).then(render).catch(e=>{$('#main').innerHTML='<div class="card">Не удалось загрузить data.json: '+esc(e.message)+'</div>'});
 </script></body></html>
