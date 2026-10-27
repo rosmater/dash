@@ -1070,7 +1070,7 @@ const mSHORT=c=>/telegram/i.test(c)?'TG':/UKR/.test(c)?'WP UKR':/ESP/.test(c)?'W
 const mLBL=c=>{const k=/ClickUp/.test(c)?'cu':/telegram/i.test(c)?'tg':/UKR/.test(c)?'wu':/ESP/.test(c)?'we':/viber/i.test(c)?'vb':/tinder/i.test(c)?'tn':/mail/i.test(c)?'em':'';return `<span class="mlabel ml-${k}" title="${esc(c)}">${esc(mSHORT(c))}</span>`};
 /* Rost t4004u: «(N дн.)» — сколько дней диалог висит; hang_since (YYYY-MM-DD Богота) пишет сборка (src/hang_since.json), дни считаются от сегодняшней даты Боготы — сами растут каждый день */
 const bogDay=()=>new Date(Date.now()-5*3600e3).toISOString().slice(0,10);
-const hangD=r=>{const s=r&&r.hang_since;if(!s||rDone(r))return '';const n=Math.max(0,Math.round((Date.parse(bogDay())-Date.parse(String(s).slice(0,10)))/864e5));return isNaN(n)?'':`<span class="hdays" title="висит с ${esc(String(s).slice(0,10))} (Богота)">(${n} дн.)</span>`};
+const hangD=r=>{if(!r||rDone(r))return '';const s=r.hang_since||(r.last&&/^\d{4}-\d\d-\d\d/.test(r.last)?r.last:'')||bogDay();const n=Math.max(0,Math.round((Date.parse(bogDay())-Date.parse(String(s).slice(0,10)))/864e5));return isNaN(n)?'':`<span class="hdays" title="висит с ${esc(String(s).slice(0,10))} (Богота)">(${n} дн.)</span>`};
 /* Rost 26.10: «без контакта/карточки» — не отдельный блок, а в Нерассортированные (на сортировку) */
 function maUns(d){const U=[...(d.unsorted||[])].filter(u=>!igHide(u.key)),seen=new Set((d.unsorted||[]).map(u=>u.key));
  (d.messengers||[]).forEach(g=>(g.rows||[]).forEach(r=>{if(!(maSphRaw(r.channel+'|'+r.chat)==='__unsort'&&!r.cu_tasks&&!r.unread_list)&&(r.binding||r.planned||r.cu_tasks||r.unread_list||r.sorted||/\(все чаты\)/.test(r.sender||"")))return;const k=r.channel+'|'+r.chat;if(seen.has(k)||igHide(k))return;seen.add(k);
@@ -1133,13 +1133,15 @@ function rowUnlink(b){const k=b.dataset.k;try{localStorage.setItem('dash_rcu_'+k
 function rowTag(b){const k=b.dataset.k,t=b.dataset.v,r={channel:b.dataset.c,chat:b.dataset.t,tags:JSON.parse(b.dataset.cur||'[]')};let T=rTags(r);T=T.includes(t)?T.filter(x=>x!==t):[t];
  try{localStorage.setItem('dash_rtag_'+k,JSON.stringify(T))}catch(e){}tapPush({key:'rtag|'+k,row:k,action:'row_tags',channel:b.dataset.c,title:b.dataset.t,tags:T});keepOpen(render)}
 function rowTagSel(el){const k=el.dataset.k,v=el.value;if(v==='__keep')return;const T=v?[v]:[];try{localStorage.setItem('dash_rtag_'+k,JSON.stringify(T))}catch(e){}tapPush({key:'rtag|'+k,row:k,action:'row_tags',channel:el.dataset.c,title:el.dataset.t,tags:T});keepOpen(render)}
-function rowLink(a){const t='[Из дашборда · Мессенджеры · связать с ClickUp] '+a.dataset.c+' · «'+a.dataset.t+'» — привяжи к задаче ClickUp: ';try{navigator.clipboard.writeText(t)}catch(e){}return true}
+function rowLinkTxt(r,sp){return '[Из дашборда · Мессенджеры] привязать ClickUp: контакт «'+(r.is_group?r.chat:r.sender)+'» · чат «'+r.chat+'» · канал '+r.channel+' · сфера '+(r.src_sphere||sp||'?')+(r.cu_hint?' · задача '+r.cu_hint:'')+(r.pending?' · статус: '+r.pending:'')+' — найди подходящую задачу ClickUp (или предложи создать) и привяжи к этому контакту.'}
+function rowLinkURL(sec,r,sp){const m=/[?&]id=([\w-]+)/.exec(sec||'');return maPL({id:m?m[1]:''},rowLinkTxt(r,sp))}
+function rowLink(a){try{navigator.clipboard.writeText(decodeURIComponent((a.href.split('&text=')[1]||'')))}catch(e){}return true}
 function rowCtl(d,r,sp){if(r.cu_tasks||r.unread_list)return '';const k=r.channel+'|'+r.chat,st=rSt(r),C=rCU(r),T=rTags(r),nm=r.is_group?r.chat:r.sender;
  const A=`data-k="${esc(k)}" data-c="${esc(r.channel)}" data-t="${esc(r.chat)}" data-l="${esc(r.last||'')}"`,S='onclick="event.preventDefault();event.stopPropagation();';
  const sec=(d.clickup&&d.clickup.owner_link)||r.owner_link||'';
  let h=`<span class="rctl">`+tagUI(r,sp);
  h+=C.length?`<a class="rcu" href="https://app.clickup.com/t/${esc(C[0].id)}" target="_blank" rel="noopener" title="${esc(C.map(t=>t.name).join('\n'))}" onclick="event.stopPropagation()">CU</a><button class="rbx" title="открепить задачу ClickUp от этого контакта" ${A} data-id="${esc(C[0].id)}" ${S}rowUnlink(this)">✕</button>`
-  :(sec?`<a class="rlk" href="${esc(sec)}" title="связать с ClickUp — откроется чат с Секретарём; скажи, с какой задачей связать (текст скопирован)" ${A} onclick="event.stopPropagation();return rowLink(this)">🔗</a>`:'');
+  :(sec?`<a class="rlk" href="${esc(rowLinkURL(sec,r,sp))}" title="привязать ClickUp — откроется чат с контекстом (контакт, канал, сфера)" ${A} onclick="event.stopPropagation();return rowLink(this)">🔗</a>`:'');
  h+='</span>';return h}
 function rowAns(r){if(r.cu_tasks||r.unread_list)return '';const k=r.channel+'|'+r.chat,st=rSt(r);
  const A=`data-k="${esc(k)}" data-c="${esc(r.channel)}" data-t="${esc(r.chat)}" data-l="${esc(r.last||'')}"`,S='onclick="event.preventDefault();event.stopPropagation();';
