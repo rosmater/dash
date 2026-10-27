@@ -294,3 +294,4 @@ Rost asked: (1) ads Active+Archive (2) repeat sales «Пора делать по
 - Исправлено: cvTable читал x.n, а dialogs-since отдаёт new_dialogs → таблица по дням не показывалась; build_data теперь добавляет n.
 - Сбор IG: PLAYBOOK peptides-dash-monitors/PLAYBOOK-ig-dialogs.md (dumpsys notification по com.instagram.androie без открытия чатов, или снимок Direct при 08:00 IG-чеке).
 - IG DM → WA handoff (t459u): шаблон ES + https://wa.me/573108478347?text=Hola%2C%20quiero%20mi%20asesor%C3%ADa%20gratis в knowledge/peptides/ig-dm-to-wa-handoff.md. Авто-отправка выключена — решает parent.
+- 27.10 cu-dash-sort §2: src/cu_dated.json (из cu-rost-dated.csv; сопоставлено направлению, needs_sort=N, id ещё нигде нет в data.json) → d.cu_dated → свёрнутая карточка «🗂 ClickUp · задачи с датой · N» внизу вкладки направления (week/month/today/board), сортировка по due, просрочка красным, ДР/Celebraciones — вложенный свёрнутый блок. В attn НЕ входят (правило 25.10).
