@@ -1052,7 +1052,8 @@ function maGo(a){const t='[Из дашборда · '+(a.dataset.w||'')+'] '+(a.
 const maLink=(own,link,where,ctx)=>link?`<a class="st" style="margin-left:6px" href="${esc(link)}" data-o="${esc(own||'')}" data-w="${esc(where)}" data-ctx="${esc(ctx)}" onclick="event.stopPropagation();return maGo(this)" title="Открыть чат «${esc(own||'')}» с контекстом">💬 ${esc(own||'бот')} ↗</a>`:'';
 /* Rost t3962u: групповые чаты (не личка) — «ЧАТ: название»; r.is_group/u.is_group из сборки */
 const chT=(t,g)=>g&&!/^\s*чат(\s|:|$)/i.test(t||'')?'ЧАТ: '+(t||''):(t||'');
-const maSphRaw=k=>{try{const v=localStorage.getItem('dash_sph_'+k)||'';return v==='Личное · Dating'?'Дейтинг':v}catch(e){return ''}};const maSph=k=>{const v=maSphRaw(k);return v==='__unsort'?'':v};
+/* Rost t3968u: старые сферы из прежних версий даша → текущие (Быт → Личное) */const SPH_ALIAS={'Личное · Dating':'Дейтинг','Dating':'Дейтинг','Dating / личное':'Дейтинг','Быт':'Личное','Быт / еда':'Личное','Юр. / налоги':'Личное','Финансы / банки':'Личное','Прочее':'Личное','Tabakevich':'Табакевич','OF':'ОФ'};
+const maSphRaw=k=>{try{const v=localStorage.getItem('dash_sph_'+k)||'';return SPH_ALIAS[v]||v}catch(e){return ''}};const maSph=k=>{const v=maSphRaw(k);return v==='__unsort'?'':v};
 /* Rost t3961u: серый ✕ у каждой строки мессенджеров → чат обратно «на сортировку» (dash_sph_<канал|чат>='__unsort' + тап в очередь → box msg_sphere_overrides.json → test_ma_build) */
 const mxBtn=r=>`<button class="mxb" title="вернуть «на сортировку» (переназначить сферу)" data-k="${esc(r.channel+'|'+r.chat)}" data-c="${esc(r.channel)}" data-t="${esc(r.chat)}" onclick="event.preventDefault();event.stopPropagation();msgUnsort(this)">✕</button>`;
 function msgUnsort(b){const k=b.dataset.k;try{localStorage.setItem('dash_sph_'+k,'__unsort')}catch(e){}tapPush({key:k,channel:b.dataset.c||'',title:b.dataset.t||'',sphere:'__unsort'});keepOpen(render)}
