@@ -1,3 +1,5 @@
+## 27.10 — CU на сортировку: в «Требует внимания» только «🗂 ClickUp — на сортировку · N» (1 строка), список — свёрнутый блок внизу «Общего» (Rost t3913u)
+
 ## 27.10.2026 ~13:00 Bogotá — Повторные: ложный attn Juliana снят (Rost t3909u)
 - Michelle ответила 26.10 17:38 в треде (reply 90140273696565: «ведёт Seider») — `repeat_tracking.json` не обновили → `no_sara_feedback` в «Требует внимания» ~сутки. Теперь `sara_replied`, исполнитель Seider. STANDING: ответы читать `get_threaded_comments`, в тот же ход JSON → build → push.
 
