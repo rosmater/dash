@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="ru"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>ТЕСТ — Мессенджеры · Ассистенты · Боты</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f5f6fa;--panel:#ffffff;--panel2:#ffffff;--line:#e4e7f0;--txt:#1b2033;--mut:#6b7390;--acc:#6d4dff;--pos:#0e9f74;--neg:#e5484d;--warn:#c77d0a;--shadow:0 1px 2px #1b20330a,0 6px 18px #1b203309}
+*{box-sizing:border-box}html,body{margin:0;background:var(--bg);color:var(--txt);font-family:Inter,system-ui,-apple-system,sans-serif;-webkit-font-smoothing:antialiased}
+body{background:radial-gradient(1200px 600px at 10% -10%,#ebe5ff,transparent 60%),radial-gradient(900px 500px at 100% 0,#e0f6ee,transparent 60%),var(--bg);min-height:100vh}
+.wrap{max-width:1280px;margin:0 auto;padding:20px 18px calc(30px + env(safe-area-inset-bottom))}
+header{display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between;margin-bottom:16px}
+.brand{display:flex;gap:12px;align-items:center}.logo{width:42px;height:42px;border-radius:12px;background:conic-gradient(from 200deg,#7c5cff,#22d3a6,#38bdf8,#7c5cff);display:grid;place-items:center;font-weight:800;color:#fff;box-shadow:0 6px 18px #7c5cff33}
+.brand h1{font-size:19px;margin:0;font-weight:800;letter-spacing:-.02em}.brand small{color:var(--mut);font-size:12px}
+.ctrls{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.seg{display:inline-flex;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:3px;box-shadow:var(--shadow)}
+.seg button{background:none;border:0;color:var(--mut);padding:7px 13px;border-radius:9px;font:600 13px Inter;cursor:pointer}
+.seg button.on{background:linear-gradient(135deg,#7c5cff,#5b8cff);color:#fff;box-shadow:0 4px 12px #7c5cff33}
+select{background:var(--panel);color:var(--txt);border:1px solid var(--line);border-radius:10px;padding:8px 10px;font:500 13px Inter}
+nav.tabs{display:flex;gap:6px;overflow-x:auto;padding:8px 2px 6px;margin-bottom:18px;scrollbar-width:none}nav.tabs::-webkit-scrollbar{display:none}
+nav.tabs button{position:relative;flex:0 0 auto;box-shadow:var(--shadow);background:var(--panel);border:1px solid var(--line);color:var(--mut);padding:10px 15px;border-radius:999px;font:600 13.5px Inter;cursor:pointer;white-space:nowrap}
+nav.tabs button.on{color:color-mix(in srgb,var(--c,#7c5cff) 55%,#000);border-color:var(--c,#7c5cff);background:color-mix(in srgb,var(--c,#7c5cff) 14%,#fff);box-shadow:0 4px 14px color-mix(in srgb,var(--c,#7c5cff) 25%,transparent)}
+.abadge{display:inline-grid;place-items:center;min-width:18px;height:18px;padding:0 5px;margin-left:6px;border-radius:99px;background:var(--neg);color:#fff;font:700 10.5px Inter;vertical-align:1px;box-shadow:0 0 0 2px #fff}.adot{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--neg);margin-left:6px;box-shadow:0 0 0 2px #fff}
+.attn{background:#fff5f5;border:1px solid #f5c2c4;border-left:4px solid var(--neg);border-radius:14px;padding:12px 14px;margin-bottom:14px;box-shadow:var(--shadow)}.attn h4{margin:0 0 8px;font-size:13px;color:#b42318;display:flex;gap:8px;align-items:center}
+.attn .grp{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--mut);margin:8px 0 2px}.attn .ln{display:flex;gap:8px;align-items:baseline;font-size:13px;line-height:1.4;padding:2px 0}.attn .ln a{color:var(--txt);text-decoration:none}.attn .ln a:hover{color:var(--acc)}
+.attn .why{flex:0 0 auto;font-size:10.5px;font-weight:700;padding:1px 7px;border-radius:99px;background:#ffe3e5;color:#b42318}.attn .why.gap{background:#fff1d6;color:#9a5b07}.attn summary{cursor:pointer;font-size:12px;color:var(--acc);margin-top:6px}.attn .go{cursor:pointer}.attn .ok{color:var(--pos)}
+.pcol{display:flex;flex-direction:column;gap:14px}
+.person .st-ok{background:#e6f7f0;color:#0b7a59;border-color:#bfe9d8}.person .st-at{background:#ffe3e5;color:#b42318;border-color:#f5c2c4}.person.at{border-color:#f5c2c4}.person ul{margin:8px 0 0;padding-left:18px;font-size:13.5px;line-height:1.5}
+.mx{margin-top:10px;border:1px solid var(--line);border-radius:14px;padding:10px 12px;background:#fafbff}.mx .goal{font-weight:700;font-size:13.5px;color:#0b5a73;background:#ecf8fd;border:1px solid #bfe6f5;border-radius:10px;padding:8px 10px;margin-bottom:8px}.mx .bar{height:8px;border-radius:6px;background:#eef0f6;overflow:hidden;margin:4px 0 2px}.mx .bar i{display:block;height:100%;background:#38bdf8}.mx h5{margin:10px 0 4px;font-size:11.5px;text-transform:uppercase;letter-spacing:.04em;color:var(--mut,#667085)}.mx table{width:100%;border-collapse:collapse;font-size:13px}.mx td{padding:5px 4px;border-top:1px dashed var(--line)}.mx td.v{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap;color:#98a2b3}.mx tr.tot td{font-weight:700;border-top:1px solid var(--line)}.mx tr.tot td.v{color:inherit}.mx tr.ex td{color:#98a2b3;font-style:italic}.mx .hint{display:block;font-size:11px;color:#98a2b3;font-style:normal;font-weight:400}
+.grid{display:grid;gap:14px;align-items:start}.g4{grid-template-columns:repeat(4,1fr)}.g2{grid-template-columns:2fr 1fr}.g2e{grid-template-columns:1fr 1fr}
+@media(max-width:980px){.g4{grid-template-columns:repeat(2,1fr)}.g2,.g2e{grid-template-columns:1fr}}
+@media(max-width:520px){.g4{grid-template-columns:1fr 1fr;gap:10px}.wrap{padding:14px 12px}.kpi .v{font-size:20px!important}}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:16px;position:relative;overflow:hidden;box-shadow:var(--shadow)}
+.card h3{margin:0 0 12px;font-size:13px;color:var(--mut);font-weight:600;text-transform:uppercase;letter-spacing:.06em;display:flex;justify-content:space-between;align-items:center;gap:8px}
+.kpi .l{color:var(--mut);font-size:12.5px;font-weight:500}.kpi .v{font-size:26px;font-weight:800;letter-spacing:-.02em;margin:6px 0 2px}.kpi .s{font-size:12px;color:var(--mut)}
+.kpi canvas{position:absolute;right:0;bottom:0;width:55%!important;height:46px!important;opacity:.9}
+.kpi::after{content:"";position:absolute;inset:auto -40px -60px auto;width:140px;height:140px;border-radius:50%;background:var(--glow,#7c5cff);filter:blur(60px);opacity:.12}
+.pos{color:var(--pos)}.neg{color:var(--neg)}.warn{color:var(--warn)}
+.hero{padding:22px;background:linear-gradient(135deg,#efeaff,#eef2ff 55%,#e2f6ef);border:1px solid #ddd5ff}
+.hero .big{font-size:40px;font-weight:800;letter-spacing:-.03em}@media(max-width:520px){.hero .big{font-size:30px}}
+.chip{display:inline-flex;gap:6px;align-items:center;font-size:11.5px;padding:3px 9px;border-radius:999px;background:#f1f3f8;border:1px solid var(--line);color:var(--mut);margin:2px 4px 2px 0}
+.chip.partial{color:var(--warn);background:#fff6e5;border-color:#f3d7a3}.chip.full{color:var(--pos);background:#e8f8f2;border-color:#bfe9d8}
+.ex-badge{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;background:#fff3dc;color:var(--warn);border:1px dashed var(--warn);padding:1px 6px;border-radius:6px;margin-left:6px;vertical-align:middle}
+.sdot{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:6px;vertical-align:1px;box-shadow:0 0 0 2px #fff,0 0 0 3px rgba(0,0,0,.08)}.sdot.money{background:#16a34a}.sdot.launched{background:#f97316}.sdot.starting{background:#facc15}.slegend{display:flex;gap:14px;flex-wrap:wrap;font-size:12px;color:var(--mut);margin-top:8px}
+.dircard{cursor:pointer;transition:transform .15s}.dircard:hover{transform:translateY(-2px)}
+.dircard .top{display:flex;justify-content:space-between;align-items:center}.dircard .ic{font-size:22px}
+.dircard .name{font-weight:700;font-size:15px}.dircard .sub{color:var(--mut);font-size:11.5px}
+.bar{height:8px;background:#eef0f6;border-radius:99px;overflow:hidden;margin:8px 0 4px}.bar i{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,var(--c,#7c5cff),#38bdf8)}
+.goal{padding:10px 0;border-bottom:1px dashed var(--line)}.goal:last-child{border:0}.goal .row{display:flex;justify-content:space-between;gap:8px;font-size:13.5px}.goal small{color:var(--mut);font-size:11.5px}
+table{width:100%;border-collapse:collapse;font-size:12.5px}th,td{text-align:left;padding:7px 6px;border-bottom:1px solid var(--line);white-space:nowrap}th{color:var(--mut);font-weight:600;font-size:11.5px}td.n,th.n{text-align:right}
+.tblwrap{overflow-x:auto}
+.task{display:flex;gap:10px;padding:10px 0;border-bottom:1px solid var(--line);align-items:flex-start}.task:last-child{border:0}
+.task a{color:var(--txt);text-decoration:none;font-size:13.5px;line-height:1.35}.task a:hover{color:var(--acc)}
+.pill{font-size:10.5px;font-weight:700;padding:2px 8px;border-radius:99px;white-space:nowrap}.p-urgent{background:#ffe3e5;color:#c22f3a}.p-high{background:#fff1d6;color:#a5620a}.p-normal{background:#e3f3fd;color:#1f7fb3}
+.st{font-size:10.5px;color:var(--mut);border:1px solid var(--line);padding:1px 7px;border-radius:99px;white-space:nowrap}
+.note{font-size:12.5px;color:var(--mut);line-height:1.5}.gap li{margin:4px 0;font-size:12.5px;color:#3a4160}
+.items li{font-size:12.5px;margin:5px 0;color:#3a4160}.items .amt{float:right;font-weight:600;color:var(--txt);margin-left:8px}
+.metrics{display:flex;flex-wrap:wrap;gap:8px}.metric{background:#f7f8fb;border:1px solid var(--line);border-radius:12px;padding:8px 12px}.metric b{display:block;font-size:16px}.metric span{font-size:11px;color:var(--mut)}
+footer{margin-top:22px;color:var(--mut);font-size:11.5px;line-height:1.6;border-top:1px solid var(--line);padding-top:14px}
+.chartbox{position:relative;height:280px}@media(max-width:520px){.chartbox{height:220px}}
+.empty{color:var(--mut);font-size:13px;padding:10px 0}
+.sdot.tdot{width:8px;height:8px;margin:0 5px 1px 0;vertical-align:middle;box-shadow:0 0 0 2px #fff}
+.cal-day{margin-bottom:14px}.cal-day h4{margin:0 0 8px;font-size:14px;display:flex;gap:8px;align-items:center}.cal-day.today{border-color:#4285f4;box-shadow:0 0 0 2px #4285f422,var(--shadow)}
+.cal-ev{display:flex;gap:10px;align-items:baseline;padding:7px 0;border-bottom:1px dashed var(--line);font-size:13.5px}.cal-ev:last-child{border:0}.cal-ev .tm{flex:0 0 96px;font-variant-numeric:tabular-nums;color:var(--mut);font-size:12.5px}
+.cal-ev a{color:var(--txt);text-decoration:none}.cal-ev a:hover{color:var(--acc)}.cal-ev.past{opacity:.45}.cal-ev.now{background:#eef4ff;border-radius:8px;padding-left:6px}.cal-ev .ls{color:var(--mut);font-size:11.5px}
+.src{flex:0 0 auto;font-size:10px;font-weight:700;padding:1px 7px;border-radius:99px}.src.gcal{background:#e8f0fe;color:#1a56c4}.src.clickup{background:#f1eaff;color:#6d28d9}
+.calf button{font-size:12px}
+.calnav{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:12px}.calnav input[type=date]{font:inherit;font-size:13px;padding:5px 8px;border:1px solid var(--line);border-radius:8px;background:var(--panel);color:var(--txt)}
+.tl-wrap{max-height:72vh;overflow-y:auto;padding:8px 10px 8px 4px;margin-bottom:14px}.tl{position:relative}
+.tl-h{position:absolute;left:0;right:0;border-top:1px solid var(--line);height:0}.tl-h span{position:absolute;left:4px;top:-8px;font-size:11px;color:var(--mut);background:var(--panel);padding-right:4px;font-variant-numeric:tabular-nums}
+.tl-ev{position:absolute;box-sizing:border-box;border-radius:8px;padding:3px 8px;font-size:12.5px;overflow:hidden;display:flex;gap:8px;justify-content:space-between;align-items:flex-start;border-left:4px solid #4285f4;background:#e8f0fe}
+.tl-ev.clickup{border-left-color:#7b68ee;background:#f0edff}.tl-ev.past{opacity:.5}.tl-ev.now{box-shadow:0 0 0 2px #4285f455}
+.tl-ev a{color:var(--txt);text-decoration:none}.tl-ev a:hover{color:var(--acc)}.tl-ev .tm{color:var(--mut);font-variant-numeric:tabular-nums;font-size:11.5px}.tl-ev .ls{color:var(--mut);font-size:11px}
+.tl-main{flex:1;min-width:0;overflow:hidden}.tl-cu{display:flex;flex-direction:column;gap:2px;align-items:flex-end;max-width:45%;flex:0 1 auto}
+.culink{display:inline-block;font-size:11px;background:#7b68ee;color:#fff!important;border-radius:6px;padding:1px 6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}
+.tl2-head{display:flex;font-size:12px;color:var(--mut);margin:0 0 6px;gap:0}.tl2-head>div{box-sizing:border-box;padding:0 4px}
+.tl-split{position:absolute;top:0;bottom:0;border-left:2px dashed #d9d2ff;z-index:0}
+.tl-cumark{position:absolute;left:44px;width:10px;height:10px;margin-top:-5px;border-radius:3px;background:#7b68ee;box-shadow:0 0 0 2px #fff;z-index:2}.tl-cumark.lg{position:static;display:inline-block;margin:0 4px 0 0;vertical-align:-1px}
+.tl-guide{position:absolute;left:58px;border-top:1px dashed #9d8cff;z-index:2;opacity:.8;pointer-events:none}
+.tl-ev{z-index:1}.tl-cu2{border-left-color:#7b68ee;background:#f0edff}
+.tl-now{position:absolute;left:52px;right:0;border-top:2px solid #ea4335;z-index:3}.tl-now:before{content:'';position:absolute;left:-5px;top:-6px;width:10px;height:10px;border-radius:50%;background:#ea4335}
+.today-h{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}.tolink{font-size:12.5px;color:var(--acc);cursor:pointer;text-decoration:none;font-weight:600;background:none;border:0;padding:0}
+.ag{display:flex;gap:10px;align-items:baseline;padding:7px 0;border-bottom:1px dashed var(--line);font-size:13.5px}.ag:last-child{border:0}.ag .tm{flex:0 0 92px;font-variant-numeric:tabular-nums;color:var(--mut);font-size:12.5px}.ag a{color:var(--txt);text-decoration:none}.ag a:hover{color:var(--acc)}.ag.past{opacity:.45}.ag.now{background:#eef4ff;border-radius:8px;padding-left:6px}
+.tdcard{cursor:pointer}.tdcard .cnt{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+.g2b{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}@media(max-width:720px){.g2b{grid-template-columns:1fr}}.kpi.bt .v .bst{font-size:15px;font-weight:700;vertical-align:middle;margin-left:6px}.kpi.bt.ok .v .bst{color:#0b7a59}.kpi.bt.at .v .bst{color:#b42318}.kpi.bt.ok .v,.kpi.bt.at .v{font-size:30px;color:inherit}.tfold .tbtn{all:unset;cursor:pointer;display:block;width:100%;font-weight:800;font-size:15px}.tfold .ar{display:inline-block;width:18px;color:var(--acc)}.tfold .tbody{display:none;margin-top:10px}.tfold.open .tbody{display:block}
+.g5{grid-template-columns:repeat(5,1fr)}@media(max-width:980px){.g5{grid-template-columns:repeat(3,1fr)}}@media(max-width:520px){.g5{grid-template-columns:1fr 1fr;gap:10px}}
+.g3b{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}@media(max-width:720px){.g3b{grid-template-columns:1fr}}.kpi.bt .v{font-size:30px}.kpi.bt.at{border-color:#f5c2c4;background:#fff5f5}.kpi.bt.ok{border-color:#bfe9d8}.kpi.bt.at .v{color:#b42318;font-size:22px}.kpi.bt.ok .v{color:#0b7a59;font-size:22px}.bgoal{border-color:#bfe6f5;background:linear-gradient(135deg,#ecf8fd,var(--panel))}.bgoal .bar{height:10px;border-radius:99px;background:#e6edf5;overflow:hidden}.bgoal .bar i{display:block;height:100%;background:#38bdf8}
+.pin-hi{background:linear-gradient(135deg,#fff8d6,#fff1f1);border:2px solid #f5b400;border-left:6px solid var(--neg);border-radius:14px;padding:14px 16px;margin-bottom:14px;box-shadow:var(--shadow);display:flex;gap:12px;align-items:center;font-size:17px;font-weight:700}.pin-hi input,.it-hi input,.ck{width:20px;height:20px;cursor:pointer;flex:0 0 auto}.pin-hi.done,.it-hi.done{opacity:.55;text-decoration:line-through}.it-hi{background:#fff8d6;border-left:3px solid var(--neg);padding:4px 8px;border-radius:6px;font-weight:700;font-size:14px;list-style:none;display:flex;gap:8px;align-items:center}
+</style>
+<style>
+.testbar{background:#fff3dc;border:1px dashed var(--warn);color:#7a4a05;border-radius:12px;padding:8px 12px;font-size:12.5px;margin-bottom:14px}
+.mrow{border-top:1px solid var(--line);padding:9px 0}.mrow:first-of-type{border-top:0}
+.mrow summary{display:flex;gap:8px;align-items:center;cursor:pointer;list-style:none;font-size:13.5px;flex-wrap:wrap}.mrow summary::-webkit-details-marker{display:none}
+.mrow summary::before{content:"▸";color:var(--mut);font-size:11px}.mrow[open] summary::before{content:"▾"}
+.mlabel{font-size:10.5px;font-weight:700;padding:1px 8px;border-radius:99px;background:#eef0f6;color:#3a4160;white-space:nowrap}
+.ml-tg{background:#e3f3fd;color:#1f7fb3}.ml-wu{background:#e6f7f0;color:#0b7a59}.ml-we{background:#eaf8e0;color:#3f7a0b}.ml-vb{background:#f1eaff;color:#6d28d9}.ml-em{background:#fff1d6;color:#9a5b07}
+.cnt{margin-left:auto;font-size:11px;font-weight:700;color:#fff;background:var(--neg);border-radius:99px;padding:1px 7px}.cnt.z{background:#cbd5e1}
+.mbody{padding:6px 0 2px 18px;font-size:12.5px;color:#3a4160}.mbody li{margin:3px 0}
+.nob{font-size:10.5px;color:#9a5b07;background:#fff6e5;border:1px dashed #f3d7a3;border-radius:6px;padding:0 6px}
+.bind a{color:var(--acc);text-decoration:none}.bind{margin-top:4px}
+.q{display:flex;gap:8px;align-items:flex-start;padding:8px 10px;border-radius:10px;margin:6px 0;font-size:13.5px;text-decoration:none;color:var(--txt);border:1px solid var(--line);cursor:pointer}
+.q:hover{box-shadow:var(--shadow)}.q.red{background:#fff5f5;border-color:#f5c2c4;border-left:4px solid var(--neg)}.q.green{background:#f3fbf7;border-color:#bfe9d8;border-left:4px solid var(--pos)}
+.ydot{display:inline-block;width:9px;height:9px;border-radius:50%;background:#facc15;box-shadow:0 0 0 2px #fff,0 0 0 3px #eab30855;margin-top:5px;flex:0 0 auto}
+.okfold summary{cursor:pointer;font-size:12.5px;color:var(--pos);font-weight:600;margin-top:6px}
+.st-open{background:#ffe3e5;color:#b42318}.st-ans{background:#e6f7f0;color:#0b7a59}
+.ctxnote{position:fixed;left:50%;bottom:20px;transform:translateX(-50%);background:#1b2033;color:#fff;padding:10px 14px;border-radius:12px;font-size:13px;z-index:60;max-width:90vw;display:none}
+</style>
+</head><body>
+<div class="wrap">
+<header><div class="brand"><div class="logo">T</div><div><h1>Мессенджеры · Ассистенты · Боты <span class="ex-badge">ТЕСТ</span></h1><small id="gen"></small></div></div></header>
+<div class="testbar">🧪 Тестовая страница. Прод-вкладки дашборда не тронуты. В «Мессенджерах» — только метаданные (кто, где, сколько, тип), <b>тексты сообщений не читаются и не показываются</b>.</div>
+<nav class="tabs" id="tabs"></nav><main id="main"></main></div>
+<div class="ctxnote" id="ctx"></div>
+<script>window.DASH_LS='dash_key_test_ma_v1';window.DASH_TITLE='ТЕСТ: Мессенджеры / Боты';
+// тот же пароль и та же соль, что у основного дашборда -> берём сохранённый ключ основного (только чтение; при ошибке стирается лишь тестовый ключ)
+try{if(!localStorage.getItem(DASH_LS)&&localStorage.getItem('dash_key_v1'))localStorage.setItem(DASH_LS,localStorage.getItem('dash_key_v1'))}catch(e){}</script>
+<script>/* ===== Password gate (Rost 24.10): data.enc.json расшифровывается паролем; ключ помнится в localStorage до «Выйти» ===== */
+const Gate = (() => {
+  const LS = window.DASH_LS || 'dash_key_v1';
+  const b2u = s => Uint8Array.from(atob(s), c => c.charCodeAt(0));
+  const u2b = u => btoa(String.fromCharCode(...new Uint8Array(u)));
+  async function decrypt(enc, key) {
+    const pt = await crypto.subtle.decrypt({ name: 'AES-GCM', iv: b2u(enc.iv) }, key, b2u(enc.ct));
+    return JSON.parse(new TextDecoder().decode(pt));
+  }
+  async function derive(pw, enc) {
+    const base = await crypto.subtle.importKey('raw', new TextEncoder().encode(pw), 'PBKDF2', false, ['deriveKey']);
+    return crypto.subtle.deriveKey({ name: 'PBKDF2', hash: 'SHA-256', salt: b2u(enc.salt), iterations: enc.iter }, base, { name: 'AES-GCM', length: 256 }, true, ['decrypt']);
+  }
+  const imp = raw => crypto.subtle.importKey('raw', b2u(raw), 'AES-GCM', true, ['decrypt']);
+  function css() {
+    const s = document.createElement('style');
+    s.textContent = `
+.gate-blur .wrap{filter:blur(14px);pointer-events:none;user-select:none}
+#gate{position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;background:rgba(15,23,42,.35);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);font-family:Inter,system-ui,-apple-system,sans-serif}
+#gate form{background:#fff;color:#0f172a;border-radius:20px;padding:28px 26px 22px;width:min(360px,calc(100vw - 32px));box-shadow:0 24px 60px rgba(15,23,42,.25);text-align:center}
+#gate .lg{width:48px;height:48px;border-radius:14px;margin:0 auto 12px;display:flex;align-items:center;justify-content:center;font-size:22px;background:#eef2ff}
+#gate h2{margin:0 0 4px;font-size:19px}#gate p{margin:0 0 16px;color:#64748b;font-size:13px}
+#gate .row{position:relative}
+#gate input{width:100%;box-sizing:border-box;padding:12px 44px 12px 14px;border:1.5px solid #cbd5e1;border-radius:12px;font-size:16px;outline:none}
+#gate input:focus{border-color:#6366f1;box-shadow:0 0 0 3px rgba(99,102,241,.15)}
+#gate input.masked{-webkit-text-security:disc;text-security:disc}
+#gate .eye{position:absolute;right:8px;top:50%;transform:translateY(-50%);border:0;background:none;font-size:18px;cursor:pointer;padding:4px}
+#gate button.go{margin-top:12px;width:100%;padding:12px;border:0;border-radius:12px;background:#4f46e5;color:#fff;font-size:15px;font-weight:600;cursor:pointer}
+#gate button.go:disabled{opacity:.6}
+#gate .err{color:#dc2626;font-size:13px;min-height:18px;margin-top:8px}
+#gate .hint{color:#94a3b8;font-size:12px;margin-top:6px}
+#gate form.shake{animation:gsh .35s}@keyframes gsh{25%{transform:translateX(-8px)}75%{transform:translateX(8px)}}
+#gate-out{position:fixed;right:14px;bottom:14px;z-index:50;border:1px solid #e2e8f0;background:#fff;color:#64748b;border-radius:999px;padding:6px 12px;font-size:12px;cursor:pointer;box-shadow:0 2px 8px rgba(15,23,42,.08)}
+#gate-out:hover{color:#0f172a}`;
+    document.head.appendChild(s);
+  }
+  function logoutBtn() {
+    const b = document.createElement('button');
+    b.id = 'gate-out'; b.textContent = '🔒 Выйти'; b.title = 'Забыть пароль на этом устройстве';
+    b.onclick = () => { try { localStorage.removeItem(LS); } catch (e) {} location.reload(); };
+    document.body.appendChild(b);
+  }
+  function prompt(enc) {
+    return new Promise(res => {
+      document.body.classList.add('gate-blur');
+      const g = document.createElement('div'); g.id = 'gate';
+      g.innerHTML = `<form autocomplete="on"><div class="lg">🔒</div><h2>${window.DASH_TITLE || 'Бизнес-дашборд'}</h2><p>Введите пароль, чтобы открыть</p>
+<input type="text" name="username" value="rost" autocomplete="username" hidden>
+<div class="row"><input id="gate-pw" class="masked" type="text" lang="ru" inputmode="text" autocomplete="current-password" autocapitalize="off" autocorrect="off" spellcheck="false" enterkeyhint="go" placeholder="Пароль" autofocus><button type="button" class="eye" title="Показать пароль">👁</button></div>
+<button class="go" type="submit">Открыть</button><div class="err"></div>
+<div class="hint">Один раз ввёл — на этом устройстве больше не спрашиваем (до «Выйти»).</div></form>`;
+      document.body.appendChild(g);
+      const f = g.querySelector('form'), i = g.querySelector('#gate-pw'), err = g.querySelector('.err'), go = g.querySelector('.go');
+      g.querySelector('.eye').onclick = () => { i.classList.toggle('masked'); i.focus(); };
+      setTimeout(() => i.focus(), 50);
+      f.onsubmit = async e => {
+        e.preventDefault(); if (!i.value) return;
+        go.disabled = true; go.textContent = 'Проверяю…'; err.textContent = '';
+        try {
+          const key = await derive(i.value.trim().normalize('NFC').toLowerCase(), enc);
+          const data = await decrypt(enc, key);
+          try { localStorage.setItem(LS, u2b(await crypto.subtle.exportKey('raw', key))); } catch (e2) {}
+          g.remove(); document.body.classList.remove('gate-blur'); res(data);
+        } catch (e1) {
+          err.textContent = 'Неверный пароль'; f.classList.remove('shake'); void f.offsetWidth; f.classList.add('shake');
+          go.disabled = false; go.textContent = 'Открыть'; i.select();
+        }
+      };
+    });
+  }
+  async function unlock(src) {
+    css();
+    const r = await fetch(src, { cache: 'no-store' });
+    if (!r.ok) throw new Error(src + ': HTTP ' + r.status);
+    const enc = await r.json();
+    let data = null;
+    try { const raw = localStorage.getItem(LS); if (raw) data = await decrypt(enc, await imp(raw)); } catch (e) { try { localStorage.removeItem(LS); } catch (e2) {} }
+    if (!data) data = await prompt(enc);
+    logoutBtn();
+    return data;
+  }
+  return { unlock };
+})();
+</script>
+<script>
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const LBL=c=>{const k=/Telegram/.test(c)?'tg':/UKR/.test(c)?'wu':/ESP/.test(c)?'we':/Viber/.test(c)?'vb':/mail/i.test(c)?'em':'';return `<span class="mlabel ml-${k}">${esc(c)}</span>`};
+const T=[['msg','💬 Мессенджеры','#22a06b'],['asst','🧑‍💼 Ассистенты','#5b8cff'],['bots','🤖 Боты','#7c5cff']];
+let D,cur=(location.hash.slice(1)||'msg');
+function tabs(){const n=document.getElementById('tabs');
+ const red=D.bots.reduce((a,b)=>a+b.qs.filter(q=>q.st==='red'&&!q.answered).length,0);
+ const pend=D.messengers.reduce((a,g)=>a+g.rows.filter(r=>r.pending||r.unread_chat).length,0);
+ const badge={msg:pend,asst:D.bots.reduce((a,b)=>a+b.qs.filter(q=>!q.answered).length,0),bots:red};
+ n.innerHTML=T.map(([id,l,c])=>`<button style="--c:${c}" class="${id===cur?'on':''}" onclick="go('${id}')">${l}${badge[id]?`<span class="abadge">${badge[id]}</span>`:''}</button>`).join('')}
+function go(id){cur=id;history.replaceState(null,'','#'+id);tabs();render()}
+function bindHtml(b){if(!b)return '<span class="nob">нет binding</span>';
+ const u=t=>D.cu_base+t;let h=`<div class="bind">🔗 ${b.kind==='девушка'?'личная карточка':'работа'}: `;
+ if(b.card)h+=`<a target="_blank" href="${u(b.card[0])}">${esc(b.card[1])}</a> `;
+ if(b.tasks)h+=b.tasks.map(t=>`<a target="_blank" href="${u(t[0])}">${esc(t[1])}</a>`).join(' · ');
+ return h+'</div>'}
+function msg(){return `<div class="grid g2e">`+D.messengers.map(g=>{
+ const rows=g.rows.filter(r=>!r.planned||true);
+ const total=rows.reduce((a,r)=>a+(r.unread_chat||0),0);
+ return `<div class="card"><h3>${esc(g.sphere)}<span class="st">${rows.length} отпр.</span></h3>`+rows.map(r=>{
+  const kinds=Object.entries(r.kinds||{}).map(([k,v])=>`${esc(k)} ×${v}`).join(', ');
+  return `<details class="mrow"><summary>${LBL(r.channel)}<b>${esc(r.sender)}</b>${r.chat!==r.sender?`<span class="note">в «${esc(r.chat)}»</span>`:''}${r.pending&&!r.planned?'<span class="pill p-high">ждёт</span>':''}${r.planned?'<span class="pill p-normal">план</span>':''}<span class="cnt ${r.unread_chat?'':'z'}">${r.unread_chat??'—'}</span></summary>
+  <div class="mbody"><ul>${r.pending?`<li>⏳ ${esc(r.pending)}</li>`:''}${r.client?`<li>Клиент: ${esc(r.client)}</li>`:''}${r.watcher?`<li>${r.watcher_st==='red'?'🔴':'🟢'} Вочер: ${esc(r.watcher)}</li>`:''}${r.unread_list?`<li>Непрочитанные чаты: ${r.unread_list.map(u=>`${esc(u.chat)}${u.kind?` (${esc(u.kind)})`:''} ×${u.n}`).join(', ')||'нет'}</li>`:''}${r.items?`<li>Записей в логе: ${r.items} (${kinds}) · последн. ${esc(r.last||'')} Bogotá</li>`:''}<li>Непрочитано в чате: ${r.unread_chat??'нет данных'} · источник: ${esc(r.src)}</li></ul>${r.planned?'':bindHtml(r.binding)}</div></details>`}).join('')+`</div>`}).join('')+`</div><p class="note">Содержимое сообщений не отображается. Метаданные: secretary-log (25–26.10) по allowlist чатов/людей из contacts; Viber — watcher ещё не запущен.</p>`}
+function asst(){return `<div class="grid g2e">`+D.bots.map(b=>`<div class="card"><h3>${esc(b.name)}<span class="st">${b.qs.filter(q=>!q.answered).length} откр.</span></h3>${b.qs.length?`<table><tr><th>Вопрос</th><th>Статус</th></tr>`+b.qs.map(q=>`<tr><td style="white-space:normal">${esc(q.q)}</td><td><span class="pill ${q.answered?'st-ans':'st-open'}">${q.answered?'отвечен':'открыт'}</span></td></tr>`).join('')+`</table>`:'<div class="empty">Нет открытых вопросов (данные не собраны — шаблон)</div>'}</div>`).join('')+`</div>`}
+function qa(b,q,i){const href=b.link||'#';const tip=`${b.name}: ${q.q}\nКонтекст: ${q.ctx||''}`;
+ return `<a class="q ${q.st}" href="${esc(href)}" title="${esc(tip)}" data-b="${esc(b.name)}" data-i="${i}" onclick="return openQ(this)">${q.st==='green'&&q.new?'<span class="ydot" title="есть новые отчёты"></span>':''}<span>${q.st==='red'?'🔴 ':''}${esc(q.q)}${q.answered?' <span class="pill st-ans">отвечен</span>':''}</span></a>`}
+function openQ(a){const b=D.bots.find(x=>x.name===a.dataset.b),q=b.qs[+a.dataset.i];
+ const txt=`[Из дашборда] ${q.q}\nКонтекст: ${q.ctx||''}`;try{navigator.clipboard.writeText(txt)}catch(e){}
+ const c=document.getElementById('ctx');c.textContent=(b.link?'Открываю чат «'+b.name+'». ':'Это текущий чат (ссылки нет). ')+'Контекст скопирован — вставь в чат.';c.style.display='block';setTimeout(()=>c.style.display='none',3500);
+ return !!b.link}
+function bots(){return `<div class="grid g2e">`+D.bots.map(b=>{const red=b.qs.map((q,i)=>[q,i]).filter(([q])=>q.st==='red'),gr=b.qs.map((q,i)=>[q,i]).filter(([q])=>q.st!=='red');
+ const anyNew=gr.some(([q])=>q.new);
+ return `<div class="card ${red.length?'person at':''}"><h3>${esc(b.name)} ${b.link?`<a class="st" href="${esc(b.link)}" title="Открыть чат бота">открыть чат ↗</a>`:''}</h3>
+ ${red.map(([q,i])=>qa(b,q,i)).join('')}
+ ${gr.length?`<details class="okfold" ${red.length?'':''}><summary>${anyNew?'<span class="ydot"></span> ':''}🟢 Всё ок (${gr.length})</summary>${gr.map(([q,i])=>qa(b,q,i)).join('')}</details>`:''}
+ ${!b.qs.length?'<div class="empty">🟢 Вопросов нет (шаблон — данные ещё не собраны)</div>':''}</div>`}).join('')+`</div>
+ <p class="note">🔴 застряло/заблокировано · 🟢 норм (свёрнуто) · 🟡 точка = есть новые отчёты. Клик по вопросу копирует контекст в буфер и открывает чат бота по <code>grokbot://app/v1/agent?id=…</code> (<b>формат не подтверждён</b> в app-ui.md — проверить в приложении).</p>`}
+function render(){document.getElementById('main').innerHTML=cur==='asst'?asst():cur==='bots'?bots():msg()}
+(async()=>{D=await Gate.unlock('data-test-ma.enc.json');document.getElementById('gen').textContent='Данные: '+D.generated+' · TEST';tabs();render()})().catch(e=>{document.getElementById('main').innerHTML='<div class="attn">'+esc(e.message)+'</div>'});
+</script></body></html>
