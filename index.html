@@ -87,6 +87,25 @@ footer{margin-top:22px;color:var(--mut);font-size:11.5px;line-height:1.6;border-
 .g5{grid-template-columns:repeat(5,1fr)}@media(max-width:980px){.g5{grid-template-columns:repeat(3,1fr)}}@media(max-width:520px){.g5{grid-template-columns:1fr 1fr;gap:10px}}
 .g3b{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}@media(max-width:720px){.g3b{grid-template-columns:1fr}}.kpi.bt .v{font-size:30px}.kpi.bt.at{border-color:#f5c2c4;background:#fff5f5}.kpi.bt.ok{border-color:#bfe9d8}.kpi.bt.at .v{color:#b42318;font-size:22px}.kpi.bt.ok .v{color:#0b7a59;font-size:22px}.bgoal{border-color:#bfe6f5;background:linear-gradient(135deg,#ecf8fd,var(--panel))}.bgoal .bar{height:10px;border-radius:99px;background:#e6edf5;overflow:hidden}.bgoal .bar i{display:block;height:100%;background:#38bdf8}
 .pin-hi{background:linear-gradient(135deg,#fff8d6,#fff1f1);border:2px solid #f5b400;border-left:6px solid var(--neg);border-radius:14px;padding:14px 16px;margin-bottom:14px;box-shadow:var(--shadow);display:flex;gap:12px;align-items:center;font-size:17px;font-weight:700}.pin-hi input,.it-hi input,.ck{width:20px;height:20px;cursor:pointer;flex:0 0 auto}.pin-hi.done,.it-hi.done{opacity:.55;text-decoration:line-through}.it-hi{background:#fff8d6;border-left:3px solid var(--neg);padding:4px 8px;border-radius:6px;font-weight:700;font-size:14px;list-style:none;display:flex;gap:8px;align-items:center}
+
+/* Rost 26.10: Мессенджеры / Ассистенты / Боты (из TEST-страницы). Вкладок стало 12 — на десктопе переносим строку, чтобы не прятались за скроллом */
+@media(min-width:700px){.tabs{flex-wrap:wrap;overflow-x:visible}}
+.mrow{border-top:1px solid var(--line);padding:9px 0}.mrow:first-of-type{border-top:0}
+.mrow summary{display:flex;gap:8px;align-items:center;cursor:pointer;list-style:none;font-size:13.5px;flex-wrap:wrap}.mrow summary::-webkit-details-marker{display:none}
+.mrow summary::before{content:"▸";color:var(--mut);font-size:11px}.mrow[open] summary::before{content:"▾"}
+.mlabel{font-size:10.5px;font-weight:700;padding:1px 8px;border-radius:99px;background:#eef0f6;color:#3a4160;white-space:nowrap}
+.ml-tg{background:#e3f3fd;color:#1f7fb3}.ml-wu{background:#e6f7f0;color:#0b7a59}.ml-we{background:#eaf8e0;color:#3f7a0b}.ml-vb{background:#f1eaff;color:#6d28d9}.ml-em{background:#fff1d6;color:#9a5b07}
+.mcnt{margin-left:auto;font-size:11px;font-weight:700;color:#fff;background:#64748b;border-radius:99px;padding:1px 7px}.mcnt.z{background:#cbd5e1}
+.mbody{padding:6px 0 2px 18px;font-size:12.5px;color:#3a4160}.mbody li{margin:3px 0}
+.nob{font-size:10.5px;color:#9a5b07;background:#fff6e5;border:1px dashed #f3d7a3;border-radius:6px;padding:0 6px}
+.bind a{color:var(--acc);text-decoration:none}.bind{margin-top:4px}
+.bq{display:flex;gap:8px;align-items:flex-start;padding:8px 10px;border-radius:10px;margin:6px 0;font-size:13.5px;text-decoration:none;color:var(--txt);border:1px solid var(--line);cursor:pointer}
+.bq:hover{box-shadow:var(--shadow)}.bq.red{background:#fff5f5;border-color:#f5c2c4;border-left:4px solid var(--neg)}.bq.green{background:#f3fbf7;border-color:#bfe9d8;border-left:4px solid var(--pos)}
+.ydot{display:inline-block;width:9px;height:9px;border-radius:50%;background:#facc15;box-shadow:0 0 0 2px #fff,0 0 0 3px #eab30855;margin-top:5px;flex:0 0 auto}
+.okfold summary{cursor:pointer;font-size:12.5px;color:var(--pos);font-weight:600;margin-top:6px}
+.st-open{background:#ffe3e5;color:#b42318}.st-ans{background:#e6f7f0;color:#0b7a59}
+.nbadge{display:inline-grid;place-items:center;min-width:18px;height:18px;padding:0 5px;margin-left:6px;border-radius:99px;background:#94a3b8;color:#fff;font:700 10.5px Inter;vertical-align:1px}
+.ctxnote{position:fixed;left:50%;bottom:20px;transform:translateX(-50%);background:#1b2033;color:#fff;padding:10px 14px;border-radius:12px;font-size:13px;z-index:60;max-width:90vw;display:none}
 </style><link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%2322c3a6%22/%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%237b5cff%22/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2216%22%20fill%3D%22url%28%23g%29%22/%3E%3Crect%20x%3D%2215%22%20y%3D%2234%22%20width%3D%228%22%20height%3D%2215%22%20rx%3D%223%22%20fill%3D%22%23fff%22/%3E%3Crect%20x%3D%2228%22%20y%3D%2224%22%20width%3D%228%22%20height%3D%2225%22%20rx%3D%223%22%20fill%3D%22%23fff%22/%3E%3Crect%20x%3D%2241%22%20y%3D%2215%22%20width%3D%228%22%20height%3D%2234%22%20rx%3D%223%22%20fill%3D%22%23fff%22%20opacity%3D%22.92%22/%3E%3C/svg%3E">
 </head><body><div class="wrap">
 <header><div class="brand"><div class="logo">R</div><div><h1>Бизнес-дашборд</h1><small id="sub"></small></div></div>
@@ -329,7 +348,7 @@ function controls(){document.querySelectorAll('#mode button').forEach(b=>{b.clas
  if(!sel.hidden){sel.innerHTML=Dash.periods().map(p=>`<option value="${p.id}">${S.mode==='week'?(p.iso+' · '):''}${esc(p.label)}</option>`).join('');sel.value=Dash.pid();}
  sel.onchange=()=>{S.mode==='week'?S.week=sel.value:S.month=sel.value;render()};$('#cur').value=S.cur;$('#cur').onchange=e=>{S.cur=e.target.value;render()};
  // Rost 25.10: Календарь — не вкладка направления, а кнопка сверху рядом с Сегодня/Неделя/Месяц
- $('#tabs').innerHTML=[{id:'overview',name:'Общий',icon:'✦',color:'#7c5cff'},...D.directions.filter(d=>d.kind!=='calendar')].map(d=>{const n=d.id==='overview'?attnAll().n:attn(d).length;return `<button data-t="${d.id}" style="--c:${d.color}" class="${S.tab===d.id?'on':''}" title="${n?'Требует внимания: '+n:''}">${d.stage?`<span class="sdot tdot ${d.stage}" title="${STAGE_T[d.stage]||''}"></span>`:''}${d.icon} ${esc(d.name)}${n?`<span class="abadge">${n}</span>`:''}</button>`}).join('');
+ $('#tabs').innerHTML=[{id:'overview',name:'Общий',icon:'✦',color:'#7c5cff'},...D.directions.filter(d=>d.kind!=='calendar')].map(d=>{const n=d.id==='overview'?attnAll().n:attn(d).length;return `<button data-t="${d.id}" style="--c:${d.color}" class="${S.tab===d.id?'on':''}" title="${n?'Требует внимания: '+n:''}">${d.stage?`<span class="sdot tdot ${d.stage}" title="${STAGE_T[d.stage]||''}"></span>`:''}${d.icon} ${esc(d.name)}${n?`<span class="abadge">${n}</span>`:''}${!n&&MA_KINDS.includes(d.kind)&&maCount(d)?`<span class="nbadge" title="висит / открыто (не требует внимания)">${maCount(d)}</span>`:''}</button>`}).join('');
  document.querySelectorAll('#tabs button').forEach(b=>b.onclick=()=>{S.tab=b.dataset.t;render();scrollTo({top:0,behavior:'smooth'})});
  const TD=new Intl.DateTimeFormat('ru-RU',{timeZone:BOG,weekday:'short',day:'numeric',month:'short'}).format(new Date());
  $('#sub').textContent=S.tab==='calendar'?'Календарь · день':S.mode==='today'?`Сегодня · ${TD}`:`${S.mode==='week'?'Неделя':'Месяц'}: ${Dash.periodLabel()}`;}
@@ -399,7 +418,7 @@ function repAttn(d){const R=d.repeat_sales;if(!R)return [];const out=[];(R.items
  else if(st==='pending_ping'&&x.kind==='due')out.push({grp:'🔁 Повторные продажи',text:x.client+' — пора повторную, '+who+' ещё не напомнили',url:R.cu_url,why:'пора',cls:''})});return out}
 const itemText=x=>typeof x==='string'?x:(x&&x.text)||'';const isYa=x=>/^\s*Я:/.test(itemText(x));const isChk=x=>x&&typeof x==='object'&&x.id&&localStorage.getItem('dash_check_'+x.id)==='1';
 function togChk(id,v){localStorage.setItem('dash_check_'+id,v?'1':'0');if(typeof render==='function')render();else location.reload()}
-function attn(d){const it=dataIssues(d).concat(repAttn(d)).concat(ofFarmAttn(d)).concat(reAttn(d)).concat(tbkAttn(d)).concat(persAttn(d));
+function attn(d){if(MA_KINDS.includes(d.kind))return maAttn(d);const it=dataIssues(d).concat(repAttn(d)).concat(ofFarmAttn(d)).concat(reAttn(d)).concat(tbkAttn(d)).concat(persAttn(d));
  if(d.id==='defense'){(d.unanswered_replies||(d.board&&d.board.unanswered_replies)||[]).filter(r=>r&&r.status!=='scheduled'&&!r.scheduled_at).forEach(r=>{const who=r.company||r.from||'компания';const subj=r.subject||'ответ';it.push({grp:'Ответы без ответа',text:who+' — '+subj+(r.note?': '+r.note:''),url:r.url||null,why:'ответ',cls:''})});return it} // Rost 25.10: attn только если нужно решать сейчас; запланированный ответ/запуск — не attn
  (d.tasks||[]).forEach(t=>{const st=String(t.status||'');if(DONE.test(st))return;const over=t.due&&t.due<TODAY;let why=null;
   if(t.priority==='urgent')why='срочно'+(over?' · просрочено':'');else if(BLOCK.test(st))why='заблокировано';else if(t.priority==='high'&&over)why='высокий · просрочено';
@@ -886,6 +905,39 @@ function directionToday(d){const c=calDir(),ev=c?todayEvents(d.id):[],dt=dueToda
  if(rest.length)h+=`<div style="height:14px"></div><div class="card"><h3>Остальные открытые задачи</h3>${tasksHTML(rest.sort((a,b)=>(prioRank[a.priority]-prioRank[b.priority])||String(a.due).localeCompare(b.due)))}</div>`;
  if((d.monitors||[]).length){const mt=d.monitors_title||'Мониторы',ms=d.monitors_sub||'';h+=`<div style="height:14px"></div><div class="card"><h3>${esc(mt)}${ms?` <span class="st">${esc(ms)}</span>`:''}</h3>${d.monitors.map(x=>{const st=x.status||'planned',pill=st==='active'?'p-normal':'p-high',lab=st==='active'?'работает':st==='attention'?'внимание':'план';return `<div class="task"><span class="pill ${pill}">${lab}</span><div style="flex:1"><b style="font-size:13.5px">${esc(x.name)}</b><div class="note">${esc(x.note||'')}${x.src?' · '+esc(x.src):''}</div></div></div>`}).join('')}</div>`}
  $('#main').innerHTML=h;bindToday()}
-function render(){kill();Dash.save();controls();const d=Dash.D.directions.find(x=>x.id===S.tab),td=S.mode==='today';d?(d.kind==='people'?people(d):d.kind==='calendar'?calendar(d):d.board?board(d):td?directionToday(d):direction(d)):td?overviewToday():overview();$('#foot').textContent=Dash.fxFooter();}
+
+/* Rost 26.10: вкладки Мессенджеры + «Ассистенты · боты» (одна общая, Rost: «1 вкладки достаточно»; раньше только test-messengers-assistants.html). Только метаданные, тексты сообщений не показываются. */
+const MA_KINDS=['msgs','assistants','bots'];
+const mLBL=c=>{const k=/Telegram/.test(c)?'tg':/UKR/.test(c)?'wu':/ESP/.test(c)?'we':/Viber/.test(c)?'vb':/mail/i.test(c)?'em':'';return `<span class="mlabel ml-${k}">${esc(c)}</span>`};
+function maAttn(d){const out=[];
+ if(d.kind==='bots')(d.bots||[]).forEach(b=>(b.qs||[]).forEach(q=>{if(q.st==='red'&&!q.answered)out.push({grp:'🤖 '+b.name,text:q.q,why:'встало',cls:''})}));
+ if(d.kind==='msgs')(d.messengers||[]).forEach(g=>(g.rows||[]).forEach(r=>{if(r.watcher_st==='red')out.push({grp:'Вочеры',text:r.channel+': '+(r.watcher||'вочер не работает'),why:'сбой',cls:''})}));
+ return out} /* HARD Rost: attn только 🔴 (встало / вочер упал); висящие сообщения и открытые вопросы — серый счётчик, не attn */
+function maCount(d){if(d.kind==='msgs')return (d.messengers||[]).reduce((a,g)=>a+(g.rows||[]).filter(r=>r.pending&&!r.planned).length,0);
+ if(d.kind==='assistants'||d.kind==='bots')return (d.bots||[]).reduce((a,b)=>a+(b.qs||[]).filter(q=>!q.answered).length,0);return 0}
+function maHead(d,extra){return `<div class="card" style="margin-bottom:14px;background:linear-gradient(135deg,#f1f5ff,var(--panel))"><div style="font-size:22px;font-weight:800">${d.icon} ${esc(d.name)}</div><div class="note">${esc(d.subtitle||'')}${d.ma_generated?' · данные: '+esc(d.ma_generated):''}${extra?' · '+extra:''}</div></div>`}
+function maBind(d,b){if(!b)return '<span class="nob">нет binding</span>';const u=t=>(d.cu_base||'https://rosmater.github.io/cu/?t=')+t;
+ let h=`<div class="bind">🔗 ${b.kind==='девушка'?'личная карточка':'работа'}: `;if(b.card)h+=`<a target="_blank" rel="noopener" href="${u(b.card[0])}">${esc(b.card[1])}</a> `;
+ if(b.tasks)h+=b.tasks.map(t=>`<a target="_blank" rel="noopener" href="${u(t[0])}">${esc(t[1])}</a>`).join(' · ');return h+'</div>'}
+function msgsTab(d){const G=d.messengers||[];
+ let h=maHead(d,'тексты сообщений не читаются и не показываются')+attnHTML(d)+`<div class="grid g2e">`+G.map(g=>{const rows=g.rows||[];
+  return `<div class="card"><h3>${esc(g.sphere)}<span class="st">${rows.length} отпр.</span></h3>`+rows.map(r=>{const kinds=Object.entries(r.kinds||{}).map(([k,v])=>`${esc(k)} ×${v}`).join(', ');const wi=r.watcher_st==='red'?'🔴':r.watcher_st==='warn'?'🟡':'🟢';
+   return `<details class="mrow"><summary>${mLBL(r.channel)}<b>${esc(r.sender)}</b>${r.chat!==r.sender?`<span class="note">в «${esc(r.chat)}»</span>`:''}${r.pending&&!r.planned?'<span class="pill p-high">ждёт</span>':''}${r.planned?'<span class="pill p-normal">план</span>':''}<span class="mcnt ${r.unread_chat?'':'z'}" title="непрочитано в чате">${r.unread_chat??'—'}</span></summary>
+   <div class="mbody"><ul>${r.pending?`<li>⏳ ${esc(r.pending)}</li>`:''}${r.client?`<li>Клиент: ${esc(r.client)}</li>`:''}${r.watcher?`<li>${wi} Вочер: ${esc(r.watcher)}</li>`:''}${r.unread_list?`<li>Непрочитанные чаты: ${r.unread_list.map(u=>`${esc(u.chat)}${u.kind?` (${esc(u.kind)})`:''} ×${u.n}`).join(', ')||'нет'}</li>`:''}${r.items?`<li>Записей в логе: ${r.items} (${kinds}) · последн. ${esc(r.last||'')} Bogotá</li>`:''}<li>Непрочитано в чате: ${r.unread_chat??'нет данных'} · источник: ${esc(r.src||'')}</li></ul>${r.planned?'':maBind(d,r.binding)}</div></details>`}).join('')+`</div>`}).join('')+`</div><p class="note">Только метаданные (кто, где, сколько, тип) из secretary-log и вочеров. Серый счётчик = непрочитано в чате, не «требует внимания».</p>`;
+ $('#main').innerHTML=h}
+function asstTab(d){const B=d.bots||[];
+ $('#main').innerHTML=maHead(d)+`<div class="grid g2e">`+B.map(b=>`<div class="card"><h3>${esc(b.name)}<span class="st">${(b.qs||[]).filter(q=>!q.answered).length} откр.</span></h3>${(b.qs||[]).length?`<table><tr><th>Вопрос</th><th>Статус</th></tr>`+b.qs.map(q=>`<tr><td style="white-space:normal">${q.st==='red'&&!q.answered?'🔴 ':''}${esc(q.q)}</td><td><span class="pill ${q.answered?'st-ans':'st-open'}">${q.answered?'отвечен':'открыт'}</span></td></tr>`).join('')+`</table>`:'<div class="empty">Нет открытых вопросов (данные ещё не собраны — шаблон)</div>'}</div>`).join('')+`</div>`}
+function maQ(b,q,bi,i){const href=b.link||'#';
+ return `<a class="bq ${q.st}" href="${esc(href)}" title="${esc(b.name+': '+q.q+'\nКонтекст: '+(q.ctx||''))}" data-bi="${bi}" data-i="${i}" onclick="return maOpenQ(this)">${q.st==='green'&&q.new?'<span class="ydot" title="есть новые отчёты"></span>':''}<span>${q.st==='red'?'🔴 ':''}${esc(q.q)}${q.answered?' <span class="pill st-ans">отвечен</span>':''}</span></a>`}
+function maOpenQ(a){const d=Dash.D.directions.find(x=>x.kind==='bots');const b=d.bots[+a.dataset.bi],q=b.qs[+a.dataset.i];
+ try{navigator.clipboard.writeText(`[Из дашборда] ${q.q}\nКонтекст: ${q.ctx||''}`)}catch(e){}
+ let c=document.getElementById('ctx');if(!c){c=document.createElement('div');c.id='ctx';c.className='ctxnote';document.body.appendChild(c)}
+ c.textContent=(b.link?'Открываю чат «'+b.name+'». ':'Это текущий чат (ссылки нет). ')+'Контекст скопирован — вставь в чат.';c.style.display='block';setTimeout(()=>c.style.display='none',3500);return !!b.link}
+function botsTab(d){const B=d.bots||[];const open=B.reduce((a,b)=>a+(b.qs||[]).filter(q=>!q.answered).length,0);
+ $('#main').innerHTML=maHead(d,open+' открытых вопросов')+attnHTML(d)+`<div class="grid g2e">`+B.map((b,bi)=>{const qs=(b.qs||[]).map((q,i)=>[q,i]),red=qs.filter(([q])=>q.st==='red'&&!q.answered),gr=qs.filter(([q])=>!(q.st==='red'&&!q.answered));const anyNew=gr.some(([q])=>q.new);
+  return `<div class="card ${red.length?'person at':''}"><h3>${esc(b.name)} ${b.link?`<a class="st" href="${esc(b.link)}" title="Открыть чат бота">открыть чат ↗</a>`:''}</h3>${red.map(([q,i])=>maQ(b,q,bi,i)).join('')}
+  ${gr.length?`<details class="okfold"><summary>${anyNew?'<span class="ydot"></span> ':''}🟢 Всё ок (${gr.length})</summary>${gr.map(([q,i])=>maQ(b,q,bi,i)).join('')}</details>`:''}${!qs.length?'<div class="empty">🟢 Вопросов нет (шаблон — данные ещё не собраны)</div>':''}</div>`}).join('')+`</div>
+  <p class="note">🔴 застряло · 🟢 норм (свёрнуто) · 🟡 точка = новые отчёты. Клик по вопросу копирует контекст и открывает чат бота <code>grokbot://app/v1/agent?id=…</code> (формат ссылки ещё не подтверждён).</p>`}
+function render(){kill();Dash.save();controls();const d=Dash.D.directions.find(x=>x.id===S.tab),td=S.mode==='today';d?(d.kind==='msgs'?msgsTab(d):d.kind==='assistants'?asstTab(d):d.kind==='bots'?botsTab(d):d.kind==='people'?people(d):d.kind==='calendar'?calendar(d):d.board?board(d):td?directionToday(d):direction(d)):td?overviewToday():overview();$('#foot').textContent=Dash.fxFooter();}
 Dash.load().then(()=>document.fonts.ready).then(render).catch(e=>{$('#main').innerHTML='<div class="card">Не удалось загрузить data.json: '+esc(e.message)+'</div>'});
 </script></body></html>

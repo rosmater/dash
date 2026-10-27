@@ -273,8 +273,8 @@
      "last": "2026-10-26 18:36",
      "binding": null,
      "client": "AX42 wa-ukr-12promax-p · залогинен 26.10 ~18:36",
-     "watcher": "pending — не live (Windows toast watcher viber-secretary ещё не установлен)",
-     "watcher_st": "red",
+     "watcher": "запущен 26.10 19:04 (Startup, baseline last_id=1985); AUMID Viber не найден автоматически — toast могут не ловиться, дописываем вручную",
+     "watcher_st": "warn",
      "unread_list": [
       {
        "chat": "БЕЗПЕЧНИЙ РЕГІОН",
@@ -282,7 +282,7 @@
        "n": 1
       }
      ],
-     "pending": "watcher ещё не установлен → красный; после установки мониторим в health-пульсе (night hygiene / morning mega) наравне с TG/WA; будим Rost только по allowlist/важному",
+     "pending": "watcher запущен; мониторим в health-пульсе (night hygiene / morning mega) наравне с TG/WA; будим Rost только по allowlist/важному",
      "src": "скрин Viber 18:36"
     }
    ]
