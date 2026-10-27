@@ -298,3 +298,8 @@ Rost asked: (1) ads Active+Archive (2) repeat sales «Пора делать по
 - 27.10 (Rost t3887u–t3889u): игнор чата в дашборде = скрыт, кроме нового @-тега Rost (TG @username / WA-группа @имя); личка — до ручного возврата. Сфера Dating → «Дейтинг» 🩶.
 
 - **27.10 (Rost t3927–t3929, STANDING):** helper (ассистент) всегда обновляется вместе с main. Меню Мессенджеры/Ассистенты у helper НЕ убирать: в Мессенджерах только монитор (вочеры/покрытие), контент-блоки чатов вырезаны в data-asst; Ассистенты видны, скрыт только бот «Дейтинг». Конфиг: src/assistant_hide.json (messengers_monitor_only, hide_bots).
+
+## 2026-10-27 — helper = тот же даш (Rost t3938–40)
+- helper.html = байт-в-байт index.html + одна строка конфига DASH_HELPER (после <head>). Никакого отдельного UI.
+- Скрытие только флагами: hide_from_helper в данных блоков, HH(key)/DASH_HIDE в Мессенджерах (msg_attn, msg_grid, msg_cov, msg_unsorted, msg_rec).
+- Каждый пуш index.html → в том же коммите пересобрать helper.html (diff должен быть ровно 1 строка).

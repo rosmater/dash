@@ -1,5 +1,12 @@
 <!doctype html>
 <html lang="ru"><head>
+<script>window.DASH_ENC='data-asst.enc.json';window.DASH_LS='dash_key_asst_v1';window.DASH_TITLE='Дашборд (ассистент)';window.DASH_HELPER=true;</script>
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"><meta http-equiv="Pragma" content="no-cache"><meta http-equiv="Expires" content="0">
+<script>/* Rost 27.10 t3915u: авто-сброс кеша — при любом деплое страница сама перезагружается свежей */
+(function(){const h=t=>{let x=0;for(let i=0;i<t.length;i++)x=(x*31+t.charCodeAt(i))|0;return x};let base=null;
+async function chk(){try{const p=location.pathname,r=await fetch(p+'?nc='+Date.now(),{cache:'no-store'});if(!r.ok)return;const v=h(await r.text());if(base===null){base=v;return}if(v!==base){const u=new URL(location.href);u.searchParams.set('v',Date.now());location.replace(u.toString())}}catch(e){}}
+if('serviceWorker'in navigator)navigator.serviceWorker.getRegistrations().then(a=>a.forEach(x=>x.unregister())).catch(()=>{});
+chk();setInterval(chk,120000);document.addEventListener('visibilitychange',()=>{if(!document.hidden)chk()});})();</script>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#f5f6fa"><meta name="apple-mobile-web-app-capable" content="yes">
 <title>Дашборд — вариант A (Light SaaS)</title>
@@ -117,7 +124,6 @@ footer{margin-top:22px;color:var(--mut);font-size:11.5px;line-height:1.6;border-
 <div class="ctrls"><div class="seg" id="mode"><button data-m="today">Сегодня</button><button data-m="week">Неделя</button><button data-m="month">Месяц</button></div><div class="seg" id="calbtn"><button data-t="calendar">📅 Календарь</button></div><div class="seg" id="mabtn"></div>
 <select id="period"></select><select id="cur" hidden><option value="USD">USD</option></select></div></header>
 <nav class="tabs" id="tabs"></nav><main id="main"></main><footer id="foot"></footer></div>
-<script>window.DASH_ENC='data-asst.enc.json';window.DASH_LS='dash_key_asst_v1';window.DASH_TITLE='Дашборд (ассистент)';window.DASH_HELPER=true;</script>
 <script>/* ===== Password gate (Rost 24.10): data.enc.json расшифровывается паролем; ключ помнится в localStorage до «Выйти» ===== */
 const Gate = (() => {
   const LS = window.DASH_LS || 'dash_key_v1';
@@ -151,14 +157,20 @@ const Gate = (() => {
 #gate .hint{color:#94a3b8;font-size:12px;margin-top:6px}
 #gate form.shake{animation:gsh .35s}@keyframes gsh{25%{transform:translateX(-8px)}75%{transform:translateX(8px)}}
 #gate-out{position:fixed;right:14px;bottom:14px;z-index:50;border:1px solid #e2e8f0;background:#fff;color:#64748b;border-radius:999px;padding:6px 12px;font-size:12px;cursor:pointer;box-shadow:0 2px 8px rgba(15,23,42,.08)}
-#gate-out:hover{color:#0f172a}`;
+#gate-out:hover,#gate-ref:hover{color:#0f172a}
+#gate-out{padding:6px 10px;font-size:15px;line-height:1}
+#gate-ref{position:fixed;right:58px;bottom:14px;z-index:50;border:1px solid #e2e8f0;background:#fff;color:#64748b;border-radius:999px;padding:6px 10px;font-size:15px;line-height:1;cursor:pointer;box-shadow:0 2px 8px rgba(15,23,42,.08)}`;
     document.head.appendChild(s);
   }
   function logoutBtn() {
     const b = document.createElement('button');
-    b.id = 'gate-out'; b.textContent = '🔒 Выйти'; b.title = 'Забыть пароль на этом устройстве';
+    b.id = 'gate-out'; b.textContent = '🔒'; b.title = 'Выйти (забыть пароль на этом устройстве)'; b.setAttribute('aria-label','Выйти');
     b.onclick = () => { try { localStorage.removeItem(LS); } catch (e) {} location.reload(); };
     document.body.appendChild(b);
+    const r = document.createElement('button');
+    r.id = 'gate-ref'; r.textContent = '↻'; r.title = 'Обновить (свежая версия, без кеша)'; r.setAttribute('aria-label','Обновить');
+    r.onclick = () => { const u = new URL(location.href); u.searchParams.set('v', Date.now()); location.replace(u.toString()); };
+    document.body.appendChild(r);
   }
   function prompt(enc) {
     return new Promise(res => {
@@ -349,7 +361,7 @@ const Dash = (() => {
     return { weeks: ws, total, explicit: total.rec && total.rec.source === 'explicit' };
   }
   /* Rost 26.10: ↻ у вопросов — перечитать свежий data.enc.json без перезагрузки страницы (ключ уже в localStorage) */
-  async function reload() { document.getElementById('gate-out')?.remove(); D = await Gate.unlock((window.DASH_ENC || 'data.enc.json') + '?t=' + Date.now()); return D; }
+  async function reload() { document.getElementById('gate-out')?.remove(); document.getElementById('gate-ref')?.remove(); D = await Gate.unlock((window.DASH_ENC || 'data.enc.json') + '?t=' + Date.now()); return D; }
   return { reload, rollup, load, S, save, get D() { return D; }, conv, curOf, pid, record, summary, series, goals, breakdowns, overview, periods, periodLabel, fmt, num, pct, esc, fxFooter, EX, PRI, trend, weeksOfMonth };
 })();
 </script>
@@ -1124,9 +1136,10 @@ function msgsTab(d){const G0=(d.messengers||[]).map(g=>({sphere:g.sphere,rows:(g
  const wfold=g=>`<details class="okfold" style="font-size:11px"><summary style="color:#9ca3af;font-weight:400">⏳ ждём ответ (${g.wt.length})</summary>${g.wt.length?`<ul style="font-size:11px">${g.wt.map(wli).join('')}</ul>`:'<div class="note">сейчас никого не ждём</div>'}<div class="note" style="font-size:10px">мы написали — ждём человека (эта сфера)</div></details>`;
  const zch=c=>/telegram/i.test(c)?'Telegram':/esp|business/i.test(c)?'WhatsApp ESP':/ukr|personal/i.test(c)?'WhatsApp UKR':/whatsapp/i.test(c)?'WhatsApp':c||'—';
  const zli=r=>{const wi=r.watcher_st==='red'?'🔴':r.watcher_st==='warn'?'🟡':r.watcher?'🟢':'';return `<li>${mLBL(r.channel)} <b>${esc(r.sender)}</b> <span class="note">· непрочитано: ${r.unread_chat??'нет данных'}${r.last?' · последн. '+esc(r.last.slice(5)):''}${r.watcher?` · ${wi} вочер: ${esc(r.watcher)}`:''}</span>${maLink(r.owner,r.owner_link,'Мессенджеры · без сообщений',r.channel+' · '+r.sender)}</li>`};
- if(window.DASH_HELPER){$('#main').innerHTML=maHead(d,'',true)+maMonitor(d,G0);return}/* Rost t3933u: у ассистента только монитор */
- let h=maHead(d,'',true)+maMonitor(d,G0)+attnHTML(d)+(G.some(g=>g.rows.length)?'':'<div class="empty">Висящих сообщений нет</div>')+maGrid(G,g=>
-  `<div class="card"><h3>${maSphT(g.sphere)}<span class="st">${g.rows.length} с сообщ.${g.wt.length?' · ⏳ '+g.wt.length+' ждём':''}${(g.zero.length+g.zc.length)?' · '+(g.zero.length+g.zc.length)+' без':''}</span></h3>`+g.rows.map(r=>maRowHTML(d,r)).join('')+wfold(g)+((g.zero.length+g.zc.length)?`<details class="okfold" style="font-size:11px"><summary style="color:#9ca3af;font-weight:400">▸ Без сообщений (${g.zero.length+g.zc.length})</summary><ul style="font-size:11px">${g.zero.map(zli).join('')}${g.zc.map(z=>`<li>${mLBL(zch(z.channel))} ${esc(z.title)}${z.status&&z.status!=='active'?` <span class="note">· ${esc(z.status)}</span>`:''}</li>`).join('')}</ul><div class="note" style="font-size:10px">контакты/чаты этой ниши из contacts (chats.csv), сейчас без висящих</div></details>`:'')+`</div>`)+maCov(d)+unsortedHTML(d)+maRecH(d);
+ /* Rost t3938–40: helper = тот же даш, блоки скрываются флагами HH(...) — без отдельного UI */
+ const HH=k=>window.DASH_HELPER&&(window.DASH_HIDE||['msg_attn','msg_grid','msg_cov','msg_unsorted','msg_rec']).includes(k);
+ let h=maHead(d,'',true)+maMonitor(d,G0)+(HH('msg_attn')?'':attnHTML(d))+(HH('msg_grid')?'':(G.some(g=>g.rows.length)?'':'<div class="empty">Висящих сообщений нет</div>')+maGrid(G,g=>
+  `<div class="card"><h3>${maSphT(g.sphere)}<span class="st">${g.rows.length} с сообщ.${g.wt.length?' · ⏳ '+g.wt.length+' ждём':''}${(g.zero.length+g.zc.length)?' · '+(g.zero.length+g.zc.length)+' без':''}</span></h3>`+g.rows.map(r=>maRowHTML(d,r)).join('')+wfold(g)+((g.zero.length+g.zc.length)?`<details class="okfold" style="font-size:11px"><summary style="color:#9ca3af;font-weight:400">▸ Без сообщений (${g.zero.length+g.zc.length})</summary><ul style="font-size:11px">${g.zero.map(zli).join('')}${g.zc.map(z=>`<li>${mLBL(zch(z.channel))} ${esc(z.title)}${z.status&&z.status!=='active'?` <span class="note">· ${esc(z.status)}</span>`:''}</li>`).join('')}</ul><div class="note" style="font-size:10px">контакты/чаты этой ниши из contacts (chats.csv), сейчас без висящих</div></details>`:'')+`</div>`))+(HH('msg_cov')?'':maCov(d))+(HH('msg_unsorted')?'':unsortedHTML(d))+(HH('msg_rec')?'':maRecH(d));
  $('#main').innerHTML=h}
 function asstTab(d){const B=d.bots||[];
  $('#main').innerHTML=maHead(d)+`<div class="grid g2e">`+B.map(b=>`<div class="card"><h3>${esc(b.name)}<span class="st">${(b.qs||[]).filter(q=>!q.answered).length} откр.</span></h3>${(b.qs||[]).length?`<table><tr><th>Вопрос</th><th>Статус</th></tr>`+b.qs.map(q=>`<tr><td style="white-space:normal">${q.st==='red'&&!q.answered?'🔴 ':''}${esc(q.q)}</td><td><span class="pill ${q.answered?'st-ans':'st-open'}">${q.answered?'отвечен':'открыт'}</span></td></tr>`).join('')+`</table>`:'<div class="empty">Нет открытых вопросов (данные ещё не собраны — шаблон)</div>'}</div>`).join('')+`</div>`}
