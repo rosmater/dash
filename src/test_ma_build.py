@@ -245,14 +245,14 @@ A = lambda id_: f'grokbot://app/v1/agent?id={id_}'
 # st: red = встало/нужен Rost сейчас; green = норм/ждём; new = свежий отчёт (🟡). status бота считается ниже.
 data['bots'] = [
  dict(name='Секретарь', id='d3a12cc9-cf8a-41e5-b34a-76d4ab9eb9fd', qs=[
-   dict(q='Alexa: время встречи 26.10 — проверить, актуально ли (нет в списке Дейтинга 21:08)', st='green', ctx='Alexa Herera WA ESP 17:34 спросила время на пн 26.10; черновик «¿Te queda bien a las [HORA]?» ждёт время от Rost'),
+   dict(q='Alexa: время встречи 26.10 — проверить, актуально ли (нет в списке Дейтинга 21:08)', st='red', ctx='Alexa Herera WA ESP 17:34 спросила время на пн 26.10; черновик «¿Te queda bien a las [HORA]?» ждёт время от Rost'),
    dict(q='Анатолий/Шекель: чей контактный номер в доставке шкафов? → Шекель (Ирина Шекель)', st='green', answered=True, ctx='Rost t3931u 27.10: «Шекель»'),
-   dict(q='Доставка IKEA 29.10, окно 15:00–21:00 — кто принимает?', st='green', new=True, ctx='WA UKR ремонты 15:39–15:40'),
-   dict(q='El Pulpo: оплатить Bre-B после суммы от Albeiro', st='green', new=True, ctx='Заказ ушёл 17:48; Rost сказал «плати сам»; ждём сумму'),
-   dict(q='Travertino: наличные на следующей неделе — подтвердить сумму/день', st='green', ctx='WA UKR ремонты 15:54–15:56'),
-   dict(q='BTC резерв: вернуть 0.02318012 BTC на неделе с 27.10 — напоминание пн 3.11?', st='green', ctx='finance/btc-reserves-repayment.md'),
-   dict(q='Viber-вочер: AUMID не найден — toast могут не ловиться (дописать вручную)', st='green', new=True, ctx='AX42 wa-ukr-12promax-p, вочер с 19:04'),
-   dict(q='Telegram-вочер: запущен 17:46, но уведомлений не ловил с 21.10 — проверить D-Bus', st='green', new=True, ctx='tg-secretary/state/watcher.log'),
+   dict(q='Доставка IKEA 29.10, окно 15:00–21:00 — кто принимает?', st='red', new=True, ctx='WA UKR ремонты 15:39–15:40'),
+   dict(q='El Pulpo: оплатить Bre-B после суммы от Albeiro', st='red', new=True, ctx='Заказ ушёл 17:48; Rost сказал «плати сам»; ждём сумму'),
+   dict(q='Travertino: наличные на следующей неделе — подтвердить сумму/день', st='red', ctx='WA UKR ремонты 15:54–15:56'),
+   dict(q='BTC резерв: вернуть 0.02318012 BTC на неделе с 27.10 — напоминание пн 3.11?', st='red', ctx='finance/btc-reserves-repayment.md'),
+   dict(q='Viber-вочер: AUMID не найден — toast могут не ловиться (дописать вручную)', st='red', new=True, ctx='AX42 wa-ukr-12promax-p, вочер с 19:04'),
+   dict(q='Telegram-вочер: запущен 17:46, но уведомлений не ловил с 21.10 — проверить D-Bus', st='red', new=True, ctx='tg-secretary/state/watcher.log'),
    dict(q='Джинсы из ателье — вт 27.10 16:00 (86bcrqtyk)', st='green', answered=True, ctx='Задача создана'),
  ]),
  dict(name='Помощник по всему', id='fef07752-2a22-4e1a-804b-7590fa230b30', qs=[
@@ -383,7 +383,7 @@ for z in _OQ.get('add', []):
     z['bot'] = {'Оборонные': 'Оборонка'}.get(z['bot'], z['bot'])  # Rost t3948u
     b = next((x for x in data['bots'] if x['name'] == z['bot']), None)
     if b is None: b = dict(name=z['bot'], id=_SEC_ID, qs=[]); data['bots'].append(b)
-    b['qs'].append(dict(q=z['q'], st=z.get('st', 'green'), ctx=(z.get('ctx') or '') + f' · база вопросов {z.get("at","")}', new=True, _qid=z['qid']))
+    b['qs'].append(dict(q=z['q'], st=z.get('st', 'red'), ctx=(z.get('ctx') or '') + f' · база вопросов {z.get("at","")}', new=True, _qid=z['qid']))  # t4183: default red
 _RES = set(_OQ.get('resolved', {})) - set(_OQ.get('reopened', {}))
 for b in data['bots']:
     for q in b['qs']: q['qid'] = q.pop('_qid', None) or _QID(b['name'], q['q'])
@@ -487,9 +487,10 @@ for _qf, _bn in _Q_TO_BOT.items():
         _ctx = f'QUEUE.md {_slug}'
         if any((_ctx in (q.get('ctx') or '')) or (_slug.lower() in (q.get('ctx') or '').lower()) for q in _bt.get('qs') or []):
             continue
-        _is_wait = 'waiting' in _st
-        _is_red = 'blocked' in _st or 'pending' in _st  # blocked/pending more urgent
-        _bt.setdefault('qs', []).append(dict(q=_rest[:200], st='red' if _is_red and 'waiting' not in _st else 'green', wait=_is_wait, ctx=_ctx))
+        # t4183: waiting_user = ждём Rost → red/attn (не «ждём других»); wait=True только если явно ждём чужой ответ
+        _is_rost = 'waiting_user' in _st or 'blocked' in _st
+        _is_wait = False  # waiting_user ≠ wait-others
+        _bt.setdefault('qs', []).append(dict(q=_rest[:200], st='red' if (_is_rost or 'pending' in _st) else 'green', wait=_is_wait, ctx=_ctx))
 
 # === Rost t4074: пункт QUEUE закрыт (done/x/closed) → вопрос «я нужен», ссылающийся на «QUEUE.md <slug>», сам уходит с даша (без тапа Rost).
 _QST = {}
@@ -569,6 +570,9 @@ for b in data['bots']:
     b['link'] = A(b['id'] or 'd3a12cc9-cf8a-41e5-b34a-76d4ab9eb9fd')  # без id -> Секретарь (Rost 26.10: каждая строка кликабельна)
 # Rost 26.10: мини-кнопка у каждого вопроса -> grokbot://app/v1/prompt?id=<бот>&text=<вопрос> (заполняет поле ввода, не отправляет; 1 строка ≤1000 симв.)
 from urllib.parse import quote as _q
+for b in data['bots']:
+    for q in b['qs']:
+        if not q.get('qid'): q['qid'] = _QID(b['name'], q['q'])  # t4183: QUEUE-appended qs
 for b in data['bots']:
     for i, q in enumerate(b['qs']):
         qid = q['qid']
