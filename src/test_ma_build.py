@@ -598,6 +598,15 @@ for g in data['messengers']:
 # ClickUp: for check на Rost (снимок ma_clickup.json), каждая — ссылка на задачу
 _cu = json.load(open(os.path.join(os.path.dirname(__file__), 'ma_clickup.json')))
 data['clickup'] = dict(fetched=_cu['fetched'], owner=SEC[0], owner_link=A(SEC[1]), tasks=_cu['tasks'])
+# Rost t4195–96: CU-инбокс в Мессенджерах читает d.cu_inbox (ma_cu_inbox.json). Без этого поля maCUMsgRows() пустой → задачи «пропали».
+try:
+    _cui = json.load(open(os.path.join(os.path.dirname(__file__), 'ma_cu_inbox.json'), encoding='utf-8'))
+    data['cu_inbox'] = {k: _cui[k] for k in ('fetched','since','src','tier','kinds','counts','items','threads') if k in _cui}
+    print('cu_inbox threads', len((_cui.get('threads') or [])), 'items', len((_cui.get('items') or [])))
+except Exception as _e:
+    data['cu_inbox'] = dict(fetched='', items=[], threads=[], counts={})
+    print('cu_inbox skip', _e)
+
 # Непрочитанные · нерассортированные: висящие без сферы жизни (Прочее / Viber / Telegram / непрочитанные чаты вочеров)
 LIFE = set(_ORD)
 uns = []
