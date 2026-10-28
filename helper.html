@@ -1353,12 +1353,14 @@ function maRtQ(b){const R=b.routines||[],F=R.filter(r=>r.st==='fail'),O=R.filter
 /* Rost 27.10 t3944u: «🔴 Требует внимания · N» = число открытых вопросов к Rost (видимые 🙋, после ✓ на даше). 0 → бейджа нет (статус сборки не форсит).
    t3949u: рутины отчитываются ок → не «⚪ нет данных», а 🟢/🔵 по факту; «нет данных» — только когда нет ни статуса, ни рутин. */
 function maROK(b){const R=b.routines||[];return R.length>0&&!R.some(r=>r.st==='fail')}
-function maSt(b,n,ST){if(n)return ['🔴 Требует внимания · '+n,'st-open'];let k=b.status;const busy=(b.queue||[]).some(q=>/in.?progress|чин/i.test(q.st||'')); /* Rost t3992u: нет 🙋 вопросов и упавших рутин → 🟢 всё ок (отчёты/for check/ждём других не делают «в работе»); 🔵 только если бот реально что-то делает (in progress / чинит в очереди) */
- if(k==='attention'||k==='working')k=busy?'working':'ok';if(k==='nodata'&&maROK(b))k=busy?'working':'ok';return ST[k]||ST.ok}
+function maSt(b,n,ST){if(n)return ['🔴 Требует внимания · '+n,'st-open'];let k=b.status;const qn=(b.queue||[]).length; /* Rost t4131u: задачи в QUEUE → 📋 В очереди (вместо «в работе») */
+ if(k==='attention'||k==='working'||k==='queued')k=qn?'queued':'ok';if(k==='nodata'&&maROK(b))k=qn?'queued':'ok';
+ if(k==='queued')return ['📋 В очереди'+(qn?` · ${qn}`:''),'p-normal'];
+ return ST[k]||ST.ok}
 const BOT_ALIAS={'Оборонные':'Оборонка'};/* Rost t3948u: видимое имя */
 function botsTab(d){const B=d.bots||[];const open=B.reduce((a,b)=>a+(b.qs||[]).filter(q=>!q.answered).length,0);
  /* Rost 26.10: по каждому боту — выпадающий список: статус-чип + вопросы + задачи CU (for check) со статусами; 🟡 = свежие отчёты/обновления сегодня */
- const ST={attention:['🔴 Требует внимания','st-open'],stalled:['⛔ Рутина встала','st-open'],stuck:['⛔ Рутина встала','st-open'],working:['🔵 В работе','p-normal'],ok:['🟢 Всё ок','st-ans'],nodata:['⚪ Нет данных','p-low']};const u=t=>(d.cu_base||'https://rosmater.github.io/cu/?t=')+t;
+ const ST={attention:['🔴 Требует внимания','st-open'],stalled:['⛔ Рутина встала','st-open'],stuck:['⛔ Рутина встала','st-open'],queued:['📋 В очереди','p-normal'],working:['📋 В очереди','p-normal'],ok:['🟢 Всё ок','st-ans'],nodata:['⚪ Нет данных','p-low']}; /* t4131u: working→очередь */const u=t=>(d.cu_base||'https://rosmater.github.io/cu/?t=')+t;
  const tot=B.reduce((a,b)=>a+(b.new_count||0),0);
  const FA={};attn(d).filter(isFell).forEach(x=>{const m=/^🤖 (.+)$/.exec(x.grp||'');let n=m&&B.find(b=>b.name===m[1])?m[1]:(B.find(b=>(x.text||'').includes(b.name))||{}).name||'Секретарь';(FA[n]=FA[n]||[]).push(x)});
  const one=(b,bi,inner)=>{const qs=(b.qs||[]).map((q,i)=>[q,i]),red=qs.filter(([q])=>q.st==='red'&&!q.answered),gr=qs.filter(([q])=>!(q.st==='red'&&!q.answered)&&!q.wait),wq=qs.filter(([q])=>q.wait&&!(q.st==='red'&&!q.answered)),WQ=b.waiting||[],wn=wq.length+WQ.length,T=inner?[]:(b.tasks||[]);const nF=(b.routines||[]).filter(r=>r.st==='fail'&&!rtHide(b,r)).length+(FA[b.name]||[]).length+revGroups(b).length,st=maSt(b,red.length+nF,ST),rOK=maROK(b); /* Rost t3989u: счётчик «Требует внимания» = 🙋 вопросы + 🔴 упавшие рутины (как видно в карточке) */
@@ -1383,7 +1385,7 @@ function botsTab(d){const B=d.bots||[];const open=B.reduce((a,b)=>a+(b.qs||[]).f
  attn(d).filter(isFell).forEach(x=>FL.push(axItem(x,x.grp||'')));
  const fellH=FL.length?`<details class="card attn" open style="margin-bottom:10px;border-color:#f04438;background:#fef3f2"><summary style="cursor:pointer"><h4 style="display:inline;color:#b42318">🔴 Рутина упала · ${FL.length}</h4> <span class="note">▾</span></summary><div class="okin">${FL.join('')}</div></details>`:'';
  /* Rost t3966u: порядок ботов — 🔴 рутина упала/встала → 🔴 требует внимания → 🔵 в работе → ⚪ нет данных → 🟢 всё ок (последними) */
- const rank=b=>{if((b.routines||[]).some(r=>r.st==='fail'&&!rtHide(b,r))||(FA[b.name]||[]).length||b.status==='stalled'||b.status==='stuck')return 0;const n=(b.qs||[]).filter(q=>q.st==='red'&&!q.answered).length+revGroups(b).length;if(n)return 1;if(b.new_count||(b.tasks||[]).length)return 1.5;/* t4068: ClickUp for check — тоже 🟡 *//* t4057: сначала 🔴, потом 🟡 новые отчёты */const c=maSt(b,0,ST)[0];return /В работе/.test(c)?2:/Нет данных/.test(c)?3:/Всё ок/.test(c)?4:2};
+ const rank=b=>{if((b.routines||[]).some(r=>r.st==='fail'&&!rtHide(b,r))||(FA[b.name]||[]).length||b.status==='stalled'||b.status==='stuck')return 0;const n=(b.qs||[]).filter(q=>q.st==='red'&&!q.answered).length+revGroups(b).length;if(n)return 1;if(b.new_count||(b.tasks||[]).length)return 1.5;/* t4068: ClickUp for check — тоже 🟡 *//* t4057: сначала 🔴, потом 🟡 новые отчёты */const c=maSt(b,0,ST)[0];return /В очереди|В работе/.test(c)?2:/Нет данных/.test(c)?3:/Всё ок/.test(c)?4:2};
  const empty=b=>!(b.nodata&&!maROK(b))&&!(b.routines||[]).length&&!(b.qs||[]).length&&!(b.tasks||[]).length&&!(b.waiting||[]).length&&!(b.queue||[]).length&&!(b.routines||[]).some(r=>r.st==='fail')&&!(FA[b.name]||[]).length&&!b.new_count;
  const NB=B.map((b,bi)=>[b,bi]).filter(([b])=>!b.coach&&!(window.DASH_HELPER&&(window.DASH_HIDE_BOTS||['Дейтинг']).includes(b.name))),VIS=NB.filter(([b])=>!empty(b)).sort((x,y)=>rank(x[0])-rank(y[0])),HID=NB.filter(([b])=>empty(b));
  /* Rost t3988u: «🔴 Рутина упала» пуст (всё упавшее уже чинят → в «очереди») — строкой в сером «Скрыто», как пустые боты */
