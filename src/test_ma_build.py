@@ -221,6 +221,57 @@ try:
         if _sp in _ZC: _ZC[_sp] = [z for z in _ZC[_sp] if z['title'].lower() != _r['chat'].lower()]
     print('census -> сферы:', len(_TG_PLACED))
 except Exception as _e: print('TG census skip', _e)
+# t4368 (Rost 28.10): Viber — живой список непрочитанных (src/viber_live.json, пишет проверка по списку Viber AX42 / бейдж UIA-поллера).
+# Census 27.10 по Viber — снимок; без этого новые непрочитанные Viber (напр. Стелла Киевстар 28.10) на даш не попадали, а старые висели.
+_VL = None
+try:
+    _VLF = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'viber_live.json')
+    if os.path.exists(_VLF): _VL = json.load(open(_VLF, encoding='utf-8'))
+except Exception as _e: print('viber_live skip', _e)
+_VL_IGN = ('БЕЗПЕЧНИЙ РЕГІОН',)
+if _VL:
+    _vmap = {c['title'].lower(): c for c in _VL.get('chats') or [] if not any(x in c['title'].upper() for x in _VL_IGN)}
+    _vsrc = 'Viber список ' + _VL.get('at', '')
+    _vseen = set()
+    for _sp, _rs in groups.items():
+        for _r in _rs:
+            if _r.get('channel') != 'Viber': continue
+            _c = _vmap.get((_r.get('chat') or '').lower())
+            if _c: _r['unread_chat'] = _c['unread']; _r['muted'] = bool(_c.get('muted')); _r['last'] = _c.get('last', ''); _r['src'] = _vsrc; _vseen.add(_c['title'].lower())
+            elif (_r.get('unread_chat') or 0) > 0: _r['unread_chat'] = 0; _r['src'] = (_r.get('src') or '') + ' · ' + _vsrc + ': прочитано'
+    # новые: сфера = та же, что у этого человека в другом канале (строка с тем же названием) → иначе в «на сортировку» (ниже)
+    _byname = {}
+    for _sp, _rs in groups.items():
+        for _r in _rs: _byname.setdefault((_r.get('chat') or '').lower(), _sp)
+    _VL_UNS = []
+    for _k, _c in _vmap.items():
+        if _k in _vseen or not _c.get('unread'): continue
+        _sp = _byname.get(_k)
+        if _sp and _sp in _ORD:
+            groups[_sp].append(dict(sender=_c['title'], chat=_c['title'], channel='Viber', unread_chat=_c['unread'], muted=bool(_c.get('muted')), items=0, kinds={}, last=_c.get('last', ''), binding=None,
+                                     src=_vsrc, src_sphere=_sp, owner='Секретарь', owner_link='grokbot://app/v1/agent?id=d3a12cc9-cf8a-41e5-b34a-76d4ab9eb9fd', key='Viber|' + _c['title'], hang_since=_VL.get('at', '')[:10]))
+            _TG_PLACED.add('Viber|' + _c['title']); _vseen.add(_k)
+        else: _VL_UNS.append(_c)
+    print('viber_live:', len(_vmap), 'чатов, в сферы', len(_vseen), 'на сортировку', len(_VL_UNS))
+# t4368 (Rost 28.10): Instagram Direct личного @rosscompass — раз в день (утренний пакет / ночная гигиена) → src/ig_direct_live.json (mailbox-map/ig-direct/ig_direct_peek.py).
+_IGD = None
+try:
+    _IGDF = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'ig_direct_live.json')
+    if os.path.exists(_IGDF): _IGD = json.load(open(_IGDF, encoding='utf-8'))
+except Exception as _e: print('ig_direct skip', _e)
+_IGD_UNS = []
+if _IGD and _IGD.get('ok'):
+    _byname2 = {}
+    for _sp, _rs in groups.items():
+        for _r in _rs: _byname2.setdefault((_r.get('chat') or '').lower(), _sp)
+    for _c in _IGD.get('chats') or []:
+        if not _c.get('unread'): continue
+        _sp = _byname2.get(_c['title'].lower())
+        if _sp and _sp in _ORD:
+            groups[_sp].append(dict(sender=_c['title'], chat=_c['title'], channel='Instagram', unread_chat=_c.get('n') or 1, items=0, kinds={}, last=_c.get('age', ''), binding=None,
+                                     src='IG Direct @' + (_IGD.get('account') or '') + ' ' + _IGD.get('at', ''), src_sphere=_sp, owner='Секретарь', owner_link='grokbot://app/v1/agent?id=d3a12cc9-cf8a-41e5-b34a-76d4ab9eb9fd', key='Instagram|' + _c['title'], hang_since=_IGD.get('at', '')[:10]))
+        else: _IGD_UNS.append(_c)
+    print('ig_direct:', _IGD.get('unread_chats'), 'непроч., на сортировку', len(_IGD_UNS))
 # Rost t3953u: сборка СЛИВАЕТ сферы, а не заменяет вслепую — если канал в прошлой сборке был в карточках сфер, а сейчас 0 строк,
 # переносим его прошлые строки (с пометкой), чтобы источник-сбой не обнулял Мессенджеры. Плюс страж guard_spheres.py перед пушем.
 try:
@@ -698,6 +749,21 @@ for t, u in UNK.items():
 try:
     __import__('sys').path.insert(0, os.path.dirname(os.path.abspath(__file__))); from census_unsorted import merge as _cmerge; uns = _cmerge(uns, skip=_TG_PLACED)  # Rost 27.10 census needs_sort
 except Exception as _e: print('census merge skip', _e)
+# t4368: Viber «на сортировку» — счётчик из живого списка (census 27.10 мог устареть)
+if _VL:
+    for _u in uns:
+        if _u.get('channel') != 'Viber': continue
+        _c = _vmap.get((_u.get('title') or '').lower())
+        _u['unread'] = _c['unread'] if _c else 0
+        if _c: _u['muted'] = bool(_c.get('muted')); _u['last'] = _c.get('last', '')
+    _have_u = {(u.get('title') or '').lower() for u in uns if u.get('channel') == 'Viber'}
+    for _c in _VL_UNS:
+        if _c['title'].lower() in _have_u: continue
+        uns.append(dict(key='Viber|' + _c['title'], channel='Viber', title=_c['title'], kind='Viber список · нет сферы' + (' · 🔇' if _c.get('muted') else ''), unread=_c['unread'], muted=bool(_c.get('muted')), last=_c.get('last', ''), owner=SEC[0], owner_link=A(SEC[1])))
+# t4368: IG Direct непрочитанные без сферы → «на сортировку»
+for _c in _IGD_UNS:
+    if any(u.get('key') == 'Instagram|' + _c['title'] for u in uns): continue
+    uns.append(dict(key='Instagram|' + _c['title'], channel='Instagram', title=_c['title'], kind='IG Direct @' + ((_IGD or {}).get('account') or '') + ' · нет сферы', unread=_c.get('n') or 1, last=_c.get('age', ''), owner=SEC[0], owner_link=A(SEC[1])))
 data['unsorted'] = uns
 # === Rost 27.10 t3887u–t3889u: 🔕 игнор чатов. src/ignored_chats.json = {mention_handles:{Telegram:[...],WhatsApp:[...]}, chats:[{id,channel,title,kind,ignored_at}]}
 # mention_at = последнее время из secretary-log, где в превью есть @-тег Rost (только группы/неизвестный тип; личка — никогда). Скрытие делает браузер.
@@ -744,7 +810,8 @@ data['coverage'] = [
  dict(channel='WhatsApp ESP', src='secretary-log (toast-вочер AX42 → вебхук), с 21.10', live=False, gap=f'видны только чаты из allowlist вочера ({_al("wa-esp-secretary")}) и только когда пришёл toast; остальные непрочитанные WA ESP не видны без экрана AX42'),
  dict(channel='WhatsApp UKR', src='secretary-log (toast-вочер AX42 → вебхук), с 21.10', live=False, gap=f'видны только чаты из allowlist ({_al("wa-ukr-secretary")}); счётчик unread = последний из toast, может устареть'),
  dict(channel='Telegram', src='tg-secretary watcher.log (только статус)', live=False, gap='непрочитанные TG по чатам пока НЕ разобраны (нужна сверка глазами списка чатов TG Desktop); заголовок окна не используем — там сумма сообщений вкл. каналы, не диалоги; '+'вочер ловит только D-Bus-уведомления (muted чаты их не шлют; с 21.10 не было ни одного) → поимённо TG-чаты не видны'),
- dict(channel='Viber', src='скрин Viber 26.10 18:36 + вочер с 19:04', live=False, gap='AUMID не найден — новые toast могут не ловиться'),
+ dict(channel='Viber', src='список Viber (src/viber_live.json) + бейдж UIA-поллера (heartbeat только пока открыт RDP)', live=False, gap='toast нет (AUMID не найден); БД Viber зашифрована; по чатам — только снимок списка при проверке; mute-чаты бейдж не дают'),
+ dict(channel='Instagram', src='IG Direct @rosscompass (src/ig_direct_live.json), раз в день', live=False, gap='только личный @rosscompass; раз в сутки; Requests (запросы) не смотрим; превью не берём'),
  dict(channel='Email', src='только важные (ma_email_important.json)', live=False, gap='не все письма — по правилу Rost'),
 ]
 # Rost 26.10: монитор вверху Мессенджеров — вочер жив? + последний сигнал (мелким). Только метаданные/время.
@@ -793,7 +860,15 @@ def _watchers():
                 pass
             if _age < 7200:  # 2h
                 _mode = 'dry' if _vhb.get('dry_run', True) else 'live'
-                W['Viber'] = dict(st='ok', alive=f"UIA поллер ✓ {_mode} · unread={_vhb.get('unread','?')} · src={_vhb.get('src','')}", ping=_vhb.get('ts','')[:16], ping_lbl='heartbeat')
+                # t4368: src=alive-no-count раньше давал unread=0 и 🟢 — ложный «нет непрочитанных». Теперь бейдж-пиксели на кнопке таскбара.
+                _hu = _vhb.get('has_unread'); _vsrc = _vhb.get('src', '')
+                if _hu is True:
+                    _vlat = (_VL or {}).get('at', '') if '_VL' in globals() else ''
+                    W['Viber'] = dict(st='warn', alive=f"UIA поллер ✓ {_mode} · 🔴 бейдж непрочитанных на таскбаре · список снят {_vlat or '—'}", ping=_vhb.get('ts','')[:16], ping_lbl='heartbeat')
+                elif _hu is False:
+                    W['Viber'] = dict(st='ok', alive=f"UIA поллер ✓ {_mode} · бейджа нет (0 непрочитанных без mute)", ping=_vhb.get('ts','')[:16], ping_lbl='heartbeat')
+                else:
+                    W['Viber'] = dict(st='warn', alive=f"UIA поллер ✓ {_mode} · счётчик НЕ читается (src={_vsrc}) — смотреть список Viber", ping=_vhb.get('ts','')[:16], ping_lbl='heartbeat')
                 break
         except Exception:
             _vhb = None
@@ -804,6 +879,13 @@ def _watchers():
     cs = (data.get('clickup') or {}).get('fetched', '')
     W['ClickUp'] = dict(st=age(cs or cp), alive='снимок for check (MCP) + CU-пульс', ping=(cs or cp).replace(' Bogotá', ''), ping_lbl='последний снимок')
     W['Email'] = dict(st='ok', alive='только важные, вручную/ботом Почты', ping='', ping_lbl='')
+    # t4368: Instagram Direct (@rosscompass) — снимок раз в день
+    if _IGD:
+        _ia = (_IGD.get('at') or '').replace(' Bogotá', '')
+        _ist = 'red' if not _IGD.get('ok') else age(_ia, 30)
+        W['Instagram'] = dict(st=_ist, alive=('IG Direct @' + (_IGD.get('account') or '?') + ' · раз в день · непрочитанных чатов: ' + str(_IGD.get('unread_chats'))) if _IGD.get('ok') else ('IG Direct: ' + (_IGD.get('err') or 'ошибка')), ping=_ia, ping_lbl='последний снимок')
+    else:
+        W['Instagram'] = dict(st='warn', alive='IG Direct @rosscompass — снимка ещё нет', ping='', ping_lbl='')
     return W
 data['watchers'] = _watchers()
 data['spheres'] = ['Личное','Дейтинг','Недвижимость','Табакевич','ОФ','Пептиды','Оборонка','Коучинг','Игнор']  # Rost 26.10 20:19: = вкладки дашборда
@@ -839,6 +921,10 @@ try:
             g = next((x for x in data['messengers'] if x['sphere'] == sp), None)
             if g is None: g = dict(sphere=sp, rows=[]); data['messengers'].append(g)
             if not any(f"{x.get('channel')}|{x.get('chat')}".lower() == f"{r.get('channel')}|{r.get('chat')}".lower() for x in g['rows']): g['rows'].append(r)
+        # Rost t4380: перенесённая тапом строка не дублируется в «без сообщений» той же сферы
+        for g in data['messengers']:
+            _rt = {(x.get('chat') or '').lower() for x in g['rows']}
+            if g.get('zero_contacts'): g['zero_contacts'] = [z for z in g['zero_contacts'] if (z.get('title') or '').lower() not in _rt]
 except Exception as _e: print('msg overrides skip', _e)
 # === Rost t3962u: групповые чаты (не личка) -> is_group; даш пишет «ЧАТ: <название>». Источники: chats.csv purpose/key_people, ignored kind, sender≠chat, ключевые слова.
 try:
