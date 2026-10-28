@@ -167,7 +167,7 @@ details.mrow .mbody>.task{padding:5px 0}
  Client ID (не секрет, OAuth «Web», origin https://rosmater.github.io): вписать в GCAL_CLIENT_ID ниже
  ИЛИ один раз открыть даш с ?gcal_client_id=XXX.apps.googleusercontent.com (кладётся в localStorage). Токен — только sessionStorage. */
 (function(){
- const GCAL_CLIENT_ID='';/* ← сюда Client ID от Rost; фейковый не коммитить */
+ const GCAL_CLIENT_ID='922031222882-miv1qq347mjjtu847l8s9c9712l29ikg.apps.googleusercontent.com';/* OAuth Web rost-dash-gcal · project eternal-dynamo-388019 · 27.10 */
  try{const q=new URLSearchParams(location.search).get('gcal_client_id');if(q!==null){q?localStorage.setItem('dash_gcal_client_id',q):localStorage.removeItem('dash_gcal_client_id')}}catch(e){}
  let ls='';try{ls=localStorage.getItem('dash_gcal_client_id')||''}catch(e){}
  window.DASH_GCAL=Object.assign({clientId:ls||GCAL_CLIENT_ID,calendarId:'primary',tz:'America/Bogota',days:15},window.DASH_GCAL||{});
