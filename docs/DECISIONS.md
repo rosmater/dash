@@ -358,3 +358,5 @@ Rost asked: (1) ads Active+Archive (2) repeat sales «Пора делать по
 
 ## 27.10 Rost t4074–t4076 — закрыл QUEUE → само снимается с даша (все боты)
 - `[done]/[x]/[closed]` в QUEUE.md бота → `tap_relay.py` (60 с) → `queue_autoclear.py` → пересборка + push; `test_ma_build.py` убирает вопросы с `ctx: QUEUE.md <slug>`. Общее правило: `knowledge/rules/queue-close-clears-dash.md`. Новый бот — путь в `Q` и `_Q`.
+
+- Rost т251 (27.10, CU 86bctqe8h): календарь = ЖИВОЙ Google Calendar в браузере (GIS token client, scope calendar.readonly, токен в sessionStorage; Client ID OAuth «Web», JS origin https://rosmater.github.io — не секрет, но фейковый не коммитить). Снимок `/workspace/gcal_dash.json` остаётся фолбэком и для helper/рутин; обновлять: коннектор list_events (primary, America/Bogota, сегодня 00:00 → +15 д, maxResults 250, write_to_file) → `python3 src/refresh_gcal_dash.py <файл>` → build.sh → пуш. ClickUp-колонка — по-прежнему снимок cu_cal_dash.json.

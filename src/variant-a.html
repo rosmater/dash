@@ -162,6 +162,57 @@ details.mrow .mbody>.task{padding:5px 0}
 <select id="period"></select><select id="cur" hidden><option value="USD">USD</option></select></div></header>
 <nav class="tabs" id="tabs"></nav><main id="main"></main><footer id="foot"></footer></div>
 <script>/*CORE*/</script>
+<script>/* Rost т251 / CU 86bctqe8h (27.10): ЖИВОЙ Google Calendar в браузере (GIS OAuth → Calendar API events.list).
+ Нет clientId / нет токена / ошибка → всё как раньше (снимок gcal_dash.json). ClickUp-сторона не трогается.
+ Client ID (не секрет, OAuth «Web», origin https://rosmater.github.io): вписать в GCAL_CLIENT_ID ниже
+ ИЛИ один раз открыть даш с ?gcal_client_id=XXX.apps.googleusercontent.com (кладётся в localStorage). Токен — только sessionStorage. */
+(function(){
+ const GCAL_CLIENT_ID='';/* ← сюда Client ID от Rost; фейковый не коммитить */
+ try{const q=new URLSearchParams(location.search).get('gcal_client_id');if(q!==null){q?localStorage.setItem('dash_gcal_client_id',q):localStorage.removeItem('dash_gcal_client_id')}}catch(e){}
+ let ls='';try{ls=localStorage.getItem('dash_gcal_client_id')||''}catch(e){}
+ window.DASH_GCAL=Object.assign({clientId:ls||GCAL_CLIENT_ID,calendarId:'primary',tz:'America/Bogota',days:15},window.DASH_GCAL||{});
+ const C=window.DASH_GCAL,TK='dash_gcal_tok',SCOPE='https://www.googleapis.com/auth/calendar.readonly';
+ const GL=window.GL={st:'off',events:null,at:null,err:'',tc:null,busy:false};
+ const on=()=>!window.DASH_HELPER&&!!C.clientId;
+ const tok=()=>{try{const t=JSON.parse(sessionStorage.getItem(TK)||'null');return t&&t.exp>Date.now()+6e4?t.t:null}catch(e){return null}};
+ const rr=()=>{try{if(typeof render==='function'&&typeof S!=='undefined'&&(S.tab==='calendar'||(S.tab==='overview'&&S.mode==='today')))render()}catch(e){}};
+ const hm=d=>new Intl.DateTimeFormat('ru-RU',{timeZone:C.tz,hour:'2-digit',minute:'2-digit'}).format(d);
+ GL.on=on;GL.hasTok=()=>!!tok();
+ // текст вместо «снимок GCal …»
+ GL.note=c=>{const snap='снимок GCal '+String(c.gcal_fetched_at||'—');if(!on())return snap;
+  if(GL.at&&GL.events)return 'live GCal · обновлено '+hm(GL.at)+(GL.err?' · ⚠ '+GL.err:'');
+  if(GL.busy)return snap+' · live GCal загружается…';
+  return snap+(GL.err?' · ⚠ live: '+GL.err:'')};
+ GL.btn=()=>on()&&!tok()&&!GL.busy?'<button class="chip" data-glin="1" style="cursor:pointer;background:#1a73e8;color:#fff;border-color:#1a73e8">Войти в Google</button>':'';
+ // подмешать live-события поверх снимка: gcal из снимка → live, clickup остаются; привязки CU (e.cu) переносим по id/ссылке/названию+старту
+ GL.apply=c=>{if(!c||!GL.events||!on())return;if(!c._snapEv)c._snapEv=(c.events||[]).slice();
+  const snapG=c._snapEv.filter(e=>e.src==='gcal'),keep=c._snapEv.filter(e=>e.src!=='gcal');
+  const key=e=>(e.title||'').trim().toLowerCase()+'|'+new Date(e.start).getTime(),eid=u=>{const m=/[?&]eid=([^&#]+)/.exec(u||'');return m?m[1]:null};
+  const byE={},byK={};snapG.forEach(e=>{if(eid(e.url))byE[eid(e.url)]=e;byK[key(e)]=e});
+  const used=new Set(),live=GL.events.map(e=>{const s=byE[eid(e.url)]||byK[key(e)];if(s&&s.cu){used.add(s);return Object.assign({},e,{cu:s.cu})}return e});
+  const orphan=[];snapG.forEach(s=>{if(s.cu&&!used.has(s))s.cu.forEach(x=>orphan.push({src:'clickup',title:x.title,start:x.due,end:null,all_day:false,due:true,list:x.list,url:x.url}))});
+  c.events=[...live,...keep,...orphan].sort((a,b)=>String(a.start).localeCompare(String(b.start)));c.gcal_live_at=GL.at.toISOString()};
+ function mapEv(e){const s=e.start||{},en=e.end||{},t=e.summary||'(без названия)';
+  if(e.status==='cancelled'||!s.dateTime||t.includes(' :: '))return null;/* весь день и CU-синк «🔄 … :: …» — как в build_data: в ленту не идут */
+  return {src:'gcal',title:t,start:s.dateTime,end:en.dateTime||null,all_day:false,url:e.htmlLink||null,live:true}}
+ GL.fetch=async function(){const t=tok();if(!on()||!t||GL.busy)return;GL.busy=true;
+  try{const d0=new Date(new Date().toLocaleString('en-CA',{timeZone:C.tz}).slice(0,10)+'T00:00:00-05:00'),d1=new Date(d0.getTime()+C.days*864e5);
+   let items=[],pt='';for(let i=0;i<5;i++){const q=new URLSearchParams({singleEvents:'true',orderBy:'startTime',maxResults:'250',timeZone:C.tz,timeMin:d0.toISOString(),timeMax:d1.toISOString()});if(pt)q.set('pageToken',pt);
+    const r=await fetch('https://www.googleapis.com/calendar/v3/calendars/'+encodeURIComponent(C.calendarId)+'/events?'+q,{headers:{Authorization:'Bearer '+t}});
+    if(r.status===401||r.status===403){sessionStorage.removeItem(TK);throw new Error(r.status===401?'вход истёк':'нет доступа')}
+    if(!r.ok)throw new Error('HTTP '+r.status);const j=await r.json();items=items.concat(j.items||[]);pt=j.nextPageToken;if(!pt)break}
+   GL.events=items.map(mapEv).filter(Boolean);GL.at=new Date();GL.err='';
+   const c=Dash&&Dash.D&&Dash.D.directions.find(x=>x.kind==='calendar');if(c)GL.apply(c)}
+  catch(e){GL.err=String(e.message||e).slice(0,60);console.warn('GCal live',e)}
+  finally{GL.busy=false;rr()}};
+ function initTC(){if(GL.tc||!(window.google&&google.accounts&&google.accounts.oauth2))return;
+  GL.tc=google.accounts.oauth2.initTokenClient({client_id:C.clientId,scope:SCOPE,callback:r=>{if(r&&r.access_token){sessionStorage.setItem(TK,JSON.stringify({t:r.access_token,exp:Date.now()+(+r.expires_in||3600)*1e3}));GL.err='';GL.fetch()}else{GL.err='вход отменён';rr()}},error_callback:e=>{GL.err=(e&&e.type)==='popup_closed'?'окно закрыто':'вход не удался';rr()}})}
+ GL.login=()=>{initTC();if(GL.tc)GL.tc.requestAccessToken({prompt:''});else{GL.err='Google ещё грузится';rr()}};
+ document.addEventListener('click',ev=>{const b=ev.target.closest&&ev.target.closest('[data-glin]');if(b){ev.preventDefault();GL.login()}});
+ if(on()){const s=document.createElement('script');s.src='https://accounts.google.com/gsi/client';s.async=true;s.defer=true;s.onload=initTC;s.onerror=()=>{GL.err='GIS не загрузился';rr()};document.head.appendChild(s);
+  const go=()=>{if(tok())GL.fetch()};setTimeout(go,800);setInterval(()=>{if(document.visibilityState==='visible')go()},5*6e4);document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible'&&GL.at&&Date.now()-GL.at>6e4)go()})}
+})();
+</script>
 <script>
 const $=s=>document.querySelector(s);const {S,fmt,esc,EX}=Dash;let charts=[];
 const kill=()=>{charts.forEach(c=>c.destroy());charts=[]};
@@ -251,7 +302,7 @@ const DAY_MS=864e5;function dataIssues(d){const out=[];const add=t=>out.push({gr
   if(v.stale===true)add((NM[k]||k)+': '+(v.stale_label||'данные устарели')+(v.last_verify&&v.last_verify!=='дата ?'?' (проверка '+v.last_verify+')':''))});
  const old=(lbl,ts)=>{if(!ts)return;const t=Date.parse(String(ts).replace(' ','T'));if(isNaN(t))return;if(Date.now()-t>1.5*DAY_MS)add(lbl+': снимок от '+String(ts).slice(0,16).replace('T',' ')+' — синк не обновлялся')};
  const L=d.ledger;if(L){old('Продажи (GSheet)',L.fetched_at);old('Расходы (GSheet)',L.exp_fetched_at)}
- old('Google Calendar',d.gcal_fetched_at);old('ClickUp',d.cu_fetched_at);
+ if(!d.gcal_live_at)old('Google Calendar',d.gcal_fetched_at);old('ClickUp',d.cu_fetched_at);
  return out}
 /* Rost 25.10: повторные продажи → напоминание Саре в CU 86bcn2ew9; нет ответа > SLA → внимание */
 function repSt(x,sla){let st=x.sara_status||'pending_ping';if(st==='awaiting_sara'&&x.last_ping&&!x.last_reply_at){const t=Date.parse(x.last_ping.at);if(!isNaN(t)&&Date.now()-t>(sla||24)*36e5)st='no_sara_feedback'}return st}
@@ -400,13 +451,13 @@ function tlHTML(evs,k,o={}){const PX=46,now=Date.now(),d0=new Date(k+'T00:00:00-
  h+=`</div>${G.length||C.length?'':`<div class="empty" style="padding:14px">${o.empty||'На этот день событий со временем нет в снимке.'}</div>`}</div>`;
  return {h,nG:G.length,nC:C.length,sc:k===today?Math.max(0,y(now)-120):7*PX}}
 function tlScroll(sc){requestAnimationFrame(()=>document.querySelectorAll('.tl-wrap').forEach(w=>w.scrollTop=sc))}
-function calendar(d){const ev=(d.events||[]).filter(e=>!e.all_day),today=bDay(new Date().toISOString()),tmr=calAdd(today,1);
+function calendar(d){if(window.GL)GL.apply(d);const ev=(d.events||[]).filter(e=>!e.all_day),today=bDay(new Date().toISOString()),tmr=calAdd(today,1);
  if(!calDay)calDay=today;const k=calDay;
  const nG=ev.filter(e=>e.src==='gcal').length,nC=ev.filter(e=>e.src==='clickup').length+ev.reduce((a,e)=>a+(e.cu||[]).length,0);
  const WD=new Intl.DateTimeFormat('ru-RU',{timeZone:'UTC',weekday:'long',day:'numeric',month:'long'});
  const bt=(on,a,l)=>`<button data-nav="${a}" class="${on?'on':''}">${l}</button>`;
- let h=`<div class="card" style="margin-bottom:14px;background:linear-gradient(135deg,#e8f0fe,var(--panel));border-color:#c6dafc"><div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:center"><div><div style="font-size:22px;font-weight:800">${d.icon} ${esc(d.name)}</div><div class="note">${esc(d.subtitle)} ${d.cu_only?'':'· снимок GCal '+esc(d.gcal_fetched_at||'—')} · ClickUp ${esc(d.cu_fetched_at||'—')}</div></div>
- <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap"><div class="seg calf" ${d.cu_only?'hidden':''}>${[['all','Все'],['gcal','Google ('+nG+')'],['clickup','ClickUp ('+nC+')']].map(([s,l])=>`<button data-s="${s}" class="${calSrc===s?'on':''}">${l}</button>`).join('')}</div>${d.gcal_url?`<a class="chip" href="${d.gcal_url}" target="_blank" rel="noopener" style="text-decoration:none">Google Календарь ↗</a>`:''}</div></div>
+ let h=`<div class="card" style="margin-bottom:14px;background:linear-gradient(135deg,#e8f0fe,var(--panel));border-color:#c6dafc"><div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:center"><div><div style="font-size:22px;font-weight:800">${d.icon} ${esc(d.name)}</div><div class="note">${esc(d.subtitle)} ${d.cu_only?'':'· '+esc(window.GL?GL.note(d):'снимок GCal '+(d.gcal_fetched_at||'—'))} · ClickUp ${esc(d.cu_fetched_at||'—')}</div></div>
+ <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap"><div class="seg calf" ${d.cu_only?'hidden':''}>${[['all','Все'],['gcal','Google ('+nG+')'],['clickup','ClickUp ('+nC+')']].map(([s,l])=>`<button data-s="${s}" class="${calSrc===s?'on':''}">${l}</button>`).join('')}</div>${!d.cu_only&&window.GL?GL.btn():''}${d.gcal_url?`<a class="chip" href="${d.gcal_url}" target="_blank" rel="noopener" style="text-decoration:none">Google Календарь ↗</a>`:''}</div></div>
  <div class="calnav"><div class="seg">${bt(0,-1,'‹')}${bt(k===today,'today','Сегодня')}${bt(k===tmr,'tmr','Завтра')}${bt(0,1,'›')}</div><input type="date" id="calpick" value="${k}"><b style="font-size:15px;text-transform:capitalize">${esc(WD.format(new Date(k+'T12:00:00Z')))}</b>${k===today?'<span class="chip" style="background:#4285f4;color:#fff;border-color:#4285f4">Сегодня</span>':''}</div>
  <div class="slegend">${d.cu_only?'':'<span><span class="src gcal">Google</span> слева — события</span>'}<span><span class="src clickup">ClickUp</span> ${d.cu_only?'':'справа — '}задачи со временем, на своём часе</span><span><span class="tl-cumark lg"></span> метка у шкалы = есть задача ClickUp на это время</span></div></div>`;
  const t=tlHTML(ev,k,{cuOnly:d.cu_only,src:calSrc});h+=t.h;
@@ -423,7 +474,7 @@ function listOwner(){const D=Dash.D,cnt={};D.directions.forEach(d=>(d.tasks||[])
 function evDirs(e){const D=Dash.D,lo=listOwner(),out=new Set();
  const byId=id=>D.directions.forEach(d=>(d.tasks||[]).forEach(t=>{if(t.id===id)out.add(d.id)}));
  [e,...(e.cu||[])].forEach(x=>{const id=tIdOf(x.url);if(id)byId(id);if(x.list&&lo[x.list])out.add(lo[x.list])});return out}
-function todayEvents(dirId){const c=calDir();if(!c)return [];const today=bDay(new Date().toISOString()),d0=new Date(today+'T00:00:00-05:00').getTime(),d1=d0+864e5;
+function todayEvents(dirId){const c=calDir();if(!c)return [];if(window.GL)GL.apply(c);const today=bDay(new Date().toISOString()),d0=new Date(today+'T00:00:00-05:00').getTime(),d1=d0+864e5;
  return (c.events||[]).filter(e=>!e.all_day).map(e=>{const s=new Date(e.start).getTime(),en=e.end?new Date(e.end).getTime():s+30*6e4;return{e,s,en}}).filter(o=>o.en>d0&&o.s<d1&&(!dirId||evDirs(o.e).has(dirId))).sort((a,b)=>a.s-b.s)}
 function agendaHTML(xs,empty){if(!xs.length)return `<div class="empty">${empty}</div>`;const now=Date.now();
  return xs.map(({e,s,en})=>{const tm=e.due?'до '+bTime(e.start):bTime(e.start)+(e.end?'–'+bTime(e.end):'');const t=e.url?`<a href="${e.url}" target="_blank" rel="noopener">${esc(e.title)}</a>`:esc(e.title);
@@ -434,12 +485,12 @@ const dueToday=ts=>openT(ts).filter(t=>t.due===TODAY),overdue=ts=>openT(ts).filt
 const toWeek=(l='сводка за неделю →')=>`<button class="tolink" data-tow="1">${l}</button>`;
 function bindToday(){document.querySelectorAll('[data-tow]').forEach(b=>b.onclick=()=>{S.mode='week';render()});document.querySelectorAll('[data-calgo]').forEach(b=>b.onclick=()=>{S.tab='calendar';calDay=null;render()});
  document.querySelectorAll('.tdcard,.attn .go').forEach(c=>c.onclick=()=>{S.tab=c.dataset.t;render();scrollTo({top:0,behavior:'smooth'})})}
-function overviewToday(){const D=Dash.D,dirs=D.directions.filter(d=>d.kind!=='calendar'),c=calDir(),today=bDay(new Date().toISOString());
+function overviewToday(){if(window.GL)GL.apply(calDir());const D=Dash.D,dirs=D.directions.filter(d=>d.kind!=='calendar'),c=calDir(),today=bDay(new Date().toISOString());
  const allT=[...dirs.flatMap(d=>(d.tasks||[]).map(t=>({...t,name:d.icon+' '+t.name}))),...D.overview.tasks];
  // Rost 25.10: главный вид «Общий · Сегодня» = таймлайн дня (слева Google, справа ClickUp со временем)
  const WD=new Intl.DateTimeFormat('ru-RU',{timeZone:'UTC',weekday:'long',day:'numeric',month:'long'});
  const t=c?tlHTML((c.events||[]).filter(e=>!e.all_day),today,{cuOnly:c.cu_only,h:'64vh',empty:'На сегодня событий со временем нет в снимке.'}):null;
- let h=`<div class="card" style="margin-bottom:14px;background:linear-gradient(135deg,#e8f0fe,var(--panel));border-color:#c6dafc"><div class="today-h"><div><div style="font-size:20px;font-weight:800;text-transform:capitalize">📅 ${esc(WD.format(new Date(today+'T12:00:00Z')))}</div><div class="note">${c?(c.cu_only?'Задачи ClickUp со временем':'Слева Google Календарь · справа задачи ClickUp со временем на тех же часах')+(c.cu_only?'':' · снимок GCal '+esc(c.gcal_fetched_at||'—'))+' · ClickUp '+esc(c.cu_fetched_at||'—'):'Календарь скрыт'}</div></div>${c?'<button class="tolink" data-calgo="1">другой день →</button>':''}</div></div>`;
+ let h=`<div class="card" style="margin-bottom:14px;background:linear-gradient(135deg,#e8f0fe,var(--panel));border-color:#c6dafc"><div class="today-h"><div><div style="font-size:20px;font-weight:800;text-transform:capitalize">📅 ${esc(WD.format(new Date(today+'T12:00:00Z')))}</div><div class="note">${c?(c.cu_only?'Задачи ClickUp со временем':'Слева Google Календарь · справа задачи ClickUp со временем на тех же часах')+(c.cu_only?'':' · '+esc(window.GL?GL.note(c):'снимок GCal '+(c.gcal_fetched_at||'—'))+(window.GL?' '+GL.btn():''))+' · ClickUp '+esc(c.cu_fetched_at||'—'):'Календарь скрыт'}</div></div>${c?'<button class="tolink" data-calgo="1">другой день →</button>':''}</div></div>`;
  h+=t?t.h:'';
  h+=attnOverviewHTML()+`<div class="card"><h3>Задачи ClickUp · срок сегодня</h3>${tasksHTML(dueToday(allT))}<h3 style="margin-top:14px">Просрочено <span class="st">${overdue(allT).length}</span></h3>${tasksHTML(overdue(allT).slice(0,8))}</div><div style="height:14px"></div><div class="diracc">`;
  dirs.forEach(d=>{const a=attn(d).filter(x=>x.cls!=='gap').length,dt=dueToday(d.tasks).length,ov=overdue(d.tasks).length,ev=c?todayEvents(d.id).length:0,me=(d.people||[]).flatMap(p=>(p.items||[]).filter(x=>isYa(x)&&!isChk(x))).length;let mc=0;try{mc=MA_KINDS.includes(d.kind)?maCount(d):0}catch(e){}
@@ -798,7 +849,7 @@ function pepMonHTML(d,part){if(d.id!=='peptides')return '';const cur=Dash.curOf(
  const act=(A.active||[]).concat(A.scheduled||[]),ar=A.archive||[],T=A.totals||{};
  const smRow=SM?`<tr style="background:#fafbff"><td style="white-space:normal"><b>📦 ${esc(SM.label||'Старый аккаунт')}</b><div class="note">${esc(SM.source||'')}</div></td><td><span class="pill" style="background:#eef0f3;color:#667">завершена</span></td><td>${dd(SM.start)} – ${dd(SM.stop)}</td><td class="n">—</td><td class="n">${usd(SM.spent_usd)}</td><td class="n">—</td><td class="n"><b>${n(SM.leads)} лидов</b><div class="note"><b>новые WA</b> ${n(SM.leads)}</div></td><td class="n"><b>${usd(SM.cpa_usd)}</b> <span class="note">CPA</span></td><td>Лиды (WA)</td></tr>`:'';
  const totRow=T.spent_cop?`<tr style="font-weight:700"><td>Итого по ${ar.length} РК ниже</td><td></td><td></td><td class="n"></td><td class="n">${f(T.spent_cop)}</td><td class="n">${n(T.views)}</td><td class="n">${n(T.conversations)} диал.</td><td class="n">${f(T.avg_cost_per_conversation_cop)} <span class="note">/диал.</span></td><td></td></tr>`:'';
- /* Rost t477b: мёртвый KPI/CV-блок убран — ломал вкладку Пептиды (CV is not defined). IG+WA в ячейке «Диалоги / лиды». */
+ /* Rost t477: мёртвый KPI/CV-блок убран — ломал вкладку Пептиды (CV is not defined). IG+WA в ячейке «Диалоги / лиды». */
 hAds+=`<div class="card" style="margin-bottom:14px"><h3>📣 Монитор рекламных кампаний <span class="st">активных ${(A.active||[]).length}</span>${(A.scheduled||[]).length?` <span class="st">запланировано ${(A.scheduled||[]).length}</span>`:''}${SM&&SM.baseline_cpl_usd?` <span class="st">база CPL ${usd(SM.baseline_cpl_usd)} · порог +50% ${usd(SM.baseline_cpl_usd*1.5)}</span>`:''}</h3>
  <div class="note" style="margin:4px 0 4px;font-weight:700">Активные</div>${act.length?`<div class="tblwrap"><table>${TH}${act.map(tr).join('')}</table></div>`:'<div class="empty">Активных кампаний нет</div>'}
  ${A.stale?`<div class="note" style="color:#a5620a;margin-top:4px">⚠️ Последняя проверка в IG ${dd(A.last_verify)} — сегодня телефон не перепроверяли</div>`:''}
