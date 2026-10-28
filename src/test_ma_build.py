@@ -1,5 +1,6 @@
-"""TEST (Rost 26.10): data for test-messengers-assistants.html. METADATA ONLY — тела сообщений НЕ читаются в вывод.
-Из secretary-log берём: время, канал, чат, отправитель, unread, тип (фото/голос/текст). Текст после ':' отбрасывается."""
+"""TEST (Rost 26.10): data for test-messengers-assistants.html. Строки чатов = метаданные из secretary-log (время, канал, чат, отправитель, unread, тип).
+Rost t4356u (28.10): ИСКЛЮЧЕНИЕ — `last_msgs` (≤3 последних пойманных тоста, ≤120 симв.) для hover-превью; только чаты из allowlist/log_only вочера,
+только цитата «…» из тоста (не пояснения бота). Всё остальное — без тел. Вывод шифруется (data-test-ma.enc.json); plaintext не пушится."""
 import re, json, os, csv
 ROOT = os.path.join(os.path.dirname(__file__), '..')
 LOG = '/workspace/notify-watchers/secretary-log.md'
@@ -943,5 +944,93 @@ try:
             if ma and ma[:10] >= (r.get('hang_since') or ma[:10]): r['mention_at'] = ma; _nm += 1
     print('mentions:', _nm, 'log hits', len(_MM))
 except Exception as _e: print('mentions skip', _e)
+# === Rost t4356u: last_msgs — превью последних ПОЙМАННЫХ сообщений на строке (hover-поповер / раскрытие на мобиле).
+# Только чаты из allowlist/log_only своего вочера (те, что вочер и так пишет в secretary-log). Текст = только цитата из тоста «…»/"…"
+# (или голый медиа-маркер Photo/Video/Voice); пояснения бота не берём. Нет цитаты -> строки нет (не выдумываем). ≤3, новые сверху, ≤120 симв.
+try:
+    _LMDIR = {'whatsapp-ukr-secretary': 'wa-ukr-secretary', 'ukr': 'wa-ukr-secretary', 'whatsapp-esp-secretary': 'wa-esp-secretary', 'esp': 'wa-esp-secretary',
+              'tg': 'tg-secretary', 'telegram-secretary': 'tg-secretary', 'viber': 'viber-ukr-secretary', 'viber-ukr-secretary': 'viber-ukr-secretary'}
+    _LMAL = {}
+    def _lm_allow(folder):
+        if folder not in _LMAL:
+            ents = []
+            for fn in ('allowlist.txt', 'log_only.txt'):
+                try:
+                    for l in open(f'/workspace/notify-watchers/{folder}/{fn}', encoding='utf-8'):
+                        l = l.strip()
+                        if not l or l.startswith('#'): continue
+                        ents.append(l)
+                except FileNotFoundError: pass
+            _LMAL[folder] = ents
+        return _LMAL[folder]
+    def _lm_ok(folder, title):
+        tl = title.lower(); td = re.sub(r'\D', '', title)
+        for e in _lm_allow(folder):
+            if e.lower().startswith('contains:'):
+                if e[9:].strip().lower() and e[9:].strip().lower() in tl: return True
+            elif re.fullmatch(r'[+\d\s()-]{7,}', e):
+                d = re.sub(r'\D', '', e)
+                if d and d in td: return True
+            elif len(e) >= 3 and e.lower() in tl: return True
+        return False
+    def _lm_text(s):
+        s = re.sub(r'\s*\((?:\d+(?:[–-]\d+)?\s+unread[^)]*|coalesced)\)', '', s).strip()
+        q = re.findall(r'«([^»]{1,400})»|"([^"]{1,400})"|“([^”]{1,400})”', s)
+        parts = [next(x for x in t if x) for t in q]
+        who = None
+        mw = re.match(r'^([^«"“:]{2,40}):\s*[«"“]', s)
+        if mw: who = mw.group(1).strip()
+        if not parts:
+            if re.fullmatch(r'(?:\d+\s*[×x]\s*)?(?:Photo|Video|Voice message|Audio|Sticker|GIF|Document|фото|видео|голосовое)[\w\s:().,–-]{0,30}', s, re.I): parts = [s]
+            else: return None, None
+        t = ' / '.join(p.strip() for p in parts)
+        return who, (t[:117] + '…' if len(t) > 120 else t)
+    _LM, _lmi = {}, 0  # (channel, chat_lower) -> [{at, who, text}]; _lmi = порядок строки в логе (одна минута -> позже = новее)
+    for _ln in open(LOG, encoding='utf-8'):
+        _m = re.match(r'- (2026-\d\d-\d\d) (\d\d:\d\d)(?:[–-]\d\d:\d\d)? (?:Bogotá|COT)?\s*\|\s*([\w-]+)\s*\|', _ln)
+        if not _m: continue
+        _f = _LMDIR.get(_m.group(3).lower())
+        if not _f: continue
+        _sg = _ln.rstrip('\n').split('|')
+        if len(_sg) < 4: continue
+        _title = re.sub(r'^группа\s*', '', _sg[2].strip()).strip('«»" ')
+        if not _lm_ok(_f, _sg[2]): continue
+        _who, _txt = _lm_text(_sg[3].strip())
+        if not _txt: continue
+        _disp, _ = known(_sg[2])
+        _base = re.sub(r'\s*\([^)]*\)\s*$', '', _title).strip('«»" ').strip()
+        _pm = re.search(r'\(([^)]*)\)\s*$', _title)
+        if not _who and _pm:  # «(Elena Tolstova)» = отправитель, только если это известное имя (не slug/пояснение)
+            _pw = next((x for x in SENDERS if _pm.group(1).strip().startswith(x)), None)
+            if _pw: _who = _pm.group(1).strip()
+        _ch = CH.get(_m.group(3), CH.get(_m.group(3).upper(), _m.group(3)))
+        _lmi += 1
+        _e = dict(at=f'{_m.group(1)} {_m.group(2)}', who=_who or _disp or _base, text=_txt, _i=_lmi)
+        for _k in {(_ch, (_disp or _base).lower()), (_ch, _base.lower())}:
+            _L = _LM.setdefault(_k, [])
+            if not any(x['text'] == _e['text'] and x['at'] == _e['at'] for x in _L): _L.append(_e)
+    for _k in _LM: _LM[_k] = [{k: v for k, v in x.items() if k != '_i'} for x in sorted(_LM[_k], key=lambda x: (x['at'], x['_i']), reverse=True)[:3]]
+    def _lm_find(ch, chat):
+        c = (chat or '').lower().strip()
+        if not c: return None
+        if (ch, c) in _LM: return _LM[(ch, c)]
+        d, _ = known(chat)
+        if d and (ch, d.lower()) in _LM: return _LM[(ch, d.lower())]
+        c2 = re.sub(r'(\.\.\.|…)$', '', c).strip()
+        if len(c2) >= 6 and c2 != c:
+            for (kch, kc), v in _LM.items():
+                if kch == ch and kc.startswith(c2): return v
+        return None
+    _nlm = 0
+    for g in data['messengers']:
+        for r in g['rows']:
+            v = _lm_find(r.get('channel'), r.get('chat'))
+            if v: r['last_msgs'] = v; _nlm += 1
+            else: r.pop('last_msgs', None)
+    for u in data.get('unsorted') or []:
+        v = _lm_find(u.get('channel'), u.get('title'))
+        if v: u['last_msgs'] = v; _nlm += 1
+    print('last_msgs: rows', _nlm, 'chats in log', len(_LM))
+except Exception as _e: print('last_msgs skip', _e)
 json.dump(data, open(os.path.join(ROOT, 'data-test-ma.json'), 'w'), ensure_ascii=False, indent=1)
 print('rows', sum(len(g['rows']) for g in data['messengers']), 'groups', [g['sphere'] for g in data['messengers']])
