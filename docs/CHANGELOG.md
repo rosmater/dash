@@ -1,3 +1,10 @@
+## 28.10 ~01:10 Bogotá — Мессенджеры: «отчеты» ПОД чатами + метка «📄 отчёт»; Defense «Tasks» → Оборонка; Помощник без Feabie/Tin (Rost t4322–29)
+- `src/variant-a.html`: порядок в карточке сферы = чаты → `rfold` (ClickUp «отчеты (N)») → `wfold` (⏳ Ждём ответа) → ▸ Без сообщений. На строке «отчеты» — пилюля `📄 отчёт`.
+- ❓ Прочее → Оборонка: `maCUMsgRows` матчит `MA_CU_SPH` по `space + list_id + list` (а не только имени листа); в регэксп Оборонки добавлено `defen[cs]e|901421054196|90148618420`.
+- `src/cu_inbox_build.py`: тредам пишется `list_id`. `src/test_ma_build.py`: `list_id` добирается из inbox-raw (tasks-updated / tasks-<дата>), `space` по карте `_CU_SPACE` (`901421054196` → Defense Systems). 86bbzxnvx «БОТ-ЧАСТЬ: Рассылка…» теперь в 🛡️ Оборонка, карточки ❓ Прочее нет.
+- `maMonitor`: при `DASH_HELPER` (helper.html, даш Помощника) каналы Feabie и Tinder скрыты из «📊 Монитор мессенджеров». Главный даш / Ассистенты — без изменений.
+- Проверка: Chrome headless index.html и helper.html ?data=data.json&tab=messengers — 0 ошибок; порядок в сферах chats→отчеты→ждём→без; в helper монитор без Feabie/Tin.
+
 ## 28.10 ~01:20 Bogotá — Мессенджеры: «отчеты» вверх + как чаты (Rost t4320–21)
 - `src/variant-a.html`: `rfold` → `details.mrow.cuokf` (mLBL ClickUp + «отчеты (N)» + mcnt новых), дети = `maCUMsgHTML` в `.mbody.cuokb`; в карточке сферы `rfold(g)+wfold(g)` перед чатами. CSS `.cuokb` (отступ, ▸ у свёрнутых вложенных).
 - Проверка: Playwright index.html?data=data.json&tab=messengers — 0 ошибок; 4 сферы с отчётами (Недвижимость 1, Личное 1, Табакевич 4, ОФ 7): первый ребёнок карточки = «ClickUp отчеты (N)», второй = «⏳ Ждём ответа», затем чаты.

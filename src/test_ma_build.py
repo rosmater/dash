@@ -377,10 +377,44 @@ _OWN_KW = [('ОФ Маркетинг', ['миле', 'офиса оф', 'трек
            ('Секретарь', ['окупас', 'топасио', 'пакистанец', 'andrea cali', 'sofia', 'aurora', 'ra180', 'пальма'])]
 _cu_tasks = json.load(open(os.path.join(os.path.dirname(__file__), 'ma_clickup.json')))
 _today = _cu_tasks['fetched'][:10]
+# Rost t4197: вернул bot_attn wire (выпал при откате файла ~t4183; HTML читает t.need / b.reports)
+# Rost t4142–43: bot_attn.jsonl (sync/) — бот пишет need=rost|ok на каждый CU for check; нет записи → rost (безопаснее)
+# Rost t4144–46: тап с даша (src:'dash') действует ТОЛЬКО на текущий ответ: строка с rev/updated == task.updated из ma_clickup.
+#   Есть строки с совпадающим rev → последняя из них. Нет → последняя НЕ-dash строка по cu. Нет и её → rost.
+_ATTN_L, _ATTN_BOT = {}, {}
+try:
+    for _ln in open(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'sync', 'bot_attn.jsonl'), encoding='utf-8'):
+        try: _j = json.loads(_ln)
+        except Exception: continue
+        if _j.get('closed'): _j['need'] = 'ok'  # правило: закрыл / for check снят → ok
+        if _j.get('cu') and _j.get('need') in ('rost', 'ok'):
+            _ATTN_L.setdefault(str(_j['cu']), []).append(_j)
+            if _j.get('bot') and _j.get('src') != 'dash': _ATTN_BOT[str(_j['cu'])] = {'Оборонные': 'Оборонка', 'Оборонные системы': 'Оборонка'}.get(_j['bot'], _j['bot'])
+except FileNotFoundError: pass
+def _attn_need(cid, upd):
+    L = _ATTN_L.get(str(cid)) or []
+    m = [j for j in L if (j.get('rev') or j.get('updated') or '') == (upd or '') and upd]
+    if m: return m[-1]['need']
+    nb = [j for j in L if j.get('src') != 'dash']
+    return nb[-1]['need'] if nb else None
+_ATTN = {}
+for _t in _cu_tasks['tasks']:
+    _n = _attn_need(_t['id'], _t.get('updated'))
+    if _n: _ATTN[_t['id']] = _n
+_CU_OWN = {}
+_ATTN_CNT = {}
 for t in _cu_tasks['tasks']:
     nl = t['name'].lower(); own = next((o for o, kws in _OWN_KW if any(k in nl for k in kws)), 'Помощник по всему')
+    if any(x['name'] == _ATTN_BOT.get(t['id']) for x in data['bots']): own = _ATTN_BOT[t['id']]  # бот, записавший лог, = владелец (точнее ключевых слов)
     b = next(x for x in data['bots'] if x['name'] == own)
-    b.setdefault('tasks', []).append(dict(id=t['id'], name=t['name'], list=t['list'], updated=t['updated'], status=t['status'], new=t['updated'][:10] == _today))
+    _CU_OWN[t['id']] = own
+    need = _ATTN.get(t['id'], 'rost'); t['need'] = need
+    _c = _ATTN_CNT.setdefault(own, dict(rost=0, ok=0, unlogged=0)); _c[need] += 1
+    if t['id'] not in _ATTN: _c['unlogged'] += 1
+    row = dict(id=t['id'], name=t['name'], list=t['list'], updated=t['updated'], status=t['status'], new=t['updated'][:10] == _today, need=need)
+    b.setdefault('tasks' if need == 'rost' else 'reports', []).append(row)  # ok → свёрнутые «Отчёты», не 🟡 и не new_count
+data['bot_attn'] = dict(src='sync/bot_attn.jsonl', logged=len(_ATTN), per_bot=_ATTN_CNT)
+print('bot_attn:', _ATTN_CNT)
 # === Rost 26.10 ~20:15: общая база открытых вопросов /workspace/queue/ma_open_questions.json (ma_q.py) — боты добавляют/убирают; стабильный QID
 import hashlib as _hl, datetime as _dtm
 _QID = lambda bn, q: 'Q-' + _hl.sha1(f'{bn}|{q}'.encode()).hexdigest()[:6]
@@ -571,9 +605,11 @@ for b in data['bots']:
     b['waiting'] = W
 for b in data['bots']:
     red = [q for q in b['qs'] if q['st'] == 'red' and not q.get('answered')]
-    newn = sum(1 for q in b['qs'] if q.get('new') and not q.get('answered')) + sum(1 for t in b.get('tasks', []) if t['new'])
+    # Rost t4149–51u: CU for check НЕ даёт 🟡 «N новых»; 🟡 только свежие НЕ-красные отчёты-вопросы. need=rost задачи → 🔴 attention как вопросы
+    newn = sum(1 for q in b['qs'] if q.get('new') and not q.get('answered') and q['st'] != 'red')
     b['new_count'] = newn
-    b['status'] = 'nodata' if (b.get('nodata') and not b.get('routines')) else 'attention' if red else 'working' if any(_re.search(r'in.?progress|чин', it.get('st') or '', _re.I) for it in (b.get('queue') or [])) else 'ok'  # Rost t3992u: green/ждём/for check не делают 🔵; только red → attention, реальная WIP в очереди → working  # t3949u: рутины есть -> не «нет данных»
+    rost_t = [t for t in b.get('tasks', []) if t.get('need', 'rost') == 'rost']
+    b['status'] = 'nodata' if (b.get('nodata') and not b.get('routines') and not rost_t) else 'attention' if (red or rost_t) else 'ok'  # Rost t4136u: «всё ок» = от Rost ничего не нужно; QUEUE — отдельный бейдж, не статус  # t3949u
 for b in data['bots']:
     b['link'] = A(b['id'] or 'd3a12cc9-cf8a-41e5-b34a-76d4ab9eb9fd')  # без id -> Секретарь (Rost 26.10: каждая строка кликабельна)
 # Rost 26.10: мини-кнопка у каждого вопроса -> grokbot://app/v1/prompt?id=<бот>&text=<вопрос> (заполняет поле ввода, не отправляет; 1 строка ≤1000 симв.)
@@ -597,12 +633,50 @@ for g in data['messengers']:
         nm, i = OWN.get(r['channel'], SEC); r['owner'] = nm; r['owner_link'] = A(i)
 # ClickUp: for check на Rost (снимок ma_clickup.json), каждая — ссылка на задачу
 _cu = json.load(open(os.path.join(os.path.dirname(__file__), 'ma_clickup.json')))
-data['clickup'] = dict(fetched=_cu['fetched'], owner=SEC[0], owner_link=A(SEC[1]), tasks=_cu['tasks'])
+# Rost t4212: обычные строки Мессенджеров — автор = отправитель; бот (имя «БОТ…» / TG-юзернейм …bot) → author_bot, уходит вниз сферы
+for g in data['messengers']:
+    for r in g['rows']:
+        _snd = r.get('sender') or ''
+        r['author_bot'] = bool(re.match(r'^\W*БОТ\b', _snd, re.I) or (re.search(r'bot$', _snd, re.I) and 'Telegram' in (r.get('channel') or '')))
+data['clickup'] = dict(fetched=_cu['fetched'], owner=SEC[0], owner_link=A(SEC[1]), tasks=[dict(t, need=_ATTN.get(t['id'], 'rost'), bot=_CU_OWN.get(t['id'], '')) for t in _cu['tasks']])  # t4143/t4197: need rost|ok из bot_attn.jsonl
 # Rost t4195–96: CU-инбокс в Мессенджерах читает d.cu_inbox (ma_cu_inbox.json). Без этого поля maCUMsgRows() пустой → задачи «пропали».
 try:
     _cui = json.load(open(os.path.join(os.path.dirname(__file__), 'ma_cu_inbox.json'), encoding='utf-8'))
     data['cu_inbox'] = {k: _cui[k] for k in ('fetched','since','src','tier','kinds','counts','items','threads') if k in _cui}
     print('cu_inbox threads', len((_cui.get('threads') or [])), 'items', len((_cui.get('items') or [])))
+    # Rost t4212: автор строки (кто написал/тегнул). Общие правила, без хардкодов задач:
+    #   живой человек (author_bot=False из cu_inbox_build) → его имя; аккаунт Rost (пишут боты) / имя задачи «БОТ…» / запись в bot_attn.jsonl → «БОТ».
+    #   Автор неизвестен и признаков бота нет → человек по имени отправителя (who), имён не выдумываем.
+    _CU_SPACE = {'901421054196': 'Defense Systems'}  # list_id → space (Defense Systems / list «Tasks», space 90148618420)
+    _CU_LID = {}
+    for _rf in ('/workspace/notify-watchers/clickup-pulse/inbox-raw/wide/tasks-updated.json', '/workspace/notify-watchers/clickup-pulse/inbox-raw/tasks-' + (_cui.get('fetched') or '')[:10] + '.json'):
+        try:
+            for _rt in json.load(open(_rf, encoding='utf-8')).get('tasks') or []:
+                _CU_LID.setdefault(str(_rt.get('id')), str((_rt.get('list') or {}).get('id', '')))
+        except Exception:
+            pass
+    _BOTRE = re.compile(r'^\W*(\(.*?\)\s*)?БОТ\b', re.I)
+    _CU_UPD = {str(t['id']): t.get('updated') or '' for t in _cu_tasks['tasks']}
+    for _th in data['cu_inbox'].get('threads') or []:
+        _tid = str(_th.get('task_id') or '')
+        # Rost t4322: голый лист «Tasks» без сферы → ❓ Прочее. Сфера по list_id/space (Defense Systems → Оборонка)
+        if not _th.get('list_id'):
+            _th['list_id'] = _CU_LID.get(_tid, '')
+        if not _th.get('space') and _CU_SPACE.get(_th.get('list_id')):
+            _th['space'] = _CU_SPACE[_th['list_id']]
+        # Rost t4312–15: need из bot_attn.jsonl (те же правила, что for check: rev==updated → последняя; иначе последняя не-dash; нет лога → rost)
+        _th['rev'] = _CU_UPD.get(_tid) or _th.get('at') or ''
+        _th['need'] = _ATTN.get(_tid) or _attn_need(_tid, _th['rev']) or 'rost'
+        if _th.get('author_bot') is False and _th.get('author'): continue
+        _isb = _th.get('author_bot') is True or (_th.get('who') or '') == 'Rost' or bool(_BOTRE.search(_th.get('task') or '')) or _tid in _ATTN_L
+        if _isb:
+            _th['author'], _th['author_bot'] = 'БОТ', True
+            _bn = _ATTN_BOT.get(_tid) or _CU_OWN.get(_tid) or ''
+            if _bn: _th['author_botname'] = _bn
+        else:
+            _th['author'], _th['author_bot'] = (_th.get('who') or ''), False
+    print('cu_inbox need (bot)', {k: sum(1 for t in data['cu_inbox'].get('threads') or [] if t.get('author_bot') and t.get('need') == k) for k in ('rost', 'ok')})
+    print('cu_inbox authors', {k: sum(1 for t in data['cu_inbox'].get('threads') or [] if bool(t.get('author_bot')) == k) for k in (True, False)})
 except Exception as _e:
     data['cu_inbox'] = dict(fetched='', items=[], threads=[], counts={})
     print('cu_inbox skip', _e)
@@ -711,9 +785,9 @@ def _watchers():
             _age = _time.time() - _time.mktime(_time.strptime(_vhb.get('ts','')[:19].replace('T',' '), '%Y-%m-%d %H:%M:%S')) if _vhb.get('ts') else 99999
             # ISO with offset: prefer fromisoformat
             try:
-                from datetime import datetime as _dt
+                from datetime import datetime as _dtc  # t4197: не затирать _dt (модуль) → иначе age() падал → ClickUp вечно 🟡
                 _ts = _vhb.get('ts') or ''
-                _age = (_dt.now().astimezone() - _dt.fromisoformat(_ts.replace('Z','+00:00'))).total_seconds()
+                _age = (_dtc.now().astimezone() - _dtc.fromisoformat(_ts.replace('Z','+00:00'))).total_seconds()
             except Exception:
                 pass
             if _age < 7200:  # 2h

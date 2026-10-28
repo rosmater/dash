@@ -1,7 +1,7 @@
 {
  "_note": "Rost t4153–55: ClickUp «инбокс» для Мессенджеров -> src/ma_cu_inbox.json.\nВход (кладёт агент после MCP-опроса, tier 2 по cu-inbox-tier.sh): notify-watchers/clickup-pulse/inbox-raw/{tasks,comments}-<date>.json\nКатегории: comment (Комменты) / mention (@) / assigned (Назначили) / forcheck (for check) / other (Прочее).\nУ КАЖДОЙ строки две ссылки (t4154u HARD): comment_url (app.clickup.com/t/<id>?comment=<cid>) + task_url (rosmater.github.io/cu/?t=<id>).\nТолько метаданные: текст коммента в даш НЕ пишем (только флаги @/assigned).",
- "fetched": "2026-10-27 19:55 Bogotá",
- "since": "2026-10-25 19:55 Bogotá",
+ "fetched": "2026-10-27 23:58 Bogotá",
+ "since": "2026-10-25 23:58 Bogotá",
  "src": "user-Clickup MCP (tier 2); user-Clickup--private: daily limit 300/300",
  "tier": "2",
  "kinds": [
@@ -12,6 +12,10 @@
   [
    "mention",
    "@"
+  ],
+  [
+   "dm",
+   "Личка"
   ],
   [
    "assigned",
@@ -27,13 +31,162 @@
   ]
  ],
  "counts": {
-  "comment": 14,
-  "mention": 10,
-  "forcheck": 35,
+  "mention": 33,
+  "comment": 37,
+  "forcheck": 37,
   "assigned": 3,
-  "other": 1
+  "dm": 1
  },
  "items": [
+  {
+   "task_id": "86b9qwu10",
+   "task": "💳 Pago a Juliana manco - la cantidad exacta en la tabla (adjuntar captura de pantalla a comentarios)",
+   "list": "Models",
+   "status": "to do",
+   "task_url": "https://rosmater.github.io/cu/?t=86b9qwu10",
+   "task_app": "https://app.clickup.com/t/86b9qwu10",
+   "kind": "mention",
+   "at": "2026-10-27 23:10",
+   "who": "Sara Pineda Chanci",
+   "comment_id": "90140274358210",
+   "comment_url": "https://app.clickup.com/t/86b9qwu10?comment=90140274358210"
+  },
+  {
+   "task_id": "86b9qwu10",
+   "task": "💳 Pago a Juliana manco - la cantidad exacta en la tabla (adjuntar captura de pantalla a comentarios)",
+   "list": "Models",
+   "status": "to do",
+   "task_url": "https://rosmater.github.io/cu/?t=86b9qwu10",
+   "task_app": "https://app.clickup.com/t/86b9qwu10",
+   "kind": "comment",
+   "at": "2026-10-27 23:10",
+   "who": "Sara Pineda Chanci",
+   "comment_id": "90140274358210",
+   "comment_url": "https://app.clickup.com/t/86b9qwu10?comment=90140274358210",
+   "n_new": 1
+  },
+  {
+   "task_id": "86bctqe8h",
+   "task": "БОТ: Live Google Calendar на даш (OAuth, не снимок)",
+   "list": "Personal",
+   "status": "in progress",
+   "task_url": "https://rosmater.github.io/cu/?t=86bctqe8h",
+   "task_app": "https://app.clickup.com/t/86bctqe8h",
+   "kind": "comment",
+   "at": "2026-10-27 23:06",
+   "who": "Rost",
+   "comment_id": "90140274356052",
+   "comment_url": "https://app.clickup.com/t/86bctqe8h?comment=90140274356052",
+   "n_new": 1
+  },
+  {
+   "task_id": "86b7h12h7",
+   "task": "💳 Pago a Tatiana RA 210/214 - la cantidad exacta en la tabla (adjuntar captura de pantalla a comentarios)",
+   "list": "Models",
+   "status": "to do",
+   "task_url": "https://rosmater.github.io/cu/?t=86b7h12h7",
+   "task_app": "https://app.clickup.com/t/86b7h12h7",
+   "kind": "mention",
+   "at": "2026-10-27 22:58",
+   "who": "Sara Pineda Chanci",
+   "comment_id": "90140274350133",
+   "comment_url": "https://app.clickup.com/t/86b7h12h7?comment=90140274350133"
+  },
+  {
+   "task_id": "86b7h12h7",
+   "task": "💳 Pago a Tatiana RA 210/214 - la cantidad exacta en la tabla (adjuntar captura de pantalla a comentarios)",
+   "list": "Models",
+   "status": "to do",
+   "task_url": "https://rosmater.github.io/cu/?t=86b7h12h7",
+   "task_app": "https://app.clickup.com/t/86b7h12h7",
+   "kind": "comment",
+   "at": "2026-10-27 22:58",
+   "who": "Sara Pineda Chanci",
+   "comment_id": "90140274350133",
+   "comment_url": "https://app.clickup.com/t/86b7h12h7?comment=90140274350133",
+   "n_new": 1
+  },
+  {
+   "task_id": "86bakztpd",
+   "task": "DMCA - RA207",
+   "list": "Models",
+   "status": "to do",
+   "task_url": "https://rosmater.github.io/cu/?t=86bakztpd",
+   "task_app": "https://app.clickup.com/t/86bakztpd",
+   "kind": "mention",
+   "at": "2026-10-27 18:39",
+   "who": "Michelle Hernández ",
+   "comment_id": "90140274290020",
+   "comment_url": "https://app.clickup.com/t/86bakztpd?comment=90140274290020"
+  },
+  {
+   "task_id": "86bakztpd",
+   "task": "DMCA - RA207",
+   "list": "Models",
+   "status": "to do",
+   "task_url": "https://rosmater.github.io/cu/?t=86bakztpd",
+   "task_app": "https://app.clickup.com/t/86bakztpd",
+   "kind": "comment",
+   "at": "2026-10-27 18:39",
+   "who": "Michelle Hernández ",
+   "comment_id": "90140274290020",
+   "comment_url": "https://app.clickup.com/t/86bakztpd?comment=90140274290020",
+   "n_new": 1
+  },
+  {
+   "task_id": "86bcr1f96",
+   "task": "Contactar a Tatiana, pedir fotos y adjuntarlas en la tarea (luego mencionar a Rost)",
+   "list": "Models",
+   "status": "for check",
+   "task_url": "https://rosmater.github.io/cu/?t=86bcr1f96",
+   "task_app": "https://app.clickup.com/t/86bcr1f96",
+   "kind": "mention",
+   "at": "2026-10-27 18:36",
+   "who": "Sara Pineda Chanci",
+   "comment_id": "90140274289316",
+   "comment_url": "https://app.clickup.com/t/86bcr1f96?comment=90140274289316"
+  },
+  {
+   "task_id": "86bcr1f96",
+   "task": "Contactar a Tatiana, pedir fotos y adjuntarlas en la tarea (luego mencionar a Rost)",
+   "list": "Models",
+   "status": "for check",
+   "task_url": "https://rosmater.github.io/cu/?t=86bcr1f96",
+   "task_app": "https://app.clickup.com/t/86bcr1f96",
+   "kind": "forcheck",
+   "at": "2026-10-27 18:36",
+   "who": "Sara Pineda Chanci",
+   "comment_id": "90140274289316",
+   "comment_url": "https://app.clickup.com/t/86bcr1f96?comment=90140274289316",
+   "n_new": 2
+  },
+  {
+   "task_id": "86b7t9h6p",
+   "task": "DMCA busqueda de contenido de LolaPop",
+   "list": "Models",
+   "status": "to do",
+   "task_url": "https://rosmater.github.io/cu/?t=86b7t9h6p",
+   "task_app": "https://app.clickup.com/t/86b7t9h6p",
+   "kind": "mention",
+   "at": "2026-10-27 18:35",
+   "who": "Michelle Hernández ",
+   "comment_id": "90140274289226",
+   "comment_url": "https://app.clickup.com/t/86b7t9h6p?comment=90140274289226"
+  },
+  {
+   "task_id": "86b7t9h6p",
+   "task": "DMCA busqueda de contenido de LolaPop",
+   "list": "Models",
+   "status": "to do",
+   "task_url": "https://rosmater.github.io/cu/?t=86b7t9h6p",
+   "task_app": "https://app.clickup.com/t/86b7t9h6p",
+   "kind": "comment",
+   "at": "2026-10-27 18:35",
+   "who": "Michelle Hernández ",
+   "comment_id": "90140274289226",
+   "comment_url": "https://app.clickup.com/t/86b7t9h6p?comment=90140274289226",
+   "n_new": 2
+  },
   {
    "task_id": "86bbzxnvx",
    "task": "БОТ-ЧАСТЬ: Рассылка / Сбор баз / Мониторинг тендеров - план 50 писем в неделю + участие в тендерах",
@@ -47,6 +200,87 @@
    "comment_id": "90140274288729",
    "comment_url": "https://app.clickup.com/t/86bbzxnvx?comment=90140274288729",
    "n_new": 6
+  },
+  {
+   "task_id": "86bcn2d1t",
+   "task": "Control de estado de cuentas + mandar apelaciones + eliminar publicaciones problematicas + mas mandar capturas de pantalla",
+   "list": "Models",
+   "status": "to do",
+   "task_url": "https://rosmater.github.io/cu/?t=86bcn2d1t",
+   "task_app": "https://app.clickup.com/t/86bcn2d1t",
+   "kind": "mention",
+   "at": "2026-10-27 17:24",
+   "who": "Michelle Hernández ",
+   "comment_id": "90140274268569",
+   "comment_url": "https://app.clickup.com/t/86bcn2d1t?comment=90140274268569"
+  },
+  {
+   "task_id": "86bcn2d1t",
+   "task": "Control de estado de cuentas + mandar apelaciones + eliminar publicaciones problematicas + mas mandar capturas de pantalla",
+   "list": "Models",
+   "status": "to do",
+   "task_url": "https://rosmater.github.io/cu/?t=86bcn2d1t",
+   "task_app": "https://app.clickup.com/t/86bcn2d1t",
+   "kind": "comment",
+   "at": "2026-10-27 17:24",
+   "who": "Michelle Hernández ",
+   "comment_id": "90140274268569",
+   "comment_url": "https://app.clickup.com/t/86bcn2d1t?comment=90140274268569",
+   "n_new": 4
+  },
+  {
+   "task_id": "86b7heru3",
+   "task": "(solo poner estado de cuenta) 📊 Estadística semanal de las redes sociales en la tabla",
+   "list": "General Tasks OF",
+   "status": "to do",
+   "task_url": "https://rosmater.github.io/cu/?t=86b7heru3",
+   "task_app": "https://app.clickup.com/t/86b7heru3",
+   "kind": "mention",
+   "at": "2026-10-27 17:21",
+   "who": "Michelle Hernández ",
+   "comment_id": "90140274267491",
+   "comment_url": "https://app.clickup.com/t/86b7heru3?comment=90140274267491"
+  },
+  {
+   "task_id": "86b7heru3",
+   "task": "(solo poner estado de cuenta) 📊 Estadística semanal de las redes sociales en la tabla",
+   "list": "General Tasks OF",
+   "status": "to do",
+   "task_url": "https://rosmater.github.io/cu/?t=86b7heru3",
+   "task_app": "https://app.clickup.com/t/86b7heru3",
+   "kind": "comment",
+   "at": "2026-10-27 17:21",
+   "who": "Michelle Hernández ",
+   "comment_id": "90140274267491",
+   "comment_url": "https://app.clickup.com/t/86b7heru3?comment=90140274267491",
+   "n_new": 2
+  },
+  {
+   "task_id": "86bcderhz",
+   "task": "💳 Pago a Valentina trans - la cantidad exacta en la tabla (adjuntar captura de pantalla a comentarios)",
+   "list": "Models",
+   "status": "to do",
+   "task_url": "https://rosmater.github.io/cu/?t=86bcderhz",
+   "task_app": "https://app.clickup.com/t/86bcderhz",
+   "kind": "mention",
+   "at": "2026-10-27 16:17",
+   "who": "Sara Pineda Chanci",
+   "comment_id": "90140274238834",
+   "comment_url": "https://app.clickup.com/t/86bcderhz?comment=90140274238834"
+  },
+  {
+   "task_id": "86bcderhz",
+   "task": "💳 Pago a Valentina trans - la cantidad exacta en la tabla (adjuntar captura de pantalla a comentarios)",
+   "list": "Models",
+   "status": "to do",
+   "task_url": "https://rosmater.github.io/cu/?t=86bcderhz",
+   "task_app": "https://app.clickup.com/t/86bcderhz",
+   "kind": "comment",
+   "at": "2026-10-27 16:17",
+   "who": "Sara Pineda Chanci",
+   "comment_id": "90140274238834",
+   "comment_url": "https://app.clickup.com/t/86bcderhz?comment=90140274238834",
+   "n_new": 1
   },
   {
    "task_id": "86bcmacku",
@@ -63,6 +297,20 @@
    "n_new": 3
   },
   {
+   "task_id": "86bcq1dkk",
+   "task": "ELIANA 24 - Flames",
+   "list": "Models",
+   "status": "models",
+   "task_url": "https://rosmater.github.io/cu/?t=86bcq1dkk",
+   "task_app": "https://app.clickup.com/t/86bcq1dkk",
+   "kind": "comment",
+   "at": "2026-10-27 13:39",
+   "who": "Rost",
+   "comment_id": "90140274152319",
+   "comment_url": "https://app.clickup.com/t/86bcq1dkk?comment=90140274152319",
+   "n_new": 1
+  },
+  {
    "task_id": "86bcmpfve",
    "task": "BBW Katerine, 20 años - Isa (159 строка)",
    "list": "Models",
@@ -75,6 +323,33 @@
    "comment_id": "90140274151951",
    "comment_url": "https://app.clickup.com/t/86bcmpfve?comment=90140274151951",
    "n_new": 1
+  },
+  {
+   "task_id": "86bbfudj2",
+   "task": "Instagram - responder a comentarios",
+   "list": "Models",
+   "status": "to do",
+   "task_url": "https://rosmater.github.io/cu/?t=86bbfudj2",
+   "task_app": "https://app.clickup.com/t/86bbfudj2",
+   "kind": "mention",
+   "at": "2026-10-27 12:10",
+   "who": "Sara Pineda Chanci",
+   "comment_id": "90140274090693",
+   "comment_url": "https://app.clickup.com/t/86bbfudj2?comment=90140274090693"
+  },
+  {
+   "task_id": "86bbfudj2",
+   "task": "Instagram - responder a comentarios",
+   "list": "Models",
+   "status": "to do",
+   "task_url": "https://rosmater.github.io/cu/?t=86bbfudj2",
+   "task_app": "https://app.clickup.com/t/86bbfudj2",
+   "kind": "comment",
+   "at": "2026-10-27 12:10",
+   "who": "Sara Pineda Chanci",
+   "comment_id": "90140274090693",
+   "comment_url": "https://app.clickup.com/t/86bbfudj2?comment=90140274090693",
+   "n_new": 3
   },
   {
    "task_id": "86b9ycbby",
@@ -296,7 +571,7 @@
    "who": "Rost",
    "comment_id": "90140273950997",
    "comment_url": "https://app.clickup.com/t/86bbjyrf5?comment=90140273950997",
-   "n_new": 4
+   "n_new": 3
   },
   {
    "task_id": "86bcma7tp",
@@ -352,7 +627,277 @@
    "who": "Rost",
    "comment_id": "90140273778655",
    "comment_url": "https://app.clickup.com/t/86bcn3c3u?comment=90140273778655",
-   "n_new": 2
+   "n_new": 1
+  },
+  {
+   "task_id": "86bcqyvwk",
+   "task": "Restaurar acceso de Gabriela a la 3ª página (OF)",
+   "list": "Models",
+   "status": "to do",
+   "task_url": "https://rosmater.github.io/cu/?t=86bcqyvwk",
+   "task_app": "https://app.clickup.com/t/86bcqyvwk",
+   "kind": "mention",
+   "at": "2026-10-26 19:40",
+   "who": "Michelle Hernández ",
+   "comment_id": "90140273729663",
+   "comment_url": "https://app.clickup.com/t/86bcqyvwk?comment=90140273729663"
+  },
+  {
+   "task_id": "86bcqyvwk",
+   "task": "Restaurar acceso de Gabriela a la 3ª página (OF)",
+   "list": "Models",
+   "status": "to do",
+   "task_url": "https://rosmater.github.io/cu/?t=86bcqyvwk",
+   "task_app": "https://app.clickup.com/t/86bcqyvwk",
+   "kind": "comment",
+   "at": "2026-10-26 19:40",
+   "who": "Michelle Hernández ",
+   "comment_id": "90140273729663",
+   "comment_url": "https://app.clickup.com/t/86bcqyvwk?comment=90140273729663",
+   "n_new": 1
+  },
+  {
+   "task_id": "86b7mk0q0",
+   "task": "CONTROLAR KARLI: Clasificacion de contenido (instrucciones en checklist) - aprobacion Ros",
+   "list": "Models",
+   "status": "to do",
+   "task_url": "https://rosmater.github.io/cu/?t=86b7mk0q0",
+   "task_app": "https://app.clickup.com/t/86b7mk0q0",
+   "kind": "mention",
+   "at": "2026-10-26 18:40",
+   "who": "Michelle Hernández ",
+   "comment_id": "90140273714878",
+   "comment_url": "https://app.clickup.com/t/86b7mk0q0?comment=90140273714878"
+  },
+  {
+   "task_id": "86b7mk0q0",
+   "task": "CONTROLAR KARLI: Clasificacion de contenido (instrucciones en checklist) - aprobacion Ros",
+   "list": "Models",
+   "status": "to do",
+   "task_url": "https://rosmater.github.io/cu/?t=86b7mk0q0",
+   "task_app": "https://app.clickup.com/t/86b7mk0q0",
+   "kind": "comment",
+   "at": "2026-10-26 18:40",
+   "who": "Michelle Hernández ",
+   "comment_id": "90140273714878",
+   "comment_url": "https://app.clickup.com/t/86b7mk0q0?comment=90140273714878",
+   "n_new": 1
+  },
+  {
+   "task_id": "86b7heru3",
+   "task": "(solo poner estado de cuenta) 📊 Estadística semanal de las redes sociales en la tabla",
+   "list": "General Tasks OF",
+   "status": "to do",
+   "task_url": "https://rosmater.github.io/cu/?t=86b7heru3",
+   "task_app": "https://app.clickup.com/t/86b7heru3",
+   "kind": "mention",
+   "at": "2026-10-26 18:38",
+   "who": "Michelle Hernández ",
+   "comment_id": "90140273714645",
+   "comment_url": "https://app.clickup.com/t/86b7heru3?comment=90140273714645"
+  },
+  {
+   "task_id": "86b8q7t28",
+   "task": "Publicaciones OF LolaPop - 1 por semana",
+   "list": "Models",
+   "status": "to do",
+   "task_url": "https://rosmater.github.io/cu/?t=86b8q7t28",
+   "task_app": "https://app.clickup.com/t/86b8q7t28",
+   "kind": "mention",
+   "at": "2026-10-26 18:37",
+   "who": "Michelle Hernández ",
+   "comment_id": "90140273714313",
+   "comment_url": "https://app.clickup.com/t/86b8q7t28?comment=90140273714313"
+  },
+  {
+   "task_id": "86b8q7t28",
+   "task": "Publicaciones OF LolaPop - 1 por semana",
+   "list": "Models",
+   "status": "to do",
+   "task_url": "https://rosmater.github.io/cu/?t=86b8q7t28",
+   "task_app": "https://app.clickup.com/t/86b8q7t28",
+   "kind": "comment",
+   "at": "2026-10-26 18:37",
+   "who": "Michelle Hernández ",
+   "comment_id": "90140273714313",
+   "comment_url": "https://app.clickup.com/t/86b8q7t28?comment=90140273714313",
+   "n_new": 1
+  },
+  {
+   "task_id": "86b8c9bhm",
+   "task": "💳 Pago a Katherine RA 207/212 - la cantidad exacta en la tabla (adjuntar captura de pantalla a comentarios)",
+   "list": "Models",
+   "status": "to do",
+   "task_url": "https://rosmater.github.io/cu/?t=86b8c9bhm",
+   "task_app": "https://app.clickup.com/t/86b8c9bhm",
+   "kind": "mention",
+   "at": "2026-10-26 17:58",
+   "who": "Sara Pineda Chanci",
+   "comment_id": "90140273702771",
+   "comment_url": "https://app.clickup.com/t/86b8c9bhm?comment=90140273702771"
+  },
+  {
+   "task_id": "86b8c9bhm",
+   "task": "💳 Pago a Katherine RA 207/212 - la cantidad exacta en la tabla (adjuntar captura de pantalla a comentarios)",
+   "list": "Models",
+   "status": "to do",
+   "task_url": "https://rosmater.github.io/cu/?t=86b8c9bhm",
+   "task_app": "https://app.clickup.com/t/86b8c9bhm",
+   "kind": "comment",
+   "at": "2026-10-26 17:58",
+   "who": "Sara Pineda Chanci",
+   "comment_id": "90140273702771",
+   "comment_url": "https://app.clickup.com/t/86b8c9bhm?comment=90140273702771",
+   "n_new": 1
+  },
+  {
+   "task_id": "86b9cp9ry",
+   "task": "Control proyecto OF.TV (cada lunes reporte sobre todos) COLUMNAS D E G H I",
+   "list": "General Tasks OF",
+   "status": "to do",
+   "task_url": "https://rosmater.github.io/cu/?t=86b9cp9ry",
+   "task_app": "https://app.clickup.com/t/86b9cp9ry",
+   "kind": "mention",
+   "at": "2026-10-26 17:40",
+   "who": "Michelle Hernández ",
+   "comment_id": "90140273697375",
+   "comment_url": "https://app.clickup.com/t/86b9cp9ry?comment=90140273697375"
+  },
+  {
+   "task_id": "86b9cp9ry",
+   "task": "Control proyecto OF.TV (cada lunes reporte sobre todos) COLUMNAS D E G H I",
+   "list": "General Tasks OF",
+   "status": "to do",
+   "task_url": "https://rosmater.github.io/cu/?t=86b9cp9ry",
+   "task_app": "https://app.clickup.com/t/86b9cp9ry",
+   "kind": "comment",
+   "at": "2026-10-26 17:40",
+   "who": "Michelle Hernández ",
+   "comment_id": "90140273697375",
+   "comment_url": "https://app.clickup.com/t/86b9cp9ry?comment=90140273697375",
+   "n_new": 1
+  },
+  {
+   "task_id": "86bcn2ew9",
+   "task": "Peptidos",
+   "list": "General Tasks OF",
+   "status": "main",
+   "task_url": "https://rosmater.github.io/cu/?t=86bcn2ew9",
+   "task_app": "https://app.clickup.com/t/86bcn2ew9",
+   "kind": "mention",
+   "at": "2026-10-26 17:38",
+   "who": "Michelle Hernández ",
+   "comment_id": "90140273152464",
+   "comment_url": "https://app.clickup.com/t/86bcn2ew9?comment=90140273152464"
+  },
+  {
+   "task_id": "86bcn2ew9",
+   "task": "Peptidos",
+   "list": "General Tasks OF",
+   "status": "main",
+   "task_url": "https://rosmater.github.io/cu/?t=86bcn2ew9",
+   "task_app": "https://app.clickup.com/t/86bcn2ew9",
+   "kind": "comment",
+   "at": "2026-10-26 17:38",
+   "who": "Michelle Hernández ",
+   "comment_id": "90140273152464",
+   "comment_url": "https://app.clickup.com/t/86bcn2ew9?comment=90140273152464",
+   "n_new": 1
+  },
+  {
+   "task_id": "86ba5ywen",
+   "task": "💳 Pago a Juliana Agudelo RA 217 - la cantidad exacta en la tabla (adjuntar captura de pantalla a comentarios)",
+   "list": "Models",
+   "status": "to do",
+   "task_url": "https://rosmater.github.io/cu/?t=86ba5ywen",
+   "task_app": "https://app.clickup.com/t/86ba5ywen",
+   "kind": "mention",
+   "at": "2026-10-26 17:29",
+   "who": "Sara Pineda Chanci",
+   "comment_id": "90140273694275",
+   "comment_url": "https://app.clickup.com/t/86ba5ywen?comment=90140273694275"
+  },
+  {
+   "task_id": "86ba5ywen",
+   "task": "💳 Pago a Juliana Agudelo RA 217 - la cantidad exacta en la tabla (adjuntar captura de pantalla a comentarios)",
+   "list": "Models",
+   "status": "to do",
+   "task_url": "https://rosmater.github.io/cu/?t=86ba5ywen",
+   "task_app": "https://app.clickup.com/t/86ba5ywen",
+   "kind": "comment",
+   "at": "2026-10-26 17:29",
+   "who": "Sara Pineda Chanci",
+   "comment_id": "90140273694275",
+   "comment_url": "https://app.clickup.com/t/86ba5ywen?comment=90140273694275",
+   "n_new": 1
+  },
+  {
+   "task_id": "86b913wz2",
+   "task": "💳 Pago a Laura - la cantidad exacta en la tabla (adjuntar captura de pantalla a comentarios)",
+   "list": "Models",
+   "status": "to do",
+   "task_url": "https://rosmater.github.io/cu/?t=86b913wz2",
+   "task_app": "https://app.clickup.com/t/86b913wz2",
+   "kind": "mention",
+   "at": "2026-10-26 17:20",
+   "who": "Sara Pineda Chanci",
+   "comment_id": "90140273691777",
+   "comment_url": "https://app.clickup.com/t/86b913wz2?comment=90140273691777"
+  },
+  {
+   "task_id": "86b913wz2",
+   "task": "💳 Pago a Laura - la cantidad exacta en la tabla (adjuntar captura de pantalla a comentarios)",
+   "list": "Models",
+   "status": "to do",
+   "task_url": "https://rosmater.github.io/cu/?t=86b913wz2",
+   "task_app": "https://app.clickup.com/t/86b913wz2",
+   "kind": "comment",
+   "at": "2026-10-26 17:20",
+   "who": "Sara Pineda Chanci",
+   "comment_id": "90140273691777",
+   "comment_url": "https://app.clickup.com/t/86b913wz2?comment=90140273691777",
+   "n_new": 1
+  },
+  {
+   "task_id": "86baf7h1k",
+   "task": "💳 Pago a Scarlet - la cantidad exacta en la tabla (adjuntar captura de pantalla a comentarios)",
+   "list": "Models",
+   "status": "to do",
+   "task_url": "https://rosmater.github.io/cu/?t=86baf7h1k",
+   "task_app": "https://app.clickup.com/t/86baf7h1k",
+   "kind": "mention",
+   "at": "2026-10-26 17:19",
+   "who": "Sara Pineda Chanci",
+   "comment_id": "90140273691652",
+   "comment_url": "https://app.clickup.com/t/86baf7h1k?comment=90140273691652"
+  },
+  {
+   "task_id": "86baf7h1k",
+   "task": "💳 Pago a Scarlet - la cantidad exacta en la tabla (adjuntar captura de pantalla a comentarios)",
+   "list": "Models",
+   "status": "to do",
+   "task_url": "https://rosmater.github.io/cu/?t=86baf7h1k",
+   "task_app": "https://app.clickup.com/t/86baf7h1k",
+   "kind": "comment",
+   "at": "2026-10-26 17:19",
+   "who": "Sara Pineda Chanci",
+   "comment_id": "90140273691652",
+   "comment_url": "https://app.clickup.com/t/86baf7h1k?comment=90140273691652",
+   "n_new": 1
+  },
+  {
+   "task_id": "86bc5gtpd",
+   "task": "💳 Pago a Gabriela - la cantidad exacta en la tabla (adjuntar captura de pantalla a comentarios)",
+   "list": "Models",
+   "status": "to do",
+   "task_url": "https://rosmater.github.io/cu/?t=86bc5gtpd",
+   "task_app": "https://app.clickup.com/t/86bc5gtpd",
+   "kind": "comment",
+   "at": "2026-10-26 17:01",
+   "who": "Sara Pineda Chanci",
+   "comment_id": "90140273684528",
+   "comment_url": "https://app.clickup.com/t/86bc5gtpd?comment=90140273684528",
+   "n_new": 1
   },
   {
    "task_id": "86bcrcgrj",
@@ -369,6 +914,19 @@
    "n_new": 1
   },
   {
+   "task_id": "86bcn2d1t",
+   "task": "Control de estado de cuentas + mandar apelaciones + eliminar publicaciones problematicas + mas mandar capturas de pantalla",
+   "list": "Models",
+   "status": "to do",
+   "task_url": "https://rosmater.github.io/cu/?t=86bcn2d1t",
+   "task_app": "https://app.clickup.com/t/86bcn2d1t",
+   "kind": "mention",
+   "at": "2026-10-26 15:57",
+   "who": "Michelle Hernández ",
+   "comment_id": "90140273651561",
+   "comment_url": "https://app.clickup.com/t/86bcn2d1t?comment=90140273651561"
+  },
+  {
    "task_id": "86b6qq6r9",
    "task": "🎓 Испанский занятие (поговорить и рассказ)",
    "list": "Personal",
@@ -383,6 +941,60 @@
    "n_new": 1
   },
   {
+   "task_id": "86b7pzvxx",
+   "task": "Comprobar si la cámara está conectada a la toma de corriente (la mañana)",
+   "list": "General Tasks OF",
+   "status": "to do",
+   "task_url": "https://rosmater.github.io/cu/?t=86b7pzvxx",
+   "task_app": "https://app.clickup.com/t/86b7pzvxx",
+   "kind": "mention",
+   "at": "2026-10-26 13:53",
+   "who": "Sara Pineda Chanci",
+   "comment_id": "90140273576763",
+   "comment_url": "https://app.clickup.com/t/86b7pzvxx?comment=90140273576763"
+  },
+  {
+   "task_id": "86b7pzvxx",
+   "task": "Comprobar si la cámara está conectada a la toma de corriente (la mañana)",
+   "list": "General Tasks OF",
+   "status": "to do",
+   "task_url": "https://rosmater.github.io/cu/?t=86b7pzvxx",
+   "task_app": "https://app.clickup.com/t/86b7pzvxx",
+   "kind": "comment",
+   "at": "2026-10-26 13:53",
+   "who": "Sara Pineda Chanci",
+   "comment_id": "90140273576763",
+   "comment_url": "https://app.clickup.com/t/86b7pzvxx?comment=90140273576763",
+   "n_new": 1
+  },
+  {
+   "task_id": "86bc79f67",
+   "task": "llamar a 10 personas de peptidos inventarme un nombre y averiguar por que no compran",
+   "list": "General Tasks OF",
+   "status": "for check",
+   "task_url": "https://rosmater.github.io/cu/?t=86bc79f67",
+   "task_app": "https://app.clickup.com/t/86bc79f67",
+   "kind": "mention",
+   "at": "2026-10-26 13:51",
+   "who": "Sara Pineda Chanci",
+   "comment_id": "90140273161843",
+   "comment_url": "https://app.clickup.com/t/86bc79f67?comment=90140273161843"
+  },
+  {
+   "task_id": "86bc79f67",
+   "task": "llamar a 10 personas de peptidos inventarme un nombre y averiguar por que no compran",
+   "list": "General Tasks OF",
+   "status": "for check",
+   "task_url": "https://rosmater.github.io/cu/?t=86bc79f67",
+   "task_app": "https://app.clickup.com/t/86bc79f67",
+   "kind": "forcheck",
+   "at": "2026-10-26 13:51",
+   "who": "Sara Pineda Chanci",
+   "comment_id": "90140273161843",
+   "comment_url": "https://app.clickup.com/t/86bc79f67?comment=90140273161843",
+   "n_new": 1
+  },
+  {
    "task_id": "86b9ycbby",
    "task": "БОТ: ПОДКЛЮЧИТЬСЯ К КОМПУ - СЕЙДЕР (как дела?) Запуск 1 телефона с 25 аккаунтами",
    "list": "Projects OF",
@@ -394,6 +1006,19 @@
    "who": "Rost",
    "comment_id": "90140273563010",
    "comment_url": "https://app.clickup.com/t/86b9ycbby?comment=90140273563010"
+  },
+  {
+   "task_id": "86bcr1f96",
+   "task": "Contactar a Tatiana, pedir fotos y adjuntarlas en la tarea (luego mencionar a Rost)",
+   "list": "Models",
+   "status": "for check",
+   "task_url": "https://rosmater.github.io/cu/?t=86bcr1f96",
+   "task_app": "https://app.clickup.com/t/86bcr1f96",
+   "kind": "mention",
+   "at": "2026-10-26 13:24",
+   "who": "Sara Pineda Chanci",
+   "comment_id": "90140273561511",
+   "comment_url": "https://app.clickup.com/t/86bcr1f96?comment=90140273561511"
   },
   {
    "task_id": "86bcgckxu",
@@ -448,6 +1073,34 @@
    "who": "Rost",
    "comment_id": "90140273505770",
    "comment_url": "https://app.clickup.com/t/86bbzx9x4?comment=90140273505770",
+   "n_new": 1
+  },
+  {
+   "task_id": "86bcqzp7j",
+   "task": "БОТ: недельный отчёт OF Alexa — статистика + база фанов",
+   "list": "Personal",
+   "status": "to do",
+   "task_url": "https://rosmater.github.io/cu/?t=86bcqzp7j",
+   "task_app": "https://app.clickup.com/t/86bcqzp7j",
+   "kind": "comment",
+   "at": "2026-10-26 11:21",
+   "who": "Rost",
+   "comment_id": "90140273490628",
+   "comment_url": "https://app.clickup.com/t/86bcqzp7j?comment=90140273490628",
+   "n_new": 1
+  },
+  {
+   "task_id": "86b6k36c9",
+   "task": "Travertino",
+   "list": "Покупка, Ремонт, Продажа-Сдача",
+   "status": "объекты",
+   "task_url": "https://rosmater.github.io/cu/?t=86b6k36c9",
+   "task_app": "https://app.clickup.com/t/86b6k36c9",
+   "kind": "comment",
+   "at": "2026-10-26 11:05",
+   "who": "Rost",
+   "comment_id": "90140273478732",
+   "comment_url": "https://app.clickup.com/t/86b6k36c9?comment=90140273478732",
    "n_new": 1
   },
   {
@@ -681,7 +1334,7 @@
    "who": "Rost",
    "comment_id": "90140273330461",
    "comment_url": "https://app.clickup.com/t/86bcn66b7?comment=90140273330461",
-   "n_new": 4
+   "n_new": 3
   },
   {
    "task_id": "86bb79fmt",
@@ -695,21 +1348,7 @@
    "who": "Rost",
    "comment_id": "90140273323679",
    "comment_url": "https://app.clickup.com/t/86bb79fmt?comment=90140273323679",
-   "n_new": 6
-  },
-  {
-   "task_id": "86b7k7d75",
-   "task": "Полив цветов в квартире",
-   "list": "Personal",
-   "status": "to do",
-   "task_url": "https://rosmater.github.io/cu/?t=86b7k7d75",
-   "task_app": "https://app.clickup.com/t/86b7k7d75",
-   "kind": "other",
-   "sub": "изменена (без нового коммента)",
-   "at": "2026-10-25 20:19",
-   "who": "",
-   "comment_id": null,
-   "comment_url": null
+   "n_new": 3
   },
   {
    "task_id": "86b897mmr",
@@ -906,9 +1545,141 @@
    "comment_id": "90140269248294",
    "comment_url": "https://app.clickup.com/t/86ba3c1x4?comment=90140269248294",
    "n_new": 0
+  },
+  {
+   "task_id": "DM:8cn3rz8-2634",
+   "task": "Личка: Michelle Hernández",
+   "list": "ClickUp DM · OF",
+   "status": "",
+   "task_url": "https://app.clickup.com/9014731752/chat/r/8cn3rz8-2634",
+   "task_app": "https://app.clickup.com/9014731752/chat/r/8cn3rz8-2634",
+   "kind": "dm",
+   "at": "2026-10-27 09:07",
+   "who": "Michelle Hernández",
+   "comment_id": "80140063336485",
+   "comment_url": "https://app.clickup.com/9014731752/chat/r/8cn3rz8-2634"
   }
  ],
  "threads": [
+  {
+   "task_id": "86b9qwu10",
+   "task": "💳 Pago a Juliana manco - la cantidad exacta en la tabla (adjuntar captura de pantalla a comentarios)",
+   "list": "Models",
+   "status": "to do",
+   "task_url": "https://rosmater.github.io/cu/?t=86b9qwu10",
+   "task_app": "https://app.clickup.com/t/86b9qwu10",
+   "kinds": [
+    "mention",
+    "comment"
+   ],
+   "at": "2026-10-27 23:10",
+   "who": "Sara Pineda Chanci",
+   "comment_url": "https://app.clickup.com/t/86b9qwu10?comment=90140274358210",
+   "sub": "",
+   "n_new": 1,
+   "mention_at": "2026-10-27 23:10",
+   "author": "Sara Pineda Chanci",
+   "author_bot": false
+  },
+  {
+   "task_id": "86bctqe8h",
+   "task": "БОТ: Live Google Calendar на даш (OAuth, не снимок)",
+   "list": "Personal",
+   "status": "in progress",
+   "task_url": "https://rosmater.github.io/cu/?t=86bctqe8h",
+   "task_app": "https://app.clickup.com/t/86bctqe8h",
+   "kinds": [
+    "comment"
+   ],
+   "at": "2026-10-27 23:06",
+   "who": "Rost",
+   "comment_url": "https://app.clickup.com/t/86bctqe8h?comment=90140274356052",
+   "sub": "",
+   "n_new": 1,
+   "mention_at": "",
+   "author": "БОТ",
+   "author_bot": true
+  },
+  {
+   "task_id": "86b7h12h7",
+   "task": "💳 Pago a Tatiana RA 210/214 - la cantidad exacta en la tabla (adjuntar captura de pantalla a comentarios)",
+   "list": "Models",
+   "status": "to do",
+   "task_url": "https://rosmater.github.io/cu/?t=86b7h12h7",
+   "task_app": "https://app.clickup.com/t/86b7h12h7",
+   "kinds": [
+    "mention",
+    "comment"
+   ],
+   "at": "2026-10-27 22:58",
+   "who": "Sara Pineda Chanci",
+   "comment_url": "https://app.clickup.com/t/86b7h12h7?comment=90140274350133",
+   "sub": "",
+   "n_new": 1,
+   "mention_at": "2026-10-27 22:58",
+   "author": "Sara Pineda Chanci",
+   "author_bot": false
+  },
+  {
+   "task_id": "86bakztpd",
+   "task": "DMCA - RA207",
+   "list": "Models",
+   "status": "to do",
+   "task_url": "https://rosmater.github.io/cu/?t=86bakztpd",
+   "task_app": "https://app.clickup.com/t/86bakztpd",
+   "kinds": [
+    "mention",
+    "comment"
+   ],
+   "at": "2026-10-27 18:39",
+   "who": "Michelle Hernández ",
+   "comment_url": "https://app.clickup.com/t/86bakztpd?comment=90140274290020",
+   "sub": "",
+   "n_new": 1,
+   "mention_at": "2026-10-27 18:39",
+   "author": "Michelle Hernández ",
+   "author_bot": false
+  },
+  {
+   "task_id": "86bcr1f96",
+   "task": "Contactar a Tatiana, pedir fotos y adjuntarlas en la tarea (luego mencionar a Rost)",
+   "list": "Models",
+   "status": "for check",
+   "task_url": "https://rosmater.github.io/cu/?t=86bcr1f96",
+   "task_app": "https://app.clickup.com/t/86bcr1f96",
+   "kinds": [
+    "mention",
+    "forcheck"
+   ],
+   "at": "2026-10-27 18:36",
+   "who": "Sara Pineda Chanci",
+   "comment_url": "https://app.clickup.com/t/86bcr1f96?comment=90140274289316",
+   "sub": "",
+   "n_new": 2,
+   "mention_at": "2026-10-27 18:36",
+   "author": "Sara Pineda Chanci",
+   "author_bot": false
+  },
+  {
+   "task_id": "86b7t9h6p",
+   "task": "DMCA busqueda de contenido de LolaPop",
+   "list": "Models",
+   "status": "to do",
+   "task_url": "https://rosmater.github.io/cu/?t=86b7t9h6p",
+   "task_app": "https://app.clickup.com/t/86b7t9h6p",
+   "kinds": [
+    "mention",
+    "comment"
+   ],
+   "at": "2026-10-27 18:35",
+   "who": "Michelle Hernández ",
+   "comment_url": "https://app.clickup.com/t/86b7t9h6p?comment=90140274289226",
+   "sub": "",
+   "n_new": 2,
+   "mention_at": "2026-10-27 18:35",
+   "author": "Michelle Hernández ",
+   "author_bot": false
+  },
   {
    "task_id": "86bbzxnvx",
    "task": "БОТ-ЧАСТЬ: Рассылка / Сбор баз / Мониторинг тендеров - план 50 писем в неделю + участие в тендерах",
@@ -924,7 +1695,69 @@
    "comment_url": "https://app.clickup.com/t/86bbzxnvx?comment=90140274288729",
    "sub": "",
    "n_new": 6,
-   "mention_at": ""
+   "mention_at": "",
+   "author": "БОТ",
+   "author_bot": true
+  },
+  {
+   "task_id": "86bcn2d1t",
+   "task": "Control de estado de cuentas + mandar apelaciones + eliminar publicaciones problematicas + mas mandar capturas de pantalla",
+   "list": "Models",
+   "status": "to do",
+   "task_url": "https://rosmater.github.io/cu/?t=86bcn2d1t",
+   "task_app": "https://app.clickup.com/t/86bcn2d1t",
+   "kinds": [
+    "mention",
+    "comment"
+   ],
+   "at": "2026-10-27 17:24",
+   "who": "Michelle Hernández ",
+   "comment_url": "https://app.clickup.com/t/86bcn2d1t?comment=90140274268569",
+   "sub": "",
+   "n_new": 4,
+   "mention_at": "2026-10-27 17:24",
+   "author": "Michelle Hernández ",
+   "author_bot": false
+  },
+  {
+   "task_id": "86b7heru3",
+   "task": "(solo poner estado de cuenta) 📊 Estadística semanal de las redes sociales en la tabla",
+   "list": "General Tasks OF",
+   "status": "to do",
+   "task_url": "https://rosmater.github.io/cu/?t=86b7heru3",
+   "task_app": "https://app.clickup.com/t/86b7heru3",
+   "kinds": [
+    "mention",
+    "comment"
+   ],
+   "at": "2026-10-27 17:21",
+   "who": "Michelle Hernández ",
+   "comment_url": "https://app.clickup.com/t/86b7heru3?comment=90140274267491",
+   "sub": "",
+   "n_new": 2,
+   "mention_at": "2026-10-27 17:21",
+   "author": "Michelle Hernández ",
+   "author_bot": false
+  },
+  {
+   "task_id": "86bcderhz",
+   "task": "💳 Pago a Valentina trans - la cantidad exacta en la tabla (adjuntar captura de pantalla a comentarios)",
+   "list": "Models",
+   "status": "to do",
+   "task_url": "https://rosmater.github.io/cu/?t=86bcderhz",
+   "task_app": "https://app.clickup.com/t/86bcderhz",
+   "kinds": [
+    "mention",
+    "comment"
+   ],
+   "at": "2026-10-27 16:17",
+   "who": "Sara Pineda Chanci",
+   "comment_url": "https://app.clickup.com/t/86bcderhz?comment=90140274238834",
+   "sub": "",
+   "n_new": 1,
+   "mention_at": "2026-10-27 16:17",
+   "author": "Sara Pineda Chanci",
+   "author_bot": false
   },
   {
    "task_id": "86bcmacku",
@@ -941,7 +1774,28 @@
    "comment_url": "https://app.clickup.com/t/86bcmacku?comment=90140274228861",
    "sub": "",
    "n_new": 3,
-   "mention_at": ""
+   "mention_at": "",
+   "author": "БОТ",
+   "author_bot": true
+  },
+  {
+   "task_id": "86bcq1dkk",
+   "task": "ELIANA 24 - Flames",
+   "list": "Models",
+   "status": "models",
+   "task_url": "https://rosmater.github.io/cu/?t=86bcq1dkk",
+   "task_app": "https://app.clickup.com/t/86bcq1dkk",
+   "kinds": [
+    "comment"
+   ],
+   "at": "2026-10-27 13:39",
+   "who": "Rost",
+   "comment_url": "https://app.clickup.com/t/86bcq1dkk?comment=90140274152319",
+   "sub": "",
+   "n_new": 1,
+   "mention_at": "",
+   "author": "БОТ",
+   "author_bot": true
   },
   {
    "task_id": "86bcmpfve",
@@ -958,7 +1812,29 @@
    "comment_url": "https://app.clickup.com/t/86bcmpfve?comment=90140274151951",
    "sub": "",
    "n_new": 1,
-   "mention_at": ""
+   "mention_at": "",
+   "author": "БОТ",
+   "author_bot": true
+  },
+  {
+   "task_id": "86bbfudj2",
+   "task": "Instagram - responder a comentarios",
+   "list": "Models",
+   "status": "to do",
+   "task_url": "https://rosmater.github.io/cu/?t=86bbfudj2",
+   "task_app": "https://app.clickup.com/t/86bbfudj2",
+   "kinds": [
+    "mention",
+    "comment"
+   ],
+   "at": "2026-10-27 12:10",
+   "who": "Sara Pineda Chanci",
+   "comment_url": "https://app.clickup.com/t/86bbfudj2?comment=90140274090693",
+   "sub": "",
+   "n_new": 3,
+   "mention_at": "2026-10-27 12:10",
+   "author": "Sara Pineda Chanci",
+   "author_bot": false
   },
   {
    "task_id": "86b9ycbby",
@@ -976,7 +1852,9 @@
    "comment_url": "https://app.clickup.com/t/86b9ycbby?comment=90140274065926",
    "sub": "",
    "n_new": 2,
-   "mention_at": "2026-10-27 11:45"
+   "mention_at": "2026-10-27 11:45",
+   "author": "БОТ",
+   "author_bot": true
   },
   {
    "task_id": "86bcn2ek8",
@@ -994,7 +1872,9 @@
    "comment_url": "https://app.clickup.com/t/86bcn2ek8?comment=90140274039812",
    "sub": "",
    "n_new": 1,
-   "mention_at": "2026-10-27 11:15"
+   "mention_at": "2026-10-27 11:15",
+   "author": "БОТ",
+   "author_bot": true
   },
   {
    "task_id": "86bcj512x",
@@ -1011,7 +1891,9 @@
    "comment_url": "https://app.clickup.com/t/86bcj512x?comment=90140274036477",
    "sub": "",
    "n_new": 4,
-   "mention_at": ""
+   "mention_at": "",
+   "author": "БОТ",
+   "author_bot": true
   },
   {
    "task_id": "86bc24u5z",
@@ -1028,7 +1910,9 @@
    "comment_url": "https://app.clickup.com/t/86bc24u5z?comment=90140274025288",
    "sub": "",
    "n_new": 2,
-   "mention_at": ""
+   "mention_at": "",
+   "author": "БОТ",
+   "author_bot": true
   },
   {
    "task_id": "86b9uqgqq",
@@ -1045,7 +1929,9 @@
    "comment_url": "https://app.clickup.com/t/86b9uqgqq?comment=90140274020126",
    "sub": "",
    "n_new": 2,
-   "mention_at": ""
+   "mention_at": "",
+   "author": "БОТ",
+   "author_bot": true
   },
   {
    "task_id": "86ba3bwhg",
@@ -1062,7 +1948,9 @@
    "comment_url": "https://app.clickup.com/t/86ba3bwhg?comment=90140274020095",
    "sub": "",
    "n_new": 2,
-   "mention_at": ""
+   "mention_at": "",
+   "author": "БОТ",
+   "author_bot": true
   },
   {
    "task_id": "86bcmtpna",
@@ -1080,7 +1968,9 @@
    "comment_url": "https://app.clickup.com/t/86bcmtpna?comment=90140274020027",
    "sub": "",
    "n_new": 2,
-   "mention_at": "2026-10-26 10:55"
+   "mention_at": "2026-10-26 10:55",
+   "author": "БОТ",
+   "author_bot": true
   },
   {
    "task_id": "86bcgc3ze",
@@ -1097,7 +1987,9 @@
    "comment_url": "https://app.clickup.com/t/86bcgc3ze?comment=90140274019973",
    "sub": "",
    "n_new": 1,
-   "mention_at": ""
+   "mention_at": "",
+   "author": "БОТ",
+   "author_bot": true
   },
   {
    "task_id": "86b92hrcp",
@@ -1114,7 +2006,9 @@
    "comment_url": "https://app.clickup.com/t/86b92hrcp?comment=90140274019608",
    "sub": "",
    "n_new": 3,
-   "mention_at": ""
+   "mention_at": "",
+   "author": "БОТ",
+   "author_bot": true
   },
   {
    "task_id": "86b8de8ru",
@@ -1131,7 +2025,9 @@
    "comment_url": "https://app.clickup.com/t/86b8de8ru?comment=90140274019187",
    "sub": "",
    "n_new": 2,
-   "mention_at": ""
+   "mention_at": "",
+   "author": "БОТ",
+   "author_bot": true
   },
   {
    "task_id": "86b8gv8kj",
@@ -1149,7 +2045,9 @@
    "comment_url": "https://app.clickup.com/t/86b8gv8kj?comment=90140274016009",
    "sub": "",
    "n_new": 2,
-   "mention_at": "2026-10-26 10:37"
+   "mention_at": "2026-10-26 10:37",
+   "author": "БОТ",
+   "author_bot": true
   },
   {
    "task_id": "86b6q8m9x",
@@ -1167,7 +2065,9 @@
    "comment_url": "https://app.clickup.com/t/86b6q8m9x?comment=90140274015986",
    "sub": "",
    "n_new": 2,
-   "mention_at": "2026-10-26 10:34"
+   "mention_at": "2026-10-26 10:34",
+   "author": "БОТ",
+   "author_bot": true
   },
   {
    "task_id": "86bae6v4h",
@@ -1185,7 +2085,9 @@
    "comment_url": "https://app.clickup.com/t/86bae6v4h?comment=90140274016211",
    "sub": "",
    "n_new": 2,
-   "mention_at": "2026-10-26 10:36"
+   "mention_at": "2026-10-26 10:36",
+   "author": "БОТ",
+   "author_bot": true
   },
   {
    "task_id": "86bbjyrf5",
@@ -1201,8 +2103,29 @@
    "who": "Rost",
    "comment_url": "https://app.clickup.com/t/86bbjyrf5?comment=90140273950997",
    "sub": "",
-   "n_new": 4,
-   "mention_at": ""
+   "n_new": 3,
+   "mention_at": "",
+   "author": "БОТ",
+   "author_bot": true
+  },
+  {
+   "task_id": "DM:8cn3rz8-2634",
+   "task": "Личка: Michelle Hernández",
+   "list": "ClickUp DM · OF",
+   "status": "",
+   "task_url": "https://app.clickup.com/9014731752/chat/r/8cn3rz8-2634",
+   "task_app": "https://app.clickup.com/9014731752/chat/r/8cn3rz8-2634",
+   "kinds": [
+    "dm"
+   ],
+   "at": "2026-10-27 09:07",
+   "who": "Michelle Hernández",
+   "comment_url": "https://app.clickup.com/9014731752/chat/r/8cn3rz8-2634",
+   "sub": "личное сообщение в ClickUp Chat",
+   "n_new": 1,
+   "mention_at": "",
+   "author": "Michelle Hernández",
+   "author_bot": false
   },
   {
    "task_id": "86bcma7tp",
@@ -1219,7 +2142,9 @@
    "comment_url": "https://app.clickup.com/t/86bcma7tp?comment=90140273917732",
    "sub": "",
    "n_new": 6,
-   "mention_at": ""
+   "mention_at": "",
+   "author": "БОТ",
+   "author_bot": true
   },
   {
    "task_id": "86bcnp3rg",
@@ -1236,7 +2161,9 @@
    "comment_url": "https://app.clickup.com/t/86bcnp3rg?comment=90140273880987",
    "sub": "",
    "n_new": 2,
-   "mention_at": ""
+   "mention_at": "",
+   "author": "БОТ",
+   "author_bot": true
   },
   {
    "task_id": "86bb779rw",
@@ -1253,7 +2180,9 @@
    "comment_url": "https://app.clickup.com/t/86bb779rw?comment=90140273808346",
    "sub": "",
    "n_new": 1,
-   "mention_at": ""
+   "mention_at": "",
+   "author": "БОТ",
+   "author_bot": true
   },
   {
    "task_id": "86bcn3c3u",
@@ -1269,8 +2198,209 @@
    "who": "Rost",
    "comment_url": "https://app.clickup.com/t/86bcn3c3u?comment=90140273778655",
    "sub": "",
-   "n_new": 2,
-   "mention_at": ""
+   "n_new": 1,
+   "mention_at": "",
+   "author": "БОТ",
+   "author_bot": true
+  },
+  {
+   "task_id": "86bcqyvwk",
+   "task": "Restaurar acceso de Gabriela a la 3ª página (OF)",
+   "list": "Models",
+   "status": "to do",
+   "task_url": "https://rosmater.github.io/cu/?t=86bcqyvwk",
+   "task_app": "https://app.clickup.com/t/86bcqyvwk",
+   "kinds": [
+    "mention",
+    "comment"
+   ],
+   "at": "2026-10-26 19:40",
+   "who": "Michelle Hernández ",
+   "comment_url": "https://app.clickup.com/t/86bcqyvwk?comment=90140273729663",
+   "sub": "",
+   "n_new": 1,
+   "mention_at": "2026-10-26 19:40",
+   "author": "Michelle Hernández ",
+   "author_bot": false
+  },
+  {
+   "task_id": "86b7mk0q0",
+   "task": "CONTROLAR KARLI: Clasificacion de contenido (instrucciones en checklist) - aprobacion Ros",
+   "list": "Models",
+   "status": "to do",
+   "task_url": "https://rosmater.github.io/cu/?t=86b7mk0q0",
+   "task_app": "https://app.clickup.com/t/86b7mk0q0",
+   "kinds": [
+    "mention",
+    "comment"
+   ],
+   "at": "2026-10-26 18:40",
+   "who": "Michelle Hernández ",
+   "comment_url": "https://app.clickup.com/t/86b7mk0q0?comment=90140273714878",
+   "sub": "",
+   "n_new": 1,
+   "mention_at": "2026-10-26 18:40",
+   "author": "Michelle Hernández ",
+   "author_bot": false
+  },
+  {
+   "task_id": "86b8q7t28",
+   "task": "Publicaciones OF LolaPop - 1 por semana",
+   "list": "Models",
+   "status": "to do",
+   "task_url": "https://rosmater.github.io/cu/?t=86b8q7t28",
+   "task_app": "https://app.clickup.com/t/86b8q7t28",
+   "kinds": [
+    "mention",
+    "comment"
+   ],
+   "at": "2026-10-26 18:37",
+   "who": "Michelle Hernández ",
+   "comment_url": "https://app.clickup.com/t/86b8q7t28?comment=90140273714313",
+   "sub": "",
+   "n_new": 1,
+   "mention_at": "2026-10-26 18:37",
+   "author": "Michelle Hernández ",
+   "author_bot": false
+  },
+  {
+   "task_id": "86b8c9bhm",
+   "task": "💳 Pago a Katherine RA 207/212 - la cantidad exacta en la tabla (adjuntar captura de pantalla a comentarios)",
+   "list": "Models",
+   "status": "to do",
+   "task_url": "https://rosmater.github.io/cu/?t=86b8c9bhm",
+   "task_app": "https://app.clickup.com/t/86b8c9bhm",
+   "kinds": [
+    "mention",
+    "comment"
+   ],
+   "at": "2026-10-26 17:58",
+   "who": "Sara Pineda Chanci",
+   "comment_url": "https://app.clickup.com/t/86b8c9bhm?comment=90140273702771",
+   "sub": "",
+   "n_new": 1,
+   "mention_at": "2026-10-26 17:58",
+   "author": "Sara Pineda Chanci",
+   "author_bot": false
+  },
+  {
+   "task_id": "86b9cp9ry",
+   "task": "Control proyecto OF.TV (cada lunes reporte sobre todos) COLUMNAS D E G H I",
+   "list": "General Tasks OF",
+   "status": "to do",
+   "task_url": "https://rosmater.github.io/cu/?t=86b9cp9ry",
+   "task_app": "https://app.clickup.com/t/86b9cp9ry",
+   "kinds": [
+    "mention",
+    "comment"
+   ],
+   "at": "2026-10-26 17:40",
+   "who": "Michelle Hernández ",
+   "comment_url": "https://app.clickup.com/t/86b9cp9ry?comment=90140273697375",
+   "sub": "",
+   "n_new": 1,
+   "mention_at": "2026-10-26 17:40",
+   "author": "Michelle Hernández ",
+   "author_bot": false
+  },
+  {
+   "task_id": "86bcn2ew9",
+   "task": "Peptidos",
+   "list": "General Tasks OF",
+   "status": "main",
+   "task_url": "https://rosmater.github.io/cu/?t=86bcn2ew9",
+   "task_app": "https://app.clickup.com/t/86bcn2ew9",
+   "kinds": [
+    "mention",
+    "comment"
+   ],
+   "at": "2026-10-26 17:38",
+   "who": "Michelle Hernández ",
+   "comment_url": "https://app.clickup.com/t/86bcn2ew9?comment=90140273152464",
+   "sub": "",
+   "n_new": 1,
+   "mention_at": "2026-10-26 17:38",
+   "author": "Michelle Hernández ",
+   "author_bot": false
+  },
+  {
+   "task_id": "86ba5ywen",
+   "task": "💳 Pago a Juliana Agudelo RA 217 - la cantidad exacta en la tabla (adjuntar captura de pantalla a comentarios)",
+   "list": "Models",
+   "status": "to do",
+   "task_url": "https://rosmater.github.io/cu/?t=86ba5ywen",
+   "task_app": "https://app.clickup.com/t/86ba5ywen",
+   "kinds": [
+    "mention",
+    "comment"
+   ],
+   "at": "2026-10-26 17:29",
+   "who": "Sara Pineda Chanci",
+   "comment_url": "https://app.clickup.com/t/86ba5ywen?comment=90140273694275",
+   "sub": "",
+   "n_new": 1,
+   "mention_at": "2026-10-26 17:29",
+   "author": "Sara Pineda Chanci",
+   "author_bot": false
+  },
+  {
+   "task_id": "86b913wz2",
+   "task": "💳 Pago a Laura - la cantidad exacta en la tabla (adjuntar captura de pantalla a comentarios)",
+   "list": "Models",
+   "status": "to do",
+   "task_url": "https://rosmater.github.io/cu/?t=86b913wz2",
+   "task_app": "https://app.clickup.com/t/86b913wz2",
+   "kinds": [
+    "mention",
+    "comment"
+   ],
+   "at": "2026-10-26 17:20",
+   "who": "Sara Pineda Chanci",
+   "comment_url": "https://app.clickup.com/t/86b913wz2?comment=90140273691777",
+   "sub": "",
+   "n_new": 1,
+   "mention_at": "2026-10-26 17:20",
+   "author": "Sara Pineda Chanci",
+   "author_bot": false
+  },
+  {
+   "task_id": "86baf7h1k",
+   "task": "💳 Pago a Scarlet - la cantidad exacta en la tabla (adjuntar captura de pantalla a comentarios)",
+   "list": "Models",
+   "status": "to do",
+   "task_url": "https://rosmater.github.io/cu/?t=86baf7h1k",
+   "task_app": "https://app.clickup.com/t/86baf7h1k",
+   "kinds": [
+    "mention",
+    "comment"
+   ],
+   "at": "2026-10-26 17:19",
+   "who": "Sara Pineda Chanci",
+   "comment_url": "https://app.clickup.com/t/86baf7h1k?comment=90140273691652",
+   "sub": "",
+   "n_new": 1,
+   "mention_at": "2026-10-26 17:19",
+   "author": "Sara Pineda Chanci",
+   "author_bot": false
+  },
+  {
+   "task_id": "86bc5gtpd",
+   "task": "💳 Pago a Gabriela - la cantidad exacta en la tabla (adjuntar captura de pantalla a comentarios)",
+   "list": "Models",
+   "status": "to do",
+   "task_url": "https://rosmater.github.io/cu/?t=86bc5gtpd",
+   "task_app": "https://app.clickup.com/t/86bc5gtpd",
+   "kinds": [
+    "comment"
+   ],
+   "at": "2026-10-26 17:01",
+   "who": "Sara Pineda Chanci",
+   "comment_url": "https://app.clickup.com/t/86bc5gtpd?comment=90140273684528",
+   "sub": "",
+   "n_new": 1,
+   "mention_at": "",
+   "author": "Sara Pineda Chanci",
+   "author_bot": false
   },
   {
    "task_id": "86bcrcgrj",
@@ -1288,7 +2418,9 @@
    "comment_url": "https://app.clickup.com/t/86bcrcgrj?comment=90140273661294",
    "sub": "новая задача на тебе",
    "n_new": 1,
-   "mention_at": ""
+   "mention_at": "",
+   "author": "БОТ",
+   "author_bot": true
   },
   {
    "task_id": "86b6qq6r9",
@@ -1305,7 +2437,49 @@
    "comment_url": "https://app.clickup.com/t/86b6qq6r9?comment=90140273588127",
    "sub": "",
    "n_new": 1,
-   "mention_at": ""
+   "mention_at": "",
+   "author": "БОТ",
+   "author_bot": true
+  },
+  {
+   "task_id": "86b7pzvxx",
+   "task": "Comprobar si la cámara está conectada a la toma de corriente (la mañana)",
+   "list": "General Tasks OF",
+   "status": "to do",
+   "task_url": "https://rosmater.github.io/cu/?t=86b7pzvxx",
+   "task_app": "https://app.clickup.com/t/86b7pzvxx",
+   "kinds": [
+    "mention",
+    "comment"
+   ],
+   "at": "2026-10-26 13:53",
+   "who": "Sara Pineda Chanci",
+   "comment_url": "https://app.clickup.com/t/86b7pzvxx?comment=90140273576763",
+   "sub": "",
+   "n_new": 1,
+   "mention_at": "2026-10-26 13:53",
+   "author": "Sara Pineda Chanci",
+   "author_bot": false
+  },
+  {
+   "task_id": "86bc79f67",
+   "task": "llamar a 10 personas de peptidos inventarme un nombre y averiguar por que no compran",
+   "list": "General Tasks OF",
+   "status": "for check",
+   "task_url": "https://rosmater.github.io/cu/?t=86bc79f67",
+   "task_app": "https://app.clickup.com/t/86bc79f67",
+   "kinds": [
+    "mention",
+    "forcheck"
+   ],
+   "at": "2026-10-26 13:51",
+   "who": "Sara Pineda Chanci",
+   "comment_url": "https://app.clickup.com/t/86bc79f67?comment=90140273161843",
+   "sub": "",
+   "n_new": 1,
+   "mention_at": "2026-10-26 13:51",
+   "author": "Sara Pineda Chanci",
+   "author_bot": false
   },
   {
    "task_id": "86bcgckxu",
@@ -1322,7 +2496,9 @@
    "comment_url": "https://app.clickup.com/t/86bcgckxu?comment=90140273530922",
    "sub": "",
    "n_new": 1,
-   "mention_at": ""
+   "mention_at": "",
+   "author": "БОТ",
+   "author_bot": true
   },
   {
    "task_id": "86bcgbhg0",
@@ -1339,7 +2515,9 @@
    "comment_url": "https://app.clickup.com/t/86bcgbhg0?comment=90140273530907",
    "sub": "",
    "n_new": 1,
-   "mention_at": ""
+   "mention_at": "",
+   "author": "БОТ",
+   "author_bot": true
   },
   {
    "task_id": "86bbzx9x4",
@@ -1357,7 +2535,47 @@
    "comment_url": "https://app.clickup.com/t/86bbzx9x4?comment=90140273505770",
    "sub": "",
    "n_new": 1,
-   "mention_at": "2026-10-26 11:51"
+   "mention_at": "2026-10-26 11:51",
+   "author": "БОТ",
+   "author_bot": true
+  },
+  {
+   "task_id": "86bcqzp7j",
+   "task": "БОТ: недельный отчёт OF Alexa — статистика + база фанов",
+   "list": "Personal",
+   "status": "to do",
+   "task_url": "https://rosmater.github.io/cu/?t=86bcqzp7j",
+   "task_app": "https://app.clickup.com/t/86bcqzp7j",
+   "kinds": [
+    "comment"
+   ],
+   "at": "2026-10-26 11:21",
+   "who": "Rost",
+   "comment_url": "https://app.clickup.com/t/86bcqzp7j?comment=90140273490628",
+   "sub": "",
+   "n_new": 1,
+   "mention_at": "",
+   "author": "БОТ",
+   "author_bot": true
+  },
+  {
+   "task_id": "86b6k36c9",
+   "task": "Travertino",
+   "list": "Покупка, Ремонт, Продажа-Сдача",
+   "status": "объекты",
+   "task_url": "https://rosmater.github.io/cu/?t=86b6k36c9",
+   "task_app": "https://app.clickup.com/t/86b6k36c9",
+   "kinds": [
+    "comment"
+   ],
+   "at": "2026-10-26 11:05",
+   "who": "Rost",
+   "comment_url": "https://app.clickup.com/t/86b6k36c9?comment=90140273478732",
+   "sub": "",
+   "n_new": 1,
+   "mention_at": "",
+   "author": "БОТ",
+   "author_bot": true
   },
   {
    "task_id": "86b9axevh",
@@ -1375,7 +2593,9 @@
    "comment_url": "https://app.clickup.com/t/86b9axevh?comment=90140273471816",
    "sub": "",
    "n_new": 1,
-   "mention_at": "2026-10-26 10:55"
+   "mention_at": "2026-10-26 10:55",
+   "author": "БОТ",
+   "author_bot": true
   },
   {
    "task_id": "86baggxqe",
@@ -1392,7 +2612,9 @@
    "comment_url": "https://app.clickup.com/t/86baggxqe?comment=90140273471734",
    "sub": "",
    "n_new": 1,
-   "mention_at": ""
+   "mention_at": "",
+   "author": "БОТ",
+   "author_bot": true
   },
   {
    "task_id": "86bc1tdu5",
@@ -1409,7 +2631,9 @@
    "comment_url": "https://app.clickup.com/t/86bc1tdu5?comment=90140273471718",
    "sub": "",
    "n_new": 1,
-   "mention_at": ""
+   "mention_at": "",
+   "author": "БОТ",
+   "author_bot": true
   },
   {
    "task_id": "86b7k7jp4",
@@ -1426,7 +2650,9 @@
    "comment_url": "https://app.clickup.com/t/86b7k7jp4?comment=90140273471717",
    "sub": "",
    "n_new": 1,
-   "mention_at": ""
+   "mention_at": "",
+   "author": "БОТ",
+   "author_bot": true
   },
   {
    "task_id": "86bcrc6qz",
@@ -1460,7 +2686,9 @@
    "comment_url": "https://app.clickup.com/t/86b7k7jnx?comment=90140273464601",
    "sub": "",
    "n_new": 1,
-   "mention_at": ""
+   "mention_at": "",
+   "author": "БОТ",
+   "author_bot": true
   },
   {
    "task_id": "86bc1d1wj",
@@ -1478,7 +2706,9 @@
    "comment_url": "https://app.clickup.com/t/86bc1d1wj?comment=90140273462760",
    "sub": "",
    "n_new": 1,
-   "mention_at": "2026-10-26 10:36"
+   "mention_at": "2026-10-26 10:36",
+   "author": "БОТ",
+   "author_bot": true
   },
   {
    "task_id": "86b6z79t1",
@@ -1496,7 +2726,9 @@
    "comment_url": "https://app.clickup.com/t/86b6z79t1?comment=90140273366922",
    "sub": "коммент назначен на тебя",
    "n_new": 1,
-   "mention_at": "2026-10-26 07:32"
+   "mention_at": "2026-10-26 07:32",
+   "author": "БОТ",
+   "author_bot": true
   },
   {
    "task_id": "86bcn66b7",
@@ -1512,8 +2744,10 @@
    "who": "Rost",
    "comment_url": "https://app.clickup.com/t/86bcn66b7?comment=90140273330461",
    "sub": "",
-   "n_new": 4,
-   "mention_at": ""
+   "n_new": 3,
+   "mention_at": "",
+   "author": "БОТ",
+   "author_bot": true
   },
   {
    "task_id": "86bb79fmt",
@@ -1529,25 +2763,10 @@
    "who": "Rost",
    "comment_url": "https://app.clickup.com/t/86bb79fmt?comment=90140273323679",
    "sub": "",
-   "n_new": 6,
-   "mention_at": ""
-  },
-  {
-   "task_id": "86b7k7d75",
-   "task": "Полив цветов в квартире",
-   "list": "Personal",
-   "status": "to do",
-   "task_url": "https://rosmater.github.io/cu/?t=86b7k7d75",
-   "task_app": "https://app.clickup.com/t/86b7k7d75",
-   "kinds": [
-    "other"
-   ],
-   "at": "2026-10-25 20:19",
-   "who": "",
-   "comment_url": null,
-   "sub": "изменена (без нового коммента)",
-   "n_new": 0,
-   "mention_at": ""
+   "n_new": 3,
+   "mention_at": "",
+   "author": "БОТ",
+   "author_bot": true
   },
   {
    "task_id": "86b897mmr",
@@ -1564,7 +2783,9 @@
    "comment_url": "https://app.clickup.com/t/86b897mmr?comment=90140273151421",
    "sub": "",
    "n_new": 0,
-   "mention_at": ""
+   "mention_at": "",
+   "author": "БОТ",
+   "author_bot": true
   },
   {
    "task_id": "86b934b1v",
@@ -1581,7 +2802,9 @@
    "comment_url": "https://app.clickup.com/t/86b934b1v?comment=90140273151415",
    "sub": "",
    "n_new": 0,
-   "mention_at": ""
+   "mention_at": "",
+   "author": "БОТ",
+   "author_bot": true
   },
   {
    "task_id": "86b9wh8cd",
@@ -1598,7 +2821,9 @@
    "comment_url": "https://app.clickup.com/t/86b9wh8cd?comment=90140273147917",
    "sub": "",
    "n_new": 0,
-   "mention_at": ""
+   "mention_at": "",
+   "author": "БОТ",
+   "author_bot": true
   },
   {
    "task_id": "86ba7an25",
@@ -1615,7 +2840,9 @@
    "comment_url": "https://app.clickup.com/t/86ba7an25?comment=90140273147685",
    "sub": "",
    "n_new": 0,
-   "mention_at": ""
+   "mention_at": "",
+   "author": "БОТ",
+   "author_bot": true
   },
   {
    "task_id": "86bamxnh9",
@@ -1632,7 +2859,9 @@
    "comment_url": "https://app.clickup.com/t/86bamxnh9?comment=90140273138482",
    "sub": "",
    "n_new": 0,
-   "mention_at": ""
+   "mention_at": "",
+   "author": "БОТ",
+   "author_bot": true
   },
   {
    "task_id": "86b8r59kx",
@@ -1649,7 +2878,9 @@
    "comment_url": "https://app.clickup.com/t/86b8r59kx?comment=90140272955660",
    "sub": "",
    "n_new": 0,
-   "mention_at": ""
+   "mention_at": "",
+   "author": "БОТ",
+   "author_bot": true
   },
   {
    "task_id": "86bcm8ybt",
@@ -1666,7 +2897,9 @@
    "comment_url": "https://app.clickup.com/t/86bcm8ybt?comment=90140272907259",
    "sub": "",
    "n_new": 0,
-   "mention_at": ""
+   "mention_at": "",
+   "author": "БОТ",
+   "author_bot": true
   },
   {
    "task_id": "86bb3qh0k",
@@ -1683,7 +2916,9 @@
    "comment_url": "https://app.clickup.com/t/86bb3qh0k?comment=90140272187379",
    "sub": "",
    "n_new": 0,
-   "mention_at": ""
+   "mention_at": "",
+   "author": "БОТ",
+   "author_bot": true
   },
   {
    "task_id": "86b9crta7",
@@ -1700,7 +2935,9 @@
    "comment_url": "https://app.clickup.com/t/86b9crta7?comment=90140272187139",
    "sub": "",
    "n_new": 0,
-   "mention_at": ""
+   "mention_at": "",
+   "author": "БОТ",
+   "author_bot": true
   },
   {
    "task_id": "86b9va7c4",
@@ -1717,7 +2954,9 @@
    "comment_url": "https://app.clickup.com/t/86b9va7c4?comment=90140272186820",
    "sub": "",
    "n_new": 0,
-   "mention_at": ""
+   "mention_at": "",
+   "author": "БОТ",
+   "author_bot": true
   },
   {
    "task_id": "86bb8ju09",
@@ -1734,7 +2973,9 @@
    "comment_url": "https://app.clickup.com/t/86bb8ju09?comment=90140272186807",
    "sub": "",
    "n_new": 0,
-   "mention_at": ""
+   "mention_at": "",
+   "author": "БОТ",
+   "author_bot": true
   },
   {
    "task_id": "86b88jb1f",
@@ -1751,7 +2992,9 @@
    "comment_url": "https://app.clickup.com/t/86b88jb1f?comment=90140271760611",
    "sub": "",
    "n_new": 0,
-   "mention_at": ""
+   "mention_at": "",
+   "author": "БОТ",
+   "author_bot": true
   },
   {
    "task_id": "86bacy8cr",
@@ -1768,7 +3011,9 @@
    "comment_url": "https://app.clickup.com/t/86bacy8cr?comment=90140271735155",
    "sub": "",
    "n_new": 0,
-   "mention_at": ""
+   "mention_at": "",
+   "author": "БОТ",
+   "author_bot": true
   },
   {
    "task_id": "86ba3c1x4",
@@ -1785,7 +3030,9 @@
    "comment_url": "https://app.clickup.com/t/86ba3c1x4?comment=90140269248294",
    "sub": "",
    "n_new": 0,
-   "mention_at": ""
+   "mention_at": "",
+   "author": "БОТ",
+   "author_bot": true
   }
  ]
 }

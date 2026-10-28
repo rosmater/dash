@@ -11,3 +11,10 @@
 - Пересборка data.json раз в неделю (TODO.md) — покрывается пн-пунктом в мега-пачке.
 - TODO: строка про дашборд пока не внесена в таблицу/список `bundles/README.md` — сверить с промптом рутины.
 - 25.10: пересборка helper не трогает календарь (assistant_hide directions=["calendar"]); утренний пакет пн пересобирает обоими паролями через src/build.sh.
+
+## Сверка непрочитанных → 📊 Монитор (Rost t4035–36, 27.10)
+Рутина сверки (утро/обед) пишет только `src/messengers_reconcile.json`: `{"at":"YYYY-MM-DD HH:MM Bogotá","ok":true|false,"lost":N,"mismatch":N,"note":"…"}`.
+Длинную строку внизу «Мессенджеров» больше НЕ показываем. Даш сам собирает коротко в мониторе:
+`🔎 Сверка HH:MM · ок | Вотчер WA UKR ✓ / WA ESP ✓ / TG ✓ / Vib ✓` (сбой: `· есть сбой`, ✗ красным).
+Значки берутся из `watchers` (st ok → ✓ мягкий зелёный; red/dead/fail/нет данных → ✗; warn → ? жёлтый, кроме «процесс жив» → ✓). Vib — всегда. `note` уходит только в подсказку (title). Длинный текст в note писать не нужно — коротко.
+- t4169 (27.10): «есть сбой» больше не висит без работы — `notify-watchers/health/watcher_autoheal.py` в tap_relay (10 мин) чинит TG и пишет `watcher-fix-*` в queue/QUEUE.md. Парсер secretary-log понимает оба формата (COT | UKR и Bogotá | whatsapp-ukr-secretary).
