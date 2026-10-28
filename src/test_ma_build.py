@@ -256,25 +256,17 @@ data['bots'] = [
    dict(q='Джинсы из ателье — вт 27.10 16:00 (86bcrqtyk)', st='green', answered=True, ctx='Задача создана'),
  ]),
  dict(name='Помощник по всему', id='fef07752-2a22-4e1a-804b-7590fa230b30', qs=[
-   dict(q='Аренда Base Loft 1105: ждём Víctor (наше 15:41 ✓✓ не прочитано), Nutibara и Nini (Libertador, 18:44)', st='green', new=True, ctx='Помощник 18:46: «ждём ответов», личного ответа Víctor нет, только автошаблон 15:44'),
-   dict(q='🎬 ОФ · Slash / Ed (Jerz Group, Novax): ждём новое время встречи — письмо 25.10', st='green', ctx='CU 86bcgc3ze, 86b6q8m9x'),
+   # Rost t4124–25 HARD: no hardcoded qs — only QUEUE.md slug (ctx QUEUE.md <slug>) or ma_q.py
  ]),
  dict(name='Дейтинг', id='826f2d29-4f19-4096-9e4e-c76d6ec801a8', qs=[
    dict(q='Rappi: Ashwagandha KSM-66 заказан → Base Loft 605, вт 27.10 08–11, ~119 190 COP', st='green', new=True, answered=True, ctx='Дейтинг: заказ оформлен'),
  ]),
- dict(name='Фермовод', id='ceac86b3-b3e4-493e-8b5e-0c9372c46066', qs=[
-   dict(q='IG HYBRID: 20 аккаунтов, 0 подключено; все списки Follow и Job Orders пустые — какие источники ставить / ферма стоит?', st='red', ctx='Фермовод 26.10 03:36 (AX42-dating, IG HYBRID v17.2.6)'),
- ]),
+ dict(name='Фермовод', id='ceac86b3-b3e4-493e-8b5e-0c9372c46066', qs=[]),  # t4125: ig-hybrid → QUEUE ig-hybrid-sources
  dict(name='ОФ Маркетинг', id='6fa03b36-6aa2-4d75-81d6-164804ef329c', qs=[
    dict(q='Утренний запрос авторизации Sheets (429) — отбой, коннектор живой, новых заявок после Даниелы (161) нет', st='green', answered=True, ctx='ОФ Маркетинг 19:15'),
  ]),
- dict(name='Пептид', id='daa16204-faaf-46e9-8a1c-c696291c2b1d', qs=[
-   dict(q='Вочер «Диалогов сегодня» (Peso): вставь URL + ключ вебхук-рутины в config.json; нужен свободный RDP-слот AX42', st='red', ctx='Пептид 19:18: пакет готов, не установлен — оба RDP-слота заняты'),
-   dict(q='Плитка «💬 Диалогов сегодня» в Пептидах готова локально — сказать «пуш»?', st='green', new=True, ctx='Пептид 19:18'),
- ]),
- dict(name='Юрист / Адвокат / Бухгалтер', id='2a2b453a-50ae-4965-8b08-7f11780a48d1', qs=[
-   dict(q='Мила (Olivino 3): сумма на переезд и дата освобождения → acuerdo de terminación', st='green', wait=True, ctx='Юрист 25.10: список 5 комнат готов, ждёт сумму/дату от Милы (не Rost) — t3992u: в «Ждём других»'),
- ]),
+ dict(name='Пептид', id='daa16204-faaf-46e9-8a1c-c696291c2b1d', qs=[]),  # t4125: qs via QUEUE slug / ma_q
+ dict(name='Юрист / Адвокат / Бухгалтер', id='2a2b453a-50ae-4965-8b08-7f11780a48d1', qs=[]),  # t4125: mila → QUEUE mila-olivino-terminacion
  dict(name='Оборонка', id='221f23c8-f2dc-4ae3-8585-50b1404a32af', nodata='вопросы бота не собраны (чат не читался; id был с опечаткой 4ae5→4ae3, исправлен 26.10) — рутины ниже из inventory', qs=[]),
 ]
 
@@ -311,11 +303,19 @@ try:
     _hq = open(_HELP_Q, encoding='utf-8').read()
 except Exception:
     _hq = ''
-for _m in _re.finditer(r'^-\s*\[(pending|in[_ ]?progress|waiting[_ ]?user)[^\]]*\]\s+(notion-places-[\w-]+)\b\s*[—:-]?\s*(.*)$', _hq, _re.I | _re.M):
-    _slug, _rest = _m.group(2), (_m.group(3) or '').strip()
-    _bot('Помощник по всему')['qs'].append(dict(
-        q='Notion-разбор мест/контактов: ' + (_rest or _slug), st='green', grp=_G,
-        ctx=f'QUEUE.md {_slug}'))
+# Helper qs only for waiting_user (+ notion-places still open) with slug → autoclear via QUEUE.md <slug>
+# pending/in_progress stay in «Задачи в очереди», не дублируем в «я нужен».
+for _m in _re.finditer(r'^-\s*\[(waiting[_ ]?user|pending)[^\]]*\]\s+([a-z][\w-]{2,})\b\s*[—:-]?\s*(.*)$', _hq, _re.I | _re.M):
+    _st, _slug, _rest = _m.group(1).lower().replace(' ', '_'), _m.group(2), (_m.group(3) or '').strip()
+    if _st.startswith('pending') and not _slug.startswith('notion-places-'):
+        continue  # обычный pending — только очередь
+    _q = _rest or _slug
+    if _slug.startswith('notion-places-'):
+        _q = 'Notion-разбор мест/контактов: ' + _q
+        _kw = dict(q=_q, st='green', grp=_G, ctx=f'QUEUE.md {_slug}')
+    else:
+        _kw = dict(q=_q, st='green', ctx=f'QUEUE.md {_slug}')
+    _bot('Помощник по всему')['qs'].append(_kw)
 
 # === Rost 26.10 ~19:39: коучинг-боты + «Мама» (из вкладки Коучинг data.json: пункты «Я:» = нужен Rost)
 try:
@@ -450,7 +450,8 @@ for b in data['bots']:
         b['routines'] = None; b['routines_note'] = 'дампа рутин в bot-routines-inventory нет — бот не выгружал'
 # Задачи в очереди: строки «- [статус] …» из QUEUE.md бота, без done/x/standing (Rost: решённое не показывать)
 _Q = {'Секретарь': '/workspace/queue/QUEUE.md', 'Помощник по всему': '/workspace/queue-helper/QUEUE.md', 'ОФ Маркетинг': '/workspace/queue-of/QUEUE.md',
-      'Дейтинг': '/workspace/dating/QUEUE.md', 'Пептид': '/workspace/queue-peptid/QUEUE.md', 'Фермовод': '/home/box/contacts/knowledge/ig-farm/QUEUE.md'}
+      'Дейтинг': '/workspace/dating/QUEUE.md', 'Пептид': '/workspace/queue-peptid/QUEUE.md', 'Фермовод': '/home/box/contacts/knowledge/ig-farm/QUEUE.md',
+      'Юрист / Адвокат / Бухгалтер': '/workspace/queue-lawyer/QUEUE.md', 'Оборонные системы': '/home/box/contacts/knowledge/defense-export/QUEUE.md'}
 _Q_SKIP = ['Rappi на Redmi']  # уже сделано (заказ Rappi оформлен 26.10), в QUEUE.md не закрыто
 for b in data['bots']:
     f = _Q.get(b['name'])
@@ -470,6 +471,26 @@ for b in data['bots']:
         lab = _re.split(r'\s+\d|\s+—|:', st or 'в очереди')[0].strip() or 'в очереди'
         out.append(dict(st=lab[:22], t=t[:180] + ('…' if len(t) > 180 else '')))
     b['queue'] = out; b['queue_src'] = f.replace('/home/box/contacts/knowledge/', 'knowledge/')
+# === Rost t4125: open QUEUE waiting_user/blocked-Rost with slug → qs (autoclear on [done])
+_Q_TO_BOT = {v: k for k, v in _Q.items()}
+for _qf, _bn in _Q_TO_BOT.items():
+    try:
+        _bt = next(x for x in data['bots'] if x['name'] == _bn)
+    except StopIteration:
+        continue
+    try:
+        _ql = open(_qf, encoding='utf-8').read()
+    except FileNotFoundError:
+        continue
+    for _m in _re.finditer(r'^-\s*\[(waiting[_ ]?user|blocked[_-]?Rost|pending|in[_ ]?progress)[^\]]*\]\s+([\w][\w.-]+)\s*[—:-]\s*(.+)$', _ql, _re.I | _re.M):
+        _st, _slug, _rest = _m.group(1).lower().replace(' ', '_'), _m.group(2), _m.group(3).strip()
+        _ctx = f'QUEUE.md {_slug}'
+        if any((_ctx in (q.get('ctx') or '')) or (_slug.lower() in (q.get('ctx') or '').lower()) for q in _bt.get('qs') or []):
+            continue
+        _is_wait = 'waiting' in _st
+        _is_red = 'blocked' in _st or 'pending' in _st  # blocked/pending more urgent
+        _bt.setdefault('qs', []).append(dict(q=_rest[:200], st='red' if _is_red and 'waiting' not in _st else 'green', wait=_is_wait, ctx=_ctx))
+
 # === Rost t4074: пункт QUEUE закрыт (done/x/closed) → вопрос «я нужен», ссылающийся на «QUEUE.md <slug>», сам уходит с даша (без тапа Rost).
 _QST = {}
 for _bn, _qf in _Q.items():
