@@ -473,7 +473,8 @@ _QID = lambda bn, q: 'Q-' + _hl.sha1(f'{bn}|{q}'.encode()).hexdigest()[:6]
 try: _OQ = json.load(open('/workspace/queue/ma_open_questions.json'))
 except Exception: _OQ = dict(add=[], resolved={}, reopened={})
 for z in _OQ.get('add', []):
-    z['bot'] = {'Оборонные': 'Оборонка'}.get(z['bot'], z['bot'])  # Rost t3948u
+    _BA = {'Оборонные': 'Оборонка', 'Оборонные системы': 'Оборонка', 'Секретарь / Кликап / Мессенджеры': 'Секретарь', 'Кликап / Мессенджеры': 'Секретарь'}  # Rost t4398: profile title ≠ dash short name
+    z['bot'] = _BA.get(z['bot'], z['bot']); z['bot'] = 'Секретарь' if (z['bot'] or '').startswith('Секретарь') else z['bot']  # Rost t3948u+t4398
     b = next((x for x in data['bots'] if x['name'] == z['bot']), None)
     if b is None: b = dict(name=z['bot'], id=_SEC_ID, qs=[]); data['bots'].append(b)
     b['qs'].append(dict(q=z['q'], st=z.get('st', 'red'), ctx=(z.get('ctx') or '') + f' · база вопросов {z.get("at","")}', new=True, _qid=z['qid']))  # t4183: default red
@@ -481,6 +482,17 @@ _RES = set(_OQ.get('resolved', {})) - set(_OQ.get('reopened', {}))
 for b in data['bots']:
     for q in b['qs']: q['qid'] = q.pop('_qid', None) or _QID(b['name'], q['q'])
     b['qs'] = [q for q in b['qs'] if q['qid'] not in _RES]
+# Rost t4398: title профиля «Секретарь / …» ≠ карточка; слить alias-имя в канон (не по id — coach-боты шарят id Секретаря)
+_BA2 = {'Секретарь / Кликап / Мессенджеры': 'Секретарь', 'Кликап / Мессенджеры': 'Секретарь', 'Оборонные': 'Оборонка', 'Оборонные системы': 'Оборонка'}
+for _long, _short in list(_BA2.items()):
+    _src = next((x for x in data['bots'] if x.get('name') == _long), None)
+    _dst = next((x for x in data['bots'] if x.get('name') == _short), None)
+    if _src and _dst:
+        for _k in ('qs', 'tasks', 'reports', 'queue', 'waiting', 'routines'):
+            if _src.get(_k): _dst.setdefault(_k, []).extend(_src[_k])
+        data['bots'] = [x for x in data['bots'] if x is not _src]
+    elif _src and not _dst:
+        _src['name'] = _short
 data['oq'] = dict(built=_dtm.datetime.now().strftime('%Y-%m-%d %H:%M'), resolved=sorted(_OQ.get('resolved', {})), reopened={k: v.get('at', '') for k, v in _OQ.get('reopened', {}).items()})
 # === Rost 26.10 ~19:46: «решённое не должно быть вообще» — отвеченные вопросы удаляем из данных
 for b in data['bots']:
