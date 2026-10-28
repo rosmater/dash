@@ -1,0 +1,107 @@
+{
+ "note": "Rost t3955u: тапы направления на CU «на сортировку» с даша. Пишет sync_dash_taps.py; применяет build_data.py. id -> {sphere,name,url,at}",
+ "tasks": {
+  "86b7zvb9u": {
+   "sphere": "Личное",
+   "name": "Ирина Шекель созвон ЧТ",
+   "url": "https://app.clickup.com/t/86b7zvb9u",
+   "at": "2026-10-27T19:42:27.489Z"
+  },
+  "86b6z2gn4": {
+   "sphere": "Личное",
+   "name": "Ирина Шекель созвон ВС",
+   "url": "https://app.clickup.com/t/86b6z2gn4",
+   "at": "2026-10-27T19:42:27.489Z"
+  },
+  "86b89dz9g": {
+   "sphere": "Личное",
+   "name": "Ирина Шекель созвон ПН",
+   "url": "https://app.clickup.com/t/86b89dz9g",
+   "at": "2026-10-27T19:42:27.489Z"
+  },
+  "86bcnt4nr": {
+   "sphere": "ОФ",
+   "name": "МакбукПро настроить Икс код - освобождение от рутины",
+   "url": "https://app.clickup.com/t/86bcnt4nr",
+   "at": "2026-10-27T19:42:27.489Z"
+  },
+  "86b6z2gn2": {
+   "sphere": "Личное",
+   "name": "Ирина Шекель созвон СР",
+   "url": "https://app.clickup.com/t/86b6z2gn2",
+   "at": "2026-10-27T19:42:27.489Z"
+  },
+  "86b7n8u79": {
+   "sphere": "Личное",
+   "name": "Ростислав внести по Лио данные",
+   "url": "https://app.clickup.com/t/86b7n8u79",
+   "at": "2026-10-27T19:42:27.489Z"
+  },
+  "86bcquwaw": {
+   "sphere": "Личное",
+   "name": "Дашборд (Grok) — метрики + канбан агентов",
+   "url": "https://app.clickup.com/t/86bcquwaw",
+   "at": "2026-10-27T19:42:27.489Z"
+  },
+  "86bcn66b7": {
+   "sphere": "Коучинг",
+   "name": "Протестировать Teams (командный план Grok Bot) — для мамы и близких",
+   "url": "https://app.clickup.com/t/86bcn66b7",
+   "at": "2026-10-27T19:42:27.489Z"
+  },
+  "86bcn2m73": {
+   "sphere": "Личное",
+   "name": "БОТ: Создание дашборда по направлениям (цели / факт / доходы / расходы, неделя + месяц)",
+   "url": "https://app.clickup.com/t/86bcn2m73",
+   "at": "2026-10-27T19:42:27.489Z"
+  },
+  "86bcqufqn": {
+   "sphere": "Личное",
+   "name": "Control: утром проверять GitHub на новые полезные skills (+ блок-схема)",
+   "url": "https://app.clickup.com/t/86bcqufqn",
+   "at": "2026-10-27T19:42:27.489Z"
+  },
+  "86bcqufak": {
+   "sphere": "ОФ",
+   "name": "Hermes Agent — пилот на AX42/VPS (экономия токенов)",
+   "url": "https://app.clickup.com/t/86bcqufak",
+   "at": "2026-10-27T19:42:27.489Z"
+  },
+  "86b89dz9q": {
+   "sphere": "Личное",
+   "name": "Ирина Шекель созвон ВТ",
+   "url": "https://app.clickup.com/t/86b89dz9q",
+   "at": "2026-10-27T19:42:27.489Z"
+  },
+  "86bcnp3rg": {
+   "sphere": "Пептиды",
+   "name": "БОТ-ЧАСТЬ: Таргет пептиды - контроль и увеличение",
+   "url": "https://app.clickup.com/t/86bcnp3rg",
+   "at": "2026-10-27T19:42:27.489Z"
+  },
+  "86bcnvnmr": {
+   "sphere": "Пептиды",
+   "name": "БОТ-ЧАСТЬ: Таргет пептиды: ограничение рекламы, решить что делать (5 рекламных аккаунтов)",
+   "url": "https://app.clickup.com/t/86bcnvnmr",
+   "at": "2026-10-27T19:42:27.489Z"
+  },
+  "86bbay300": {
+   "sphere": "Пептиды",
+   "name": "ЖДУ ПРАЙС Украина ПЕПТИДЫ от Андрея (жду прайс и отписку)",
+   "url": "https://app.clickup.com/t/86bbay300",
+   "at": "2026-10-27T19:42:27.489Z"
+  },
+  "86b9ckz7y": {
+   "sphere": "Табакевич",
+   "name": "Выплата денег себе Кальян (проверить отчет,  дать задачу) жду",
+   "url": "https://app.clickup.com/t/86b9ckz7y",
+   "at": "2026-10-27T19:42:27.489Z"
+  },
+  "86bctn6z8": {
+   "sphere": "Недвижимость",
+   "name": "Настроить автообзвон объектов",
+   "url": "https://app.clickup.com/t/86bctn6z8",
+   "at": "2026-10-28T01:26:44.517Z"
+  }
+ }
+}
