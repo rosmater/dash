@@ -672,6 +672,8 @@ def _watchers():
         for ln in open(LOG, encoding='utf-8', errors='ignore'):
             m = _re.match(r'^- (\d{4}-\d\d-\d\d \d\d:\d\d) COT \| ([A-Z]+)', ln)
             if m: last[m.group(2)] = max(last.get(m.group(2), ''), m.group(1))
+            m2 = _re.match(r'^- (\d{4}-\d\d-\d\d \d\d:\d\d)(?: Bogotá)? \| whatsapp-(esp|ukr)-secretary', ln)  # night hygiene 27.10: второй формат лога
+            if m2: t2 = m2.group(2).upper(); last[t2] = max(last.get(t2, ''), m2.group(1))
     except FileNotFoundError: pass
     def age(ts, ok_h=24):
         try: return 'ok' if (now - _dt.datetime.strptime(ts[:16], '%Y-%m-%d %H:%M')).total_seconds() < ok_h*3600 else 'warn'
