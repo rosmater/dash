@@ -1,3 +1,8 @@
+## 28.10 ~09:45 Bogotá — Мессенджеры: Viber live-список + бейдж, IG Direct раз в день (Rost t4368)
+- Баг Viber: UIA-поллер при нечитаемом счётчике писал `unread=0` → 🟢; Viber-строки даша были только из статичного census 27.10 → новый непрочитанный «Стелла Киевстар» (4, 09:23) на даш не попал. Фикс: `viber-uia.ps1` считает красный бейдж на кнопке таскбара (`has_unread`, `badge_px`, n=null вместо 0); `src/viber_live.json` (снимок фильтра Unread, только метаданные) мержится в строки/нерассортированные в `test_ma_build.py`; вочер Viber 🟡 «бейдж непрочитанных…» при has_unread.
+- IG Direct: `/workspace/mailbox-map/ig-direct/ig_direct_peek.py` (CDP браузера Секретаря, без превью) → `src/ig_direct_live.json` → строки канала Instagram (в сферу по имени, иначе 📥). Монитор/сверка/лейбл `IG` (`.ml-ig`) в `variant-a.html`. Раз в день внутри утренней мега / ночной гигиены, без отдельного запуска.
+- Проверка: Playwright index ?data=data.json&tab=messengers — 0 ошибок; Vib 1 в сфере (4) + 📥 7 (4 с непроч.); IG 📥 2; guard ok.
+
 ## 28.10 ~09:10 Bogotá — Мессенджеры: hover-превью последних пойманных (Rost t4356)
 - `src/test_ma_build.py`: строкам чатов (и нерассортированным) добавлено `last_msgs` [{at, who, text}] — ≤3 последних тоста из secretary-log, только чаты allowlist/log_only вочера, только цитата «…», ≤120 симв. `src/variant-a.html`: наведение на строку → поповер (#mlpop, fixed, не режется карточкой; клавиатура — focus), тап/раскрытие → «🗨 Последние пойманные» в теле; индикатор 🗨. Мессенджеры в чат Rost больше не дампим — правило `knowledge/rules/messengers-dash-not-chat.md`, вебхук WA — `notify-watchers/wa-*-secretary/ROUTINE-CHAT-POLICY.md`.
 
