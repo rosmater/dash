@@ -81,3 +81,7 @@
 ## 27.10 ~22:50 Bogotá — ClickUp снова в Мессенджерах + лог кто трогал даш (Rost t4195–96)
 - Причина пропажи: `test_ma_build.py` не клал `ma_cu_inbox.json` в `data.cu_inbox` → `maCUMsgRows()` пустой. Не Пептид (он чинил только CV на своей вкладке).
 - Фикс: грузим `cu_inbox` при сборке. Лог правок: `sync/dash_touch.jsonl` + `src/dash_touch_append.py` + правило `knowledge/rules/dash-touch-log.md` (все боты).
+
+## 27.10 ~22:55 Bogotá — аудит «что ещё выпало как ClickUp» (Rost t4197)
+- Корень: `test_ma_build.py` был пересобран со старой базы (~до t4142) → кроме `cu_inbox` выпал wire `sync/bot_attn.jsonl` (t4142–46): `task.need`, `b.reports`, `data.bot_attn`, `clickup.tasks[].need/bot`, правило 🟡 без CU (t4149–51) и статус по need=rost (t4136). Итог был: все 35 CU for check = 🔴 «я нужен», 13 «ок/отчёт» от ботов игнорились. Вернул блок из `.bak-t4169`.
+- Баг t4184 (Viber heartbeat): `from datetime import datetime as _dt` затирал модуль `_dt` → `age()` падал → ClickUp-вочер вечно 🟡. Переименовал в `_dtc`.
