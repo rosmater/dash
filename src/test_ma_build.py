@@ -314,8 +314,14 @@ for _m in _re.finditer(r'^-\s*\[(waiting[_ ]?user|pending)[^\]]*\]\s+([a-z][\w-]
         _q = 'Notion-разбор мест/контактов: ' + _q
         _kw = dict(q=_q, st='green', grp=_G, ctx=f'QUEUE.md {_slug}')  # супер мозг via revGroups
     else:
-        # t4183: waiting_user = нужен Rost → red/attn
-        _kw = dict(q=_q, st='red' if 'waiting' in _st else 'green', ctx=f'QUEUE.md {_slug}')
+        # t4183: waiting_user + нужен Rost → red; «ждём Имя/чужой ответ» → wait (не attn)
+        _others = bool(_re.search(r'жд[её]м\b', _q, _re.I)) and not _re.search(r'\bRost\b|\bGO\b|от Rost|нужен (твой|Rost)', _q, _re.I)
+        if 'waiting' in _st and not _others:
+            _kw = dict(q=_q, st='red', ctx=f'QUEUE.md {_slug}')
+        elif _others:
+            _kw = dict(q=_q, st='green', wait=True, ctx=f'QUEUE.md {_slug}')
+        else:
+            _kw = dict(q=_q, st='green', ctx=f'QUEUE.md {_slug}')
     _bot('Помощник по всему')['qs'].append(_kw)
 
 # === Rost 26.10 ~19:39: коучинг-боты + «Мама» (из вкладки Коучинг data.json: пункты «Я:» = нужен Rost)
