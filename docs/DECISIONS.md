@@ -360,3 +360,12 @@ Rost asked: (1) ads Active+Archive (2) repeat sales «Пора делать по
 - `[done]/[x]/[closed]` в QUEUE.md бота → `tap_relay.py` (60 с) → `queue_autoclear.py` → пересборка + push; `test_ma_build.py` убирает вопросы с `ctx: QUEUE.md <slug>`. Общее правило: `knowledge/rules/queue-close-clears-dash.md`. Новый бот — путь в `Q` и `_Q`.
 
 - Rost т251 (27.10, CU 86bctqe8h): календарь = ЖИВОЙ Google Calendar в браузере (GIS token client, scope calendar.readonly, токен в sessionStorage; Client ID OAuth «Web», JS origin https://rosmater.github.io — не секрет, но фейковый не коммитить). Снимок `/workspace/gcal_dash.json` остаётся фолбэком и для helper/рутин; обновлять: коннектор list_events (primary, America/Bogota, сегодня 00:00 → +15 д, maxResults 250, write_to_file) → `python3 src/refresh_gcal_dash.py <файл>` → build.sh → пуш. ClickUp-колонка — по-прежнему снимок cu_cal_dash.json.
+
+## 28.10 Rost t4306/t4307 — календарь на даше обновляется только по записи
+- Снимки `gcal_dash.json` / `cu_cal_dash.json` обновляет бот **в том же ходе** только когда (a) сам создал/изменил/удалил событие Google Calendar → `src/refresh_gcal_dash.py`, или (b) создал/изменил задачу ClickUp с due СО ВРЕМЕНЕМ (или WIDE-поллинг увидел новый/сдвинутый timed due) → новый `src/refresh_cu_cal_dash.py` (`--if-timed-changed`: exit 10 = без изменений). Затем dash_touch → build.sh → push. Упоминание календаря в чате само по себе — НЕ повод. Новой рутины нет. Правило: `knowledge/rules/calendar-dash-refresh-on-write.md`.
+
+## 28.10 Rost t4312–15 — Мессенджеры: CU БОТ «нужен я» сверху, «отчёт» в ▸ «Кликап отчёты» внизу каждой сферы
+- Источник метки — ассистенты (`sync/bot_attn.jsonl`, need=rost|ok), те же правила что for check: rev==updated задачи → последняя; иначе последняя не-dash; нет лога → rost. `test_ma_build.py` пишет `need`/`rev` в каждый тред cu_inbox.
+- CU-строки БОТ: need=rost → в списке сферы с меткой «🙋 нужен я» (порядок t4212/t4301 не трогаем: чаты → CU люди → CU БОТ). need=ok → убраны из списка, лежат в свёрнутом «📄 Кликап отчёты (N)» внизу ЭТОЙ сферы (после «⏳ Ждём ответа», перед «Без сообщений»). Не отдельный блок; N=0 → нет выпадашки. Живые люди CU не трогаем.
+- 📄/🙋 на строке — перекинуть только этот ответ (attnSet → localStorage + тап bot_attn).
+
