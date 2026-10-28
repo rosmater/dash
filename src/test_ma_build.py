@@ -694,7 +694,8 @@ def _watchers():
                 '/workspace/notify-watchers/health/viber-status.json'):
         try:
             import time as _time
-            _raw = open(_vp, encoding='utf-8').read()
+            _raw = open(_vp, encoding='utf-8-sig').read().strip()
+            if not _raw: raise ValueError('empty hb')
             _vhb = json.loads(_raw)
             _age = _time.time() - _time.mktime(_time.strptime(_vhb.get('ts','')[:19].replace('T',' '), '%Y-%m-%d %H:%M:%S')) if _vhb.get('ts') else 99999
             # ISO with offset: prefer fromisoformat
