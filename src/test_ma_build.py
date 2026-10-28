@@ -458,7 +458,8 @@ for b in data['bots']:
 # Задачи в очереди: строки «- [статус] …» из QUEUE.md бота, без done/x/standing (Rost: решённое не показывать)
 _Q = {'Секретарь': '/workspace/queue/QUEUE.md', 'Помощник по всему': '/workspace/queue-helper/QUEUE.md', 'ОФ Маркетинг': '/workspace/queue-of/QUEUE.md',
       'Дейтинг': '/workspace/dating/QUEUE.md', 'Пептид': '/workspace/queue-peptid/QUEUE.md', 'Фермовод': '/home/box/contacts/knowledge/ig-farm/QUEUE.md',
-      'Юрист / Адвокат / Бухгалтер': '/workspace/queue-lawyer/QUEUE.md', 'Оборонные системы': '/home/box/contacts/knowledge/defense-export/QUEUE.md'}
+      'Юрист / Адвокат / Бухгалтер': '/workspace/queue-lawyer/QUEUE.md',
+      'Оборонка': '/home/box/contacts/knowledge/defense-export/QUEUE.md'}  # was «Оборонные системы»; dash bot name = Оборонка (t4183 Defense)
 _Q_SKIP = ['Rappi на Redmi']  # уже сделано (заказ Rappi оформлен 26.10), в QUEUE.md не закрыто
 for b in data['bots']:
     f = _Q.get(b['name'])
@@ -686,7 +687,31 @@ def _watchers():
     except FileNotFoundError: pass
     _st, _txt, _ln = _tg_status()
     W['Telegram'] = dict(st=_st, alive=('процесс жив' if _st != 'red' else 'не запущен') + (' · уведомлений нет с ' + _ln if _st == 'warn' and _ln else ''), ping=tping, ping_lbl='последняя запись лога', unread=TG_UNREAD, unread_at=TG_UNREAD_AT)
-    W['Viber'] = dict(st='warn', alive='запущен 26.10 19:04, AUMID не найден — toast могут не ловиться', ping=last.get('VIBER', ''), ping_lbl='последний сигнал')
+    # t4184: UIA heartbeat → not «?» when poller alive (dry_run ok)
+    _vhb = None
+    for _vp in ('/workspace/ax42-share/wa-ukr-12promax-p/viber-heartbeat.json',
+                '/workspace/ax42-share/wa-ukr-12promax-p/viber-notify-secretary/viber-heartbeat.json',
+                '/workspace/notify-watchers/health/viber-status.json'):
+        try:
+            import time as _time
+            _raw = open(_vp, encoding='utf-8').read()
+            _vhb = json.loads(_raw)
+            _age = _time.time() - _time.mktime(_time.strptime(_vhb.get('ts','')[:19].replace('T',' '), '%Y-%m-%d %H:%M:%S')) if _vhb.get('ts') else 99999
+            # ISO with offset: prefer fromisoformat
+            try:
+                from datetime import datetime as _dt
+                _ts = _vhb.get('ts') or ''
+                _age = (_dt.now().astimezone() - _dt.fromisoformat(_ts.replace('Z','+00:00'))).total_seconds()
+            except Exception:
+                pass
+            if _age < 7200:  # 2h
+                _mode = 'dry' if _vhb.get('dry_run', True) else 'live'
+                W['Viber'] = dict(st='ok', alive=f"UIA поллер ✓ {_mode} · unread={_vhb.get('unread','?')} · src={_vhb.get('src','')}", ping=_vhb.get('ts','')[:16], ping_lbl='heartbeat')
+                break
+        except Exception:
+            _vhb = None
+    else:
+        W['Viber'] = dict(st='warn', alive='запущен 26.10 19:04, AUMID не найден — toast могут не ловиться; ждём UIA heartbeat', ping=last.get('VIBER', ''), ping_lbl='последний сигнал')
     try: cp = json.load(open('/workspace/notify-watchers/clickup-pulse/state.json')).get('last_check', '')[:16].replace('T', ' ')
     except Exception: cp = ''
     cs = (data.get('clickup') or {}).get('fetched', '')
