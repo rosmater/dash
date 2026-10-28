@@ -1319,10 +1319,12 @@ function maRowHTML(d,r,sp){const kinds=Object.entries(r.kinds||{}).map(([k,v])=>
 /* Rost 26.10 вечер: в сетке сфер ВСЕГДА 🏠 Недвижимость сверху слева, 🩶 Дейтинг сверху справа; остальные — в более короткую колонку. Узкий экран: одна колонка, тот же порядок (RE, Dating, остальные). */
 const maIsRE=sp=>/недвиж/i.test(sp),maIsDat=sp=>/dating|дейтинг/i.test(sp);
 function maGrid(G,card){const w=g=>3+2*g.rows.length+((g.zero.length+g.zc.length)?1:0)+((g.wt||[]).length?1:0),L=[],R=[];let hl=0,hr=0;
- const re=G.filter(g=>maIsRE(g.sphere)),dt=G.filter(g=>maIsDat(g.sphere)&&!maIsRE(g.sphere)),rest=G.filter(g=>!re.includes(g)&&!dt.includes(g));
+ /* Rost t4336: сферы с 0 сообщений (нет чатов и отчётов) — в самый низ обеих колонок */const emp=g=>!(g.rows.length||(g.rp||[]).length),E=G.filter(emp);
+ const re=G.filter(g=>!emp(g)&&maIsRE(g.sphere)),dt=G.filter(g=>!emp(g)&&maIsDat(g.sphere)&&!maIsRE(g.sphere)),rest=G.filter(g=>!emp(g)&&!re.includes(g)&&!dt.includes(g));
  re.forEach(g=>{L.push(g);hl+=w(g)});dt.forEach(g=>{R.push(g);hr+=w(g)});
  rest.forEach(g=>{if(hl<=hr){L.push(g);hl+=w(g)}else{R.push(g);hr+=w(g)}});
- const ord=g=>maIsRE(g.sphere)?0:maIsDat(g.sphere)?1:2+G.indexOf(g);
+ E.forEach(g=>{if(hl<=hr){L.push(g);hl+=w(g)}else{R.push(g);hr+=w(g)}});
+ const ord=g=>emp(g)?1000+G.indexOf(g):maIsRE(g.sphere)?0:maIsDat(g.sphere)?1:2+G.indexOf(g);
  const col=A=>`<div class="mcol">${A.map(g=>card(g).replace(/^<div class="card"/,`<div class="card" style="order:${ord(g)}"`)).join('')}</div>`;
  return `<div class="mcols2">${col(L)}${col(R)}</div>`}
 /* Rost 26.10 вечер: ClickUp for check от ботов — во вкладке ботов, по сферам (Личное / направление), не в «Мессенджерах» с живыми людьми */
