@@ -532,6 +532,11 @@ _today_b = datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=-5))
 def_board['urgent_tasks'] = [t for t in (_dp.get('urgent_tasks') or []) if isinstance(t, dict) and str(t.get('priority', 'urgent')).lower() == 'urgent']
 def_board['scheduled_calls'] = sorted([t for t in (_dp.get('scheduled_calls') or []) if isinstance(t, dict) and str(t.get('due') or t.get('start') or '9999')[:10] >= _today_b], key=lambda t: (str(t.get('due') or t.get('start') or ''), str(t.get('due_t') or '')))
 def_board['pins_fetched_at'] = _dp.get('fetched_at')
+# Rost 03.11: Клиенты в процессе / Ждут каталог (src/defense_clients.json)
+_dcf = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'defense_clients.json')
+_dc = json.load(open(_dcf)) if os.path.exists(_dcf) else {}
+def_board['clients_in_progress'] = [c for c in (_dc.get('clients_in_progress') or []) if isinstance(c, dict)]
+def_board['clients_fetched_at'] = _dc.get('updated_at')
 _by_country = _c.Counter(x['country'] for x in sent_oct)
 def_break = [
   dict(period='M:2026-10', title='Рассылка STE: отправлено по странам (октябрь)', columns=['Страна', 'Писем'], rows=[[k, v] for k, v in _by_country.most_common()]),

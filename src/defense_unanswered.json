@@ -1,0 +1,60 @@
+{
+  "_note": "Живые ответы компаний (STE). Красный «разобрать» = open (мы не ответили). Жёлтый «ждём ответа» = waiting / awaiting_their_reply (наш ответ ушёл). answered/scheduled — снять с внимания. Пишет ste / Оборонка.",
+  "updated_at": "2026-11-03T16:07",
+  "unanswered_replies": [
+    {
+      "company": "PRODESATEN (Colombia)",
+      "from": "Yezid Leandro Navas Lizarazo <ceo@prodesaten.com>",
+      "subject": "Re: Overhaul Mi-17 y repuestos — SpetsTechnoExport",
+      "received_at": "2026-10-29T19:09-05:00",
+      "note": "Наш ответ ES отправлен 03.11 (msg 1a1a33c66236349d). Ждём их по флоту/работам/роли.",
+      "url": "https://app.clickup.com/t/86bbzxnvx",
+      "status": "waiting",
+      "our_reply_at": "2026-11-03T16:06",
+      "priority": false
+    },
+    {
+      "company": "DECSEF Sistemas (México)",
+      "from": "Antonio Santiago Romero <ryan@decsef.com> / José Gabriel Osorno <gabriel.osorno@decsef.com>",
+      "subject": "RE: Representación UAV y anti-dron — SpetsTechnoExport",
+      "received_at": "2026-11-03T12:32-05:00",
+      "note": "⚡ ПРИОРИТЕТ. Колл 03.11 missed; они просят перенос (ryan@). Наш ответ со слотами ушёл 03.11 16:00 Bogotá msg 1a1a33733ffb38e8. Как только ответят слотом — СРАЗУ: CU 86bcu0caf дата/время, STE Meet+календарь, pins, пинг Rost. Не ждать утра.",
+      "url": "https://app.clickup.com/t/86bcu0caf",
+      "status": "waiting",
+      "stage": "awaiting_reschedule_slot",
+      "our_reply_at": "2026-11-03T16:00-05:00",
+      "priority": "urgent",
+      "watch": "hot"
+    },
+    {
+      "company": "Dronamex (México)",
+      "from": "Juan Carlos Pérez Juárez <juancarlos.perez@dronamex.com>",
+      "subject": "Reunión mañana 13:00 CDMX — liga al proveedor",
+      "received_at": "2026-10-27T11:55-05:00",
+      "note": "Созвон подтверждён: ср 28.10 13:00–14:00 CDMX / 14:00–15:00 Богота. 18:16 Богота пришло приглашение Google Meet от Maria Otero (maria@dronamex.com). Задача CU 86bctgc67. Созвон 28.10 прошёл по плану (CU 86bctgc67).",
+      "url": "https://app.clickup.com/t/86bbzxnvx",
+      "status": "waiting",
+      "our_reply_at": "2026-10-27T16:12"
+    },
+    {
+      "company": "Military Industries SAS (Колумбия)",
+      "from": "Carlos Bedoya <licitaciones2@militaryjr.com.co>",
+      "subject": "RE: Representación UAV y anti-dron — SpetsTechnoExport",
+      "received_at": "2026-10-26T16:41-05:00",
+      "note": "Ответили 27.10: каталог на след. неделе, потом созвон. Ждём их.",
+      "url": "https://app.clickup.com/t/86bbzxnvx",
+      "status": "waiting",
+      "our_reply_at": "2026-10-27T16:02"
+    },
+    {
+      "company": "MER Group (México)",
+      "from": "Ramiro Ibarra <ramiro.ibarra@mer-group.com.mx>",
+      "subject": "Re: Representación UAV y anti-dron — SpetsTechnoExport",
+      "received_at": "2026-10-21T15:43-05:00",
+      "note": "Наш ответ ушёл 26.10 ~10:16 Богота (только Ramiro, без cc). Ждём его ответа.",
+      "url": "https://app.clickup.com/t/86bbzxnvx",
+      "status": "waiting",
+      "our_reply_at": "2026-10-26T10:16-05:00"
+    }
+  ]
+}

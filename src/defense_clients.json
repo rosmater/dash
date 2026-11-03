@@ -1,0 +1,28 @@
+{
+  "updated_at": "2026-11-03T16:08-05:00",
+  "note": "Rost 03.11: блок «Клиенты в процессе» / статус «Ждут каталог». Автоснятие: QUEUE.md slug в ctx.",
+  "clients_in_progress": [
+    {
+      "id": "dronamex",
+      "company": "Dronamex (México)",
+      "contact": "Juan Carlos Pérez Juárez <juancarlos.perez@dronamex.com>",
+      "status": "awaiting_catalog",
+      "status_label": "Ждут каталог",
+      "promised_at": "2026-10-28",
+      "note": "Созвон 28.10 13:00 CDMX — каталог ок / договорились прислать. CU 86bctgc67.",
+      "url": "https://app.clickup.com/t/86bctgc67",
+      "ctx": "QUEUE.md catalog-dronamex"
+    },
+    {
+      "id": "military-industries",
+      "company": "Military Industries SAS (Колумбия)",
+      "contact": "Carlos Bedoya <licitaciones2@militaryjr.com.co>",
+      "status": "awaiting_catalog",
+      "status_label": "Ждут каталог",
+      "promised_at": "2026-10-27",
+      "note": "Наш ответ 27.10: каталог на след. неделе, потом созвон. Тема UAV/антидрон.",
+      "url": "https://app.clickup.com/t/86bbzxnvx",
+      "ctx": "QUEUE.md catalog-military-industries"
+    }
+  ]
+}
