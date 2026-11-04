@@ -1,5 +1,5 @@
 {
- "at": "2026-11-04T13:20:00-05:00",
+ "at": "2026-11-04T16:22:00-05:00",
  "rule": "t5009–11 muted hidden on Rost UI; t5016 IG visible+fresh; live JSON keeps full Unread",
  "channels": {
   "Viber": {
@@ -42,6 +42,17 @@
    "dash_hidden": false,
    "at": "2026-11-04 11:36 Bogotá",
    "note": "t5016 restore on dash; refresh kept Ali unread=1"
+  },
+  "Telegram": {
+   "live_all": 15,
+   "live_unmuted": 15,
+   "muted_excluded": 0,
+   "unmuted_chats": 15,
+   "muted_chats": 0,
+   "at": "2026-11-04 16:18 Bogotá",
+   "match_pending": false,
+   "dash_unmuted": null,
+   "note": "t5045 first live: All chats blue badges (no Unread folder); 15 chats / 46 unread"
   }
  },
  "grand": {
@@ -49,7 +60,7 @@
   "ig_hidden": 1
  },
  "ok": true,
- "note": "13:20 обед: live-снапы = даш 1:1 (ESP 288/81 чат, UKR 28/5, Viber 0 unmuted, IG 1); muted скрыты. После снапов toasts только в уже известных чатах (Анатолий ремонты, Maks Sinar 11:44, Дима/Ольга; TG Sara/Michele $$$ — TG unread на даше не считается by design). Дыр не найдено; свежий resnap — night hygiene 22:45.",
+ "note": "13:20 обед: live-снапы = даш 1:1 (ESP 288/81 чат, UKR 28/5, Viber 0 unmuted, IG 1); muted скрыты. После снапов toasts только в уже известных чатах (Анатолий ремонты, Maks Sinar 11:44, Дима/Ольга; TG Sara/Michele $$$ — TG unread на даше не считается by design). Дыр не найдено; свежий resnap — night hygiene 22:45. | t5045: TG live per-chat now present (15/46)",
  "lost": 0,
  "mismatch": 0
 }

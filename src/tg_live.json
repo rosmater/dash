@@ -1,0 +1,116 @@
+{
+ "at": "2026-11-04 16:18 Bogotá",
+ "channel": "tg",
+ "filter": "All chats blue unmuted badges",
+ "filter_count": 15,
+ "sum": 46,
+ "src": "TG Desktop All chats (no Unread folder)",
+ "note": "No Unread folder in TG; read blue (unmuted) badges from All chats list, scanned to ~Oct 21. M_November/Isla are marked-unread dots counted as 1.",
+ "chats": [
+  {
+   "title": "M_November",
+   "unread": 1,
+   "muted": false,
+   "is_group": false,
+   "name": "M_November"
+  },
+  {
+   "title": "Kir0[4K]",
+   "unread": 3,
+   "muted": false,
+   "is_group": false,
+   "name": "Kir0[4K]"
+  },
+  {
+   "title": "Яна Бухгалтер",
+   "unread": 3,
+   "muted": false,
+   "is_group": false,
+   "name": "Яна Бухгалтер"
+  },
+  {
+   "title": "Isla del Contenido",
+   "unread": 1,
+   "muted": false,
+   "is_group": false,
+   "name": "Isla del Contenido"
+  },
+  {
+   "title": "Gastos $$$",
+   "unread": 3,
+   "muted": false,
+   "is_group": true,
+   "name": "Gastos $$$"
+  },
+  {
+   "title": "Michele $$$",
+   "unread": 1,
+   "muted": false,
+   "is_group": true,
+   "name": "Michele $$$"
+  },
+  {
+   "title": "Sara $$$",
+   "unread": 5,
+   "muted": false,
+   "is_group": true,
+   "name": "Sara $$$"
+  },
+  {
+   "title": "Фин Р",
+   "unread": 4,
+   "muted": false,
+   "is_group": true,
+   "name": "Фин Р"
+  },
+  {
+   "title": "Разработка Hooka",
+   "unread": 8,
+   "muted": false,
+   "is_group": true,
+   "name": "Разработка Hooka"
+  },
+  {
+   "title": "Юридическая поддержка",
+   "unread": 2,
+   "muted": false,
+   "is_group": true,
+   "name": "Юридическая поддержка"
+  },
+  {
+   "title": "Baba",
+   "unread": 7,
+   "muted": false,
+   "is_group": false,
+   "name": "Baba"
+  },
+  {
+   "title": "Стас Элвис",
+   "unread": 1,
+   "muted": false,
+   "is_group": false,
+   "name": "Стас Элвис"
+  },
+  {
+   "title": "TABAKEVICH (разработка)",
+   "unread": 2,
+   "muted": false,
+   "is_group": true,
+   "name": "TABAKEVICH (разработка)"
+  },
+  {
+   "title": "Контроль менеджеров ИМ",
+   "unread": 1,
+   "muted": false,
+   "is_group": true,
+   "name": "Контроль менеджеров ИМ"
+  },
+  {
+   "title": "Колумбия OFTV - Markiz Karabas 3 модели",
+   "unread": 4,
+   "muted": false,
+   "is_group": true,
+   "name": "Колумбия OFTV - Markiz Karabas 3 модели"
+  }
+ ]
+}

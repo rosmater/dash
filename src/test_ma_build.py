@@ -341,6 +341,7 @@ def _apply_wa_live(fname, channel, label):
 
 _apply_wa_live('wa_ukr_live.json', 'WhatsApp UKR', 'WA UKR live')
 _apply_wa_live('wa_esp_live.json', 'WhatsApp ESP', 'WA ESP live')
+_apply_wa_live('tg_live.json', 'Telegram', 'TG live')  # t5045
 # t4368 (Rost 28.10): Instagram Direct личного @rosscompass — раз в день (утренний пакет / ночная гигиена) → src/ig_direct_live.json (mailbox-map/ig-direct/ig_direct_peek.py).
 _IGD = None
 try:
@@ -965,7 +966,7 @@ def _al(d):
 data['coverage'] = [
  dict(channel='WhatsApp ESP', src='secretary-log (toast-вочер AX42 → вебхук), с 21.10', live=False, gap=f'видны только чаты из allowlist вочера ({_al("wa-esp-secretary")}) и только когда пришёл toast; остальные непрочитанные WA ESP не видны без экрана AX42'),
  dict(channel='WhatsApp UKR', src='secretary-log (toast-вочер AX42 → вебхук), с 21.10', live=False, gap=f'видны только чаты из allowlist ({_al("wa-ukr-secretary")}); счётчик unread = последний из toast, может устареть'),
- dict(channel='Telegram', src='tg-secretary watcher.log (только статус)', live=False, gap='непрочитанные TG по чатам пока НЕ разобраны (нужна сверка глазами списка чатов TG Desktop); заголовок окна не используем — там сумма сообщений вкл. каналы, не диалоги; '+'вочер ловит только D-Bus-уведомления (muted чаты их не шлют; с 21.10 не было ни одного) → поимённо TG-чаты не видны'),
+ dict(channel='Telegram', src='src/tg_live.json (TG Desktop: синие unmuted бейджи из All chats, по чатам)', live=True, gap='muted/каналы не в списке; нет вкладки Unread — считаем синие бейджи All chats'),
  dict(channel='Viber', src='список Viber (src/viber_live.json) + бейдж UIA-поллера (heartbeat: RDP-шара или SMB-pull с AX42 каждые ≤10 мин; бейдж только при открытом RDP)', live=False, gap='toast нет (AUMID не найден); БД Viber зашифрована; по чатам — только снимок списка при проверке; mute-чаты бейдж не дают'),
  dict(channel='Instagram', src='IG Direct @rosscompass (src/ig_direct_live.json), раз в день', live=False, gap='только личный @rosscompass; раз в сутки; Requests (запросы) не смотрим; превью не берём'),
  dict(channel='Email', src='только важные (ma_email_important.json)', live=False, gap='не все письма — по правилу Rost'),
@@ -1324,7 +1325,7 @@ except Exception as _e: print('last_msgs skip', _e)
 # Rost t5018: muted (колокольчик выкл) в WA/Viber live -> muted=True на ВСЕХ строках (вкл. dash-tap), даш их прячет
 try:
     _MU = set()
-    for _fn, _ch in (('wa_ukr_live.json', 'WhatsApp UKR'), ('wa_esp_live.json', 'WhatsApp ESP'), ('viber_live.json', 'Viber')):
+    for _fn, _ch in (('wa_ukr_live.json', 'WhatsApp UKR'), ('wa_esp_live.json', 'WhatsApp ESP'), ('viber_live.json', 'Viber'), ('tg_live.json', 'Telegram')):
         _fp = os.path.join(os.path.dirname(os.path.abspath(__file__)), _fn)
         if os.path.exists(_fp):
             for _c in (json.load(open(_fp, encoding='utf-8')).get('chats') or []):
