@@ -173,3 +173,10 @@
 - Сортировка в каждой сфере: живые люди → чаты (ЧАТ:) → все БОТ-строки в самом низу (в т.ч. «Ждём ответа» / «Без сообщений»).
 - Данные: `cu_inbox_build.py` пишет `threads[].author/author_bot` (последний не-Rost комментатор в окне = человек); `test_ma_build.py` — общие правила без хардкодов задач (+ `author_botname` из bot_attn); UI `maWho()/maBotR()` в `variant-a.html`.
 - 28.10 Rost t4333: в раскрытом «отчеты (N)» каждая CU-строка получила серую метку «📄 отчёт» (maCUMsgHTML(r,1)); метка в заголовке fold осталась.
+
+## 2026-11-04 10:33 Bogotá — t4989 messengers auto-clear stale
+- Census 27.10: unread=0 at source (placement only); live unread from log/viber/ig/reconcile
+- Drop hardcoded Dating INBOX 26.10, El Pulpo pending, Travertino/IKEA pending
+- Rebuild auto-clear: rst ans/skip + stale census; hang_since skips done; no Feabie/Tinder carry-forward of «наш ход»
+- Rule: knowledge/rules/messengers-auto-clear-stale.md
+- Актуализация unread↔dash: routine unread-dash-daily 2×/day ~09:00+13:00 Bogotá
