@@ -1,0 +1,48 @@
+{
+  "at": "2026-11-04 11:36 Bogotá",
+  "rule": "t5009–12 dash shows unmuted needing Rost reaction; muted+IG hidden on UI; live JSON keeps full Unread",
+  "channels": {
+    "Viber": {
+      "live_all": 2203,
+      "live_unmuted": 0,
+      "muted_excluded": 2203,
+      "unmuted_chats": 0,
+      "muted_chats": 4,
+      "at": "2026-11-04 11:28 Bogotá",
+      "match_pending": true,
+      "note": "after quit+reopen still 4 muted"
+    },
+    "WhatsApp UKR": {
+      "live_all": 567,
+      "live_unmuted": 27,
+      "muted_excluded": 540,
+      "unmuted_chats": 8,
+      "muted_chats": 2,
+      "at": "2026-11-04 11:24 Bogotá",
+      "match_pending": true,
+      "note": "resnap in progress"
+    },
+    "WhatsApp ESP": {
+      "live_all": 451,
+      "live_unmuted": 290,
+      "muted_excluded": 161,
+      "unmuted_chats": 83,
+      "muted_chats": 3,
+      "at": "2026-11-04 10:58 Bogotá",
+      "match_pending": true,
+      "note": "stale until ESP resnap"
+    },
+    "Instagram": {
+      "live": 1,
+      "dash_hidden": true,
+      "at": "2026-11-04 11:36 Bogotá",
+      "note": "t5012 hide on Rost dash; refresh 11:36 still Ali=1"
+    }
+  },
+  "grand": {
+    "live_unmuted_wa_viber": 317,
+    "ig_hidden": 1
+  },
+  "ok": false,
+  "note": "partial — UKR/ESP resnap running; UI hide muted+IG applied"
+}

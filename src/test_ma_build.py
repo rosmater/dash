@@ -1,7 +1,7 @@
 """TEST (Rost 26.10): data for test-messengers-assistants.html. Строки чатов = метаданные из secretary-log (время, канал, чат, отправитель, unread, тип).
 Rost t4356u (28.10): ИСКЛЮЧЕНИЕ — `last_msgs` (≤3 последних пойманных тоста, ≤120 симв.) для hover-превью; только чаты из allowlist/log_only вочера,
 только цитата «…» из тоста (не пояснения бота). Всё остальное — без тел. Вывод шифруется (data-test-ma.enc.json); plaintext не пушится."""
-import re, json, os, csv
+import re, json, os, csv, datetime as _dt
 ROOT = os.path.join(os.path.dirname(__file__), '..')
 LOG = '/workspace/notify-watchers/secretary-log.md'
 CU = lambda t: f'https://rosmater.github.io/cu/?t={t}'
@@ -22,16 +22,27 @@ KNOWN += [('alexa herera','Alexa Herera Mr Supremo','dating/recruiting'), ('mari
 KNOWN.sort(key=lambda x: -len(x[0]))
 def known(txt):
     tl = (txt or '').lower()
+    # 29.10: заголовок чата до « (» приоритетнее — иначе пояснение в скобках (другой чат того же человека) перехватывает строку
+    head = tl.split(' (')[0].strip()
+    for n, d, sph in KNOWN:
+        if head == n: return d, sph
     for n, d, sph in KNOWN:
         if n in tl: return d, sph
     return None, None
 SENDERS = ['Анатолий','Ирина Шекель','Elena Tolstova','Albeiro']
 chats = {}
 UNK = {}
-for ln in open(LOG, encoding='utf-8'):
+def _parse_log_head(ln):
+    """Accept old 'YYYY-MM-DD HH:MM Bogotá | app' and ISO 'YYYY-MM-DDTHH:MM:SS±HH:MM | app' (since 30.10)."""
+    m = re.match(r'- (2026-\d\d-\d\d)T(\d\d:\d\d):\d\d[+-]\d\d:\d\d\s*\|\s*([\w-]+)', ln)
+    if m: return m.groups()
     m = re.match(r'- (2026-\d\d-\d\d) (\d\d:\d\d) (?:Bogotá|COT)?\s*\|?\s*([\w-]+)', ln)
-    if not m: continue
-    day, tm, ch = m.groups()
+    if m: return m.groups()
+    return None
+for ln in open(LOG, encoding='utf-8'):
+    g = _parse_log_head(ln)
+    if not g: continue
+    day, tm, ch = g
     if day < '2026-10-21': continue  # Rost 26.10: полный снимок лога (с 21.10)
     seg = ln.split('|')
     if len(seg) < 3: continue
@@ -51,7 +62,8 @@ for ln in open(LOG, encoding='utf-8'):
     s = c['senders'].setdefault(sender, dict(n=0, kinds={}, last=''))
     s['n'] += 1; s['kinds'][kind] = s['kinds'].get(kind, 0) + 1; s['last'] = f'{day} {tm}'
     c['last'] = f'{day} {tm}'
-    if un: c['unread'] = max(c['unread'], int(un[-1]))
+    # Rost t4997–98: unread = последнее известное (N unread) из тоста, НЕ max за всю историю лога
+    if un: c['unread'] = int(un[-1])
 # Сферы и binding (CU) — ручная карта по people.csv/chats.csv + поиск ClickUp 26.10 (только названия/ID карточек)
 def SPH(d):
     d=(d or '').lower()
@@ -77,34 +89,18 @@ for c in chats.values():
     for nm, s in c['senders'].items():
         b = bind(nm)
         add(sph, dict(sender=nm, chat=c['chat'], channel=c['channel'], unread_chat=c['unread'], items=s['n'], kinds=s['kinds'], last=s['last'], binding=b, src='secretary-log'))
-# Rost 26.10 ~21:10: Dating = снимок от бота Дейтинг (INBOX 26.10 21:08 Bogotá). Alexa «время встречи» убрана (нет в списке Дейтинга). Владелец строк — Дейтинг.
-_DAT = ('Дейтинг', '826f2d29-4f19-4096-9e4e-c76d6ec801a8')
-_DSRC = 'dating INBOX 26.10 21:08'
-for _s, _ch, _p, _l in [
-    ('piggy_cami', 'Feabie', 'наш ход: «Me gusta series y pedir» / «¿quieres darme de comer hoy?»', '2026-10-26 21:08'),
-    ('Stuffiejosie', 'Feabie', 'наш ход: «Comer, dormir, sexo jajaja»', '2026-10-26 21:08'),
-    ('Donut_piggy', 'Feabie', 'наш ход: «Maragarita una isla» + фото → черновик Rost', '2026-10-26 21:08'),
-    ('Leidy', 'Tinder', 'наш ход: «No he tenido la oportunidad…» (с 22.10)', '2026-10-22'),
-    ('Samy', 'Tinder', 'наш ход: «Hola en estadio» (с 22.10)', '2026-10-22'),
-    ('Adelina_meilo', 'Feabie', 'нужен ок Rost на текст без «te invito»', '2026-10-26 21:08'),
-    ('Lauu', 'Tinder', 'ответ в очереди — нужна команда Rost на отправку', '2026-10-26 21:08'),
-    ('Dahian', 'Tinder', 'нужно да/нет Rost на мягкое сообщение', '2026-10-26 21:08'),
-    ('Andrea Feabie 💘D', 'WhatsApp ESP', 'ждём её: ответили 20:47 (перепутал даты / след. неделя) — мяч у неё', '2026-10-26 20:47'),
-    ('María Camila', 'WhatsApp ESP', 'ждём её: наше ушло', '2026-10-26 21:08'),
-    ('Layla', 'WhatsApp ESP', 'ждём её: WA 1 галочка / Tinder отправлено', '2026-10-26 21:08'),
-]:
-    add('Dating / личное', dict(sender=_s, chat=_s, channel=_ch, unread_chat=None, items=1, kinds={'диалог':1}, last=_l, binding=None, pending=_p, src=_DSRC, sorted=True, owner=_DAT[0], owner_link=f'grokbot://app/v1/agent?id={_DAT[1]}'))
-add('Быт / еда', dict(sender='Albeiro Garcia (El Pulpo)', chat='Albeiro Garcia Курьер Севичерия Пульпо', channel='WhatsApp ESP', unread_chat=2, items=1, kinds={'текст':1}, last='2026-10-26 17:48', binding=None, pending='ждём сумму заказа → оплата Bre-B', src='secretary-log'))
+# Rost t4989: старый Dating INBOX 26.10 снят с хардкода — висяки не держатся forever; актуальные строки пушит бот Дейтинг / живой лог.
+# (ранее: piggy_cami…Layla «наш ход/ждём её» — уже неактуально)
+# Rost t4989: El Pulpo 02–03.11 оплачен — хардкод pending/unread снят (живой лог/census при необходимости).
 # Rost t4004u: Base Loft — поиск лофта (CU 86bcma7tp) в Личном. Факты: knowledge/shared-personal/places/base-loft-rental-search.md + /workspace/base-loft/*-chat-log.md. Портерия = доставки, не аренда — не добавляем.
 _PMH = ('Помощник по всему', 'fef07752-2a22-4e1a-804b-7590fa230b30')
 for _s, _c, _p, _l, _h in [
     ('Víctor Márquez (Nutibara 1105)', 'Nutibara 1105', 'ждём Víctor: наше 26.10 15:41 про A1105 (✓✓, не прочитано на 18:46; дальше только автошаблон)', '2026-10-26 15:41', '2026-10-26'),
     ('Miguel Calipso (CALIPTO)', 'Miguel Calipso', 'ждём Calipso: дуплекс 10 эт. 2.6M — запрос 18.10 18:37, ответа нет', '2026-10-18 18:37', '2026-10-18'),
-    ('Nini Loaiza (Alnago, A1105)', 'Alnago', 'ждём Nini: новых непрочитанных нет, ход за ней (Rost t4010u/t4011u); её последнее 27.10 08:51 — для estudio нужны tomador + deudor (поручитель)', '2026-10-27 08:51', '2026-10-27'),
+    ('Nini Loaiza (Alnago, A1105)', 'Alnago', 'ждём Nini: 04.11 10:17 ушёл PDF Libertador diligenciado (con huella) A1105/C4632 + вопрос ETA estudio; 2 серые тики', '2026-11-04 10:17', '2026-11-04'),
 ]:
     add('Личное', dict(sender=_s, chat=_c, channel='WhatsApp ESP', unread_chat=None, items=1, kinds={'аренда':1}, last=_l, binding=None, pending=_p, src='base-loft-rental-search.md', sorted=True, owner=_PMH[0], owner_link=f'grokbot://app/v1/agent?id={_PMH[1]}', hang_since=_h, is_group=False))
-add('Недвижимость', dict(sender='Анатолий / Ирина Шекель', topic='Travertino — наличные', chat='Ростислав - Анатолий ремонты', channel='WhatsApp UKR', unread_chat=None, items=1, kinds={'договорённость':1}, last='2026-10-26 15:56', binding=BIND['Анатолий'], pending='наличные — на следующей неделе (договорились)', src='контекст'))
-add('Недвижимость', dict(sender='Анатолий / Ирина Шекель', topic='Доставка шкафов (Amazon/IKEA)', chat='Ростислав - Анатолий ремонты', channel='WhatsApp UKR', unread_chat=None, items=1, kinds={'слоты':1}, last='2026-10-26 15:40', binding=None, pending='контакт в доставке — Шекель (Rost 27.10); слоты после 18:00', src='контекст'))
+# Rost t4989: Travertino наличные + IKEA доставка — answered/closed; хардкод pending снят.
 # Rost 26.10 20:19: Viber «БЕЗПЕЧНИЙ РЕГІОН» = мусор (сообщество) -> игнор; статус Viber-вочера только в мониторе
 # Rost 26.10 «я совсем не вижу телеграмм»: TG-вочер (tg-secretary) пишет только в свой watcher.log, не в secretary-log -> строки TG не было.
 # Берём только статус вочера (метаданные: время START/последнего уведомления), без текстов. Непрочитанные в TG вочер не считает -> None.
@@ -230,6 +226,18 @@ try:
 except Exception as _e: print('viber_live skip', _e)
 _VL_IGN = ('БЕЗПЕЧНИЙ РЕГІОН',)
 if _VL:
+    # Rost t4997: viber_live старше 2 суток не источник unread (ждём свежий снимок сверки)
+    import datetime as _dtx
+    _vt = (_VL.get('at') or '')[:10]
+    _today = (_dtx.datetime.now(_dtx.timezone.utc) - _dtx.timedelta(hours=5)).strftime('%Y-%m-%d')
+    try:
+        _age = ( _dtx.datetime.strptime(_today,'%Y-%m-%d') - _dtx.datetime.strptime(_vt,'%Y-%m-%d') ).days if _vt else 99
+    except Exception:
+        _age = 99
+    if _age > 2:
+        print('viber_live STALE', _VL.get('at'), 'age', _age, 'd — unread not applied until refresh')
+        _VL = None
+if _VL:
     _vmap = {c['title'].lower(): c for c in _VL.get('chats') or [] if not any(x in c['title'].upper() for x in _VL_IGN)}
     _vsrc = 'Viber список ' + _VL.get('at', '')
     _vseen = set()
@@ -253,6 +261,77 @@ if _VL:
             _TG_PLACED.add('Viber|' + _c['title']); _vseen.add(_k)
         else: _VL_UNS.append(_c)
     print('viber_live:', len(_vmap), 'чатов, в сферы', len(_vseen), 'на сортировку', len(_VL_UNS))
+    # t4997: standing-ignore (БЕЗПЕЧНИЙ) всё равно в сферу Игнор — иначе сумма даша ≠ live
+    groups.setdefault('Игнор', [])
+    for _c in (_VL.get('chats') or []):
+        if not any(x in _c['title'].upper() for x in _VL_IGN): continue
+        if not _c.get('unread'): continue
+        if any((r.get('chat') or '').lower() == _c['title'].lower() for r in groups['Игнор']): continue
+        groups['Игнор'].append(dict(sender=_c['title'], chat=_c['title'], channel='Viber', unread_chat=_c['unread'], muted=bool(_c.get('muted')), items=0, kinds={}, last=_c.get('last', ''), binding=None,
+                                     src=_vsrc + ' · standing-ignore', src_sphere='Игнор', ignored=True, owner='Секретарь', owner_link='grokbot://app/v1/agent?id=d3a12cc9-cf8a-41e5-b34a-76d4ab9eb9fd', key='Viber|' + _c['title'], hang_since=_VL.get('at', '')[:10]))
+
+# Rost t4997: живые Unread-списки WA (list-only сверка) → override secretary-log max/sticky
+def _apply_wa_live(fname, channel, label):
+    import datetime as _dtx
+    fp = os.path.join(os.path.dirname(os.path.abspath(__file__)), fname)
+    if not os.path.exists(fp):
+        print(label + ': no file'); return
+    try:
+        L = json.load(open(fp, encoding='utf-8'))
+    except Exception as e:
+        print(label + ' skip', e); return
+    at = (L.get('at') or '')[:10]
+    today = (_dtx.datetime.now(_dtx.timezone.utc) - _dtx.timedelta(hours=5)).strftime('%Y-%m-%d')
+    try:
+        age = (_dtx.datetime.strptime(today,'%Y-%m-%d') - _dtx.datetime.strptime(at,'%Y-%m-%d')).days if at else 99
+    except Exception:
+        age = 99
+    if age > 1:
+        print(label + ' STALE', L.get('at'), 'age', age, '— not applied'); return
+    vmap = {c['title'].lower(): c for c in (L.get('chats') or [])}
+    src = label + ' ' + (L.get('at') or '')
+    seen = set(); applied = 0
+    for _sp, _rs in groups.items():
+        for _r in _rs:
+            if _r.get('channel') != channel: continue
+            key = (_r.get('chat') or '').lower()
+            c = vmap.get(key)
+            # fuzzy: title startswith / contained
+            if not c:
+                for tk, tv in vmap.items():
+                    if key and len(key) >= 8 and (key in tk or tk in key):
+                        c = tv; break
+            if c:
+                _r['unread_chat'] = int(c.get('unread') or 0)
+                if c.get('last'): _r['last'] = c.get('last')
+                _r['muted'] = bool(c.get('muted'))
+                _r['src'] = src
+                seen.add(c['title'].lower()); applied += 1
+            else:
+                # live list is source of truth: not in Unread filter → 0
+                if (_r.get('unread_chat') or 0) > 0:
+                    _r['unread_chat'] = 0
+                    _r['src'] = (_r.get('src') or '') + ' · ' + src + ': нет в Unread'
+                    applied += 1
+    # new chats from live not on dash yet → unsorted-ish via sphere byname
+    byname = {}
+    for _sp, _rs in groups.items():
+        for _r in _rs: byname.setdefault((_r.get('chat') or '').lower(), _sp)
+    added = 0
+    for tk, c in vmap.items():
+        if tk in seen or not c.get('unread'): continue
+        sp = byname.get(tk)
+        if sp and sp in _ORD:
+            groups[sp].append(dict(sender=c['title'], chat=c['title'], channel=channel, unread_chat=int(c.get('unread') or 0), muted=bool(c.get('muted')), items=0, kinds={}, last=c.get('last',''), binding=None,
+                                   src=src, src_sphere=sp, owner='Секретарь', owner_link='grokbot://app/v1/agent?id=d3a12cc9-cf8a-41e5-b34a-76d4ab9eb9fd', key=channel+'|'+c['title'], hang_since=(L.get('at') or '')[:10]))
+            added += 1
+        else:
+            # leave for unsorted: append via global later — stash
+            globals().setdefault('_WA_LIVE_UNS', []).append((channel, c, src))
+    print(label + ':', len(vmap), 'unread chats, applied', applied, 'added', added)
+
+_apply_wa_live('wa_ukr_live.json', 'WhatsApp UKR', 'WA UKR live')
+_apply_wa_live('wa_esp_live.json', 'WhatsApp ESP', 'WA ESP live')
 # t4368 (Rost 28.10): Instagram Direct личного @rosscompass — раз в день (утренний пакет / ночная гигиена) → src/ig_direct_live.json (mailbox-map/ig-direct/ig_direct_peek.py).
 _IGD = None
 try:
@@ -264,12 +343,27 @@ if _IGD and _IGD.get('ok'):
     _byname2 = {}
     for _sp, _rs in groups.items():
         for _r in _rs: _byname2.setdefault((_r.get('chat') or '').lower(), _sp)
+    _igmap = {c['title'].lower(): c for c in (_IGD.get('chats') or [])}
+    _igsrc = 'IG Direct @' + (_IGD.get('account') or '') + ' ' + _IGD.get('at', '')
+    _igseen = set()
+    # Rost t4997: живой список — обновить/обнулить Instagram как Viber (не тащить stale carry)
+    for _sp, _rs in list(groups.items()):
+        for _r in _rs:
+            if _r.get('channel') != 'Instagram': continue
+            _c = _igmap.get((_r.get('chat') or '').lower())
+            if _c and _c.get('unread'):
+                _r['unread_chat'] = _c.get('n') or 1; _r['last'] = _c.get('age', ''); _r['src'] = _igsrc; _igseen.add(_c['title'].lower())
+            else:
+                if (_r.get('unread_chat') or 0) > 0:
+                    _r['unread_chat'] = 0; _r['src'] = (_r.get('src') or '') + ' · ' + _igsrc + ': прочитано'
+                _igseen.add((_r.get('chat') or '').lower())
     for _c in _IGD.get('chats') or []:
-        if not _c.get('unread'): continue
+        if not _c.get('unread') or _c['title'].lower() in _igseen: continue
         _sp = _byname2.get(_c['title'].lower())
         if _sp and _sp in _ORD:
             groups[_sp].append(dict(sender=_c['title'], chat=_c['title'], channel='Instagram', unread_chat=_c.get('n') or 1, items=0, kinds={}, last=_c.get('age', ''), binding=None,
-                                     src='IG Direct @' + (_IGD.get('account') or '') + ' ' + _IGD.get('at', ''), src_sphere=_sp, owner='Секретарь', owner_link='grokbot://app/v1/agent?id=d3a12cc9-cf8a-41e5-b34a-76d4ab9eb9fd', key='Instagram|' + _c['title'], hang_since=_IGD.get('at', '')[:10]))
+                                     src=_igsrc, src_sphere=_sp, owner='Секретарь', owner_link='grokbot://app/v1/agent?id=d3a12cc9-cf8a-41e5-b34a-76d4ab9eb9fd', key='Instagram|' + _c['title'], hang_since=_IGD.get('at', '')[:10]))
+            _igseen.add(_c['title'].lower())
         else: _IGD_UNS.append(_c)
     print('ig_direct:', _IGD.get('unread_chats'), 'непроч., на сортировку', len(_IGD_UNS))
 # Rost t3953u: сборка СЛИВАЕТ сферы, а не заменяет вслепую — если канал в прошлой сборке был в карточках сфер, а сейчас 0 строк,
@@ -282,6 +376,9 @@ try:
         for _r in _g.get('rows', []):
             _c = _r.get('channel')
             if _c in _now or _c in ('ClickUp', 'Email') or (_r.get('chat') or '').lower() in _have: continue
+            # Rost t4989: Feabie/Tinder / dating INBOX — не тащим вечный «наш ход» из прошлой сборки; актуальные строки пушит Дейтинг
+            if _c in ('Feabie', 'Tinder', 'Instagram') or 'dating INBOX' in (_r.get('src') or ''): continue  # IG только из ig_direct_live
+            if (_r.get('pending') or '').startswith('наш ход') and 'dating' in (_r.get('src') or '').lower(): continue
             _r = dict(_r); _r['src'] = (_r.get('src') or '') + ' · перенесено из прошлой сборки (источник канала сейчас пуст)'
             groups.setdefault(_g['sphere'], []).append(_r); _have.add((_r.get('chat') or '').lower()); _cf += 1
     if _cf: print('carry-forward строк:', _cf)
@@ -290,7 +387,7 @@ for sp in _ORD:
     if sp in _ZC and sp not in groups: groups[sp] = []
 groups = {k: groups[k] for k in sorted(groups, key=lambda k: _ORD.index(k) if k in _ORD else 99)}
 # Rost 26.10 22:20: сфера Табакевич в Мессенджерах ОСТАЁТСЯ (откат 21:16 — «Кальяны» убрать только из названия вкладки)
-data = dict(generated='2026-10-26 Bogotá', test=True, messengers=[dict(sphere=k, rows=v, zero_contacts=sorted(_ZC.get(k, []), key=lambda z: z['title'].lower())) for k, v in groups.items()])
+data = dict(generated=(_dt.datetime.now(_dt.timezone(_dt.timedelta(hours=-5))).strftime('%Y-%m-%d %H:%M')+' Bogotá'), test=True, messengers=[dict(sphere=k, rows=v, zero_contacts=sorted(_ZC.get(k, []), key=lambda z: z['title'].lower())) for k, v in groups.items()])
 # Боты/ассистенты: сводные открытые вопросы (кратко, без дампов чатов)
 A = lambda id_: f'grokbot://app/v1/agent?id={id_}'
 # Rost 26.10 (аудит 19:35 Bogotá): реальные открытые вопросы из последних сообщений ботов (ReadTranscript) + задачи CU for check по владельцу (OWNERSHIP.md).
@@ -299,12 +396,12 @@ data['bots'] = [
  dict(name='Секретарь', id='d3a12cc9-cf8a-41e5-b34a-76d4ab9eb9fd', qs=[
    dict(q='Alexa: время встречи 26.10 — проверить, актуально ли (нет в списке Дейтинга 21:08)', st='red', ctx='Alexa Herera WA ESP 17:34 спросила время на пн 26.10; черновик «¿Te queda bien a las [HORA]?» ждёт время от Rost'),
    dict(q='Анатолий/Шекель: чей контактный номер в доставке шкафов? → Шекель (Ирина Шекель)', st='green', answered=True, ctx='Rost t3931u 27.10: «Шекель»'),
-   dict(q='Доставка IKEA 29.10, окно 15:00–21:00 — кто принимает?', st='red', new=True, ctx='WA UKR ремонты 15:39–15:40'),
-   dict(q='El Pulpo: оплатить Bre-B после суммы от Albeiro', st='red', new=True, ctx='Заказ ушёл 17:48; Rost сказал «плати сам»; ждём сумму'),
-   dict(q='Travertino: наличные на следующей неделе — подтвердить сумму/день', st='red', ctx='WA UKR ремонты 15:54–15:56'),
-   dict(q='BTC резерв: вернуть 0.02318012 BTC на неделе с 27.10 — напоминание пн 3.11?', st='red', ctx='finance/btc-reserves-repayment.md'),
+   dict(q='Доставка IKEA 29.10, окно 15:00–21:00 — кто принимает? → Анатолий', st='green', answered=True, ctx='Rost t4410: заберёт Анатолий'),
+   dict(q='El Pulpo: оплатить Bre-B после суммы от Albeiro', st='green', answered=True, ctx='02–03.11 оплачено + чек; t4989 clear'),
+   dict(q='Travertino: наличные на следующей неделе — подтвердить сумму/день → CU 86bbc7v9v due вт 3.11', st='green', answered=True, ctx='Rost t4412: задача передача денег на вторник'),
+   dict(q='BTC резерв: вернуть 0.02318012 BTC — CU 86bcnmdvt due вт 3.11', st='green', answered=True, ctx='Rost t4416: задача обновлена'),
    dict(q='Viber-вочер: AUMID не найден — toast могут не ловиться (дописать вручную)', st='red', new=True, ctx='AX42 wa-ukr-12promax-p, вочер с 19:04'),
-   dict(q='Telegram-вочер: запущен 17:46, но уведомлений не ловил с 21.10 — проверить D-Bus', st='red', new=True, ctx='tg-secretary/state/watcher.log'),
+   dict(q='Telegram-вочер: native=1 + D-Bus ok (t4417) → QUEUE watcher-fix-tg-native-20261028', st='green', answered=True, ctx='Rost t4420 Clear-TZ self-queue; desktopNotify=1 native=1'),
    dict(q='Джинсы из ателье — вт 27.10 16:00 (86bcrqtyk)', st='green', answered=True, ctx='Задача создана'),
  ]),
  dict(name='Помощник по всему', id='fef07752-2a22-4e1a-804b-7590fa230b30', qs=[
@@ -343,10 +440,8 @@ if _oq:
     # Rost t4097u: сводная красная строка «Notion / супер мозг: N неразобранных» дублировала блок «🔴 🧠 Notion · супер мозг — я нужен (N)» в «🙋 Ожидает ответа» — убрана; блок сам 🔴 и считается в «Требует внимания» (revGroups)
     for n, t, wip in _oq:
         _bot('Секретарь')['qs'].append(dict(q=f'№{n}. {t[:170]}{"…" if len(t) > 170 else ""}' + (' (в работе)' if wip else ''), st='green', grp=_G, ctx=f'notion-brain/OPEN_QUESTIONS.md №{n}'))
-# Rost t4103u: под «🙋 Ожидает» больше НИЧЕГО с «Notion» в тексте — иначе рядом с блоком «🔴 🧠 Notion · супер мозг» снова выглядит как дубль.
-# Tabakevich GDrive (10 файлов Ирины) остаётся красным вниманием, но без слова Notion в заголовке.
-for q, ctx in [('Tabakevich · GDrive: 10 файлов — жду Ирину (остальные доступы закрыты)', 'QUEUE.md notion-instructions [blocked-Rost]')]:  # t4072 MindMeister закрыт; t4103 без «Notion» в q
-    _bot('Секретарь')['qs'].append(dict(q=q, st='red', ctx=ctx))  # без grp — не гасит revGroups блока супер мозга
+# Rost t4103u: без «Notion» в тексте рядом с супер мозгом.
+# t4425: Tabakevich GDrive 9/10 ок, №4 ФИ Шкьопу Юля дропнут — seed снят (было red QUEUE.md notion-instructions).
 # Rost t4122–23: эти 6 были HARDCODED и не снимались queue_autoclear (ctx не QUEUE.md <slug>).
 # Теперь только из /workspace/queue-helper/QUEUE.md: открытые строки с slug notion-places-* (pending/in_progress/waiting_user).
 # Закрыл → [done DD.MM] notion-places-<slug> — авто-снятие через queue_autoclear (ctx=QUEUE.md notion-places-<slug>).
@@ -473,7 +568,7 @@ _QID = lambda bn, q: 'Q-' + _hl.sha1(f'{bn}|{q}'.encode()).hexdigest()[:6]
 try: _OQ = json.load(open('/workspace/queue/ma_open_questions.json'))
 except Exception: _OQ = dict(add=[], resolved={}, reopened={})
 for z in _OQ.get('add', []):
-    _BA = {'Оборонные': 'Оборонка', 'Оборонные системы': 'Оборонка', 'Секретарь / Кликап / Мессенджеры': 'Секретарь', 'Кликап / Мессенджеры': 'Секретарь'}  # Rost t4398: profile title ≠ dash short name
+    _BA = {'Оборонные': 'Оборонка', 'Оборонные системы': 'Оборонка', 'Секретарь / Кликап / Мессенджеры': 'Секретарь', 'Кликап / Мессенджеры': 'Секретарь', 'COMMS': 'Секретарь'}  # Rost t4398 + COMMS inventory alias
     z['bot'] = _BA.get(z['bot'], z['bot']); z['bot'] = 'Секретарь' if (z['bot'] or '').startswith('Секретарь') else z['bot']  # Rost t3948u+t4398
     b = next((x for x in data['bots'] if x['name'] == z['bot']), None)
     if b is None: b = dict(name=z['bot'], id=_SEC_ID, qs=[]); data['bots'].append(b)
@@ -483,7 +578,7 @@ for b in data['bots']:
     for q in b['qs']: q['qid'] = q.pop('_qid', None) or _QID(b['name'], q['q'])
     b['qs'] = [q for q in b['qs'] if q['qid'] not in _RES]
 # Rost t4398: title профиля «Секретарь / …» ≠ карточка; слить alias-имя в канон (не по id — coach-боты шарят id Секретаря)
-_BA2 = {'Секретарь / Кликап / Мессенджеры': 'Секретарь', 'Кликап / Мессенджеры': 'Секретарь', 'Оборонные': 'Оборонка', 'Оборонные системы': 'Оборонка'}
+_BA2 = {'Секретарь / Кликап / Мессенджеры': 'Секретарь', 'Кликап / Мессенджеры': 'Секретарь', 'Оборонные': 'Оборонка', 'Оборонные системы': 'Оборонка', 'COMMS': 'Секретарь'}
 for _long, _short in list(_BA2.items()):
     _src = next((x for x in data['bots'] if x.get('name') == _long), None)
     _dst = next((x for x in data['bots'] if x.get('name') == _short), None)
@@ -590,13 +685,16 @@ for _qf, _bn in _Q_TO_BOT.items():
         continue
     for _m in _re.finditer(r'^-\s*\[(waiting[_ ]?user|blocked[_-]?Rost|pending|in[_ ]?progress)[^\]]*\]\s+([\w][\w.-]+)\s*[—:-]\s*(.+)$', _ql, _re.I | _re.M):
         _st, _slug, _rest = _m.group(1).lower().replace(' ', '_'), _m.group(2), _m.group(3).strip()
+        # pending/in_progress уже в «Задачи в очереди» — в qs (attn) не дублируем (Rost 28.10 Payoneer)
+        if _st.startswith('pending') or _st.startswith('in_progress') or _st.startswith('inprogress'):
+            continue
         _ctx = f'QUEUE.md {_slug}'
         if any((_ctx in (q.get('ctx') or '')) or (_slug.lower() in (q.get('ctx') or '').lower()) for q in _bt.get('qs') or []):
             continue
-        # t4183: waiting_user = ждём Rost → red/attn (не «ждём других»); wait=True только если явно ждём чужой ответ
+        # t4183: waiting_user / blocked-Rost → red/attn; чужой wait — только если явно в тексте
         _is_rost = 'waiting_user' in _st or 'blocked' in _st
-        _is_wait = False  # waiting_user ≠ wait-others
-        _bt.setdefault('qs', []).append(dict(q=_rest[:200], st='red' if (_is_rost or 'pending' in _st) else 'green', wait=_is_wait, ctx=_ctx))
+        _is_wait = False
+        _bt.setdefault('qs', []).append(dict(q=_rest[:200], st='red' if _is_rost else 'green', wait=_is_wait, ctx=_ctx))
 
 # === Rost t4074: пункт QUEUE закрыт (done/x/closed) → вопрос «я нужен», ссылающийся на «QUEUE.md <slug>», сам уходит с даша (без тапа Rost).
 _QST = {}
@@ -762,16 +860,38 @@ try:
     __import__('sys').path.insert(0, os.path.dirname(os.path.abspath(__file__))); from census_unsorted import merge as _cmerge; uns = _cmerge(uns, skip=_TG_PLACED)  # Rost 27.10 census needs_sort
 except Exception as _e: print('census merge skip', _e)
 # t4368: Viber «на сортировку» — счётчик из живого списка (census 27.10 мог устареть)
+def _fuzzy_live(title, vmap):
+    k = (title or '').lower()
+    if k in vmap: return vmap[k]
+    # truncated ellipsis titles (… / ...)
+    k2 = k.rstrip('.…').rstrip()
+    for tk, tv in vmap.items():
+        t2 = tk.rstrip('.…').rstrip()
+        if k2 and t2 and (k2.startswith(t2[:12]) or t2.startswith(k2[:12]) or k2 in t2 or t2 in k2):
+            return tv
+    return None
 if _VL:
+    _used_v = set()
     for _u in uns:
         if _u.get('channel') != 'Viber': continue
-        _c = _vmap.get((_u.get('title') or '').lower())
+        _c = _fuzzy_live(_u.get('title'), _vmap)
         _u['unread'] = _c['unread'] if _c else 0
-        if _c: _u['muted'] = bool(_c.get('muted')); _u['last'] = _c.get('last', '')
-    _have_u = {(u.get('title') or '').lower() for u in uns if u.get('channel') == 'Viber'}
-    for _c in _VL_UNS:
-        if _c['title'].lower() in _have_u: continue
+        if _c:
+            _u['muted'] = bool(_c.get('muted')); _u['last'] = _c.get('last', ''); _u['src'] = 'Viber список ' + (_VL.get('at') or '')
+            _used_v.add(_c['title'].lower())
+    for _c in (_VL.get('chats') or []):
+        if any(x in _c['title'].upper() for x in _VL_IGN): continue
+        if not _c.get('unread'): continue
+        if _c['title'].lower() in _used_v: continue
+        if _fuzzy_live(_c['title'], { (u.get('title') or '').lower(): u for u in uns if u.get('channel')=='Viber' }):
+            continue
         uns.append(dict(key='Viber|' + _c['title'], channel='Viber', title=_c['title'], kind='Viber список · нет сферы' + (' · 🔇' if _c.get('muted') else ''), unread=_c['unread'], muted=bool(_c.get('muted')), last=_c.get('last', ''), owner=SEC[0], owner_link=A(SEC[1])))
+# Rost t4997: WA live chats not yet on dash → unsorted (list-only truth)
+for _ch, _c, _src in list(globals().get('_WA_LIVE_UNS') or []):
+    if not _c.get('unread'): continue
+    _key = f"{_ch}|{_c['title']}"
+    if any((u.get('key') or '').lower() == _key.lower() for u in uns): continue
+    uns.append(dict(key=_key, channel=_ch, title=_c['title'], kind=_src + ' · нет сферы' + (' · 🔇' if _c.get('muted') else ''), unread=int(_c.get('unread') or 0), muted=bool(_c.get('muted')), last=_c.get('last', ''), owner=SEC[0], owner_link=A(SEC[1])))
 # t4368: IG Direct непрочитанные без сферы → «на сортировку»
 for _c in _IGD_UNS:
     if any(u.get('key') == 'Instagram|' + _c['title'] for u in uns): continue
@@ -788,16 +908,17 @@ try:
     try: _SL = open('/workspace/notify-watchers/secretary-log.md', encoding='utf-8').read().splitlines()
     except Exception: _SL = []
     for _ln in _SL:
-        _m = _re.match(r'^- (\d{4}-\d\d-\d\d \d\d:\d\d) Bogot\S* \| ([^|]+)\| ([^|]+)\| (.*)$', _ln)
+        _m = _re.match(r'^- (\d{4}-\d\d-\d\d)T(\d\d:\d\d):\d\d[+-]\d\d:\d\d\s*\|\s*([^|]+)\|\s*([^|]+)\|\s*(.*)$', _ln) or _re.match(r'^- (\d{4}-\d\d-\d\d) (\d\d:\d\d) Bogot\S* \| ([^|]+)\| ([^|]+)\| (.*)$', _ln)
         if not _m: continue
-        _w = _m.group(2).strip().lower(); _ch = next((v for k, v in _WCH.items() if _w.startswith(k)), None)
+        _when = f'{_m.group(1)} {_m.group(2)}'
+        _w = _m.group(3).strip().lower(); _ch = next((v for k, v in _WCH.items() if _w.startswith(k)), None)
         if not _ch: continue
         _hs = [h for h in (_H.get(_ch) or _H.get('WhatsApp' if 'WhatsApp' in _ch else _ch) or []) if h]
-        _txt = _m.group(4)
+        _txt = _m.group(5)
         if not any(_re.search(r'(?<!\w)' + _re.escape(h if h.startswith('@') else '@' + h) + r'(?!\w)', _txt, _re.I) for h in _hs): continue
-        _t = _re.sub(r'\s*\([^)]*\)\s*$', '', _m.group(3).strip()).lower()
+        _t = _re.sub(r'\s*\([^)]*\)\s*$', '', _m.group(4).strip()).lower()
         _k = (_ch + '|' + _t)
-        if _m.group(1) > _MENT.get(_k, ''): _MENT[_k] = _m.group(1)
+        if _when > _MENT.get(_k, ''): _MENT[_k] = _when
     _out = []
     for c in _IG.get('chats') or []:
         c = dict(c); _ck = (c.get('channel', '') + '|' + _re.sub(r'\s*\([^)]*\)\s*$', '', c.get('title', ''))).lower()
@@ -822,7 +943,7 @@ data['coverage'] = [
  dict(channel='WhatsApp ESP', src='secretary-log (toast-вочер AX42 → вебхук), с 21.10', live=False, gap=f'видны только чаты из allowlist вочера ({_al("wa-esp-secretary")}) и только когда пришёл toast; остальные непрочитанные WA ESP не видны без экрана AX42'),
  dict(channel='WhatsApp UKR', src='secretary-log (toast-вочер AX42 → вебхук), с 21.10', live=False, gap=f'видны только чаты из allowlist ({_al("wa-ukr-secretary")}); счётчик unread = последний из toast, может устареть'),
  dict(channel='Telegram', src='tg-secretary watcher.log (только статус)', live=False, gap='непрочитанные TG по чатам пока НЕ разобраны (нужна сверка глазами списка чатов TG Desktop); заголовок окна не используем — там сумма сообщений вкл. каналы, не диалоги; '+'вочер ловит только D-Bus-уведомления (muted чаты их не шлют; с 21.10 не было ни одного) → поимённо TG-чаты не видны'),
- dict(channel='Viber', src='список Viber (src/viber_live.json) + бейдж UIA-поллера (heartbeat только пока открыт RDP)', live=False, gap='toast нет (AUMID не найден); БД Viber зашифрована; по чатам — только снимок списка при проверке; mute-чаты бейдж не дают'),
+ dict(channel='Viber', src='список Viber (src/viber_live.json) + бейдж UIA-поллера (heartbeat: RDP-шара или SMB-pull с AX42 каждые ≤10 мин; бейдж только при открытом RDP)', live=False, gap='toast нет (AUMID не найден); БД Viber зашифрована; по чатам — только снимок списка при проверке; mute-чаты бейдж не дают'),
  dict(channel='Instagram', src='IG Direct @rosscompass (src/ig_direct_live.json), раз в день', live=False, gap='только личный @rosscompass; раз в сутки; Requests (запросы) не смотрим; превью не берём'),
  dict(channel='Email', src='только важные (ma_email_important.json)', live=False, gap='не все письма — по правилу Rost'),
 ]
@@ -837,7 +958,16 @@ def _watchers():
             if m: last[m.group(2)] = max(last.get(m.group(2), ''), m.group(1))
             m2 = _re.match(r'^- (\d{4}-\d\d-\d\d \d\d:\d\d)(?: Bogotá)? \| whatsapp-(esp|ukr)-secretary', ln)  # night hygiene 27.10: второй формат лога
             if m2: t2 = m2.group(2).upper(); last[t2] = max(last.get(t2, ''), m2.group(1))
+            m3 = _re.match(r'^- (\d{4}-\d\d-\d\d)T(\d\d:\d\d):\d\d[+-]\d\d:\d\d\s*\|\s*whatsapp-(esp|ukr)-secretary', ln)  # ISO since 30.10
+            if m3: t3 = m3.group(3).upper(); last[t3] = max(last.get(t3, ''), f'{m3.group(1)} {m3.group(2)}')
+            m4 = _re.match(r'^- (\d{4}-\d\d-\d\d)T(\d\d:\d\d):\d\d[+-]\d\d:\d\d\s*\|\s*telegram-secretary', ln)
+            if m4: last['TG'] = max(last.get('TG', ''), f'{m4.group(1)} {m4.group(2)}')
     except FileNotFoundError: pass
+    try:  # 30.10 watcher-fix-20261030-1842: liveness вочера AX42 по SMB (wa_alive_pull.py), тихий канал ≠ «?»
+        _wa = json.load(open('/workspace/ax42-share/wa-alive.json'))
+        for _t in ('UKR', 'ESP'):
+            if _wa.get(_t): last[_t] = max(last.get(_t, ''), _wa[_t][:16].replace('T', ' '))
+    except Exception: pass
     def age(ts, ok_h=24):
         try: return 'ok' if (now - _dt.datetime.strptime(ts[:16], '%Y-%m-%d %H:%M')).total_seconds() < ok_h*3600 else 'warn'
         except Exception: return 'warn'
@@ -880,7 +1010,7 @@ def _watchers():
                 elif _hu is False:
                     W['Viber'] = dict(st='ok', alive=f"UIA поллер ✓ {_mode} · бейджа нет (0 непрочитанных без mute)", ping=_vhb.get('ts','')[:16], ping_lbl='heartbeat')
                 else:
-                    W['Viber'] = dict(st='warn', alive=f"UIA поллер ✓ {_mode} · счётчик НЕ читается (src={_vsrc}) — смотреть список Viber", ping=_vhb.get('ts','')[:16], ping_lbl='heartbeat')
+                    W['Viber'] = dict(st='warn', alive=f"UIA поллер ✓ {_mode} · процесс жив · счётчик НЕ читается (src={_vsrc}{', hb по SMB вне RDP' if _vhb.get('via') == 'smb-pull' else ''}) — смотреть список Viber", ping=_vhb.get('ts','')[:16], ping_lbl='heartbeat')
                 break
         except Exception:
             _vhb = None
@@ -919,13 +1049,16 @@ try:
                     if k not in _ukeys:
                         data['unsorted'].append(dict(key=f"{r['channel']}|{r['chat']}", channel=r['channel'], title=r['chat'], kind='↩ с даша: на сортировку · было ' + g['sphere'], unread=r.get('unread_chat'), last=r.get('last', ''), owner=r.get('owner'), owner_link=r.get('owner_link'), is_group=r.get('is_group')))
                         _ukeys.add(k)
-                elif sp and sp != 'Игнор': _moved.append((sp, dict(r, src_sphere=g['sphere'])))
+                elif sp == 'Игнор': _moved.append(('Игнор', dict(r, src_sphere=g['sphere'], ignored=True)))  # t4997: keep unread in Игнор so dash sum == live
+                elif sp: _moved.append((sp, dict(r, src_sphere=g['sphere'])))
             g['rows'] = keep
         # выбранная сфера для пункта «на сортировку» -> строка в сфере (чтобы не терялось, даже если contacts не сматчился)
         _rest = []
         for u in data['unsorted']:
             o = _MO.get((u.get('key') or '').lower()); sp = o and o.get('sphere')
-            if sp and sp not in ('__unsort', 'Игнор'):
+            if sp == 'Игнор':
+                _moved.append(('Игнор', dict(sender=u.get('title'), chat=u.get('title'), channel=u.get('channel'), unread_chat=u.get('unread'), last=u.get('last', ''), owner=u.get('owner'), owner_link=u.get('owner_link'), src='dash-tap', sorted=True, ignored=True)))
+            elif sp and sp != '__unsort':
                 _moved.append((sp, dict(sender=u.get('title'), chat=u.get('title'), channel=u.get('channel'), unread_chat=u.get('unread'), last=u.get('last', ''), owner=u.get('owner'), owner_link=u.get('owner_link'), src='dash-tap', sorted=True)))
             else: _rest.append(u)
         data['unsorted'] = _rest
@@ -996,6 +1129,34 @@ try:
             if k in _RT and _RT[k].get('tags'): r['tags'] = _RT[k]['tags']
     print('row overrides: cu', _nl, 'state', len(_RS), 'tags', len(_RT))
 except Exception as _e: print('row overrides skip', _e)
+# Rost t4989: auto-clear stale hang на каждом rebuild — без ручного ✓/init.
+# Census 27.10 — разовый снимок; unread без live last (toast/secretary-log/viber_live/ig) = мёртвый → 0.
+# rst ans/skip без нового last после at → unread/pending сброс (hang тоже).
+try:
+    _ac_u = _ac_p = _ac_rst = 0
+    for g in data.get('messengers') or []:
+        for r in g.get('rows') or []:
+            if r.get('cu_tasks'): continue
+            src = r.get('src') or ''
+            last = (r.get('last') or '').strip()
+            rst = r.get('rst') or {}
+            if rst.get('st') in ('ans', 'skip'):
+                at = (rst.get('at') or '')[:10]
+                ld = last[:10]
+                if not ld or (at and ld <= at):
+                    if (r.get('unread_chat') or 0) > 0: r['unread_chat'] = 0; _ac_rst += 1
+                    if r.get('pending'): r['pending'] = None; _ac_rst += 1
+            if 'census 27.10' in src and not last:
+                if (r.get('unread_chat') or 0) > 0:
+                    r['unread_chat'] = 0; _ac_u += 1
+                    r['src'] = src + ' · unread cleared t4989 (stale census, no live last)'
+            # «наш ход» / мёртвый pending без live last и src не ждём-мяч-у-них с свежим last — Dating/контекст уже сняты выше
+    for u in data.get('unsorted') or []:
+        kind = (u.get('kind') or '') + ' ' + (u.get('src') or '')
+        if 'census 27.10' in kind and not (u.get('last') or '').strip() and (u.get('unread') or 0) > 0:
+            u['unread'] = 0; _ac_u += 1
+    print('auto-clear t4989: census/unread', _ac_u, 'rst-cleared', _ac_rst)
+except Exception as _e: print('auto-clear t4989 skip', _e)
 # Rost t4004u: «(N дн.)» — src/hang_since.json: «канал|чат» -> YYYY-MM-DD (Богота), с какого дня висит (непрочитано / наш ход / ждём).
 # Первый раз увидели висящим -> min(дата последнего сообщения, известная hang_since) или сегодня; перестал висеть -> ключ удаляется. Даш считает дни сам от сегодняшней даты Боготы.
 try:
@@ -1012,7 +1173,13 @@ try:
     for g in data['messengers']:
         for r in g['rows']:
             if r.get('cu_tasks') or r.get('planned'): continue
-            _hs(f"{r.get('channel')}|{r.get('chat')}".lower(), r, (r.get('unread_chat') or 0) > 0 or bool(r.get('pending')) or any((u.get('n') or 0) > 0 for u in (r.get('unread_list') or [])))
+            _rst = r.get('rst') or {}
+            _done = _rst.get('st') in ('ans', 'skip') and (not (r.get('last') or '').strip() or (( _rst.get('at') or '')[:10] and (r.get('last') or '')[:10] <= (_rst.get('at') or '')[:10]))
+            # t5002: Игнор/muted-standing не «висят как диалоги» — unread в сумме есть, (N дн.) нет
+            _ign = bool(r.get('ignored')) or g.get('sphere') == 'Игнор' or bool(r.get('muted') and (r.get('unread_chat') or 0) > 50)
+            _hang = (not _done) and (not _ign) and ((r.get('unread_chat') or 0) > 0 or bool(r.get('pending')) or any((u.get('n') or 0) > 0 for u in (r.get('unread_list') or [])))
+            if _ign: r.pop('hang_since', None)
+            _hs(f"{r.get('channel')}|{r.get('chat')}".lower(), r, _hang)
     for u in data.get('unsorted') or []: _hs((u.get('key') or '').lower(), u, (u.get('unread') or 0) > 0)
     json.dump(_HN, open(_HSF, 'w', encoding='utf-8'), ensure_ascii=False, indent=1, sort_keys=True)
     print('hang_since:', len(_HN))
@@ -1026,14 +1193,15 @@ try:
     try: _ML = open('/workspace/notify-watchers/secretary-log.md', encoding='utf-8').read().splitlines()
     except Exception: _ML = []
     for _ln in _ML:
-        _m = re.match(r'^- (\d{4}-\d\d-\d\d \d\d:\d\d) Bogot\S* \| ([^|]+)\| ([^|]+)\| (.*)$', _ln)
+        _m = re.match(r'^- (\d{4}-\d\d-\d\d)T(\d\d:\d\d):\d\d[+-]\d\d:\d\d\s*\|\s*([^|]+)\|\s*([^|]+)\|\s*(.*)$', _ln) or re.match(r'^- (\d{4}-\d\d-\d\d) (\d\d:\d\d) Bogot\S* \| ([^|]+)\| ([^|]+)\| (.*)$', _ln)
         if not _m: continue
-        _w = _m.group(2).strip().lower(); _ch = next((v for k, v in _MW.items() if _w.startswith(k)), None)
+        _when = f'{_m.group(1)} {_m.group(2)}'
+        _w = _m.group(3).strip().lower(); _ch = next((v for k, v in _MW.items() if _w.startswith(k)), None)
         if not _ch: continue
         _hs = [h.lstrip('@') for h in (_MH.get(_ch) or _MH.get('WhatsApp' if 'WhatsApp' in _ch else _ch) or [])] + _MDEF
-        if not any(re.search(r'(?<!\w)@' + re.escape(h) + r'(?!\w)', _m.group(4), re.I) for h in _hs if h): continue
-        _t = re.sub(r'\s*\([^)]*\)\s*$', '', _m.group(3).strip()).lower()
-        _MM[_t] = max(_MM.get(_t, ''), _m.group(1))
+        if not any(re.search(r'(?<!\w)@' + re.escape(h) + r'(?!\w)', _m.group(5), re.I) for h in _hs if h): continue
+        _t = re.sub(r'\s*\([^)]*\)\s*$', '', _m.group(4).strip()).lower()
+        _MM[_t] = max(_MM.get(_t, ''), _when)
     _nm = 0
     for g in data['messengers']:
         for r in g['rows']:
@@ -1085,7 +1253,7 @@ try:
         return who, (t[:117] + '…' if len(t) > 120 else t)
     _LM, _lmi = {}, 0  # (channel, chat_lower) -> [{at, who, text}]; _lmi = порядок строки в логе (одна минута -> позже = новее)
     for _ln in open(LOG, encoding='utf-8'):
-        _m = re.match(r'- (2026-\d\d-\d\d) (\d\d:\d\d)(?:[–-]\d\d:\d\d)? (?:Bogotá|COT)?\s*\|\s*([\w-]+)\s*\|', _ln)
+        _m = re.match(r'- (2026-\d\d-\d\d)T(\d\d:\d\d):\d\d[+-]\d\d:\d\d\s*\|\s*([\w-]+)\s*\|', _ln) or re.match(r'- (2026-\d\d-\d\d) (\d\d:\d\d)(?:[–-]\d\d:\d\d)? (?:Bogotá|COT)?\s*\|\s*([\w-]+)\s*\|', _ln)
         if not _m: continue
         _f = _LMDIR.get(_m.group(3).lower())
         if not _f: continue
