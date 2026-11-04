@@ -1,5 +1,5 @@
 {
- "at": "2026-11-04T16:22:00-05:00",
+ "at": "2026-11-04T16:21:00-05:00",
  "rule": "t5009–11 muted hidden on Rost UI; t5016 IG visible+fresh; live JSON keeps full Unread",
  "channels": {
   "Viber": {
@@ -52,7 +52,8 @@
    "at": "2026-11-04 16:18 Bogotá",
    "match_pending": false,
    "dash_unmuted": 42,
-   "note": "t5045 first live: All chats blue badges (no Unread folder); 15 chats / 46 unread"
+   "note": "t5045 live All chats blue badges; spheres 13/42 + unsorted Яна+Стас 4 = 46; Kir0 in ОФ",
+   "dash_unsorted_unread": 4
   }
  },
  "grand": {
