@@ -1047,7 +1047,7 @@ try:
                 sp = o.get('sphere')
                 if sp == '__unsort':
                     if k not in _ukeys:
-                        data['unsorted'].append(dict(key=f"{r['channel']}|{r['chat']}", channel=r['channel'], title=r['chat'], kind='↩ с даша: на сортировку · было ' + g['sphere'], unread=r.get('unread_chat'), last=r.get('last', ''), owner=r.get('owner'), owner_link=r.get('owner_link'), is_group=r.get('is_group')))
+                        data['unsorted'].append(dict(key=f"{r['channel']}|{r['chat']}", channel=r['channel'], title=r['chat'], kind='↩ с даша: на сортировку · было ' + g['sphere'], unread=r.get('unread_chat'), last=r.get('last', ''), owner=r.get('owner'), owner_link=r.get('owner_link'), is_group=r.get('is_group'), muted=bool(r.get('muted'))))
                         _ukeys.add(k)
                 elif sp == 'Игнор': _moved.append(('Игнор', dict(r, src_sphere=g['sphere'], ignored=True)))  # t4997: keep unread in Игнор so dash sum == live
                 elif sp: _moved.append((sp, dict(r, src_sphere=g['sphere'])))
@@ -1057,9 +1057,9 @@ try:
         for u in data['unsorted']:
             o = _MO.get((u.get('key') or '').lower()); sp = o and o.get('sphere')
             if sp == 'Игнор':
-                _moved.append(('Игнор', dict(sender=u.get('title'), chat=u.get('title'), channel=u.get('channel'), unread_chat=u.get('unread'), last=u.get('last', ''), owner=u.get('owner'), owner_link=u.get('owner_link'), src='dash-tap', sorted=True, ignored=True)))
+                _moved.append(('Игнор', dict(sender=u.get('title'), chat=u.get('title'), channel=u.get('channel'), unread_chat=u.get('unread'), last=u.get('last', ''), owner=u.get('owner'), owner_link=u.get('owner_link'), src='dash-tap', sorted=True, muted=bool(u.get('muted')), ignored=True)))
             elif sp and sp != '__unsort':
-                _moved.append((sp, dict(sender=u.get('title'), chat=u.get('title'), channel=u.get('channel'), unread_chat=u.get('unread'), last=u.get('last', ''), owner=u.get('owner'), owner_link=u.get('owner_link'), src='dash-tap', sorted=True)))
+                _moved.append((sp, dict(sender=u.get('title'), chat=u.get('title'), channel=u.get('channel'), unread_chat=u.get('unread'), last=u.get('last', ''), owner=u.get('owner'), owner_link=u.get('owner_link'), src='dash-tap', sorted=True, muted=bool(u.get('muted')))))
             else: _rest.append(u)
         data['unsorted'] = _rest
         for sp, r in _moved:
@@ -1298,5 +1298,22 @@ try:
         if v: u['last_msgs'] = v; _nlm += 1
     print('last_msgs: rows', _nlm, 'chats in log', len(_LM))
 except Exception as _e: print('last_msgs skip', _e)
+# Rost t5018: muted (колокольчик выкл) в WA/Viber live -> muted=True на ВСЕХ строках (вкл. dash-tap), даш их прячет
+try:
+    _MU = set()
+    for _fn, _ch in (('wa_ukr_live.json', 'WhatsApp UKR'), ('wa_esp_live.json', 'WhatsApp ESP'), ('viber_live.json', 'Viber')):
+        _fp = os.path.join(os.path.dirname(os.path.abspath(__file__)), _fn)
+        if os.path.exists(_fp):
+            for _c in (json.load(open(_fp, encoding='utf-8')).get('chats') or []):
+                if _c.get('muted'): _MU.add((_ch + '|' + (_c.get('title') or '')).lower())
+    _nm = 0
+    for _g in data.get('messengers', []):
+        for _r in _g.get('rows', []):
+            if (str(_r.get('channel')) + '|' + str(_r.get('chat'))).lower() in _MU and not _r.get('muted'): _r['muted'] = True; _nm += 1
+    for _u in data.get('unsorted', []):
+        if (_u.get('key') or '').lower() in _MU and not _u.get('muted'): _u['muted'] = True; _nm += 1
+    print('t5018 muted sync:', len(_MU), 'muted in live, flagged', _nm)
+except Exception as _e:
+    print('t5018 muted sync skip', _e)
 json.dump(data, open(os.path.join(ROOT, 'data-test-ma.json'), 'w'), ensure_ascii=False, indent=1)
 print('rows', sum(len(g['rows']) for g in data['messengers']), 'groups', [g['sphere'] for g in data['messengers']])
