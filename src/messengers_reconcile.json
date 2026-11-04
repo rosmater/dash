@@ -1,5 +1,5 @@
 {
- "at": "2026-11-04 11:38 Bogotá",
+ "at": "2026-11-04T13:20:00-05:00",
  "rule": "t5009–11 muted hidden on Rost UI; t5016 IG visible+fresh; live JSON keeps full Unread",
  "channels": {
   "Viber": {
@@ -9,8 +9,9 @@
    "unmuted_chats": 0,
    "muted_chats": 4,
    "at": "2026-11-04 11:28 Bogotá",
-   "match_pending": true,
-   "note": "after quit+reopen still 4 muted"
+   "match_pending": false,
+   "note": "after quit+reopen still 4 muted",
+   "dash_unmuted": 0
   },
   "WhatsApp UKR": {
    "live_all": 568,
@@ -18,9 +19,10 @@
    "muted_excluded": 540,
    "unmuted_chats": 5,
    "muted_chats": 2,
-   "at": null,
+   "at": "2026-11-04 11:36 Bogotá",
    "match_pending": false,
-   "note": "quit+reopen; ghosts Dima/Solvia/Irina/Maks gone; unmuted 5=28"
+   "note": "quit+reopen; ghosts Dima/Solvia/Irina/Maks gone; unmuted 5=28",
+   "dash_unmuted": 28
   },
   "WhatsApp ESP": {
    "live_all": 449,
@@ -46,6 +48,8 @@
   "live_unmuted_wa_viber": 316,
   "ig_hidden": 1
  },
- "ok": false,
- "note": "partial — UKR/ESP resnap running; UI hide muted+IG applied"
+ "ok": true,
+ "note": "13:20 обед: live-снапы = даш 1:1 (ESP 288/81 чат, UKR 28/5, Viber 0 unmuted, IG 1); muted скрыты. После снапов toasts только в уже известных чатах (Анатолий ремонты, Maks Sinar 11:44, Дима/Ольга; TG Sara/Michele $$$ — TG unread на даше не считается by design). Дыр не найдено; свежий resnap — night hygiene 22:45.",
+ "lost": 0,
+ "mismatch": 0
 }
