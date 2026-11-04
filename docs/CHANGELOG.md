@@ -1,3 +1,9 @@
+# 2026-11-04 t4924–25 — ✓ CU for check UX
+
+- **Баг:** ✓ на 📄 отчёте (Табакевич БЛОКИРОВКА) → только toast, пункт оставался; «На проверке» как у вопросов не появлялось.
+- **Причины:** (1) local hide только по тексту имени — без fallback по `cu` id; (2) cuDone писал в atLS, но не в oq → не было в «☑ На проверке» у бота; (3) снимок ma_clickup устарел после drain (задача уже to do в CU).
+- **Фикс:** botTHid + match by `e.cu===t.id`; cuDone → oq `cu-<id>` в «На проверке»; ma_clickup drop drained; rebuild+push.
+
 # 2026-11-03 t4800 — убрана серая подпись под «Отчёты ClickUp» (need=ok / 📄/🙋) — хватает title при hover.
 
 # 2026-11-03 t4797 — ✓ CU for check (`cu_ok`)
