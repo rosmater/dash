@@ -1,1 +1,49 @@
-{"at":"2026-11-04 11:24 Bogotá","channel":"WhatsApp UKR","filter":"Unread","filter_count":10,"chats":[{"title":"Дима от Ольги Испания","unread":1,"muted":false},{"title":"Ростислав - Анатолий ремонты","unread":15,"muted":false},{"title":"Rostyslav - Solvia","unread":1,"muted":false},{"title":"Ирина Шекель (колумбийский)","unread":2,"muted":false},{"title":"Мария Алегрия Управляющая Компания","unread":5,"muted":false},{"title":"ЧАТ ВЗАИМОПОМОЩИ ОТ ОКУПАС","unread":380,"muted":true},{"title":"Comunidad Calle Olivino 3","unread":160,"muted":true},{"title":"Дезинфекция квартиры","unread":1,"muted":false},{"title":"Аукционы Испании","unread":1,"muted":false,"note":"green dot, no number -> 1"},{"title":"+380 93 361 4033","unread":1,"muted":false}],"sum":567,"note":"list-only; no chat opened by me (a chat Maks Sinar Адвокат Испания was already open in the WA pane before I started)"}
+{
+  "at_bogota": "2026-11-04T11:35:57-05:00",
+  "channel": "WhatsApp UKR",
+  "filter": "Unread",
+  "filter_count": 7,
+  "chats": [
+    {
+      "title": "Ростислав - Анатолий ремонты",
+      "unread": 20,
+      "muted": false
+    },
+    {
+      "title": "Мария Алегрия Управляющая Компания",
+      "unread": 5,
+      "muted": false
+    },
+    {
+      "title": "ЧАТ ВЗАИМОПОМОЩИ ОТ ОКУПАС",
+      "unread": 380,
+      "muted": true
+    },
+    {
+      "title": "Comunidad Calle Olivino 3",
+      "unread": 160,
+      "muted": true
+    },
+    {
+      "title": "Дезинфекция квартиры",
+      "unread": 1,
+      "muted": false
+    },
+    {
+      "title": "Аукционы Испании",
+      "unread": 1,
+      "muted": false,
+      "green_dot_only": true
+    },
+    {
+      "title": "+380 93 361 4033",
+      "unread": 1,
+      "muted": false
+    }
+  ],
+  "sum": 568,
+  "unmuted_sum": 28,
+  "muted_sum": 540,
+  "note": "WhatsApp fully quit (taskbar Close window) and relaunched in same RDP session; All then Unread. 7 chats; unmuted 5 chats = 28 unread (20+5+1+1+1, green-dot-only counted as 1); muted 2 chats = 540 (380+160). Earlier stale view showed Maks Sinar/Dima/Rostyslav-Solvia/Irina Shekel which are no longer unread after relaunch.",
+  "at": "2026-11-04 11:38 Bogotá"
+}

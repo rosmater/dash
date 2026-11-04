@@ -280,7 +280,7 @@ def _apply_wa_live(fname, channel, label):
         L = json.load(open(fp, encoding='utf-8'))
     except Exception as e:
         print(label + ' skip', e); return
-    at = (L.get('at') or '')[:10]
+    at = (L.get('at') or L.get('at_bogota') or '')[:10]
     today = (_dtx.datetime.now(_dtx.timezone.utc) - _dtx.timedelta(hours=5)).strftime('%Y-%m-%d')
     try:
         age = (_dtx.datetime.strptime(today,'%Y-%m-%d') - _dtx.datetime.strptime(at,'%Y-%m-%d')).days if at else 99
@@ -289,7 +289,7 @@ def _apply_wa_live(fname, channel, label):
     if age > 1:
         print(label + ' STALE', L.get('at'), 'age', age, '— not applied'); return
     vmap = {c['title'].lower(): c for c in (L.get('chats') or [])}
-    src = label + ' ' + (L.get('at') or '')
+    src = label + ' ' + (L.get('at') or L.get('at_bogota') or '')
     seen = set(); applied = 0
     for _sp, _rs in groups.items():
         for _r in _rs:
