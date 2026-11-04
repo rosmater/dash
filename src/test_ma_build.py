@@ -292,29 +292,36 @@ def _apply_wa_live(fname, channel, label):
         if 'title' not in _c and _c.get('name'): _c['title'] = _c['name']  # live json may use name
     vmap = {c['title'].lower(): c for c in (L.get('chats') or [])}
     src = label + ' ' + (L.get('at') or L.get('at_bogota') or '')
-    seen = set(); applied = 0
-    for _sp, _rs in groups.items():
-        for _r in _rs:
-            if _r.get('channel') != channel: continue
-            key = (_r.get('chat') or '').lower()
-            c = vmap.get(key)
-            # fuzzy: title startswith / contained
-            if not c:
-                for tk, tv in vmap.items():
-                    if key and len(key) >= 8 and (key in tk or tk in key):
-                        c = tv; break
-            if c:
-                _r['unread_chat'] = int(c.get('unread') or 0)
-                if c.get('last'): _r['last'] = c.get('last')
-                _r['muted'] = bool(c.get('muted'))
-                _r['src'] = src
-                seen.add(c['title'].lower()); applied += 1
-            else:
-                # live list is source of truth: not in Unread filter → 0
-                if (_r.get('unread_chat') or 0) > 0:
-                    _r['unread_chat'] = 0
-                    _r['src'] = (_r.get('src') or '') + ' · ' + src + ': нет в Unread'
-                    applied += 1
+    # t5019 fix: live список = истина. 1) точное совпадение; 2) fuzzy 1:1 (живой чат не берём дважды);
+    # unread/muted ТОЛЬКО из live; строки канала не в live -> unread 0 и muted снимаем (старые флаги не тянем)
+    seen = set(); applied = 0; cleared_mu = 0
+    globals().setdefault('_WA_LIVE_MAP', {})[channel] = (vmap, src, seen)
+    _chrows = [_r for _rs in groups.values() for _r in _rs if _r.get('channel') == channel]
+    _match = {}
+    for _r in _chrows:
+        key = (_r.get('chat') or '').lower()
+        if key in vmap and key not in seen: _match[id(_r)] = vmap[key]; seen.add(key)
+    for _r in _chrows:
+        if id(_r) in _match: continue
+        key = (_r.get('chat') or '').lower()
+        for tk, tv in vmap.items():
+            if tk in seen: continue
+            if key and min(len(key), len(tk)) >= 5 and max(len(key), len(tk)) >= 8 and (key in tk or tk in key):
+                _match[id(_r)] = tv; seen.add(tk); break
+    for _r in _chrows:
+        c = _match.get(id(_r))
+        if c:
+            _r['unread_chat'] = int(c.get('unread') or 0)
+            if c.get('last'): _r['last'] = c.get('last')
+            _r['muted'] = bool(c.get('muted'))
+            _r['src'] = src; _r['live_title'] = c['title']
+            applied += 1
+        else:
+            if _r.get('muted'): _r['muted'] = False; cleared_mu += 1
+            if (_r.get('unread_chat') or 0) > 0:
+                _r['unread_chat'] = 0
+                _r['src'] = (_r.get('src') or '') + ' · ' + src + ': нет в Unread'
+                applied += 1
     # new chats from live not on dash yet → unsorted-ish via sphere byname
     byname = {}
     for _sp, _rs in groups.items():
@@ -326,11 +333,11 @@ def _apply_wa_live(fname, channel, label):
         if sp and sp in _ORD:
             groups[sp].append(dict(sender=c['title'], chat=c['title'], channel=channel, unread_chat=int(c.get('unread') or 0), muted=bool(c.get('muted')), items=0, kinds={}, last=c.get('last',''), binding=None,
                                    src=src, src_sphere=sp, owner='Секретарь', owner_link='grokbot://app/v1/agent?id=d3a12cc9-cf8a-41e5-b34a-76d4ab9eb9fd', key=channel+'|'+c['title'], hang_since=(L.get('at') or '')[:10]))
-            added += 1
+            added += 1; seen.add(tk)
         else:
             # leave for unsorted: append via global later — stash
             globals().setdefault('_WA_LIVE_UNS', []).append((channel, c, src))
-    print(label + ':', len(vmap), 'unread chats, applied', applied, 'added', added)
+    print(label + ':', len(vmap), 'unread chats, matched', len(seen), 'applied', applied, 'added', added, 'stale muted cleared', cleared_mu)
 
 _apply_wa_live('wa_ukr_live.json', 'WhatsApp UKR', 'WA UKR live')
 _apply_wa_live('wa_esp_live.json', 'WhatsApp ESP', 'WA ESP live')
@@ -894,6 +901,20 @@ for _ch, _c, _src in list(globals().get('_WA_LIVE_UNS') or []):
     _key = f"{_ch}|{_c['title']}"
     if any((u.get('key') or '').lower() == _key.lower() for u in uns): continue
     uns.append(dict(key=_key, channel=_ch, title=_c['title'], kind=_src + ' · нет сферы' + (' · 🔇' if _c.get('muted') else ''), unread=int(_c.get('unread') or 0), muted=bool(_c.get('muted')), last=_c.get('last', ''), owner=SEC[0], owner_link=A(SEC[1])))
+# t5019 fix: WA «на сортировку» — unread/muted только из live (census/secretary-log не тянут старые числа и флаги)
+for _ch, (_wm, _wsrc, _seen0) in (globals().get('_WA_LIVE_MAP') or {}).items():
+    _placed = {(r.get('live_title') or r.get('chat') or '').lower() for g in data['messengers'] if g['sphere'] in LIFE for r in g['rows'] if r.get('channel') == _ch and r.get('src') == _wsrc}
+    _wu = {}
+    for _u in uns:
+        if _u.get('channel') != _ch: continue
+        _t = (_u.get('title') or '').lower()
+        _c = _wm.get(_t) if _t not in _placed else None
+        if _c and _t in _wu: _c = None  # дубль -> 0
+        _u['unread'] = int(_c.get('unread') or 0) if _c else 0
+        _u['muted'] = bool(_c.get('muted')) if _c else False
+        if _c: _u['src'] = _wsrc; _wu[_t] = 1
+    _n = sum(1 for _u in uns if _u.get('channel') == _ch and _u.get('unread'))
+    print('t5019 WA uns', _ch, 'с unread', _n)
 # t4368: IG Direct непрочитанные без сферы → «на сортировку»
 for _c in _IGD_UNS:
     if any(u.get('key') == 'Instagram|' + _c['title'] for u in uns): continue
