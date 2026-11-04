@@ -51,7 +51,7 @@
    "muted_chats": 0,
    "at": "2026-11-04 16:18 Bogotá",
    "match_pending": false,
-   "dash_unmuted": null,
+   "dash_unmuted": 42,
    "note": "t5045 first live: All chats blue badges (no Unread folder); 15 chats / 46 unread"
   }
  },
