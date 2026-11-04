@@ -1,6 +1,6 @@
 {
   "at": "2026-11-04 11:38 Bogotá",
-  "rule": "t5009–12 dash shows unmuted needing Rost reaction; muted+IG hidden on UI; live JSON keeps full Unread",
+  "rule": "t5009–11 muted hidden on Rost UI; t5016 IG visible+fresh; live JSON keeps full Unread",
   "channels": {
     "Viber": {
       "live_all": 2203,
@@ -34,9 +34,9 @@
     },
     "Instagram": {
       "live": 1,
-      "dash_hidden": true,
+      "dash_hidden": false,
       "at": "2026-11-04 11:36 Bogotá",
-      "note": "t5012 hide on Rost dash; refresh 11:36 still Ali=1"
+      "note": "t5016 restore on dash; refresh kept Ali unread=1"
     }
   },
   "grand": {

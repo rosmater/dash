@@ -1156,7 +1156,7 @@ function maAttn(d){const out=[];
 function maDlgKeys(d){const K=new Set();(d.messengers||[]).forEach(g=>(g.rows||[]).forEach(r=>{if(r.planned||r.cu_tasks||/\(все чаты\)/.test(r.sender||''))return;
   if(r.unread_list){r.unread_list.forEach(u=>{if(u.n>0&&!igHide(r.channel+'|'+u.chat))K.add(r.channel+'|'+u.chat)});return}
   if(igHide(r.channel+'|'+r.chat)||rDone(r)||maMuted(r))return;if((+r.unread_chat||0)>0||(r.pending&&!maWeWait(r)))K.add(r.channel+'|'+r.chat)}));
- (d.unsorted||[]).forEach(u=>{if(/\(все чаты\)/.test(u.key||'')||igHide(u.key)||u.muted||u.ignored||(u.channel==='Instagram')||/^Instagram\|/.test(u.key||''))return;if((+u.unread||0)>0||!maSph(u.key))K.add(u.key)});Object.values(igMap(d)).filter(igMent).forEach(x=>K.add(x.id));return K}
+ (d.unsorted||[]).forEach(u=>{if(/\(все чаты\)/.test(u.key||'')||igHide(u.key)||u.muted||u.ignored)return;if((+u.unread||0)>0||!maSph(u.key))K.add(u.key)});Object.values(igMap(d)).filter(igMent).forEach(x=>K.add(x.id));return K}
 function maCount(d){if(d.kind==='msgs')return maDlgKeys(d).size;
  if(d.kind==='unsorted')return maUnsTodo(d);
  if(d.kind==='assistants'||d.kind==='bots')return (d.bots||[]).reduce((a,b)=>a+(b.qs||[]).filter(q=>!q.answered).length,0);return 0}
@@ -1290,7 +1290,7 @@ function unsortedHTML(d){const U=maUns(d),S0=d.spheres||[];if(!U.length)return i
 /* Rost t3980–81: есть непрочитанное → НЕ «ждём ответ» (флаг ожидания снимается); после ✓/✕ строка уходит из активной очереди (в «без сообщений», бледная) */
 const mUn=r=>(+r.unread_chat||0)||((r.unread_list||[]).reduce((a,u)=>a+(+u.unread||0),0))||(+r.unread||0);
 /* Rost t5009–11 HARD: muted — бот считает в live JSON, на даше Rost не видит (нужна только его реакция) */
-const maMuted=r=>!!(r&&(r.muted||r.ignored||r.channel==='Instagram')); /* t5012: IG не на даше Rost */
+const maMuted=r=>!!(r&&(r.muted||r.ignored)); /* t5016: IG обратно на даш — только актуализировать список */
 const maWait=r=>!maMuted(r)&&!rDone(r)&&!!((r.pending&&!r.planned)||mUn(r)>0||r.watcher_st==='red'||r.watcher_st==='warn'); /* Rost 26.10 «не вижу телеграм»: канал со сломанным/🟡 вочером всегда виден в основном списке */ /* Rost 26.10: без висящих -> в выпадающий «Без сообщений» */
 function maCov(d){const C=d.coverage||[];if(!C.length)return '';return `<details class="card mrow" style="margin-top:14px"><summary><b>Покрытие: это НЕ все непрочитанные</b><span class="note">снимок из логов вочеров, не живой экран</span></summary><div class="mbody"><ul>${C.map(c=>`<li>${mLBL(c.channel)} <span class="note">${esc(c.src)}</span><br>⚠️ ${esc(c.gap)}</li>`).join('')}</ul></div></details>`}
 function maNoBind(G){const by={};G.forEach(g=>g.rows.filter(r=>!r.binding&&!r.planned&&!r.cu_tasks).forEach(r=>(by[r.channel]=by[r.channel]||[]).push(r)));const ks=Object.keys(by);if(!ks.length)return '';
