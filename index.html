@@ -572,7 +572,8 @@ function atLS(){try{return JSON.parse(localStorage.getItem(ATK)||'{}')}catch(e){
 function atSave(o){try{localStorage.setItem(ATK,JSON.stringify(o))}catch(e){}}
 const atKey=(d,x)=>(d.id||'overview')+'|'+x.grp+'|'+x.text;
 function attn(d){const it=attnRaw(d),O=atLS(),did=d.id||'overview',keys=new Set(it.map(x=>atKey(d,x)));let ch=false;
- for(const k in O){if(O[k].dir===did&&!keys.has(k)){delete O[k];ch=true}else if(O[k].dir===did&&!O[k].ok&&chkAge(O[k].t)>CHK_TTL){O[k].ok=1;ch=true}}if(ch)atSave(O);
+ /* t4940: не удалять CU ✓ hides (.cu) — 📄 need=ok нет в attnRaw, иначе ✓ тост без скрытия (Мишель/Топасио) */
+ for(const k in O){if(O[k].dir===did&&!keys.has(k)&&!O[k].cu){delete O[k];ch=true}else if(O[k].dir===did&&!O[k].ok&&chkAge(O[k].t)>CHK_TTL){O[k].ok=1;ch=true}}if(ch)atSave(O);
  return it.filter(x=>!O[atKey(d,x)])}
 function atBot(d,x){const A=Dash.D&&Dash.D.directions.find(z=>z.kind==='bots'),B=(A&&A.bots)||[];let n=null;
  const m=/^🤖 (.+)$/.exec(x.grp||'');if(m)n=m[1];else if(d.id==='of'&&/ферм|farm/i.test(x.grp||''))n='Фермовод';else n=AT_OWN[d.id||'overview']||'Секретарь';
@@ -1142,7 +1143,7 @@ function maUns(d){const U=[...(d.unsorted||[])].filter(u=>!igHide(u.key)),seen=n
  (d.messengers||[]).forEach(g=>(g.rows||[]).forEach(r=>{if(!(maSphRaw(r.channel+'|'+r.chat)==='__unsort'&&!r.cu_tasks&&!r.unread_list)&&(r.binding||r.planned||r.cu_tasks||r.unread_list||r.sorted||/\(все чаты\)/.test(r.sender||"")))return;const k=r.channel+'|'+r.chat;if(seen.has(k)||igHide(k))return;seen.add(k);
   U.push({key:k,channel:r.channel,is_group:r.is_group,title:r.is_group?r.chat:r.sender+(r.chat!==r.sender?' в «'+r.chat+'»':''),kind:'нет контакта/карточки · '+g.sphere,unread:r.unread_chat,last:r.last,owner:r.owner,owner_link:r.owner_link})}));return U}
 const maUnsTodo=d=>maUns(d).filter(u=>!maSph(u.key)).length;
-const botTk=t=>'ClickUp for check: '+(t.name||t.id);const botTHid=(d,b,t)=>{const O=atLS();if(O[atKey(d,{grp:'🤖 '+b.name,text:botTk(t)})])return true;return Object.values(O).some(e=>e&&e.cu&&e.cu===(t.id||'')&&!e.ok)};/* t4168+t4925: ✓ скрывает по ключу имени И по cu id (иначе тост без скрытия) */
+const botTk=t=>'ClickUp for check: '+(t.name||t.id);const botTHid=(d,b,t)=>{const id=t.id||'',O=atLS();if(O[atKey(d,{grp:'🤖 '+b.name,text:botTk(t)})])return true;if(Object.values(O).some(e=>e&&e.cu&&e.cu===id&&!e.ok))return true;try{const Q=oqLS()['cu-'+id];if(Q&&!Q.ok)return true}catch(e){}return false};/* t4168+t4925+t4940: name-key / at.cu / oq cu-id — 📄 reports too */
 function maAttn(d){const out=[];
  if(d.kind==='bots')(d.bots||[]).forEach(b=>{(b.qs||[]).forEach(q=>{if(q.st==='red'&&!q.answered)out.push({grp:'🤖 '+b.name,text:q.q,why:'встало',cls:''})});revGroups(b).forEach(g=>out.push({grp:'🤖 '+b.name,text:g+': '+(b.qs||[]).filter(q=>!q.answered&&q.grp===g).length+' на разборе — не закончено',why:'на разборе',cls:''}));
   /* Rost t4168u: шапка «🔴 Требует внимания · N» = сумма по ВСЕМ ботам, как в их карточках: + 🔴 ClickUp for check (need≠ok). Упавшие рутины — свой блок «🔴 Рутина упала» */
@@ -1447,9 +1448,12 @@ function oqAct(op,b,q){try{const A=JSON.parse(localStorage.getItem(OQA)||'[]');A
 function oqLS(){try{return JSON.parse(localStorage.getItem(OQK)||'{}')}catch(e){return {}}}
 function oqSave(o){try{localStorage.setItem(OQK,JSON.stringify(o))}catch(e){}}
 function oqNow(){const t=new Date(),p=n=>String(n).padStart(2,'0');return `${t.getFullYear()}-${p(t.getMonth()+1)}-${p(t.getDate())} ${p(t.getHours())}:${p(t.getMinutes())}`}
-function maOqApply(){const d=Dash.D&&Dash.D.directions.find(x=>x.kind==='bots');if(!d)return;const O=oqLS(),oq=d.oq||{},built=oq.built||'',rep=oq.reopened||{},all=new Set();
- (d.bots||[]).forEach(b=>{if(BOT_ALIAS[b.name])b.name=BOT_ALIAS[b.name];b._all=b._all||b.qs||[];b._all.forEach(q=>all.add(q.qid))});
- for(const k in O){const e=O[k];if(!all.has(k)&&(built>=e.t||e.ok))delete O[k];else if(all.has(k)&&rep[k]&&rep[k]>=e.t){delete O[k];(d.bots||[]).forEach(b=>b._all.forEach(q=>{if(q.qid===k)q.returned=true}))}else if(!e.ok&&((built>e.t&&chkAge(e.t)>36e5)||chkAge(e.t)>CHK_TTL))e.ok=1}
+function maOqApply(){const d=Dash.D&&Dash.D.directions.find(x=>x.kind==='bots');if(!d)return;const O=oqLS(),oq=d.oq||{},built=oq.built||'',rep=oq.reopened||{},all=new Set(),cuLive=new Set();
+ (d.bots||[]).forEach(b=>{if(BOT_ALIAS[b.name])b.name=BOT_ALIAS[b.name];b._all=b._all||b.qs||[];b._all.forEach(q=>all.add(q.qid));(b.tasks||[]).concat(b.reports||[]).forEach(t=>{if(t&&t.id)cuLive.add(t.id)})});
+ for(const k in O){const e=O[k];
+  /* t4940: cu-<taskId> from CU ✓ — не стирать пока задача ещё for check в снимке (иначе «На проверке» пусто и 📄 не скрывается) */
+  if(k.indexOf('cu-')===0){const id=k.slice(3);if(!cuLive.has(id)&&(built>=e.t||e.ok))delete O[k];else if(!e.ok&&chkAge(e.t)>CHK_TTL)e.ok=1;continue}
+  if(!all.has(k)&&(built>=e.t||e.ok))delete O[k];else if(all.has(k)&&rep[k]&&rep[k]>=e.t){delete O[k];(d.bots||[]).forEach(b=>b._all.forEach(q=>{if(q.qid===k)q.returned=true}))}else if(!e.ok&&((built>e.t&&chkAge(e.t)>36e5)||chkAge(e.t)>CHK_TTL))e.ok=1}
  oqSave(O);(d.bots||[]).forEach(b=>{b.qs=b._all.filter(q=>!O[q.qid]);b._chk=Object.entries(O).filter(([k,e])=>e.bot===b.name&&!e.ok)})}
 function maPL(b,t){t=t.replace(/\n/g,' ');let u;do{u='grokbot://app/v1/prompt?id='+(b.id||'d3a12cc9-cf8a-41e5-b34a-76d4ab9eb9fd')+'&text='+encodeURIComponent(t);t=t.slice(0,-10)+'…'}while(u.length>1100);return u}
 function maBQ(a){const d=Dash.D.directions.find(x=>x.kind==='bots');const b=d.bots[+a.dataset.bi];return [b,b.qs[+a.dataset.i]]}
