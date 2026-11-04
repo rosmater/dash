@@ -288,6 +288,8 @@ def _apply_wa_live(fname, channel, label):
         age = 99
     if age > 1:
         print(label + ' STALE', L.get('at'), 'age', age, '— not applied'); return
+    for _c in (L.get('chats') or []):
+        if 'title' not in _c and _c.get('name'): _c['title'] = _c['name']  # live json may use name
     vmap = {c['title'].lower(): c for c in (L.get('chats') or [])}
     src = label + ' ' + (L.get('at') or L.get('at_bogota') or '')
     seen = set(); applied = 0
