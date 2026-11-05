@@ -1,3 +1,8 @@
+## 2026-11-05 t5154 sphere blocks = live
+- Root cause: per-dialog сверка покрывала monitor+list, но не блоки сфер; `base-loft-rental-search.md` держал Miguel Calipso / Alnago (ждём, unread 0) в Личном; enforce оставлял `_is_wait` вне live.
+- Fix: drop wait-only not in live; promote live-from-📥 into sphere; reconcile + tests 4-way live=list=monitor=spheres (`sphere_chats`/`sphere_sum`).
+- WA ESP after: Личное Nutibara/JOHANN/Porteria; Дейтинг 7 numbers; Недвижимость Алла+Ирина; ОФ Sara+Julian = 14/25. Miguel/Alnago removed.
+
 ## 2026-11-05 t5149/t5150 TG list-only snap harden
 - Root cause: during TG «Новые» сверка a left-click on the chat list opened Kir0[4K] and marked it read.
 - Fix: `/home/box/bin/tg-novye-list-snap.sh` + `tg-list-scroll-safe.sh` (wheel click 4/5 only @ 280,400); `tg-open-novye.sh` parks pointer neutrally, rail-only fallback click; `tg-verify-empty-pane.py` before/after; `tg-count-list-badges.py` badge_drop flag; `accidental_open` in `tg_novye_snap_meta.json`; lock always released.
