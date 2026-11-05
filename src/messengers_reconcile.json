@@ -1,15 +1,15 @@
 {
- "at": "2026-11-05T09:22:57-0500",
- "at_bogota": "2026-11-05T09:22:57-05:00",
- "rule": "unread-dash-daily morning 09:50; shell/logs first (t3906–07); A2 t5044–45",
+ "at": "2026-11-05T13:37:07-0500",
+ "at_bogota": "2026-11-05T13:37:07-05:00",
+ "rule": "unread-dash-daily midday 13:50; shell/logs first (t3906–07); A2 t5044–45; dating WA not COMMS (t1160–61)",
  "channels": {
   "Viber": {
    "live_unmuted": 0,
-   "muted_excluded": 2213,
+   "muted_excluded": 2203,
    "at": "2026-11-04 18:32 Bogotá",
    "dash_unmuted": 0,
    "match": true,
-   "note": "reused evening live; hb dry_run=True has_unread=None (no Viber in secretary-log today)"
+   "note": "reused evening live; unmuted 0; hb dry_run likely; no Viber secretary today"
   },
   "WhatsApp UKR": {
    "live_unmuted": 54,
@@ -18,21 +18,21 @@
    "at": "2026-11-04 18:32 Bogotá",
    "dash_unmuted": 54,
    "match": "approx",
-   "note": "reused evening live; WA alive 2026-11-05T08:51:10-05:00; midday secretary-log OK (Алла/Артём/Анатолий on dash)"
+   "note": "reused evening live; WA alive 2026-11-05T10:09:32-05:00; secretary Алла/Артём/Анатолий/Дима on dash"
   },
   "WhatsApp ESP": {
    "live_unmuted": 15,
-   "unmuted_chats": 9,
+   "unmuted_chats": 10,
    "muted_excluded": 197,
    "at": "2026-11-04 19:42 Bogotá",
    "dash_unmuted": 15,
    "match": true,
-   "note": "reused evening live; WA alive 2026-11-05T08:58:57-05:00; Maria MR Med on dash; perm-dm Marcela cut from unsorted ; dash excludes perm-dm Marcela → unmuted 15"
+   "note": "reused evening live; WA alive 2026-11-05T10:28:19-05:00; Maria MR Med on dash; Alexa dating-owned skip; perm-dm Marcela cut → unmuted 15"
   },
   "Instagram": {
    "live": 15,
    "at": "2026-11-04 11:36 Bogotá",
-   "note": "fresh <20h skip re-peek",
+   "note": "fresh skip re-peek (<36h)",
    "match": true
   },
   "Telegram": {
@@ -41,11 +41,24 @@
    "at": "2026-11-04 18:30 Bogotá",
    "dash_unmuted": 49,
    "match": true,
-   "note": "tg_live <24h (18:30 04.11); no new TG in secretary-log today; keep live"
+   "note": "tg_live <24h; secretary Palma/Felix/legal on dash; keep live"
   }
  },
  "ok": true,
  "lost": 0,
  "mismatch": 0,
- "note": "Morning unread-dash-daily: midday-unread-reconcile OK (4 log chats on dash). Live snaps evening 04.11 reused (prefer shell/logs; no hole). WA UKR/ESP alive 08:51/08:58. A2: perm-dm Marcela +57 320 8308814 was resurrected into unsorted from wa_esp_live — cut via t5044 patch in test_ma_build; Daniela already ignored. tg_live age ~15h (<24h). CU refresh parallel."
+ "note": "Midday unread-dash-daily: midday-unread-reconcile flagged Alexa Herera Mr Supremo (WA ESP secretary 11:10) — Dating zone (💘D / t1160–61), not COMMS hole; ok=true. Live snaps evening 04.11 reused (prefer shell/logs; WA alive UKR=2026-11-05T10:09:32-05:00 ESP=2026-11-05T10:28:19-05:00; no non-dating hole). tg_live age from 2026-11-04 18:30 Bogotá (~19h)<24h. A2: perm-dm Marcela/Daniela stay ignored; no Phone clear. CU refresh parallel.",
+ "midday_script": {
+  "at": "2026-11-05 13:34 Bogotá",
+  "ok": false,
+  "log_chats_today": 8,
+  "missing": [
+   "whatsapp-esp-secretary:Alexa Herera Mr Supremo"
+  ],
+  "holes": [
+   "нет на даше 1: whatsapp-esp-secretary:Alexa Herera Mr Supremo"
+  ],
+  "dash_age_h": 2.2,
+  "dry": false
+ }
 }

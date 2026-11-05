@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-05 09:23",
+ "generated": "2026-11-05 13:38",
  "source": "live filter_tasks 2026-11-04 (t5019); base mapping cu-rost-dated.csv 27.10",
  "note": "TZ cu-dash-sort §2: mapped, not shown elsewhere on dash",
  "by_dir": {
@@ -422,20 +422,6 @@
     "priority": "normal"
    },
    {
-    "id": "86bcmtpna",
-    "name": "GO: Smart Fit мама — очно в зале carta de cancelación",
-    "url": "https://app.clickup.com/t/86bcmtpna",
-    "status": "to do",
-    "due": "2026-11-04",
-    "due_t": "04:00",
-    "parent": "",
-    "list": "Personal",
-    "cat": "Личное",
-    "lead": "manual",
-    "bday": false,
-    "priority": "normal"
-   },
-   {
     "id": "86bcn3c3u",
     "name": "Проверить команду на iPhone для передачи шагов из «Здоровья» боту",
     "url": "https://app.clickup.com/t/86bcn3c3u",
@@ -463,20 +449,6 @@
     "priority": "normal"
    },
    {
-    "id": "86bcgc3ze",
-    "name": "ЗАПИСЬ НА СОЗВОН С СОЗВОН Ed (JERZ) Slash банк Novax — вт 20.10 15:00 CO",
-    "url": "https://app.clickup.com/t/86bcgc3ze",
-    "status": "to do",
-    "due": "2026-11-05",
-    "due_t": "04:00",
-    "parent": "",
-    "list": "Personal",
-    "cat": "Личное",
-    "lead": "manual",
-    "bday": false,
-    "priority": "urgent"
-   },
-   {
     "id": "86b6qphf1",
     "name": "Колумбия записатся на СОН ??",
     "url": "https://app.clickup.com/t/86b6qphf1",
@@ -491,18 +463,32 @@
     "priority": "normal"
    },
    {
-    "id": "86bcnrmt7",
-    "name": "🥊 Бокс 10:00–11:30 (Johann Ruiz)",
-    "url": "https://app.clickup.com/t/86bcnrmt7",
+    "id": "86bcmtpna",
+    "name": "GO: Smart Fit мама — очно в зале carta de cancelación",
+    "url": "https://app.clickup.com/t/86bcmtpna",
     "status": "to do",
-    "due": "2026-11-05",
-    "due_t": "11:30",
+    "due": "2026-11-06",
+    "due_t": "04:00",
     "parent": "",
     "list": "Personal",
     "cat": "Личное",
     "lead": "manual",
     "bday": false,
     "priority": "normal"
+   },
+   {
+    "id": "86bcgc3ze",
+    "name": "ЗАПИСЬ НА СОЗВОН С СОЗВОН Ed (JERZ) Slash банк Novax — вт 20.10 15:00 CO",
+    "url": "https://app.clickup.com/t/86bcgc3ze",
+    "status": "to do",
+    "due": "2026-11-06",
+    "due_t": "04:00",
+    "parent": "",
+    "list": "Personal",
+    "cat": "Личное",
+    "lead": "manual",
+    "bday": false,
+    "priority": "urgent"
    },
    {
     "id": "86b7k95k6",
@@ -702,6 +688,20 @@
     "cat": "Личное",
     "lead": "manual",
     "bday": true
+   },
+   {
+    "id": "86bcnrmt7",
+    "name": "🥊 Бокс 10:00–11:30 (Johann Ruiz)",
+    "url": "https://app.clickup.com/t/86bcnrmt7",
+    "status": "to do",
+    "due": "2026-11-10",
+    "due_t": "11:30",
+    "parent": "",
+    "list": "Personal",
+    "cat": "Личное",
+    "lead": "manual",
+    "bday": false,
+    "priority": "normal"
    },
    {
     "id": "86b7j38pw",
@@ -3332,11 +3332,25 @@
     "id": "86bae6v4h",
     "name": "БОТ: САРА: отвечать на комментарии - как успехи Сара?",
     "url": "https://app.clickup.com/t/86bae6v4h",
-    "status": "to do",
+    "status": "for check",
     "due": "2026-11-05",
-    "due_t": "21:55",
+    "due_t": "04:00",
     "parent": "",
     "list": "Models",
+    "cat": "ОФ",
+    "lead": "bot",
+    "bday": false,
+    "priority": "normal"
+   },
+   {
+    "id": "86b9ycbby",
+    "name": "БОТ: ПОДКЛЮЧИТЬСЯ К КОМПУ - СЕЙДЕР (как дела?) Запуск 1 телефона с 25 аккаунтами",
+    "url": "https://app.clickup.com/t/86b9ycbby",
+    "status": "for check",
+    "due": "2026-11-05",
+    "due_t": "04:00",
+    "parent": "",
+    "list": "Projects OF",
     "cat": "ОФ",
     "lead": "bot",
     "bday": false,
@@ -3395,20 +3409,6 @@
     "cat": "ОФ",
     "lead": "unknown",
     "bday": false
-   },
-   {
-    "id": "86b9ycbby",
-    "name": "БОТ: ПОДКЛЮЧИТЬСЯ К КОМПУ - СЕЙДЕР (как дела?) Запуск 1 телефона с 25 аккаунтами",
-    "url": "https://app.clickup.com/t/86b9ycbby",
-    "status": "to do",
-    "due": "2026-11-09",
-    "due_t": "04:00",
-    "parent": "",
-    "list": "Projects OF",
-    "cat": "ОФ",
-    "lead": "bot",
-    "bday": false,
-    "priority": "normal"
    },
    {
     "id": "86b8rn9wf",
