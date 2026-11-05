@@ -1,67 +1,48 @@
 {
- "at": "2026-11-04T16:21:00-05:00",
- "rule": "t5009–11 muted hidden on Rost UI; t5016 IG visible+fresh; live JSON keeps full Unread",
+ "at": "2026-11-04T22:43:46-0500",
+ "at_bogota": "2026-11-04T22:43:46-05:00",
+ "rule": "t3906u night hygiene 1b after watchers; evening census 19:40–19:55",
  "channels": {
   "Viber": {
-   "live_all": 2203,
    "live_unmuted": 0,
-   "muted_excluded": 2203,
-   "unmuted_chats": 0,
-   "muted_chats": 4,
-   "at": "2026-11-04 11:28 Bogotá",
-   "match_pending": false,
-   "note": "after quit+reopen still 4 muted",
-   "dash_unmuted": 0
+   "muted_excluded": 2213,
+   "at": "2026-11-04 18:32 Bogotá",
+   "dash_unmuted": 0,
+   "match": true
   },
   "WhatsApp UKR": {
-   "live_all": 568,
-   "live_unmuted": 28,
+   "live_unmuted": 54,
+   "unmuted_chats": 7,
    "muted_excluded": 540,
-   "unmuted_chats": 5,
-   "muted_chats": 2,
-   "at": "2026-11-04 11:36 Bogotá",
-   "match_pending": false,
-   "note": "quit+reopen; ghosts Dima/Solvia/Irina/Maks gone; unmuted 5=28",
-   "dash_unmuted": 28
+   "at": "2026-11-04 18:32 Bogotá",
+   "dash_unmuted": 54,
+   "match": "approx",
+   "note": "list-only ±3 vs report 51"
   },
   "WhatsApp ESP": {
-   "live_all": 449,
-   "live_unmuted": 288,
-   "muted_excluded": 161,
-   "unmuted_chats": 81,
-   "muted_chats": 3,
-   "at": "2026-11-04 12:04 Bogotá",
-   "match_pending": false,
-   "dash_unmuted": 288,
-   "dash_spheres": 170,
-   "dash_unsorted": 118,
-   "note": "t5019 fix: unread/muted только из live; на даше 288 = 170 в сферах + 118 на сортировку; muted 3 чата (Аукционы 150/Pollita 6/Jade 5) скрыты"
+   "live_unmuted": 15,
+   "unmuted_chats": 9,
+   "muted_excluded": 197,
+   "at": "2026-11-04 19:42 Bogotá",
+   "dash_unmuted": 15,
+   "match": true
   },
   "Instagram": {
    "live": 1,
-   "dash_hidden": false,
    "at": "2026-11-04 11:36 Bogotá",
-   "note": "t5016 restore on dash; refresh kept Ali unread=1"
+   "note": "fresh <20h skip re-peek",
+   "match": true
   },
   "Telegram": {
-   "live_all": 15,
-   "live_unmuted": 15,
-   "muted_excluded": 0,
-   "unmuted_chats": 15,
-   "muted_chats": 0,
-   "at": "2026-11-04 16:18 Bogotá",
-   "match_pending": false,
-   "dash_unmuted": 42,
-   "note": "t5045 live All chats blue badges; spheres 13/42 + unsorted Яна+Стас 4 = 46; Kir0 in ОФ",
-   "dash_unsorted_unread": 4
+   "live_unmuted": 49,
+   "unmuted_chats": 17,
+   "at": "2026-11-04 18:30 Bogotá",
+   "dash_unmuted": 49,
+   "match": true
   }
  },
- "grand": {
-  "live_unmuted_wa_viber": 316,
-  "ig_hidden": 1
- },
  "ok": true,
- "note": "13:20 обед: live-снапы = даш 1:1 (ESP 288/81 чат, UKR 28/5, Viber 0 unmuted, IG 1); muted скрыты. После снапов toasts только в уже известных чатах (Анатолий ремонты, Maks Sinar 11:44, Дима/Ольга; TG Sara/Michele $$$ — TG unread на даше не считается by design). Дыр не найдено; свежий resnap — night hygiene 22:45. | t5045: TG live per-chat now present (15/46)",
  "lost": 0,
- "mismatch": 0
+ "mismatch": 0,
+ "note": "Night 22:45: reused evening Unread census MATCH-REPORT (commits e912e99/860d5e6). No messenger holes. TG watcher alive; WA ESP state fresh 21:41; WA UKR restart in flight (state stuck 18:31)."
 }
