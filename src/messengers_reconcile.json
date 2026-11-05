@@ -1,7 +1,7 @@
 {
- "at": "2026-11-05T17:02:22-05:00",
- "at_bogota": "2026-11-05T17:02:22-05:00",
- "rule": "t5154 per-dialog live=list=monitor=spheres (unmuted unread|marked); drop wait-only not in live; TG=Новые; perm-dm exclude",
+ "at": "2026-11-05T17:04:29-05:00",
+ "at_bogota": "2026-11-05T17:04:29-05:00",
+ "rule": "t5154/t5156 live=list=monitor=spheres=tab_badge; drop wait-only+muted-unsorted; no cross-sphere dups; monitor n/u from live rows only",
  "channels": {
   "wa_ukr": {
    "at": "2026-11-05T16:20:00-05:00",
@@ -50,7 +50,18 @@
    "only_sphere_extra": [],
    "only_sphere_miss": [],
    "sphere_count_diff": [],
-   "note": "снято: Оксана Бухгалтер Торевьеха, Ира Квартирантка Лос Пуэблос, Анатолий От Ольги Ремонты, Андрей Электричество Тарифы Аликанте, Дима от Ольги Испания, Мила - чат по квартире, Светлана Чебыкина Рей Пастор Квартир…, Антон Alegría Real Estate Аликанте, Виктор - чат по квартире, Ярослав Феникс, WhatsApp; добавлено: Rostyslav - Solvia, Дмитрий STE, Ирина Шекель (колумбийский), Аукционы Испании, Ростислав - Анатолий ремонты→Личное; равно 13 чатов / 57 сообщ. (live=list=monitor=spheres)"
+   "note": "снято: Оксана Бухгалтер Торевьеха, Ира Квартирантка Лос Пуэблос, Анатолий От Ольги Ремонты, Андрей Электричество Тарифы Аликанте, Дима от Ольги Испания, Мила - чат по квартире, Светлана Чебыкина Рей Пастор Квартир…, Антон Alegría Real Estate Аликанте, Виктор - чат по квартире, Ярослав Феникс, WhatsApp; добавлено: Rostyslav - Solvia, Дмитрий STE, Ирина Шекель (колумбийский), Аукционы Испании, Ростислав - Анатолий ремонты→Личное; равно 13 чатов / 57 сообщ. (live=list=monitor=spheres)",
+   "surfaces": {
+    "tab_badge_ok": true,
+    "unsorted_ok": true,
+    "dups_ok": true,
+    "monitor_meta_ok": true,
+    "monitor_n": 13,
+    "monitor_u": 57,
+    "unsorted_n": 0,
+    "dups": [],
+    "ok": true
+   }
   },
   "wa_esp": {
    "at": "2026-11-05T16:17:00-05:00",
@@ -109,7 +120,18 @@
    "only_sphere_extra": [],
    "only_sphere_miss": [],
    "sphere_count_diff": [],
-   "note": "исключены perm-dm: +57 320 8308814; снято: Miguel Calipso, Alnago, Albeiro Garcia Курьер Ce..., Многотуров Андрей, Тигран Вотсап, Leidy Base Loft Собствен..., Сережа Кинозвезда Акт..., Баба, Коля Кобзов, +57 323 5391596, CLÍNICA VISUAL, Илья Деня ДЧ…; равно 14 чатов / 25 сообщ. (live=list=monitor=spheres)"
+   "note": "исключены perm-dm: +57 320 8308814; снято: Miguel Calipso, Alnago, Albeiro Garcia Курьер Ce..., Многотуров Андрей, Тигран Вотсап, Leidy Base Loft Собствен..., Сережа Кинозвезда Акт..., Баба, Коля Кобзов, +57 323 5391596, CLÍNICA VISUAL, Илья Деня ДЧ…; равно 14 чатов / 25 сообщ. (live=list=monitor=spheres)",
+   "surfaces": {
+    "tab_badge_ok": true,
+    "unsorted_ok": true,
+    "dups_ok": true,
+    "monitor_meta_ok": true,
+    "monitor_n": 14,
+    "monitor_u": 25,
+    "unsorted_n": 0,
+    "dups": [],
+    "ok": true
+   }
   },
   "tg": {
    "at": "2026-11-05T16:24:00-05:00",
@@ -182,7 +204,18 @@
    "only_sphere_extra": [],
    "only_sphere_miss": [],
    "sphere_count_diff": [],
-   "note": "источник: папка «Новые»; снято: Киви Саша Шейх, Виталик КС, ПАРАГВАЙ, Мама Киевстар, Maksym, Sara $$$, Alina Docs, Передача сайта Intim, Palma (контекстная реклама), 448_tabakevich.com_DEV - SEO, Valentina Hozka, АЛИБИ ТАБАК ОДЕСА…; добавлено: TABAKEVICH (разработка)→Личное, Колумбия OFTV - Markiz Karabas 3 модели→Личное; равно 12 чатов / 35 сообщ. (live=list=monitor=spheres)"
+   "note": "источник: папка «Новые»; снято: Киви Саша Шейх, Виталик КС, ПАРАГВАЙ, Мама Киевстар, Maksym, Sara $$$, Alina Docs, Передача сайта Intim, Palma (контекстная реклама), 448_tabakevich.com_DEV - SEO, Valentina Hozka, АЛИБИ ТАБАК ОДЕСА…; добавлено: TABAKEVICH (разработка)→Личное, Колумбия OFTV - Markiz Karabas 3 модели→Личное; равно 12 чатов / 35 сообщ. (live=list=monitor=spheres)",
+   "surfaces": {
+    "tab_badge_ok": true,
+    "unsorted_ok": true,
+    "dups_ok": true,
+    "monitor_meta_ok": true,
+    "monitor_n": 12,
+    "monitor_u": 35,
+    "unsorted_n": 0,
+    "dups": [],
+    "ok": true
+   }
   },
   "viber": {
    "at": "2026-11-05T16:20:00-05:00",
@@ -215,7 +248,18 @@
    "only_sphere_extra": [],
    "only_sphere_miss": [],
    "sphere_count_diff": [],
-   "note": "снято: ChatGPT, Аукціон УКРАЇНА ДОІС…, ОБМІН ВАЛЮТ | КУ…; равно 1 чатов / 5 сообщ. (live=list=monitor=spheres)"
+   "note": "снято: ChatGPT, Аукціон УКРАЇНА ДОІС…, ОБМІН ВАЛЮТ | КУ…; равно 1 чатов / 5 сообщ. (live=list=monitor=spheres)",
+   "surfaces": {
+    "tab_badge_ok": true,
+    "unsorted_ok": true,
+    "dups_ok": true,
+    "monitor_meta_ok": true,
+    "monitor_n": 1,
+    "monitor_u": 5,
+    "unsorted_n": 0,
+    "dups": [],
+    "ok": true
+   }
   },
   "ig": {
    "at": "2026-11-05 16:23 Bogotá",
@@ -244,7 +288,18 @@
    "only_sphere_extra": [],
    "only_sphere_miss": [],
    "sphere_count_diff": [],
-   "note": "равно 2 чатов / 2 сообщ. (live=list=monitor=spheres)"
+   "note": "равно 2 чатов / 2 сообщ. (live=list=monitor=spheres)",
+   "surfaces": {
+    "tab_badge_ok": true,
+    "unsorted_ok": true,
+    "dups_ok": true,
+    "monitor_meta_ok": true,
+    "monitor_n": 2,
+    "monitor_u": 2,
+    "unsorted_n": 0,
+    "dups": [],
+    "ok": true
+   }
   }
  },
  "ok": true,

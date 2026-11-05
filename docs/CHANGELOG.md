@@ -1,3 +1,8 @@
+## 2026-11-05 t5156 full Мессенджеры-tab surface audit
+- After t5154 sphere fix: audited monitor/list/spheres/unsorted/tab badge/attn/muted/dups/coverage.
+- Fixes: maMonitor counts only live unread|marked for WA/TG/Vib/IG (no watcher.unread inflate); maCov copy → live json; strip muted from unsorted; reconcile `surfaces.*` + tests.
+- All 5 channels surfaces ok; Miguel/Alnago stay dropped.
+
 ## 2026-11-05 t5154 sphere blocks = live
 - Root cause: per-dialog сверка покрывала monitor+list, но не блоки сфер; `base-loft-rental-search.md` держал Miguel Calipso / Alnago (ждём, unread 0) в Личном; enforce оставлял `_is_wait` вне live.
 - Fix: drop wait-only not in live; promote live-from-📥 into sphere; reconcile + tests 4-way live=list=monitor=spheres (`sphere_chats`/`sphere_sum`).
