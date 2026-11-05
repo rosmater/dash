@@ -1,0 +1,61 @@
+{
+  "at": "2026-11-05 16:49 Bogotá",
+  "ok": true,
+  "rc": 0,
+  "rule": "t5149/t5150 list-only: wheel scroll only, no chat-row left-click, empty pane before/after",
+  "proof": "/workspace/shots/tg-novye-listonly-proof-20261105-164915.png",
+  "pre_shot": "/workspace/shots/tg-novye-pre-20261105-164915.png",
+  "post_shot": "/workspace/shots/tg-novye-post-20261105-164915.png",
+  "badges_before": 11,
+  "badges_after": 11,
+  "badge_drop": false,
+  "accidental_open": null,
+  "warnings": [],
+  "pane": {
+    "empty": true,
+    "chat_open": false,
+    "light_frac": 0.0009,
+    "green_dom": 35.82,
+    "hdr_mean": 173.5,
+    "shot": "/workspace/shots/tg-novye-listonly-proof-20261105-164915.png"
+  },
+  "folder": {
+    "ok": true,
+    "selected_index": 1,
+    "expect": 1,
+    "folder": "Новые",
+    "detail": [
+      {
+        "i": 0,
+        "y": 100,
+        "score": 24.9
+      },
+      {
+        "i": 1,
+        "y": 148,
+        "score": 41.21
+      },
+      {
+        "i": 2,
+        "y": 196,
+        "score": 38.72
+      },
+      {
+        "i": 3,
+        "y": 244,
+        "score": 38.07
+      },
+      {
+        "i": 4,
+        "y": 292,
+        "score": 26.2
+      },
+      {
+        "i": 5,
+        "y": 340,
+        "score": 26.15
+      }
+    ]
+  },
+  "scroll": "tg-list-scroll-safe.sh down 8 + up 10 (xdotool click 4/5 @ 280,400)"
+}
