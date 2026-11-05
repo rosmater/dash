@@ -1,3 +1,8 @@
+## 2026-11-05 t5158 messengers-tab polish + published check
+- marked_unread → blue dot (not «0») via maUnreadChip; chats count, 0 msgs.
+- 📦 версия данных HH:MM · commit on Мессенджеры; client reads published_status.json for CDN lag note.
+- check_pages_live.py (≤12 min, --bg); night 23:00–08:45 no stale сбой; lite 11/15/17/19 write live (KB).
+
 ## 2026-11-05 t5156 full Мессенджеры-tab surface audit
 - After t5154 sphere fix: audited monitor/list/spheres/unsorted/tab badge/attn/muted/dups/coverage.
 - Fixes: maMonitor counts only live unread|marked for WA/TG/Vib/IG (no watcher.unread inflate); maCov copy → live json; strip muted from unsorted; reconcile `surfaces.*` + tests.
