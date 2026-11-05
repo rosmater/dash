@@ -1,49 +1,59 @@
 {
-  "at_bogota": "2026-11-04T11:35:57-05:00",
-  "channel": "WhatsApp UKR",
-  "filter": "Unread",
-  "filter_count": 7,
-  "chats": [
-    {
-      "title": "Ростислав - Анатолий ремонты",
-      "unread": 20,
-      "muted": false
-    },
-    {
-      "title": "Мария Алегрия Управляющая Компания",
-      "unread": 5,
-      "muted": false
-    },
-    {
-      "title": "ЧАТ ВЗАИМОПОМОЩИ ОТ ОКУПАС",
-      "unread": 380,
-      "muted": true
-    },
-    {
-      "title": "Comunidad Calle Olivino 3",
-      "unread": 160,
-      "muted": true
-    },
-    {
-      "title": "Дезинфекция квартиры",
-      "unread": 1,
-      "muted": false
-    },
-    {
-      "title": "Аукционы Испании",
-      "unread": 1,
-      "muted": false,
-      "green_dot_only": true
-    },
-    {
-      "title": "+380 93 361 4033",
-      "unread": 1,
-      "muted": false
-    }
-  ],
-  "sum": 568,
-  "unmuted_sum": 28,
-  "muted_sum": 540,
-  "note": "WhatsApp fully quit (taskbar Close window) and relaunched in same RDP session; All then Unread. 7 chats; unmuted 5 chats = 28 unread (20+5+1+1+1, green-dot-only counted as 1); muted 2 chats = 540 (380+160). Earlier stale view showed Maks Sinar/Dima/Rostyslav-Solvia/Irina Shekel which are no longer unread after relaunch.",
-  "at": "2026-11-04 11:38 Bogotá"
+ "at": "2026-11-04 18:32 Bogotá",
+ "at_bogota": "2026-11-04T18:32:00-05:00",
+ "channel": "WhatsApp UKR",
+ "filter": "Unread",
+ "filter_count": 9,
+ "chats": [
+  {
+   "title": "Ирина Шекель (колумбийский)",
+   "unread": 13,
+   "muted": false
+  },
+  {
+   "title": "TuCasa",
+   "unread": 1,
+   "muted": false
+  },
+  {
+   "title": "Ростислав - Анатолий ремонты",
+   "unread": 28,
+   "muted": false
+  },
+  {
+   "title": "Maks Sinar Адвокат Испания",
+   "unread": 5,
+   "muted": false
+  },
+  {
+   "title": "Мария Алегрия Управляющая Компания",
+   "unread": 5,
+   "muted": false
+  },
+  {
+   "title": "ЧАТ ВЗАИМОПОМОЩИ ОТ ОКУПАС",
+   "unread": 380,
+   "muted": true
+  },
+  {
+   "title": "Comunidad Calle Olivino 3",
+   "unread": 160,
+   "muted": true
+  },
+  {
+   "title": "Дезинфекция квартиры",
+   "unread": 1,
+   "muted": false
+  },
+  {
+   "title": "Аукционы Испании",
+   "unread": 1,
+   "muted": false,
+   "green_dot_only": true
+  }
+ ],
+ "sum": 594,
+ "unmuted_sum": 54,
+ "muted_sum": 540,
+ "note": "Evening list-only Unread (no quit+reopen). Listed badges from wa-ukr-unread-1/2.png: unmuted_sum=54 sum=594 (report.md said unmuted 51 / sum 591 — 3 unread variance). Muted 380+160 kept in JSON, hidden on dash."
 }

@@ -1,116 +1,130 @@
 {
- "at": "2026-11-04 16:18 Bogotá",
- "channel": "tg",
- "filter": "All chats blue unmuted badges",
- "filter_count": 15,
- "sum": 46,
- "src": "TG Desktop All chats (no Unread folder)",
- "note": "No Unread folder in TG; read blue (unmuted) badges from All chats list, scanned to ~Oct 21. M_November/Isla are marked-unread dots counted as 1.",
+ "at": "2026-11-04 18:30 Bogotá",
+ "at_bogota": "2026-11-04T18:30:00-05:00",
+ "channel": "Telegram",
+ "filter": "unmuted badges summed across left-rail frames",
  "chats": [
   {
    "title": "M_November",
+   "name": "M_November",
    "unread": 1,
    "muted": false,
-   "is_group": false,
-   "name": "M_November"
+   "is_group": false
   },
   {
    "title": "Kir0[4K]",
+   "name": "Kir0[4K]",
    "unread": 3,
    "muted": false,
-   "is_group": false,
-   "name": "Kir0[4K]"
+   "is_group": false
   },
   {
    "title": "Яна Бухгалтер",
+   "name": "Яна Бухгалтер",
    "unread": 3,
    "muted": false,
-   "is_group": false,
-   "name": "Яна Бухгалтер"
+   "is_group": false
   },
   {
    "title": "Isla del Contenido",
+   "name": "Isla del Contenido",
    "unread": 1,
    "muted": false,
-   "is_group": false,
-   "name": "Isla del Contenido"
+   "is_group": false
+  },
+  {
+   "title": "Киви Саша Шейх",
+   "name": "Киви Саша Шейх",
+   "unread": 2,
+   "muted": false,
+   "is_group": false
+  },
+  {
+   "title": "Sara Pinedas",
+   "name": "Sara Pinedas",
+   "unread": 1,
+   "muted": false,
+   "is_group": false
   },
   {
    "title": "Gastos $$$",
+   "name": "Gastos $$$",
    "unread": 3,
    "muted": false,
-   "is_group": true,
-   "name": "Gastos $$$"
+   "is_group": false
   },
   {
-   "title": "Michele $$$",
+   "title": "Michelle $$$",
+   "name": "Michelle $$$",
    "unread": 1,
    "muted": false,
-   "is_group": true,
-   "name": "Michele $$$"
+   "is_group": false
   },
   {
    "title": "Sara $$$",
+   "name": "Sara $$$",
    "unread": 5,
    "muted": false,
-   "is_group": true,
-   "name": "Sara $$$"
+   "is_group": false
   },
   {
    "title": "Фин Р",
+   "name": "Фин Р",
    "unread": 4,
    "muted": false,
-   "is_group": true,
-   "name": "Фин Р"
+   "is_group": false
   },
   {
    "title": "Разработка Hooka",
+   "name": "Разработка Hooka",
    "unread": 8,
    "muted": false,
-   "is_group": true,
-   "name": "Разработка Hooka"
+   "is_group": false
   },
   {
    "title": "Юридическая поддержка",
+   "name": "Юридическая поддержка",
    "unread": 2,
    "muted": false,
-   "is_group": true,
-   "name": "Юридическая поддержка"
+   "is_group": false
   },
   {
    "title": "Baba",
+   "name": "Baba",
    "unread": 7,
    "muted": false,
-   "is_group": false,
-   "name": "Baba"
+   "is_group": false
   },
   {
    "title": "Стас Элвис",
+   "name": "Стас Элвис",
    "unread": 1,
    "muted": false,
-   "is_group": false,
-   "name": "Стас Элвис"
+   "is_group": false
   },
   {
    "title": "TABAKEVICH (разработка)",
+   "name": "TABAKEVICH (разработка)",
    "unread": 2,
    "muted": false,
-   "is_group": true,
-   "name": "TABAKEVICH (разработка)"
+   "is_group": false
   },
   {
    "title": "Контроль менеджеров ИМ",
+   "name": "Контроль менеджеров ИМ",
    "unread": 1,
    "muted": false,
-   "is_group": true,
-   "name": "Контроль менеджеров ИМ"
+   "is_group": false
   },
   {
    "title": "Колумбия OFTV - Markiz Karabas 3 модели",
+   "name": "Колумбия OFTV - Markiz Karabas 3 модели",
    "unread": 4,
    "muted": false,
-   "is_group": true,
-   "name": "Колумбия OFTV - Markiz Karabas 3 модели"
+   "is_group": false
   }
- ]
+ ],
+ "sum": 49,
+ "unmuted_sum": 49,
+ "note": "Evening census tg-report.md; 17 unmuted sum 49. Dash previously 15/46 (missing Киви Саша Шейх+Sara Pinedas). Muted excluded from JSON."
 }
