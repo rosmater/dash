@@ -1,3 +1,9 @@
+## 2026-11-05 t5149/t5150 TG list-only snap harden
+- Root cause: during TG «Новые» сверка a left-click on the chat list opened Kir0[4K] and marked it read.
+- Fix: `/home/box/bin/tg-novye-list-snap.sh` + `tg-list-scroll-safe.sh` (wheel click 4/5 only @ 280,400); `tg-open-novye.sh` parks pointer neutrally, rail-only fallback click; `tg-verify-empty-pane.py` before/after; `tg-count-list-badges.py` badge_drop flag; `accidental_open` in `tg_novye_snap_meta.json`; lock always released.
+- Proof 16:49 Bogotá: empty pane before/after, badges 11→11, accidental_open=null, shot `tg-novye-listonly-proof-20261105-164915.png`.
+- KB: `sverka-fresh-snap-every-run.md`, `tg-dedicated-xvfb.md` (both copies).
+
 # 2026-11-04 t4924–25 — ✓ CU for check UX
 
 - 2026-11-04 10:27 Bogotá: Мессенджеры — фикс парсера secretary-log ISO (с 30.10 тосты не попадали в вкладку). test_ma_build принимает оба формата времени.
