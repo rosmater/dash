@@ -1,6 +1,6 @@
 {
- "at": "2026-11-05T17:04:29-05:00",
- "at_bogota": "2026-11-05T17:04:29-05:00",
+ "at": "2026-11-05T17:16:50-05:00",
+ "at_bogota": "2026-11-05T17:16:50-05:00",
  "rule": "t5154/t5156 live=list=monitor=spheres=tab_badge; drop wait-only+muted-unsorted; no cross-sphere dups; monitor n/u from live rows only",
  "channels": {
   "wa_ukr": {
