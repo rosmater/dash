@@ -1,3 +1,7 @@
+## 2026-11-05 t5162 lite snaps DELETED
+- Snaps only unread-dash-daily 09:00+13:00 Bogotá, plus on-demand «актуализируй мессенджеры» (writes *_live.json).
+- Lite 11/15/17/19 removed from KB. Night 23:00–08:45: no snaps / no stale сбой.
+
 ## 2026-11-05 t5158 messengers-tab polish + published check
 - marked_unread → blue dot (not «0») via maUnreadChip; chats count, 0 msgs.
 - 📦 версия данных HH:MM · commit on Мессенджеры; client reads published_status.json for CDN lag note.
