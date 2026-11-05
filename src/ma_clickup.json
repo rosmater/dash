@@ -1,7 +1,21 @@
 {
- "fetched": "2026-11-04 19:52 Bogotá",
- "src": "inbox-raw 2026-11-04 (cu_inbox_build.py, t4167)",
+ "fetched": "2026-11-05 09:23 Bogotá",
+ "src": "live filter_tasks assignee 60710247 both connectors (t5019 refresh)",
  "tasks": [
+  {
+   "id": "86bbjyrf5",
+   "name": "БОТ: МИШЕЛЬ: Bulk Messaging проверить статистику и ответы фанам в сообщениях (потом передать сбор статистики Фетишь)",
+   "list": "Models",
+   "updated": "2026-11-04 22:54",
+   "status": "for check"
+  },
+  {
+   "id": "86bcn3c3u",
+   "name": "Проверить команду на iPhone для передачи шагов из «Здоровья» боту",
+   "list": "Personal",
+   "updated": "2026-11-04 22:42",
+   "status": "for check"
+  },
   {
    "id": "86b92hrcp",
    "name": "(проблема с картинками) БОТ: Пальма сайт + ускорить / Контекстная реклама",

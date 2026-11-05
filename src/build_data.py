@@ -812,7 +812,7 @@ data = dict(
                 ]),
                 items=['Я: Взять под контроль', 'Я: Сделать по ней план', '— Она: выкладка раз в неделю на Clips4Sale', '— Она: выкладка раз в неделю на Curvage', 'Я: Настроить анализ её OnlyFans в таблицу через сервер (диалоги, трафик, доходы)', 'Она: ТикТок начать вести'], src='Rost, 24–25.10.2026',
                 cu=dict(id='86bcn44nh', label='Коучинг Алекса Херрера (Personal)', status='to do', url='https://rosmater.github.io/cu/?t=86bcn44nh')),
-           dict(name='Мама', icon='👩‍🦳', role='Её бот', status='attention', goal='Цель 1 — Консультация 1 клиента в неделю (выйти на 5 визитов в неделю с таргета с ROI)', items=['Я: Помощь с общением с её ботом', 'Я: Доработать сайт чтоб открывался правильно по ссылке', 'Она: Начать считать доходы и расходы', 'Она: Вести страницу, вести диалоги', 'Она: Вести таргет, обработка лидов'], src='Rost, 24.10.2026',
+           dict(name='Мама', icon='👩‍🦳', role='Её бот', status='attention', goal='Цель 1 — Консультация 1 клиента в неделю (выйти на 5 визитов в неделю с таргета с ROI)', items=['Я: Помощь с общением с её ботом', 'Она: Начать считать доходы и расходы', 'Она: Вести страницу, вести диалоги', 'Она: Вести таргет, обработка лидов'], src='Rost, 24.10.2026 · сайт по ссылке done 03.11',
                 cu=dict(id='86bcqw802', label='Мама (как дела?) — ClickUp · Personal', status='to do', url='https://rosmater.github.io/cu/?t=86bcqw802')),
            dict(name='Андрей Многотуров', icon='🧑', role='Бот · TripAdvisor', status='attention', items=['Я: Подключить к боту — чтобы сам мог править', 'Он: Найти 50 отзывов (TripAdvisor)', 'Я: Не забывать выводить деньги с Viator'], src='Rost, 24.10.2026',
                 cu=dict(id='86ba2y9ke', label='ТрипЭдвайсер (как дела?) — ClickUp · Personal', status='to do', url='https://rosmater.github.io/cu/?t=86ba2y9ke')),
@@ -883,5 +883,12 @@ except FileNotFoundError:
 # Порядок вкладок (Rost 25.10): Общий → Личное, Недвижимость, Табакевич, ОФ, Пептиды, Оборонка → Календарь, Коучинг
 TAB_ORDER = ['personal', 'realestate', 'tabakevich', 'of', 'peptides', 'defense', 'calendar', 'coaching', 'messengers', 'assistants', 'unsorted']
 data['directions'].sort(key=lambda d: TAB_ORDER.index(d['id']) if d['id'] in TAB_ORDER else 99)
+# Rost t5044: perm-игнор dm (напр. «не нашёл» номер) — вырезаем из unsorted жёстко, не только в браузере
+try:
+    _PIG = {c['id'].lower() for c in (json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'ignored_chats.json'), encoding='utf-8')).get('chats') or []) if c.get('perm') and c.get('kind') == 'dm'}
+    for _d in data.get('directions', []):
+        if isinstance(_d, dict) and isinstance(_d.get('unsorted'), list):
+            _d['unsorted'] = [u for u in _d['unsorted'] if str(u.get('key') or (str(u.get('channel',''))+'|'+str(u.get('title','')))).lower() not in _PIG]
+except Exception as _e: print('perm-ignore skip', _e)
 json.dump(data, open(OUT, 'w'), ensure_ascii=False, indent=1)
 print('wrote', os.path.abspath(OUT), os.path.getsize(OUT))

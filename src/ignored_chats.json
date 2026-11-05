@@ -1,0 +1,29 @@
+{
+ "_doc": "Rost 27.10 t3887u–t3889u: игнор чатов дашборда. id = 'канал|чат' (как key в Нерассортированных). kind: dm (личка — скрыта до ручного возврата) | group (всплывает только при @-теге Rost) | ? (как group). ignored_at/ mention_at — 'YYYY-MM-DD HH:MM' Bogotá. mention_handles: TG @username Rost, WA — @имя как WA показывает в группе. TODO: заполнить реальные хэндлы. perm: true = игнор навсегда (Rost 27.10 t3891u) — не всплывает даже при @-теге, только ручной «вернуть».",
+ "mention_handles": {
+  "Telegram": [],
+  "WhatsApp ESP": [],
+  "WhatsApp UKR": [],
+  "Viber": []
+ },
+ "chats": [
+  {
+   "id": "WhatsApp ESP|+57 301 3647812",
+   "channel": "WhatsApp ESP",
+   "title": "+57 301 3647812",
+   "kind": "dm",
+   "ignored_at": "2026-11-04 16:15",
+   "perm": true,
+   "why": "Rost t5042–44: «не нашёл» (Daniela Angel) — номер не тот, снят с CU Phone"
+  },
+  {
+   "id": "WhatsApp ESP|+57 320 8308814",
+   "channel": "WhatsApp ESP",
+   "title": "+57 320 8308814",
+   "kind": "dm",
+   "ignored_at": "2026-11-04 16:15",
+   "perm": true,
+   "why": "Rost t5042–44: «не нашёл» (Marcela) — номер не тот, снят с CU Phone"
+  }
+ ]
+}

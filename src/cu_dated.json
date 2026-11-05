@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-04 13:17",
+ "generated": "2026-11-05 09:23",
  "source": "live filter_tasks 2026-11-04 (t5019); base mapping cu-rost-dated.csv 27.10",
  "note": "TZ cu-dash-sort §2: mapped, not shown elsewhere on dash",
  "by_dir": {
@@ -436,32 +436,17 @@
     "priority": "normal"
    },
    {
-    "id": "86b7k95k6",
-    "name": "Ежедневный чеклист + привычки (помнить 1 час от подготовки к сну)",
-    "url": "https://app.clickup.com/t/86b7k95k6",
-    "status": "to do",
+    "id": "86bcn3c3u",
+    "name": "Проверить команду на iPhone для передачи шагов из «Здоровья» боту",
+    "url": "https://app.clickup.com/t/86bcn3c3u",
+    "status": "for check",
     "due": "2026-11-04",
     "due_t": "04:00",
-    "parent": "",
+    "parent": "(корневая)",
     "list": "Personal",
     "cat": "Личное",
-    "lead": "manual",
-    "bday": false,
-    "priority": "normal"
-   },
-   {
-    "id": "86b7j38pw",
-    "name": "Тренировка ср",
-    "url": "https://app.clickup.com/t/86b7j38pw",
-    "status": "to do",
-    "due": "2026-11-04",
-    "due_t": "16:00",
-    "parent": "",
-    "list": "Personal",
-    "cat": "Личное",
-    "lead": "manual",
-    "bday": false,
-    "priority": "urgent"
+    "lead": "unknown",
+    "bday": false
    },
    {
     "id": "86b82r2b5",
@@ -476,32 +461,6 @@
     "lead": "manual",
     "bday": false,
     "priority": "normal"
-   },
-   {
-    "id": "86bcn3c3u",
-    "name": "Проверить команду на iPhone для передачи шагов из «Здоровья» боту",
-    "url": "https://app.clickup.com/t/86bcn3c3u",
-    "status": "to do",
-    "due": "2026-11-04",
-    "due_t": "21:55",
-    "parent": "(корневая)",
-    "list": "Personal",
-    "cat": "Личное",
-    "lead": "unknown",
-    "bday": false
-   },
-   {
-    "id": "86b791bp7",
-    "name": "Папа поздравить с ДР",
-    "url": "https://app.clickup.com/t/86b791bp7",
-    "status": "to do",
-    "due": "2026-11-05",
-    "due_t": "04:00",
-    "parent": "ДР",
-    "list": "Personal",
-    "cat": "Личное",
-    "lead": "manual",
-    "bday": true
    },
    {
     "id": "86bcgc3ze",
@@ -538,6 +497,20 @@
     "status": "to do",
     "due": "2026-11-05",
     "due_t": "11:30",
+    "parent": "",
+    "list": "Personal",
+    "cat": "Личное",
+    "lead": "manual",
+    "bday": false,
+    "priority": "normal"
+   },
+   {
+    "id": "86b7k95k6",
+    "name": "Ежедневный чеклист + привычки (помнить 1 час от подготовки к сну)",
+    "url": "https://app.clickup.com/t/86b7k95k6",
+    "status": "to do",
+    "due": "2026-11-06",
+    "due_t": "04:00",
     "parent": "",
     "list": "Personal",
     "cat": "Личное",
@@ -729,6 +702,20 @@
     "cat": "Личное",
     "lead": "manual",
     "bday": true
+   },
+   {
+    "id": "86b7j38pw",
+    "name": "Тренировка ср",
+    "url": "https://app.clickup.com/t/86b7j38pw",
+    "status": "to do",
+    "due": "2026-11-11",
+    "due_t": "16:00",
+    "parent": "",
+    "list": "Personal",
+    "cat": "Личное",
+    "lead": "manual",
+    "bday": false,
+    "priority": "urgent"
    },
    {
     "id": "86bbt0v0n",
@@ -2373,6 +2360,19 @@
     "bday": true
    },
    {
+    "id": "86b791bp7",
+    "name": "Папа поздравить с ДР",
+    "url": "https://app.clickup.com/t/86b791bp7",
+    "status": "to do",
+    "due": "2027-11-05",
+    "due_t": "04:00",
+    "parent": "ДР",
+    "list": "Personal",
+    "cat": "Личное",
+    "lead": "manual",
+    "bday": true
+   },
+   {
     "id": "86b6q93gw",
     "name": "Сделать вакцину Typhim Vi - Fiebre T Foldea 22.07.28",
     "url": "https://app.clickup.com/t/86b6q93gw",
@@ -3301,6 +3301,20 @@
     "priority": "normal"
    },
    {
+    "id": "86bbjyrf5",
+    "name": "БОТ: МИШЕЛЬ: Bulk Messaging проверить статистику и ответы фанам в сообщениях (потом передать сбор статистики Фетишь)",
+    "url": "https://app.clickup.com/t/86bbjyrf5",
+    "status": "for check",
+    "due": "2026-11-04",
+    "due_t": "04:00",
+    "parent": "",
+    "list": "Models",
+    "cat": "ОФ",
+    "lead": "bot",
+    "bday": false,
+    "priority": "normal"
+   },
+   {
     "id": "86bcnuxbj",
     "name": "БОТ-ЧАСТЬ: 💳 Оплата чаттерам Никиты (счёт в TG 5–13 числа) Яна получить отчеты",
     "url": "https://app.clickup.com/t/86bcnuxbj",
@@ -3315,9 +3329,9 @@
     "priority": "normal"
    },
    {
-    "id": "86bbjyrf5",
-    "name": "БОТ: МИШЕЛЬ: Bulk Messaging проверить статистику и ответы фанам в сообщениях (потом передать сбор статистики Фетишь)",
-    "url": "https://app.clickup.com/t/86bbjyrf5",
+    "id": "86bae6v4h",
+    "name": "БОТ: САРА: отвечать на комментарии - как успехи Сара?",
+    "url": "https://app.clickup.com/t/86bae6v4h",
     "status": "to do",
     "due": "2026-11-05",
     "due_t": "21:55",
@@ -3329,9 +3343,23 @@
     "priority": "normal"
    },
    {
-    "id": "86bae6v4h",
-    "name": "БОТ: САРА: отвечать на комментарии - как успехи Сара?",
-    "url": "https://app.clickup.com/t/86bae6v4h",
+    "id": "86bbzx9x4",
+    "name": "БОТ: Срочно контент снять OFTV Sofia Lunara - Laura (жду реакцию в чате Маркиза)",
+    "url": "https://app.clickup.com/t/86bbzx9x4",
+    "status": "to do",
+    "due": "2026-11-05",
+    "due_t": "21:55",
+    "parent": "",
+    "list": "Models",
+    "cat": "ОФ",
+    "lead": "bot",
+    "bday": false,
+    "priority": "normal"
+   },
+   {
+    "id": "86b9uqgqq",
+    "name": "БОТ: Andrea Cali - как дела по запуску ОФТВ? (напомнить за запуск)",
+    "url": "https://app.clickup.com/t/86b9uqgqq",
     "status": "to do",
     "due": "2026-11-05",
     "due_t": "21:55",
@@ -3511,6 +3539,20 @@
     "list": "General Tasks OF",
     "cat": "ОФ",
     "lead": "manual",
+    "bday": false,
+    "priority": "normal"
+   },
+   {
+    "id": "86bb3qh0k",
+    "name": "БОТ: Мишель: OFTV Наладить постинг - все под контролем?",
+    "url": "https://app.clickup.com/t/86bb3qh0k",
+    "status": "to do",
+    "due": "2027-01-04",
+    "due_t": "04:00",
+    "parent": "",
+    "list": "General Tasks OF",
+    "cat": "ОФ",
+    "lead": "bot",
     "bday": false,
     "priority": "normal"
    },
@@ -3717,7 +3759,7 @@
     "name": "Созвон DECSEF — José Gabriel Osorno",
     "url": "https://app.clickup.com/t/86bcu0caf",
     "status": "to do",
-    "due": "2026-11-03",
+    "due": "2026-11-10",
     "due_t": "13:00",
     "parent": "",
     "list": "Tasks",
@@ -4071,6 +4113,19 @@
     "bday": false
    },
    {
+    "id": "86b9zkaua",
+    "name": "БОТ-ЧАСТЬ: Отчет по SEO-показателям (трафик, заказы) - готов? (покупка Серпстат)",
+    "url": "https://app.clickup.com/t/86b9zkaua",
+    "status": "for check",
+    "due": "2026-11-04",
+    "due_t": "04:00",
+    "parent": "(подзадача, родитель не резолвлен)",
+    "list": "Задачи Tabakevich",
+    "cat": "Табакевич",
+    "lead": "unknown",
+    "bday": false
+   },
+   {
     "id": "86b6qqbah",
     "name": "Согласование ЗП 5-10го (20)",
     "url": "https://app.clickup.com/t/86b6qqbah",
@@ -4157,19 +4212,6 @@
     "status": "to do",
     "due": "2026-11-30",
     "due_t": "04:00",
-    "parent": "(подзадача, родитель не резолвлен)",
-    "list": "Задачи Tabakevich",
-    "cat": "Табакевич",
-    "lead": "unknown",
-    "bday": false
-   },
-   {
-    "id": "86b9zkaua",
-    "name": "Отчет по SEO-показателям (трафик, заказы) - готов? (покупка Серпстат)",
-    "url": "https://app.clickup.com/t/86b9zkaua",
-    "status": "to do",
-    "due": "2026-12-01",
-    "due_t": "21:00",
     "parent": "(подзадача, родитель не резолвлен)",
     "list": "Задачи Tabakevich",
     "cat": "Табакевич",

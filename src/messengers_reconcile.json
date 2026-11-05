@@ -1,14 +1,15 @@
 {
- "at": "2026-11-04T22:43:46-0500",
- "at_bogota": "2026-11-04T22:43:46-05:00",
- "rule": "t3906u night hygiene 1b after watchers; evening census 19:40–19:55",
+ "at": "2026-11-05T09:22:57-0500",
+ "at_bogota": "2026-11-05T09:22:57-05:00",
+ "rule": "unread-dash-daily morning 09:50; shell/logs first (t3906–07); A2 t5044–45",
  "channels": {
   "Viber": {
    "live_unmuted": 0,
    "muted_excluded": 2213,
    "at": "2026-11-04 18:32 Bogotá",
    "dash_unmuted": 0,
-   "match": true
+   "match": true,
+   "note": "reused evening live; hb dry_run=True has_unread=None (no Viber in secretary-log today)"
   },
   "WhatsApp UKR": {
    "live_unmuted": 54,
@@ -17,7 +18,7 @@
    "at": "2026-11-04 18:32 Bogotá",
    "dash_unmuted": 54,
    "match": "approx",
-   "note": "list-only ±3 vs report 51"
+   "note": "reused evening live; WA alive 2026-11-05T08:51:10-05:00; midday secretary-log OK (Алла/Артём/Анатолий on dash)"
   },
   "WhatsApp ESP": {
    "live_unmuted": 15,
@@ -25,10 +26,11 @@
    "muted_excluded": 197,
    "at": "2026-11-04 19:42 Bogotá",
    "dash_unmuted": 15,
-   "match": true
+   "match": true,
+   "note": "reused evening live; WA alive 2026-11-05T08:58:57-05:00; Maria MR Med on dash; perm-dm Marcela cut from unsorted ; dash excludes perm-dm Marcela → unmuted 15"
   },
   "Instagram": {
-   "live": 1,
+   "live": 15,
    "at": "2026-11-04 11:36 Bogotá",
    "note": "fresh <20h skip re-peek",
    "match": true
@@ -38,11 +40,12 @@
    "unmuted_chats": 17,
    "at": "2026-11-04 18:30 Bogotá",
    "dash_unmuted": 49,
-   "match": true
+   "match": true,
+   "note": "tg_live <24h (18:30 04.11); no new TG in secretary-log today; keep live"
   }
  },
  "ok": true,
  "lost": 0,
  "mismatch": 0,
- "note": "Night 22:45: reused evening Unread census MATCH-REPORT (commits e912e99/860d5e6). No messenger holes. TG watcher alive; WA ESP state fresh 21:41; WA UKR restart in flight (state stuck 18:31)."
+ "note": "Morning unread-dash-daily: midday-unread-reconcile OK (4 log chats on dash). Live snaps evening 04.11 reused (prefer shell/logs; no hole). WA UKR/ESP alive 08:51/08:58. A2: perm-dm Marcela +57 320 8308814 was resurrected into unsorted from wa_esp_live — cut via t5044 patch in test_ma_build; Daniela already ignored. tg_live age ~15h (<24h). CU refresh parallel."
 }

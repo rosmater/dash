@@ -578,7 +578,7 @@ _QID = lambda bn, q: 'Q-' + _hl.sha1(f'{bn}|{q}'.encode()).hexdigest()[:6]
 try: _OQ = json.load(open('/workspace/queue/ma_open_questions.json'))
 except Exception: _OQ = dict(add=[], resolved={}, reopened={})
 for z in _OQ.get('add', []):
-    _BA = {'Оборонные': 'Оборонка', 'Оборонные системы': 'Оборонка', 'Секретарь / Кликап / Мессенджеры': 'Секретарь', 'Кликап / Мессенджеры': 'Секретарь', 'COMMS': 'Секретарь'}  # Rost t4398 + COMMS inventory alias
+    _BA = {'Оборонные': 'Оборонка', 'Оборонные системы': 'Оборонка', 'Секретарь / Кликап / Мессенджеры': 'Секретарь', 'Кликап / Мессенджеры': 'Секретарь', 'COMMS': 'Секретарь', 'Helper': 'Помощник по всему', 'helper': 'Помощник по всему', 'Помощник': 'Помощник по всему', 'HELPER': 'Помощник по всему'}  # t5099 lowercase helper  # Rost t4398 + COMMS inventory alias + t5066 Helper alias
     z['bot'] = _BA.get(z['bot'], z['bot']); z['bot'] = 'Секретарь' if (z['bot'] or '').startswith('Секретарь') else z['bot']  # Rost t3948u+t4398
     b = next((x for x in data['bots'] if x['name'] == z['bot']), None)
     if b is None: b = dict(name=z['bot'], id=_SEC_ID, qs=[]); data['bots'].append(b)
@@ -588,7 +588,7 @@ for b in data['bots']:
     for q in b['qs']: q['qid'] = q.pop('_qid', None) or _QID(b['name'], q['q'])
     b['qs'] = [q for q in b['qs'] if q['qid'] not in _RES]
 # Rost t4398: title профиля «Секретарь / …» ≠ карточка; слить alias-имя в канон (не по id — coach-боты шарят id Секретаря)
-_BA2 = {'Секретарь / Кликап / Мессенджеры': 'Секретарь', 'Кликап / Мессенджеры': 'Секретарь', 'Оборонные': 'Оборонка', 'Оборонные системы': 'Оборонка', 'COMMS': 'Секретарь'}
+_BA2 = {'Секретарь / Кликап / Мессенджеры': 'Секретарь', 'Кликап / Мессенджеры': 'Секретарь', 'Оборонные': 'Оборонка', 'Оборонные системы': 'Оборонка', 'COMMS': 'Секретарь', 'Helper': 'Помощник по всему', 'helper': 'Помощник по всему', 'Помощник': 'Помощник по всему', 'HELPER': 'Помощник по всему'}  # t5099 lowercase helper  # t5066
 for _long, _short in list(_BA2.items()):
     _src = next((x for x in data['bots'] if x.get('name') == _long), None)
     _dst = next((x for x in data['bots'] if x.get('name') == _short), None)
@@ -921,6 +921,17 @@ for _c in _IGD_UNS:
     if any(u.get('key') == 'Instagram|' + _c['title'] for u in uns): continue
     uns.append(dict(key='Instagram|' + _c['title'], channel='Instagram', title=_c['title'], kind='IG Direct @' + ((_IGD or {}).get('account') or '') + ' · нет сферы', unread=_c.get('n') or 1, last=_c.get('age', ''), owner=SEC[0], owner_link=A(SEC[1])))
 data['unsorted'] = uns
+# Rost t5044 / unread-dash-daily: perm-dm жёстко вырезать из unsorted (live WA не должен воскрешать «не нашёл»)
+try:
+    _pigf = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'ignored_chats.json')
+    _PIG = {c['id'].lower() for c in (json.load(open(_pigf, encoding='utf-8')).get('chats') or []) if c.get('perm') and c.get('kind') == 'dm'}
+    if _PIG:
+        _b = len(uns)
+        uns = [u for u in uns if (u.get('key') or '').lower() not in _PIG]
+        data['unsorted'] = uns
+        print('t5044 perm-dm cut', _b - len(uns), 'left', len(uns))
+except Exception as _e:
+    print('t5044 perm cut skip', _e)
 # === Rost 27.10 t3887u–t3889u: 🔕 игнор чатов. src/ignored_chats.json = {mention_handles:{Telegram:[...],WhatsApp:[...]}, chats:[{id,channel,title,kind,ignored_at}]}
 # mention_at = последнее время из secretary-log, где в превью есть @-тег Rost (только группы/неизвестный тип; личка — никогда). Скрытие делает браузер.
 try:
