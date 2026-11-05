@@ -180,3 +180,6 @@
 - Rebuild auto-clear: rst ans/skip + stale census; hang_since skips done; no Feabie/Tinder carry-forward of «наш ход»
 - Rule: knowledge/rules/messengers-auto-clear-stale.md
 - Актуализация unread↔dash: routine unread-dash-daily 2×/day ~09:00+13:00 Bogotá
+
+## 2026-11-05 t5094u
+- Ассистенты·боты: пустой статус рутин («активных рутин нет» / нет дампа) → только в 🙈 Скрытые, не строкой в карточке.
