@@ -208,3 +208,6 @@
 
 ## 2026-11-05 t5094u
 - Ассистенты·боты: пустой статус рутин («активных рутин нет» / нет дампа) → только в 🙈 Скрытые, не строкой в карточке.
+
+## 2026-11-05 t5167 dash-dup-render-fix
+- **2026-11-05 t5167u:** dash-dup-render-fix — `## [slug]` detail headers no longer render as queue items; ma_q question + QUEUE/waiting item on same topic (slug/CU id/QID/title overlap) render once (question kept, reds untouched); tolerant routines parser (`## Enabled` / `## LIVE enabled` / latest `## Inventory refresh*` / plain table; PEPTIDE/PEPTID, FARM/FERMOVOD); inventory >48h → ⚪ «инвентарь от DD.MM». Rule: rules/daily-dash-hygiene.md.
