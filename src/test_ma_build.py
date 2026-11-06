@@ -909,8 +909,14 @@ for g in data['messengers']:
         r['author_bot'] = bool(re.match(r'^\W*БОТ\b', _snd, re.I) or (re.search(r'bot$', _snd, re.I) and 'Telegram' in (r.get('channel') or '')))
 data['clickup'] = dict(fetched=_cu['fetched'], owner=SEC[0], owner_link=A(SEC[1]), tasks=[dict(t, need=_ATTN.get(t['id'], 'rost'), bot=_CU_OWN.get(t['id'], '')) for t in _cu['tasks']])  # t4143/t4197: need rost|ok из bot_attn.jsonl
 # Rost t4195–96: CU-инбокс в Мессенджерах читает d.cu_inbox (ma_cu_inbox.json). Без этого поля maCUMsgRows() пустой → задачи «пропали».
+# HARD Rost t5351u: диалоги = Desktop Inbox Primary + DM с красным бейджем; MCP-опрос 48ч не публиковать как диалоги.
 try:
-    _cui = json.load(open(os.path.join(os.path.dirname(__file__), 'ma_cu_inbox.json'), encoding='utf-8'))
+    import sys as _sys_cu
+    _SRC_CU = os.path.dirname(os.path.abspath(__file__))
+    if _SRC_CU not in _sys_cu.path:
+        _sys_cu.path.insert(0, _SRC_CU)
+    import cu_inbox_apply_desktop as _cu_desk
+    _cui = _cu_desk.apply_desktop_or_reject_mcp(_SRC_CU)
     data['cu_inbox'] = {k: _cui[k] for k in ('fetched','since','src','tier','kinds','counts','items','threads') if k in _cui}
     print('cu_inbox threads', len((_cui.get('threads') or [])), 'items', len((_cui.get('items') or [])))
     # Rost t4212: автор строки (кто написал/тегнул). Общие правила, без хардкодов задач:
@@ -1746,6 +1752,24 @@ try:
                 if not sp:
                     # try sphere from unsorted kind / default Личное for ESP dating numbers already handled
                     sp = 'Личное'
+                # Rost t5326–28: ✕ (__unsort) must stay in 📥, never be promoted back into a life sphere
+                # (otherwise the chat vanishes: not in unsorted, hidden from the sphere by the leftover ✕).
+                _ov = None
+                try:
+                    _ov = (_MO.get(f'{_ch}|{title}'.lower()) or {}).get('sphere')
+                except NameError:
+                    _ov = None
+                if _ov == '__unsort':
+                    if not any(x.get('channel') == _ch and (x.get('title') or '').strip().lower() == tk
+                               for x in (data.get('unsorted') or [])):
+                        SEC = ('Секретарь', 'd3a12cc9-cf8a-41e5-b34a-76d4ab9eb9fd')
+                        data.setdefault('unsorted', []).append(dict(
+                            key=f'{_ch}|{title}', channel=_ch, title=title,
+                            kind='↩ с даша: на сортировку', unread=u, muted=False,
+                            last=chat_last_raw(c), owner=SEC[0],
+                            owner_link=f'grokbot://app/v1/agent?id={SEC[1]}',
+                            marked_unread=_dot_unread(c)))
+                    continue
                 # remove from unsorted if present
                 data['unsorted'] = [x for x in (data.get('unsorted') or [])
                                     if not (x.get('channel') == _ch and (x.get('title') or '').strip().lower() == tk)]
@@ -1771,13 +1795,27 @@ try:
         only_live = sorted(set(live_map) - set(dash_map))
         only_sphere_extra = sorted(set(sphere_map) - set(live_map))
         only_sphere_miss = sorted(set(live_map) - set(sphere_map))
+        # t5326–28: ✕ (__unsort) chats parked in 📥 are not a sphere mismatch
+        _parked = set()
+        for x in (data.get('unsorted') or []):
+            if x.get('channel') != _ch:
+                continue
+            tit = (x.get('title') or '').strip()
+            try:
+                ov = (_MO.get(f'{_ch}|{tit}'.lower()) or {}).get('sphere')
+            except NameError:
+                ov = None
+            if ov == '__unsort':
+                _parked.add(tit.lower())
+        only_sphere_miss = [k for k in only_sphere_miss if k not in _parked]
         count_diff = sorted(k for k in set(dash_map) & set(live_map) if dash_map[k] != live_map[k])
         sphere_count_diff = sorted(k for k in set(sphere_map) & set(live_map) if sphere_map[k] != live_map[k])
         lc, ls = len(live_map), sum(live_map.values())
         dc, ds = len(dash_map), sum(dash_map.values())
         sc, ss = len(sphere_map), sum(sphere_map.values())
         mc, ms = len(mon_map), sum(mon_map.values())
-        ok = (not missing) and (not no_at) and (not only_dash) and (not only_live) and (not count_diff)              and (not only_sphere_extra) and (not only_sphere_miss) and (not sphere_count_diff)              and (lc == dc == sc == mc) and (ls == ds == ss == ms)
+        # live must equal list+monitor (spheres ∪ 📥). Spheres alone may be smaller when ✕ parked chats in 📥.
+        ok = (not missing) and (not no_at) and (not only_dash) and (not only_live) and (not count_diff)              and (not only_sphere_extra) and (not only_sphere_miss) and (not sphere_count_diff)              and (lc == dc == mc) and (ls == ds == ms)
         if not ok:
             _mismatch += 1
         note_bits = []
@@ -1795,7 +1833,11 @@ try:
         if only_sphere_miss: note_bits.append('нет в сферах: ' + ', '.join(only_sphere_miss[:8]))
         if count_diff: note_bits.append('счётчик list: ' + ', '.join(f'{k} {dash_map[k]}≠{live_map[k]}' for k in count_diff[:8]))
         if sphere_count_diff: note_bits.append('счётчик сфер: ' + ', '.join(f'{k} {sphere_map[k]}≠{live_map[k]}' for k in sphere_count_diff[:8]))
-        if ok: note_bits.append(f'равно {dc} чатов / {ds} сообщ. (live=list=monitor=spheres)')
+        if ok:
+            if _parked:
+                note_bits.append(f'равно {dc} чатов / {ds} сообщ. (live=list=monitor; {len(_parked)} в 📥 после ✕)')
+            else:
+                note_bits.append(f'равно {dc} чатов / {ds} сообщ. (live=list=monitor=spheres)')
         # t5217–20u: badge = Unread chip / TG folder / IG unread_chats (includes muted+ignored)
         _Lj = L or {}
         if _ck == 'tg' and _Lj.get('folder_badge') is not None:
@@ -1870,17 +1912,13 @@ try:
                 k = (r.get('chat') or '').strip().lower()
                 seen.setdefault(k, []).append(g.get('sphere'))
         dups = [k for k, sps in seen.items() if len(set(sps)) > 1]
-        mon_n = sum(1 for g in data.get('messengers') or [] for r in g.get('rows') or []
-                    if r.get('channel') == _ch and not r.get('muted') and not r.get('cu_msg') and not r.get('cu_tasks')
-                    and (int(r.get('unread_chat') or 0) > 0 or r.get('marked_unread')))
-        mon_u = sum(int(r.get('unread_chat') or 0) for g in data.get('messengers') or [] for r in g.get('rows') or []
-                    if r.get('channel') == _ch and not r.get('muted') and not r.get('cu_msg') and not r.get('cu_tasks')
-                    and (int(r.get('unread_chat') or 0) > 0 or r.get('marked_unread')))
-        # unsorted contributes to monitor/list already via _dash; uns should be empty ideally
+        # t5326–28: monitor = sphere rows ∪ 📥 (same set as list / _dash_unread_map)
+        mon_n = len(list_m)
+        mon_u = sum(list_m.values())
         ok_tab = tab_m == live_map
         ok_uns = uns_m == {} or all(k in live_map and uns_m[k] == live_map[k] for k in uns_m)
         ok_dup = not dups
-        ok_mon = mon_n == len(live_map) and mon_u == sum(live_map.values())
+        ok_mon = list_m == live_map
         surf_ok = ok_tab and ok_uns and ok_dup and ok_mon and chrec.get('ok')
         if not surf_ok and chrec.get('ok'):
             _mismatch += 1
