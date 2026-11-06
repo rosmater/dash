@@ -161,7 +161,7 @@ const Dash = (() => {
         const r = await fetch(src, { cache: 'no-store' });
         if (!r.ok) throw new Error(src + ': HTTP ' + r.status);
         D = await r.json();
-      } else D = await Gate.unlock(window.DASH_ENC || 'data.enc.json');
+      } else D = await Gate.unlock((window.DASH_ENC || 'data.enc.json') + '?t=' + Date.now()); // Rost t5110u 05.11: cache-buster — CDN GitHub держал старые данные до 10 мин
     }
     // По умолчанию — ТЕКУЩАЯ неделя/месяц по дате браузера (Rost 24.10), а не зашитая неделя.
     const t = new Date(), today = new Date(t - t.getTimezoneOffset() * 6e4).toISOString().slice(0, 10);
