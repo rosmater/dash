@@ -1,0 +1,19 @@
+{
+  "_rule": "t5165: server keeps last-run=failed until next fire; a failed run already caught up manually is ok. key=folder, value=list of failed-run dates (DD.MM) already resolved",
+  "automation-1792370697523": [
+    "02.11"
+  ],
+  "of-mon-early-ax42-weekly-iproyal": [
+    "02.11"
+  ],
+  "of-referencias": [
+    "01.11"
+  ],
+  "peso-saludable-wa": [
+    "05.11",
+    "06.11"
+  ],
+  "whatsapp-esp-d": [
+    "05.11"
+  ]
+}

@@ -1,0 +1,890 @@
+{"ts": "2026-10-27T22:48:57-05:00", "bot": "Секретарь", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-27T22:49:12-05:00", "bot": "Секретарь", "action": "push", "note": "t4195–96: вернул cu_inbox в Мессенджеры + лог dash_touch", "files": ["test_ma_build.py", "data.enc.json", "dash_touch_append.py"]}
+{"ts": "2026-10-27T22:49:48-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-27T22:50:51-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-27T22:51:19-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-27T22:51:55-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-27T22:52:05-05:00", "bot": "«Оборонка»", "action": "edit-data", "note": "t4196 retro: обновил gcal_dash.json + cu_cal_dash (созвон Dronamex 28.10 14:00; снимок был от 25.10)", "files": ["gcal_dash.json", "cu_cal_dash.json"]}
+{"ts": "2026-10-27T22:52:05-05:00", "bot": "«Оборонка»", "action": "build", "note": "t4196 retro: ma_q rebuild после обновления снимка календаря — на даше появился Созвон Dronamex; unknown-builds ~22:50–22:51 были мои", "files": []}
+{"ts": "2026-10-27T22:52:10-05:00", "bot": "Помощник по всему", "action": "build", "note": "Q-66cd94 resolved (Rost answered Tigran himself on seats)", "files": ["data-test-ma.enc.json"]}
+{"ts": "2026-10-27T22:52:10-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-27T22:52:21-05:00", "bot": "Помощник по всему", "action": "push", "note": "Q-66cd94 off dash after Rost answered Tigran", "files": ["data.enc.json", "data-test-ma.enc.json", "data-asst.enc.json"]}
+{"ts": "2026-10-27T22:52:58-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-27T22:53:15-05:00", "bot": "Секретарь", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-27T22:54:02-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-27T22:54:16-05:00", "bot": "Секретарь", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-27T22:54:41-05:00", "bot": "Секретарь", "action": "edit-src", "note": "t4197: вернул bot_attn wire + фикс _dt в _watchers (ClickUp 🟡)", "files": ["src/test_ma_build.py", "docs/CHANGELOG.md"]}
+{"ts": "2026-10-27T22:54:41-05:00", "bot": "Секретарь", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-27T22:54:41-05:00", "bot": "Секретарь", "action": "push", "note": "t4197 bot_attn + ClickUp watcher fix", "files": ["data.enc.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-27T22:55:05-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-27T22:56:08-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-27T22:57:12-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-27T22:58:15-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-27T22:59:20-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-27T23:00:27-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-27T23:00:41-05:00", "bot": "Секретарь", "action": "edit-data", "note": "t4199 т251: refresh gcal_dash.json через refresh_gcal_dash.py (MCP list_events 27.10–10.11)", "files": ["/workspace/gcal_dash.json", "src/refresh_gcal_dash.py"]}
+{"ts": "2026-10-27T23:00:42-05:00", "bot": "Секретарь", "action": "edit-src", "note": "t4199 т251: live GCal OAuth scaffold (GIS) в календаре/Сегодня + снимок как фолбэк; CU-сторону не трогаю", "files": ["src/variant-a.html", "docs/CHANGELOG.md", "docs/DECISIONS.md"]}
+{"ts": "2026-10-27T23:01:31-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-27T23:02:34-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-27T23:02:34-05:00", "bot": "Секретарь", "action": "push", "note": "t4199 т251: GCal live OAuth scaffold + snapshot fallback + свежий снимок", "files": ["index.html", "helper.html", "variant-a.html", "data.enc.json", "data-asst.enc.json", "docs/CHANGELOG.md", "docs/DECISIONS.md", "src/variant-a.html", "src/refresh_gcal_dash.py"]}
+{"ts": "2026-10-27T23:03:36-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-27T23:04:40-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-27T23:05:48-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-27T23:07:02-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-27T23:08:06-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-27T23:09:10-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-27T23:10:13-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-27T23:11:43-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-27T23:12:44-05:00", "bot": "Секретарь", "action": "gcal-oauth-clientid", "note": "вшил Client ID rost-dash-gcal (zayavki.ua Testing) в GCAL_CLIENT_ID", "files": ["src/variant-a.html"]}
+{"ts": "2026-10-27T23:12:47-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-27T23:13:55-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-27T23:15:10-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-27T23:16:14-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-27T23:17:48-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-27T23:18:52-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-27T23:19:56-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-27T23:21:00-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-27T23:22:03-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-27T23:23:07-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-27T23:24:11-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-27T23:25:14-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-27T23:26:18-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-27T23:27:21-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-27T23:28:25-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-27T23:29:28-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-27T23:30:32-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-27T23:31:43-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-27T23:33:01-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-27T23:35:36-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-27T23:36:40-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-27T23:37:44-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-27T23:39:03-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-27T23:39:08-05:00", "bot": "«Пептид»", "action": "edit-data", "note": "D3: tap_relay handle wa-toast ntfy → apply_wa_toast; pause LLM wa-peso", "files": ["src/tap_relay.py"]}
+{"ts": "2026-10-27T23:39:37-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-27T23:40:46-05:00", "bot": "Секретарь", "action": "edit-data", "note": "t4212 dash-msg-bot-tagger-bottom: автор/БОТ в строках Мессенджеров + бот-строки вниз", "files": ["src/cu_inbox_build.py", "src/test_ma_build.py", "src/variant-a.html"]}
+{"ts": "2026-10-27T23:41:21-05:00", "bot": "Секретарь", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-27T23:41:22-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-27T23:42:15-05:00", "bot": "Секретарь", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-27T23:42:40-05:00", "bot": "Секретарь", "action": "push", "note": "t4212: автор строки (имя/БОТ) + БОТ-строки вниз сферы", "files": ["index.html", "helper.html", "variant-a.html", "*.enc.json", "docs/CHANGELOG.md"]}
+{"ts": "2026-10-27T23:44:11-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-28T00:01:20-05:00", "bot": "executor-t4264", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-28T00:14:46-05:00", "bot": "Clear-TZ", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-28T00:49:13-05:00", "bot": "executor-t4312", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-28T00:52:38-05:00", "bot": "executor-t4312", "action": "push", "note": "t4312 CU okfold + t4316 tab fix", "files": ["index.html", "helper.html", "variant-a.html"]}
+{"ts": "2026-10-28T00:57:43-05:00", "bot": "grok-executor", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-28T00:58:17-05:00", "bot": "grok-executor", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-28T00:58:29-05:00", "bot": "grok-executor", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-28T01:04:05-05:00", "bot": "executor", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-28T03:39:55-05:00", "bot": "Оборонка", "action": "edit-data", "note": "STE morning digest 28.10: unanswered_replies sync (0 open, 3 waiting) to vault data.json + outreach mirror", "files": ["src/defense_unanswered.json"]}
+{"ts": "2026-10-28T05:59:50-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-28T06:17:27-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-28T06:17:30-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-28T08:11:53-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-28T08:38:44-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-28T08:39:49-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-28T08:40:52-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-28T08:41:56-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-28T08:43:01-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-28T08:44:16-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-28T08:45:20-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-28T08:45:24-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-28T08:46:39-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-28T08:49:37-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-28T08:50:50-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-28T08:51:54-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-28T08:52:58-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-28T08:54:02-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-28T08:55:06-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-28T08:56:10-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-28T08:56:58-05:00", "bot": "Секретарь", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-28T08:57:56-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-28T08:59:00-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-28T09:00:14-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-28T09:01:19-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-28T09:01:39-05:00", "bot": "Секретарь", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-28T09:02:23-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-28T09:03:33-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-28T09:03:46-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-28T09:04:56-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-28T09:06:00-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-28T09:07:06-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-28T09:08:10-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-28T09:09:14-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-28T09:09:27-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-28T09:09:35-05:00", "bot": "Помощник по всему", "action": "build", "note": "ma_q resolve Q-3335a5 Q-b2b68b Taba alerts-no-go", "files": ["data.json"]}
+{"ts": "2026-10-28T09:09:43-05:00", "bot": "Помощник по всему", "action": "push", "note": "after resolve Q-3335a5 Q-b2b68b alerts-no-go", "files": []}
+{"ts": "2026-10-28T09:10:12-05:00", "bot": "Помощник по всему", "action": "push", "note": "git push after resolve Q-3335a5 Q-b2b68b", "files": []}
+{"ts": "2026-10-28T09:10:12-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-28T09:10:19-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-28T09:11:32-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-28T09:11:36-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-28T09:12:41-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-28T09:13:47-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-28T09:14:51-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-28T09:15:58-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-28T09:17:05-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-28T09:18:09-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-28T09:19:13-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-28T09:20:19-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-28T09:21:24-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-28T09:22:28-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-28T09:23:32-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-28T09:24:36-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-28T09:25:40-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-28T09:26:46-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-28T09:27:50-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-28T09:28:58-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-28T09:35:35-05:00", "bot": "Секретарь t4368", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-28T09:38:52-05:00", "bot": "Секретарь t4368", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-28T09:39:18-05:00", "bot": "Секретарь t4368", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-28T09:40:31-05:00", "bot": "Секретарь t4368", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-28T09:43:06-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-28T09:46:27-05:00", "bot": "executor-t4380", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-28T09:48:17-05:00", "bot": "executor-t4380", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-28T09:51:06-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-28T09:51:41-05:00", "bot": "executor-t4383", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-28T09:55:10-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-28T09:58:15-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-28T10:08:25-05:00", "bot": "«Секретарь»", "action": "edit-data", "note": "t4389 привязка CU 86bcj512x СмокиДжин → WA Артем ДонТабак", "files": ["msg_row_overrides.json", "msg_sphere_overrides.json", "chats.csv"]}
+{"ts": "2026-10-28T10:08:40-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-28T10:09:31-05:00", "bot": "«Секретарь»", "action": "build", "note": "t4389 CU 86bcj512x → Артем ДонТабак", "files": ["data-test-ma.json"]}
+{"ts": "2026-10-28T10:10:00-05:00", "bot": "«Секретарь»", "action": "push", "note": "t4389 CU СмокиДжин → Артем ДонТабак", "files": ["data.enc.json"]}
+{"ts": "2026-10-28T10:11:35-05:00", "bot": "Помощник по всему", "action": "other", "note": "close rorey-slash-wait QUEUE [done] after Rost GO from dash Q-1db33b", "files": []}
+{"ts": "2026-10-28T10:11:36-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-28T10:13:45-05:00", "bot": "Помощник по всему", "action": "other", "note": "close ja5452-wait + rule dead-queue-close-no-confirm (t1581-82)", "files": []}
+{"ts": "2026-10-28T10:13:45-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-28T10:16:21-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-28T10:18:31-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-28T10:19:32-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-28T10:22:38-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-28T10:24:53-05:00", "bot": "«Дейтинг»", "action": "build", "note": "tinder-our-turn one block → attn (Lauu/Leidy/Samy)", "files": ["dating/QUEUE.md", "queue/ma_open_questions.json"]}
+{"ts": "2026-10-28T10:24:53-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-28T10:25:16-05:00", "bot": "Дейтинг", "action": "push", "note": "tinder-our-turn Q-5f0959 fixed bot name", "files": ["queue/ma_open_questions.json"]}
+{"ts": "2026-10-28T10:25:17-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-28T10:26:42-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-28T10:28:07-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-28T10:28:14-05:00", "bot": "Оборонка", "action": "build", "note": "ma_q rebuild after resolve Q-60d3b7 Q-c4e9b7", "files": ["data-test-ma.json", "data.enc.json"]}
+{"ts": "2026-10-28T10:28:46-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-28T10:29:58-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-28T10:30:19-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-28T10:31:45-05:00", "bot": "Оборонка", "action": "build", "note": "ma_q resolve Q-55ff23 hold-letters", "files": ["data-test-ma.json", "data.enc.json"]}
+{"ts": "2026-10-28T10:31:46-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-28T10:31:53-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-28T10:34:18-05:00", "bot": "Помощник по всему", "action": "edit-data", "note": "morning mega 28.10: ma_q add GANA login needed", "files": []}
+{"ts": "2026-10-28T10:34:58-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-28T10:41:11-05:00", "bot": "«Дейтинг»", "action": "build", "note": "after ma_q resolve Q-5f0959 tinder-our-turn sent", "files": []}
+{"ts": "2026-10-28T10:41:14-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-28T10:41:28-05:00", "bot": "Оборонка", "action": "edit-data", "note": "STE: DECSEF reply → unanswered_replies open", "files": ["src/defense_unanswered.json", "data.json"]}
+{"ts": "2026-10-28T10:42:03-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-28T10:42:45-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-28T10:47:45-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-28T10:51:13-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-28T10:52:18-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-28T10:54:01-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-28T10:54:25-05:00", "bot": "Юрист / Адвокат / Бухгалтер", "action": "build", "note": "t325: pending не red qs; Q-e91f37 resolve; Payoneer только в очереди", "files": ["data-test-ma.json", "data.enc.json"]}
+{"ts": "2026-10-28T10:57:13-05:00", "bot": "Оборонка", "action": "edit-data", "note": "DECSEF call 03.11 12:00 Bogotá: gcal+cu_cal snapshot after write, defense_pins scheduled_calls", "files": ["gcal_dash.json", "cu_cal_dash.json", "src/defense_pins.json"]}
+{"ts": "2026-10-28T10:57:25-05:00", "bot": "Оборонка", "action": "push", "note": "DECSEF call 03.11 pushed (gcal/cu_cal/defense_pins)", "files": []}
+{"ts": "2026-10-28T11:00:16-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-28T11:00:18-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-28T11:00:50-05:00", "bot": "Оборонка", "action": "push", "note": "DECSEF reply sent → waiting; decsef-reply done; Q-6b2c0c resolved", "files": ["src/defense_unanswered.json", "data.enc.json"]}
+{"ts": "2026-10-28T11:05:55-05:00", "bot": "Оборонка", "action": "push", "note": "DECSEF Meet → STE eez-yqje-jys (old zayavki fdz superseded)", "files": ["src/defense_pins.json", "src/defense_unanswered.json"]}
+{"ts": "2026-10-28T11:08:48-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-28T11:10:29-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-28T11:11:48-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-28T11:15:15-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-28T11:15:24-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-28T11:15:34-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-28T11:20:05-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-28T11:20:20-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-28T11:20:28-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-28T11:21:28-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-28T11:23:45-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-28T11:24:06-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-28T11:25:38-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-28T11:31:22-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-28T11:31:36-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-28T11:38:43-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-28T11:41:10-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-28T11:41:43-05:00", "bot": "ОФ Маркетинг", "action": "other", "note": "Informe Stats OF earnings fill GC2:GX4=0 + CU for check 86b9axevh", "files": ["Stats sheet"]}
+{"ts": "2026-10-28T11:41:45-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-28T11:43:24-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-28T11:43:54-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-28T11:44:55-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-28T11:45:59-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-28T12:12:44-05:00", "bot": "Секретарь-executor watcher-fix-20261028-1146", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-28T12:15:16-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-28T13:06:19-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-28T13:06:39-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-28T13:07:29-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-28T13:07:40-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-28T13:08:34-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-28T13:10:25-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-28T13:13:31-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-28T13:13:48-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-28T13:16:29-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-28T13:22:47-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-28T13:22:54-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-28T13:33:36-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-28T13:34:03-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-28T14:39:28-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-28T14:43:39-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-28T18:02:13-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-28T18:02:40-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-28T18:44:02-05:00", "bot": "Дейтинг", "action": "other", "note": "ma_q red: WW insufficient funds El Pulpo 56k wait Rost top-up", "files": ["QUEUE.md"]}
+{"ts": "2026-10-28T18:44:03-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-28T19:09:35-05:00", "bot": "Дейтинг", "action": "other", "note": "resolve Q-1286eb: El Pulpo WW cancelled, Rost pays Bancolombia hand", "files": []}
+{"ts": "2026-10-28T19:09:35-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-28T19:09:58-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-28T19:10:39-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-28T22:39:26-05:00", "bot": "Секретарь", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-28T22:39:33-05:00", "bot": "Секретарь", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-28T22:45:30-05:00", "bot": "Секретарь", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-29T00:57:21-05:00", "bot": "Пептид", "action": "build", "note": "WA сводка 27–28.10: replies/dialogs-since/reply_speed", "files": ["peptides-dash-monitors/*.json"]}
+{"ts": "2026-10-29T00:57:36-05:00", "bot": "Пептид", "action": "push", "note": "WA сводка 27–28.10 monitors", "files": []}
+{"ts": "2026-10-29T03:14:11-05:00", "bot": "«Оборонка»", "action": "edit-data", "note": "STE digest 29.10: unanswered_replies DECSEF note update (courtesy reply 28.10 13:24)", "files": ["data.json"]}
+{"ts": "2026-10-29T08:05:01-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-29T10:49:42-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-29T14:01:54-05:00", "bot": "Секретарь", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-29T14:02:17-05:00", "bot": "Секретарь", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-29T14:02:35-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-29T14:03:19-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-29T16:13:05-05:00", "bot": "«Пептид»", "action": "other", "note": "ma_q resolve Q-311b5d Redmi online", "files": []}
+{"ts": "2026-10-29T16:13:09-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-29T16:13:24-05:00", "bot": "«Пептид»", "action": "build", "note": "ma_q rebuild after resolve Q-311b5d Redmi online", "files": []}
+{"ts": "2026-10-29T18:00:32-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-29T22:46:34-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-29T22:47:37-05:00", "bot": "Секретарь", "action": "build", "note": "night hygiene 29.10: gcal 159, IG 22:43, CU WIDE inbox, reconcile ok", "files": ["gcal_dash.json", "ig_direct_live.json", "ma_cu_inbox.json", "messengers_reconcile.json"]}
+{"ts": "2026-10-29T22:47:37-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-29T22:47:40-05:00", "bot": "Секретарь", "action": "push", "note": "night hygiene 29.10 push", "files": []}
+{"ts": "2026-10-30T00:38:41-05:00", "bot": "Пептид", "action": "build", "note": "WA сводка 29.10: replies/dialogs/reply_speed monitors", "files": []}
+{"ts": "2026-10-30T03:08:58-05:00", "bot": "Оборонка", "action": "edit-data", "note": "STE digest 30.10: PRODESATEN live reply → defense_unanswered.json open", "files": ["src/defense_unanswered.json"]}
+{"ts": "2026-10-30T08:05:46-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-30T09:21:06-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-30T10:11:12-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-30T10:50:15-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-30T10:50:25-05:00", "bot": "Секретарь", "action": "morning mega 30.10: CU inbox WIDE + reconcile", "note": "cu_inbox_build 2026-10-30; reconcile ok", "files": []}
+{"ts": "2026-10-30T10:50:25-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-30T20:05:15-05:00", "bot": "Секретарь", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-30T20:06:01-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-30T22:38:50-05:00", "bot": "Секретарь", "action": "night hygiene 30.10", "note": "gcal 159 ev; reconcile ok; CU WIDE quiet; TG watcher restored", "files": []}
+{"ts": "2026-10-30T22:38:50-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-31T00:44:55-05:00", "bot": "Пептид", "action": "edit-data", "note": "WA сводка 30.10: replies/dialogs/reply_speed", "files": ["peptides-dash-monitors/*.json"]}
+{"ts": "2026-10-31T00:50:39-05:00", "bot": "Пептид", "action": "build", "note": "WA сводка 30.10 monitors", "files": []}
+{"ts": "2026-10-31T00:50:57-05:00", "bot": "Пептид", "action": "push", "note": "WA сводка 30.10 monitors", "files": []}
+{"ts": "2026-10-31T00:54:28-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-31T00:54:39-05:00", "bot": "«Пептид»", "action": "build", "note": "resolve Q-4c2801 PIN attn (dead; 13/16 unlocked)", "files": ["data.json"]}
+{"ts": "2026-10-31T00:55:02-05:00", "bot": "«Пептид»", "action": "push", "note": "clear Q-4c2801 PIN attn after resolve", "files": []}
+{"ts": "2026-10-31T03:13:56-05:00", "bot": "Оборонка", "action": "edit-data", "note": "STE digest 31.10: defense_unanswered.json updated_at refresh (PRODESATEN still open)", "files": ["src/defense_unanswered.json"]}
+{"ts": "2026-10-31T06:00:42-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-31T06:51:05-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-31T06:51:10-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-31T06:56:29-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-31T10:01:17-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-31T12:04:39-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-31T14:29:38-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-31T16:03:54-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-31T16:32:11-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-10-31T22:08:53-05:00", "bot": "Дейтинг", "action": "ma_q add Andrea regreso", "note": "Q-0424c6", "files": []}
+{"ts": "2026-10-31T22:08:53-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-01T00:50:58-05:00", "bot": "Пептид", "action": "build", "note": "WA сводка 31.10: replies/dialogs/reply_speed", "files": ["peptides-dash-monitors/*.json"]}
+{"ts": "2026-11-01T03:09:52-05:00", "bot": "Оборонка", "action": "edit-data", "note": "STE digest 01.11: defense_unanswered.json updated_at + PRODESATEN note", "files": ["src/defense_unanswered.json"]}
+{"ts": "2026-11-01T04:05:59-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-01T05:59:10-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-01T06:48:27-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-01T10:10:25-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-01T16:06:43-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-01T16:06:57-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-01T16:07:06-05:00", "bot": "«Пептид»", "action": "build", "note": "ma_q resolve Q-a8e0ed jean-wa-pause Rost t561 → rebuild", "files": ["data.json"]}
+{"ts": "2026-11-01T16:07:19-05:00", "bot": "«Пептид»", "action": "push", "note": "после resolve Q-a8e0ed jean pause", "files": []}
+{"ts": "2026-11-01T16:33:09-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-01T20:01:12-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-02T00:18:23-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-02T00:33:07-05:00", "bot": "Пептид", "action": "build", "note": "WA сводка 01.11: replies/dialogs/reply_speed", "files": ["peptides-dash-monitors/*.json"]}
+{"ts": "2026-11-02T03:08:12-05:00", "bot": "Оборонка", "action": "edit-data", "note": "STE digest 02.11: defense_unanswered.json updated_at, PRODESATEN open", "files": ["src/defense_unanswered.json"]}
+{"ts": "2026-11-02T10:07:27-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-02T10:30:39-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-02T10:43:52-05:00", "bot": "Секретарь", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-02T10:53:48-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-02T13:05:03-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-02T13:05:21-05:00", "bot": "Пептид", "action": "build", "note": "ma_q Q-14392a Redmi PIN unlock для IG DM handoff", "files": ["data.json", "data.enc.json"]}
+{"ts": "2026-11-02T13:05:31-05:00", "bot": "Пептид", "action": "push", "note": "Q-14392a Redmi PIN — IG DM handoff blocked", "files": []}
+{"ts": "2026-11-02T13:05:54-05:00", "bot": "Пептид", "action": "push", "note": "sync Q-14392a Redmi PIN attn to dash-gh", "files": ["data-test-ma.json", "data-test-ma.enc.json", "data.json", "data.enc.json"]}
+{"ts": "2026-11-02T13:41:41-05:00", "bot": "COMMS", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-02T14:01:37-05:00", "bot": "comms", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-02T16:01:19-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-02T16:01:22-05:00", "bot": "Пептид", "action": "push", "note": "resolve Q-14392a Redmi unlocked", "files": []}
+{"ts": "2026-11-02T18:07:22-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-02T18:35:26-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-02T19:06:11-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-02T20:18:08-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-02T22:40:25-05:00", "bot": "Секретарь", "action": "edit-data", "note": "night hygiene 02.11: gcal snapshot refresh", "files": ["gcal_dash.json"]}
+{"ts": "2026-11-02T22:43:54-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-02T22:43:55-05:00", "bot": "Секретарь", "action": "push", "note": "night hygiene 02.11: gcal + CU WIDE inbox + messengers reconcile", "files": ["gcal_dash.json", "ma_cu_inbox.json", "messengers_reconcile.json"]}
+{"ts": "2026-11-02T22:48:43-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-03T00:45:49-05:00", "bot": "Пептид", "action": "build", "note": "WA сводка 02.11: replies/reply_speed/dialogs monitors", "files": ["peptides-dash-monitors/*.json"]}
+{"ts": "2026-11-03T00:46:11-05:00", "bot": "Пептид", "action": "push", "note": "WA сводка 02.11 data.enc push", "files": []}
+{"ts": "2026-11-03T00:55:06-05:00", "bot": "Пептид", "action": "build", "note": "ma_q Q-a0e327 Payment Due red attn + QUEUE ads-payment-due", "files": []}
+{"ts": "2026-11-03T00:55:07-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-03T00:55:29-05:00", "bot": "Пептид", "action": "push", "note": "ma_q rebuild Q-a0e327 Payment Due red attn", "files": []}
+{"ts": "2026-11-03T03:09:29-05:00", "bot": "Оборонка", "action": "edit-data", "note": "STE утренняя сводка 03.11: unanswered_replies обновлён (PRODESATEN open)", "files": ["src/defense_unanswered.json", "data.json"]}
+{"ts": "2026-11-03T12:41:37-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-03T13:13:09-05:00", "bot": "Пептид", "action": "build", "note": "ma_q redmi-adb-5555 ADB down need=rost", "files": []}
+{"ts": "2026-11-03T13:13:09-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-03T13:13:31-05:00", "bot": "Пептид", "action": "push", "note": "ma_q rebuild redmi-adb-5555", "files": []}
+{"ts": "2026-11-03T13:42:33-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-03T13:44:07-05:00", "bot": "Пептид", "action": "build", "note": "resolve Q-d6e8c8 ADB back", "files": []}
+{"ts": "2026-11-03T13:44:07-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-03T13:44:17-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-03T13:44:29-05:00", "bot": "Пептид", "action": "push", "note": "resolve Q-d6e8c8 ADB back", "files": []}
+{"ts": "2026-11-03T13:44:56-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-03T13:45:20-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-03T13:45:48-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-03T14:06:07-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-03T14:28:01-05:00", "bot": "Пептид", "action": "build", "note": "resolve Q-a0e327 payment cleared + stools boost", "files": []}
+{"ts": "2026-11-03T14:28:02-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-03T14:28:25-05:00", "bot": "Пептид", "action": "push", "note": "resolve Q-a0e327 payment cleared", "files": []}
+{"ts": "2026-11-03T14:28:53-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-03T15:37:58-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-03T15:56:01-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-03T15:56:28-05:00", "bot": "Оборонка", "action": "build", "note": "DECSEF reschedule Q-4e0558 + QUEUE decsef-reschedule", "files": ["QUEUE.md"]}
+{"ts": "2026-11-03T15:56:28-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-03T16:08:32-05:00", "bot": "«Оборонка»", "action": "edit-data", "note": "Клиенты в процессе / Ждут каталог: Dronamex + Military Industries", "files": ["defense_clients.json", "build_data.py", "QUEUE.md"]}
+{"ts": "2026-11-03T16:08:32-05:00", "bot": "«Оборонка»", "action": "edit-html", "note": "UI блок Клиенты в процессе на вкладке Оборонка", "files": ["variant-a.html"]}
+{"ts": "2026-11-03T16:08:32-05:00", "bot": "«Оборонка»", "action": "build", "note": "rebuild after clients-in-progress block", "files": ["defense_clients.json", "variant-a.html", "build_data.py"]}
+{"ts": "2026-11-03T16:08:56-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-03T16:08:57-05:00", "bot": "«Оборонка»", "action": "push", "note": "Оборонка: Клиенты в процессе / Ждут каталог (Dronamex + Military Industries); PRODESATEN → waiting", "files": ["index.html", "variant-a.html", "defense_clients.json", "defense_unanswered.json", "data.enc.json"]}
+{"ts": "2026-11-03T16:12:47-05:00", "bot": "«Оборонка»", "action": "edit-data", "note": "HOLD снят t321; QUEUE ste-hold done", "files": ["QUEUE.md", "SEND_RULES.md", "HOLD_REMOVED"]}
+{"ts": "2026-11-03T16:12:47-05:00", "bot": "Оборонка", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-03T16:13:03-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-03T16:56:50-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-03T17:01:02-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-03T17:02:09-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-03T18:03:10-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-03T18:05:46-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-03T18:06:47-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-03T18:08:18-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-03T18:46:37-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-03T18:50:34-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-03T19:58:04-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-03T19:59:48-05:00", "bot": "Секретарь", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-03T20:01:04-05:00", "bot": "Секретарь", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-03T20:06:03-05:00", "bot": "Секретарь", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-03T20:12:15-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-03T20:16:21-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-03T20:20:24-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-03T20:25:59-05:00", "bot": "Фермовод", "action": "other", "note": "resolve Q-4649fb jo-follow-seed BBW sources done", "files": []}
+{"ts": "2026-11-03T20:25:59-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-03T20:26:31-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-03T20:28:34-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-03T20:28:58-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-03T20:29:09-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-03T20:31:37-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-03T20:31:44-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-03T20:32:59-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-03T20:34:20-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-03T20:35:16-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-03T20:35:50-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-03T20:36:19-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-03T20:36:43-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-03T20:36:53-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-03T20:37:10-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-03T20:37:30-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-03T20:40:04-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-03T20:45:19-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-03T21:13:29-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-03T21:32:54-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-03T21:35:30-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-03T21:35:52-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-03T21:36:59-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-03T21:37:19-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-03T21:38:46-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-03T21:40:07-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-03T21:40:42-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-03T21:43:00-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-03T21:44:34-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-03T21:46:42-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-03T21:50:48-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-03T21:51:51-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-03T21:51:58-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-03T21:54:25-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-03T21:54:58-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-03T21:57:55-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-03T22:02:25-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-03T22:02:28-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-03T22:06:38-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-03T22:15:12-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-03T22:25:42-05:00", "bot": "Фермовод", "action": "other", "note": "delays 60-90 all 20 hand-set; resolve Q-c60891 if open", "files": []}
+{"ts": "2026-11-03T22:25:42-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-03T22:30:56-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-03T22:31:05-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-03T22:31:39-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-03T22:35:43-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-03T22:36:27-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-03T22:38:06-05:00", "bot": "Секретарь", "action": "push", "note": "night hygiene 03.11: gcal snapshot 164, CU tier1 skip, messengers reconcile ok", "files": ["gcal_dash.json", "src/messengers_reconcile.json"]}
+{"ts": "2026-11-03T22:38:06-05:00", "bot": "Секретарь", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-03T22:38:23-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-03T22:38:59-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-03T22:39:15-05:00", "bot": "Секретарь", "action": "build", "note": "IG Direct snapshot 22:37 (1 unread DENIS SIMOCHOV) → build_test_ma + build + push", "files": ["src/ig_direct_live.json"]}
+{"ts": "2026-11-03T22:39:16-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-03T22:39:33-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-03T22:40:01-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-03T22:40:13-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-03T22:41:19-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-03T22:41:32-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-03T22:42:35-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-03T22:46:41-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-03T22:47:46-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-03T22:48:10-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-03T22:49:13-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-03T22:49:47-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-03T22:50:22-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-03T22:50:55-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-03T22:51:40-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-03T22:55:02-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-03T22:55:43-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-03T22:55:48-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-03T23:03:29-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-03T23:05:52-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-03T23:06:44-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-03T23:07:57-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-03T23:11:36-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-03T23:13:32-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-03T23:13:54-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-03T23:13:59-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-03T23:14:03-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-03T23:15:15-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-03T23:15:36-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-03T23:16:02-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-03T23:16:13-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-03T23:17:06-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-03T23:21:21-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-03T23:21:36-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-03T23:22:09-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-03T23:22:57-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T00:45:10-05:00", "bot": "Пептид", "action": "build", "note": "WA сводка 03.11 replies/reply_speed/dialogs", "files": []}
+{"ts": "2026-11-04T00:45:27-05:00", "bot": "Пептид", "action": "push", "note": "WA сводка 03.11", "files": []}
+{"ts": "2026-11-04T02:15:02-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T03:08:24-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T03:32:07-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T03:41:36-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T05:59:59-05:00", "bot": "Секретарь", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T06:00:12-05:00", "bot": "Секретарь", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T06:03:31-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T06:13:29-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T06:55:40-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T07:15:40-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T07:16:04-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T07:16:48-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T07:38:10-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T07:41:17-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T07:42:01-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T07:44:58-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T07:59:50-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T08:10:25-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T08:14:28-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T08:17:01-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T08:17:09-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T08:17:57-05:00", "bot": "«Оборонка»", "action": "build", "note": "t324: каталоги Carlos/Dronamex снять с Alert (ma_q resolve + QUEUE parked)", "files": ["src/../"]}
+{"ts": "2026-11-04T08:18:13-05:00", "bot": "«Оборонка»", "action": "build", "note": "t324 pre-build: Alert каталоги снять (parked + ma_q resolve)", "files": ["QUEUE.md", "ma_open_questions.json"]}
+{"ts": "2026-11-04T08:18:13-05:00", "bot": "Оборонка", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T08:18:21-05:00", "bot": "«Оборонка»", "action": "push", "note": "t324: каталоги Carlos/Dronamex с Alert → parked; ma_q resolve", "files": ["data-test-ma.json", "data.enc.json", "index.html"]}
+{"ts": "2026-11-04T08:20:33-05:00", "bot": "Помощник по всему", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T08:24:02-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T08:24:15-05:00", "bot": "Помощник по всему", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T08:26:05-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T08:27:39-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T08:31:51-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T08:42:02-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T08:43:50-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T08:46:22-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T08:47:54-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T08:50:00-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T08:51:47-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T08:51:53-05:00", "bot": "Секретарь", "action": "push", "note": "t4939 resolve Q-b629db Specie (ошибочный reopen 08:43 после ответа Rost)", "files": []}
+{"ts": "2026-11-04T08:51:58-05:00", "bot": "Секретарь", "action": "build", "note": "after resolve Q-b629db", "files": []}
+{"ts": "2026-11-04T08:52:04-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T08:54:20-05:00", "bot": "Секретарь", "action": "edit-html", "note": "t4940 CU ✓ hide for 📄 reports: attn keep .cu; maOqApply keep cu-*; botTHid oq", "files": ["src/variant-a.html"]}
+{"ts": "2026-11-04T08:54:20-05:00", "bot": "Секретарь", "action": "push", "note": "t4940 fix CU ✓ hide reports all bots same variant-a", "files": []}
+{"ts": "2026-11-04T08:59:10-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T09:02:57-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T09:03:14-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T09:05:10-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T09:05:18-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T09:07:31-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T09:08:21-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T09:08:45-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T09:09:04-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T09:09:52-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T09:10:08-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T09:10:20-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T09:13:03-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T09:17:59-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T09:19:09-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T09:22:38-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T09:22:45-05:00", "bot": "Секретарь", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T09:23:42-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T09:25:45-05:00", "bot": "Пептид", "action": "push", "note": "t4977 peptides_sync VENTAS+Expensed + ads.json bus/stools refresh", "files": ["peptides_sales.json", "peptides_expenses.json", "ads.json", "data.enc.json"]}
+{"ts": "2026-11-04T09:29:53-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T09:30:47-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T09:53:00-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T10:02:49-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T10:05:00-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T10:05:51-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T10:06:02-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T10:09:35-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T10:10:03-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T10:10:12-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T10:26:47-05:00", "bot": "Секретарь", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T10:26:54-05:00", "bot": "«Оборонка»", "action": "edit-data", "note": "t327: defense_pins 86bctg47u новое имя + due 05.11", "files": ["src/defense_pins.json"]}
+{"ts": "2026-11-04T10:26:54-05:00", "bot": "Оборонка", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T10:27:01-05:00", "bot": "«Оборонка»", "action": "push", "note": "t327: pin 86bctg47u новое имя на даш", "files": ["data.enc.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T10:27:03-05:00", "bot": "Секретарь", "action": "push", "note": "messengers ISO log parse fix t4983", "files": ["test_ma_build.py", "data.enc.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T10:27:35-05:00", "bot": "«Оборонка»", "action": "build", "note": "t327 rebuild+push после гонки с Секретарём — pin Дмитрия", "files": ["src/defense_pins.json"]}
+{"ts": "2026-11-04T10:27:36-05:00", "bot": "Оборонка", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T10:27:36-05:00", "bot": "«Оборонка»", "action": "push", "note": "t327: pin 86bctg47u новое имя на даш (после гонки)", "files": ["data.enc.json", "data-test-ma.enc.json", "data-asst.enc.json"]}
+{"ts": "2026-11-04T10:29:23-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T10:32:40-05:00", "bot": "Секретарь", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T10:32:47-05:00", "bot": "Секретарь", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T10:33:13-05:00", "bot": "Секретарь", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T10:33:32-05:00", "bot": "Секретарь", "action": "push", "note": "t4989 auto-clear stale messengers", "files": ["data-test-ma.enc.json", "data.enc.json", "index.html"]}
+{"ts": "2026-11-04T10:33:40-05:00", "bot": "Секретарь", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T10:44:41-05:00", "bot": "Секретарь", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T10:48:03-05:00", "bot": "Секретарь", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T10:48:51-05:00", "bot": "Секретарь", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T10:50:16-05:00", "bot": "Секретарь", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T10:51:31-05:00", "bot": "Секретарь", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T10:52:03-05:00", "bot": "Секретарь", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T10:52:36-05:00", "bot": "Секретарь", "action": "push", "note": "t4997 unread reconcile: Viber 1618 + WA UKR 568 live match; Игнор keeps muted; ESP pending", "files": ["data.enc.json", "data-asst.enc.json", "data-test-ma.enc.json", "test_ma_build.py", "messengers_reconcile.json"]}
+{"ts": "2026-11-04T10:59:26-05:00", "bot": "Секретарь", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T10:59:38-05:00", "bot": "Секретарь", "action": "push", "note": "t4997 ESP live 451 match; full unread reconcile Viber+UKR+ESP+IG", "files": ["data.enc.json", "data-asst.enc.json", "data-test-ma.enc.json", "wa_esp_live.json", "messengers_reconcile.json"]}
+{"ts": "2026-11-04T11:10:39-05:00", "bot": "Секретарь", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T11:13:04-05:00", "bot": "Секретарь", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T11:13:16-05:00", "bot": "Секретарь", "action": "push", "note": "CU inbox live refresh 11:12 t5002", "files": ["data.enc.json", "data-asst.enc.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T11:14:36-05:00", "bot": "Секретарь", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T11:14:36-05:00", "bot": "Секретарь", "action": "push", "note": "t5002: CU inbox ignore Rost-own comments; hang skip Игнор/muted", "files": ["cu_inbox_build.py", "test_ma_build.py", "data.enc.json"]}
+{"ts": "2026-11-04T11:20:46-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T11:34:54-05:00", "bot": "Секретарь", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T11:36:25-05:00", "bot": "Секретарь", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T11:36:41-05:00", "bot": "Секретарь", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T11:37:40-05:00", "bot": "Секретарь", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T11:40:58-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T11:43:04-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T11:48:09-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T11:49:54-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T11:51:00-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T11:52:07-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T11:54:57-05:00", "bot": "Исполнитель t5018", "action": "edit-html", "note": "t5018: muted WA/Viber чаты не в списке/unread мессенджеров (maUns, monitor sum)", "files": ["variant-a.html"]}
+{"ts": "2026-11-04T11:54:57-05:00", "bot": "Исполнитель t5018", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T11:55:16-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T11:55:29-05:00", "bot": "Исполнитель t5018", "action": "edit-data", "note": "t5018: muted флаг из live на dash-tap строки", "files": ["test_ma_build.py"]}
+{"ts": "2026-11-04T11:55:29-05:00", "bot": "Исполнитель t5018", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T11:55:57-05:00", "bot": "Исполнитель t5018", "action": "push", "note": "bbe9003 t5018: muted WA/Viber скрыты, unread без muted", "files": ["index.html", "data*.enc.json"]}
+{"ts": "2026-11-04T11:56:20-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T11:57:29-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T11:58:32-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T12:00:16-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T12:04:25-05:00", "bot": "executor", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T12:04:33-05:00", "bot": "COMMS executor t5019", "action": "edit-data", "note": "CU live refresh: ma_clickup 27 for check, cu_dated +71/-2, cu_tasks_dash statuses", "files": ["src/ma_clickup.json", "src/cu_dated.json", "/workspace/cu_tasks_dash.json"]}
+{"ts": "2026-11-04T12:04:34-05:00", "bot": "COMMS executor t5019", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T12:04:50-05:00", "bot": "COMMS executor t5019", "action": "push", "note": "t5019 CU live refresh pushed", "files": []}
+{"ts": "2026-11-04T12:04:58-05:00", "bot": "executor", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T12:08:22-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T12:09:09-05:00", "bot": "executor-t5019", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T12:55:28-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T13:17:54-05:00", "bot": "Секретарь", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T13:45:39-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T14:48:31-05:00", "bot": "Оборонка", "action": "build", "note": "refresh gcal after STE event DECSEF 10.11", "files": []}
+{"ts": "2026-11-04T14:48:31-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T15:43:01-05:00", "bot": "Оборонка", "action": "edit-data", "note": "DECSEF 10.11 STE Meet + pins", "files": ["src/defense_pins.json"]}
+{"ts": "2026-11-04T15:43:16-05:00", "bot": "Оборонка", "action": "build-push", "note": "DECSEF 10.11 cal snapshots + build", "files": ["src/defense_pins.json"]}
+{"ts": "2026-11-04T15:44:23-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T15:44:33-05:00", "bot": "Оборонка", "action": "edit-data", "note": "DECSEF confirm sent Meet odi-oqbo-eaq; pins 10.11", "files": ["src/defense_pins.json"]}
+{"ts": "2026-11-04T15:45:34-05:00", "bot": "Оборонка", "action": "build-push", "note": "DECSEF confirmed: CU comment, gcal/cu_cal refresh, unanswered→call_confirmed", "files": ["src/defense_unanswered.json"]}
+{"ts": "2026-11-04T15:45:34-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T15:55:31-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T15:56:34-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T15:57:37-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T16:01:43-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T16:02:46-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T16:03:51-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T16:04:54-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T16:05:58-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T16:07:01-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T16:08:04-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T16:10:10-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T16:19:38-05:00", "bot": "executor", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T16:19:44-05:00", "bot": "executor", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T16:20:17-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T16:21:03-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T16:21:35-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T16:31:11-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T17:19:04-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T17:19:44-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T17:21:47-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T18:02:02-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T18:27:34-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T18:28:38-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T18:29:41-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T18:43:58-05:00", "bot": "Помощник по всему", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T18:44:17-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T19:14:08-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T19:22:58-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T19:25:43-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T19:26:03-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T19:33:09-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T19:37:13-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T19:41:20-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T19:41:57-05:00", "bot": "Помощник по всему", "action": "build", "note": "GSC Hookah/Palm: Q-1ed8c9 resolve; QUEUE waiting_user gsc-hookah-palm-seo → wait SEO", "files": []}
+{"ts": "2026-11-04T19:41:58-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T19:42:05-05:00", "bot": "Помощник по всему", "action": "build", "note": "build.sh after GSC wait-others", "files": []}
+{"ts": "2026-11-04T19:42:14-05:00", "bot": "Помощник по всему", "action": "push", "note": "GSC wait SEO on dash; Q-1ed8c9 closed", "files": ["data.enc.json", "data-test-ma.enc.json", "index.html", "helper.html", "variant-a.html"]}
+{"ts": "2026-11-04T19:42:34-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T19:42:54-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T19:45:24-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T19:53:34-05:00", "bot": "clickup-refresh", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T19:54:26-05:00", "bot": "Секретарь", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T19:54:31-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T20:09:38-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T20:13:33-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T20:13:38-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T20:31:01-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T21:13:56-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T21:29:30-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T22:15:28-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T22:19:20-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T22:22:59-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T22:26:13-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T22:30:26-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T22:39:58-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T22:43:08-05:00", "bot": "Секретарь", "action": "gcal_refresh", "note": "night hygiene 2026-11-04 ~22:45 gcal 177 events", "files": []}
+{"ts": "2026-11-04T22:44:50-05:00", "bot": "Секретарь", "action": "cu_cal_refresh", "note": "night hygiene t4307 +2 timed OFTV dues", "files": []}
+{"ts": "2026-11-04T22:44:50-05:00", "bot": "Секретарь", "action": "cu_inbox_wide", "note": "night hygiene TIER=2 narrow3 wide3 nonRost0 dms4", "files": []}
+{"ts": "2026-11-04T22:44:50-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T22:47:02-05:00", "bot": "Секретарь", "action": "build", "note": "night hygiene reconcile 1b evening census ok", "files": ["src/messengers_reconcile.json"]}
+{"ts": "2026-11-04T22:47:02-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-04T22:47:12-05:00", "bot": "Секретарь", "action": "push", "note": "night hygiene reconcile 1b", "files": ["src/messengers_reconcile.json", "data.json"]}
+{"ts": "2026-11-05T01:08:46-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-05T01:10:23-05:00", "bot": "Пептид", "action": "push", "note": "routine sync-push 05.11: peptides_sync 11 sales/6 expenses, ads.json as_of bump (no phone recheck), dash-gh ea5802a", "files": ["src/peptides_sales.json", "src/peptides_expenses.json", "/workspace/peptides-dash-monitors/ads.json", "data.enc.json"]}
+{"ts": "2026-11-05T01:11:39-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-05T01:12:48-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-05T01:16:38-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-05T01:20:57-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-05T01:20:58-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-05T01:22:04-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-05T01:23:07-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-05T01:24:10-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-05T01:26:02-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-05T01:27:47-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-05T01:32:17-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-05T01:39:11-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-05T01:51:47-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-05T03:16:55-05:00", "bot": "Оборонка", "action": "edit-data", "note": "STE digest 05.11: unanswered_replies refresh (DECSEF call confirmed 10.11)", "files": ["src/defense_unanswered.json", "data.json"]}
+{"ts": "2026-11-05T05:12:50-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-05T07:07:37-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-05T07:34:26-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-05T08:11:06-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-05T08:11:15-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-05T08:22:41-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-05T09:01:07-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-05T09:01:15-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-05T09:23:17-05:00", "bot": "Секретарь", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-05T09:23:59-05:00", "bot": "Секретарь", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-05T10:34:03-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-05T10:34:11-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-05T10:34:35-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-05T10:34:49-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-05T10:35:00-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-05T10:45:36-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-05T10:45:50-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-05T10:53:11-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-05T10:53:59-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-05T10:54:27-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-05T11:09:34-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-05T11:22:33-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-05T13:39:33-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-05T13:46:20-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-05T13:54:36-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-05T13:54:40-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-05T13:55:07-05:00", "bot": "Секретарь", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-05T13:55:12-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-05T13:55:44-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-05T14:01:48-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-05T14:05:54-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-05T14:07:11-05:00", "bot": "Секретарь", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-05T14:07:11-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-05T14:07:58-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-05T14:08:34-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-05T14:09:01-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-05T14:10:21-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-05T14:11:05-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-05T14:25:31-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-05T14:26:42-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-05T14:27:34-05:00", "bot": "Оборонка", "action": "other", "note": "queue self-check: catalog drafts ready, waiting Rost GO EN catalog Bedoya", "files": ["QUEUE.md", "drafts/2026-11-05-catalog-military-industries.md"]}
+{"ts": "2026-11-05T14:37:33-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-05T14:37:47-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-05T14:37:48-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-05T14:46:17-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-05T15:08:40-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-05T15:56:46-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-05T16:00:12-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-05T16:03:32-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-05T16:04:40-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-05T16:21:05-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-05T16:23:25-05:00", "bot": "Фермовод", "action": "build", "note": "CU 86b9ycbby ownership → Фермовод (bot_attn + rebuild)", "files": ["data-test-ma.json", "bot_attn.jsonl", "ma_clickup.json"]}
+{"ts": "2026-11-05T16:23:26-05:00", "bot": "Фермовод", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-05T16:23:32-05:00", "bot": "Фермовод", "action": "push", "note": "CU 86b9ycbby на карточке Фермовода for check", "files": ["data-test-ma.json", "data-test-ma.enc.json", "index.html"]}
+{"ts": "2026-11-05T16:24:02-05:00", "bot": "Фермовод", "action": "build", "note": "rev sync after CU comment 86b9ycbby", "files": ["ma_clickup.json", "bot_attn.jsonl"]}
+{"ts": "2026-11-05T16:24:02-05:00", "bot": "Фермовод", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-05T16:24:02-05:00", "bot": "Фермовод", "action": "push", "note": "rev sync 86b9ycbby after ownership comment", "files": ["data-test-ma.enc.json", "data.enc.json"]}
+{"ts": "2026-11-05T16:24:17-05:00", "bot": "Фермовод", "action": "build", "note": "QUEUE dedupe seider-86b9ycbby", "files": ["ig-farm/QUEUE.md"]}
+{"ts": "2026-11-05T16:24:17-05:00", "bot": "Фермовод", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-05T16:24:51-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-05T16:25:22-05:00", "bot": "Фермовод", "action": "build", "note": "Seider handoff for-check + Q-812ea2", "files": ["bot_attn.jsonl", "ma_open_questions.json", "QUEUE.md"]}
+{"ts": "2026-11-05T16:25:23-05:00", "bot": "Фермовод", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-05T16:25:31-05:00", "bot": "Фермовод", "action": "push", "note": "Seider handoff for-check on Фермовод card", "files": ["data-test-ma.enc.json", "data.enc.json"]}
+{"ts": "2026-11-05T16:25:35-05:00", "bot": "Фермовод", "action": "build", "note": "clear dead Q-d426fd + QUEUE Q-812ea2", "files": ["ma_open_questions.json", "QUEUE.md"]}
+{"ts": "2026-11-05T16:25:35-05:00", "bot": "Фермовод", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-05T16:26:17-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-05T16:26:18-05:00", "bot": "Помощник по всему", "action": "edit-data", "note": "OWN_KW seider/сейдер→Фермовод Rost t2035", "files": ["src/test_ma_build.py"]}
+{"ts": "2026-11-05T16:26:18-05:00", "bot": "Помощник по всему", "action": "build", "note": "rebuild after OWN_KW Fermovod", "files": ["data-test-ma.json", "data.json"]}
+{"ts": "2026-11-05T16:26:18-05:00", "bot": "Помощник по всему", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-05T16:26:23-05:00", "bot": "Помощник по всему", "action": "build", "note": "build.sh after OWN_KW Fermovod", "files": ["data.json", "data.enc.json", "data-asst.enc.json"]}
+{"ts": "2026-11-05T16:26:28-05:00", "bot": "Фермовод", "action": "push", "note": "t2035 verify: 86b9ycbby only on Фермовод; OWN_KW seider done", "files": ["data-test-ma.enc.json", "data.enc.json"]}
+{"ts": "2026-11-05T16:26:29-05:00", "bot": "Помощник по всему", "action": "push", "note": "Rost t2035: Seider 86b9ycbby только Фермовод + OWN_KW", "files": ["data.json", "data.enc.json", "data-asst.enc.json", "index.html", "helper.html", "variant-a.html"]}
+{"ts": "2026-11-05T16:27:46-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-05T16:27:52-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-05T16:28:55-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-05T16:29:18-05:00", "bot": "Фермовод", "action": "build", "note": "t253u merge Q-812ea2 into CU for check only", "files": ["bot_attn.jsonl", "ma_open_questions.json", "QUEUE.md"]}
+{"ts": "2026-11-05T16:29:18-05:00", "bot": "Фермовод", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-05T16:43:05-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-05T16:43:15-05:00", "bot": "Помощник по всему", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-05T16:52:39-05:00", "bot": "Помощник по всему", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-05T16:55:10-05:00", "bot": "Помощник по всему", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-05T16:58:48-05:00", "bot": "Помощник по всему", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-05T16:59:13-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-05T17:01:19-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-05T17:01:50-05:00", "bot": "Помощник по всему", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-05T17:02:21-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-05T17:02:22-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-05T17:04:29-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-05T17:10:14-05:00", "bot": "Помощник по всему", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-05T17:16:50-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-05T17:17:12-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-05T17:28:19-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-05T17:35:20-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-05T17:39:13-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-05T17:40:01-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-05T17:42:12-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-05T17:42:23-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-05T17:42:43-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-05T17:45:11-05:00", "bot": "Помощник по всему", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-05T17:45:30-05:00", "bot": "Фермовод", "action": "build", "note": "daily hygiene t5166: FARM inventory + QUEUE close 3×26.10 + seider waiting_user", "files": ["FARM.md", "QUEUE.md", "test_ma_build.py"]}
+{"ts": "2026-11-05T17:45:30-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-05T17:45:34-05:00", "bot": "Оборонка", "action": "build", "note": "daily hygiene t5166", "files": []}
+{"ts": "2026-11-05T17:45:34-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-05T17:45:47-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-05T17:45:55-05:00", "bot": "Фермовод", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-05T17:46:06-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-05T17:46:07-05:00", "bot": "Юрист / Адвокат / Бухгалтер", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-05T17:46:09-05:00", "bot": "Помощник по всему", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-05T17:46:31-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-05T17:46:50-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-05T17:47:34-05:00", "bot": "Пептид", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-05T17:47:59-05:00", "bot": "Дейтинг", "action": "build", "note": "hygiene 05.11 DATING.md + QUEUE + routine_fail_resolved whatsapp-esp-d", "files": ["bot-routines-inventory/DATING.md", "dating/QUEUE.md", "routine_fail_resolved.json"]}
+{"ts": "2026-11-05T17:48:02-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-05T17:48:50-05:00", "bot": "Пептид", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-05T17:55:01-05:00", "bot": "Помощник по всему", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-05T18:02:59-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-05T18:08:35-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-05T18:11:27-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-05T19:22:35-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-05T19:54:45-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-05T19:55:30-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-05T20:04:47-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-05T20:06:46-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-05T20:15:04-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-05T20:32:00-05:00", "bot": "Дейтинг", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-05T20:32:22-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-05T20:32:46-05:00", "bot": "Дейтинг", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-05T21:13:39-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-05T21:41:28-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-05T21:58:06-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-05T21:58:44-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-05T22:09:11-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-05T22:37:38-05:00", "bot": "Секретарь", "action": "edit-data", "note": "night hygiene 05.11 gcal snapshot", "files": ["gcal_dash.json"]}
+{"ts": "2026-11-05T22:37:41-05:00", "bot": "Секретарь", "action": "push", "note": "night hygiene 05.11 gcal", "files": ["gcal_dash.json"]}
+{"ts": "2026-11-05T22:40:18-05:00", "bot": "Секретарь", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-05T22:40:20-05:00", "bot": "Секретарь", "action": "push", "note": "night hygiene 05.11 CU WIDE inbox", "files": ["ma_cu_inbox.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-05T22:43:41-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-05T23:18:39-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-05T23:19:42-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-05T23:19:51-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-05T23:22:20-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-05T23:23:15-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-05T23:23:54-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-05T23:31:27-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-05T23:33:25-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-05T23:33:42-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-05T23:34:22-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-05T23:47:33-05:00", "bot": "Пептид", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-05T23:54:02-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-05T23:54:27-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-05T23:55:11-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-06T00:05:44-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-06T00:11:03-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-06T00:11:12-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-06T00:55:40-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-06T01:07:08-05:00", "bot": "Пептид", "action": "build", "note": "routine sync-push 06.11: peptides_sync 11 sales/6 expenses unchanged, ads.json as_of bump (no phone recheck — androik busy), then build", "files": ["src/peptides_sales.json", "src/peptides_expenses.json", "/workspace/peptides-dash-monitors/ads.json"]}
+{"ts": "2026-11-06T01:07:29-05:00", "bot": "Пептид", "action": "push", "note": "routine sync-push 06.11: peptides_sync 11 sales (3865000 sheet / 3775000 net)/6 expenses unchanged, ads.json as_of bump only (no Ad tools — Redmi on androik), dash-gh c7638f9", "files": ["src/peptides_sales.json", "src/peptides_expenses.json", "/workspace/peptides-dash-monitors/ads.json", "data.enc.json"]}
+{"ts": "2026-11-06T01:17:42-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-06T01:18:12-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-06T01:51:26-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-06T02:07:06-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-06T02:07:28-05:00", "bot": "Секретарь", "action": "edit-data", "note": "t5198u night Unread snaps → live JSON + stale-unread 14d filter for Dating cleanup", "files": ["wa_esp_live.json", "wa_ukr_live.json", "viber_live.json", "tg_live.json", "ig_direct_live.json"]}
+{"ts": "2026-11-06T02:08:15-05:00", "bot": "Секретарь", "action": "build", "note": "t5198u rebuild messengers after night Unread + stale-unread 14d", "files": ["wa_esp_live.json", "wa_ukr_live.json", "viber_live.json", "tg_live.json", "ig_direct_live.json"]}
+{"ts": "2026-11-06T02:08:15-05:00", "bot": "Секретарь", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-06T02:08:46-05:00", "bot": "Секретарь", "action": "build", "note": "t5198u GUARD_ALLOW UKR+ESP: intentional drop after stale-unread 14d + night census (UKR unmuted→0, ESP unmuted 25→5)", "files": ["data-test-ma.json"]}
+{"ts": "2026-11-06T02:08:46-05:00", "bot": "Секретарь", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-06T02:09:19-05:00", "bot": "Секретарь", "action": "push", "note": "t5198u messengers night Unread + stale-unread Dating cleanup → https://rosmater.github.io/dash/", "files": ["data.enc.json", "index.html", "data-test-ma.enc.json"]}
+{"ts": "2026-11-06T02:09:19-05:00", "bot": "Секретарь", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-06T02:11:17-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-06T02:11:39-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-06T02:11:49-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-06T02:31:14-05:00", "bot": "Секретарь", "action": "edit-data", "note": "t5206u WA ESP resnap after Rost marked ghost Unread read by hand; chip 16→7, Dating numbers gone from WhatsApp list", "files": ["src/wa_esp_live.json"]}
+{"ts": "2026-11-06T02:31:14-05:00", "bot": "Секретарь", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-06T02:31:19-05:00", "bot": "Секретарь", "action": "push", "note": "t5206u WA ESP only: Rost read ghosts, Unread 7, Dating numbers gone from list", "files": ["src/wa_esp_live.json"]}
+{"ts": "2026-11-06T02:31:19-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-06T02:32:56-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-06T02:36:32-05:00", "bot": "Секретарь", "action": "edit-html", "note": "t5211u publication note folded into сверка (muted); t5212u Монитор мессенджеров is a collapsed details dropdown", "files": ["src/variant-a.html"]}
+{"ts": "2026-11-06T02:36:32-05:00", "bot": "Секретарь", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-06T02:36:37-05:00", "bot": "Секретарь", "action": "push", "note": "t5211u+t5212u: сверка absorbs publication note (gray); monitor is collapsed dropdown", "files": ["src/variant-a.html"]}
+{"ts": "2026-11-06T02:36:37-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-06T02:37:31-05:00", "bot": "Секретарь", "action": "edit-html", "note": "t5213u/t5214u: 🔕 игнор in unsorted keeps the list open like sphere buttons (keepOpen)", "files": ["src/variant-a.html"]}
+{"ts": "2026-11-06T02:37:31-05:00", "bot": "Секретарь", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-06T02:37:32-05:00", "bot": "Секретарь", "action": "push", "note": "t5213u: unsorted list stays open after 🔕 игнор", "files": ["src/variant-a.html"]}
+{"ts": "2026-11-06T02:37:32-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-06T02:42:10-05:00", "bot": "Секретарь", "action": "edit-html", "note": "t5215u: false Vib ? after live-snap overlay — st=ok when snap matches", "files": ["src/variant-a.html", "src/test_ma_build.py"]}
+{"ts": "2026-11-06T02:42:10-05:00", "bot": "Секретарь", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-06T02:42:11-05:00", "bot": "Секретарь", "action": "push", "note": "t5215u: Vib ? false warn after live snap → ✓", "files": ["src/variant-a.html", "src/test_ma_build.py"]}
+{"ts": "2026-11-06T02:42:11-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-06T02:45:03-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-06T02:45:26-05:00", "bot": "Секретарь", "action": "edit-html", "note": "t5217-21u: monitor badge format + spacing; drop публикация отстаёт", "files": ["src/variant-a.html", "src/test_ma_build.py"]}
+{"ts": "2026-11-06T02:45:26-05:00", "bot": "Секретарь", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-06T02:45:26-05:00", "bot": "Секретарь", "action": "push", "note": "t5217-21u: monitor  N диал. ожидают · M непрочит. (K диал. на бейдже / I игнор); drop pub-lag; more open spacing", "files": ["src/variant-a.html", "src/test_ma_build.py"]}
+{"ts": "2026-11-06T02:45:27-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-06T02:45:56-05:00", "bot": "Секретарь", "action": "edit-html", "note": "t5222u: red dot before dialog count, not unread count", "files": ["src/variant-a.html"]}
+{"ts": "2026-11-06T02:45:56-05:00", "bot": "Секретарь", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-06T02:45:56-05:00", "bot": "Секретарь", "action": "push", "note": "t5222u: red dot before N диал. ожидают", "files": ["src/variant-a.html"]}
+{"ts": "2026-11-06T02:45:57-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-06T02:52:23-05:00", "bot": "Секретарь", "action": "edit-html", "note": "t5224–26: чуть меньший зазор заголовка монитора при открытии", "files": ["src/variant-a.html"]}
+{"ts": "2026-11-06T02:52:23-05:00", "bot": "Секретарь", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-06T02:53:25-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-06T02:54:00-05:00", "bot": "Секретарь", "action": "edit-html", "note": "t5228: ещё чуть меньший зазор заголовка монитора", "files": ["src/variant-a.html"]}
+{"ts": "2026-11-06T02:54:00-05:00", "bot": "Секретарь", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-06T03:06:27-05:00", "bot": "Секретарь", "action": "edit-data", "note": "t5232–33: live CU inbox MCP refresh", "files": ["src/ma_cu_inbox.json"]}
+{"ts": "2026-11-06T03:06:27-05:00", "bot": "Секретарь", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-06T03:47:12-05:00", "bot": "Секретарь", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-06T05:11:08-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-06T05:38:32-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-06T05:42:29-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-06T05:43:05-05:00", "bot": "«Пептид»", "action": "push", "note": "selfcheck 05:42 WA fail resolved + attn ok", "files": ["data.enc.json", "sync/bot_attn.jsonl", "src/routine_fail_resolved.json"]}
