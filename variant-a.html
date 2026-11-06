@@ -1146,6 +1146,8 @@ function maUns(d){const U=[...(d.unsorted||[])].filter(u=>!igHide(u.key)&&!u.mut
  /* Rost t5326–28: ✕ (__unsort) всегда должен быть в 📥, даже если пересборка вернула чат в сферу — иначе пропадает и там и там */
  (d.messengers||[]).forEach(g=>(g.rows||[]).forEach(r=>{if(r.cu_tasks||r.unread_list||r.cu_msg||maMuted(r))return;const k=r.channel+'|'+r.chat;if(seen.has(k)||igHide(k))return;
   if(maSphRaw(k)==='__unsort'){seen.add(k);U.push({key:k,channel:r.channel,is_group:r.is_group,title:r.is_group?r.chat:r.sender,kind:'↩ с даша: на сортировку',unread:r.unread_chat,marked_unread:!!r.marked_unread,last:r.last,owner:r.owner,owner_link:r.owner_link});return}
+  /* t5333u: чат уже в сфере (ты его сортировал) — не дублировать в 📥 как «нет карточки» */
+  if(g.sphere&&g.sphere!=='Игнор')return;
   if(r.binding||r.planned||r.sorted||/\(все чаты\)/.test(r.sender||""))return;seen.add(k);
   U.push({key:k,channel:r.channel,is_group:r.is_group,title:r.is_group?r.chat:r.sender+(r.chat!==r.sender?' в «'+r.chat+'»':''),kind:'нет контакта/карточки · '+g.sphere,unread:r.unread_chat,last:r.last,owner:r.owner,owner_link:r.owner_link})}));return U}
 const maUnsTodo=d=>maUns(d).filter(u=>!maSph(u.key)).length;
