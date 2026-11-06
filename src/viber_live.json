@@ -1,49 +1,54 @@
 {
- "at": "2026-11-06 09:36 Bogotá",
- "at_bogota": "2026-11-06T09:36:00-05:00",
- "channel": "Viber",
- "filter": "Unread",
- "filter_count": 5,
- "chats": [
-  {
-   "title": "Фонтанська об'єднана…",
-   "unread": 755,
-   "muted": true,
-   "last": "9:32 AM",
-   "name": "Фонтанська об'єднана…"
-  },
-  {
-   "title": "БЕЗПЕЧНИЙ РЕГІОН",
-   "unread": 350,
-   "muted": true,
-   "last": "8:19 AM",
-   "name": "БЕЗПЕЧНИЙ РЕГІОН"
-  },
-  {
-   "title": "USA🇺🇸& Europe🇪🇺🌍",
-   "unread": 1400,
-   "muted": true,
-   "last": "3:50 AM",
-   "name": "USA🇺🇸& Europe🇪🇺🌍"
-  },
-  {
-   "title": "Света",
-   "unread": 9,
-   "muted": false,
-   "last": "1:22 AM",
-   "name": "Света"
-  },
-  {
-   "title": "ОСМД Акапулько 2",
-   "unread": 15,
-   "muted": true,
-   "last": "Yesterday",
-   "name": "ОСМД Акапулько 2"
-  }
- ],
- "sum": 2529,
- "unmuted_sum": 9,
- "muted_sum": 2520,
- "note": "Full quit via tray Exit + reopen (launched via Run C:\\Program Files\\Viber\\Viber.exe); Unread chip (5). USA badge shows '1.4k' (counted as 1400, approximate). No accidental opens; ChatGPT chat was already open in right pane before the snap.",
- "ok": true
+  "at": "2026-11-06 13:21 Bogotá",
+  "at_bogota": "2026-11-06T13:21:41-05:00",
+  "channel": "Viber",
+  "filter": "Unread",
+  "filter_count": 5,
+  "chats": [
+    {
+      "title": "Фонтанська об'єднана…",
+      "name": "Фонтанська об'єднана…",
+      "unread": 753,
+      "muted": true,
+      "last": "1:13 PM"
+    },
+    {
+      "title": "USA🇺🇸& Europe🇪🇺🌍",
+      "name": "USA🇺🇸& Europe🇪🇺🌍",
+      "unread": 1500,
+      "muted": true,
+      "last": "1:05 PM"
+    },
+    {
+      "title": "БЕЗПЕЧНИЙ РЕГІОН",
+      "name": "БЕЗПЕЧНИЙ РЕГІОН",
+      "unread": 353,
+      "muted": true,
+      "last": "10:54 AM"
+    },
+    {
+      "title": "Света",
+      "name": "Света",
+      "unread": 9,
+      "muted": false,
+      "last": "1:22 AM"
+    },
+    {
+      "title": "ОСМД Акапулько 2",
+      "name": "ОСМД Акапулько 2",
+      "unread": 21,
+      "muted": true,
+      "last": "Yesterday"
+    }
+  ],
+  "sum": 2636,
+  "unmuted_sum": 9,
+  "muted_sum": 2627,
+  "ok": true,
+  "quit_reopen": true,
+  "accidental_open": null,
+  "proof": [
+    "/workspace/unread-census/2026-11-06-pm/viber-unread-01.png"
+  ],
+  "note": "Full quit+reopen Viber.exe; Unread chip 5; USA badge 1.5k→1500 approx; birthday banner above list."
 }

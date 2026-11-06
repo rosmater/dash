@@ -1,74 +1,79 @@
 {
- "at": "2026-11-06 09:36 Bogotá",
- "at_bogota": "2026-11-06T09:36:00-05:00",
+ "at": "2026-11-06 13:21 Bogotá",
+ "at_bogota": "2026-11-06T13:21:41-05:00",
  "channel": "WhatsApp UKR",
  "filter": "Unread",
  "filter_count": 8,
  "chats": [
   {
-   "title": "Мария Алегрия Управляющая Компания",
-   "unread": 4,
-   "muted": false,
-   "last": "07:43",
-   "name": "Мария Алегрия Управляющая Компания"
-  },
-  {
-   "title": "Алла Агенство Недвижимости Аликанте",
+   "title": "Maks Sinar Адвокат Испания",
+   "name": "Maks Sinar Адвокат Испания",
    "unread": 1,
    "muted": false,
-   "last": "06:26",
-   "name": "Алла Агенство Недвижимости Аликанте"
+   "last": "09:42"
+  },
+  {
+   "title": "Мария Алегрия Управляющая Компания",
+   "name": "Мария Алегрия Управляющая Компания",
+   "unread": 4,
+   "muted": false,
+   "last": "07:43"
   },
   {
    "title": "Ростислав - Анатолий ремонты",
+   "name": "Ростислав - Анатолий ремонты",
    "unread": 37,
    "muted": true,
-   "last": "03:25",
-   "name": "Ростислав - Анатолий ремонты"
+   "last": "03:25"
   },
   {
    "title": "Оля Испанская",
+   "name": "Оля Испанская",
    "unread": 1,
    "muted": false,
-   "last": "03:08",
-   "name": "Оля Испанская"
+   "last": "03:08"
   },
   {
    "title": "ЧАТ  ВЗАИМОПОМОЩИ ОТ ОКУПАС",
+   "name": "ЧАТ  ВЗАИМОПОМОЩИ ОТ ОКУПАС",
    "unread": 380,
    "muted": true,
-   "last": "Sunday",
-   "name": "ЧАТ  ВЗАИМОПОМОЩИ ОТ ОКУПАС"
+   "last": "Sunday"
   },
   {
    "title": "Comunidad Calle Olivino 3",
+   "name": "Comunidad Calle Olivino 3",
    "unread": 160,
    "muted": true,
-   "last": "10/29/2026",
-   "name": "Comunidad Calle Olivino 3"
+   "last": "10/29/2026"
   },
   {
    "title": "Дезинфекция квартиры",
+   "name": "Дезинфекция квартиры",
    "unread": 1,
    "muted": false,
    "last": "9/14/2026",
-   "name": "Дезинфекция квартиры",
    "stale_unread": true
   },
   {
    "title": "Аукционы Испании",
+   "name": "Аукционы Испании",
    "unread": 0,
    "muted": false,
    "last": "8/8/2025",
    "marked_unread": true,
-   "green_dot_only": true,
-   "name": "Аукционы Испании",
    "stale_unread": true
   }
  ],
  "sum": 584,
  "unmuted_sum": 7,
  "muted_sum": 577,
- "note": "Full quit via tray Exit + reopen; Unread chip (8). Row 'Аукционы Испании' = green dot, no number (marked_unread, 0). All-chats glance showed nothing missing in top rows. No accidental opens. Window could not be maximized (stayed ~860x500).",
- "ok": true
+ "ok": true,
+ "quit_reopen": true,
+ "accidental_open": null,
+ "proof": [
+  "/workspace/unread-census/2026-11-06-pm/wa-ukr-unread-01.png",
+  "/workspace/unread-census/2026-11-06-pm/wa-ukr-unread-02.png"
+ ],
+ "note": "Full quit tray Exit + reopen whatsapp:; Unread chip 8; wheel-only; RDP window not maximized. NEW vs AM: +Maks Sinar 1; Алла gone (was 1)."
 }

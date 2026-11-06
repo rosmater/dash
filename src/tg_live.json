@@ -1,160 +1,165 @@
 {
- "at": "2026-11-06 09:30 Bogotá",
- "at_bogota": "2026-11-06T09:30:46-05:00",
- "channel": "Telegram",
- "filter": "Новые",
- "folder_badge": 19,
- "chats": [
-  {
-   "title": "Secret Отрисовка и фотодропы",
-   "name": "Secret Отрисовка и фотодропы",
-   "unread": 5,
-   "muted": false,
-   "last": "09:10"
-  },
-  {
-   "title": "Andrei Grafeev",
-   "name": "Andrei Grafeev",
-   "unread": 3,
-   "muted": false,
-   "last": "09:05"
-  },
-  {
-   "title": "Di di ситуация",
-   "name": "Di di ситуация",
-   "unread": 7,
-   "muted": false,
-   "last": "07:41",
-   "is_group": true
-  },
-  {
-   "title": "Баба 2",
-   "name": "Баба 2",
-   "unread": 12,
-   "muted": false,
-   "last": "07:14"
-  },
-  {
-   "title": "TABAKEVICH (разработка)",
-   "name": "TABAKEVICH (разработка)",
-   "unread": 5,
-   "muted": false,
-   "last": "05:52",
-   "is_group": true
-  },
-  {
-   "title": "Киви Саша Шейх",
-   "name": "Киви Саша Шейх",
-   "unread": 1,
-   "muted": false,
-   "last": "05:32"
-  },
-  {
-   "title": "Серега Актер",
-   "name": "Серега Актер",
-   "unread": 2,
-   "muted": false,
-   "last": "05:19"
-  },
-  {
-   "title": "Сергей Адвокат",
-   "name": "Сергей Адвокат",
-   "unread": 5,
-   "muted": false,
-   "last": "04:53"
-  },
-  {
-   "title": "Dmitri",
-   "name": "Dmitri",
-   "unread": 3,
-   "muted": false,
-   "last": "03:50"
-  },
-  {
-   "title": "Колумбия OFTV - Markiz Karabas 3 модели",
-   "name": "Колумбия OFTV - Markiz Karabas 3 модели",
-   "unread": 4,
-   "muted": false,
-   "last": "18:53",
-   "is_group": true
-  },
-  {
-   "title": "Общение ботов",
-   "name": "Общение ботов",
-   "unread": 4,
-   "muted": false,
-   "last": "15:17",
-   "is_group": true
-  },
-  {
-   "title": "Разработка Felix-shop",
-   "name": "Разработка Felix-shop",
-   "unread": 1,
-   "muted": false,
-   "last": "14:39",
-   "is_group": true
-  },
-  {
-   "title": "Model Support",
-   "name": "Model Support",
-   "unread": 1,
-   "muted": false,
-   "last": "Thursday"
-  },
-  {
-   "title": "Isla del Contenido",
-   "name": "Isla del Contenido",
-   "unread": 0,
-   "muted": false,
-   "last": "Wednesday",
-   "manual_unread": true,
-   "green_dot_only": true
-  },
-  {
-   "title": "Kir0[4K]",
-   "name": "Kir0[4K]",
-   "unread": 0,
-   "muted": false,
-   "last": "Wednesday",
-   "manual_unread": true,
-   "green_dot_only": true
-  },
-  {
-   "title": "Яна Бух Наш",
-   "name": "Яна Бух Наш",
-   "unread": 3,
-   "muted": false,
-   "last": "Wednesday"
-  },
-  {
-   "title": "Baba",
-   "name": "Baba",
-   "unread": 7,
-   "muted": false,
-   "last": "Wednesday"
-  },
-  {
-   "title": "Стас Элвис",
-   "name": "Стас Элвис",
-   "unread": 1,
-   "muted": false,
-   "last": "Wednesday"
-  },
-  {
-   "title": "M_November",
-   "name": "M_November",
-   "unread": 0,
-   "muted": false,
-   "last": "Tuesday",
-   "manual_unread": true,
-   "green_dot_only": true
-  }
- ],
- "sum": 64,
- "unmuted_sum": 64,
- "muted_sum": 0,
- "note": "AM unread-dash-daily 09:21 Bogotá; tg-novye-list-snap ok=true accidental_open=null badges 11/11 (numeric only); full scroll frames → 19 chats = folder badge (3 manual-unread dots). proof /workspace/shots/tg-novye-listonly-proof-20261106-092141.png + /workspace/shots/tg-novye-am-20261106/",
- "ok": true,
- "proof": "/workspace/shots/tg-novye-listonly-proof-20261106-092141.png",
- "meta": "/workspace/dashboard-mockup/src/tg_novye_snap_meta.json"
+  "at": "2026-11-06 13:16 Bogotá",
+  "at_bogota": "2026-11-06T13:16:24-05:00",
+  "channel": "Telegram",
+  "filter": "Новые",
+  "folder_badge": 20,
+  "chats": [
+    {
+      "title": "Ирина Шекель от Юли",
+      "unread": 1,
+      "muted": false,
+      "last": "11:41",
+      "name": "Ирина Шекель от Юли"
+    },
+    {
+      "title": "Киви Саша Шейх",
+      "unread": 2,
+      "muted": false,
+      "last": "11:04",
+      "name": "Киви Саша Шейх"
+    },
+    {
+      "title": "Разработка Felix-shop",
+      "unread": 2,
+      "muted": false,
+      "last": "10:17",
+      "is_group": true,
+      "name": "Разработка Felix-shop"
+    },
+    {
+      "title": "Secret Отрисовка и фотодропы",
+      "unread": 5,
+      "muted": false,
+      "last": "09:10",
+      "name": "Secret Отрисовка и фотодропы"
+    },
+    {
+      "title": "Andrei Grafeev",
+      "unread": 3,
+      "muted": false,
+      "last": "09:05",
+      "name": "Andrei Grafeev"
+    },
+    {
+      "title": "Di di ситуация",
+      "unread": 7,
+      "muted": false,
+      "last": "07:41",
+      "is_group": true,
+      "name": "Di di ситуация"
+    },
+    {
+      "title": "Баба 2",
+      "unread": 12,
+      "muted": false,
+      "last": "07:14",
+      "name": "Баба 2"
+    },
+    {
+      "title": "TABAKEVICH (разработка)",
+      "unread": 5,
+      "muted": false,
+      "last": "05:52",
+      "is_group": true,
+      "name": "TABAKEVICH (разработка)"
+    },
+    {
+      "title": "Серега Актер",
+      "unread": 2,
+      "muted": false,
+      "last": "05:19",
+      "name": "Серега Актер"
+    },
+    {
+      "title": "Сергей Адвокат",
+      "unread": 5,
+      "muted": false,
+      "last": "04:53",
+      "name": "Сергей Адвокат"
+    },
+    {
+      "title": "Dmitri",
+      "unread": 3,
+      "muted": false,
+      "last": "03:50",
+      "name": "Dmitri"
+    },
+    {
+      "title": "Колумбия OFTV - Markiz Karabas 3 модели",
+      "unread": 4,
+      "muted": false,
+      "last": "18:53",
+      "is_group": true,
+      "name": "Колумбия OFTV - Markiz Karabas 3 модели"
+    },
+    {
+      "title": "Общение ботов",
+      "unread": 4,
+      "muted": false,
+      "last": "Thursday",
+      "is_group": true,
+      "name": "Общение ботов"
+    },
+    {
+      "title": "Model Support",
+      "unread": 1,
+      "muted": false,
+      "last": "Thursday",
+      "name": "Model Support"
+    },
+    {
+      "title": "Isla del Contenido",
+      "unread": 0,
+      "muted": false,
+      "last": "Wednesday",
+      "marked_unread": true,
+      "name": "Isla del Contenido"
+    },
+    {
+      "title": "Kir0[4K]",
+      "unread": 0,
+      "muted": false,
+      "last": "Wednesday",
+      "marked_unread": true,
+      "name": "Kir0[4K]"
+    },
+    {
+      "title": "Яна Бух Наш",
+      "unread": 3,
+      "muted": false,
+      "last": "Wednesday",
+      "name": "Яна Бух Наш"
+    },
+    {
+      "title": "Baba",
+      "unread": 7,
+      "muted": false,
+      "last": "Wednesday",
+      "name": "Baba"
+    },
+    {
+      "title": "Стас Элвис",
+      "unread": 1,
+      "muted": false,
+      "last": "Wednesday",
+      "name": "Стас Элвис"
+    },
+    {
+      "title": "M_November",
+      "unread": 1,
+      "muted": false,
+      "last": "Tuesday",
+      "name": "M_November"
+    }
+  ],
+  "sum": 68,
+  "unmuted_sum": 68,
+  "muted_sum": 0,
+  "ok": true,
+  "accidental_open": null,
+  "proof": "/workspace/unread-census/2026-11-06-pm/tg-novye/proof.png",
+  "meta": "/workspace/dashboard-mockup/src/tg_novye_snap_meta.json",
+  "note": "tg-novye-list-snap.sh ok badges 11→11 (list-region count; folder icon=20 chats); wheel-only full scroll; pane empty; accidental_open=null. Isla+Kir0 = blue dot marked_unread 0. NEW vs AM: Ирина Шекель от Юли +1; Киви 1→2; Felix 1→2; M_November 0→1.",
+  "rule": "t5123–27/t5149–50"
 }
