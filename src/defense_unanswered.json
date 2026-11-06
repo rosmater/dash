@@ -1,7 +1,21 @@
 {
   "_note": "Живые ответы компаний (STE). Красный «разобрать» = open (мы не ответили). Жёлтый «ждём ответа» = waiting / awaiting_their_reply (наш ответ ушёл). answered/scheduled — снять с внимания. Пишет ste / Оборонка.",
-  "updated_at": "2026-11-03T16:07",
+  "updated_at": "2026-11-06T16:08:31-05:00",
   "unanswered_replies": [
+    {
+      "company": "TEREM-Letets / TEREM Holding (Bulgaria)",
+      "from": "Georgi Nalbantov <g_nalbantov@terem.bg> (cc Tsvetan Kamenov <ts_kamenov@terem.bg>)",
+      "subject": "RE: Mi-8/17 overhaul and spare parts — SpetsTechnoExport",
+      "received_at": "2026-11-06T05:42:59-05:00",
+      "note": "Ответ holding отправлен 06.11 ~15:30 Bogotá (msg 1a1b28f0a09789a3). Запрос Дмитрию STE ушёл WA UKR 06.11 16:02 (складской список + 8× Safir APU 5K/GMIS, без названия компании). CU 86bczu31g. Ждём Дмитрия, затем список клиенту.",
+      "url": "https://mail.google.com/mail/u/0/#inbox/1a1b07471fccc536",
+      "status": "waiting",
+      "priority": false,
+      "our_reply_at": "2026-11-06T15:30:00-05:00",
+      "last_outbound": "WA UKR Dmitry 06.11 16:02 + email holding 15:30",
+      "pipeline": "deal",
+      "status_label": "Детали сделки"
+    },
     {
       "company": "PRODESATEN (Colombia)",
       "from": "Yezid Leandro Navas Lizarazo <ceo@prodesaten.com>",
@@ -11,40 +25,49 @@
       "url": "https://app.clickup.com/t/86bbzxnvx",
       "status": "waiting",
       "our_reply_at": "2026-11-03T16:06",
-      "priority": false
+      "priority": false,
+      "pipeline": "intro",
+      "status_label": "Знакомство / начало"
     },
     {
       "company": "DECSEF Sistemas (México)",
       "from": "Antonio Santiago Romero <ryan@decsef.com> / José Gabriel Osorno <gabriel.osorno@decsef.com>",
       "subject": "RE: Representación UAV y anti-dron — SpetsTechnoExport",
       "received_at": "2026-11-03T12:32-05:00",
-      "note": "⚡ ПРИОРИТЕТ. Колл 03.11 missed; они просят перенос (ryan@). Наш ответ со слотами ушёл 03.11 16:00 Bogotá msg 1a1a33733ffb38e8. Как только ответят слотом — СРАЗУ: CU 86bcu0caf дата/время, STE Meet+календарь, pins, пинг Rost. Не ждать утра.",
+      "note": "Созвон подтверждён: вт 10.11 11:00 CDMX / 12:00 Bogotá, Meet https://meet.google.com/odi-oqbo-eaq; CU 86bcu0caf; STE cal ka75eqhj02362tiqtd8a8ddkt0. Confirm reply 04.11 (msg 1a1a7e77a6649fc1). Ждём созвон.",
       "url": "https://app.clickup.com/t/86bcu0caf",
-      "status": "waiting",
-      "stage": "awaiting_reschedule_slot",
+      "status": "scheduled",
+      "stage": "call_confirmed_2026-11-10",
       "our_reply_at": "2026-11-03T16:00-05:00",
-      "priority": "urgent",
-      "watch": "hot"
+      "priority": false,
+      "pipeline": "call",
+      "status_label": "Созвон"
     },
     {
       "company": "Dronamex (México)",
       "from": "Juan Carlos Pérez Juárez <juancarlos.perez@dronamex.com>",
       "subject": "Reunión mañana 13:00 CDMX — liga al proveedor",
       "received_at": "2026-10-27T11:55-05:00",
-      "note": "Созвон подтверждён: ср 28.10 13:00–14:00 CDMX / 14:00–15:00 Богота. 18:16 Богота пришло приглашение Google Meet от Maria Otero (maria@dronamex.com). Задача CU 86bctgc67. Созвон 28.10 прошёл по плану (CU 86bctgc67).",
-      "url": "https://app.clickup.com/t/86bbzxnvx",
+      "note": "Созвон 28.10 прошёл. Каталог ES+EN отправлен 06.11 ~00:48 Bogotá (msg 1a1af66bc2e465f0) Juan Carlos + cc. Ждём ответ Pérez. CU 86bctgc67.",
+      "url": "https://app.clickup.com/t/86bctgc67",
       "status": "waiting",
-      "our_reply_at": "2026-10-27T16:12"
+      "our_reply_at": "2026-11-06T00:48-05:00",
+      "last_outbound": "catalog ES+EN 06.11",
+      "pipeline": "catalog",
+      "status_label": "Каталог отправлен"
     },
     {
       "company": "Military Industries SAS (Колумбия)",
       "from": "Carlos Bedoya <licitaciones2@militaryjr.com.co>",
       "subject": "RE: Representación UAV y anti-dron — SpetsTechnoExport",
       "received_at": "2026-10-26T16:41-05:00",
-      "note": "Ответили 27.10: каталог на след. неделе, потом созвон. Ждём их.",
+      "note": "Каталог ES+EN отправлен 06.11 ~00:45 Bogotá (msg 1a1af63a527fe6de) с Drive-папками Catálogos para clientes / Catalogues for clients. Ждём ответ Bedoya / созвон.",
       "url": "https://app.clickup.com/t/86bbzxnvx",
       "status": "waiting",
-      "our_reply_at": "2026-10-27T16:02"
+      "our_reply_at": "2026-11-06T00:45-05:00",
+      "last_outbound": "catalog ES+EN 06.11",
+      "pipeline": "catalog",
+      "status_label": "Каталог отправлен"
     },
     {
       "company": "MER Group (México)",
@@ -54,7 +77,9 @@
       "note": "Наш ответ ушёл 26.10 ~10:16 Богота (только Ramiro, без cc). Ждём его ответа.",
       "url": "https://app.clickup.com/t/86bbzxnvx",
       "status": "waiting",
-      "our_reply_at": "2026-10-26T10:16-05:00"
+      "our_reply_at": "2026-10-26T10:16-05:00",
+      "pipeline": "intro",
+      "status_label": "Знакомство / начало"
     }
   ]
 }

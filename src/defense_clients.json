@@ -1,28 +1,74 @@
 {
-  "updated_at": "2026-11-03T16:08-05:00",
-  "note": "Rost 03.11: блок «Клиенты в процессе» / статус «Ждут каталог». Автоснятие: QUEUE.md slug в ctx.",
+  "updated_at": "2026-11-06T16:08:31-05:00",
+  "note": "Rost 06.11 t453: «Клиенты в процессе» = все живые диалоги с этапом intro/catalog/deal/call, не только «ждут каталог». Закрытые не держим.",
   "clients_in_progress": [
+    {
+      "id": "terem-letets",
+      "company": "TEREM-Letets (Болгария)",
+      "contact": "Georgi Nalbantov <g_nalbantov@terem.bg>",
+      "status": "deal",
+      "pipeline": "deal",
+      "status_label": "Детали сделки",
+      "note": "Ждём от Дмитрия складской список + 8× Safir APU 5K/GMIS. Запрос ушёл WA UKR 06.11 16:02. CU 86bczu31g.",
+      "url": "https://rosmater.github.io/cu/?t=86bczu31g",
+      "ctx": "QUEUE.md terem-nalbantov"
+    },
+    {
+      "id": "decsef",
+      "company": "DECSEF Sistemas (México)",
+      "contact": "José Gabriel Osorno <gabriel.osorno@decsef.com> / Antonio Santiago Romero <ryan@decsef.com>",
+      "status": "call",
+      "pipeline": "call",
+      "status_label": "Созвон",
+      "note": "вт 10.11 12:00 Богота / 11:00 CDMX, Meet https://meet.google.com/odi-oqbo-eaq. CU 86bcu0caf.",
+      "url": "https://rosmater.github.io/cu/?t=86bcu0caf",
+      "ctx": "QUEUE.md decsef-slot-apply"
+    },
     {
       "id": "dronamex",
       "company": "Dronamex (México)",
       "contact": "Juan Carlos Pérez Juárez <juancarlos.perez@dronamex.com>",
-      "status": "awaiting_catalog",
-      "status_label": "Ждут каталог",
+      "status": "catalog_sent",
+      "pipeline": "catalog",
+      "status_label": "Каталог отправлен",
       "promised_at": "2026-10-28",
-      "note": "Созвон 28.10 13:00 CDMX — каталог ок / договорились прислать. CU 86bctgc67.",
-      "url": "https://app.clickup.com/t/86bctgc67",
+      "note": "Каталог ES+EN ушёл 06.11. Ждём ответ Pérez. CU 86bctgc67.",
+      "url": "https://rosmater.github.io/cu/?t=86bctgc67",
       "ctx": "QUEUE.md catalog-dronamex"
     },
     {
       "id": "military-industries",
       "company": "Military Industries SAS (Колумбия)",
       "contact": "Carlos Bedoya <licitaciones2@militaryjr.com.co>",
-      "status": "awaiting_catalog",
-      "status_label": "Ждут каталог",
+      "status": "catalog_sent",
+      "pipeline": "catalog",
+      "status_label": "Каталог отправлен",
       "promised_at": "2026-10-27",
-      "note": "Наш ответ 27.10: каталог на след. неделе, потом созвон. Тема UAV/антидрон.",
-      "url": "https://app.clickup.com/t/86bbzxnvx",
+      "note": "Каталог ES+EN ушёл 06.11. Ждём ответ Bedoya / созвон.",
+      "url": "https://rosmater.github.io/cu/?t=86bbzxnvx",
       "ctx": "QUEUE.md catalog-military-industries"
+    },
+    {
+      "id": "prodesaten",
+      "company": "PRODESATEN (Colombia)",
+      "contact": "Yezid Leandro Navas Lizarazo <ceo@prodesaten.com>",
+      "status": "intro",
+      "pipeline": "intro",
+      "status_label": "Знакомство / начало",
+      "note": "Наш ответ ES 03.11. Ждём их по флоту / работам / роли.",
+      "url": "https://rosmater.github.io/cu/?t=86bbzxnvx",
+      "ctx": "unanswered PRODESATEN"
+    },
+    {
+      "id": "mer-group",
+      "company": "MER Group (México)",
+      "contact": "Ramiro Ibarra <ramiro.ibarra@mer-group.com.mx>",
+      "status": "intro",
+      "pipeline": "intro",
+      "status_label": "Знакомство / начало",
+      "note": "Наш ответ ушёл 26.10 (только Ramiro). Ждём его ответа.",
+      "url": "https://rosmater.github.io/cu/?t=86bbzxnvx",
+      "ctx": "unanswered MER"
     }
   ]
 }
