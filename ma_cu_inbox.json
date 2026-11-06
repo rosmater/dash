@@ -1,0 +1,146 @@
+{
+ "_note": "Rost t4153–55: ClickUp «инбокс» для Мессенджеров -> src/ma_cu_inbox.json.\nВход (кладёт агент после MCP-опроса, tier 2 по cu-inbox-tier.sh): notify-watchers/clickup-pulse/inbox-raw/{tasks,comments}-<date>.json\nКатегории: comment (Комменты) / mention (@) / assigned (Назначили) / forcheck (for check) / other (Прочее).\nУ КАЖДОЙ строки две ссылки (t4154u HARD): comment_url (app.clickup.com/t/<id>?comment=<cid>) + task_url (rosmater.github.io/cu/?t=<id>).\nТолько метаданные: текст коммента в даш НЕ пишем (только флаги @/assigned).",
+ "fetched": "2026-11-05 22:39 Bogotá",
+ "since": "2026-11-03 22:39 Bogotá",
+ "src": "night-hygiene 05.11 live narrow (both connectors) + watched",
+ "tier": "2",
+ "kinds": [
+  [
+   "comment",
+   "Комменты"
+  ],
+  [
+   "mention",
+   "@"
+  ],
+  [
+   "dm",
+   "Личка"
+  ],
+  [
+   "assigned",
+   "Назначили"
+  ],
+  [
+   "forcheck",
+   "for check"
+  ],
+  [
+   "other",
+   "Прочее"
+  ]
+ ],
+ "counts": {
+  "forcheck": 2,
+  "comment": 1
+ },
+ "items": [
+  {
+   "task_id": "86bcn3c3u",
+   "task": "Проверить команду на iPhone для передачи шагов из «Здоровья» боту",
+   "list": "Personal",
+   "list_id": "901413854636",
+   "status": "for check",
+   "task_url": "https://rosmater.github.io/cu/?t=86bcn3c3u",
+   "task_app": "https://app.clickup.com/t/86bcn3c3u",
+   "kind": "forcheck",
+   "at": "2026-11-05 22:35",
+   "who": "Rost",
+   "comment_id": "90140278670956",
+   "comment_url": "https://app.clickup.com/t/86bcn3c3u?comment=90140278670956",
+   "n_new": 0
+  },
+  {
+   "task_id": "86bcn2d1t",
+   "task": "Control de estado de cuentas + mandar apelaciones + eliminar publicaciones problematicas + mas mandar capturas de pantalla",
+   "list": "Models",
+   "list_id": "901412862040",
+   "status": "to do",
+   "task_url": "https://rosmater.github.io/cu/?t=86bcn2d1t",
+   "task_app": "https://app.clickup.com/t/86bcn2d1t",
+   "kind": "comment",
+   "at": "2026-11-05 18:07",
+   "who": "Michelle Hernández ",
+   "comment_id": "90140278607352",
+   "comment_url": "https://app.clickup.com/t/86bcn2d1t?comment=90140278607352",
+   "n_new": 2
+  },
+  {
+   "task_id": "86b9zkaua",
+   "task": "БОТ-ЧАСТЬ: Отчет по SEO-показателям (трафик, заказы) - готов? (покупка Серпстат)",
+   "list": "Задачи Tabakevich",
+   "list_id": "901412862042",
+   "status": "for check",
+   "task_url": "https://rosmater.github.io/cu/?t=86b9zkaua",
+   "task_app": "https://app.clickup.com/t/86b9zkaua",
+   "kind": "forcheck",
+   "at": "2026-11-05 16:50",
+   "who": "Rost",
+   "comment_id": "90140278572012",
+   "comment_url": "https://app.clickup.com/t/86b9zkaua?comment=90140278572012",
+   "n_new": 0
+  }
+ ],
+ "threads": [
+  {
+   "task_id": "86bcn3c3u",
+   "task": "Проверить команду на iPhone для передачи шагов из «Здоровья» боту",
+   "list": "Personal",
+   "status": "for check",
+   "task_url": "https://rosmater.github.io/cu/?t=86bcn3c3u",
+   "task_app": "https://app.clickup.com/t/86bcn3c3u",
+   "list_id": "901413854636",
+   "kinds": [
+    "forcheck"
+   ],
+   "at": "2026-11-05 22:35",
+   "who": "Rost",
+   "comment_url": "https://app.clickup.com/t/86bcn3c3u?comment=90140278670956",
+   "sub": "",
+   "n_new": 0,
+   "mention_at": "",
+   "author": "БОТ",
+   "author_bot": true
+  },
+  {
+   "task_id": "86bcn2d1t",
+   "task": "Control de estado de cuentas + mandar apelaciones + eliminar publicaciones problematicas + mas mandar capturas de pantalla",
+   "list": "Models",
+   "status": "to do",
+   "task_url": "https://rosmater.github.io/cu/?t=86bcn2d1t",
+   "task_app": "https://app.clickup.com/t/86bcn2d1t",
+   "list_id": "901412862040",
+   "kinds": [
+    "comment"
+   ],
+   "at": "2026-11-05 18:07",
+   "who": "Michelle Hernández ",
+   "comment_url": "https://app.clickup.com/t/86bcn2d1t?comment=90140278607352",
+   "sub": "",
+   "n_new": 2,
+   "mention_at": "",
+   "author": "Michelle Hernández ",
+   "author_bot": false
+  },
+  {
+   "task_id": "86b9zkaua",
+   "task": "БОТ-ЧАСТЬ: Отчет по SEO-показателям (трафик, заказы) - готов? (покупка Серпстат)",
+   "list": "Задачи Tabakevich",
+   "status": "for check",
+   "task_url": "https://rosmater.github.io/cu/?t=86b9zkaua",
+   "task_app": "https://app.clickup.com/t/86b9zkaua",
+   "list_id": "901412862042",
+   "kinds": [
+    "forcheck"
+   ],
+   "at": "2026-11-05 16:50",
+   "who": "Rost",
+   "comment_url": "https://app.clickup.com/t/86b9zkaua?comment=90140278572012",
+   "sub": "",
+   "n_new": 0,
+   "mention_at": "",
+   "author": "БОТ",
+   "author_bot": true
+  }
+ ]
+}
