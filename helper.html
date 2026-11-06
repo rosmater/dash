@@ -1245,7 +1245,7 @@ let _tapBusy=0;async function tapFlush(){if(_tapBusy)return;const q=tapQ();if(!q
 function tapResync(){try{const D=Dash.D;if(!D||window._tapRS)return;window._tapRS=1;const last=+localStorage.getItem('dash_tap_rs')||0;if(Date.now()-last<3*3600e3){tapFlush();return}
  const q=tapQ(),have=new Set(q.map(x=>x.key)),add=x=>{if(!have.has(x.key)){have.add(x.key);q.push(Object.assign({at:new Date().toISOString(),resync:1},x))}};
  ((D.overview&&D.overview.cu_sort)||[]).forEach(t=>{const v=maSph(cuK(t));if(v)add({key:cuK(t),channel:'ClickUp',title:t.name,url:t.url,sphere:v})});
- const md=D.directions.find(x=>x.kind==='msgs');((md&&md.unsorted)||[]).forEach(u=>{const v=maSph(u.key);if(v)add({key:u.key,channel:u.channel,title:u.title,sphere:v})});((md&&md.messengers)||[]).forEach(g=>(g.rows||[]).forEach(r=>{const k=r.channel+'|'+r.chat,v=maSphRaw(k);if(v&&v!==g.sphere)add({key:k,channel:r.channel,title:r.chat,sphere:v})}));
+ const md=D.directions.find(x=>x.kind==='msgs');((md&&md.unsorted)||[]).forEach(u=>{const v=maSph(u.key);if(v)add({key:u.key,channel:u.channel,title:u.title,sphere:v})});((md&&md.messengers)||[]).forEach(g=>(g.rows||[]).forEach(r=>{const k=r.channel+'|'+r.chat,v=maSphRaw(k);if(!v||v===g.sphere||v==='__unsort')return;/* t5334u: старый ✕ не пересылать — свежий уже в очереди, иначе затирает выбранную сферу */add({key:k,channel:r.channel,title:r.chat,sphere:v})}));
  localStorage.setItem(TQK,JSON.stringify(q));localStorage.setItem('dash_tap_rs',String(Date.now()));tapFlush()}catch(e){}}
 addEventListener('online',()=>tapFlush());
 /* Rost t3954u: тап по сфере/направлению — молча сохранить; раскрытые списки НЕ сворачивать (сворачивает только сам Rost), без тоста */
