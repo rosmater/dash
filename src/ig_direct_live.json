@@ -1,98 +1,44 @@
 {
- "at": "2026-11-04 11:36 Bogotá",
+ "at": "2026-11-06 09:31 Bogotá",
  "account": "rosscompass",
- "src": "instagram.com/direct/inbox (browser, list-only after refresh)",
- "unread_chats": 1,
+ "src": "instagram.com/direct/inbox (браузер бота, только список)",
+ "unread_chats": 2,
  "chats": [
+  {
+   "title": "Василий Башмаков",
+   "unread": true,
+   "n": 1,
+   "age": "1d"
+  },
   {
    "title": ".. ♡𝓐𝓵𝓲♡..",
    "unread": true,
    "n": 1,
-   "age": "2h"
+   "age": "1d"
   },
   {
    "title": "DENIS SIMOCHOV",
    "unread": false,
    "n": 0,
-   "age": "3h"
+   "age": "2d"
   },
   {
    "title": "Станислав Захаров",
    "unread": false,
    "n": 0,
-   "age": "7h"
+   "age": "2d"
   },
   {
    "title": "Ольга Рыбченко",
    "unread": false,
    "n": 0,
-   "age": "1d"
+   "age": "2d"
   },
   {
    "title": "Александр",
    "unread": false,
    "n": 0,
-   "age": "1d"
-  },
-  {
-   "title": "Василий Башмаков",
-   "unread": false,
-   "n": 0,
-   "age": "1d"
-  },
-  {
-   "title": "Juliana Cuero",
-   "unread": false,
-   "n": 0,
-   "age": "2d"
-  },
-  {
-   "title": "Лучше спросить у Новинского",
-   "unread": false,
-   "n": 0,
-   "age": "2d"
-  },
-  {
-   "title": "Ruslan Iskhakov",
-   "unread": false,
-   "n": 0,
    "age": "3d"
-  },
-  {
-   "title": "Кот",
-   "unread": false,
-   "n": 0,
-   "age": "3d"
-  },
-  {
-   "title": "👁️Sauron II",
-   "unread": false,
-   "n": 0,
-   "age": "3d"
-  },
-  {
-   "title": "Єрмакова | Стоматолог Одеса",
-   "unread": false,
-   "n": 0,
-   "age": "1w"
-  },
-  {
-   "title": "Андрей Сенько",
-   "unread": false,
-   "n": 0,
-   "age": "1w"
-  },
-  {
-   "title": "🇺🇦Violetta 🇺🇦",
-   "unread": false,
-   "n": 0,
-   "age": "1w"
-  },
-  {
-   "title": "Николай Кобзов",
-   "unread": false,
-   "n": 0,
-   "age": "2w"
   }
  ],
  "ok": true,

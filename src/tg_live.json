@@ -1,130 +1,160 @@
 {
- "at": "2026-11-04 18:30 Bogotá",
- "at_bogota": "2026-11-04T18:30:00-05:00",
- "channel": "Telegram",
- "filter": "unmuted badges summed across left-rail frames",
- "chats": [
-  {
-   "title": "M_November",
-   "name": "M_November",
-   "unread": 1,
-   "muted": false,
-   "is_group": false
-  },
-  {
-   "title": "Kir0[4K]",
-   "name": "Kir0[4K]",
-   "unread": 3,
-   "muted": false,
-   "is_group": false
-  },
-  {
-   "title": "Яна Бухгалтер",
-   "name": "Яна Бухгалтер",
-   "unread": 3,
-   "muted": false,
-   "is_group": false
-  },
-  {
-   "title": "Isla del Contenido",
-   "name": "Isla del Contenido",
-   "unread": 1,
-   "muted": false,
-   "is_group": false
-  },
-  {
-   "title": "Киви Саша Шейх",
-   "name": "Киви Саша Шейх",
-   "unread": 2,
-   "muted": false,
-   "is_group": false
-  },
-  {
-   "title": "Sara Pinedas",
-   "name": "Sara Pinedas",
-   "unread": 1,
-   "muted": false,
-   "is_group": false
-  },
-  {
-   "title": "Gastos $$$",
-   "name": "Gastos $$$",
-   "unread": 3,
-   "muted": false,
-   "is_group": false
-  },
-  {
-   "title": "Michelle $$$",
-   "name": "Michelle $$$",
-   "unread": 1,
-   "muted": false,
-   "is_group": false
-  },
-  {
-   "title": "Sara $$$",
-   "name": "Sara $$$",
-   "unread": 5,
-   "muted": false,
-   "is_group": false
-  },
-  {
-   "title": "Фин Р",
-   "name": "Фин Р",
-   "unread": 4,
-   "muted": false,
-   "is_group": false
-  },
-  {
-   "title": "Разработка Hooka",
-   "name": "Разработка Hooka",
-   "unread": 8,
-   "muted": false,
-   "is_group": false
-  },
-  {
-   "title": "Юридическая поддержка",
-   "name": "Юридическая поддержка",
-   "unread": 2,
-   "muted": false,
-   "is_group": false
-  },
-  {
-   "title": "Baba",
-   "name": "Baba",
-   "unread": 7,
-   "muted": false,
-   "is_group": false
-  },
-  {
-   "title": "Стас Элвис",
-   "name": "Стас Элвис",
-   "unread": 1,
-   "muted": false,
-   "is_group": false
-  },
-  {
-   "title": "TABAKEVICH (разработка)",
-   "name": "TABAKEVICH (разработка)",
-   "unread": 2,
-   "muted": false,
-   "is_group": false
-  },
-  {
-   "title": "Контроль менеджеров ИМ",
-   "name": "Контроль менеджеров ИМ",
-   "unread": 1,
-   "muted": false,
-   "is_group": false
-  },
-  {
-   "title": "Колумбия OFTV - Markiz Karabas 3 модели",
-   "name": "Колумбия OFTV - Markiz Karabas 3 модели",
-   "unread": 4,
-   "muted": false,
-   "is_group": false
-  }
- ],
- "sum": 49,
- "unmuted_sum": 49,
- "note": "Evening census tg-report.md; 17 unmuted sum 49. Dash previously 15/46 (missing Киви Саша Шейх+Sara Pinedas). Muted excluded from JSON."
+  "at": "2026-11-06 09:30 Bogotá",
+  "at_bogota": "2026-11-06T09:30:46-05:00",
+  "channel": "Telegram",
+  "filter": "Новые",
+  "folder_badge": 19,
+  "chats": [
+    {
+      "title": "Secret Отрисовка и фотодропы",
+      "name": "Secret Отрисовка и фотодропы",
+      "unread": 5,
+      "muted": false,
+      "last": "09:10"
+    },
+    {
+      "title": "Andrei Grafeev",
+      "name": "Andrei Grafeev",
+      "unread": 3,
+      "muted": false,
+      "last": "09:05"
+    },
+    {
+      "title": "Di di ситуация",
+      "name": "Di di ситуация",
+      "unread": 7,
+      "muted": false,
+      "last": "07:41",
+      "is_group": true
+    },
+    {
+      "title": "Баба 2",
+      "name": "Баба 2",
+      "unread": 12,
+      "muted": false,
+      "last": "07:14"
+    },
+    {
+      "title": "TABAKEVICH (разработка)",
+      "name": "TABAKEVICH (разработка)",
+      "unread": 5,
+      "muted": false,
+      "last": "05:52",
+      "is_group": true
+    },
+    {
+      "title": "Киви Саша Шейх",
+      "name": "Киви Саша Шейх",
+      "unread": 1,
+      "muted": false,
+      "last": "05:32"
+    },
+    {
+      "title": "Серега Актер",
+      "name": "Серега Актер",
+      "unread": 2,
+      "muted": false,
+      "last": "05:19"
+    },
+    {
+      "title": "Сергей Адвокат",
+      "name": "Сергей Адвокат",
+      "unread": 5,
+      "muted": false,
+      "last": "04:53"
+    },
+    {
+      "title": "Dmitri",
+      "name": "Dmitri",
+      "unread": 3,
+      "muted": false,
+      "last": "03:50"
+    },
+    {
+      "title": "Колумбия OFTV - Markiz Karabas 3 модели",
+      "name": "Колумбия OFTV - Markiz Karabas 3 модели",
+      "unread": 4,
+      "muted": false,
+      "last": "18:53",
+      "is_group": true
+    },
+    {
+      "title": "Общение ботов",
+      "name": "Общение ботов",
+      "unread": 4,
+      "muted": false,
+      "last": "15:17",
+      "is_group": true
+    },
+    {
+      "title": "Разработка Felix-shop",
+      "name": "Разработка Felix-shop",
+      "unread": 1,
+      "muted": false,
+      "last": "14:39",
+      "is_group": true
+    },
+    {
+      "title": "Model Support",
+      "name": "Model Support",
+      "unread": 1,
+      "muted": false,
+      "last": "Thursday"
+    },
+    {
+      "title": "Isla del Contenido",
+      "name": "Isla del Contenido",
+      "unread": 0,
+      "muted": false,
+      "last": "Wednesday",
+      "manual_unread": true,
+      "green_dot_only": true
+    },
+    {
+      "title": "Kir0[4K]",
+      "name": "Kir0[4K]",
+      "unread": 0,
+      "muted": false,
+      "last": "Wednesday",
+      "manual_unread": true,
+      "green_dot_only": true
+    },
+    {
+      "title": "Яна Бух Наш",
+      "name": "Яна Бух Наш",
+      "unread": 3,
+      "muted": false,
+      "last": "Wednesday"
+    },
+    {
+      "title": "Baba",
+      "name": "Baba",
+      "unread": 7,
+      "muted": false,
+      "last": "Wednesday"
+    },
+    {
+      "title": "Стас Элвис",
+      "name": "Стас Элвис",
+      "unread": 1,
+      "muted": false,
+      "last": "Wednesday"
+    },
+    {
+      "title": "M_November",
+      "name": "M_November",
+      "unread": 0,
+      "muted": false,
+      "last": "Tuesday",
+      "manual_unread": true,
+      "green_dot_only": true
+    }
+  ],
+  "sum": 64,
+  "unmuted_sum": 64,
+  "muted_sum": 0,
+  "note": "AM unread-dash-daily 09:21 Bogotá; tg-novye-list-snap ok=true accidental_open=null badges 11/11 (numeric only); full scroll frames → 19 chats = folder badge (3 manual-unread dots). proof /workspace/shots/tg-novye-listonly-proof-20261106-092141.png + /workspace/shots/tg-novye-am-20261106/",
+  "ok": true,
+  "proof": "/workspace/shots/tg-novye-listonly-proof-20261106-092141.png",
+  "meta": "/workspace/dashboard-mockup/src/tg_novye_snap_meta.json"
 }
