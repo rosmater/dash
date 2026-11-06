@@ -2,6 +2,9 @@
 Rost t4356u (28.10): ИСКЛЮЧЕНИЕ — `last_msgs` (≤3 последних пойманных тоста, ≤120 симв.) для hover-превью; только чаты из allowlist/log_only вочера,
 только цитата «…» из тоста (не пояснения бота). Всё остальное — без тел. Вывод шифруется (data-test-ma.enc.json); plaintext не пушится."""
 import re, json, os, csv, datetime as _dt
+from ma_stale_unread import (  # Rost t5198u: ghost Unread badges months old
+    STALE_UNREAD_DAYS, chat_last_raw, mark_stale_unreads, write_live_flags,
+    is_stale_unread, snap_ref_date, parse_chat_last_date)
 ROOT = os.path.join(os.path.dirname(__file__), '..')
 LOG = '/workspace/notify-watchers/secretary-log.md'
 CU = lambda t: f'https://rosmater.github.io/cu/?t={t}'
@@ -290,6 +293,15 @@ def _apply_wa_live(fname, channel, label):
         print(label + ' STALE', L.get('at'), 'age', age, '— not applied'); return
     for _c in (L.get('chats') or []):
         if 'title' not in _c and _c.get('name'): _c['title'] = _c['name']  # live json may use name
+    # t5198u: normalize last (age/time→last) + flag ghost Unread (last >14d); keep in live, drop from dash
+    _stale_drop = mark_stale_unreads(L)
+    if _stale_drop:
+        print(label + ': stale_unread drop', len(_stale_drop), '·', ', '.join(_stale_drop[:8]) + ('…' if len(_stale_drop) > 8 else ''))
+        try:
+            write_live_flags(fp, L)
+        except Exception as _we:
+            print(label + ' stale flag write skip', _we)
+    globals().setdefault('_STALE_UNREAD_DROPPED', {})[channel] = list(_stale_drop)
     vmap = {c['title'].lower(): c for c in (L.get('chats') or [])}
     src = label + ' ' + (L.get('at') or L.get('at_bogota') or '')
     # t5019 fix: live список = истина. 1) точное совпадение; 2) fuzzy 1:1 (живой чат не берём дважды);
@@ -312,7 +324,11 @@ def _apply_wa_live(fname, channel, label):
         c = _match.get(id(_r))
         if c:
             _r['unread_chat'] = int(c.get('unread') or 0)
-            if c.get('last'): _r['last'] = c.get('last')
+            _lr = chat_last_raw(c)
+            if _lr: _r['last'] = _lr
+            if c.get('stale_unread'):
+                _r['stale_unread'] = True
+                _r['unread_chat'] = 0  # ghost badge — not Rost-actionable
             _r['muted'] = bool(c.get('muted'))
             _r['src'] = src; _r['live_title'] = c['title']
             applied += 1
@@ -329,9 +345,11 @@ def _apply_wa_live(fname, channel, label):
     added = 0
     for tk, c in vmap.items():
         if tk in seen or not c.get('unread'): continue
+        if c.get('stale_unread'):
+            seen.add(tk); continue  # t5198u: keep in live JSON only
         sp = byname.get(tk)
         if sp and sp in _ORD:
-            groups[sp].append(dict(sender=c['title'], chat=c['title'], channel=channel, unread_chat=int(c.get('unread') or 0), muted=bool(c.get('muted')), items=0, kinds={}, last=c.get('last',''), binding=None,
+            groups[sp].append(dict(sender=c['title'], chat=c['title'], channel=channel, unread_chat=int(c.get('unread') or 0), muted=bool(c.get('muted')), items=0, kinds={}, last=chat_last_raw(c), binding=None,
                                    src=src, src_sphere=sp, owner='Секретарь', owner_link='grokbot://app/v1/agent?id=d3a12cc9-cf8a-41e5-b34a-76d4ab9eb9fd', key=channel+'|'+c['title'], hang_since=(L.get('at') or '')[:10]))
             added += 1; seen.add(tk)
         else:
@@ -342,7 +360,7 @@ def _apply_wa_live(fname, channel, label):
 _apply_wa_live('wa_ukr_live.json', 'WhatsApp UKR', 'WA UKR live')
 _apply_wa_live('wa_esp_live.json', 'WhatsApp ESP', 'WA ESP live')
 _apply_wa_live('tg_live.json', 'Telegram', 'TG live')  # t5045
-# t4368 (Rost 28.10): Instagram Direct личного @rosscompass — раз в день (утренний пакет / ночная гигиена) → src/ig_direct_live.json (mailbox-map/ig-direct/ig_direct_peek.py).
+# t4368 / 05.11: Instagram Direct @rosscompass — снимок только unread-dash-daily 09+13 → src/ig_direct_live.json (mailbox-map/ig-direct/ig_direct_peek.py). Mega/night не пишут.
 _IGD = None
 try:
     _IGDF = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'ig_direct_live.json')
@@ -350,6 +368,12 @@ try:
 except Exception as _e: print('ig_direct skip', _e)
 _IGD_UNS = []
 if _IGD and _IGD.get('ok'):
+    _igd_stale = mark_stale_unreads(_IGD)
+    if _igd_stale:
+        print('ig_direct: stale_unread drop', len(_igd_stale), '·', ', '.join(_igd_stale[:8]))
+        try: write_live_flags(_IGDF, _IGD)
+        except Exception as _we: print('ig_direct stale flag write skip', _we)
+    globals().setdefault('_STALE_UNREAD_DROPPED', {})['Instagram'] = list(_igd_stale)
     _byname2 = {}
     for _sp, _rs in groups.items():
         for _r in _rs: _byname2.setdefault((_r.get('chat') or '').lower(), _sp)
@@ -361,17 +385,21 @@ if _IGD and _IGD.get('ok'):
         for _r in _rs:
             if _r.get('channel') != 'Instagram': continue
             _c = _igmap.get((_r.get('chat') or '').lower())
-            if _c and _c.get('unread'):
-                _r['unread_chat'] = _c.get('n') or 1; _r['last'] = _c.get('age', ''); _r['src'] = _igsrc; _igseen.add(_c['title'].lower())
+            if _c and _c.get('unread') and not _c.get('stale_unread'):
+                _r['unread_chat'] = _c.get('n') or 1; _r['last'] = chat_last_raw(_c) or _c.get('age', ''); _r['src'] = _igsrc; _igseen.add(_c['title'].lower())
+            elif _c and _c.get('stale_unread'):
+                _r['unread_chat'] = 0; _r['stale_unread'] = True; _r['last'] = chat_last_raw(_c) or _c.get('age', ''); _r['src'] = _igsrc + ' · stale_unread'; _igseen.add(_c['title'].lower())
             else:
                 if (_r.get('unread_chat') or 0) > 0:
                     _r['unread_chat'] = 0; _r['src'] = (_r.get('src') or '') + ' · ' + _igsrc + ': прочитано'
                 _igseen.add((_r.get('chat') or '').lower())
     for _c in _IGD.get('chats') or []:
         if not _c.get('unread') or _c['title'].lower() in _igseen: continue
+        if _c.get('stale_unread'):
+            _igseen.add(_c['title'].lower()); continue
         _sp = _byname2.get(_c['title'].lower())
         if _sp and _sp in _ORD:
-            groups[_sp].append(dict(sender=_c['title'], chat=_c['title'], channel='Instagram', unread_chat=_c.get('n') or 1, items=0, kinds={}, last=_c.get('age', ''), binding=None,
+            groups[_sp].append(dict(sender=_c['title'], chat=_c['title'], channel='Instagram', unread_chat=_c.get('n') or 1, items=0, kinds={}, last=chat_last_raw(_c) or _c.get('age', ''), binding=None,
                                      src=_igsrc, src_sphere=_sp, owner='Секретарь', owner_link='grokbot://app/v1/agent?id=d3a12cc9-cf8a-41e5-b34a-76d4ab9eb9fd', key='Instagram|' + _c['title'], hang_since=_IGD.get('at', '')[:10]))
             _igseen.add(_c['title'].lower())
         else: _IGD_UNS.append(_c)
@@ -529,7 +557,8 @@ for h in _hits:
     _mama['qs'].insert(0, dict(q=f'Новое в «{_BG}» {h.replace("T"," ")} — суть не записана (вочер текст не хранит), открой чат', st='red', grp=_GB, new=True, ctx=f'tg-secretary watcher.log {h}'))
 _mama['watch'] = f'TG «{_BG}»: ' + (f'поймано уведомлений {len(_hits)}' if _hits else 'новых уведомлений нет') + ' · вочер tg-secretary (если он ловит TG — см. Покрытие)'
 # Задачи CU for check (assignee Rost) -> бот-владелец по ключевым словам (OWNERSHIP.md)
-_OWN_KW = [('ОФ Маркетинг', ['миле', 'офиса оф', 'трекера', 'of.tv - отчет', 'контроль of.tv', 'лолап', 'lolapop']),
+_OWN_KW = [('Фермовод', ['сейдер', 'seider', 'onimator', 'nomix', 'nomixcloner', '22126rn91y']),  # Rost t2035: не дефолт на Помощника
+           ('ОФ Маркетинг', ['миле', 'офиса оф', 'трекера', 'of.tv - отчет', 'контроль of.tv', 'лолап', 'lolapop']),
            ('Юрист / Адвокат / Бухгалтер', ['парагвай']),
            ('Секретарь', ['окупас', 'топасио', 'пакистанец', 'andrea cali', 'sofia', 'aurora', 'ra180', 'пальма'])]
 _cu_tasks = json.load(open(os.path.join(os.path.dirname(__file__), 'ma_clickup.json')))
@@ -637,6 +666,10 @@ def _routines(short, header_re, enabled_only_col=None):
         low = (sched + ' ' + note + ' ' + st_col + ' ' + name).lower()
         if _re.search(r'\bonce\b|разово|one-off', low): continue  # разовые — уже отработали / не рутина
         st = 'fail' if 'failed' in low else 'new' if 'never run' in low else 'ok'
+        try: _RFR = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'routine_fail_resolved.json')))
+        except Exception: _RFR = {}
+        _fo0 = _re.sub(r'[`*]', '', next((v for k, v in r.items() if k != '_cells' and 'folder' in k), '') or '').split()
+        if st == 'fail' and _fo0 and any(dd in low for dd in _RFR.get(_fo0[0], [])): st = 'ok'  # t5165 caught-up failed run
         folder = _clean(next((v for k, v in r.items() if k != '_cells' and 'folder' in k), '')).split()[0] if any('folder' in k for k in r) else ''
         last = _clean(next((v for k, v in r.items() if k != '_cells' and 'last run' in k), ''))
         if not last:
@@ -644,20 +677,56 @@ def _routines(short, header_re, enabled_only_col=None):
             last = m.group(1) if m else ''
         out.append(dict(name=name, sched=sched, st=st, note=note[:140], folder=folder.strip('`'), last=last[:16].replace('T', ' ')))
     return out
-_RT = {'Секретарь': ('COMMS', r'^## Enabled', None), 'Помощник по всему': ('HELPER', r'^## LIVE enabled', None),
-       'Дейтинг': ('DATING', r'^## LIVE enabled', None), 'ОФ Маркетинг': ('OF', r'^## Index', 'status'),
-       'Юрист / Адвокат / Бухгалтер': ('LAWYER', r'^## Inventory refresh 2026-10-26', 'status'), 'Оборонка': ('DEFENSE', r'^\| name', 'enabled/paused')}
+# t5167 (Rost GO): tolerant inventory parser — `## Enabled` / `## LIVE enabled` / latest `## Inventory refresh*` / plain table; stale >48h → «инвентарь от DD.MM»
+_RT = {'Секретарь': ['COMMS'], 'Помощник по всему': ['HELPER'], 'Дейтинг': ['DATING'], 'ОФ Маркетинг': ['OF'],
+       'Юрист / Адвокат / Бухгалтер': ['LAWYER'], 'Оборонка': ['DEFENSE'], 'Пептид': ['PEPTIDE', 'PEPTID'], 'Фермовод': ['FARM', 'FERMOVOD']}
+def _inv_pick(sh):
+    """-> (header_re, status_col_filter) for the best table in <sh>.md"""
+    try: T = open(_INV + sh + '.md', encoding='utf-8').read()
+    except FileNotFoundError: return None
+    L = T.split('\n')
+    if any(_re.match(r'^## Enabled\b', l) for l in L): return (r'^## Enabled\b', None, T)
+    if any(_re.match(r'^## LIVE enabled', l) for l in L): return (r'^## LIVE enabled', None, T)
+    if sh == 'OF' and any(_re.match(r'^## Index', l) for l in L): return (r'^## Index', 'status', T)
+    R = [l for l in L if _re.match(r'^## Inventory refresh', l)]
+    if R: return ('^' + _re.escape(R[-1]) + '$', 'status', T)
+    if any(l.startswith('|') for l in L): return (r'^# ', 'status', T)  # plain table under the title
+    return ('', None, T)
+def _inv_date(T, hr):
+    m = _re.search(r'Inventory refresh (\d{4}-\d\d-\d\d)', hr or '') or _re.search(r'^Updated:\s*\**\s*(\d{4}-\d\d-\d\d)', T, _re.M)
+    return m.group(1) if m else None
+def _routines_any(sh):
+    pk = _inv_pick(sh)
+    if pk is None: return None, None, None
+    hr, col, T = pk
+    if not hr: return [], _inv_date(T, ''), T
+    R = _tbl(_INV + sh + '.md', hr)
+    # status column filter: if table has a status-like column, keep enabled only
+    if R and col is None and any(k in ('status', 'enabled/paused') for k in R[0] if k != '_cells'): col = 'status'
+    if col and R and not any(k in ('status', 'enabled/paused') for k in R[0] if k != '_cells'): col = None
+    if col == 'status' and R and 'enabled/paused' in R[0]: col = 'enabled/paused'
+    out = _routines(sh, hr, col)
+    return out, _inv_date(T, hr), T
 for b in data['bots']:
-    if b['name'] in _RT:
-        sh, hr, col = _RT[b['name']]
-        if sh == 'DEFENSE':  # таблица без заголовка-секции
-            b['routines'] = _routines(sh, r'^# ', col)
-        else:
-            b['routines'] = _routines(sh, hr, col)
-        b['routines_src'] = f'bot-routines-inventory/{sh}.md'
-        if b['routines'] is not None and not b['routines']: b['routines_note'] = 'активных рутин нет'
-    elif b['name'] in ('Пептид', 'Фермовод'):
-        b['routines'] = None; b['routines_note'] = 'дампа рутин в bot-routines-inventory нет — бот не выгружал'
+    if b['name'] not in _RT: continue
+    sh = next((x for x in _RT[b['name']] if os.path.exists(_INV + x + '.md')), None)
+    if not sh:
+        b['routines'] = None; b['routines_note'] = 'дампа рутин в bot-routines-inventory нет — бот не выгружал'; continue
+    out, dt, T = _routines_any(sh)
+    b['routines'] = out; b['routines_src'] = f'bot-routines-inventory/{sh}.md'
+    if out is not None and not out:
+        m = _re.search(r'(\d+)\s+enabled', T or '')
+        b['routines_note'] = (f'в инвентаре {m.group(1)} enabled, но без таблицы `## Enabled` — ждём выгрузку' if m and m.group(1) != '0' else 'активных рутин нет')
+    if dt:
+        try:
+            age = (_dtm.datetime.now() - _dtm.datetime.strptime(dt, '%Y-%m-%d')).total_seconds() / 3600
+        except Exception: age = 0
+        if age > 48:
+            ddmm = dt[8:10] + '.' + dt[5:7]
+            b['routines_inv'] = ddmm
+            for r in out or []:
+                r['inv'] = ddmm
+                if r['st'] == 'ok': r['st'] = 'stale'
 # Задачи в очереди: строки «- [статус] …» из QUEUE.md бота, без done/x/standing (Rost: решённое не показывать)
 _Q = {'Секретарь': '/workspace/queue/QUEUE.md', 'Помощник по всему': '/workspace/queue-helper/QUEUE.md', 'ОФ Маркетинг': '/workspace/queue-of/QUEUE.md',
       'Дейтинг': '/workspace/dating/QUEUE.md', 'Пептид': '/workspace/queue-peptid/QUEUE.md', 'Фермовод': '/home/box/contacts/knowledge/ig-farm/QUEUE.md',
@@ -671,7 +740,7 @@ for b in data['bots']:
     except FileNotFoundError: continue
     out = []
     for l in L:
-        m = _re.match(r'^(?:- |## )\[([^\]]*)\]\s*(.*)$', l)
+        m = _re.match(r'^- \[([^\]]*)\]\s*(.*)$', l)  # t5167: `## [slug] …` = detail header, not an item
         if not m: continue
         st, t = m.group(1).strip(), m.group(2)
         t = _re.sub(r'^\[[^\]]*\]\s*', '', t)  # вторая скобка статуса
@@ -775,6 +844,34 @@ for b in data['bots']:
             keep.append(it)
     if b.get('queue') is not None: b['queue'] = keep
     b['waiting'] = W
+# === t5167 (Rost GO): ma_q вопрос и QUEUE-пункт про одно и то же → показываем ОДИН раз (вопрос). Красные вопросы не трогаем.
+def _dd_words(t): return {w for w in _re.findall(r'[a-zа-яё0-9]{4,}', (t or '').lower())}
+def _dd_keys(t):
+    t = t or ''
+    k = set(x.lower() for x in _re.findall(r'QUEUE\.md ([\w][\w.-]+)', t))
+    k |= set(x.lower() for x in _re.findall(r'\b(86[a-z0-9]{6,8})\b', t))
+    k |= set(_re.findall(r'\bQ-[0-9a-f]{6}\b', t))
+    return k
+_dd_n = {}
+for b in data['bots']:
+    Qs = b.get('qs') or []
+    QK = [(_dd_keys((q.get('q') or '') + ' ' + (q.get('ctx') or '')) | {q.get('qid')}, _dd_words(q.get('q')), (q.get('q') or '') + ' ' + (q.get('ctx') or '')) for q in Qs]
+    def _dup(it):
+        t = it.get('t') or ''
+        m = _re.match(r'^([a-z][\w.-]{2,})\s*[—:-]', t)
+        slug = m.group(1).lower() if m else None
+        ik = _dd_keys(t) | ({slug} if slug else set())
+        iw = _dd_words(t)
+        for keys, qw, qtxt in QK:
+            if slug and (slug in keys or slug in qtxt.lower()): return True
+            if ik & keys - {None}: return True
+            if iw and qw and len(iw & qw) / max(1, min(len(iw), len(qw))) >= 0.6 and len(iw & qw) >= 4: return True
+        return False
+    n0 = len(b.get('queue') or []) + len(b.get('waiting') or [])
+    if b.get('queue') is not None: b['queue'] = [it for it in b['queue'] if not _dup(it)]
+    b['waiting'] = [it for it in (b.get('waiting') or []) if not _dup(it)]
+    _dd_n[b['name']] = n0 - len(b.get('queue') or []) - len(b['waiting'])
+print('t5167 dup-render dropped:', {k: v for k, v in _dd_n.items() if v})
 for b in data['bots']:
     red = [q for q in b['qs'] if q['st'] == 'red' and not q.get('answered')]
     # Rost t4149–51u: CU for check НЕ даёт 🟡 «N новых»; 🟡 только свежие НЕ-красные отчёты-вопросы. need=rost задачи → 🔴 attention как вопросы
@@ -899,9 +996,10 @@ if _VL:
 # Rost t4997: WA live chats not yet on dash → unsorted (list-only truth)
 for _ch, _c, _src in list(globals().get('_WA_LIVE_UNS') or []):
     if not _c.get('unread'): continue
+    if _c.get('stale_unread'): continue  # t5198u
     _key = f"{_ch}|{_c['title']}"
     if any((u.get('key') or '').lower() == _key.lower() for u in uns): continue
-    uns.append(dict(key=_key, channel=_ch, title=_c['title'], kind=_src + ' · нет сферы' + (' · 🔇' if _c.get('muted') else ''), unread=int(_c.get('unread') or 0), muted=bool(_c.get('muted')), last=_c.get('last', ''), owner=SEC[0], owner_link=A(SEC[1])))
+    uns.append(dict(key=_key, channel=_ch, title=_c['title'], kind=_src + ' · нет сферы' + (' · 🔇' if _c.get('muted') else ''), unread=int(_c.get('unread') or 0), muted=bool(_c.get('muted')), last=chat_last_raw(_c), owner=SEC[0], owner_link=A(SEC[1])))
 # t5019 fix: WA «на сортировку» — unread/muted только из live (census/secretary-log не тянут старые числа и флаги)
 for _ch, (_wm, _wsrc, _seen0) in (globals().get('_WA_LIVE_MAP') or {}).items():
     _placed = {(r.get('live_title') or r.get('chat') or '').lower() for g in data['messengers'] if g['sphere'] in LIFE for r in g['rows'] if r.get('channel') == _ch and r.get('src') == _wsrc}
@@ -975,11 +1073,11 @@ def _al(d):
     try: return sum(1 for l in open(f'/workspace/notify-watchers/{d}/allowlist.txt', encoding='utf-8') if l.strip() and not l.strip().startswith('#'))
     except FileNotFoundError: return 0
 data['coverage'] = [
- dict(channel='WhatsApp ESP', src='secretary-log (toast-вочер AX42 → вебхук), с 21.10', live=False, gap=f'видны только чаты из allowlist вочера ({_al("wa-esp-secretary")}) и только когда пришёл toast; остальные непрочитанные WA ESP не видны без экрана AX42'),
- dict(channel='WhatsApp UKR', src='secretary-log (toast-вочер AX42 → вебхук), с 21.10', live=False, gap=f'видны только чаты из allowlist ({_al("wa-ukr-secretary")}); счётчик unread = последний из toast, может устареть'),
- dict(channel='Telegram', src='src/tg_live.json (TG Desktop: синие unmuted бейджи из All chats, по чатам)', live=True, gap='muted/каналы не в списке; нет вкладки Unread — считаем синие бейджи All chats'),
- dict(channel='Viber', src='список Viber (src/viber_live.json) + бейдж UIA-поллера (heartbeat: RDP-шара или SMB-pull с AX42 каждые ≤10 мин; бейдж только при открытом RDP)', live=False, gap='toast нет (AUMID не найден); БД Viber зашифрована; по чатам — только снимок списка при проверке; mute-чаты бейдж не дают'),
- dict(channel='Instagram', src='IG Direct @rosscompass (src/ig_direct_live.json), раз в день', live=False, gap='только личный @rosscompass; раз в сутки; Requests (запросы) не смотрим; превью не берём'),
+ dict(channel='WhatsApp ESP', src='src/wa_esp_live.json (list-only Unread на AX42, unread-dash-daily 09+13)', live=True, gap=f'toast-вочер allowlist ({_al("wa-esp-secretary")}) — только сигнал; непрочитанные = live json; perm-dm «не нашёл» из ignored_chats.json вычитаются явно'),
+ dict(channel='WhatsApp UKR', src='src/wa_ukr_live.json (list-only Unread на AX42, unread-dash-daily 09+13)', live=True, gap=f'toast-вочер allowlist ({_al("wa-ukr-secretary")}) — только сигнал; непрочитанные = live json'),
+ dict(channel='Telegram', src='src/tg_live.json (папка «Новые»: unread AND not-muted; Rost t5123–28u)', live=True, gap='только папка «Новые»; muted/прочитанные туда не попадают — All chats больше не крутим'),
+ dict(channel='Viber', src='src/viber_live.json (list-only Unread) + UIA heartbeat', live=True, gap='toast нет (AUMID); mute-чаты в live с muted=true и прячутся на даше'),
+ dict(channel='Instagram', src='IG Direct @rosscompass (src/ig_direct_live.json), unread-dash-daily', live=True, gap='только личный @rosscompass; Requests не смотрим; превью не берём'),
  dict(channel='Email', src='только важные (ma_email_important.json)', live=False, gap='не все письма — по правилу Rost'),
 ]
 # Rost 26.10: монитор вверху Мессенджеров — вочер жив? + последний сигнал (мелким). Только метаданные/время.
@@ -1065,6 +1163,30 @@ def _watchers():
         W['Instagram'] = dict(st='warn', alive='IG Direct @rosscompass — снимка ещё нет', ping='', ping_lbl='')
     return W
 data['watchers'] = _watchers()
+# Rost 05.11 15:54 t5136u: live json `at` → watchers.*.live_at (client: missed 09/13 slot → сбой; else «данные на HH:MM»)
+try:
+    _LIVE_AT_MAP = (
+        ('wa_ukr_live.json', 'WhatsApp UKR'),
+        ('wa_esp_live.json', 'WhatsApp ESP'),
+        ('viber_live.json', 'Viber'),
+        ('tg_live.json', 'Telegram'),
+        ('ig_direct_live.json', 'Instagram'),
+    )
+    _srcdir = os.path.dirname(os.path.abspath(__file__))
+    for _fn, _ch in _LIVE_AT_MAP:
+        _fp = os.path.join(_srcdir, _fn)
+        if not os.path.exists(_fp):
+            continue
+        _Lj = json.load(open(_fp, encoding='utf-8'))
+        _at = _Lj.get('at_bogota') or _Lj.get('at') or ''
+        if _ch not in data['watchers']:
+            data['watchers'][_ch] = dict(st='ok', alive='live json', ping='')
+        data['watchers'][_ch]['live_at'] = _at
+        data['watchers'][_ch]['live_unmuted'] = _Lj.get('unmuted_sum') if 'unmuted_sum' in _Lj else (_Lj.get('unread_chats') if _ch=='Instagram' else None)
+    print('live_at attached', {k: (data['watchers'].get(k) or {}).get('live_at') for _,k in _LIVE_AT_MAP})
+except Exception as _e:
+    print('live_at attach skip', _e)
+
 data['spheres'] = ['Личное','Дейтинг','Недвижимость','Табакевич','ОФ','Пептиды','Оборонка','Коучинг','Игнор']  # Rost 26.10 20:19: = вкладки дашборда
 # === Rost t3961u: сферы с даша по строкам мессенджеров (src/msg_sphere_overrides.json, пишет sync_dash_taps): key «канал|чат» -> сфера | «__unsort» (✕ → на сортировку) | «Игнор»
 try:
@@ -1094,7 +1216,9 @@ try:
             if sp == 'Игнор':
                 _moved.append(('Игнор', dict(sender=u.get('title'), chat=u.get('title'), channel=u.get('channel'), unread_chat=u.get('unread'), last=u.get('last', ''), owner=u.get('owner'), owner_link=u.get('owner_link'), src='dash-tap', sorted=True, muted=bool(u.get('muted')), ignored=True)))
             elif sp and sp != '__unsort':
-                _moved.append((sp, dict(sender=u.get('title'), chat=u.get('title'), channel=u.get('channel'), unread_chat=u.get('unread'), last=u.get('last', ''), owner=u.get('owner'), owner_link=u.get('owner_link'), src='dash-tap', sorted=True, muted=bool(u.get('muted')))))
+                _msrc = u.get('src') or 'dash-tap'
+                if 'live' not in _msrc.lower(): _msrc = 'dash-tap' + ((' · ' + _msrc) if _msrc and _msrc != 'dash-tap' else '')
+                _moved.append((sp, dict(sender=u.get('title'), chat=u.get('title'), channel=u.get('channel'), unread_chat=u.get('unread'), last=u.get('last', ''), owner=u.get('owner'), owner_link=u.get('owner_link'), src=_msrc, sorted=True, muted=bool(u.get('muted')))))
             else: _rest.append(u)
         data['unsorted'] = _rest
         for sp, r in _moved:
@@ -1350,5 +1474,476 @@ try:
     print('t5018 muted sync:', len(_MU), 'muted in live, flagged', _nm)
 except Exception as _e:
     print('t5018 muted sync skip', _e)
+# Rost HARD t5145–48 05.11: per-dialog sync + сверка list&monitor vs live (не totals из live)
+# 1) Enforce: dash messengers/unsorted rows for each channel = live unmuted-unread per title (drop stale, add missing).
+# 2) Reconcile: compare ACTUAL rendered dash unread rows vs live; ok only if names+counts match.
+try:
+    import datetime as _dtr
+    _SRC = os.path.dirname(os.path.abspath(__file__))
+    _now = _dtr.datetime.now(_dtr.timezone(_dtr.timedelta(hours=-5)))
+    _at = _now.strftime('%Y-%m-%dT%H:%M:%S-05:00')
+    _PIG = set(); _PIG_TITLES = []
+    try:
+        for _c in (json.load(open(os.path.join(_SRC, 'ignored_chats.json'), encoding='utf-8')).get('chats') or []):
+            if _c.get('perm') and _c.get('kind') == 'dm':
+                _PIG.add((_c.get('id') or '').lower()); _PIG_TITLES.append(f"{_c.get('title')} ({_c.get('why','perm-dm')[:40]})")
+    except Exception:
+        pass
+
+    def _ltitle(c):
+        return (c.get('title') or c.get('name') or '').strip()
+
+    def _dot_unread(c):
+        """TG/WA green-dot / marked unread (unread may be 0). Accepts marked_unread|manual_unread|green_dot_only."""
+        if not isinstance(c, dict):
+            return False
+        return bool(c.get('marked_unread') or c.get('manual_unread') or c.get('green_dot_only'))
+
+    def _is_wait(r):
+        return bool(re.search(r'^\s*жд[её]м(\s|$)', str(r.get('pending') or ''), re.I))
+
+    def _live_load(fn):
+        fp = os.path.join(_SRC, fn)
+        if not os.path.exists(fp):
+            return None
+        try:
+            return json.load(open(fp, encoding='utf-8'))
+        except Exception:
+            return None
+
+    def _match_live(key, live_all, used):
+        if key in live_all and key not in used:
+            return key, live_all[key]
+        for tk, tv in live_all.items():
+            if tk in used:
+                continue
+            if key and min(len(key), len(tk)) >= 5 and max(len(key), len(tk)) >= 8 and (key in tk or tk in key):
+                return tk, tv
+        return None, None
+
+    def _live_unread_map(L, channel):
+        """unmuted (unread>0 OR marked_unread) after perm-dm + stale_unread → {title_lower: chat}"""
+        out = {}; allm = {}; excl = []; stale = []
+        if not L:
+            return out, allm, excl, '', stale
+        # t5198u: annotate ghost badges (last >14d); keep in live JSON, exclude from dash maps
+        stale = mark_stale_unreads(L)
+        for c in (L.get('chats') or []):
+            if 'title' not in c and c.get('name'):
+                c['title'] = c['name']
+            title = _ltitle(c)
+            if not title:
+                continue
+            allm[title.lower()] = c
+        for title_l, c in allm.items():
+            if c.get('muted'):
+                continue
+            u = int(c.get('unread') or c.get('n') or 0)
+            if u <= 0 and not _dot_unread(c):
+                continue
+            key = f'{channel}|{_ltitle(c)}'.lower()
+            if key in _PIG:
+                excl.append(_ltitle(c)); continue
+            if c.get('stale_unread'):
+                continue  # in stale list; not Rost-actionable
+            out[title_l] = c
+        lat = L.get('at_bogota') or L.get('at') or ''
+        return out, allm, excl, lat, stale
+
+    def _dash_unread_map(ch):
+        """Actual dash rendered unread unmuted dialogs (list): title_lower -> unread count (max)."""
+        names = {}
+        for g in data.get('messengers') or []:
+            for r in g.get('rows') or []:
+                if r.get('channel') != ch or r.get('muted'):
+                    continue
+                u = int(r.get('unread_chat') or 0)
+                if u <= 0 and not r.get('marked_unread'):
+                    continue
+                nm = (r.get('live_title') or r.get('chat') or r.get('sender') or '').strip().lower()
+                if not nm:
+                    continue
+                key = f'{ch}|{r.get("live_title") or r.get("chat") or ""}'.lower()
+                if key in _PIG:
+                    continue
+                names[nm] = max(names.get(nm, 0), u)
+        for u in data.get('unsorted') or []:
+            if u.get('channel') != ch or u.get('muted'):
+                continue
+            n = int(u.get('unread') or 0)
+            if n <= 0 and not u.get('marked_unread'):
+                continue
+            if (u.get('key') or '').lower() in _PIG:
+                continue
+            nm = (u.get('title') or '').strip().lower()
+            if not nm:
+                continue
+            names[nm] = max(names.get(nm, 0), n)
+        return names
+
+    def _sphere_unread_map(ch):
+        """Union of unmuted unread|marked_unread dialogs across life-sphere blocks (messengers only, not 📥)."""
+        names = {}
+        for g in data.get('messengers') or []:
+            if g.get('sphere') == 'Игнор':
+                continue
+            for r in g.get('rows') or []:
+                if r.get('channel') != ch or r.get('muted') or r.get('ignored'):
+                    continue
+                # CU inbox / reports are not messenger live dialogs
+                if r.get('cu_msg') or r.get('cu_tasks') or r.get('unread_list'):
+                    continue
+                u = int(r.get('unread_chat') or 0)
+                if u <= 0 and not r.get('marked_unread'):
+                    continue
+                nm = (r.get('live_title') or r.get('chat') or r.get('sender') or '').strip().lower()
+                if not nm:
+                    continue
+                key = f'{ch}|{r.get("live_title") or r.get("chat") or ""}'.lower()
+                if key in _PIG:
+                    continue
+                names[nm] = max(names.get(nm, 0), u)
+        return names
+
+    def _enforce(channel, L, live_un, live_all, src, lab):
+        removed = []; added = []; fixed = []
+        used = set()
+        # groups
+        for g in data.get('messengers') or []:
+            keep = []
+            for r in g.get('rows') or []:
+                if r.get('channel') != channel:
+                    keep.append(r); continue
+                key = (r.get('live_title') or r.get('chat') or r.get('sender') or '').strip().lower()
+                tk, c = _match_live(key, live_all, used)
+                if c is not None:
+                    title = _ltitle(c)
+                    if c.get('stale_unread'):
+                        removed.append(title or key); continue  # t5198u ghost badge
+                    u = int(c.get('unread') or c.get('n') or 0)
+                    muted = bool(c.get('muted'))
+                    old = int(r.get('unread_chat') or 0)
+                    r['unread_chat'] = u; r['muted'] = muted; r['src'] = src; r['live_title'] = title
+                    _lr = chat_last_raw(c)
+                    if _lr:
+                        r['last'] = _lr
+                    if old != u:
+                        fixed.append(f'{title}:{old}→{u}')
+                    if muted:
+                        keep.append(r); continue
+                    if _dot_unread(c):
+                        r['marked_unread'] = True
+                    # t5154: sphere/list/monitor = live only — wait-pending NOT in live Unread → drop
+                    if (u > 0 or _dot_unread(c)) and f'{channel}|{title}'.lower() not in _PIG:
+                        used.add(tk); keep.append(r); continue
+                    removed.append(title or key); continue
+                # not in live at all → drop (even «ждём» from md/log)
+                removed.append(r.get('chat') or r.get('sender') or key)
+            g['rows'] = keep
+        # unsorted
+        keep_u = []
+        for u in data.get('unsorted') or []:
+            if u.get('channel') != channel:
+                keep_u.append(u); continue
+            key = (u.get('title') or '').strip().lower()
+            tk, c = _match_live(key, live_all, used)
+            if c is not None:
+                title = _ltitle(c)
+                if c.get('stale_unread'):
+                    removed.append(title or key); continue  # t5198u ghost badge
+                n = int(c.get('unread') or c.get('n') or 0)
+                muted = bool(c.get('muted'))
+                old = int(u.get('unread') or 0)
+                u['unread'] = n; u['muted'] = muted; u['src'] = src; u['title'] = title
+                _lr = chat_last_raw(c)
+                if _lr:
+                    u['last'] = _lr
+                if old != n:
+                    fixed.append(f'{title}:{old}→{n}')
+                if muted:
+                    keep_u.append(u); continue
+                if _dot_unread(c):
+                    u['marked_unread'] = True
+                if (n > 0 or _dot_unread(c)) and f'{channel}|{title}'.lower() not in _PIG:
+                    used.add(tk); keep_u.append(u); continue
+                removed.append(title or key); continue
+            removed.append(u.get('title') or key)
+        data['unsorted'] = keep_u
+        # add missing live unread
+        SEC = ('Секретарь', 'd3a12cc9-cf8a-41e5-b34a-76d4ab9eb9fd')
+        byname = {}
+        for g in data.get('messengers') or []:
+            for r in g.get('rows') or []:
+                byname.setdefault((r.get('chat') or '').lower(), g['sphere'])
+        for tk, c in live_un.items():
+            if tk in used:
+                continue
+            title = _ltitle(c)
+            u = int(c.get('unread') or c.get('n') or 0)
+            sp = byname.get(tk)
+            row = dict(sender=title, chat=title, channel=channel, unread_chat=u, muted=False, items=0, kinds={},
+                       last=chat_last_raw(c), binding=None, src=src, live_title=title,
+                       owner=SEC[0], owner_link=f'grokbot://app/v1/agent?id={SEC[1]}',
+                       key=f'{channel}|{title}', hang_since=(src[-16:] if False else ''),
+                       marked_unread=_dot_unread(c))
+            if sp:
+                g = next((x for x in data['messengers'] if x['sphere'] == sp), None)
+                if g is None:
+                    g = dict(sphere=sp, rows=[]); data['messengers'].append(g)
+                g['rows'].append(row)
+            else:
+                data.setdefault('unsorted', []).append(dict(
+                    key=f'{channel}|{title}', channel=channel, title=title, kind=src + ' · нет сферы',
+                    unread=u, muted=False, last=chat_last_raw(c), owner=SEC[0],
+                    owner_link=f'grokbot://app/v1/agent?id={SEC[1]}',
+                    marked_unread=_dot_unread(c)))
+            added.append(title); used.add(tk)
+        return removed, added, fixed
+
+    _CHMAP = [
+        ('wa_ukr', 'WhatsApp UKR', 'wa_ukr_live.json', 'WA UKR'),
+        ('wa_esp', 'WhatsApp ESP', 'wa_esp_live.json', 'WA ESP'),
+        ('tg', 'Telegram', 'tg_live.json', 'TG'),
+        ('viber', 'Viber', 'viber_live.json', 'Vib'),
+        ('ig', 'Instagram', 'ig_direct_live.json', 'IG'),
+    ]
+    _channels = {}; _mismatch = 0; _notes = []
+    for _ck, _ch, _fn, _lab in _CHMAP:
+        L = _live_load(_fn)
+        live_un, live_all, excl, lat, stale_drop = _live_unread_map(L, _ch)
+        if L is not None and stale_drop:
+            try:
+                write_live_flags(os.path.join(_SRC, _fn), L)
+            except Exception as _we:
+                print(_lab, 'stale flag write skip', _we)
+        missing = L is None
+        no_at = not bool(lat)
+        src = _lab + ' ' + ((L or {}).get('at') or lat or '')
+        removed, added, fixed = ([], [], [])
+        if not missing:
+            removed, added, fixed = _enforce(_ch, L, live_un, live_all, src, _lab)
+        # AFTER enforce — actual dash maps (list = monitor = spheres must all == live)
+        dash_map = _dash_unread_map(_ch)          # list (spheres + 📥 unsorted)
+        sphere_map = _sphere_unread_map(_ch)      # life-sphere blocks only
+        mon_map = dash_map  # monitor uses same unmuted unread set
+        live_map = {k: int(c.get('unread') or c.get('n') or 0) for k, c in live_un.items()}
+        # If live unread sits only in 📥, promote into messengers under existing/byname sphere or «Прочее»
+        # so spheres ∪ equals live (Rost t5154: sphere blocks must match reality too)
+        if not missing:
+            for tk, c in list(live_un.items()):
+                if tk in sphere_map:
+                    continue
+                # find unsorted row / title
+                title = _ltitle(c)
+                u = int(c.get('unread') or c.get('n') or 0)
+                # already in dash_map via unsorted — move into a sphere block
+                sp = None
+                for g in data.get('messengers') or []:
+                    for r in g.get('rows') or []:
+                        if (r.get('chat') or '').lower() == tk or (r.get('live_title') or '').lower() == tk:
+                            sp = g['sphere']; break
+                    if sp: break
+                if not sp:
+                    # try sphere from unsorted kind / default Личное for ESP dating numbers already handled
+                    sp = 'Личное'
+                # remove from unsorted if present
+                data['unsorted'] = [x for x in (data.get('unsorted') or [])
+                                    if not (x.get('channel') == _ch and (x.get('title') or '').strip().lower() == tk)]
+                g = next((x for x in data['messengers'] if x['sphere'] == sp), None)
+                if g is None:
+                    g = dict(sphere=sp, rows=[]); data['messengers'].append(g)
+                if not any((r.get('chat') or '').lower() == tk for r in g['rows']):
+                    SEC = ('Секретарь', 'd3a12cc9-cf8a-41e5-b34a-76d4ab9eb9fd')
+                    g['rows'].append(dict(
+                        sender=title, chat=title, channel=_ch, unread_chat=u,
+                        muted=False, marked_unread=_dot_unread(c),
+                        items=0, kinds={}, last=chat_last_raw(c), binding=None,
+                        src=src + ' · t5154 promote→sphere', live_title=title,
+                        owner=SEC[0], owner_link=f'grokbot://app/v1/agent?id={SEC[1]}',
+                        key=f'{_ch}|{title}'))
+                    if title not in added:
+                        added.append(title + '→' + sp)
+            # recompute after promote
+            dash_map = _dash_unread_map(_ch)
+            sphere_map = _sphere_unread_map(_ch)
+            mon_map = dash_map
+        only_dash = sorted(set(dash_map) - set(live_map))
+        only_live = sorted(set(live_map) - set(dash_map))
+        only_sphere_extra = sorted(set(sphere_map) - set(live_map))
+        only_sphere_miss = sorted(set(live_map) - set(sphere_map))
+        count_diff = sorted(k for k in set(dash_map) & set(live_map) if dash_map[k] != live_map[k])
+        sphere_count_diff = sorted(k for k in set(sphere_map) & set(live_map) if sphere_map[k] != live_map[k])
+        lc, ls = len(live_map), sum(live_map.values())
+        dc, ds = len(dash_map), sum(dash_map.values())
+        sc, ss = len(sphere_map), sum(sphere_map.values())
+        mc, ms = len(mon_map), sum(mon_map.values())
+        ok = (not missing) and (not no_at) and (not only_dash) and (not only_live) and (not count_diff)              and (not only_sphere_extra) and (not only_sphere_miss) and (not sphere_count_diff)              and (lc == dc == sc == mc) and (ls == ds == ss == ms)
+        if not ok:
+            _mismatch += 1
+        note_bits = []
+        if missing: note_bits.append(f'{_lab} не снят: нет {_fn}')
+        elif no_at: note_bits.append(f'{_lab} не снят: пустой at')
+        if excl: note_bits.append('исключены perm-dm: ' + ', '.join(excl))
+        if stale_drop:
+            note_bits.append(f'{len(stale_drop)} chats dropped as stale unread, last older than {STALE_UNREAD_DAYS}d: ' + ', '.join(stale_drop[:10]) + ('…' if len(stale_drop) > 10 else ''))
+        if _ck == 'tg': note_bits.append('источник: папка «Новые»')
+        if removed: note_bits.append('снято: ' + ', '.join(removed[:12]) + ('…' if len(removed) > 12 else ''))
+        if added: note_bits.append('добавлено: ' + ', '.join(added[:12]) + ('…' if len(added) > 12 else ''))
+        if only_dash: note_bits.append('лишнее list: ' + ', '.join(only_dash[:8]))
+        if only_live: note_bits.append('нет на list: ' + ', '.join(only_live[:8]))
+        if only_sphere_extra: note_bits.append('лишнее в сферах: ' + ', '.join(only_sphere_extra[:8]))
+        if only_sphere_miss: note_bits.append('нет в сферах: ' + ', '.join(only_sphere_miss[:8]))
+        if count_diff: note_bits.append('счётчик list: ' + ', '.join(f'{k} {dash_map[k]}≠{live_map[k]}' for k in count_diff[:8]))
+        if sphere_count_diff: note_bits.append('счётчик сфер: ' + ', '.join(f'{k} {sphere_map[k]}≠{live_map[k]}' for k in sphere_count_diff[:8]))
+        if ok: note_bits.append(f'равно {dc} чатов / {ds} сообщ. (live=list=monitor=spheres)')
+        # t5217–20u: badge = Unread chip / TG folder / IG unread_chats (includes muted+ignored)
+        _Lj = L or {}
+        if _ck == 'tg' and _Lj.get('folder_badge') is not None:
+            _badge = int(_Lj.get('folder_badge') or 0)
+        elif _Lj.get('filter_count') is not None:
+            _badge = int(_Lj.get('filter_count') or 0)
+        elif _ck == 'ig' and _Lj.get('unread_chats') is not None:
+            _badge = int(_Lj.get('unread_chats') or 0)
+        else:
+            _badge = None
+        _ign = (max(0, _badge - lc) if _badge is not None else None)
+        _channels[_ck] = dict(
+            at=lat, at_label=(L or {}).get('at') or lat,
+            live_chats=lc, live_sum=ls, dash_chats=dc, dash_sum=ds,
+            monitor_chats=mc, monitor_sum=ms, list_chats=dc, list_sum=ds,
+            sphere_chats=sc, sphere_sum=ss,
+            unmuted_sum=ls, unmuted_chats=lc, dash_unmuted=ds,
+            badge_chats=_badge, ignore_chats=_ign, filter_count=_Lj.get('filter_count'),
+            match=ok, ok=ok,
+            removed=removed, added=added, count_fixed=fixed,
+            only_dash=only_dash, only_live=only_live, count_diff=count_diff,
+            only_sphere_extra=only_sphere_extra, only_sphere_miss=only_sphere_miss,
+            sphere_count_diff=sphere_count_diff,
+            stale_unread_dropped=list(stale_drop or []),
+            stale_unread_days=STALE_UNREAD_DAYS,
+            note='; '.join(note_bits))
+        if not ok:
+            _notes.append(f'{_lab} не совпадает (даш {dc}/{ds} vs live {lc}/{ls})')
+        if _ch in (data.get('watchers') or {}) and lat:
+            data['watchers'][_ch]['live_at'] = lat
+            data['watchers'][_ch]['live_unmuted'] = ls
+            data['watchers'][_ch]['alive'] = (
+                f"папка «Новые» · {lc} чатов / {ls} непрочит." if _ck == 'tg'
+                else f"live snap {_lab} · {lc} чатов / {ls} непрочит.")
+            data['watchers'][_ch]['ping'] = (lat.replace('T', ' ')[:16])
+            data['watchers'][_ch]['ping_lbl'] = 'live snap'
+            # t5215u: leftover st=warn (UIA has_unread null / badge) + overwritten
+            # «процесс жив» text painted a false «Vib ?». Matching live snap = confirmed.
+            if data['watchers'][_ch].get('st') in ('warn', None, ''):
+                data['watchers'][_ch]['st'] = 'ok'
+        print(f'perchat {_lab}: live {lc}/{ls} list {dc}/{ds} mon {mc}/{ms} sph {sc}/{ss} rem={len(removed)} add={len(added)} ok={ok}')
+
+    # t5156: drop muted from unsorted (UI hides them; keep data clean)
+    data['unsorted'] = [u for u in (data.get('unsorted') or []) if not u.get('muted')]
+    # t5156 surfaces audit: tab_badge / monitor / unsorted / dups must match live maps
+    _surfaces = {}
+    for _ck, _ch, _fn, _lab in _CHMAP:
+        chrec = _channels.get(_ck) or {}
+        live_map = {}
+        L = _live_load(_fn)
+        live_un, _, _, _, _ = _live_unread_map(L, _ch)
+        live_map = {k: int(c.get('unread') or c.get('n') or 0) for k, c in live_un.items()}
+        list_m = _dash_unread_map(_ch)
+        sph_m = _sphere_unread_map(_ch)
+        # tab badge ≈ list (unread|marked)
+        tab_m = dict(list_m)
+        # unsorted unmuted unread
+        uns_m = {}
+        for u in data.get('unsorted') or []:
+            if u.get('channel') != _ch or u.get('muted'): continue
+            n = int(u.get('unread') or 0)
+            if n <= 0 and not u.get('marked_unread'): continue
+            uns_m[(u.get('title') or '').strip().lower()] = n
+        # dups across spheres
+        seen = {}
+        dups = []
+        for g in data.get('messengers') or []:
+            if g.get('sphere') == 'Игнор': continue
+            for r in g.get('rows') or []:
+                if r.get('channel') != _ch or r.get('muted'): continue
+                if int(r.get('unread_chat') or 0) <= 0 and not r.get('marked_unread'): continue
+                k = (r.get('chat') or '').strip().lower()
+                seen.setdefault(k, []).append(g.get('sphere'))
+        dups = [k for k, sps in seen.items() if len(set(sps)) > 1]
+        mon_n = sum(1 for g in data.get('messengers') or [] for r in g.get('rows') or []
+                    if r.get('channel') == _ch and not r.get('muted') and not r.get('cu_msg') and not r.get('cu_tasks')
+                    and (int(r.get('unread_chat') or 0) > 0 or r.get('marked_unread')))
+        mon_u = sum(int(r.get('unread_chat') or 0) for g in data.get('messengers') or [] for r in g.get('rows') or []
+                    if r.get('channel') == _ch and not r.get('muted') and not r.get('cu_msg') and not r.get('cu_tasks')
+                    and (int(r.get('unread_chat') or 0) > 0 or r.get('marked_unread')))
+        # unsorted contributes to monitor/list already via _dash; uns should be empty ideally
+        ok_tab = tab_m == live_map
+        ok_uns = uns_m == {} or all(k in live_map and uns_m[k] == live_map[k] for k in uns_m)
+        ok_dup = not dups
+        ok_mon = mon_n == len(live_map) and mon_u == sum(live_map.values())
+        surf_ok = ok_tab and ok_uns and ok_dup and ok_mon and chrec.get('ok')
+        if not surf_ok and chrec.get('ok'):
+            _mismatch += 1
+            chrec['ok'] = False
+            chrec['match'] = False
+        chrec['surfaces'] = dict(
+            tab_badge_ok=ok_tab, unsorted_ok=ok_uns, dups_ok=ok_dup, monitor_meta_ok=ok_mon,
+            monitor_n=mon_n, monitor_u=mon_u, unsorted_n=len(uns_m), dups=dups,
+            ok=surf_ok)
+        chrec['sphere_chats'] = chrec.get('sphere_chats') or len(sph_m)
+        chrec['sphere_sum'] = chrec.get('sphere_sum') if chrec.get('sphere_sum') is not None else sum(sph_m.values())
+        _channels[_ck] = chrec
+        _surfaces[_ck] = chrec.get('surfaces')
+        print(f'surfaces {_lab}: tab={ok_tab} uns={ok_uns} dup={ok_dup} mon={ok_mon} ok={surf_ok}')
+    # t5156 surfaces end
+
+    _ok = _mismatch == 0
+    _recon = dict(
+        at=_at, at_bogota=_at,
+        rule='t5154/t5156/t5198u live=list=monitor=spheres=tab_badge; drop wait-only+muted-unsorted+stale_unread(>14d); no cross-sphere dups; monitor n/u from live rows only',
+        channels=_channels, ok=_ok, lost=sum(len(v.get('only_live') or []) for v in _channels.values()),
+        mismatch=_mismatch,
+        note=('ок · ' if _ok else 'есть сбой · ') + ('; '.join(_notes) if _notes else 'все каналы: диалоги = live') +
+             ((' · perm-dm cut: ' + '; '.join(_PIG_TITLES)) if _PIG_TITLES else ''))
+    data['reconcile'] = _recon
+    json.dump(_recon, open(os.path.join(_SRC, 'messengers_reconcile.json'), 'w'), ensure_ascii=False, indent=1)
+    print('reconcile perchat:', 'OK' if _ok else 'FAIL', 'mismatch', _mismatch,
+          {k: (v.get('dash_chats'), v.get('dash_sum'), v.get('live_chats'), v.get('live_sum'), v.get('ok'),
+               len(v.get('removed') or []), len(v.get('added') or [])) for k, v in _channels.items()})
+except Exception as _e:
+    print('reconcile perchat skip', _e)
+    import traceback; traceback.print_exc()
+
+
+# t5158 ma_build stamp (version label + published check)
+try:
+    import subprocess, hashlib, datetime as _dtb
+    _SRC = os.path.dirname(os.path.abspath(__file__))
+    _ROOT = os.path.dirname(_SRC)
+    _nowb = _dtb.datetime.now(_dtb.timezone(_dtb.timedelta(hours=-5)))
+    _commit = ''
+    try:
+        _commit = subprocess.check_output(['git', '-C', '/workspace/dash-gh', 'rev-parse', 'HEAD'], text=True, timeout=5).strip()
+    except Exception:
+        try:
+            _commit = subprocess.check_output(['git', '-C', _ROOT, 'rev-parse', 'HEAD'], text=True, timeout=5).strip()
+        except Exception:
+            _commit = ''
+    _atb = _nowb.strftime('%Y-%m-%dT%H:%M:%S-05:00')
+    data['ma_build'] = dict(
+        at=_atb, at_bogota=_atb,
+        at_hhmm=_nowb.strftime('%H:%M'),
+        commit=_commit, commit_short=(_commit[:7] if _commit else ''),
+        rule='t5158',
+    )
+    if isinstance(data.get('reconcile'), dict):
+        data['reconcile']['build_commit'] = _commit
+        data['reconcile']['build_at'] = _atb
+        data['reconcile'].setdefault('published_ok', None)
+        data['reconcile'].setdefault('published_at', None)
+    print('ma_build', data['ma_build'])
+except Exception as _e:
+    print('ma_build skip', _e)
+
 json.dump(data, open(os.path.join(ROOT, 'data-test-ma.json'), 'w'), ensure_ascii=False, indent=1)
 print('rows', sum(len(g['rows']) for g in data['messengers']), 'groups', [g['sphere'] for g in data['messengers']])

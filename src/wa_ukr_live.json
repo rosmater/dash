@@ -1,59 +1,74 @@
 {
- "at": "2026-11-04 18:32 Bogotá",
- "at_bogota": "2026-11-04T18:32:00-05:00",
+ "at": "2026-11-06 09:36 Bogotá",
+ "at_bogota": "2026-11-06T09:36:00-05:00",
  "channel": "WhatsApp UKR",
  "filter": "Unread",
- "filter_count": 9,
+ "filter_count": 8,
  "chats": [
   {
-   "title": "Ирина Шекель (колумбийский)",
-   "unread": 13,
-   "muted": false
+   "title": "Мария Алегрия Управляющая Компания",
+   "unread": 4,
+   "muted": false,
+   "last": "07:43",
+   "name": "Мария Алегрия Управляющая Компания"
   },
   {
-   "title": "TuCasa",
+   "title": "Алла Агенство Недвижимости Аликанте",
    "unread": 1,
-   "muted": false
+   "muted": false,
+   "last": "06:26",
+   "name": "Алла Агенство Недвижимости Аликанте"
   },
   {
    "title": "Ростислав - Анатолий ремонты",
-   "unread": 28,
-   "muted": false
+   "unread": 37,
+   "muted": true,
+   "last": "03:25",
+   "name": "Ростислав - Анатолий ремонты"
   },
   {
-   "title": "Maks Sinar Адвокат Испания",
-   "unread": 5,
-   "muted": false
+   "title": "Оля Испанская",
+   "unread": 1,
+   "muted": false,
+   "last": "03:08",
+   "name": "Оля Испанская"
   },
   {
-   "title": "Мария Алегрия Управляющая Компания",
-   "unread": 5,
-   "muted": false
-  },
-  {
-   "title": "ЧАТ ВЗАИМОПОМОЩИ ОТ ОКУПАС",
+   "title": "ЧАТ  ВЗАИМОПОМОЩИ ОТ ОКУПАС",
    "unread": 380,
-   "muted": true
+   "muted": true,
+   "last": "Sunday",
+   "name": "ЧАТ  ВЗАИМОПОМОЩИ ОТ ОКУПАС"
   },
   {
    "title": "Comunidad Calle Olivino 3",
    "unread": 160,
-   "muted": true
+   "muted": true,
+   "last": "10/29/2026",
+   "name": "Comunidad Calle Olivino 3"
   },
   {
    "title": "Дезинфекция квартиры",
    "unread": 1,
-   "muted": false
+   "muted": false,
+   "last": "9/14/2026",
+   "name": "Дезинфекция квартиры",
+   "stale_unread": true
   },
   {
    "title": "Аукционы Испании",
-   "unread": 1,
+   "unread": 0,
    "muted": false,
-   "green_dot_only": true
+   "last": "8/8/2025",
+   "marked_unread": true,
+   "green_dot_only": true,
+   "name": "Аукционы Испании",
+   "stale_unread": true
   }
  ],
- "sum": 594,
- "unmuted_sum": 54,
- "muted_sum": 540,
- "note": "Evening list-only Unread (no quit+reopen). Listed badges from wa-ukr-unread-1/2.png: unmuted_sum=54 sum=594 (report.md said unmuted 51 / sum 591 — 3 unread variance). Muted 380+160 kept in JSON, hidden on dash."
+ "sum": 584,
+ "unmuted_sum": 7,
+ "muted_sum": 577,
+ "note": "Full quit via tray Exit + reopen; Unread chip (8). Row 'Аукционы Испании' = green dot, no number (marked_unread, 0). All-chats glance showed nothing missing in top rows. No accidental opens. Window could not be maximized (stayed ~860x500).",
+ "ok": true
 }

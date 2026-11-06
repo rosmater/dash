@@ -1,73 +1,78 @@
 {
- "at": "2026-11-04 19:42 Bogotá",
- "at_bogota": "2026-11-04T19:42:24-05:00",
+ "at": "2026-11-06 09:41 Bogotá",
+ "at_bogota": "2026-11-06T09:41:33-05:00",
  "channel": "wa_esp",
  "filter": "Unread",
- "filter_count": 12,
- "sum": 212,
- "unmuted_sum": 15,
- "muted_sum": 197,
- "note": "Evening census 19:40 Bogotá; list-only Unread; no quit+reopen; nothing sent/opened. Muted kept in JSON (dash hides muted). Screens: unread-census/2026-11-04-evening/wa-esp-unread-1..2.png",
+ "filter_count": 9,
  "chats": [
   {
-   "name": "Andrea Feabie 💘D",
-   "unread": 2,
-   "muted": false
-  },
-  {
    "name": "RA221 Gabriela",
-   "unread": 47,
-   "muted": true
+   "unread": 96,
+   "muted": true,
+   "last": "09:35",
+   "title": "RA221 Gabriela"
   },
   {
-   "name": "Julian Steban CamIA",
+   "name": "Shark T",
    "unread": 1,
-   "muted": false
+   "muted": false,
+   "last": "05:40",
+   "title": "Shark T"
+  },
+  {
+   "name": "Maria MR Med",
+   "unread": 4,
+   "muted": false,
+   "last": "05:05",
+   "title": "Maria MR Med"
+  },
+  {
+   "name": "Vitaliy Derenivsky",
+   "unread": 1,
+   "muted": false,
+   "last": "04:55",
+   "title": "Vitaliy Derenivsky"
+  },
+  {
+   "name": "Сережа Кинозвезда Актер ...",
+   "unread": 1,
+   "muted": false,
+   "last": "02:17",
+   "title": "Сережа Кинозвезда Актер ..."
+  },
+  {
+   "name": "Многотуров Андрей",
+   "unread": 1,
+   "muted": false,
+   "last": "01:02",
+   "title": "Многотуров Андрей"
+  },
+  {
+   "name": "Nutibara 1105",
+   "unread": 1,
+   "muted": false,
+   "last": "Yesterday",
+   "title": "Nutibara 1105"
+  },
+  {
+   "name": "Samy Med",
+   "unread": 1,
+   "muted": true,
+   "last": "Yesterday",
+   "title": "Samy Med"
   },
   {
    "name": "Аукционы для клиентов",
    "unread": 150,
-   "muted": true
-  },
-  {
-   "name": "+57 320 8308814",
-   "unread": 1,
-   "muted": false
-  },
-  {
-   "name": "+1 (829) 456-5322",
-   "unread": 1,
-   "muted": false
-  },
-  {
-   "name": "+54 9 11 5098-0373",
-   "unread": 1,
-   "muted": false
-  },
-  {
-   "name": "+54 9 11 2880-1435",
-   "unread": 1,
-   "muted": false
-  },
-  {
-   "name": "+54 9 2212 00-5044",
-   "unread": 2,
-   "muted": false
-  },
-  {
-   "name": "+52 1 998 205 3036",
-   "unread": 1,
-   "muted": false
-  },
-  {
-   "name": "+57 312 8329244",
-   "unread": 1,
-   "muted": false
-  },
-  {
-   "name": "+57 312 4601463",
-   "unread": 5,
-   "muted": false
+   "muted": true,
+   "last": "Monday",
+   "title": "Аукционы для клиентов"
   }
- ]
+ ],
+ "sum": 256,
+ "unmuted_sum": 9,
+ "muted_sum": 247,
+ "note": "Unread chip 9 after full quit+reopen; 9 rows, all with badges, none dropped. Unmuted 6 rows (sum 9); muted 3 rows (sum 247). No accidental opens. RDP window could not be maximized (small size used). All-chats top rows (Sara Pinedas, Richard Peptides Diego Ai pinned) showed no badges.",
+ "ok": true,
+ "quit_reopen": true
 }
