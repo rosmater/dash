@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-06T10:43-05:00",
+  "fetched_at": "2026-11-06T22:39-05:00",
   "calendar": "zayavki.ua@gmail.com",
   "range": {
     "start": "2026-11-06",
@@ -7,6 +7,33 @@
     "tz": "America/Bogota"
   },
   "events": [
+    {
+      "id": "0019ck72vkfr0ccldjteev8hp8",
+      "title": "🔄 БОТ: Бот в 1С - дать ему больше задач :: Tabakevich > hidden > Задачи Tabakevich",
+      "start": "2026-11-06",
+      "end": "2026-11-07",
+      "all_day": true,
+      "url": "https://www.google.com/calendar/event?eid=MDAxOWNrNzJ2a2ZyMGNjbGRqdGVldjhocDggemF5YXZraS51YUBt&ctz=America/Bogota",
+      "location": null
+    },
+    {
+      "id": "dlm9i8nl0oobffeecoq6nbqh38",
+      "title": "🔄 Проверка кронов задач 1С поиск сбоев :: Tabakevich > hidden > Задачи Tabakevich",
+      "start": "2026-11-06",
+      "end": "2026-11-07",
+      "all_day": true,
+      "url": "https://www.google.com/calendar/event?eid=ZGxtOWk4bmwwb29iZmZlZWNvcTZuYnFoMzggemF5YXZraS51YUBt&ctz=America/Bogota",
+      "location": null
+    },
+    {
+      "id": "evdtuecf4edlkcgu3o3q9m4njc",
+      "title": "🔄 БОТ: Пакистанец долг за коммуналку -  Алла как успехи? :: Недвижимость > hidden > Покупка, Ремонт, Продажа-Сдача",
+      "start": "2026-11-06",
+      "end": "2026-11-07",
+      "all_day": true,
+      "url": "https://www.google.com/calendar/event?eid=ZXZkdHVlY2Y0ZWRsa2NndTNvM3E5bTRuamMgemF5YXZraS51YUBt&ctz=America/Bogota",
+      "location": null
+    },
     {
       "id": "rbetjoqn44fgohu2fgi49s9254",
       "title": "🔄 БОТ: Проверить новые обьекты Солвия :: Недвижимость > hidden > Сервисная доска Недвижимость",
@@ -296,6 +323,24 @@
       "location": null
     },
     {
+      "id": "6n1i04v9edmmaalfupe03l8g3k",
+      "title": "🔄 БОТ: Локаль ремонт (перевод в жилое) - Анатолий как дела? :: Недвижимость > hidden > Покупка, Ремонт, Продажа-Сдача",
+      "start": "2026-11-09",
+      "end": "2026-11-10",
+      "all_day": true,
+      "url": "https://www.google.com/calendar/event?eid=Nm4xaTA0djllZG1tYWFsZnVwZTAzbDhnM2sgemF5YXZraS51YUBt&ctz=America/Bogota",
+      "location": null
+    },
+    {
+      "id": "89k3go8vu68g0lfrnod3iji204",
+      "title": "🔄 БОТ-ЧАСТЬ: мониторинг СмокиДжин (проверка отчета) :: Tabakevich > hidden > Задачи Tabakevich",
+      "start": "2026-11-09",
+      "end": "2026-11-10",
+      "all_day": true,
+      "url": "https://www.google.com/calendar/event?eid=ODlrM2dvOHZ1NjhnMGxmcm5vZDNpamkyMDQgemF5YXZraS51YUBt&ctz=America/Bogota",
+      "location": null
+    },
+    {
       "id": "9jks0fambitus8vpr6ptcfh3pc",
       "title": "🔄 🏠Solvia Мурсия - есть списки обьектов? (не отвечает, нужен вотсап) :: Недвижимость > hidden > Сервисная доска Недвижимость",
       "start": "2026-11-09",
@@ -305,12 +350,48 @@
       "location": null
     },
     {
+      "id": "licml8171a9f12k44b7sipuq88",
+      "title": "🔄 БОТ: Окупас Хуан 23 Адвокаты выселение - узнать статус? :: Недвижимость > hidden > Сервисная доска Недвижимость",
+      "start": "2026-11-09",
+      "end": "2026-11-10",
+      "all_day": true,
+      "url": "https://www.google.com/calendar/event?eid=bGljbWw4MTcxYTlmMTJrNDRiN3NpcHVxODggemF5YXZraS51YUBt&ctz=America/Bogota",
+      "location": null
+    },
+    {
+      "id": "qsji4ga2m0bdb161kc9tfgqgu8",
+      "title": "🔄 БОТ: 🏠 Установка сигналки на Топасио - случилось? (электричество жду Андрей) :: Недвижимость > hidden > Покупка, Ремонт, Продажа-Сдача",
+      "start": "2026-11-09",
+      "end": "2026-11-10",
+      "all_day": true,
+      "url": "https://www.google.com/calendar/event?eid=cXNqaTRnYTJtMGJkYjE2MWtjOXRmZ3FndTggemF5YXZraS51YUBt&ctz=America/Bogota",
+      "location": null
+    },
+    {
+      "id": "s89sj3b2i1b0diu0kfj9f7k868",
+      "title": "🔄 ОЛЯ ПОХОД - БОТ: Оксана бухгалтер жду - Проверить возврат налога (Шейх) :: Недвижимость > hidden > Покупка, Ремонт, Продажа-Сдача",
+      "start": "2026-11-09",
+      "end": "2026-11-10",
+      "all_day": true,
+      "url": "https://www.google.com/calendar/event?eid=czg5c2ozYjJpMWIwZGl1MGtmajlmN2s4NjggemF5YXZraS51YUBt&ctz=America/Bogota",
+      "location": null
+    },
+    {
       "id": "tv2r8qafvn3e3i8kttb3tltvhk",
       "title": "🔄 БОТ: Проверка работы счетчиков и запись данных в таблицу :: Недвижимость > hidden > Покупка, Ремонт, Продажа-Сдача",
       "start": "2026-11-09",
       "end": "2026-11-10",
       "all_day": true,
       "url": "https://www.google.com/calendar/event?eid=dHYycjhxYWZ2bjNlM2k4a3R0YjN0bHR2aGsgemF5YXZraS51YUBt&ctz=America/Bogota",
+      "location": null
+    },
+    {
+      "id": "u0bapn68cqcf3ckoolgqi3iggk",
+      "title": "🔄 БОТ: запуск Хукашоп сайта в рекламу - как успехи? :: Tabakevich > hidden > Задачи Tabakevich",
+      "start": "2026-11-09",
+      "end": "2026-11-10",
+      "all_day": true,
+      "url": "https://www.google.com/calendar/event?eid=dTBiYXBuNjhjcWNmM2Nrb29sZ3FpM2lnZ2sgemF5YXZraS51YUBt&ctz=America/Bogota",
       "location": null
     },
     {
