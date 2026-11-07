@@ -1,12 +1,33 @@
 {
- "fetched": "2026-11-06 22:42 Bogotá",
- "src": "inbox-raw 2026-11-06 (cu_inbox_build.py, t4167)",
+ "fetched": "2026-11-07 06:51 Bogotá",
+ "src": "inbox-raw 2026-11-07 (cu_inbox_build.py, t4167)",
  "tasks": [
+  {
+   "id": "86bb779rw",
+   "name": "БОТ: Пептиды - запуск продаж (Ричард)",
+   "list": "Задачи Tabakevich",
+   "updated": "2026-11-07 03:29",
+   "status": "for check"
+  },
+  {
+   "id": "86bbjyrf5",
+   "name": "БОТ: МИШЕЛЬ: Bulk Messaging проверить статистику и ответы фанам в сообщениях (потом передать сбор статистики Фетишь)",
+   "list": "Models",
+   "updated": "2026-11-06 22:53",
+   "status": "for check"
+  },
+  {
+   "id": "86bcm8ybt",
+   "name": "БОТ: Контроль офиса ОФ",
+   "list": "General Tasks OF",
+   "updated": "2026-11-06 22:43",
+   "status": "for check"
+  },
   {
    "id": "86bcn3c3u",
    "name": "Проверить команду на iPhone для передачи шагов из «Здоровья» боту",
    "list": "Personal",
-   "updated": "2026-11-06 22:42",
+   "updated": "2026-11-06 22:39",
    "status": "for check"
   },
   {
@@ -24,24 +45,10 @@
    "status": "for check"
   },
   {
-   "id": "86bbjyrf5",
-   "name": "БОТ: МИШЕЛЬ: Bulk Messaging проверить статистику и ответы фанам в сообщениях (потом передать сбор статистики Фетишь)",
-   "list": "Models",
-   "updated": "2026-11-06 11:02",
-   "status": "for check"
-  },
-  {
    "id": "86bb8ju09",
    "name": "БОТ: Пакистанец долг за коммуналку -  Алла как успехи?",
    "list": "Покупка, Ремонт, Продажа-Сдача",
    "updated": "2026-11-06 10:54",
-   "status": "for check"
-  },
-  {
-   "id": "86bb779rw",
-   "name": "БОТ: Пептиды - запуск продаж (Ричард)",
-   "list": "Задачи Tabakevich",
-   "updated": "2026-11-06 01:10",
    "status": "for check"
   },
   {

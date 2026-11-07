@@ -955,4 +955,17 @@
 {"ts": "2026-11-06T22:42:31-05:00", "bot": "Секретарь", "action": "build", "note": "night hygiene 2026-11-06: gcal snap + CU WIDE TIER=2 + steps missing", "files": ["gcal_dash.json", "ma_cu_inbox_mcp.json"]}
 {"ts": "2026-11-06T22:42:31-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
 {"ts": "2026-11-06T22:42:32-05:00", "bot": "Секретарь", "action": "push", "note": "night hygiene 2026-11-06 gcal+cu_wide", "files": ["gcal_dash.json", "index.html", "data.enc.json"]}
-{"ts": "2026-11-07T08:09:48-05:00", "bot": "Оборонные системы", "action": "build", "note": "STE morning dash recon 07.11: pins refreshed; Military Industries → open Need Rost synced to clients/knowledge/QUEUE", "files": ["src/defense_pins.json", "src/defense_clients.json", "src/defense_unanswered.json"]}
+{"ts": "2026-11-07T03:46:19-05:00", "bot": "Пептид", "action": "build", "note": "Friday 06.11 snapshots: 11 sales / 6 expenses; Ad tools 06.11 13:49 Bogotá cumulative stats, Metrocable ACTIVE; conversations not scraped", "files": ["src/peptides_sales.json", "src/peptides_expenses.json", "/workspace/peptides-dash-monitors/ads.json"]}
+{"ts": "2026-11-07T03:47:23-05:00", "bot": "Пептид", "action": "push", "note": "peptides night snapshots 07.11: VENTAS+expenses+ads 06.11 13:49 Metrocable Active; commit 5b2213e", "files": ["data.enc.json", "data-asst.enc.json"]}
+{"ts": "2026-11-07T03:47:49-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-07T05:55:20-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-07T06:05:56-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-07T06:06:15-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-07T06:46:41-05:00", "bot": "Секретарь", "action": "build", "note": "TG Ситуация налоговая Киев: Kristina asks news on case → log+Q-45dfdb+rebuild", "files": []}
+{"ts": "2026-11-07T06:46:42-05:00", "bot": "Секретарь", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-07T06:46:57-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-07T06:47:11-05:00", "bot": "Секретарь", "action": "push", "note": "8debc5b Q-45dfdb Kristina налог Киев TG webhook", "files": []}
+{"ts": "2026-11-07T06:47:41-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-07T07:02:35-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-07T07:11:48-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-07T09:01:06-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}

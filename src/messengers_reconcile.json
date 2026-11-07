@@ -1,6 +1,6 @@
 {
- "at": "2026-11-06T22:42:31-05:00",
- "at_bogota": "2026-11-06T22:42:31-05:00",
+ "at": "2026-11-07T09:01:05-05:00",
+ "at_bogota": "2026-11-07T09:01:05-05:00",
  "rule": "t5154/t5156/t5198u live=list=monitor=spheres=tab_badge; drop wait-only+muted-unsorted+stale_unread(>14d); no cross-sphere dups; monitor n/u from live rows only",
  "channels": {
   "wa_ukr": {
@@ -166,6 +166,7 @@
    "match": true,
    "ok": true,
    "removed": [
+    "Ситуация налоговая Киев",
     "Виталик КС",
     "ПАРАГВАЙ",
     "Мама Киевстар",
@@ -218,7 +219,7 @@
    "sphere_count_diff": [],
    "stale_unread_dropped": [],
    "stale_unread_days": 14,
-   "note": "источник: папка «Новые»; снято: Виталик КС, ПАРАГВАЙ, Мама Киевстар, Maksym, Sara $$$, Alina Docs, SEO Hooka, Передача сайта Intim, Palma (контекстная реклама), 448_tabakevich.com_DEV - SEO, Valentina Hozka, АЛИБИ ТАБАК ОДЕСА…; добавлено: Kir0[4K]; равно 20 чатов / 68 сообщ. (live=list=monitor; 2 в 📥 после ✕)",
+   "note": "источник: папка «Новые»; снято: Ситуация налоговая Киев, Виталик КС, ПАРАГВАЙ, Мама Киевстар, Maksym, Sara $$$, Alina Docs, SEO Hooka, Передача сайта Intim, Palma (контекстная реклама), 448_tabakevich.com_DEV - SEO, Valentina Hozka…; добавлено: Kir0[4K]; равно 20 чатов / 68 сообщ. (live=list=monitor; 2 в 📥 после ✕)",
    "surfaces": {
     "tab_badge_ok": true,
     "unsorted_ok": true,
