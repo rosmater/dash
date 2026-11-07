@@ -955,3 +955,4 @@
 {"ts": "2026-11-06T22:42:31-05:00", "bot": "Секретарь", "action": "build", "note": "night hygiene 2026-11-06: gcal snap + CU WIDE TIER=2 + steps missing", "files": ["gcal_dash.json", "ma_cu_inbox_mcp.json"]}
 {"ts": "2026-11-06T22:42:31-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
 {"ts": "2026-11-06T22:42:32-05:00", "bot": "Секретарь", "action": "push", "note": "night hygiene 2026-11-06 gcal+cu_wide", "files": ["gcal_dash.json", "index.html", "data.enc.json"]}
+{"ts": "2026-11-07T08:09:48-05:00", "bot": "Оборонные системы", "action": "build", "note": "STE morning dash recon 07.11: pins refreshed; Military Industries → open Need Rost synced to clients/knowledge/QUEUE", "files": ["src/defense_pins.json", "src/defense_clients.json", "src/defense_unanswered.json"]}

@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-06T16:08:31-05:00",
+  "updated_at": "2026-11-07T08:12:00-05:00",
   "note": "Rost 06.11 t453: «Клиенты в процессе» = все живые диалоги с этапом intro/catalog/deal/call, не только «ждут каталог». Закрытые не держим.",
   "clients_in_progress": [
     {
@@ -44,7 +44,7 @@
       "pipeline": "catalog",
       "status_label": "Каталог отправлен",
       "promised_at": "2026-10-27",
-      "note": "Каталог ES+EN ушёл 06.11. Ждём ответ Bedoya / созвон.",
+      "note": "Каталог ES+EN ушёл 06.11. 06.11 16:45 Bedoya ответил: изучают; спрашивают, контактировали ли мы уже с другими колумбийскими компаниями — нужен наш ответ (черновик в CU 86bbzxnvx).",
       "url": "https://rosmater.github.io/cu/?t=86bbzxnvx",
       "ctx": "QUEUE.md catalog-military-industries"
     },

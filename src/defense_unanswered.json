@@ -1,13 +1,13 @@
 {
   "_note": "Живые ответы компаний (STE). Красный «разобрать» = open (мы не ответили). Жёлтый «ждём ответа» = waiting / awaiting_their_reply (наш ответ ушёл). answered/scheduled — снять с внимания. Пишет ste / Оборонка.",
-  "updated_at": "2026-11-07T03:25:00-05:00",
+  "updated_at": "2026-11-07T08:12:00-05:00",
   "unanswered_replies": [
     {
       "company": "TEREM-Letets / TEREM Holding (Bulgaria)",
       "from": "Georgi Nalbantov <g_nalbantov@terem.bg> (cc Tsvetan Kamenov <ts_kamenov@terem.bg>)",
       "subject": "RE: Mi-8/17 overhaul and spare parts — SpetsTechnoExport",
       "received_at": "2026-11-06T05:42:59-05:00",
-      "note": "Ответ клиенту 06.11 ~15:30 (msg 1a1b28f0a09789a3). Запрос Дмитрию STE (WA UKR) отправлен 06.11 16:02 — складской список + 8× Safir APU 5K/GMIS. Ждём данные от Дмитрия → дослать TEREM. Карточка companies/terem-letets.md.",
+      "note": "Ответ клиенту 06.11 ~15:30 (msg 1a1b28f0a09789a3). Запрос Дмитрию STE (WA UKR) отправлен 06.11 16:02 — складской список + 8× Safir APU 5K/GMIS. Ждём данные от Дмитрия → дослать TEREM. Карточка companies/terem-letets.md. Срочная задача CU 86bczu31g (due 07.11).",
       "url": "https://mail.google.com/mail/u/0/#inbox/1a1b07471fccc536",
       "status": "waiting",
       "priority": false,
