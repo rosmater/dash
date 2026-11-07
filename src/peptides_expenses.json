@@ -1,0 +1,48 @@
+{
+ "src": "GSheet «Expensed Peso Saludable» 1-X24SE_ZfP7mXm9_WUFRwCo-H45ryI9R2yvYpOu-bIE, вкладка «expenses» (gid 0)",
+ "fetched_at": "2026-11-07 00:33",
+ "costs": [
+  {
+   "date": "2026-09-02",
+   "label": "targeted advertising",
+   "amount": 553785.0,
+   "cur": "COP",
+   "payer": "553785"
+  },
+  {
+   "date": "2026-09-14",
+   "label": "targeted account",
+   "amount": 241393.0,
+   "cur": "COP",
+   "payer": "241393"
+  },
+  {
+   "date": "2026-09-30",
+   "label": "targeted advertising",
+   "amount": 553785.0,
+   "cur": "COP",
+   "payer": "553785"
+  },
+  {
+   "date": "2026-10-01",
+   "label": "Papelería peptidos",
+   "amount": 23900.0,
+   "cur": "COP",
+   "payer": "23900"
+  },
+  {
+   "date": "2026-10-15",
+   "label": "target R brocard (02.09–15.10)",
+   "amount": 1272664.0,
+   "cur": "COP",
+   "payer": "1272664"
+  },
+  {
+   "date": "2026-10-25",
+   "label": "ЗП Сары (placeholder — pending)",
+   "amount": 0.0,
+   "cur": "COP",
+   "payer": ""
+  }
+ ]
+}

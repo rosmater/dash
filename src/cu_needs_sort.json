@@ -1,0 +1,182 @@
+{
+ "generated": "2026-10-27",
+ "source": "cu-needs-sort.md",
+ "tasks": [
+  {
+   "name": "Дашборд (Grok) — метрики + канбан агентов",
+   "url": "https://app.clickup.com/t/86bcquwaw",
+   "parent": "(корневая)",
+   "list": "General Tasks OF",
+   "proposed": "Общее",
+   "lead": "unknown",
+   "due": "2026-10-25",
+   "why": "ключ «Общее» ≠ спейс OF",
+   "bday": false
+  },
+  {
+   "name": "Протестировать Teams (командный план Grok Bot) — для мамы и близких",
+   "url": "https://app.clickup.com/t/86bcn66b7",
+   "parent": "(корневая)",
+   "list": "Personal",
+   "proposed": "Общее",
+   "lead": "manual",
+   "due": "2026-10-25",
+   "why": "ключ «Общее» ≠ спейс Personal",
+   "bday": false
+  },
+  {
+   "name": "БОТ: Создание дашборда по направлениям (цели / факт / доходы / расходы, неделя + месяц)",
+   "url": "https://app.clickup.com/t/86bcn2m73",
+   "parent": "(корневая)",
+   "list": "Personal",
+   "proposed": "Общее",
+   "lead": "bot",
+   "due": "2026-10-25",
+   "why": "ключ «Общее» ≠ спейс Personal",
+   "bday": false
+  },
+  {
+   "name": "Control: утром проверять GitHub на новые полезные skills (+ блок-схема)",
+   "url": "https://app.clickup.com/t/86bcqufqn",
+   "parent": "(корневая)",
+   "list": "General Tasks OF",
+   "proposed": "Общее",
+   "lead": "bot",
+   "due": "2026-10-27",
+   "why": "ключ «Общее» ≠ спейс OF",
+   "bday": false
+  },
+  {
+   "name": "Hermes Agent — пилот на AX42/VPS (экономия токенов)",
+   "url": "https://app.clickup.com/t/86bcqufak",
+   "parent": "(корневая)",
+   "list": "General Tasks OF",
+   "proposed": "Общее",
+   "lead": "unknown",
+   "due": "2026-10-27",
+   "why": "ключ «Общее» ≠ спейс OF",
+   "bday": false
+  },
+  {
+   "name": "Ирина Шекель созвон ВТ",
+   "url": "https://app.clickup.com/t/86b89dz9q",
+   "parent": "(подзадача, родитель не резолвлен)",
+   "list": "Personal",
+   "proposed": "Общее",
+   "lead": "manual",
+   "due": "2026-10-27",
+   "why": "ключ «Общее» ≠ спейс Personal",
+   "bday": false
+  },
+  {
+   "name": "Ирина Шекель созвон ЧТ",
+   "url": "https://app.clickup.com/t/86b7zvb9u",
+   "parent": "(подзадача, родитель не резолвлен)",
+   "list": "Personal",
+   "proposed": "Общее",
+   "lead": "manual",
+   "due": "2026-10-29",
+   "why": "ключ «Общее» ≠ спейс Personal",
+   "bday": false
+  },
+  {
+   "name": "Ирина Шекель созвон ВС",
+   "url": "https://app.clickup.com/t/86b6z2gn4",
+   "parent": "(подзадача, родитель не резолвлен)",
+   "list": "Personal",
+   "proposed": "Общее",
+   "lead": "manual",
+   "due": "2026-11-01",
+   "why": "ключ «Общее» ≠ спейс Personal",
+   "bday": false
+  },
+  {
+   "name": "Ирина Шекель созвон ПН",
+   "url": "https://app.clickup.com/t/86b89dz9g",
+   "parent": "(подзадача, родитель не резолвлен)",
+   "list": "Personal",
+   "proposed": "Общее",
+   "lead": "manual",
+   "due": "2026-11-02",
+   "why": "ключ «Общее» ≠ спейс Personal",
+   "bday": false
+  },
+  {
+   "name": "МакбукПро настроить Икс код - освобождение от рутины",
+   "url": "https://app.clickup.com/t/86bcnt4nr",
+   "parent": "(корневая)",
+   "list": "Personal",
+   "proposed": "Общее",
+   "lead": "bot",
+   "due": "2026-11-03",
+   "why": "ключ «Общее» ≠ спейс Personal",
+   "bday": false
+  },
+  {
+   "name": "Ирина Шекель созвон СР",
+   "url": "https://app.clickup.com/t/86b6z2gn2",
+   "parent": "(подзадача, родитель не резолвлен)",
+   "list": "Personal",
+   "proposed": "Общее",
+   "lead": "manual",
+   "due": "2026-11-04",
+   "why": "ключ «Общее» ≠ спейс Personal",
+   "bday": false
+  },
+  {
+   "name": "Ростислав внести по Лио данные",
+   "url": "https://app.clickup.com/t/86b7n8u79",
+   "parent": "Лио - балансировка",
+   "list": "Список задач",
+   "proposed": "Общее",
+   "lead": "unknown",
+   "due": "2026-11-16",
+   "why": "спейс Автоматизации-Шекель без направления на даше",
+   "bday": false
+  },
+  {
+   "name": "БОТ-ЧАСТЬ: Таргет пептиды - контроль и увеличение",
+   "url": "https://app.clickup.com/t/86bcnp3rg",
+   "parent": "(подзадача, родитель не резолвлен)",
+   "list": "Задачи Tabakevich",
+   "proposed": "Пептиды",
+   "lead": "bot",
+   "due": "2026-10-19",
+   "why": "ключ «Пептиды» ≠ спейс Tabakevich",
+   "bday": false
+  },
+  {
+   "name": "БОТ-ЧАСТЬ: Таргет пептиды: ограничение рекламы, решить что делать (5 рекламных аккаунтов)",
+   "url": "https://app.clickup.com/t/86bcnvnmr",
+   "parent": "(корневая)",
+   "list": "Задачи Tabakevich",
+   "proposed": "Пептиды",
+   "lead": "bot",
+   "due": "2026-10-26",
+   "why": "ключ «Пептиды» ≠ спейс Tabakevich",
+   "bday": false
+  },
+  {
+   "name": "ЖДУ ПРАЙС Украина ПЕПТИДЫ от Андрея (жду прайс и отписку)",
+   "url": "https://app.clickup.com/t/86bbay300",
+   "parent": "(подзадача, родитель не резолвлен)",
+   "list": "Задачи Tabakevich",
+   "proposed": "Пептиды",
+   "lead": "unknown",
+   "due": "2026-11-02",
+   "why": "ключ «Пептиды» ≠ спейс Tabakevich",
+   "bday": false
+  },
+  {
+   "name": "Выплата денег себе Кальян (проверить отчет,  дать задачу) жду",
+   "url": "https://app.clickup.com/t/86b9ckz7y",
+   "parent": "(подзадача, родитель не резолвлен)",
+   "list": "Personal",
+   "proposed": "Табакевич",
+   "lead": "unknown",
+   "due": "2026-10-26",
+   "why": "ключ «Табакевич» ≠ спейс Personal",
+   "bday": false
+  }
+ ]
+}

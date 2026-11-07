@@ -1,6 +1,6 @@
 {
- "at": "2026-11-06T13:24:00-05:00",
- "at_bogota": "2026-11-06T13:24:00-05:00",
+ "at": "2026-11-06T22:42:31-05:00",
+ "at_bogota": "2026-11-06T22:42:31-05:00",
  "rule": "t5154/t5156/t5198u live=list=monitor=spheres=tab_badge; drop wait-only+muted-unsorted+stale_unread(>14d); no cross-sphere dups; monitor n/u from live rows only",
  "channels": {
   "wa_ukr": {
@@ -121,10 +121,7 @@
     "Karli",
     "seider munoz"
    ],
-   "added": [
-    "Richard Peptides Diego Ai→Личное",
-    "Наталья Риелтор Аликанте→Личное"
-   ],
+   "added": [],
    "count_fixed": [],
    "only_dash": [],
    "only_live": [],
@@ -134,7 +131,7 @@
    "sphere_count_diff": [],
    "stale_unread_dropped": [],
    "stale_unread_days": 14,
-   "note": "снято: Miguel Calipso, Alnago, Albeiro Garcia Курьер Ce..., Многотуров Андрей, JOHANN RUIZ Box, Тигран Вотсап, Leidy Base Loft Собствен..., Сережа Кинозвезда Акт..., Баба, Коля Кобзов, +57 323 5391596, CLÍNICA VISUAL…; добавлено: Richard Peptides Diego Ai→Личное, Наталья Риелтор Аликанте→Личное; равно 4 чатов / 6 сообщ. (live=list=monitor=spheres)",
+   "note": "снято: Miguel Calipso, Alnago, Albeiro Garcia Курьер Ce..., Многотуров Андрей, JOHANN RUIZ Box, Тигран Вотсап, Leidy Base Loft Собствен..., Сережа Кинозвезда Акт..., Баба, Коля Кобзов, +57 323 5391596, CLÍNICA VISUAL…; равно 4 чатов / 6 сообщ. (live=list=monitor=spheres)",
    "surfaces": {
     "tab_badge_ok": true,
     "unsorted_ok": true,
@@ -158,8 +155,8 @@
    "monitor_sum": 68,
    "list_chats": 20,
    "list_sum": 68,
-   "sphere_chats": 20,
-   "sphere_sum": 68,
+   "sphere_chats": 18,
+   "sphere_sum": 59,
    "unmuted_sum": 68,
    "unmuted_chats": 20,
    "dash_unmuted": 68,
@@ -210,11 +207,7 @@
     "Разработка Hooka"
    ],
    "added": [
-    "Kir0[4K]",
-    "Secret Отрисовка и фотодропы→Личное",
-    "Серега Актер→Личное",
-    "Сергей Адвокат→Личное",
-    "Dmitri→Личное"
+    "Kir0[4K]"
    ],
    "count_fixed": [],
    "only_dash": [],
@@ -225,7 +218,7 @@
    "sphere_count_diff": [],
    "stale_unread_dropped": [],
    "stale_unread_days": 14,
-   "note": "источник: папка «Новые»; снято: Виталик КС, ПАРАГВАЙ, Мама Киевстар, Maksym, Sara $$$, Alina Docs, SEO Hooka, Передача сайта Intim, Palma (контекстная реклама), 448_tabakevich.com_DEV - SEO, Valentina Hozka, АЛИБИ ТАБАК ОДЕСА…; добавлено: Kir0[4K], Secret Отрисовка и фотодропы→Личное, Серега Актер→Личное, Сергей Адвокат→Личное, Dmitri→Личное; равно 20 чатов / 68 сообщ. (live=list=monitor=spheres)",
+   "note": "источник: папка «Новые»; снято: Виталик КС, ПАРАГВАЙ, Мама Киевстар, Maksym, Sara $$$, Alina Docs, SEO Hooka, Передача сайта Intim, Palma (контекстная реклама), 448_tabakevich.com_DEV - SEO, Valentina Hozka, АЛИБИ ТАБАК ОДЕСА…; добавлено: Kir0[4K]; равно 20 чатов / 68 сообщ. (live=list=monitor; 2 в 📥 после ✕)",
    "surfaces": {
     "tab_badge_ok": true,
     "unsorted_ok": true,
@@ -233,7 +226,7 @@
     "monitor_meta_ok": true,
     "monitor_n": 20,
     "monitor_u": 68,
-    "unsorted_n": 0,
+    "unsorted_n": 2,
     "dups": [],
     "ok": true
    }
@@ -337,10 +330,5 @@
  "ok": true,
  "lost": 0,
  "mismatch": 0,
- "note": "ок · все каналы: диалоги = live · perm-dm cut: +57 301 3647812 (Rost t5042–44: «не нашёл» (Daniela Angel); +57 320 8308814 (Rost t5042–44: «не нашёл» (Marcela) — но)",
- "published_ok": true,
- "published_at": "2026-11-06T13:25:21-05:00",
- "published_note": "Pages data.enc == local HEAD build",
- "published_sha": "79867af82c916feb69dc934f4c1f5bb253eed498076773801e8e8912efcf0912",
- "build_commit": "3f377f957b5a194feced2108bc705bcc368b82b8"
+ "note": "ок · все каналы: диалоги = live · perm-dm cut: +57 301 3647812 (Rost t5042–44: «не нашёл» (Daniela Angel); +57 320 8308814 (Rost t5042–44: «не нашёл» (Marcela) — но)"
 }

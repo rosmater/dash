@@ -1,0 +1,209 @@
+{
+ "fetched": "2026-11-05 13:38 Bogotá",
+ "src": "live filter_tasks assignee 60710247 both connectors (t5019 refresh)",
+ "tasks": [
+  {
+   "id": "86b9ycbby",
+   "name": "БОТ: ПОДКЛЮЧИТЬСЯ К КОМПУ - СЕЙДЕР (как дела?) Запуск 1 телефона с 25 аккаунтами",
+   "list": "Projects OF",
+   "updated": "2026-11-05 10:53",
+   "status": "for check"
+  },
+  {
+   "id": "86b92hrcp",
+   "name": "(проблема с картинками) БОТ: Пальма сайт + ускорить / Контекстная реклама",
+   "list": "Задачи Tabakevich",
+   "updated": "2026-11-05 10:45",
+   "status": "for check"
+  },
+  {
+   "id": "86b6q8m9x",
+   "name": "БОТ: (КОСМО РЕШИТЬ + СЛЕШ) Банки ЛЛЦ письма и ЦРМ - JERZ помощь",
+   "list": "Personal",
+   "updated": "2026-11-05 10:30",
+   "status": "for check"
+  },
+  {
+   "id": "86b8gv8kj",
+   "name": "БОТ: Табакевич БЛОКИРОВКА ДОМЕНА: проверить скорость с укр/загран айпишников",
+   "list": "Задачи Tabakevich",
+   "updated": "2026-11-05 10:30",
+   "status": "for check"
+  },
+  {
+   "id": "86bae6v4h",
+   "name": "БОТ: САРА: отвечать на комментарии - как успехи Сара?",
+   "list": "Models",
+   "updated": "2026-11-05 10:30",
+   "status": "for check"
+  },
+  {
+   "id": "86bbjyrf5",
+   "name": "БОТ: МИШЕЛЬ: Bulk Messaging проверить статистику и ответы фанам в сообщениях (потом передать сбор статистики Фетишь)",
+   "list": "Models",
+   "updated": "2026-11-04 22:54",
+   "status": "for check"
+  },
+  {
+   "id": "86bcn3c3u",
+   "name": "Проверить команду на iPhone для передачи шагов из «Здоровья» боту",
+   "list": "Personal",
+   "updated": "2026-11-04 22:42",
+   "status": "for check"
+  },
+  {
+   "id": "86b934b1v",
+   "name": "БОТ: Хукашоп - замена хостинга и бэкапы - проверить состояние (чеклист)",
+   "list": "Задачи Tabakevich",
+   "updated": "2026-11-04 19:49",
+   "status": "for check"
+  },
+  {
+   "id": "86b9zkaua",
+   "name": "БОТ-ЧАСТЬ: Отчет по SEO-показателям (трафик, заказы) - готов? (покупка Серпстат)",
+   "list": "Задачи Tabakevich",
+   "updated": "2026-11-04 17:36",
+   "status": "for check"
+  },
+  {
+   "id": "86bacy8cr",
+   "name": "БОТ: С ИРИНОЙ: Просмотр отчета по дебиторке (комменты)",
+   "list": "Задачи Tabakevich",
+   "updated": "2026-11-04 10:38",
+   "status": "for check"
+  },
+  {
+   "id": "86b8r59kx",
+   "name": "БОТ: Феликс Шоп - проверить сайт",
+   "list": "Задачи Tabakevich",
+   "updated": "2026-11-04 10:15",
+   "status": "for check"
+  },
+  {
+   "id": "86bcy2451",
+   "name": "БОТ: OF источники трафика — отчёт 04.11",
+   "list": "General Tasks OF",
+   "updated": "2026-11-04 10:04",
+   "status": "for check"
+  },
+  {
+   "id": "86bcj512x",
+   "name": "БОТ-ЧАСТЬ: мониторинг СмокиДжин (проверка отчета)",
+   "list": "Задачи Tabakevich",
+   "updated": "2026-11-04 05:56",
+   "status": "for check"
+  },
+  {
+   "id": "86bcgbhg0",
+   "name": "БОТ: Бот в 1С - дать ему больше задач",
+   "list": "Задачи Tabakevich",
+   "updated": "2026-11-04 05:55",
+   "status": "for check"
+  },
+  {
+   "id": "86bcgckxu",
+   "name": "Проверка кронов задач 1С поиск сбоев",
+   "list": "Задачи Tabakevich",
+   "updated": "2026-11-04 05:55",
+   "status": "for check"
+  },
+  {
+   "id": "86b7k7jnx",
+   "name": "БОТ-ЧАСТЬ: Ежемесячный",
+   "list": "Personal",
+   "updated": "2026-11-02 10:44",
+   "status": "for check"
+  },
+  {
+   "id": "86bcr1a1r",
+   "name": "БОТ-ЧАСТЬ: Ежемесячный замер подписчиков Referencias (кто растёт)",
+   "list": "General Tasks OF",
+   "updated": "2026-11-02 00:17",
+   "status": "for check"
+  },
+  {
+   "id": "86b9wh8cd",
+   "name": "БОТ: RA180 / RA185 - курировать процесс (скрины/новая платежка)",
+   "list": "Models",
+   "updated": "2026-11-01 08:20",
+   "status": "for check"
+  },
+  {
+   "id": "86b9abep9",
+   "name": "С ИРИНОЙ: Проверка статистики / сумм выплат / где плохо? по моделям",
+   "list": "General Tasks OF",
+   "updated": "2026-11-01 08:20",
+   "status": "for check"
+  },
+  {
+   "id": "86ba7an25",
+   "name": "БОТ: Проверка трекера рабочего времени девочек OF",
+   "list": "General Tasks OF",
+   "updated": "2026-11-01 08:19",
+   "status": "for check"
+  },
+  {
+   "id": "86bamxnh9",
+   "name": "БОТ: Статистика миле проверять + новые города Кали / Чоко и т д",
+   "list": "General Tasks OF",
+   "updated": "2026-11-01 05:53",
+   "status": "for check"
+  },
+  {
+   "id": "86b88jb1f",
+   "name": "БОТ: Окупас Хуан 23 Адвокаты выселение - узнать статус?",
+   "list": "Сервисная доска Недвижимость",
+   "updated": "2026-10-30 10:49",
+   "status": "for check"
+  },
+  {
+   "id": "86b7k7v1n",
+   "name": "БОТ: Tabakevich SEO месячный отчет (Andrii)",
+   "list": "Задачи Tabakevich",
+   "updated": "2026-10-30 10:49",
+   "status": "for check"
+  },
+  {
+   "id": "86ba3c1x4",
+   "name": "(Контракт на работу, подготовка к ПМЖ) ПАРАГВАЙ (183 дня в году)",
+   "list": "Сервисная доска Недвижимость",
+   "updated": "2026-10-28 18:01",
+   "status": "for check"
+  },
+  {
+   "id": "86bc24u5z",
+   "name": "БОТ: отправить Яне новые фактуры каждого 25 числа месяца",
+   "list": "Сервисная доска Недвижимость",
+   "updated": "2026-10-28 14:48",
+   "status": "for check"
+  },
+  {
+   "id": "86bcm8ybt",
+   "name": "БОТ: Контроль офиса ОФ",
+   "list": "General Tasks OF",
+   "updated": "2026-10-27 20:14",
+   "status": "for check"
+  },
+  {
+   "id": "86b897mmr",
+   "name": "БОТ: запуск Хукашоп сайта в рекламу - как успехи?",
+   "list": "Задачи Tabakevich",
+   "updated": "2026-10-25 09:22",
+   "status": "for check"
+  },
+  {
+   "id": "86b9crta7",
+   "name": "БОТ: Пройти 1 видео OFTV Aurora Jul Agud (ждем перемонтаж)",
+   "list": "Models",
+   "updated": "2026-10-22 11:12",
+   "status": "for check"
+  },
+  {
+   "id": "86bb8ju09",
+   "name": "БОТ: Пакистанец долг за коммуналку -  Алла как успехи?",
+   "list": "Покупка, Ремонт, Продажа-Сдача",
+   "updated": "2026-10-22 11:12",
+   "status": "for check"
+  }
+ ]
+}

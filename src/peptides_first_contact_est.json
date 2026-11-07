@@ -1,0 +1,13 @@
+{
+ "note": "ОЦЕНКА бота по WA-логам (wa-leads-30 raw/analysis + peptidos-week census). Используется ТОЛЬКО пока в PEPTIDOS VENTAS пусто «Fecha primera comunicación»; значение Сары всегда приоритетно. Ключ = последние 10 цифр / @ник (как client() в peptides_sync.py).",
+ "by_key": {
+  "3161629169": {"date": "2026-10-07", "conf": "high", "src": "raw-2026-10-08 chat 17: 1-е сообщение накануне 16:07"},
+  "3192141951": {"date": "2026-10-12", "conf": "high", "src": "analysis-2026-10-12: пн 11:00 «Quiero más información»"},
+  "3163643239": {"date": "2026-10-12", "conf": "low", "src": "видна с 12.10 (непрочит.), census: «pre-week existing» — могло быть раньше"},
+  "3185482982": {"date": "2026-10-10", "conf": "medium", "src": "analysis-2026-10-12: в сб уже получал шаблон (сайт)"},
+  "@yennicatavm1986": {"date": "2026-10-05", "conf": "medium", "src": "census: 05.10 17:28 «Necesito hablar con un asesor»"},
+  "3205269692": {"date": "2026-10-17", "conf": "medium", "src": "analysis-2026-10-17: новый в сб (продвижение поста)"},
+  "3045753309": {"date": "2026-10-09", "conf": "medium", "src": "census: 09.10 06:17 «Necesito hablar con un asesor» (таргет)"}
+ },
+ "skip": {"@anitafdz777": "cliente antigua — повтор, первая коммуникация давно", "3142444785": "Diana — в WA-логах не найдена"}
+}

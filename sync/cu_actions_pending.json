@@ -1,0 +1,212 @@
+{
+ "note": "Действия с даша для ClickUp. Закрывает рутина COMMS/скрипт через ClickUp API (cu_close → status complete), затем переносит запись в done[].",
+ "pending": [],
+ "done": [
+  {
+   "id": "86b791cuk",
+   "action": "cu_close",
+   "kind": "bday",
+   "title": "Элвис поздравить с ДР",
+   "url": "https://app.clickup.com/t/86b791cuk",
+   "due": "2026-10-29",
+   "tapped_at": "2026-11-03T21:55:50.332Z",
+   "done_at": "2026-11-03T23:06:12.998016Z",
+   "result": "complete"
+  },
+  {
+   "id": "86b7919z9",
+   "action": "cu_close",
+   "kind": "bday",
+   "title": "Тарас поздравить с ДР",
+   "url": "https://app.clickup.com/t/86b7919z9",
+   "due": "2026-10-31",
+   "tapped_at": "2026-11-03T22:00:46.160Z",
+   "done_at": "2026-11-03T23:06:12.998016Z",
+   "result": "complete"
+  },
+  {
+   "id": "86bcn3c3u",
+   "action": "cu_ok",
+   "kind": "for_check",
+   "title": "Проверить команду на iPhone…",
+   "bot": "Секретарь",
+   "tapped_at": "2026-11-04T02:54:14.258561+00:00",
+   "done_at": "2026-11-04T02:54:14.258591+00:00",
+   "result": "to do + due 2026-11-04 21:55 (t4797 manual)"
+  },
+  {
+   "id": "86bcn3c3u",
+   "action": "cu_ok",
+   "kind": "for_check",
+   "title": "Проверить команду на iPhone для передачи шагов из «Здоровья» боту",
+   "bot": "Секретарь",
+   "updated": "2026-11-03 21:54",
+   "tapped_at": "2026-11-04T02:57:31.353Z",
+   "done_at": "2026-11-04T03:03:13.491237Z",
+   "result": "already to do + due 2026-11-04 21:55 (dup tap, verified CU)"
+  },
+  {
+   "id": "86bb779rw",
+   "action": "cu_ok",
+   "kind": "for_check",
+   "title": "БОТ: Пептиды - запуск продаж (Ричард)",
+   "bot": "Помощник по всему",
+   "updated": "2026-11-04 00:40",
+   "tapped_at": "2026-11-04T13:20:25.764550+00:00",
+   "done_at": "2026-11-04T13:20:25.764570+00:00",
+   "result": "to do + due 2026-11-05 21:55 (Rost t1865: not need-me, tasks already exist)"
+  },
+  {
+   "id": "86b8gv8kj",
+   "action": "cu_ok",
+   "kind": "for_check",
+   "title": "БОТ: Табакевич БЛОКИРОВКА ДОМЕНА: проверить скорость с укр/загран айпишников",
+   "bot": "Помощник по всему",
+   "updated": "2026-11-03 10:38",
+   "tapped_at": "2026-11-04T13:24:11.742338+00:00",
+   "done_at": "2026-11-04T13:24:11.742362+00:00",
+   "result": "to do + due 2026-11-05 21:55 (Rost dash need=ok t1867)"
+  },
+  {
+   "id": "86bae6v4h",
+   "action": "cu_ok",
+   "kind": "for_check",
+   "title": "БОТ: САРА: отвечать на комментарии - как успехи Сара?",
+   "bot": "ОФ Маркетинг",
+   "updated": "2026-11-03 10:38",
+   "tapped_at": "2026-11-04T13:23:45.674Z",
+   "done_at": "2026-11-04T13:30:39.908943Z",
+   "result": "to do + due 2026-11-05 21:55 (Rost t4924/25 drain)"
+  },
+  {
+   "id": "86b6q8m9x",
+   "action": "cu_ok",
+   "kind": "for_check",
+   "title": "БОТ: (КОСМО РЕШИТЬ + СЛЕШ) Банки ЛЛЦ письма и ЦРМ - JERZ помощь",
+   "bot": "Секретарь",
+   "updated": "2026-11-03 20:52",
+   "tapped_at": "2026-11-04T13:46:57.728Z",
+   "done_at": "2026-11-04T15:02:12.538879Z",
+   "result": "to do + due 2026-11-05 21:55 + comment (Rost dash ✓ 04.11, verified CU)"
+  },
+  {
+   "id": "86bbjyrf5",
+   "action": "cu_ok",
+   "kind": "for_check",
+   "title": "БОТ: МИШЕЛЬ: Bulk Messaging проверить статистику и ответы фанам в сообщениях (потом передать сбор статистики Фетишь)",
+   "bot": "Секретарь",
+   "updated": "2026-11-03 22:41",
+   "tapped_at": "2026-11-04T13:49:43.277Z",
+   "done_at": "2026-11-04T15:02:12.538879Z",
+   "result": "to do + due 2026-11-05 21:55 + comment (Rost dash ✓ 04.11, verified CU)"
+  },
+  {
+   "id": "86b9va7c4",
+   "action": "cu_ok",
+   "kind": "for_check",
+   "title": "БОТ: 🏠ТОПАСИО РЕМОНТ ДЕЛЕНИЕ - как дела? (ждем отчет)",
+   "bot": "Секретарь",
+   "updated": "2026-11-03 20:45",
+   "tapped_at": "2026-11-04T13:58:55.678Z",
+   "done_at": "2026-11-04T15:02:12.538879Z",
+   "result": "to do + due 2026-11-05 21:55 + comment (Rost dash ✓ 04.11, verified CU)"
+  },
+  {
+   "id": "86bcxx9bj",
+   "action": "cu_ok",
+   "kind": "for_check",
+   "title": "БОТ: 1С «Проект улучшений» — чек-лист 53 пункта + монитор Греческая (отчёт 04.11)",
+   "bot": "Секретарь",
+   "updated": "2026-11-04 02:13",
+   "tapped_at": "2026-11-04T14:04:45.546Z",
+   "done_at": "2026-11-04T15:02:12.538879Z",
+   "result": "to do + due 2026-11-05 21:55 + comment (Rost dash ✓ 04.11, verified CU)"
+  },
+  {
+   "id": "86b9uqgqq",
+   "action": "cu_ok",
+   "kind": "for_check",
+   "title": "БОТ: Andrea Cali - как дела по запуску ОФТВ? (напомнить за запуск)",
+   "bot": "ОФ Маркетинг",
+   "updated": "2026-10-29 10:49",
+   "tapped_at": "2026-11-05T00:22:46.908Z",
+   "drained": "2026-11-04 20:04 to do + due 05.11 21:55"
+  },
+  {
+   "id": "86bbzx9x4",
+   "action": "cu_ok",
+   "kind": "for_check",
+   "title": "БОТ: Срочно контент снять OFTV Sofia Lunara - Laura (жду реакцию в чате Маркиза)",
+   "bot": "ОФ Маркетинг",
+   "updated": "2026-10-26 11:51",
+   "tapped_at": "2026-11-05T00:32:23.658Z",
+   "drained": "2026-11-04 20:04 to do + due 05.11 21:55"
+  },
+  {
+   "id": "86b791bp7",
+   "action": "cu_close",
+   "kind": "bday",
+   "title": "Папа поздравить с ДР",
+   "url": "https://app.clickup.com/t/86b791bp7",
+   "due": "2026-11-05",
+   "tapped_at": "2026-11-05T06:24:06.910Z",
+   "done_at": "2026-11-05T07:07:17.380251Z",
+   "result": "complete"
+  },
+  {
+   "id": "86b9crta7",
+   "action": "cu_ok",
+   "kind": "for_check",
+   "title": "БОТ: Пройти 1 видео OFTV Aurora Jul Agud (ждем перемонтаж)",
+   "bot": "ОФ Маркетинг",
+   "updated": "2026-10-22 11:12",
+   "tapped_at": "2026-11-05T18:49:44.852Z",
+   "done_at": "2026-11-05T19:08:34.542845Z",
+   "result": "to do + due 2026-11-06 21:55 + comment (Rost dash ✓ 05.11, verified CU)"
+  },
+  {
+   "id": "86b9abep9",
+   "action": "cu_ok",
+   "kind": "for_check",
+   "title": "С ИРИНОЙ: Проверка статистики / сумм выплат / где плохо? по моделям",
+   "bot": "Помощник по всему",
+   "updated": "2026-11-01 08:20",
+   "tapped_at": "2026-11-05T18:53:28.813Z",
+   "done_at": "2026-11-05T19:08:34.542845Z",
+   "result": "to do + due 2026-11-06 21:55 + comment (Rost dash ✓ 05.11, verified CU)"
+  },
+  {
+   "id": "86bcr1a1r",
+   "action": "cu_ok",
+   "kind": "for_check",
+   "title": "БОТ-ЧАСТЬ: Ежемесячный замер подписчиков Referencias (кто растёт)",
+   "bot": "Помощник по всему",
+   "updated": "2026-11-02 00:17",
+   "tapped_at": "2026-11-05T19:00:47.433Z",
+   "done_at": "2026-11-05T19:08:34.542845Z",
+   "result": "to do + due 2026-11-06 21:55 + comment (Rost dash ✓ 05.11, verified CU)"
+  },
+  {
+   "id": "86bcy2451",
+   "action": "cu_ok",
+   "kind": "for_check",
+   "title": "БОТ: OF источники трафика — отчёт 04.11",
+   "bot": "Помощник по всему",
+   "updated": "2026-11-04 10:04",
+   "tapped_at": "2026-11-05T19:05:27.382Z",
+   "done_at": "2026-11-05T19:08:34.542845Z",
+   "result": "to do + due 2026-11-06 21:55 + comment (Rost dash ✓ 05.11, verified CU)"
+  },
+  {
+   "id": "86b8r59kx",
+   "action": "cu_ok",
+   "kind": "for_check",
+   "title": "БОТ: Феликс Шоп - проверить сайт",
+   "bot": "Помощник по всему",
+   "updated": "2026-11-04 10:15",
+   "tapped_at": "2026-11-05T19:10:55.099Z",
+   "done_at": "2026-11-05T19:12:51.952009Z",
+   "result": "to do + due 2026-11-06 21:55 + comment (Rost dash ✓ 05.11, verified CU)"
+  }
+ ]
+}

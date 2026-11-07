@@ -1,0 +1,14 @@
+{
+ "unit_cost_cop": 100000,
+ "payer": "Richard",
+ "applies_to": "любой продукт (киты и не-киты, напр. «15MG, 20MG») × UNIDADES",
+ "set_by": "Rost 25.10 ~08:50 (≈100 000 COP за кит); 25.10 ~10:05 — и для не-китов тоже",
+ "override_rule": "Если в «Expensed Peso Saludable» появится строка с Payer = Richard и названием с «costo kit» / «себестоим» / «cogs» / «costo por kit» — её сумма (COP) = новая цена за кит с этой даты (последняя строка побеждает); продажи до этой даты считаются по прежней цене.",
+ "history": [
+  {
+   "from": "2026-09-01",
+   "unit_cost_cop": 100000,
+   "src": "Rost 25.10"
+  }
+ ]
+}

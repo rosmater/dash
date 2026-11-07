@@ -1,0 +1,56 @@
+{
+ "_doc": "Rost 25.10: повторные продажи Пептидов → напоминание исполнителю (Sara; Juliana — Seider с 26.10, Michelle отказалась) комментарием в ClickUp 86bcn2ew9; трекинг до покупки/отказа. Обновляет агент через user-Clickup (get_task_comments) → src/build.sh → пуш. STANDING 27.10: любой ответ в треде → в тот же ход last_reply_at/sara_status/reply_note → build → push.",
+ "cu_task": "86bcn2ew9",
+ "cu_url": "https://rosmater.github.io/cu/?t=86bcn2ew9",
+ "cu_app_url": "https://app.clickup.com/t/9014731752/86bcn2ew9",
+ "feedback_sla_hours": 24,
+ "people": {
+  "Sara": {
+   "name": "Sara Pineda Chanci",
+   "cu_id": 88453880
+  },
+  "Michelle": {
+   "name": "Michelle Hernández",
+   "cu_id": 94214700
+  },
+  "Seider": {
+   "name": "Seider Muñoz",
+   "cu_id": null,
+   "tg": "@seido97",
+   "note": "нет в CU workspace (find_member 27.10) — тег в CU невозможен, пинг через TG/Rost"
+  }
+ },
+ "statuses": [
+  "pending_ping",
+  "awaiting_sara",
+  "sara_replied",
+  "bought",
+  "refused",
+  "no_sara_feedback"
+ ],
+ "clients": {
+  "juliana_cardona_intent": {
+   "label": "Juliana Cardona",
+   "kind": "intent",
+   "sara_status": "sara_replied",
+   "assignee_schedule": [
+    {
+     "who": "Seider",
+     "from": "2026-10-26"
+    }
+   ],
+   "deadline": "2026-11-01",
+   "pings": [
+    {
+     "at": "2026-10-25T09:46-05:00",
+     "who": "Michelle",
+     "comment_id": "90140273152464"
+    }
+   ],
+   "last_reply_at": "2026-10-26T17:38:02-05:00",
+   "reply_note": "Michelle 26.10 17:38: пептиды ведёт Seider, не она (CU reply 90140273696565) → следующий пинг Seider",
+   "outcome": null,
+   "note": "WA 21.10: «Para comprarte otro kit». Michelle 26.10: не её задача, ведёт Seider → перенацелено на Seider (не Michelle). Seider нет в CU — пинговать через TG/Rost. Итог (купила/отказ) ещё не известен."
+  }
+ }
+}

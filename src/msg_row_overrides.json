@@ -1,0 +1,637 @@
+{
+ "note": "Rost t3969–t3971u: состояние строк мессенджеров. key «Канал|чат» (как в даше). state: {st: ans=✓ ответил | skip=✕ прочитал, можно не отвечать, at ISO} — сбрасывается на даше, если после at пришло новое сообщение. cu: привязка задачи ClickUp {id,name,src:auto|dash|rost,why} | {unlinked:true} (✕ открепить; глушит и binding из contacts). tags: Личное — друг|быт|семья|задача. Пишет sync_dash_taps.py (тапы) и бот (привязка по слову Rost); применяет test_ma_build.py.",
+ "state": {
+  "WhatsApp ESP|Albeiro Garcia Курьер Севичерия Пульпо": {
+   "st": "skip",
+   "at": "2026-10-27T20:08:35.052Z"
+  },
+  "WhatsApp ESP|Albeiro Garcia Курьер Ce...": {
+   "st": "skip",
+   "at": "2026-10-27T20:08:43.260Z"
+  },
+  "Telegram|Ashagi": {
+   "st": "skip",
+   "at": "2026-10-27T22:29:20.546Z"
+  },
+  "Telegram|Nhobi": {
+   "st": "skip",
+   "at": "2026-10-27T22:29:22.189Z"
+  },
+  "Telegram|Simon": {
+   "st": "skip",
+   "at": "2026-10-27T22:29:25.907Z"
+  },
+  "WhatsApp ESP|Karen": {
+   "st": "ans",
+   "at": "2026-10-28T01:09:07.056Z"
+  },
+  "WhatsApp UKR|Lio New": {
+   "st": "ans",
+   "at": "2026-10-28T14:28:11.604Z"
+  },
+  "WhatsApp UKR|Андрей Электричество Тарифы Аликанте": {
+   "st": "ans",
+   "at": "2026-10-28T14:54:29.005Z"
+  },
+  "Telegram|Alina Docs": {
+   "st": "skip",
+   "at": "2026-10-28T14:57:58.093Z"
+  },
+  "WhatsApp UKR|Ярослав Феникс": {
+   "st": "skip",
+   "at": "2026-10-28T14:58:09.038Z"
+  }
+ },
+ "cu": {
+  "WhatsApp ESP|CLÍNICA VISUAL": {
+   "id": "86bcm9u4k",
+   "name": "БОТ-ЧАСТЬ: Заменить линзы в компьютерных очках (плано 0.00 + Crizal Sapphire HR)",
+   "src": "auto",
+   "why": "оптика Óptica Clínica Visual указана в задаче",
+   "at": "2026-10-27T19:55:00Z"
+  },
+  "WhatsApp ESP|Leidy Base Loft Собствен...": {
+   "id": "86bcma7tp",
+   "name": "БОТ-ЧАСТЬ: Найти лофт побольше в Base Loft (долгосрочная аренда)",
+   "src": "auto",
+   "why": "переезд: Лейди Base Loft в шагах задачи",
+   "at": "2026-10-27T19:55:00Z"
+  },
+  "WhatsApp|Leidy Base Loft Собствен...": {
+   "id": "86bcma7tp",
+   "name": "БОТ-ЧАСТЬ: Найти лофт побольше в Base Loft (долгосрочная аренда)",
+   "src": "auto",
+   "why": "переезд: Лейди Base Loft",
+   "at": "2026-10-27T19:55:00Z"
+  },
+  "WhatsApp ESP|Portería Base Loft": {
+   "id": "86bcma7tp",
+   "name": "БОТ-ЧАСТЬ: Найти лофт побольше в Base Loft (долгосрочная аренда)",
+   "src": "auto",
+   "why": "переезд: Портерия в шагах задачи",
+   "at": "2026-10-27T19:55:00Z"
+  },
+  "WhatsApp|Portería Base Loft": {
+   "id": "86bcma7tp",
+   "name": "БОТ-ЧАСТЬ: Найти лофт побольше в Base Loft (долгосрочная аренда)",
+   "src": "auto",
+   "why": "переезд: Портерия в шагах задачи",
+   "at": "2026-10-27T19:55:00Z"
+  },
+  "WhatsApp|Base Loft Vollante": {
+   "id": "86bcma7tp",
+   "name": "БОТ-ЧАСТЬ: Найти лофт побольше в Base Loft (долгосрочная аренда)",
+   "src": "auto",
+   "why": "переезд: Base Loft",
+   "at": "2026-10-27T19:55:00Z"
+  },
+  "WhatsApp UKR|Алла Агенство Недвижимости Аликанте": {
+   "id": "86bb8ju09",
+   "name": "БОТ: Пакистанец долг за коммуналку -  Алла как успехи?",
+   "src": "auto",
+   "why": "people.csv alla-realty-alicante: CU 86bb8ju09",
+   "at": "2026-10-27T19:55:00Z"
+  },
+  "WhatsApp UKR|Оксана Бухгалтер Торевьеха": {
+   "id": "86b6k2zug",
+   "name": "ОЛЯ ПОХОД - БОТ: Оксана бухгалтер жду - Проверить возврат налога (Шейх)",
+   "src": "auto",
+   "why": "people.csv: возврат налога",
+   "at": "2026-10-27T19:55:00Z"
+  },
+  "WhatsApp UKR|Андрей Электричество Тарифы Аликанте": {
+   "id": "86ba3bwhg",
+   "name": "БОТ: 🏠 Установка сигналки на Топасио - случилось? (электричество жду Андрей)",
+   "src": "auto",
+   "why": "chats/people.csv",
+   "at": "2026-10-27T19:55:00Z"
+  },
+  "WhatsApp UKR|Марина Semenenko Риелтор Аликанте": {
+   "id": "86baggxqe",
+   "name": "БОТ: ОЛЯ продажа ТРАВЕЛЕЗ: как дела? сигналку поставили?",
+   "src": "auto",
+   "why": "people.csv marina-semenenko: CU 86baggxqe",
+   "at": "2026-10-27T19:55:00Z"
+  },
+  "WhatsApp UKR|Марина от Оли": {
+   "id": "86baggxqe",
+   "name": "БОТ: ОЛЯ продажа ТРАВЕЛЕЗ: как дела? сигналку поставили?",
+   "src": "auto",
+   "why": "в задаче: «Марина риелтор от Ольги»",
+   "at": "2026-10-27T19:55:00Z"
+  },
+  "WhatsApp UKR|Maks Sinar Адвокат Испания": {
+   "id": "86bb93x8h",
+   "name": "Квартира Новельда (запуск процедуры)",
+   "src": "auto",
+   "why": "people.csv: CU 86bb93x8h",
+   "at": "2026-10-27T19:55:00Z"
+  },
+  "Telegram|Яна Бух Наш": {
+   "id": "86bcnuxbj",
+   "name": "БОТ-ЧАСТЬ: 💳 Оплата чаттерам Никиты (счёт в TG 5–13 числа) Яна получить отчеты",
+   "src": "auto",
+   "why": "в задаче: Яна Бух Наш",
+   "at": "2026-10-27T19:55:00Z"
+  },
+  "WhatsApp ESP|Яна Бухгалтер Наш": {
+   "id": "86bcnuxbj",
+   "name": "БОТ-ЧАСТЬ: 💳 Оплата чаттерам Никиты (счёт в TG 5–13 числа) Яна получить отчеты",
+   "src": "auto",
+   "why": "та же Яна",
+   "at": "2026-10-27T19:55:00Z"
+  },
+  "WhatsApp ESP|Flames Owner": {
+   "id": "86b8fkqg2",
+   "name": "БОТ-ЧАСТЬ: Flames - жду моделей (отработали новые?)",
+   "src": "auto",
+   "why": "people/chats.csv",
+   "at": "2026-10-27T19:55:00Z"
+  },
+  "Telegram|RA222 - MODEL CHAT": {
+   "id": "86ba3b2gp",
+   "name": "RA 222 Valentina TRANS popayan - R",
+   "src": "auto",
+   "why": "chats.csv clickup_links",
+   "at": "2026-10-27T19:55:00Z"
+  },
+  "Telegram|RA221 - MODEL CHAT": {
+   "id": "86baymk9w",
+   "name": "RA 221 Gabriela enana de Marcia",
+   "src": "auto",
+   "why": "chats.csv",
+   "at": "2026-10-27T19:55:00Z"
+  },
+  "Telegram|RA212 - MODEL CHAT": {
+   "id": "86b6pbez0",
+   "name": "RA 207/212 Katerine + ТС",
+   "src": "auto",
+   "why": "chats.csv",
+   "at": "2026-10-27T19:55:00Z"
+  },
+  "Telegram|Колумбия OFTV - Markiz Karabas 3 модели": {
+   "id": "86bbzx9x4",
+   "name": "БОТ: Срочно контент снять OFTV Sofia Lunara - Laura (жду реакцию в чате Маркиза)",
+   "src": "auto",
+   "why": "chats.csv",
+   "at": "2026-10-27T19:55:00Z"
+  },
+  "Telegram|ОФТВ Леша админка + 4 Колумбийки": {
+   "id": "86b9crta7",
+   "name": "БОТ: Пройти 1 видео OFTV Aurora Jul Agud (ждем перемонтаж)",
+   "src": "auto",
+   "why": "chats.csv",
+   "at": "2026-10-27T19:55:00Z"
+  },
+  "WhatsApp ESP|Nutibara 1105": {
+   "id": "86bcma7tp",
+   "name": "БОТ-ЧАСТЬ: Найти лофт побольше в Base Loft (долгосрочная аренда)",
+   "src": "auto",
+   "why": "Base Loft: поиск лофта (t4004u)",
+   "at": "2026-10-27T21:30:00Z"
+  },
+  "WhatsApp ESP|Miguel Calipso": {
+   "id": "86bcma7tp",
+   "name": "БОТ-ЧАСТЬ: Найти лофт побольше в Base Loft (долгосрочная аренда)",
+   "src": "auto",
+   "why": "Base Loft: поиск лофта (t4004u)",
+   "at": "2026-10-27T21:30:00Z"
+  },
+  "WhatsApp ESP|Alnago": {
+   "id": "86bcma7tp",
+   "name": "БОТ-ЧАСТЬ: Найти лофт побольше в Base Loft (долгосрочная аренда)",
+   "src": "auto",
+   "why": "Base Loft: поиск лофта (t4004u)",
+   "at": "2026-10-27T21:30:00Z"
+  },
+  "Telegram|Simon": {
+   "id": "86bcn2g2q",
+   "name": "Encontrar casa de cambio OKX-TG-Ros",
+   "src": "rost",
+   "why": "Rost t4044: привязать к Simon (Пептиды)",
+   "at": "2026-10-27T22:26:00Z"
+  },
+  "Telegram|Nhobi": {
+   "id": "86bcn2g2q",
+   "name": "Encontrar casa de cambio OKX-TG-Ros",
+   "src": "rost",
+   "why": "Rost t4045: привязать к Nhobi (Пептиды)",
+   "at": "2026-10-27T22:26:00Z"
+  },
+  "Telegram|Ashagi": {
+   "id": "86bcn2g2q",
+   "name": "Encontrar casa de cambio OKX-TG-Ros",
+   "src": "rost",
+   "why": "Rost t4046: привязать к Ashagi (Пептиды)",
+   "at": "2026-10-27T22:26:00Z"
+  },
+  "WhatsApp UKR|Артем ДонТабак": {
+   "id": "86bcj512x",
+   "name": "БОТ-ЧАСТЬ: мониторинг СмокиДжин (проверка отчета)",
+   "src": "rost",
+   "why": "Rost t4389: привязать к Артёму ДонТабак + СмокиДжин",
+   "at": "2026-10-28T15:08:16Z"
+  }
+ },
+ "tags": {
+  "Telegram|Baba": {
+   "tags": [
+    "семья"
+   ],
+   "src": "auto",
+   "at": "2026-10-27T19:55:00Z"
+  },
+  "Telegram|Баба 2": {
+   "tags": [
+    "семья"
+   ],
+   "src": "auto",
+   "at": "2026-10-27T19:55:00Z"
+  },
+  "Telegram|Мама Киевстар": {
+   "tags": [
+    "семья"
+   ],
+   "src": "auto",
+   "at": "2026-10-27T19:55:00Z"
+  },
+  "WhatsApp ESP|Баба": {
+   "tags": [
+    "семья"
+   ],
+   "src": "auto",
+   "at": "2026-10-27T19:55:00Z"
+  },
+  "Viber|Люда Тетя Моя Киев": {
+   "tags": [
+    "семья"
+   ],
+   "src": "auto",
+   "at": "2026-10-27T19:55:00Z"
+  },
+  "Viber|Славик Туса Брат …": {
+   "tags": [
+    "семья"
+   ],
+   "src": "auto",
+   "at": "2026-10-27T19:55:00Z"
+  },
+  "WhatsApp UKR|Дед Валера Новый Номер": {
+   "tags": [
+    "семья"
+   ],
+   "src": "auto",
+   "at": "2026-10-27T19:55:00Z"
+  },
+  "Telegram|Дед": {
+   "tags": [
+    "семья"
+   ],
+   "src": "auto",
+   "at": "2026-10-27T19:55:00Z"
+  },
+  "WhatsApp UKR|Илья Ира Люда Киевстар": {
+   "tags": [
+    "семья"
+   ],
+   "src": "auto",
+   "at": "2026-10-27T19:55:00Z"
+  },
+  "WhatsApp ESP|Albeiro Garcia Курьер Севичерия Пульпо": {
+   "tags": [
+    "быт"
+   ],
+   "src": "auto",
+   "at": "2026-10-27T19:55:00Z"
+  },
+  "WhatsApp ESP|Albeiro Garcia Курьер Ce...": {
+   "tags": [
+    "быт"
+   ],
+   "src": "auto",
+   "at": "2026-10-27T19:55:00Z"
+  },
+  "WhatsApp UKR|glamping mirador santafe": {
+   "tags": [
+    "быт"
+   ],
+   "src": "auto",
+   "at": "2026-10-27T19:55:00Z"
+  },
+  "WhatsApp ESP|JOHANN RUIZ Box": {
+   "tags": [
+    "быт"
+   ],
+   "src": "auto",
+   "at": "2026-10-27T19:55:00Z"
+  },
+  "WhatsApp ESP|CLÍNICA VISUAL": {
+   "tags": [
+    "быт",
+    "задача"
+   ],
+   "src": "auto",
+   "at": "2026-10-27T19:55:00Z"
+  },
+  "Telegram|ПАРАГВАЙ": {
+   "tags": [
+    "задача"
+   ],
+   "src": "dash",
+   "at": "2026-10-27T19:57:55.060Z"
+  },
+  "Telegram|Киви Саша Шейх": {
+   "tags": [
+    "друг"
+   ],
+   "src": "dash",
+   "at": "2026-10-27T19:58:52.460Z"
+  },
+  "WhatsApp UKR|Lio New": {
+   "tags": [
+    "друг"
+   ],
+   "src": "dash",
+   "at": "2026-10-27T20:02:24.727Z"
+  },
+  "WhatsApp ESP|Стелла Киевстар": {
+   "tags": [
+    "семья"
+   ],
+   "src": "dash",
+   "at": "2026-10-27T20:02:26.674Z"
+  },
+  "WhatsApp ESP|Илья Деня ДЧ": {
+   "tags": [
+    "друг"
+   ],
+   "src": "dash",
+   "at": "2026-10-27T20:02:37.905Z"
+  },
+  "WhatsApp ESP|+57 323 5391596": {
+   "tags": [
+    "друг"
+   ],
+   "src": "dash",
+   "at": "2026-10-27T20:04:54.437Z"
+  },
+  "WhatsApp ESP|Коля Кобзов": {
+   "tags": [
+    "друг"
+   ],
+   "src": "dash",
+   "at": "2026-10-27T20:04:57.940Z"
+  },
+  "WhatsApp ESP|Сережа Кинозвезда Акт...": {
+   "tags": [
+    "друг"
+   ],
+   "src": "dash",
+   "at": "2026-10-27T20:05:03.659Z"
+  },
+  "WhatsApp ESP|Тигран Вотсап": {
+   "tags": [
+    "друг"
+   ],
+   "src": "dash",
+   "at": "2026-10-27T20:05:05.626Z"
+  },
+  "WhatsApp ESP|Многотуров Андрей": {
+   "tags": [
+    "друг"
+   ],
+   "src": "dash",
+   "at": "2026-10-27T20:05:09.177Z"
+  },
+  "Telegram|Maksym": {
+   "tags": [
+    "друг"
+   ],
+   "src": "dash",
+   "at": "2026-10-27T20:05:13.543Z"
+  },
+  "Telegram|Виталик КС": {
+   "tags": [
+    "друг"
+   ],
+   "src": "dash",
+   "at": "2026-10-27T21:22:04.038Z"
+  },
+  "WhatsApp ESP|Nutibara 1105": {
+   "tags": [
+    "задача"
+   ],
+   "src": "auto",
+   "at": "2026-10-27T21:30:00Z"
+  },
+  "WhatsApp ESP|Miguel Calipso": {
+   "tags": [
+    "задача"
+   ],
+   "src": "auto",
+   "at": "2026-10-27T21:30:00Z"
+  },
+  "WhatsApp ESP|Alnago": {
+   "tags": [
+    "задача"
+   ],
+   "src": "auto",
+   "at": "2026-10-27T21:30:00Z"
+  },
+  "WhatsApp ESP|Leidy Base Loft Собствен...": {
+   "tags": [
+    "задача"
+   ],
+   "src": "auto",
+   "at": "2026-10-27T21:30:00Z"
+  },
+  "WhatsApp ESP|Maria MR Med": {
+   "tags": [
+    "скаут"
+   ],
+   "src": "dash",
+   "at": "2026-10-27T21:33:43.622Z"
+  },
+  "WhatsApp ESP|Andrea Feabie": {
+   "tags": [
+    "новия"
+   ],
+   "src": "dash",
+   "at": "2026-10-27T21:33:46.454Z"
+  },
+  "WhatsApp ESP|Karen": {
+   "tags": [
+    "новия"
+   ],
+   "src": "dash",
+   "at": "2026-10-27T21:33:51.552Z"
+  },
+  "WhatsApp ESP|Billy Pilly MrSupremo": {
+   "tags": [
+    "резерв"
+   ],
+   "src": "dash",
+   "at": "2026-10-27T21:34:09.603Z"
+  },
+  "Feabie|piggy_cami": {
+   "tags": [
+    "новая"
+   ],
+   "src": "dash",
+   "at": "2026-10-27T21:34:13.487Z"
+  },
+  "Feabie|Stuffiejosie": {
+   "tags": [
+    "новая"
+   ],
+   "src": "dash",
+   "at": "2026-10-27T21:34:19.154Z"
+  },
+  "Feabie|Donut_piggy": {
+   "tags": [
+    "новая"
+   ],
+   "src": "dash",
+   "at": "2026-10-27T21:34:22.252Z"
+  },
+  "WhatsApp ESP|Elizabeth Acevedo": {
+   "tags": [
+    "резерв"
+   ],
+   "src": "dash",
+   "at": "2026-10-27T21:34:59.138Z"
+  },
+  "Tinder|Leidy": {
+   "tags": [
+    "новая"
+   ],
+   "src": "dash",
+   "at": "2026-10-27T21:35:02.887Z"
+  },
+  "Tinder|Samy": {
+   "tags": [
+    "новая"
+   ],
+   "src": "dash",
+   "at": "2026-10-27T21:35:05.086Z"
+  },
+  "Tinder|Lauu": {
+   "tags": [
+    "новая"
+   ],
+   "src": "dash",
+   "at": "2026-10-27T21:35:07.355Z"
+  },
+  "WhatsApp ESP|Escobar Mr Supremo": {
+   "tags": [
+    "резерв"
+   ],
+   "src": "dash",
+   "at": "2026-10-27T21:35:12.023Z"
+  },
+  "WhatsApp ESP|Kstolina": {
+   "tags": [
+    "резерв"
+   ],
+   "src": "dash",
+   "at": "2026-10-27T21:35:14.320Z"
+  },
+  "WhatsApp ESP|Valentina": {
+   "tags": [
+    "новия"
+   ],
+   "src": "dash",
+   "at": "2026-10-27T21:35:16.852Z"
+  },
+  "WhatsApp ESP|Patricia Alvarado Mr Supr...": {
+   "tags": [
+    "архив"
+   ],
+   "src": "dash",
+   "at": "2026-10-27T21:35:34.383Z"
+  },
+  "WhatsApp ESP|+57 322 6456644": {
+   "tags": [
+    "новая"
+   ],
+   "src": "dash",
+   "at": "2026-10-27T21:35:41.187Z"
+  },
+  "Feabie|Adelina_meilo": {
+   "tags": [
+    "новая"
+   ],
+   "src": "dash",
+   "at": "2026-10-28T00:51:19.186Z"
+  },
+  "Tinder|Dahian": {
+   "tags": [
+    "новая"
+   ],
+   "src": "dash",
+   "at": "2026-10-28T00:51:21.921Z"
+  },
+  "Viber|Стелла Киевстар": {
+   "tags": [
+    "семья"
+   ],
+   "src": "dash",
+   "at": "2026-10-28T14:42:48.883Z"
+  },
+  "Instagram|Александр": {
+   "tags": [
+    "друг"
+   ],
+   "src": "dash",
+   "at": "2026-10-28T14:50:09.336Z"
+  },
+  "Instagram|Василий Башмаков": {
+   "tags": [
+    "друг"
+   ],
+   "src": "dash",
+   "at": "2026-10-28T14:50:13.820Z"
+  },
+  "Viber|Света": {
+   "tags": [
+    "быт"
+   ],
+   "src": "dash",
+   "at": "2026-11-06T20:23:00.018Z"
+  },
+  "Telegram|Стас Элвис": {
+   "tags": [
+    "друг"
+   ],
+   "src": "dash",
+   "at": "2026-11-05T21:03:18.052Z"
+  },
+  "Instagram|.. ♡𝓐𝓵𝓲♡..": {
+   "tags": [
+    "новая"
+   ],
+   "src": "dash",
+   "at": "2026-11-05T21:03:32.788Z"
+  },
+  "Telegram|Dmitri": {
+   "tags": [
+    "друг"
+   ],
+   "src": "dash",
+   "at": "2026-11-06T20:23:24.270Z"
+  },
+  "Telegram|Серега Актер": {
+   "tags": [
+    "друг"
+   ],
+   "src": "dash",
+   "at": "2026-11-06T20:23:27.055Z"
+  }
+ },
+ "rt_ack": {
+  "Секретарь|Бинотел — разбор звонков": {
+   "at": "2026-11-04T01:31:21.039Z",
+   "checked": false
+  }
+ }
+}

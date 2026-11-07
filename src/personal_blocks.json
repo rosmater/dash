@@ -1,0 +1,955 @@
+{
+ "_note": "Снимок из CU Personal + Google Sheets «Дневник сна»/«Тренировки» + Google Calendar + KB. Нет записи = «—», не выдумываем. Блоки с hide_from_helper не попадают в helper.html.",
+ "fetched_at": "2026-10-25T23:59:00-05:00",
+ "today": "2026-10-26",
+ "week_from": "2026-10-26",
+ "month_from": "2026-10-01",
+ "docs": {
+  "title": "Документы",
+  "items": [
+   {
+    "name": "Гражданство — Румыния",
+    "status": "жду",
+    "state": "wait",
+    "note": "документы поданы, ждём приказ (Stadiu Dosar, Articolul 11)",
+    "cu": "86b7hcb3a",
+    "url": "https://rosmater.github.io/cu/?t=86b7hcb3a",
+    "cu_name": "Румынский паспорт (была ли апелляция? вынесли ли решение?)",
+    "cu_status": "to do",
+    "due": "2026-11-03"
+   },
+   {
+    "name": "ПМЖ — Парагвай",
+    "status": "подготовка к подаче",
+    "state": "prep",
+    "attn": true,
+    "cu": "86ba3c1x4",
+    "url": "https://rosmater.github.io/cu/?t=86ba3c1x4",
+    "cu_name": "(Контракт на работу, подготовка к ПМЖ) ПАРАГВАЙ (183 дня в году)",
+    "cu_status": "for check",
+    "due": "2026-10-15",
+    "note": "контракт с LLC 2 700 $ + апостиль; Takenos/Ueno банк; Payoneer — жду",
+    "related": [
+     {
+      "cu": "86bayeyr8",
+      "url": "https://rosmater.github.io/cu/?t=86bayeyr8",
+      "name": "начать планировать поездку в Парагвай (до 27 января)",
+      "due": "2026-11-01",
+      "status": "to do",
+      "note": null
+     },
+     {
+      "cu": "86bbq6etm",
+      "url": "https://rosmater.github.io/cu/?t=86bbq6etm",
+      "name": "Сроки документов (наполнить)",
+      "due": "2026-11-07",
+      "status": "main",
+      "note": null
+     }
+    ],
+    "kb": "shared-personal/paraguay-residency/employer-awesome1-llc.md"
+   }
+  ]
+ },
+ "checklist": {
+  "title": "Ежедневный чеклист",
+  "cu": "86b7k95k6",
+  "url": "https://rosmater.github.io/cu/?t=86b7k95k6",
+  "night_cu": "86b8gzqtb",
+  "night_url": "https://rosmater.github.io/cu/?t=86b8gzqtb",
+  "start": "2026-10-25",
+  "items": [
+   {
+    "id": "sleepdiary",
+    "text": "Заполнить дневник сна"
+   },
+   {
+    "id": "bju",
+    "text": "Заполнить БЖУ (отчёт питание)"
+   },
+   {
+    "id": "vit",
+    "text": "Витамины + креатин (160 г белка, 300 г углеводов)"
+   },
+   {
+    "id": "eyes",
+    "text": "Зарядка для зрения + капли"
+   },
+   {
+    "id": "prep",
+    "text": "PrEP",
+    "hide_from_helper": true
+   },
+   {
+    "id": "water",
+    "text": "Вода 3 л"
+   },
+   {
+    "id": "shower",
+    "text": "Контрастный душ"
+   },
+   {
+    "id": "steps",
+    "text": "10 000 шагов (50 прыжков, турник, 15 мин солнца)"
+   },
+   {
+    "id": "tomorrow",
+    "text": "Проверить дела на завтра + крайнее время сна (9,5 ч до подъёма)"
+   },
+   {
+    "id": "msgs",
+    "text": "Проверка мессенджеров (TG, WA ×2 телефона, Viber, Instagram)"
+   }
+  ],
+  "night": [
+   "Магний / Б / валерьяна",
+   "Закрыть ванную",
+   "Закрыть окно",
+   "Выключить огонёк микроволновки",
+   "Телефоны / павербанки / ноут / наушники — на зарядку",
+   "Холодильник не помешает утром?",
+   "Фильтр воздуха — ночной режим",
+   "Кровать застелена? полотенце вместо подушки"
+  ],
+  "src": "пункты — описание CU 86b7k95k6 и 86b8gzqtb (чеклиста/подзадач в CU нет); отметки — в этом браузере с 25.10, статистика = дни, где отмечены все пункты"
+ },
+ "bju": {
+  "title": "БЖУ",
+  "today": null,
+  "last": {
+   "date": "2026-10-24",
+   "fact": {
+    "p": 162.9,
+    "f": 80.0,
+    "c": 150.3,
+    "kcal": 2011
+   },
+   "plan": {
+    "p": 160,
+    "f": 65,
+    "c": 300,
+    "kcal": 2425
+   },
+   "note": "Белок закрыт. Жиры выше плана. Углеводы/ккал недобор."
+  },
+  "src": "shared-health/nutrition-bju/today-*.md · % дня = ккал факт/план; за 25.10 файла нет"
+ },
+ "sleep": {
+  "title": "Сон",
+  "nights": [
+   {
+    "date": "2026-10-13",
+    "hours": "6:20",
+    "min": 380,
+    "approx": false,
+    "color": "red"
+   },
+   {
+    "date": "2026-10-14",
+    "hours": null,
+    "min": null,
+    "approx": false,
+    "color": null
+   },
+   {
+    "date": "2026-10-15",
+    "hours": "~6:45",
+    "min": 405,
+    "approx": true,
+    "color": "red"
+   },
+   {
+    "date": "2026-10-16",
+    "hours": "~6:45",
+    "min": 405,
+    "approx": true,
+    "color": "red"
+   },
+   {
+    "date": "2026-10-17",
+    "hours": "8:00",
+    "min": 480,
+    "approx": false,
+    "color": "green"
+   },
+   {
+    "date": "2026-10-18",
+    "hours": "8:00",
+    "min": 480,
+    "approx": false,
+    "color": "green"
+   },
+   {
+    "date": "2026-10-19",
+    "hours": "7:40",
+    "min": 460,
+    "approx": false,
+    "color": "yellow"
+   },
+   {
+    "date": "2026-10-20",
+    "hours": null,
+    "min": null,
+    "approx": false,
+    "color": null
+   },
+   {
+    "date": "2026-10-21",
+    "hours": null,
+    "min": null,
+    "approx": false,
+    "color": null
+   },
+   {
+    "date": "2026-10-22",
+    "hours": null,
+    "min": null,
+    "approx": false,
+    "color": null
+   },
+   {
+    "date": "2026-10-23",
+    "hours": null,
+    "min": null,
+    "approx": false,
+    "color": null
+   },
+   {
+    "date": "2026-10-24",
+    "hours": null,
+    "min": null,
+    "approx": false,
+    "color": null
+   },
+   {
+    "date": "2026-10-25",
+    "hours": null,
+    "min": null,
+    "approx": false,
+    "color": null
+   },
+   {
+    "date": "2026-10-26",
+    "hours": null,
+    "min": null,
+    "approx": false,
+    "color": null
+   }
+  ],
+  "last": {
+   "date": "2026-10-19",
+   "hours": "7:40",
+   "min": 460,
+   "approx": false,
+   "color": "yellow"
+  },
+  "attn": false,
+  "src": "Google Sheet «Дневник сна» (дата = вечер, когда лёг) · ≥8:00 зелёный · 7:30–7:59 жёлтый · <7:30 красный · 20–24.10 не заполнено"
+ },
+ "dating": {
+  "title": "Дейтинг",
+  "hide_from_helper": true,
+  "days": [
+   {
+    "date": "2026-10-25",
+    "items": [
+     {
+      "t": "20:00–23:00",
+      "title": "Ужин + время с девушкой",
+      "who": null,
+      "kind": "tpl"
+     }
+    ]
+   },
+   {
+    "date": "2026-10-26",
+    "items": []
+   }
+  ],
+  "next": [
+   {
+    "date": "2026-10-29",
+    "t": "21:00–23:00",
+    "title": "Карен",
+    "kind": "tpl"
+   }
+  ],
+  "src": "Google Calendar (шаблон недели, имя не указано) + dating/PRIORITY.md (назначенных свиданий нет; Andrea 22.10 — прошло)"
+ },
+ "events": {
+  "title": "Мероприятия",
+  "days": [
+   {
+    "date": "2026-10-26",
+    "items": []
+   },
+   {
+    "date": "2026-10-27",
+    "items": []
+   },
+   {
+    "date": "2026-10-28",
+    "items": []
+   },
+   {
+    "date": "2026-10-29",
+    "items": [
+     {
+      "t": "13:00–21:00",
+      "title": "🎪 Workshop Lal Expo Bogotá — обязательно",
+      "cu": "86bb79fmt",
+      "kind": "real",
+      "url": "https://rosmater.github.io/cu/?t=86bb79fmt"
+     },
+     {
+      "t": "21:00–02:00",
+      "title": "🏆 Premios Bantokens + фиеста (La Pámpara) — обязательно",
+      "cu": "86bb79fmt",
+      "kind": "real",
+      "url": "https://rosmater.github.io/cu/?t=86bb79fmt"
+     }
+    ]
+   },
+   {
+    "date": "2026-10-30",
+    "items": [
+     {
+      "t": "до ~02:00",
+      "title": "🎪 конец Premios/фиесты Lal Expo (с 29.10)",
+      "cu": "86bb79fmt",
+      "kind": "real",
+      "url": "https://rosmater.github.io/cu/?t=86bb79fmt"
+     },
+     {
+      "t": "20:00–03:00",
+      "title": "Тусовка",
+      "kind": "tpl",
+      "url": null
+     }
+    ]
+   },
+   {
+    "date": "2026-10-31",
+    "items": [
+     {
+      "t": "14:00–17:00",
+      "title": "Друзья",
+      "kind": "tpl",
+      "url": null
+     }
+    ]
+   },
+   {
+    "date": "2026-11-01",
+    "items": []
+   },
+   {
+    "date": "2026-11-02",
+    "items": []
+   },
+   {
+    "date": "2026-11-03",
+    "items": []
+   },
+   {
+    "date": "2026-11-04",
+    "items": []
+   },
+   {
+    "date": "2026-11-05",
+    "items": []
+   },
+   {
+    "date": "2026-11-06",
+    "items": [
+     {
+      "t": "20:00–03:00",
+      "title": "Тусовка",
+      "kind": "tpl",
+      "url": null
+     }
+    ]
+   },
+   {
+    "date": "2026-11-07",
+    "items": [
+     {
+      "t": "14:00–17:00",
+      "title": "Друзья",
+      "kind": "tpl",
+      "url": null
+     }
+    ]
+   },
+   {
+    "date": "2026-11-08",
+    "items": []
+   }
+  ],
+  "todo": [
+   {
+    "id": "diego",
+    "title": "Диего — встретиться",
+    "items": [
+     "Написать Диего, предложить день",
+     "Выбрать место и время",
+     "Встретиться"
+    ],
+    "cu": null
+   },
+   {
+    "id": "rus",
+    "title": "Русский чувак — потусить / пойти",
+    "items": [
+     "Связаться, договориться куда",
+     "Выбрать день",
+     "Сходить"
+    ],
+    "cu": null
+   },
+   {
+    "id": "santafe",
+    "title": "Выехать в Санта-Фе на мопеде",
+    "items": [
+     "Выбрать день без дождя",
+     "Мопед: бензин, шины, документы",
+     "Маршрут Медельин → Санта-Фе-де-Антиокия",
+     "Поехать"
+    ],
+    "cu": null
+   }
+  ],
+  "planned": [
+   {
+    "dates": "29.10.2026",
+    "title": "🎪 Workshop Lal Expo Bogotá + Premios Bantokens — обязательно ехать",
+    "cu": "86bb79fmt",
+    "url": "https://rosmater.github.io/cu/?t=86bb79fmt",
+    "note": "La Pámpara, Chapinero · 13:00 workshop → 21:00 Premios → фиеста до ~02:00 · CU 86bb79fmt"
+   },
+   {
+    "dates": "11–13.04.2027",
+    "title": "🏟️ LALEXPO International Cali (главная выставка) — обязательно ехать",
+    "cu": null,
+    "note": "Centro de Eventos Valle del Pacífico · якорь следующих воркшопов"
+   },
+   {
+    "dates": "25.12 – 10.01",
+    "title": "Новый год с пацанами + туса",
+    "cu": null
+   },
+   {
+    "dates": "10–17.01",
+    "title": "Поездка в Парагвай",
+    "cu": "86bayeyr8",
+    "url": "https://rosmater.github.io/cu/?t=86bayeyr8",
+    "note": "после НГ; CU планировать до 27.01"
+   }
+  ],
+  "src": "Lal Expo: workshops + главная Cali = обязательно (Rost 26.10) · CU 86bb79fmt · тусовка/друзья — шаблон; чеклисты — каркас"
+ },
+ "spanish": {
+  "title": "Испанский",
+  "days": [
+   {
+    "date": "2026-10-13",
+    "st": null
+   },
+   {
+    "date": "2026-10-14",
+    "st": null
+   },
+   {
+    "date": "2026-10-15",
+    "st": null
+   },
+   {
+    "date": "2026-10-16",
+    "st": "unk"
+   },
+   {
+    "date": "2026-10-17",
+    "st": null
+   },
+   {
+    "date": "2026-10-18",
+    "st": null
+   },
+   {
+    "date": "2026-10-19",
+    "st": "miss"
+   },
+   {
+    "date": "2026-10-20",
+    "st": null
+   },
+   {
+    "date": "2026-10-21",
+    "st": null
+   },
+   {
+    "date": "2026-10-22",
+    "st": null
+   },
+   {
+    "date": "2026-10-23",
+    "st": "unk"
+   },
+   {
+    "date": "2026-10-24",
+    "st": null
+   },
+   {
+    "date": "2026-10-25",
+    "st": null
+   },
+   {
+    "date": "2026-10-26",
+    "st": "miss"
+   }
+  ],
+  "week": {
+   "planned": 1,
+   "done": 0,
+   "miss": 1,
+   "unk": 0,
+   "pct": 0
+  },
+  "month": {
+   "planned": 8,
+   "done": 0,
+   "miss": 2,
+   "unk": 6,
+   "pct": 0
+  },
+  "src": "план пн+пт (Google Calendar); факт: ✖ 19.10 и ✖ 26.10 «не было (спал)», остальные занятия не отмечены"
+ },
+ "steps": {
+  "title": "Шаги",
+  "days": [
+   {
+    "date": "2026-10-13",
+    "steps": null,
+    "color": null
+   },
+   {
+    "date": "2026-10-14",
+    "steps": null,
+    "color": null
+   },
+   {
+    "date": "2026-10-15",
+    "steps": null,
+    "color": null
+   },
+   {
+    "date": "2026-10-16",
+    "steps": null,
+    "color": null
+   },
+   {
+    "date": "2026-10-17",
+    "steps": null,
+    "color": null
+   },
+   {
+    "date": "2026-10-18",
+    "steps": 6328,
+    "color": "yellow"
+   },
+   {
+    "date": "2026-10-19",
+    "steps": null,
+    "color": null
+   },
+   {
+    "date": "2026-10-20",
+    "steps": 614,
+    "color": "red"
+   },
+   {
+    "date": "2026-10-21",
+    "steps": null,
+    "color": null
+   },
+   {
+    "date": "2026-10-22",
+    "steps": null,
+    "color": null
+   },
+   {
+    "date": "2026-10-23",
+    "steps": null,
+    "color": null
+   },
+   {
+    "date": "2026-10-24",
+    "steps": null,
+    "color": null
+   },
+   {
+    "date": "2026-10-25",
+    "steps": 207,
+    "color": "red"
+   },
+   {
+    "date": "2026-10-26",
+    "steps": null,
+    "color": null
+   }
+  ],
+  "src": "iPhone → STEPS_LOG.md (с 20.10) + 18.10 из «Дневника сна» · <2000 красный · 2000–3999 оранжевый · 4000–6999 жёлтый · ≥7000 зелёный"
+ },
+ "gym": {
+  "title": "Спортзал",
+  "days": [
+   {
+    "date": "2026-10-13",
+    "st": null
+   },
+   {
+    "date": "2026-10-14",
+    "st": "done"
+   },
+   {
+    "date": "2026-10-15",
+    "st": null
+   },
+   {
+    "date": "2026-10-16",
+    "st": "miss"
+   },
+   {
+    "date": "2026-10-17",
+    "st": null
+   },
+   {
+    "date": "2026-10-18",
+    "st": null
+   },
+   {
+    "date": "2026-10-19",
+    "st": "done"
+   },
+   {
+    "date": "2026-10-20",
+    "st": null
+   },
+   {
+    "date": "2026-10-21",
+    "st": "unk"
+   },
+   {
+    "date": "2026-10-22",
+    "st": null
+   },
+   {
+    "date": "2026-10-23",
+    "st": "unk"
+   },
+   {
+    "date": "2026-10-24",
+    "st": null
+   },
+   {
+    "date": "2026-10-25",
+    "st": null
+   },
+   {
+    "date": "2026-10-26",
+    "st": "unk"
+   }
+  ],
+  "week": {
+   "planned": 1,
+   "done": 0,
+   "miss": 0,
+   "unk": 1,
+   "pct": 0
+  },
+  "month": {
+   "planned": 7,
+   "done": 2,
+   "miss": 1,
+   "unk": 4,
+   "pct": 29
+  },
+  "src": "Google Sheet «Тренировки» (журнал с 12.10; 12.10 не подтверждено) · план пн/ср/пт · тренер Keiner"
+ },
+ "boxing": {
+  "title": "Бокс",
+  "cu": "86bcnrmt7",
+  "url": "https://rosmater.github.io/cu/?t=86bcnrmt7",
+  "days": [
+   {
+    "date": "2026-10-13",
+    "st": null
+   },
+   {
+    "date": "2026-10-14",
+    "st": null
+   },
+   {
+    "date": "2026-10-15",
+    "st": null
+   },
+   {
+    "date": "2026-10-16",
+    "st": null
+   },
+   {
+    "date": "2026-10-17",
+    "st": null
+   },
+   {
+    "date": "2026-10-18",
+    "st": null
+   },
+   {
+    "date": "2026-10-19",
+    "st": null
+   },
+   {
+    "date": "2026-10-20",
+    "st": "done"
+   },
+   {
+    "date": "2026-10-21",
+    "st": null
+   },
+   {
+    "date": "2026-10-22",
+    "st": "unk"
+   },
+   {
+    "date": "2026-10-23",
+    "st": null
+   },
+   {
+    "date": "2026-10-24",
+    "st": null
+   },
+   {
+    "date": "2026-10-25",
+    "st": null
+   },
+   {
+    "date": "2026-10-26",
+    "st": null
+   }
+  ],
+  "week": {
+   "planned": 0,
+   "done": 0,
+   "miss": 0,
+   "unk": 0,
+   "pct": null
+  },
+  "month": {
+   "planned": 2,
+   "done": 1,
+   "miss": 0,
+   "unk": 1,
+   "pct": 50
+  },
+  "src": "Google Sheet «Тренировки» · план вт/чт 10:00–11:30 с 20.10 · Johann Ruiz · абонемент 8/мес"
+ },
+ "alcohol": {
+  "title": "Употребление",
+  "hide_from_helper": true,
+  "days": [
+   {
+    "date": "2026-10-13",
+    "level": "green",
+    "text": "не употреблял"
+   },
+   {
+    "date": "2026-10-14",
+    "level": "yellow",
+    "text": "бокал вина вечером"
+   },
+   {
+    "date": "2026-10-15",
+    "level": null,
+    "text": null
+   },
+   {
+    "date": "2026-10-16",
+    "level": null,
+    "text": null
+   },
+   {
+    "date": "2026-10-17",
+    "level": "green",
+    "text": "не употреблял"
+   },
+   {
+    "date": "2026-10-18",
+    "level": "unclassified",
+    "text": "немного нюхал (за компанию) — цвет не ставлю, Rost решит"
+   },
+   {
+    "date": "2026-10-19",
+    "level": "green",
+    "text": "нет (SLEEP_LOG)"
+   },
+   {
+    "date": "2026-10-20",
+    "level": null,
+    "text": null
+   },
+   {
+    "date": "2026-10-21",
+    "level": null,
+    "text": null
+   },
+   {
+    "date": "2026-10-22",
+    "level": null,
+    "text": null
+   },
+   {
+    "date": "2026-10-23",
+    "level": null,
+    "text": null
+   },
+   {
+    "date": "2026-10-24",
+    "level": null,
+    "text": null
+   },
+   {
+    "date": "2026-10-25",
+    "level": null,
+    "text": null
+   },
+   {
+    "date": "2026-10-26",
+    "level": null,
+    "text": null
+   }
+  ],
+  "src": "SLEEP_LOG.md колонка «Употреблял» + «Дневник сна» · пусто = не известно"
+ },
+ "health": {
+  "title": "Здоровье",
+  "hide_from_helper": true,
+  "cu": "86b6qp9ey",
+  "url": "https://rosmater.github.io/cu/?t=86b6qp9ey",
+  "groups": [
+   {
+    "name": "Брекеты / ортодонт",
+    "cu": "86b6qp4uc",
+    "url": "https://rosmater.github.io/cu/?t=86b6qp4uc",
+    "tasks": [
+     {
+      "cu": "86bcmwtt5",
+      "url": "https://rosmater.github.io/cu/?t=86bcmwtt5",
+      "name": "Снимок зуба (Cone Beam CT) в Oralvission — от ортодонта Маурисио Морено",
+      "due": "2026-10-27 12:30",
+      "status": "to do",
+      "note": null
+     },
+     {
+      "cu": "86b716gh8",
+      "url": "https://rosmater.github.io/cu/?t=86b716gh8",
+      "name": "Сита ортодонт (28 октября 14:00)",
+      "due": "2026-10-28 14:00",
+      "status": "to do",
+      "note": null
+     },
+     {
+      "cu": "86b8ddw1x",
+      "url": "https://rosmater.github.io/cu/?t=86b8ddw1x",
+      "name": "‼️ Сита ортодонт — не забыть + будильник",
+      "due": null,
+      "status": "to do",
+      "note": null
+     }
+    ]
+   },
+   {
+    "name": "Анализы",
+    "tasks": [
+     {
+      "cu": "86b7rcd9t",
+      "url": "https://rosmater.github.io/cu/?t=86b7rcd9t",
+      "name": "Анализы Сомос — надо сдавать что-то? (записаться)",
+      "due": "2026-11-20",
+      "status": "in progress",
+      "note": null
+     },
+     {
+      "cu": "86b9rk01c",
+      "url": "https://rosmater.github.io/cu/?t=86b9rk01c",
+      "name": "‼️ Не забыть про поход на анализы 10:30",
+      "due": null,
+      "status": "to do",
+      "note": null
+     }
+    ]
+   },
+   {
+    "name": "Вакцины",
+    "cu": "86b6q912n",
+    "url": "https://rosmater.github.io/cu/?t=86b6q912n",
+    "tasks": [
+     {
+      "cu": "86b6q93pc",
+      "url": "https://rosmater.github.io/cu/?t=86b6q93pc",
+      "name": "Корь / гепатит бустер (Engerix-B + Havrix) — проверить по списку",
+      "due": "2026-10-27",
+      "status": "to do",
+      "note": null
+     },
+     {
+      "cu": "86b6q92zn",
+      "url": "https://rosmater.github.io/cu/?t=86b6q92zn",
+      "name": "Verorab бустер + Influenza (на 27.09.27)",
+      "due": "2027-09-26",
+      "status": "to do",
+      "note": null
+     },
+     {
+      "cu": "86b6q93gw",
+      "url": "https://rosmater.github.io/cu/?t=86b6q93gw",
+      "name": "Typhim Vi (до 22.07.28)",
+      "due": "2028-07-17",
+      "status": "to do",
+      "note": null
+     }
+    ]
+   },
+   {
+    "name": "Прочее",
+    "tasks": [
+     {
+      "cu": "86b6qphf1",
+      "url": "https://rosmater.github.io/cu/?t=86b6qphf1",
+      "name": "Колумбия — записаться на сон (сомнолог?)",
+      "due": "2026-11-05",
+      "status": "to do",
+      "note": null
+     },
+     {
+      "cu": "86b6qphcd",
+      "url": "https://rosmater.github.io/cu/?t=86b6qphcd",
+      "name": "Заказать PrEP",
+      "due": "2026-11-29",
+      "status": "to do",
+      "note": null
+     },
+     {
+      "cu": "86bcm9u4k",
+      "url": "https://rosmater.github.io/cu/?t=86bcm9u4k",
+      "name": "Заменить линзы в компьютерных очках",
+      "due": "2026-10-26",
+      "status": "to do",
+      "note": null
+     }
+    ]
+   }
+  ],
+  "src": "CU Personal → «Здоровье» 86b6qp9ey и «Брекеты» 86b6qp4uc (открытые)"
+ }
+}

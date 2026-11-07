@@ -1,0 +1,255 @@
+{
+ "_doc": "Rost 25.10 23:33/23:34 Bogotá — 4 блока вкладки ОФ. null = нет снимка (показываем «—»), числа не выдумывать. Обновляет агент; build_data.py добавляет ТС из history.csv и задачи из of_cu_tasks.json.",
+ "farm": {
+  "title": "🌱 Ферма (mass following · Seider / Onimator)",
+  "goal": {
+   "accounts": 1000,
+   "per_account_day": 20,
+   "per_day": 20000,
+   "label": "Теория: 1000 аккаунтов × 20 фолловингов/день = 20 000/день"
+  },
+  "checkpoints": [
+   {
+    "label": "1 рабочий телефон × 20 аккаунтов",
+    "per_day": 400,
+    "status": "in_progress",
+    "note": "baseline 26.10: 20 профилей (APP ID 20/20), телефон 22126RN91Y офлайн — Connected 0/1, Running 0/1; снимок 13.10: отработали 9"
+   },
+   {
+    "label": "200 рабочих аккаунтов",
+    "per_day": 4000,
+    "status": "planned",
+    "note": "+ замер конверсии фолловинг → подписка"
+   }
+  ],
+  "current": {
+   "as_of": "2026-10-26",
+   "follows": {
+    "today": 0,
+    "week": 0,
+    "month": null
+   },
+   "likes": {
+    "today": 0,
+    "week": null,
+    "month": null
+   },
+   "live_ok": 0,
+   "idle": 0,
+   "note": "baseline Seider 26.10 02:37 Bogotá · IG HYBRID 17.2.6 · phone 22126RN91Y Connected 0/1 Running 0/1 · accounts 20 · follows/unfollows/30d 0/0/0 · Reports 7d: Idle 14 / Healthy 0 / Needs attn 0 / No tools 6 / No run window 12 · JO 0 · Post Monitors 0 · APP ID 20/20 — честный ноль до Connected, не «требует внимания»"
+  },
+  "last_snapshot": {
+   "as_of": "2026-10-13",
+   "label": "ночь 12–13.10",
+   "profiles": 20,
+   "target_profiles": 25,
+   "worked": 9,
+   "idle": 11,
+   "warn_flag": 9,
+   "follows": 185,
+   "likes": 0,
+   "src": "обновлено 13.10 (фото Onimator от Сейдера)",
+   "note": "Не отработали 11 (10 без ⚠ — причина неизвестна); у 9 флаг ⚠ (вероятно верификация). Лайки/коммент/DM = 0."
+  },
+  "cu_task": {
+   "id": "86b9ycbby",
+   "name": "Seider — ферма mass following (отчёт)",
+   "url": "https://app.clickup.com/t/86b9ycbby"
+  },
+  "idle": 0
+ },
+ "ts": {
+  "title": "🤝 ТС партнёрка (05services)",
+  "arpu_note": "ARPU = наш доход / моделей с оборотом > 0; ARPU (gross) = оборот моделей / моделей"
+ },
+ "oftv": {
+  "title": "📺 ОФТВ (с Лёшей 60/40)",
+  "week": {
+   "id": "W:2026-10-12",
+   "label": "12–18.10",
+   "src": "обновлено 19.10 (OF Statistics, 4 модели)"
+  },
+  "models": [
+   {
+    "key": "sofia",
+    "name": "Sofia Lunara",
+    "person": "Laura (RA213)",
+    "team": "Маркиз",
+    "gross": 565.0,
+    "net": 452.0,
+    "fans": null,
+    "fans_new": 247,
+    "match": [
+     "Sofia Lunara",
+     "RA 213",
+     "Laura, 22"
+    ]
+   },
+   {
+    "key": "kelly",
+    "name": "Kelly Sunelly",
+    "person": "Juliana Manco (RA208/216)",
+    "team": null,
+    "gross": 92.97,
+    "net": 74.37,
+    "fans": 1900,
+    "fans_approx": true,
+    "fans_new": 331,
+    "match": [
+     "Kelly",
+     "Juliana Manco",
+     "Juliana manco"
+    ]
+   },
+   {
+    "key": "bella",
+    "name": "Bella Cruz",
+    "person": "Scarlet",
+    "team": null,
+    "gross": 53.99,
+    "net": 43.19,
+    "fans": null,
+    "fans_new": 154,
+    "match": [
+     "Scarlet"
+    ]
+   },
+   {
+    "key": "rosie",
+    "name": "I am rosie",
+    "person": "Katerine (RA207/212)",
+    "team": null,
+    "gross": 79.98,
+    "net": 63.98,
+    "fans": null,
+    "fans_new": 147,
+    "match": [
+     "Katerine",
+     "Katherine",
+     "RA 207"
+    ]
+   }
+  ],
+  "fans_new_note": "новые подписки за неделю по OF Statistics → Subscriptions (то, что идёт в таблицу Лёши «seguidores nuevos»)",
+  "launch": [
+   {
+    "name": "Aurora — Juliana Agudelo (RA217)",
+    "note": "1-е видео OFTV, ждём перемонтаж",
+    "task": "86b9crta7"
+   },
+   {
+    "name": "Andrea Cali",
+    "note": "старт проекта OFTV в Кали + pagos247",
+    "task": "86ba4ky8z"
+   }
+  ],
+  "traffic_back": [
+   {
+    "name": "LolaPop / Audri (OFTV)",
+    "note": "нет трафика OFTV — ждём Кира",
+    "task": "86b7ypqbb"
+   }
+  ],
+  "closed": [
+   "Valentina RA218 (проект закрыт)",
+   "Alejandra (закрыли)",
+   "Lorena (блокнули)"
+  ],
+  "lists_note": "списки «на запуск» / «вернуть трафик» собраны по задачам ClickUp 25.10 — поправь, если не так",
+  "direction_tasks": [
+   "86b6z79t1",
+   "86bb3qh0k",
+   "86bb4d162",
+   "86bcnuxbj",
+   "86bcnuxbv",
+   "86b9ckxxk"
+  ]
+ },
+ "lolapop": {
+  "title": "💜 Своя модель — LolaPop",
+  "profile": "OF lolapop_bbw_pear_ass · ManyVids LolaPopBBW · Clips4Sale",
+  "fans": null,
+  "fans_new": null,
+  "periods": {
+   "today": {
+    "subs_new": null,
+    "rebills": null,
+    "inc_subs": null,
+    "inc_msgs": null
+   },
+   "week": {
+    "subs_new": null,
+    "rebills": null,
+    "inc_subs": null,
+    "inc_msgs": null
+   },
+   "month": {
+    "subs_new": null,
+    "rebills": null,
+    "inc_subs": null,
+    "inc_msgs": null
+   }
+  },
+  "last_snapshot": {
+   "label": "01–15.10.2026",
+   "as_of": "2026-10-16",
+   "src": "обновлено 16.10 (OF Statistics → Earnings; MV / C4S кабинеты)",
+   "rows": [
+    [
+     "OF · подписки",
+     149.64,
+     119.7
+    ],
+    [
+     "OF · сообщения (PPV/чат)",
+     66.98,
+     53.58
+    ],
+    [
+     "OF · чаевые",
+     0,
+     0
+    ],
+    [
+     "OF · посты",
+     0,
+     0
+    ],
+    [
+     "OF · итого",
+     216.62,
+     173.28
+    ],
+    [
+     "ManyVids (net)",
+     null,
+     7.79
+    ],
+    [
+     "Clips4Sale",
+     0,
+     0
+    ]
+   ]
+  },
+  "social": [
+   {
+    "net": "Instagram",
+    "note": "15 акк. в аудите ответов (IG_A 4 · IG_B 11); подписчики не снимались"
+   },
+   {
+    "net": "TikTok",
+    "note": "16 акк. — аудит пропущен (ждём телефон с TikTok)"
+   },
+   {
+    "net": "OnlyFans",
+    "note": "фаны/новые/ребилы — нужен снимок Statistics → Subscriptions"
+   }
+  ],
+  "audit": {
+   "date": "2026-09-22",
+   "text": "Аудит ответов на комменты IG: 68 Reels, hard miss 0, borderline 7; TikTok не проверяли.",
+   "src": "аудит 22.09"
+  }
+ }
+}

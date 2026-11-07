@@ -1,0 +1,228 @@
+{
+ "checked_at": "2026-10-25T08:10",
+ "query": "in:sent after:2026/10/20",
+ "messages": [
+  {
+   "id": "1a159eb871d1b9de",
+   "to": "ethics@olin.com",
+   "subject": "Long-term cooperation — SpetsTechnoExport",
+   "date": "2026-10-20T15:26:10Z"
+  },
+  {
+   "id": "1a15a071af994a2b",
+   "to": "noemi_paulo@diexa.cl",
+   "subject": "Cooperación a largo plazo — SpetsTechnoExport",
+   "date": "2026-10-20T15:56:17Z"
+  },
+  {
+   "id": "1a15a1574c2e59a3",
+   "to": "segovia_marcelo@diexa.cl",
+   "subject": "Cooperación a largo plazo — SpetsTechnoExport",
+   "date": "2026-10-20T16:11:58Z"
+  },
+  {
+   "id": "1a15a2abb9e964ce",
+   "to": "sepulveda_manuel@diexa.cl",
+   "subject": "Cooperación a largo plazo — SpetsTechnoExport",
+   "date": "2026-10-20T16:35:12Z"
+  },
+  {
+   "id": "1a15a623642d366f",
+   "to": "valenzuela_nelson@diexa.cl",
+   "subject": "Cooperación a largo plazo — SpetsTechnoExport",
+   "date": "2026-10-20T17:35:48Z"
+  },
+  {
+   "id": "1a15b4bab236182a",
+   "to": "villalobos_cristian@diexa.cl",
+   "subject": "Cooperación a largo plazo — SpetsTechnoExport",
+   "date": "2026-10-20T21:50:48Z"
+  },
+  {
+   "id": "1a15efeb6f2d0ffe",
+   "to": "info@oculusas.com",
+   "subject": "Representación UAV y anti-dron — SpetsTechnoExport",
+   "date": "2026-10-21T15:05:13Z"
+  },
+  {
+   "id": "1a15f18cb9d2b902",
+   "to": "soporte1@nssmexico.com.mx",
+   "subject": "Overhaul y repuestos Mi-8/17 — SpetsTechnoExport",
+   "date": "2026-10-21T15:33:42Z"
+  },
+  {
+   "id": "1a15f4f891f1bbc4",
+   "to": "info@dronamex.com",
+   "subject": "Representación UAV y anti-dron — SpetsTechnoExport",
+   "date": "2026-10-21T16:33:30Z"
+  },
+  {
+   "id": "1a15f84c26dc5ce4",
+   "to": "contacto@siia.aero",
+   "subject": "Overhaul y repuestos Mi-8/17 — SpetsTechnoExport",
+   "date": "2026-10-21T17:31:38Z"
+  },
+  {
+   "id": "1a15fc1989806e19",
+   "to": "contacto@decsef.com",
+   "subject": "Representación UAV y anti-dron — SpetsTechnoExport",
+   "date": "2026-10-21T18:38:05Z"
+  },
+  {
+   "id": "1a15ff8603352923",
+   "to": "contacto@ibnindustriasmilitares.com",
+   "subject": "Modernización y repuestos de blindados — SpetsTechnoExport",
+   "date": "2026-10-21T19:37:55Z"
+  },
+  {
+   "id": "1a16031a293f227e",
+   "to": "info@mer-group.com.mx",
+   "subject": "Representación UAV y anti-dron — SpetsTechnoExport",
+   "date": "2026-10-21T20:40:28Z"
+  },
+  {
+   "id": "1a160636d12f3c22",
+   "to": "alejandro@aeromontre.com",
+   "subject": "Overhaul y repuestos Mi-8/17 — SpetsTechnoExport",
+   "date": "2026-10-21T21:34:50Z"
+  },
+  {
+   "id": "1a1607f3ae918390",
+   "to": "contacto@airmobility.com.mx",
+   "subject": "Representación UAV y anti-dron — SpetsTechnoExport",
+   "date": "2026-10-21T22:05:13Z"
+  },
+  {
+   "id": "1a160a0a4852ea15",
+   "to": "contacto@helijets.mx",
+   "subject": "Overhaul y repuestos Mi-8/17 — SpetsTechnoExport",
+   "date": "2026-10-21T22:41:43Z"
+  },
+  {
+   "id": "1a16426e5f8149f8",
+   "to": "info@aeromaan.mx",
+   "subject": "Overhaul y repuestos Mi-8/17 — SpetsTechnoExport",
+   "date": "2026-10-22T15:07:12Z"
+  },
+  {
+   "id": "1a1645f84cc4ef3f",
+   "to": "kommandortactical@gmail.com",
+   "subject": "Representación UAV y anti-dron — SpetsTechnoExport",
+   "date": "2026-10-22T16:09:04Z"
+  },
+  {
+   "id": "1a1649208d95256f",
+   "to": "contacto@aerovant.com",
+   "subject": "Representación UAV y anti-dron — SpetsTechnoExport",
+   "date": "2026-10-22T17:04:14Z"
+  },
+  {
+   "id": "1a164cb2b4b78a83",
+   "to": "customer.service@usmxairlink.com",
+   "subject": "Overhaul y repuestos Mi-8/17 — SpetsTechnoExport",
+   "date": "2026-10-22T18:06:38Z"
+  },
+  {
+   "id": "1a165049b55f2564",
+   "to": "contacto@interconecta.com.mx",
+   "subject": "Representación UAV y anti-dron — SpetsTechnoExport",
+   "date": "2026-10-22T19:09:23Z"
+  },
+  {
+   "id": "1a1653a5dc656e49",
+   "to": "bruntonalliance@gmail.com",
+   "subject": "Overhaul y repuestos Mi-8/17 — SpetsTechnoExport",
+   "date": "2026-10-22T20:08:05Z"
+  },
+  {
+   "id": "1a1656c160b2e2d5",
+   "to": "contacto@tecimac.com.mx",
+   "subject": "Representación UAV y anti-dron — SpetsTechnoExport",
+   "date": "2026-10-22T21:02:25Z"
+  },
+  {
+   "id": "1a165a697c744102",
+   "to": "jmmpacsa@prodigy.net.mx",
+   "subject": "Overhaul y repuestos Mi-8/17 — SpetsTechnoExport",
+   "date": "2026-10-22T22:06:18Z"
+  },
+  {
+   "id": "1a165c027dc6ae75",
+   "to": "sarayu.comercial@live.com.mx",
+   "subject": "Overhaul y repuestos Mi-8/17 — SpetsTechnoExport",
+   "date": "2026-10-22T22:34:14Z"
+  },
+  {
+   "id": "1a16913e5de8f890",
+   "to": "info@helicentro.pe",
+   "subject": "Overhaul y repuestos Mi-8/17 — SpetsTechnoExport",
+   "date": "2026-10-23T14:04:33Z"
+  },
+  {
+   "id": "1a16947854bbc5b6",
+   "to": "admin@dtsperu.com",
+   "subject": "Representación UAV y anti-dron — SpetsTechnoExport",
+   "date": "2026-10-23T15:00:57Z"
+  },
+  {
+   "id": "1a16968723798dc6",
+   "to": "helisur@helisur.com.pe",
+   "subject": "Overhaul y repuestos Mi-8/17 — SpetsTechnoExport",
+   "date": "2026-10-23T15:36:55Z"
+  },
+  {
+   "id": "1a16983caffb062a",
+   "to": "direccioncomercial@codaltec.com",
+   "subject": "Cooperación institucional en UAV y anti-dron — SpetsTechnoExport",
+   "date": "2026-10-23T16:06:47Z"
+  },
+  {
+   "id": "1a169bf551ef70c0",
+   "to": "informes@famesac.com",
+   "subject": "Cooperación técnico-militar con Ucrania: overhaul y repuestos — SpetsTechnoExport",
+   "date": "2026-10-23T17:11:49Z"
+  },
+  {
+   "id": "1a169f477a385535",
+   "to": "sales@seman.com.pe",
+   "subject": "Cooperación técnico-militar con Ucrania: overhaul y repuestos — SpetsTechnoExport",
+   "date": "2026-10-23T18:09:51Z"
+  },
+  {
+   "id": "1a16a24e97560301",
+   "to": "info@biotelecomm.com",
+   "subject": "Representación UAV y anti-dron — SpetsTechnoExport",
+   "date": "2026-10-23T19:02:46Z"
+  },
+  {
+   "id": "1a16a5b3c7fd18b5",
+   "to": "vm@aero-sgl.pe",
+   "subject": "Overhaul y repuestos Mi-8/17 — SpetsTechnoExport",
+   "date": "2026-10-23T20:02:06Z"
+  },
+  {
+   "id": "1a16a96953c12664",
+   "to": "consultas@acffaa.gob.pe",
+   "subject": "Cooperación institucional en UAV y anti-dron — SpetsTechnoExport",
+   "date": "2026-10-23T21:06:55Z"
+  },
+  {
+   "id": "1a16fee6d46d84bf",
+   "to": "ventas@ingesoftcompany.com",
+   "subject": "Representación UAV y anti-dron — SpetsTechnoExport",
+   "date": "2026-10-24T22:00:58Z"
+  },
+  {
+   "id": "1a17002e85e83feb",
+   "to": "aorozco@grupocesa.com",
+   "subject": "Representación UAV y anti-dron — SpetsTechnoExport",
+   "date": "2026-10-24T22:23:21Z"
+  },
+  {
+   "id": "1a1701af4f0e0abf",
+   "to": "sales@polarsat.com",
+   "subject": "Representación UAV y anti-dron — SpetsTechnoExport",
+   "date": "2026-10-24T22:49:37Z"
+  }
+ ]
+}

@@ -1,0 +1,5 @@
+{"_note": "Ручные дополнения к табло Оборонки (то, чего нет в CSV рассылки). replies_gmail — живые ответы, auto_replies_gmail — автоответы, найденные в ящике STE; deals — подписанные сделки (цель Rost: 1).",
+ "gmail_checked_at": "2026-10-25T08:00",
+ "replies_gmail": [],
+ "auto_replies_gmail": [{"company": "Biotelecomm SAS", "date": "2026-10-23", "note": "автоответ «Recepción de correo», в CSV не отмечен"}],
+ "deals": 0}

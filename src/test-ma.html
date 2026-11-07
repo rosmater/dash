@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="ru"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>ТЕСТ — Мессенджеры · Ассистенты · Боты</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+/*STYLE*/
+<style>
+.testbar{background:#fff3dc;border:1px dashed var(--warn);color:#7a4a05;border-radius:12px;padding:8px 12px;font-size:12.5px;margin-bottom:14px}
+.mrow{border-top:1px solid var(--line);padding:9px 0}.mrow:first-of-type{border-top:0}
+.mrow summary{display:flex;gap:8px;align-items:center;cursor:pointer;list-style:none;font-size:13.5px;flex-wrap:wrap}.mrow summary::-webkit-details-marker{display:none}
+.mrow summary::before{content:"▸";color:var(--mut);font-size:11px}.mrow[open] summary::before{content:"▾"}
+.mlabel{font-size:10.5px;font-weight:700;padding:1px 8px;border-radius:99px;background:#eef0f6;color:#3a4160;white-space:nowrap}
+.ml-tg{background:#e3f3fd;color:#1f7fb3}.ml-wu{background:#e6f7f0;color:#0b7a59}.ml-we{background:#eaf8e0;color:#3f7a0b}.ml-vb{background:#f1eaff;color:#6d28d9}.ml-em{background:#fff1d6;color:#9a5b07}
+.cnt{margin-left:auto;font-size:11px;font-weight:700;color:#fff;background:var(--neg);border-radius:99px;padding:1px 7px}.cnt.z{background:#cbd5e1}
+.mbody{padding:6px 0 2px 18px;font-size:12.5px;color:#3a4160}.mbody li{margin:3px 0}
+.nob{font-size:10.5px;color:#9a5b07;background:#fff6e5;border:1px dashed #f3d7a3;border-radius:6px;padding:0 6px}
+.bind a{color:var(--acc);text-decoration:none}.bind{margin-top:4px}
+.q{display:flex;gap:8px;align-items:flex-start;padding:8px 10px;border-radius:10px;margin:6px 0;font-size:13.5px;text-decoration:none;color:var(--txt);border:1px solid var(--line);cursor:pointer}
+.q:hover{box-shadow:var(--shadow)}.q.red{background:#fff5f5;border-color:#f5c2c4;border-left:4px solid var(--neg)}.q.green{background:#f3fbf7;border-color:#bfe9d8;border-left:4px solid var(--pos)}
+.ydot{display:inline-block;width:9px;height:9px;border-radius:50%;background:#facc15;box-shadow:0 0 0 2px #fff,0 0 0 3px #eab30855;margin-top:5px;flex:0 0 auto}
+.okfold summary{cursor:pointer;font-size:12.5px;color:var(--pos);font-weight:600;margin-top:6px}
+.st-open{background:#ffe3e5;color:#b42318}.st-ans{background:#e6f7f0;color:#0b7a59}
+.ctxnote{position:fixed;left:50%;bottom:20px;transform:translateX(-50%);background:#1b2033;color:#fff;padding:10px 14px;border-radius:12px;font-size:13px;z-index:60;max-width:90vw;display:none}
+</style>
+</head><body>
+<div class="wrap">
+<header><div class="brand"><div class="logo">T</div><div><h1>Мессенджеры · Ассистенты · Боты <span class="ex-badge">ТЕСТ</span></h1><small id="gen"></small></div></div></header>
+<div class="testbar">🧪 Тестовая страница. Прод-вкладки дашборда не тронуты. В «Мессенджерах» — только метаданные (кто, где, сколько, тип), <b>тексты сообщений не читаются и не показываются</b>.</div>
+<nav class="tabs" id="tabs"></nav><main id="main"></main></div>
+<div class="ctxnote" id="ctx"></div>
+<script>window.DASH_LS='dash_key_test_ma_v1';window.DASH_TITLE='ТЕСТ: Мессенджеры / Боты';
+// тот же пароль и та же соль, что у основного дашборда -> берём сохранённый ключ основного (только чтение; при ошибке стирается лишь тестовый ключ)
+try{if(!localStorage.getItem(DASH_LS)&&localStorage.getItem('dash_key_v1'))localStorage.setItem(DASH_LS,localStorage.getItem('dash_key_v1'))}catch(e){}</script>
+<script>/*GATE*/</script>
+<script>
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const LBL=c=>{const k=/Telegram/.test(c)?'tg':/UKR/.test(c)?'wu':/ESP/.test(c)?'we':/Viber/.test(c)?'vb':/mail/i.test(c)?'em':'';return `<span class="mlabel ml-${k}">${esc(c)}</span>`};
+const T=[['msg','💬 Мессенджеры','#22a06b'],['asst','🧑‍💼 Ассистенты','#5b8cff'],['bots','🤖 Боты','#7c5cff']];
+let D,cur=(location.hash.slice(1)||'msg');
+function tabs(){const n=document.getElementById('tabs');
+ const red=D.bots.reduce((a,b)=>a+b.qs.filter(q=>q.st==='red'&&!q.answered).length,0);
+ const pend=D.messengers.reduce((a,g)=>a+g.rows.filter(r=>r.pending||r.unread_chat).length,0);
+ const badge={msg:pend,asst:D.bots.reduce((a,b)=>a+b.qs.filter(q=>!q.answered).length,0),bots:red};
+ n.innerHTML=T.map(([id,l,c])=>`<button style="--c:${c}" class="${id===cur?'on':''}" onclick="go('${id}')">${l}${badge[id]?`<span class="abadge">${badge[id]}</span>`:''}</button>`).join('')}
+function go(id){cur=id;history.replaceState(null,'','#'+id);tabs();render()}
+function bindHtml(b){if(!b)return '<span class="nob">нет binding</span>';
+ const u=t=>D.cu_base+t;let h=`<div class="bind">🔗 ${b.kind==='девушка'?'личная карточка':'работа'}: `;
+ if(b.card)h+=`<a target="_blank" href="${u(b.card[0])}">${esc(b.card[1])}</a> `;
+ if(b.tasks)h+=b.tasks.map(t=>`<a target="_blank" href="${u(t[0])}">${esc(t[1])}</a>`).join(' · ');
+ return h+'</div>'}
+function msg(){return `<div class="grid g2e">`+D.messengers.map(g=>{
+ const rows=g.rows.filter(r=>!r.planned||true);
+ const total=rows.reduce((a,r)=>a+(r.unread_chat||0),0);
+ return `<div class="card"><h3>${esc(g.sphere)}<span class="st">${rows.length} отпр.</span></h3>`+rows.map(r=>{
+  const kinds=Object.entries(r.kinds||{}).map(([k,v])=>`${esc(k)} ×${v}`).join(', ');
+  return `<details class="mrow"><summary>${LBL(r.channel)}<b>${esc(r.sender)}</b>${r.chat!==r.sender?`<span class="note">в «${esc(r.chat)}»</span>`:''}${r.pending&&!r.planned?'<span class="pill p-high">ждёт</span>':''}${r.planned?'<span class="pill p-normal">план</span>':''}<span class="cnt ${r.unread_chat?'':'z'}">${r.unread_chat??'—'}</span></summary>
+  <div class="mbody"><ul>${r.pending?`<li>⏳ ${esc(r.pending)}</li>`:''}${r.client?`<li>Клиент: ${esc(r.client)}</li>`:''}${r.watcher?`<li>${r.watcher_st==='red'?'🔴':'🟢'} Вочер: ${esc(r.watcher)}</li>`:''}${r.unread_list?`<li>Непрочитанные чаты: ${r.unread_list.map(u=>`${esc(u.chat)}${u.kind?` (${esc(u.kind)})`:''} ×${u.n}`).join(', ')||'нет'}</li>`:''}${r.items?`<li>Записей в логе: ${r.items} (${kinds}) · последн. ${esc(r.last||'')} Bogotá</li>`:''}<li>Непрочитано в чате: ${r.unread_chat??'нет данных'} · источник: ${esc(r.src)}</li></ul>${r.planned?'':bindHtml(r.binding)}</div></details>`}).join('')+`</div>`}).join('')+`</div><p class="note">Содержимое сообщений не отображается. Метаданные: secretary-log (25–26.10) по allowlist чатов/людей из contacts; Viber — watcher ещё не запущен.</p>`}
+function asst(){return `<div class="grid g2e">`+D.bots.map(b=>`<div class="card"><h3>${esc(b.name)}<span class="st">${b.qs.filter(q=>!q.answered).length} откр.</span></h3>${b.qs.length?`<table><tr><th>Вопрос</th><th>Статус</th></tr>`+b.qs.map(q=>`<tr><td style="white-space:normal">${esc(q.q)}</td><td><span class="pill ${q.answered?'st-ans':'st-open'}">${q.answered?'отвечен':'открыт'}</span></td></tr>`).join('')+`</table>`:'<div class="empty">Нет открытых вопросов (данные не собраны — шаблон)</div>'}</div>`).join('')+`</div>`}
+function qa(b,q,i){const href=b.link||'#';const tip=`${b.name}: ${q.q}\nКонтекст: ${q.ctx||''}`;
+ return `<a class="q ${q.st}" href="${esc(href)}" title="${esc(tip)}" data-b="${esc(b.name)}" data-i="${i}" onclick="return openQ(this)">${q.st==='green'&&q.new?'<span class="ydot" title="есть новые отчёты"></span>':''}<span>${q.st==='red'?'🔴 ':''}${esc(q.q)}${q.answered?' <span class="pill st-ans">отвечен</span>':''}</span></a>`}
+function openQ(a){const b=D.bots.find(x=>x.name===a.dataset.b),q=b.qs[+a.dataset.i];
+ const txt=`[Из дашборда] ${q.q}\nКонтекст: ${q.ctx||''}`;try{navigator.clipboard.writeText(txt)}catch(e){}
+ const c=document.getElementById('ctx');c.textContent=(b.link?'Открываю чат «'+b.name+'». ':'Это текущий чат (ссылки нет). ')+'Контекст скопирован — вставь в чат.';c.style.display='block';setTimeout(()=>c.style.display='none',3500);
+ return !!b.link}
+function bots(){return `<div class="grid g2e">`+D.bots.map(b=>{const red=b.qs.map((q,i)=>[q,i]).filter(([q])=>q.st==='red'),gr=b.qs.map((q,i)=>[q,i]).filter(([q])=>q.st!=='red');
+ const anyNew=gr.some(([q])=>q.new);
+ return `<div class="card ${red.length?'person at':''}"><h3>${esc(b.name)} ${b.link?`<a class="st" href="${esc(b.link)}" title="Открыть чат бота">открыть чат ↗</a>`:''}</h3>
+ ${red.map(([q,i])=>qa(b,q,i)).join('')}
+ ${gr.length?`<details class="okfold" ${red.length?'':''}><summary>${anyNew?'<span class="ydot"></span> ':''}🟢 Всё ок (${gr.length})</summary>${gr.map(([q,i])=>qa(b,q,i)).join('')}</details>`:''}
+ ${!b.qs.length?'<div class="empty">🟢 Вопросов нет (шаблон — данные ещё не собраны)</div>':''}</div>`}).join('')+`</div>
+ <p class="note">🔴 застряло/заблокировано · 🟢 норм (свёрнуто) · 🟡 точка = есть новые отчёты. Клик по вопросу копирует контекст в буфер и открывает чат бота по <code>grokbot://app/v1/agent?id=…</code> (<b>формат не подтверждён</b> в app-ui.md — проверить в приложении).</p>`}
+function render(){document.getElementById('main').innerHTML=cur==='asst'?asst():cur==='bots'?bots():msg()}
+(async()=>{D=await Gate.unlock('data-test-ma.enc.json');document.getElementById('gen').textContent='Данные: '+D.generated+' · TEST';tabs();render()})().catch(e=>{document.getElementById('main').innerHTML='<div class="attn">'+esc(e.message)+'</div>'});
+</script></body></html>

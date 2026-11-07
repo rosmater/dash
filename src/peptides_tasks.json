@@ -1,0 +1,83 @@
+{
+ "as_of": "2026-10-25T10:40-05:00",
+ "src": "ClickUp search «peptidos»/«пептиды» (все исполнители, открытые) — Rost 25.10: вернуть все задачи, Rost сверху «Я:», остальные с подписью чьи + все подзадачи CU 86bcn2ew9 «Peptidos» (include subtasks)",
+ "tasks": [
+  {
+   "id": "86bcnvnmr",
+   "name": "БОТ-ЧАСТЬ: Таргет пептиды: ограничение рекламы, решить что делать (5 рекламных аккаунтов)",
+   "status": "to do",
+   "priority": "urgent",
+   "due": "2026-10-26",
+   "list": "Задачи Tabakevich",
+   "owner": "me"
+  },
+  {
+   "id": "86bb779rw",
+   "name": "Луис платежка? (ПН: промо-фб-ин + руками непрочитанные) БОТ: Пептиды - запуск продаж (Ричард)",
+   "status": "for check",
+   "priority": "normal",
+   "due": "2026-10-15",
+   "list": "Задачи Tabakevich",
+   "owner": "me"
+  },
+  {
+   "id": "86bcnp3rg",
+   "name": "БОТ-ЧАСТЬ: Таргет пептиды - контроль и увеличение",
+   "status": "to do",
+   "priority": "normal",
+   "due": "2026-10-19",
+   "list": "Задачи Tabakevich",
+   "owner": "me"
+  },
+  {
+   "id": "86bbay300",
+   "name": "ЖДУ ПРАЙС Украина ПЕПТИДЫ от Андрея (жду прайс и отписку)",
+   "status": "to do",
+   "priority": "normal",
+   "due": "2026-11-02",
+   "list": "Задачи Tabakevich",
+   "owner": "me"
+  },
+  {
+   "id": "86bcp2pca",
+   "name": "responder chats de peptidos",
+   "status": "to do",
+   "priority": "urgent",
+   "due": "2026-10-26",
+   "list": "General Tasks OF",
+   "owner": "Сара"
+  },
+  {
+   "id": "86bc8rxd8",
+   "name": "Publicar en todas las redes de peptidos y oficina",
+   "status": "complete (solo ros)",
+   "priority": "high",
+   "due": "2026-10-28",
+   "list": "General Tasks OF",
+   "owner": "Сара",
+   "done": "2026-10-25 10:30",
+   "done_approx": true,
+   "parent": "Peptidos"
+  },
+  {
+   "id": "86bcfert7",
+   "name": "Enviar historia y foto peptidos todos los dias 15 chats",
+   "status": "to do",
+   "priority": "normal",
+   "due": "2026-10-26",
+   "list": "General Tasks OF",
+   "owner": "Сара",
+   "parent": "Peptidos"
+  },
+  {
+   "id": "86bcn2g2q",
+   "name": "Encontrar casa de cambio que pueden recibir dineros: OKX-TG-Ros",
+   "status": "to do",
+   "priority": "high",
+   "due": "2026-10-26",
+   "list": "General Tasks OF",
+   "owner": "Сара",
+   "parent": "Peptidos"
+  }
+ ]
+}
