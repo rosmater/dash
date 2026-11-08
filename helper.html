@@ -498,10 +498,18 @@ const prioRank={urgent:0,high:1,normal:2,low:3};
 /* TZ cu-dash-sort 27.10: D.overview.cu_sort = CU (исп. Rost + дата) без категории даша -> низ «Общего» + attn (кроме ДР) */
 /* TZ cu-dash-sort §2 27.10: d.cu_dated = CU (исп. Rost + дата), сопоставлены направлению, иначе не показаны -> свёрнутая карточка внизу вкладки; НЕ attn (Rost 25.10) */
 function cuClosed(t){const id=String(t&&(t.id||((t.url||'').split('/t/').pop())||'')).toLowerCase();if(id==='86bcnvnmr')return true;const st=String((t&&(t.cu_status||t.status))||'').toLowerCase();return st.startsWith('complete')||st==='done'||st.includes('closed')||st.includes('закрыт');}
-function cuDatedHTML(d){const _ids=new Set(((d&&d.cu_dated)||[]).map(t=>t.url));const LOC=d?((Dash.D.overview&&Dash.D.overview.cu_sort)||[]).filter(t=>SPH2DIR[maSph(cuK(t))]===d.id&&!_ids.has(t.url)).map(t=>Object.assign({},t,{loc:1,status:'↪ из сортировки'})):[];const L=((d&&d.cu_dated)||[]).concat(LOC).filter(t=>!cuClosed(t)).sort((a,b)=>String(a.due||'').localeCompare(String(b.due||'')));if(!L.length)return '';const LT={bot:'🤖 бот',manual:'✋ вручную',unknown:'? ведение'};const ov=t=>t.due&&t.due<TODAY;const nOv=L.filter(t=>!t.bday&&ov(t)).length;const fd=t=>esc(t.due.slice(8,10)+'.'+t.due.slice(5,7)+(t.due_t&&t.due_t!=='04:00'&&t.due_t!=='00:00'?' '+t.due_t:''));
- const row=t=>`<div class="ln" style="display:flex;gap:8px;align-items:baseline;flex-wrap:wrap${ov(t)?';background:#fdecec;border-radius:6px;padding:2px 4px':''}"><span style="min-width:58px;font-size:12px;font-weight:600;color:${ov(t)?'#c62828':'#667'}">${ov(t)?'⚠ ':''}${fd(t)}</span><a href="${esc(cuAppUrl(t.url))}" target="_blank" rel="noopener" style="flex:1;min-width:180px">${esc(t.name)}</a><span class="note" style="font-size:11px">${esc(t.parent&&t.parent!=='(корневая)'&&!/не резолв/.test(t.parent)?t.parent+' / ':'')}${esc(t.list)}</span><span class="note" style="font-size:11px">${LT[t.lead]||esc(t.lead)}</span><span class="note" style="font-size:11px">${esc(t.status)}</span>${t.loc?`<button class="pill p-normal" style="cursor:pointer;border:0" title="вернуть в «на сортировку»" data-k="${esc(cuK(t))}" data-t="${esc(t.name)}" data-u="${esc(t.url)}" onclick="cuUnset(this)">↩</button>`:''}</div>`;
+function cuDatedHTML(d){const _ids=new Set(((d&&d.cu_dated)||[]).map(t=>t.url));const LOC=d?((Dash.D.overview&&Dash.D.overview.cu_sort)||[]).filter(t=>SPH2DIR[maSph(cuK(t))]===d.id&&!_ids.has(t.url)).map(t=>Object.assign({},t,{loc:1,status:'↪ из сортировки'})):[];const tid=t=>t.id||((String(t.url||'').match(/[?&]t=([^&]+)/)||[])[1])||((String(t.url||'').split('/t/').pop()||'').split(/[?#]/)[0])||t.url||'';
+ let L=((d&&d.cu_dated)||[]).concat(LOC).filter(t=>!cuClosed(t));
+ const seen=new Set(L.map(tid));
+ const extra=((d&&d.tasks)||[]).filter(t=>!cuClosed(t)&&t.due&&t.due>TODAY&&!seen.has(tid(t))).map(t=>Object.assign({},t,{from_pin:1}));
+ L=L.concat(extra).sort((a,b)=>String(a.due||'').localeCompare(String(b.due||'')));if(!L.length)return '';
+ const whoPills=t=>{let names=[];if(Array.isArray(t.assignees)&&t.assignees.length)names=t.assignees.slice();else if(t.who)names=String(t.who).split(/,\s*/).filter(Boolean);else if(t.owner==='me')names=['Rost'];else if(t.owner)names=[t.owner];else if(!t.from_pin)names=['Rost'];
+  if(!names.length)return `<span class="pill" style="font-size:10px;font-weight:700;padding:1px 6px;line-height:1.2;color:#6b7280;background:#f3f4f6;border:1px solid #e5e7eb">исполнитель ?</span>`;
+  return names.map(nm=>{const me=/^(я|me)$/i.test(nm)||/^rost(yslav)?\b/i.test(String(nm).trim());return me?`<span class="pill" style="font-size:10px;font-weight:700;padding:1px 6px;line-height:1.2;color:#5b4bc4;background:#eef0ff;border:1px solid #d4d0f0">я</span>`:`<span class="pill" style="font-size:10px;font-weight:700;padding:1px 6px;line-height:1.2;color:#a5620a;background:#fff6d6;border:1px solid #f1d29a">${esc(nm)}</span>`;}).join(' ');};
+ const ov=t=>t.due&&t.due<TODAY;const nOv=L.filter(t=>!t.bday&&ov(t)).length;const fd=t=>esc((t.due||'').slice(8,10)+'.'+(t.due||'').slice(5,7)+(t.due_t&&t.due_t!=='04:00'&&t.due_t!=='00:00'?' '+t.due_t:''));
+ const row=t=>`<div class="ln" style="display:flex;gap:8px;align-items:baseline;flex-wrap:wrap${ov(t)?';background:#fdecec;border-radius:6px;padding:2px 4px':''}"><span style="min-width:58px;font-size:12px;font-weight:600;color:${ov(t)?'#c62828':'#667'}">${ov(t)?'⚠ ':''}${fd(t)}</span><a href="${esc(cuAppUrl(t.url))}" target="_blank" rel="noopener" style="flex:1;min-width:180px">${esc(t.name)}</a> ${whoPills(t)}<span class="note" style="font-size:11px">${esc(t.parent&&t.parent!=='(корневая)'&&!/не резолв/.test(t.parent)?t.parent+' / ':'')}${esc(t.list||'')}</span><span class="note" style="font-size:11px">${esc(t.status||'')}</span>${t.loc?`<button class="pill p-normal" style="cursor:pointer;border:0" title="вернуть в «на сортировку»" data-k="${esc(cuK(t))}" data-t="${esc(t.name)}" data-u="${esc(t.url)}" onclick="cuUnset(this)">↩</button>`:''}</div>`;
  const main=L.filter(t=>!t.bday),bd=L.filter(t=>t.bday);
- return `<div style="height:14px"></div><details class="card cudated"><summary style="cursor:pointer;font-weight:700;font-size:14px">🗂 ClickUp · задачи с датой · ${L.length}${nOv?` <span style="color:#c62828;font-weight:600">· просрочено ${nOv}</span>`:''}</summary><div class="note" style="margin:6px 0">Исполнитель Rost, есть дата; категория → это направление (TZ cu-dash-sort). Отсортировано по дате; не входят в «Требует внимания».</div><div style="max-height:min(360px,50vh);overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain">${main.map(row).join('')}${bd.length?`<details style="margin-top:8px"><summary style="cursor:pointer" class="note">🎂 ДР / Celebraciones · ${bd.length}</summary>${bd.map(row).join('')}</details>`:''}</div></details>`}
+ return `<div style="height:14px"></div><details class="card cudated"><summary style="cursor:pointer;font-weight:700;font-size:14px">🗂 ClickUp · задачи с датой · ${L.length}${nOv?` <span style="color:#c62828;font-weight:600">· просрочено ${nOv}</span>`:''}</summary><div class="note" style="margin:6px 0">Есть дата; цветная плашка — исполнитель (я или другой человек). Отсортировано по дате.</div><div style="max-height:min(360px,50vh);overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain">${main.map(row).join('')}${bd.length?`<details style="margin-top:8px"><summary style="cursor:pointer" class="note">🎂 ДР / Celebraciones · ${bd.length}</summary>${bd.map(row).join('')}</details>`:''}</div></details>`}
 /* Rost t3955u: тап направления → задача СРАЗУ уходит из «на сортировку» (локально) и едет в вкладку направления; тап → очередь → ntfy (шифр) → box tap_relay → sync_dash_taps → cu_dir_overrides.json → build_data */
 const cuK=t=>'cu|'+(t.id||t.url);const SPH2DIR={'Личное':'personal','Дейтинг':'personal','Коучинг':'personal','Недвижимость':'realestate','Табакевич':'tabakevich','ОФ':'of','Пептиды':'peptides','Оборонка':'defense','Игнор':'_ignore'};
 const cuTodo=D=>((D.overview&&D.overview.cu_sort)||[]).filter(t=>!maSph(cuK(t))&&!cuClosed(t));
@@ -1017,6 +1025,14 @@ function persBlocksHTML(d){if(d.id!=='personal'||!d.personal_blocks)return '';co
 function ofBlocksHTML(d){if(d.id!=='of'||!d.of_blocks)return '';const B=d.of_blocks,cur=Dash.curOf(d),$u=v=>v==null?'—':fmt(Dash.conv(v,'USD',cur),cur),n=v=>v==null?'—':esc(Dash.num(v)),m=S.mode;
  const PL={today:'вчера',week:'неделя',month:'месяц'},pk=m==='today'||m==='week'||m==='month'?m:'week';
  const tile=(l,v,s,cls)=>`<div class="card kpi${cls?' bt '+cls:''}"><div class="l">${l}</div><div class="v" style="font-size:22px">${v}</div><div class="s">${s||'&nbsp;'}</div></div>`;
+ const bogYmd0=(new Intl.DateTimeFormat('en-CA',{timeZone:'America/Bogota'})).format(new Date());
+ const [yy0,mm0,dd0]=bogYmd0.split('-').map(Number);
+ const _dt0=new Date(Date.UTC(yy0,mm0-1,dd0)),_dow0=(_dt0.getUTCDay()+6)%7;
+ const _mon0=new Date(_dt0);_mon0.setUTCDate(_dt0.getUTCDate()-_dow0);
+ const _sun0=new Date(_mon0);_sun0.setUTCDate(_mon0.getUTCDate()+6);
+ const _p0=n=>String(n).padStart(2,'0');
+ const curId='W:'+_mon0.toISOString().slice(0,10);
+ const curLab=_p0(_mon0.getUTCDate())+'–'+_p0(_sun0.getUTCDate())+'.'+_p0(_mon0.getUTCMonth()+1);
  const tk=(ts,empty)=>ts&&ts.length?ts.map(t=>`<div class="task"><span class="pill p-normal">${esc(t.status)}</span><div style="flex:1"><a href="${cuAppUrl(t.url)}" target="_blank" rel="noopener">${esc(t.name)}</a><div class="note">на ком: <b>${esc(t.who||'—')}</b>${t.parent?' · ↳ '+esc(t.parent):''}</div></div></div>`).join(''):`<div class="empty">${empty||'задач нет'}</div>`;
  /* Rost t5609u–t5615u: ТС/ОФТВ — фиолетовая плашка CU N; без задач — белая «задач нет» */
  const tsAlive=ts=>(ts||[]).filter(t=>{const s=String(t.status||'').toLowerCase();return !(s.startsWith('complete')||s==='models'||s==='main'||s==='closed'||s==='done'||/закрыт|заверш/.test(s));});
@@ -1073,14 +1089,17 @@ function ofBlocksHTML(d){if(d.id!=='of'||!d.of_blocks)return '';const B=d.of_blo
 </div>`}
  /* 3) ОФТВ */
  const O=B.oftv;if(O){const fansC=x=>x.fans==null?'—':(x.fans_approx?'≈':'')+n(x.fans);
-  const oLast=O.last||(O.week?{id:O.week.id,label:O.week.label,net:O.total_net!=null?O.total_net:(O.models||[]).reduce((a,x)=>a+(+x.net||0),0),fans_new:(O.models||[]).reduce((a,x)=>a+(+x.fans_new||0),0)}:null);
+  const fromModels=(O.models||[]).reduce((a,x)=>({net:a.net+(+x.net||0),fans_new:a.fans_new+(+x.fans_new||0)}),{net:0,fans_new:0});
+  const fromCurWeek=O.week?{id:O.week.id,label:O.week.label,net:O.total_net!=null?O.total_net:fromModels.net,fans_new:fromModels.fans_new}:null;
+  const oCur=O.cur||(fromCurWeek&&fromCurWeek.id===curId?fromCurWeek:{id:curId,label:curLab,net:null,fans_new:null});
+  const oLast=O.last||(fromCurWeek&&fromCurWeek.id!==curId?fromCurWeek:null);
   const oPrev=O.prev||null;
   const oSubs=x=>x&&x.fans_new!=null?`<span class="pill" style="font-size:11px;font-weight:700;padding:2px 7px;line-height:1.2;vertical-align:middle;color:#374151;background:#f3f4f6;border:1px solid #e5e7eb">новые ${n(x.fans_new)}</span>`:'';
   const oVal=x=>x&&x.net!=null?`<span style="display:inline-flex;align-items:center;gap:8px;flex-wrap:wrap">${$u(x.net)}${oSubs(x)}</span>`:'—';
   const attn=x=>{const v=x.fans_new;if(v==null)return '';return v<100?` <span class="pill" style="font-size:9px;font-weight:700;padding:1px 5px;line-height:1.2;vertical-align:middle;color:#b42318;background:#fee4e2;border:1px solid #fda29b">требует внимания</span>`:` <span class="pill" style="font-size:9px;font-weight:700;padding:1px 5px;line-height:1.2;vertical-align:middle;color:#0b7a59;background:#d1fadf;border:1px solid #abefc6">все ок</span>`};
   const lst=(t,xs)=>`<details style="margin-top:8px"><summary style="cursor:pointer;font-weight:700;font-size:13px">${t} (${xs.length})</summary>${xs.length?xs.map(x=>`<div class="task"><span class="pill p-high">${esc(x.cu?x.cu.status:'—')}</span><div style="flex:1"><b style="font-size:13.5px">${esc(x.name)}</b><div class="note">${esc(x.note||'')}${x.cu?` · <a href="${cuAppUrl(x.cu.url)}" target="_blank" rel="noopener">CU</a> · на ком: <b>${esc(x.cu.who)}</b>`:''}</div></div></div>`).join(''):'<div class="empty">пусто</div>'}</details>`;
   h+=`<div class="card" style="margin-bottom:14px">${H(esc(O.title))}
-  <div class="grid g2e">${tile('💵 Прошлая неделя',oVal(oLast),oLast&&oLast.label?esc(oLast.label):'')}${tile('💵 Позапрошлая неделя',oVal(oPrev),oPrev&&oPrev.label?esc(oPrev.label):'')}</div>
+  <div class="grid g3b">${tile('⏳ Текущая (неполная)',oVal(oCur),oCur&&oCur.label?esc(oCur.label):'')}${tile('💵 Прошлая неделя',oVal(oLast),oLast&&oLast.label?esc(oLast.label):'')}${tile('💵 Позапрошлая неделя',oVal(oPrev),oPrev&&oPrev.label?esc(oPrev.label):'')}</div>
   <h5 style="margin:10px 0 4px">Активные модели</h5>
   <div class="tblwrap" style="margin-top:6px"><table><tr><th>Модель</th><th>Кто</th><th>Задачи</th><th class="n">Оборот</th><th class="n">Фанов</th><th class="n">Новых</th></tr>
   ${O.models.map(x=>`<tr${tsOpen(x)}><td><b>${esc(x.name)}</b>${attn(x)}</td><td>${esc(x.person)}${x.team?' <span class="note">· '+esc(x.team)+'</span>':''}</td><td>${tsList(x)}</td><td class="n">${$u(x.net)}</td><td class="n">${fansC(x)}</td><td class="n">${n(x.fans_new)}</td></tr>${tsDetail(x,6)}`).join('')}
@@ -1093,16 +1112,30 @@ function ofBlocksHTML(d){if(d.id!=='of'||!d.of_blocks)return '';const B=d.of_blo
   <details style="margin-top:0"><summary style="cursor:pointer;font-weight:700;font-size:13px">📋 Задачи ClickUp по направлению (${tsAlive(O.tasks).length})</summary>${tk(tsAlive(O.tasks))}</details>
   <div class="note" style="margin-top:6px">Оборот — после комиссии OF 20%</div></div>`}
  /* 4) LolaPop */
- const P=B.lolapop;if(P){const LS=P.last_snapshot,raw=(P.periods||{}).week||{},row=(re)=>((LS&&LS.rows)||[]).find(r=>re.test(r[0])),subs=row(/подписк/i),msgs=row(/сообщен|PPV/i),tot=row(/итого/i),mv=row(/ManyVids/i),c4s=row(/Clips4Sale|C4S/i);
-  const pp={subs_new:raw.subs_new,rebills:raw.rebills,inc_subs:raw.inc_subs!=null?raw.inc_subs:(subs?subs[2]:null),inc_msgs:raw.inc_msgs!=null?raw.inc_msgs:(msgs?msgs[2]:null)};
-  pp.inc_total=raw.inc_total!=null?raw.inc_total:(tot?tot[2]:(pp.inc_subs!=null&&pp.inc_msgs!=null?Math.round((pp.inc_subs+pp.inc_msgs)*100)/100:null));
-  pp.mv=raw.mv!=null?raw.mv:(mv?mv[2]:null);pp.c4s=raw.c4s!=null?raw.c4s:(c4s?c4s[2]:null);
-  const wlab=LS&&LS.label?LS.label:'неделя';
+ const P=B.lolapop;if(P){const LS=P.last_snapshot,raw=(P.periods||{}).week||{},row=(re)=>((LS&&LS.rows)||[]).find(r=>re.test(r[0])),subs=row(/подписк/i),msgs=row(/сообщен|PPV/i),tot=row(/итого/i),tips=row(/чаевые/i),posts=row(/посты/i),mv=row(/ManyVids/i),c4s=row(/Clips4Sale|C4S/i);
+  const fromLS=LS?{label:LS.label,inc_subs:subs?subs[2]:null,inc_msgs:msgs?msgs[2]:null,inc_tips:tips?tips[2]:null,inc_posts:posts?posts[2]:null,inc_total:tot?tot[2]:null,mv:mv?mv[2]:null,c4s:c4s?c4s[2]:null,subs_new:null,rebills:null,fans:null,fans_new:null}:null;
+  const lpCur=P.cur||{label:curLab};
+  const lpLast=P.last||null;
+  const lpPrev=P.prev||(fromLS&&(!P.last||P.last.label!==fromLS.label)?fromLS:null);
+  const lpCols=[{title:'Текущая',...lpCur},{title:'Прошлая',...(lpLast||{})},{title:'Позапрошлая',...(lpPrev||{})}];
+  const lpCell=(w,fn,kind)=>{const v=fn(w||{});return v==null||v===''?'—':kind==='$'?$u(v):n(v)};
+  const lpTable=(title,rows)=>`<h5 style="margin:10px 0 4px">${title}</h5><div class="tblwrap" style="margin-top:6px"><table><tr><th>Показатель</th>${lpCols.map(c=>`<th class="n">${esc(c.title)}${c.label?`<div class="note">${esc(c.label)}</div>`:''}</th>`).join('')}</tr>${rows.map(([lab,fn,kind])=>`<tr><td>${lab}</td>${lpCols.map(c=>`<td class="n">${lpCell(c,fn,kind)}</td>`).join('')}</tr>`).join('')}</table></div>`;
   h+=`<div class="card" style="margin-bottom:14px">${H(esc(P.title),esc(P.profile||''))}
-  <div class="grid g4">${tile('👥 Фанов',n(P.fans),P.fans==null?'в недельном съёме OF Statistics → Subscriptions':'неделя')}${tile('🆕 Новых фанов',n(P.fans_new),P.fans_new==null?'в недельном съёме OF Statistics → Subscriptions':'неделя')}${tile('➕ Новые подписки · '+wlab,n(pp.subs_new),pp.subs_new==null?'нет в последнем недельном съёме':'')}${tile('🔁 Ребилы · '+wlab,n(pp.rebills),pp.rebills==null?'нет в последнем недельном съёме':'')}</div>
-  <div class="grid g4" style="margin-top:10px">${tile('💳 Доход · подписки · '+wlab,$u(pp.inc_subs),pp.inc_subs==null?'нет в Earnings':'нетто · OF Earnings')}${tile('💬 Доход · сообщения · '+wlab,$u(pp.inc_msgs),pp.inc_msgs==null?'нет в Earnings':'нетто · OF Earnings')}${tile('💵 Итого OF · подписки + сообщения · '+wlab,$u(pp.inc_total),pp.inc_total==null?'нет в Earnings':'нетто · OF Earnings')}${tile('🎬 ManyVids · '+wlab,$u(pp.mv),pp.mv==null?'нет снимка кабинета MV':'кабинет MV')}</div>
-  <div class="grid g2b" style="margin-top:10px">${tile('📁 Clips4Sale · '+wlab,$u(pp.c4s),pp.c4s==null?'нет снимка кабинета C4S':'кабинет C4S')}</div>
-  ${LS?`<details style="margin-top:10px" open><summary style="cursor:pointer;font-weight:700;font-size:13px">Последний снимок дохода · ${esc(LS.label)}</summary><div class="tblwrap" style="margin-top:6px"><table><tr><th>Источник</th><th class="n">Брутто</th><th class="n">Нетто</th></tr>${LS.rows.map(r=>`<tr${/итого/.test(r[0])?' style="font-weight:700"':''}><td>${esc(r[0])}</td><td class="n">${$u(r[1])}</td><td class="n">${$u(r[2])}</td></tr>`).join('')}</table></div><div class="note">${esc(LS.src)}</div></details>`:''}
+  ${lpTable('OnlyFans',[
+    ['Итого OF',w=>w.inc_total,'$'],
+    ['Подписки',w=>w.inc_subs,'$'],
+    ['Сообщения',w=>w.inc_msgs,'$'],
+    ['Чаевые',w=>w.inc_tips,'$'],
+    ['Посты',w=>w.inc_posts,'$'],
+    ['Фанов',w=>w.fans,'n'],
+    ['Новых фанов',w=>w.fans_new,'n'],
+    ['Новые подписки',w=>w.subs_new,'n'],
+    ['Ребилы',w=>w.rebills,'n']
+  ])}
+  ${lpTable('Сайты с видео',[
+    ['ManyVids',w=>w.mv,'$'],
+    ['Clips4Sale',w=>w.c4s,'$']
+  ])}
   <div class="tblwrap" style="margin-top:8px"><table><tr><th>Соцсеть</th><th>Статистика</th></tr>${(P.social||[]).map(s=>`<tr><td>${esc(s.net)}</td><td style="white-space:normal"><span class="note">${esc(s.note)}</span></td></tr>`).join('')}</table></div>
   ${P.audit?`<div class="note" style="margin-top:6px">🔎 Аудит ${esc(P.audit.date.slice(8,10)+'.'+P.audit.date.slice(5,7))}: ${esc(P.audit.text)}</div>`:''}</div>`}
  return h}
@@ -1207,8 +1240,7 @@ function directionToday(d){const c=calDir(),ev=c?todayEvents(d.id):[],dt=dueToda
  let h=`<div class="card" style="margin-bottom:14px;border-color:#bfe6f555;background:linear-gradient(135deg,#ecf8fd,var(--panel))"><div class="today-h"><div><div style="font-size:22px;font-weight:800">${stageDot(d)}${d.icon} ${esc(d.name)}</div><div class="note">${esc(d.subtitle||'')} · сегодня</div></div>${toWeek()}</div></div>`+attnHTML(d)+ofBlocksHTML(d)+reBlocksHTML(d)+tbkBlocksHTML(d)+persBlocksHTML(d)+pepPlanHTML(d)+pepMonHTML(d,'ads')+pepDlgRepRow(d)+ledgerHTML(d)+pepMonHTML(d,'repeat');/* Rost 25.10: «Требует внимания» выше показателей; мониторы Пептидов под продажами */
  h+=`<div class="grid ${c?'g2e':''}">${c?`<div class="card"><div class="today-h"><h3 style="margin:0">📅 Сегодня в календаре</h3>${c?'<button class="tolink" data-calgo="1">таймлайн дня →</button>':''}</div><div style="margin-top:8px">${c?agendaHTML(ev,'Событий этого направления со временем на сегодня нет.'):'<div class="empty">Календарь скрыт</div>'}</div></div>`:''}
  <div class="card"><h3>Срок сегодня · ClickUp</h3>${tasksHTML(dt)}<h3 style="margin-top:14px">Просрочено <span class="st">${ov.length}</span></h3>${tasksHTML(ov)}</div></div>`;
- if(rest.length)h+=`<div style="height:14px"></div><details class="card"><summary style="cursor:pointer;font-weight:700;font-size:14px">Остальные открытые задачи · ${rest.length}</summary><div class="note" style="margin:6px 0">Закреплённые задачи этого направления, у которых срок ещё впереди — не сегодня и не просрочены.</div>${tasksHTML(rest.sort((a,b)=>(prioRank[a.priority]-prioRank[b.priority])||String(a.due).localeCompare(b.due)))}</details>`;
- if((d.monitors||[]).length){const mt=d.monitors_title||'Мониторы',ms=d.monitors_sub||'';h+=`<div style="height:14px"></div><div class="card"><h3>${esc(mt)}${ms?` <span class="st">${esc(ms)}</span>`:''}</h3>${d.monitors.map(x=>{const st=x.status||'planned',pill=st==='active'?'p-normal':'p-high',lab=st==='active'?'работает':st==='attention'?'внимание':'план';return `<div class="task"><span class="pill ${pill}">${lab}</span><div style="flex:1"><b style="font-size:13.5px">${esc(x.name)}</b><div class="note">${esc(x.note||'')}${x.src?' · '+esc(x.src):''}</div></div></div>`}).join('')}</div>`}
+  if((d.monitors||[]).length){const mt=d.monitors_title||'Мониторы',ms=d.monitors_sub||'';h+=`<div style="height:14px"></div><div class="card"><h3>${esc(mt)}${ms?` <span class="st">${esc(ms)}</span>`:''}</h3>${d.monitors.map(x=>{const st=x.status||'planned',pill=st==='active'?'p-normal':'p-high',lab=st==='active'?'работает':st==='attention'?'внимание':'план';return `<div class="task"><span class="pill ${pill}">${lab}</span><div style="flex:1"><b style="font-size:13.5px">${esc(x.name)}</b><div class="note">${esc(x.note||'')}${x.src?' · '+esc(x.src):''}</div></div></div>`}).join('')}</div>`}
  h+=cuDatedHTML(d);$('#main').innerHTML=h;bindToday()}
 
 /* Rost 26.10: вкладки Мессенджеры + «Ассистенты · боты» (одна общая, Rost: «1 вкладки достаточно»; раньше только test-messengers-assistants.html). Только метаданные, тексты сообщений не показываются. */
