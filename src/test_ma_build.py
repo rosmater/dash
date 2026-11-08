@@ -745,7 +745,7 @@ for b in data['bots']:
         st, t = m.group(1).strip(), m.group(2)
         t = _re.sub(r'^\[[^\]]*\]\s*', '', t)  # вторая скобка статуса
         sl = st.lower()
-        if _re.match(r'^(done|x\b|x$|standing|\d)', sl) or sl.startswith('x '): continue  # \d = строка журнала с временем
+        if _re.match(r'^(done|x\b|x$|standing|hold|skip|\d)', sl) or sl.startswith('x '): continue  # \d = строка журнала с временем; hold/skip = отложенное, не текущая очередь (t2129)
         t = _clean(t)
         if any(k in t for k in _Q_SKIP): continue
         lab = _re.split(r'\s+\d|\s+—|:', st or 'в очереди')[0].strip() or 'в очереди'
