@@ -80,7 +80,29 @@
         "live_ok": 4,
         "idle": 25,
         "src": "Onimator Reports 07.11 ~18:51 Bogotá (Фермовод)",
-        "note": "полный Reports: 4 healthy / 25 idle; follows 0; видимые successful story views 77; лайки в UI 0"
+        "note": "полный Reports: 4 healthy / 25 idle; follows 0; видимые successful story views 77; лайки в UI 0; разбивка по телефонам из скринов Accounts/Reports 07.11",
+        "phones": [
+          {
+            "name": "22126RN91Y",
+            "follows": 0,
+            "likes": 0,
+            "story_views": 0,
+            "total": 0,
+            "live_ok": 0,
+            "idle": 10,
+            "src": "Onimator Accounts/Reports 07.11: 10 акков, все Idle, сторис 0"
+          },
+          {
+            "name": "Celular 11",
+            "follows": 0,
+            "likes": 0,
+            "story_views": 77,
+            "total": 77,
+            "live_ok": 4,
+            "idle": 15,
+            "src": "Onimator Accounts 07.11: сторис 32+28+10+7 (burmaschendelg, laws_on561, eleanorb.giroux, elizabethl.978); 1 problem не в живых/idle"
+          }
+        ]
       },
       "2026-11-08": {
         "follows": 0,
