@@ -1061,8 +1061,9 @@ function ofBlocksHTML(d){if(d.id!=='of'||!d.of_blocks)return '';const B=d.of_blo
  const T=B.ts;if(T&&T.last){const w=x=>x?`${$u(x.net)}`:'—',ws=x=>x?`${esc(x.label)} · оборот ${$u(x.gross)} · моделей ${x.models}`:'';
   const dlt=T.prev&&T.last?T.last.net-T.prev.net:null;
   const tsPart=!!(T.cur&&T.models_week&&T.models_week===T.cur.id);
+  const arpu=x=>x&&x.arpu!=null?`ARPU ${$u(x.arpu)}`:'';
   h+=`<div class="card" style="margin-bottom:14px">${H((tsPart?'Неполная неделя · ':'')+esc(T.title),[T.models_label, tsPart?'ещё идёт':'наш доход'].filter(Boolean).join(' · '))}
-  <div class="grid g4">${tile('💵 Прошлая неделя',w(T.last),ws(T.last)+(dlt!=null?` · <b style="color:${dlt>=0?'#0b7a59':'#b42318'}">${dlt>=0?'+':''}${$u(dlt)}</b>`:''))}${tile('💵 Позапрошлая неделя',w(T.prev),ws(T.prev))}${tile('👤 ARPU (наш доход / модель)',$u(T.last.arpu),'ARPU gross '+$u(T.last.arpu_gross)+' · '+esc(T.last.label))}${T.cur?tile('⏳ Текущая (неполная)',w(T.cur),ws(T.cur)):''}</div>
+  <div class="grid g3b">${tile('💵 Прошлая неделя',w(T.last),(ws(T.last)+(dlt!=null?` · <b style="color:${dlt>=0?'#0b7a59':'#b42318'}">${dlt>=0?'+':''}${$u(dlt)}</b>`:''))+(arpu(T.last)?' · '+arpu(T.last):''))}${tile('💵 Позапрошлая неделя',w(T.prev),ws(T.prev)+(arpu(T.prev)?' · '+arpu(T.prev):''))}${T.cur?tile('⏳ Текущая (неполная)',w(T.cur),ws(T.cur)+(arpu(T.cur)?' · '+arpu(T.cur):'')):''}</div>
   <div class="note" style="margin:6px 0">${esc(T.arpu_note||'')}</div>
   <h5 style="margin:10px 0 4px">${tsPart?'Неполная неделя · ':''}Модели (${T.models.length})${T.models_label?' · '+esc(T.models_label):''}</h5>
   <div class="tblwrap" style="margin-top:6px"><table><tr><th>Модель</th><th>Задачи</th><th class="n">Наш доход</th><th class="n">Было</th><th class="n">Оборот</th><th class="n">%</th><th class="n">Фаны (нетто)</th></tr>
