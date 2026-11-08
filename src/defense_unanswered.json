@@ -1,13 +1,13 @@
 {
   "_note": "Живые ответы компаний (STE). Красный «разобрать» = open (мы не ответили). Жёлтый «ждём ответа» = waiting / awaiting_their_reply (наш ответ ушёл). answered/scheduled — снять с внимания. Пишет ste / Оборонка.",
-  "updated_at": "2026-11-07T08:12:00-05:00",
+  "updated_at": "2026-11-08T01:44:57-05:00",
   "unanswered_replies": [
     {
       "company": "TEREM-Letets / TEREM Holding (Bulgaria)",
       "from": "Georgi Nalbantov <g_nalbantov@terem.bg> (cc Tsvetan Kamenov <ts_kamenov@terem.bg>)",
       "subject": "RE: Mi-8/17 overhaul and spare parts — SpetsTechnoExport",
       "received_at": "2026-11-06T05:42:59-05:00",
-      "note": "Ответ клиенту 06.11 ~15:30 (msg 1a1b28f0a09789a3). Запрос Дмитрию STE (WA UKR) отправлен 06.11 16:02 — складской список + 8× Safir APU 5K/GMIS. Ждём данные от Дмитрия → дослать TEREM. Карточка companies/terem-letets.md. Срочная задача CU 86bczu31g (due 07.11).",
+      "note": "Ответ клиенту 06.11 ~15:30. Запрос Дмитрию STE (WA UKR) 06.11 16:02 — склад + 8× Safir APU. CU 86bczu31g due 07.11. Ждём данные Дмитрия → дослать TEREM.",
       "url": "https://mail.google.com/mail/u/0/#inbox/1a1b07471fccc536",
       "status": "waiting",
       "priority": false,
@@ -61,14 +61,14 @@
       "from": "Carlos Bedoya <licitaciones2@militaryjr.com.co>",
       "subject": "RE: Representación UAV y anti-dron — SpetsTechnoExport",
       "received_at": "2026-11-06T16:45:49-05:00",
-      "note": "НОВЫЙ вопрос 06.11 16:45: каталог получили, изучают; спрашивают, контактировали ли мы уже с другими колумбийскими компаниями. Нужен ответ Rost (черновик в CU 86bbzxnvx 07.11).",
+      "note": "Ответ отправлен 07.11 ~15:34 Bogotá (msg 1a1b7b7ba55200e9, thread 1a17a185cf09528b). Подтвердили: нет эксклюзивного соглашения в Колумбии, ищем сотрудничество, представление там не развито; рынки — Европа, Азия, Северная Америка, страны Залива. Ждём их предложения / возможный созвон.",
       "url": "https://mail.google.com/mail/u/0/#inbox/1a1b2d341dcff4b3",
-      "status": "open",
-      "our_reply_at": "2026-11-06T00:45-05:00",
-      "last_outbound": "catalog ES+EN 06.11",
+      "status": "waiting",
+      "our_reply_at": "2026-11-07T15:34:00-05:00",
+      "last_outbound": "reply 07.11 ~15:34 msg 1a1b7b7ba55200e9 thread 1a17a185cf09528b",
       "pipeline": "catalog",
-      "status_label": "Каталог отправлен",
-      "priority": true
+      "status_label": "Ждём ответа",
+      "priority": false
     },
     {
       "company": "MER Group (México)",
