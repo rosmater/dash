@@ -1061,9 +1061,10 @@ function ofBlocksHTML(d){if(d.id!=='of'||!d.of_blocks)return '';const B=d.of_blo
  const T=B.ts;if(T&&T.last){const w=x=>x?`${$u(x.net)}`:'—',ws=x=>x?`${esc(x.label)} · оборот ${$u(x.gross)} · моделей ${x.models}`:'';
   const dlt=T.prev&&T.last?T.last.net-T.prev.net:null;
   const tsPart=!!(T.cur&&T.models_week&&T.models_week===T.cur.id);
-  const arpu=x=>x&&x.arpu!=null?`ARPU ${$u(x.arpu)}`:'';
+  const arpu=x=>x&&x.arpu!=null?`<span class="pill" style="font-size:11px;font-weight:700;padding:2px 7px;line-height:1.2;vertical-align:middle;color:#374151;background:#f3f4f6;border:1px solid #e5e7eb">ARPU ${$u(x.arpu)}</span>`:'';
+  const wv=x=>x?`<span style="display:inline-flex;align-items:center;gap:8px;flex-wrap:wrap">${$u(x.net)}${arpu(x)}</span>`:'—';
   h+=`<div class="card" style="margin-bottom:14px">${H((tsPart?'Неполная неделя · ':'')+esc(T.title),[T.models_label, tsPart?'ещё идёт':'наш доход'].filter(Boolean).join(' · '))}
-  <div class="grid g3b">${tile('💵 Прошлая неделя',w(T.last),(ws(T.last)+(dlt!=null?` · <b style="color:${dlt>=0?'#0b7a59':'#b42318'}">${dlt>=0?'+':''}${$u(dlt)}</b>`:''))+(arpu(T.last)?' · '+arpu(T.last):''))}${tile('💵 Позапрошлая неделя',w(T.prev),ws(T.prev)+(arpu(T.prev)?' · '+arpu(T.prev):''))}${T.cur?tile('⏳ Текущая (неполная)',w(T.cur),ws(T.cur)+(arpu(T.cur)?' · '+arpu(T.cur):'')):''}</div>
+  <div class="grid g3b">${T.cur?tile('⏳ Текущая (неполная)',wv(T.cur),ws(T.cur)):''}${tile('💵 Прошлая неделя',wv(T.last),ws(T.last)+(dlt!=null?` · <b style="color:${dlt>=0?'#0b7a59':'#b42318'}">${dlt>=0?'+':''}${$u(dlt)}</b>`:''))}${tile('💵 Позапрошлая неделя',wv(T.prev),ws(T.prev))}</div>
   <div class="note" style="margin:6px 0">${esc(T.arpu_note||'')}</div>
   <h5 style="margin:10px 0 4px">${tsPart?'Неполная неделя · ':''}Модели (${T.models.length})${T.models_label?' · '+esc(T.models_label):''}</h5>
   <div class="tblwrap" style="margin-top:6px"><table><tr><th>Модель</th><th>Задачи</th><th class="n">Наш доход</th><th class="n">Было</th><th class="n">Оборот</th><th class="n">%</th><th class="n">Фаны (нетто)</th></tr>
