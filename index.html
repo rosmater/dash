@@ -1035,6 +1035,7 @@ function ofBlocksHTML(d){if(d.id!=='of'||!d.of_blocks)return '';const B=d.of_blo
   const tot=dayRec?(dayRec.total!=null?dayRec.total:(fol==null||lik==null||sto==null)?null:Number(fol)+Number(lik)+Number(sto)):((C.total&&C.total[pk]!=null)?C.total[pk]:(fol==null||lik==null||sto==null)?null:(Number(fol)+Number(lik)+Number(sto)));
   const liveN=dayRec?dayRec.live_ok:C.live_ok;
   const idleN=dayRec&&'idle' in dayRec?dayRec.idle:(C.idle!=null?C.idle:F.idle);
+  const repN=dayRec&&'replace' in dayRec?dayRec.replace:C.replace;
   const snapLbl=dayRec?yest:(C.as_of||'');
   const snapDot=s=>{const m=String(s||'').match(/(\d{4})-(\d{2})-(\d{2})/);return m?m[3]+'.'+m[2]:'';};
   const srcTime=String((dayRec&&dayRec.src)||C.src||'').match(/(\d{1,2}:\d{2})/);
@@ -1045,13 +1046,13 @@ function ofBlocksHTML(d){if(d.id!=='of'||!d.of_blocks)return '';const B=d.of_blo
   const cell=v=>`<td class="n">${wait?'—':n(v)}</td>`;
   const idleCell=v=>{const red=v!=null&&Number(v)>0;return `<td class="n"${red?' style="color:#b42318;font-weight:700;background:#fff5f5"':''}>${wait?'—':n(v)}</td>`;};
   const phTot=p=>p.total!=null?p.total:(p.follows==null||p.likes==null||p.story_views==null)?null:Number(p.follows)+Number(p.likes)+Number(p.story_views);
-  const phRow=p=>`<tr><td>${esc(p.name)}</td>${cell(p.follows)}${cell(p.likes)}${cell(p.story_views)}${cell(phTot(p))}${cell(p.live_ok)}${idleCell(p.idle)}</tr>`;
+  const phRow=p=>`<tr><td>${esc(p.name)}</td>${cell(p.follows)}${cell(p.likes)}${cell(p.story_views)}${cell(phTot(p))}${cell(p.live_ok)}${idleCell(p.idle)}${idleCell(p.replace)}</tr>`;
   h+=`<div class="card" style="margin-bottom:14px">${H(esc(F.title),'цель — теория')}
   <div class="card bgoal" style="padding:12px;margin-bottom:10px"><b>🎯 ${esc(F.goal.label)}</b>${(F.checkpoints||[]).map(c=>`<div class="task"><span class="pill ${c.status==='in_progress'?'p-high':'p-normal'}">${c.status==='in_progress'?'в работе':c.status==='done'?'✓':'план'}</span><div style="flex:1"><b style="font-size:13.5px">${esc(c.label)} → ${n(c.per_day)} фолловингов/день</b><div class="note">${esc(c.note||'')}</div></div></div>`).join('')}</div>
   <div class="note" style="margin-bottom:6px">${esc(cap)}</div>
-  <div class="tblwrap"><table><tr><th>Телефон</th><th class="n">Фолловинги</th><th class="n">Лайки</th><th class="n">Сторис</th><th class="n">Итого</th><th class="n">Живые</th><th class="n">не отработали</th></tr>
+  <div class="tblwrap"><table><tr><th>Телефон</th><th class="n">Фолловинги</th><th class="n">Лайки</th><th class="n">Сторис</th><th class="n">Итого</th><th class="n">Живые (отработали)</th><th class="n">Живые (не отработали)</th><th class="n">Блок (под замену)</th></tr>
   ${rows.map(phRow).join('')}
-  <tr style="font-weight:700;background:#f4f7fb"><td>Сумма</td>${cell(fol)}${cell(lik)}${cell(sto)}${cell(tot)}${cell(liveN)}${idleCell(idleN)}</tr>
+  <tr style="font-weight:700;background:#f4f7fb"><td>Сумма</td>${cell(fol)}${cell(lik)}${cell(sto)}${cell(tot)}${cell(liveN)}${idleCell(idleN)}${idleCell(repN)}</tr>
   </table></div>
 
   ${F.cu_task?`<div class="note" style="margin-top:6px">ClickUp: <a href="${cuAppUrl(F.cu_task.url)}" target="_blank" rel="noopener">${esc(F.cu_task.id)} · ${esc(F.cu_task.name)}</a></div>`:''}</div>`}

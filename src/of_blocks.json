@@ -90,7 +90,8 @@
             "total": 0,
             "live_ok": 0,
             "idle": 10,
-            "src": "Onimator Accounts/Reports 07.11: 10 акков, все Idle, сторис 0"
+            "src": "Onimator Accounts/Reports 07.11: 10 акков, все Idle, сторис 0",
+            "replace": 0
           },
           {
             "name": "Celular 11",
@@ -100,9 +101,11 @@
             "total": 77,
             "live_ok": 4,
             "idle": 15,
-            "src": "Onimator Accounts 07.11: сторис 32+28+10+7 (burmaschendelg, laws_on561, eleanorb.giroux, elizabethl.978); 1 problem не в живых/idle"
+            "src": "Onimator Accounts 07.11: сторис 32+28+10+7 (burmaschendelg, laws_on561, eleanorb.giroux, elizabethl.978); 1 problem не в живых/idle",
+            "replace": 1
           }
-        ]
+        ],
+        "replace": 1
       },
       "2026-11-08": {
         "follows": 0,
