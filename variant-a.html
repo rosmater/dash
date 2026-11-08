@@ -179,7 +179,8 @@ details.mrow .mbody>.task{padding:5px 0}
 <div class="ctrls"><div class="seg" id="mode"><button data-m="today">Сегодня</button><button data-m="week">Неделя</button><button data-m="month">Месяц</button></div><div class="seg" id="calbtn"><button data-t="calendar">📅 Календарь</button></div><div class="seg" id="mabtn"></div>
 <select id="period"></select><select id="cur" hidden><option value="USD">USD</option></select></div></header>
 <nav class="tabs" id="tabs"></nav><main id="main"></main><footer id="foot"></footer></div>
-<script>/* ===== Password gate (Rost 24.10): data.enc.json расшифровывается паролем; ключ помнится в localStorage до «Выйти» ===== */
+<script>/*CORE*/
+/* ===== Password gate (Rost 24.10): data.enc.json расшифровывается паролем; ключ помнится в localStorage до «Выйти» ===== */
 const Gate = (() => {
   const LS = window.DASH_LS || 'dash_key_v1';
   const b2u = s => Uint8Array.from(atob(s), c => c.charCodeAt(0));
@@ -419,6 +420,7 @@ const Dash = (() => {
   async function reload() { document.getElementById('gate-out')?.remove(); document.getElementById('gate-ref')?.remove(); D = await Gate.unlock((window.DASH_ENC || 'data.enc.json') + '?t=' + Date.now()); return D; }
   return { reload, rollup, load, S, save, get D() { return D; }, conv, curOf, pid, record, summary, series, goals, breakdowns, overview, periods, periodLabel, fmt, num, pct, esc, fxFooter, EX, PRI, trend, weeksOfMonth };
 })();
+
 </script>
 <script>/* Rost т251 / CU 86bctqe8h (27.10): ЖИВОЙ Google Calendar в браузере (GIS OAuth → Calendar API events.list).
  Нет clientId / нет токена / ошибка → всё как раньше (снимок gcal_dash.json). ClickUp-сторона не трогается.
@@ -1035,7 +1037,9 @@ function ofBlocksHTML(d){if(d.id!=='of'||!d.of_blocks)return '';const B=d.of_blo
  const weekTitles=['Текущая','Прошлая','Позапрошлая'];
  const weekSkip={id:1,label:1,title:1,src:1,sort:1};
  const weekHas=w=>{if(!w)return false;return Object.keys(w).some(k=>{if(weekSkip[k])return false;const v=w[k];if(v==null||v==='')return false;if(typeof v==='object'){return Object.keys(v).some(kk=>{const x=v[kk];if(x==null||x==='')return false;if(typeof x==='object')return x.fans!=null||x.delta!=null;return true;});}return true;});};
- const weekCols=list=>(list||[]).filter(weekHas).slice(0,4).map((w,i)=>{const t=weekTitles[i];return t?{title:t,...w}:{...w,title:w.label||'',label:''};});
+ const labOf=mon=>{const sun=new Date(mon);sun.setUTCDate(mon.getUTCDate()+6);if(mon.getUTCMonth()===sun.getUTCMonth())return _p0(mon.getUTCDate())+'–'+_p0(sun.getUTCDate())+'.'+_p0(mon.getUTCMonth()+1);return _p0(mon.getUTCDate())+'.'+_p0(mon.getUTCMonth()+1)+'–'+_p0(sun.getUTCDate())+'.'+_p0(sun.getUTCMonth()+1);};
+ const monShift=days=>{const m=new Date(_mon0);m.setUTCDate(_mon0.getUTCDate()+days);return m;};
+ const weekCols=list=>{const xs=list||[];return [0,-7,-14].map((days,i)=>{const mon=monShift(days),id='W:'+mon.toISOString().slice(0,10),hit=xs.find(w=>w&&w.id===id)||null;return Object.assign({},hit||{},{title:weekTitles[i],id,label:(hit&&hit.label)||labOf(mon)});});};
  const weekColgroup=cols=>{const n=Math.max(cols.length,1);const rest=(72/n).toFixed(4);return `<colgroup><col style="width:28%">${cols.map(()=>`<col style="width:${rest}%">`).join('')}</colgroup>`};
  const tk=(ts,empty)=>ts&&ts.length?ts.map(t=>`<div class="task"><span class="pill p-normal">${esc(t.status)}</span><div style="flex:1"><a href="${cuAppUrl(t.url)}" target="_blank" rel="noopener">${esc(t.name)}</a><div class="note">на ком: <b>${esc(t.who||'—')}</b>${t.parent?' · ↳ '+esc(t.parent):''}</div></div></div>`).join(''):`<div class="empty">${empty||'задач нет'}</div>`;
  /* Rost t5609u–t5615u: ТС/ОФТВ — фиолетовая плашка CU N; без задач — белая «задач нет» */
@@ -1098,7 +1102,7 @@ function ofBlocksHTML(d){if(d.id!=='of'||!d.of_blocks)return '';const B=d.of_blo
   const oPrev=O.prev||null;
   const attn=x=>{const v=x.fans_new;if(v==null)return '';return v<100?` <span class="pill" style="font-size:9px;font-weight:700;padding:1px 5px;line-height:1.2;vertical-align:middle;color:#b42318;background:#fee4e2;border:1px solid #fda29b">требует внимания</span>`:` <span class="pill" style="font-size:9px;font-weight:700;padding:1px 5px;line-height:1.2;vertical-align:middle;color:#0b7a59;background:#d1fadf;border:1px solid #abefc6">все ок</span>`};
   const lst=(t,xs)=>`<details style="margin-top:8px"><summary style="cursor:pointer;font-weight:700;font-size:13px">${t} (${xs.length})</summary>${xs.length?xs.map(x=>`<div class="task"><span class="pill p-high">${esc(x.cu?x.cu.status:'—')}</span><div style="flex:1"><b style="font-size:13.5px">${esc(x.name)}</b><div class="note">${esc(x.note||'')}${x.cu?` · <a href="${cuAppUrl(x.cu.url)}" target="_blank" rel="noopener">CU</a> · на ком: <b>${esc(x.cu.who)}</b>`:''}</div></div></div>`).join(''):'<div class="empty">пусто</div>'}</details>`;
-  const oCols=weekCols((O.weeks&&O.weeks.length)?O.weeks:[fromCurWeek,O.prev,O.prev2]);
+  const oCols=weekCols([fromCurWeek,O.prev,O.prev2].concat(O.weeks||[]));
   const oCell=(w,fn,kind)=>{const v=fn(w||{});return v==null||v===''?'—':kind==='$'?$u(v):n(v)};
   h+=`<div class="card" style="margin-bottom:14px">${H(esc(O.title))}
   <div class="tblwrap" style="margin-top:6px"><table style="table-layout:fixed;width:100%">${weekColgroup(oCols)}
@@ -1126,6 +1130,9 @@ function ofBlocksHTML(d){if(d.id!=='of'||!d.of_blocks)return '';const B=d.of_blo
   const igAcc=(P.ig_accounts&&P.ig_accounts.length)?P.ig_accounts:[{handle:'lolabig.lolapop'},{handle:'lolapopstarted'},{handle:'lolastartjourney'}];
   const psSites=P.pornstocks_sites||['Pornhub','Tnaflix','Xhamster','Faphouse','Xvideos','Xnxx','Eporner'];
   const lpN=1+lpCols.length;
+  const lpWho=t=>{let names=[];if(Array.isArray(t.assignees)&&t.assignees.length)names=t.assignees.slice();else if(t.who)names=String(t.who).split(/,\s*/).filter(Boolean);if(!names.length)return `<span class="pill" style="font-size:10px;font-weight:700;padding:1px 6px;line-height:1.2;color:#6b7280;background:#f3f4f6;border:1px solid #e5e7eb">исполнитель ?</span>`;return names.map(nm=>{const me=/^(я|me)$/i.test(nm)||/^rost(yslav)?\b/i.test(String(nm).trim());return me?`<span class="pill" style="font-size:10px;font-weight:700;padding:1px 6px;line-height:1.2;color:#5b4bc4;background:#eef0ff;border:1px solid #d4d0f0">я</span>`:`<span class="pill" style="font-size:10px;font-weight:700;padding:1px 6px;line-height:1.2;color:#a5620a;background:#fff6d6;border:1px solid #f1d29a">${esc(nm)}</span>`;}).join('');};
+  const lpTasks=tsAlive(P.tasks||[]);
+  const lpDrop=`<details style="margin-top:10px"><summary style="cursor:pointer;font-weight:700;font-size:13px">📋 Задачи ClickUp по модели (${lpTasks.length})</summary>${lpTasks.length?lpTasks.map(t=>`<div class="task"><span class="pill p-normal">${esc(t.status||'—')}</span><div style="flex:1"><a href="${cuAppUrl(t.url||('https://rosmater.github.io/cu/?t='+t.id))}" target="_blank" rel="noopener">${esc(t.name)}</a><div style="display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-top:4px">${t.list?`<span class="pill" style="font-size:10px;font-weight:700;padding:1px 6px;line-height:1.2;color:#374151;background:#f3f4f6;border:1px solid #e5e7eb">${esc(t.list)}</span>`:''}${lpWho(t)}</div></div></div>`).join(''):'<div class="empty">задач нет</div>'}</details>`;
   const lpSec=(title,rows)=>`<tr><td colspan="${lpN}" style="background:#f4f7fb;font-weight:700;text-align:left">${title}</td></tr>`+rows.map(([lab,fn,kind])=>`<tr><td>${lab}</td>${lpCols.map(c=>`<td class="n">${lpCell(c,fn,kind)}</td>`).join('')}</tr>`).join('');
   h+=`<div class="card" style="margin-bottom:14px">${H(esc(P.title),esc(P.profile||''))}
   <div class="tblwrap" style="margin-top:6px"><table style="table-layout:fixed;width:100%">${weekColgroup(lpCols)}
@@ -1146,7 +1153,7 @@ function ofBlocksHTML(d){if(d.id!=='of'||!d.of_blocks)return '';const B=d.of_blo
   ])}
   ${lpSec('Instagram · количество подписчиков',igAcc.map(a=>['@'+a.handle,w=>((w.ig||{})[a.handle]??(w.ig||{})[a.handle&&a.handle.replace(/^@/,'')]),'ig']))}
   ${lpSec('Порнстоки',psSites.map(name=>[name,w=>((w.pornstocks||{})[name]),'n']).concat([['Итого просмотров',w=>(w.pornstocks||{}).total,'n']]))}
-  </table></div></div>`}
+  </table></div>${lpDrop}</div>`}
  /* 5) Fetish Rooms */
  const FR=B.fetish_rooms;if(FR){const frCols=weekCols(FR.weeks||[]);
   const frN=1+frCols.length;
