@@ -179,8 +179,7 @@ details.mrow .mbody>.task{padding:5px 0}
 <div class="ctrls"><div class="seg" id="mode"><button data-m="today">Сегодня</button><button data-m="week">Неделя</button><button data-m="month">Месяц</button></div><div class="seg" id="calbtn"><button data-t="calendar">📅 Календарь</button></div><div class="seg" id="mabtn"></div>
 <select id="period"></select><select id="cur" hidden><option value="USD">USD</option></select></div></header>
 <nav class="tabs" id="tabs"></nav><main id="main"></main><footer id="foot"></footer></div>
-<script>/*CORE*/
-/* ===== Password gate (Rost 24.10): data.enc.json расшифровывается паролем; ключ помнится в localStorage до «Выйти» ===== */
+<script>/* ===== Password gate (Rost 24.10): data.enc.json расшифровывается паролем; ключ помнится в localStorage до «Выйти» ===== */
 const Gate = (() => {
   const LS = window.DASH_LS || 'dash_key_v1';
   const b2u = s => Uint8Array.from(atob(s), c => c.charCodeAt(0));
@@ -420,7 +419,6 @@ const Dash = (() => {
   async function reload() { document.getElementById('gate-out')?.remove(); document.getElementById('gate-ref')?.remove(); D = await Gate.unlock((window.DASH_ENC || 'data.enc.json') + '?t=' + Date.now()); return D; }
   return { reload, rollup, load, S, save, get D() { return D; }, conv, curOf, pid, record, summary, series, goals, breakdowns, overview, periods, periodLabel, fmt, num, pct, esc, fxFooter, EX, PRI, trend, weeksOfMonth };
 })();
-
 </script>
 <script>/* Rost т251 / CU 86bctqe8h (27.10): ЖИВОЙ Google Calendar в браузере (GIS OAuth → Calendar API events.list).
  Нет clientId / нет токена / ошибка → всё как раньше (снимок gcal_dash.json). ClickUp-сторона не трогается.
@@ -1037,7 +1035,7 @@ function ofBlocksHTML(d){if(d.id!=='of'||!d.of_blocks)return '';const B=d.of_blo
  const weekTitles=['Текущая','Прошлая','Позапрошлая'];
  const weekSkip={id:1,label:1,title:1,src:1,sort:1};
  const weekHas=w=>{if(!w)return false;return Object.keys(w).some(k=>{if(weekSkip[k])return false;const v=w[k];if(v==null||v==='')return false;if(typeof v==='object'){return Object.keys(v).some(kk=>{const x=v[kk];if(x==null||x==='')return false;if(typeof x==='object')return x.fans!=null||x.delta!=null;return true;});}return true;});};
- const weekCols=list=>(list||[]).filter(weekHas).slice(0,3).map((w,i)=>({title:weekTitles[i],...w}));
+ const weekCols=list=>(list||[]).filter(weekHas).slice(0,4).map((w,i)=>{const t=weekTitles[i];return t?{title:t,...w}:{...w,title:w.label||'',label:''};});
  const weekColgroup=cols=>{const n=Math.max(cols.length,1);const rest=(72/n).toFixed(4);return `<colgroup><col style="width:28%">${cols.map(()=>`<col style="width:${rest}%">`).join('')}</colgroup>`};
  const tk=(ts,empty)=>ts&&ts.length?ts.map(t=>`<div class="task"><span class="pill p-normal">${esc(t.status)}</span><div style="flex:1"><a href="${cuAppUrl(t.url)}" target="_blank" rel="noopener">${esc(t.name)}</a><div class="note">на ком: <b>${esc(t.who||'—')}</b>${t.parent?' · ↳ '+esc(t.parent):''}</div></div></div>`).join(''):`<div class="empty">${empty||'задач нет'}</div>`;
  /* Rost t5609u–t5615u: ТС/ОФТВ — фиолетовая плашка CU N; без задач — белая «задач нет» */
@@ -1146,7 +1144,7 @@ function ofBlocksHTML(d){if(d.id!=='of'||!d.of_blocks)return '';const B=d.of_blo
     ['ManyVids доход',w=>w.mv,'$'],
     ['Clips4Sale доход',w=>w.c4s,'$']
   ])}
-  ${lpSec('Instagram · количество фанов',igAcc.map(a=>['@'+a.handle,w=>((w.ig||{})[a.handle]??(w.ig||{})[a.handle&&a.handle.replace(/^@/,'')]),'ig']))}
+  ${lpSec('Instagram · количество подписчиков',igAcc.map(a=>['@'+a.handle,w=>((w.ig||{})[a.handle]??(w.ig||{})[a.handle&&a.handle.replace(/^@/,'')]),'ig']))}
   ${lpSec('Порнстоки',psSites.map(name=>[name,w=>((w.pornstocks||{})[name]),'n']).concat([['Итого просмотров',w=>(w.pornstocks||{}).total,'n']]))}
   </table></div></div>`}
  /* 5) Fetish Rooms */
