@@ -589,7 +589,8 @@
           "Michelle Hernández"
         ],
         "who": "Michelle Hernández",
-        "url": "https://rosmater.github.io/cu/?t=86bcn2d1t"
+        "url": "https://rosmater.github.io/cu/?t=86bcn2d1t",
+        "freq": null
       },
       {
         "id": "86b7t9h6p",
@@ -601,7 +602,8 @@
           "Michelle Hernández"
         ],
         "who": "Michelle Hernández",
-        "url": "https://rosmater.github.io/cu/?t=86b7t9h6p"
+        "url": "https://rosmater.github.io/cu/?t=86b7t9h6p",
+        "freq": "periódica"
       },
       {
         "id": "86b8tx434",
@@ -613,7 +615,8 @@
           "Michelle Hernández"
         ],
         "who": "Michelle Hernández",
-        "url": "https://rosmater.github.io/cu/?t=86b8tx434"
+        "url": "https://rosmater.github.io/cu/?t=86b8tx434",
+        "freq": "periódica"
       },
       {
         "id": "86bbfudj2",
@@ -625,7 +628,8 @@
           "Sara Pineda Chanci"
         ],
         "who": "Sara Pineda Chanci",
-        "url": "https://rosmater.github.io/cu/?t=86bbfudj2"
+        "url": "https://rosmater.github.io/cu/?t=86bbfudj2",
+        "freq": "periódica"
       },
       {
         "id": "86bccqpd9",
@@ -637,7 +641,8 @@
           "Rost"
         ],
         "who": "Rost",
-        "url": "https://rosmater.github.io/cu/?t=86bccqpd9"
+        "url": "https://rosmater.github.io/cu/?t=86bccqpd9",
+        "freq": "única"
       },
       {
         "id": "86bb4d162",
@@ -649,7 +654,8 @@
           "Michelle Hernández"
         ],
         "who": "Michelle Hernández",
-        "url": "https://rosmater.github.io/cu/?t=86bb4d162"
+        "url": "https://rosmater.github.io/cu/?t=86bb4d162",
+        "freq": "periódica"
       },
       {
         "id": "86bajv3th",
@@ -661,7 +667,8 @@
           "Michelle Hernández"
         ],
         "who": "Michelle Hernández",
-        "url": "https://rosmater.github.io/cu/?t=86bajv3th"
+        "url": "https://rosmater.github.io/cu/?t=86bajv3th",
+        "freq": "periódica"
       },
       {
         "id": "86b9fceb4",
@@ -673,7 +680,8 @@
           "Michelle Hernández"
         ],
         "who": "Michelle Hernández",
-        "url": "https://rosmater.github.io/cu/?t=86b9fceb4"
+        "url": "https://rosmater.github.io/cu/?t=86b9fceb4",
+        "freq": "periódica"
       },
       {
         "id": "86b8c2fc1",
@@ -685,7 +693,8 @@
           "Rost"
         ],
         "who": "Rost",
-        "url": "https://rosmater.github.io/cu/?t=86b8c2fc1"
+        "url": "https://rosmater.github.io/cu/?t=86b8c2fc1",
+        "freq": "periódica"
       },
       {
         "id": "86b8q7t28",
@@ -697,7 +706,8 @@
           "Michelle Hernández"
         ],
         "who": "Michelle Hernández",
-        "url": "https://rosmater.github.io/cu/?t=86b8q7t28"
+        "url": "https://rosmater.github.io/cu/?t=86b8q7t28",
+        "freq": "periódica"
       },
       {
         "id": "86bbkrfmj",
@@ -709,7 +719,8 @@
           "Michelle Hernández"
         ],
         "who": "Michelle Hernández",
-        "url": "https://rosmater.github.io/cu/?t=86bbkrfmj"
+        "url": "https://rosmater.github.io/cu/?t=86bbkrfmj",
+        "freq": "periódica"
       },
       {
         "id": "86b7ypqbb",
@@ -721,19 +732,21 @@
           "Rost"
         ],
         "who": "Rost",
-        "url": "https://rosmater.github.io/cu/?t=86b7ypqbb"
+        "url": "https://rosmater.github.io/cu/?t=86b7ypqbb",
+        "freq": "única"
       },
       {
         "id": "86bcn2ek8",
         "name": "БОТ: контроль Мишель по проверке состояния профилей LolaPop",
-        "status": "for check",
+        "status": "to do",
         "list": "Models",
         "parent": "Audri (Inst,TikTok) + ОФТВ (редактируем видео)",
         "assignees": [
           "Rost"
         ],
         "who": "Rost",
-        "url": "https://rosmater.github.io/cu/?t=86bcn2ek8"
+        "url": "https://rosmater.github.io/cu/?t=86bcn2ek8",
+        "freq": "periódica"
       },
       {
         "id": "86bae6v4h",
@@ -745,7 +758,8 @@
           "Rost"
         ],
         "who": "Rost",
-        "url": "https://rosmater.github.io/cu/?t=86bae6v4h"
+        "url": "https://rosmater.github.io/cu/?t=86bae6v4h",
+        "freq": "única"
       }
     ],
     "cu_fetched_at": "2026-10-25T23:45:00-05:00"

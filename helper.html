@@ -180,8 +180,7 @@ details.mrow .mbody>.task{padding:5px 0}
 <div class="ctrls"><div class="seg" id="mode"><button data-m="today">Сегодня</button><button data-m="week">Неделя</button><button data-m="month">Месяц</button></div><div class="seg" id="calbtn"><button data-t="calendar">📅 Календарь</button></div><div class="seg" id="mabtn"></div>
 <select id="period"></select><select id="cur" hidden><option value="USD">USD</option></select></div></header>
 <nav class="tabs" id="tabs"></nav><main id="main"></main><footer id="foot"></footer></div>
-<script>/*CORE*/
-/* ===== Password gate (Rost 24.10): data.enc.json расшифровывается паролем; ключ помнится в localStorage до «Выйти» ===== */
+<script>/* ===== Password gate (Rost 24.10): data.enc.json расшифровывается паролем; ключ помнится в localStorage до «Выйти» ===== */
 const Gate = (() => {
   const LS = window.DASH_LS || 'dash_key_v1';
   const b2u = s => Uint8Array.from(atob(s), c => c.charCodeAt(0));
@@ -421,7 +420,6 @@ const Dash = (() => {
   async function reload() { document.getElementById('gate-out')?.remove(); document.getElementById('gate-ref')?.remove(); D = await Gate.unlock((window.DASH_ENC || 'data.enc.json') + '?t=' + Date.now()); return D; }
   return { reload, rollup, load, S, save, get D() { return D; }, conv, curOf, pid, record, summary, series, goals, breakdowns, overview, periods, periodLabel, fmt, num, pct, esc, fxFooter, EX, PRI, trend, weeksOfMonth };
 })();
-
 </script>
 <script>/* Rost т251 / CU 86bctqe8h (27.10): ЖИВОЙ Google Calendar в браузере (GIS OAuth → Calendar API events.list).
  Нет clientId / нет токена / ошибка → всё как раньше (снимок gcal_dash.json). ClickUp-сторона не трогается.
@@ -1135,8 +1133,14 @@ function ofBlocksHTML(d){if(d.id!=='of'||!d.of_blocks)return '';const B=d.of_blo
   const lpIsRost=t=>lpNames(t).some(nm=>{const s=String(nm).trim();return /^(я|me)$/i.test(s)||/^rost(yslav)?\b/i.test(s);});
   const lpPill=(label,c,bg,bd)=>`<span class="pill" style="font-size:10px;font-weight:700;padding:1px 6px;line-height:1.2;color:${c};background:${bg};border:1px solid ${bd}">${esc(label)}</span>`;
   const lpWho=t=>{const names=lpNames(t);if(!names.length)return lpPill('исполнитель ?','#6b7280','#f3f4f6','#e5e7eb');return names.map(nm=>{const s=String(nm).trim();if(/^(я|me)$/i.test(s)||/^rost(yslav)?\b/i.test(s))return lpPill('Rost','#2563eb','#e8f1ff','#bfdbfe');if(/michelle|мишель/i.test(s))return lpPill(s,'#a5620a','#fff6d6','#f1d29a');if(/sara|сара/i.test(s))return lpPill(s,'#0f766e','#ccfbf1','#99f6e4');return lpPill(s,'#6b7280','#f3f4f6','#e5e7eb');}).join('');};
-  const lpTasks=tsAlive(P.tasks||[]).slice().sort((a,b)=>(lpIsRost(a)?0:1)-(lpIsRost(b)?0:1));
-  const lpDrop=`<details style="margin-top:10px"><summary style="cursor:pointer;font-weight:700;font-size:13px">📋 Задачи ClickUp по модели (${lpTasks.length})</summary>${lpTasks.length?lpTasks.map(t=>`<div class="task"><span class="pill p-normal">${esc(t.status||'—')}</span><div style="flex:1"><a href="${cuAppUrl(t.url||('https://rosmater.github.io/cu/?t='+t.id))}" target="_blank" rel="noopener">${esc(t.name)}</a><div style="display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-top:4px">${t.list?`<span class="pill" style="font-size:10px;font-weight:700;padding:1px 6px;line-height:1.2;color:#374151;background:#f3f4f6;border:1px solid #e5e7eb">${esc(t.list)}</span>`:''}${lpWho(t)}</div></div></div>`).join(''):'<div class="empty">задач нет</div>'}</details>`;
+  const lpWhoKey=t=>{if(lpIsRost(t))return 'rost';const names=lpNames(t);if(names.some(nm=>/michelle|мишель/i.test(nm)))return 'michelle';if(names.some(nm=>/sara|сара/i.test(nm)))return 'sara';return 'other';};
+  const lpWhoMeta={rost:{label:'Rost',c:'#2563eb',bg:'#e8f1ff',bd:'#bfdbfe'},michelle:{label:'Michelle Hernández',c:'#a5620a',bg:'#fff6d6',bd:'#f1d29a'},sara:{label:'Sara Pineda Chanci',c:'#0f766e',bg:'#ccfbf1',bd:'#99f6e4'},other:{label:'Другие',c:'#6b7280',bg:'#f3f4f6',bd:'#e5e7eb'}};
+  const lpFreqKey=t=>{const f=String(t.freq||t.frecuencia||'').toLowerCase();if(/peri[oó]dic|периодич/.test(f))return 'periodic';if(/[uú]nica|уникальн|разов/.test(f))return 'unique';return 'none';};
+  const lpFreqMeta={periodic:{label:'Периодические',c:'#1d4ed8',bg:'#dbeafe',bd:'#93c5fd'},unique:{label:'Уникальные',c:'#7c3aed',bg:'#ede9fe',bd:'#c4b5fd'},none:{label:'Без метки в ClickUp',c:'#6b7280',bg:'#f3f4f6',bd:'#e5e7eb'}};
+  const lpTaskRow=t=>`<div class="task"><span class="pill p-normal">${esc(t.status||'—')}</span><div style="flex:1"><a href="${cuAppUrl(t.url||('https://rosmater.github.io/cu/?t='+t.id))}" target="_blank" rel="noopener">${esc(t.name)}</a><div style="display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-top:4px">${t.list?`<span class="pill" style="font-size:10px;font-weight:700;padding:1px 6px;line-height:1.2;color:#374151;background:#f3f4f6;border:1px solid #e5e7eb">${esc(t.list)}</span>`:''}${lpWho(t)}${(()=>{const fm=lpFreqMeta[lpFreqKey(t)];return lpPill(fm.label,fm.c,fm.bg,fm.bd);})()}</div></div></div>`;
+  const lpTasks=tsAlive(P.tasks||[]);
+  const lpGrouped=(()=>{const g={};lpTasks.forEach(t=>{const wk=lpWhoKey(t),fk=lpFreqKey(t);(g[wk]||(g[wk]={}))[fk]?(g[wk][fk].push(t)):(g[wk][fk]=[t]);});const whoOrd=['rost','michelle','sara','other'],freqOrd=['periodic','unique','none'];let out='';whoOrd.forEach(wk=>{if(!g[wk])return;const wm=lpWhoMeta[wk];out+=`<div style="margin-top:10px;padding-top:8px;border-top:1px solid var(--line)">${lpPill(wm.label,wm.c,wm.bg,wm.bd)}</div>`;freqOrd.forEach(fk=>{const list=g[wk][fk];if(!list||!list.length)return;const fm=lpFreqMeta[fk];out+=`<div style="margin:8px 0 4px;font-size:12px;font-weight:700;color:${fm.c}">${fm.label}</div>`+list.map(lpTaskRow).join('');});});return out;})();
+  const lpDrop=`<details style="margin-top:10px"><summary style="cursor:pointer;font-weight:700;font-size:13px">📋 Задачи ClickUp по модели (${lpTasks.length})</summary>${lpTasks.length?lpGrouped:'<div class="empty">задач нет</div>'}</details>`;
   const lpSec=(title,rows)=>`<tr><td colspan="${lpN}" style="background:#f4f7fb;font-weight:700;text-align:left">${title}</td></tr>`+rows.map(([lab,fn,kind])=>`<tr><td>${lab}</td>${lpCols.map(c=>`<td class="n">${lpCell(c,fn,kind)}</td>`).join('')}</tr>`).join('');
   h+=`<div class="card" style="margin-bottom:14px">${H(esc(P.title),esc(P.profile||''))}
   <div class="tblwrap" style="margin-top:6px"><table style="table-layout:fixed;width:100%">${weekColgroup(lpCols)}
