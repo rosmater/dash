@@ -154,7 +154,8 @@ def _ad(a, st):
         cpc = ss.get('cost_per_conversation_cop')
     if cpc is None:
         cpc = lk.get('cost_per_conversation_cop')
-    plat = a.get('platform') or ('TikTok' if 'tiktok' in str(a.get('network') or a.get('account') or '').lower() else 'Instagram')
+    _blob = ' '.join(str(a.get(k) or '') for k in ('platform','network','account','id','name','objective','creative'))
+    plat = a.get('platform') if a.get('platform') in ('TikTok','Instagram') else ('TikTok' if re.search(r'tiktok|pstt-|more profile views|musically', _blob, re.I) else 'Instagram')
     return dict(name=a.get('creative') or a.get('id'), account=a.get('account', ''), status=st,
                 platform=plat,
                 start=_hm(a.get('started_at') or a.get('launch_at') or a.get('start')), end=a.get('finishes_approx', ''),

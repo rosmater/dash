@@ -868,7 +868,7 @@ function pepMonHTML(d,part){if(d.id!=='peptides')return '';const cur=Dash.curOf(
  const cplTip=a=>{const k=a.conversations||a.profile_visits;if(a.cpc)return 'CPL '+f(a.cpc)+' /диал.';if(k&&a.spent!=null){const v=a.spent/k;return (a.conversations?'CPL ':'стоимость визита ')+f(v)+' ≈ '+usd(v/fxr)+(a.conversations?'/диал.':'/визит')}return 'нет CPL'};
  const per=a=>`${a.status==='scheduled'?'запуск ':''}${dd(a.start)}${a.end?' – ~'+dd(a.end):''}${a.days?' · '+a.days+' дн.':''}`;
  const TH='<tr><th>Кампания</th><th>Цель</th><th class="n">Расход</th><th class="n">Диалоги</th><th class="n">CPL</th></tr>';
- const platOf=a=>a.platform||(/tiktok/i.test(String(a.account||'')+String(a.name||'')+String(a.objective||''))?'TikTok':'Instagram');
+ const platOf=a=>a.platform||(/tiktok|pstt-|more profile views|neutral warmup|musically/i.test([a.account,a.name,a.objective,a.id,a.note].join(' '))?'TikTok':'Instagram');
  const platPill=p=>`<span class="pill ${p==='TikTok'?'p-tt':'p-ig'}">${esc(p)}</span>`;
  const objCell=a=>{const o=a.objective||'';if(/whatsapp|more messages/i.test(o))return `<span title="More messages (WhatsApp)" style="cursor:help;border-bottom:1px dotted #99a">WP</span>`;if(/profile visits|визит/i.test(o))return `<span title="${esc(o)}" style="cursor:help;border-bottom:1px dotted #99a">PV</span>`;if(/profile views/i.test(o))return `<span title="${esc(o)}" style="cursor:help;border-bottom:1px dotted #99a">PV</span>`;return esc(o)};
  const dlgN=v=>v==null?'—':esc(Dash.num(v));
