@@ -180,7 +180,8 @@ details.mrow .mbody>.task{padding:5px 0}
 <div class="ctrls"><div class="seg" id="mode"><button data-m="today">Сегодня</button><button data-m="week">Неделя</button><button data-m="month">Месяц</button></div><div class="seg" id="calbtn"><button data-t="calendar">📅 Календарь</button></div><div class="seg" id="mabtn"></div>
 <select id="period"></select><select id="cur" hidden><option value="USD">USD</option></select></div></header>
 <nav class="tabs" id="tabs"></nav><main id="main"></main><footer id="foot"></footer></div>
-<script>/* ===== Password gate (Rost 24.10): data.enc.json расшифровывается паролем; ключ помнится в localStorage до «Выйти» ===== */
+<script>/*CORE*/
+/* ===== Password gate (Rost 24.10): data.enc.json расшифровывается паролем; ключ помнится в localStorage до «Выйти» ===== */
 const Gate = (() => {
   const LS = window.DASH_LS || 'dash_key_v1';
   const b2u = s => Uint8Array.from(atob(s), c => c.charCodeAt(0));
@@ -420,6 +421,7 @@ const Dash = (() => {
   async function reload() { document.getElementById('gate-out')?.remove(); document.getElementById('gate-ref')?.remove(); D = await Gate.unlock((window.DASH_ENC || 'data.enc.json') + '?t=' + Date.now()); return D; }
   return { reload, rollup, load, S, save, get D() { return D; }, conv, curOf, pid, record, summary, series, goals, breakdowns, overview, periods, periodLabel, fmt, num, pct, esc, fxFooter, EX, PRI, trend, weeksOfMonth };
 })();
+
 </script>
 <script>/* Rost т251 / CU 86bctqe8h (27.10): ЖИВОЙ Google Calendar в браузере (GIS OAuth → Calendar API events.list).
  Нет clientId / нет токена / ошибка → всё как раньше (снимок gcal_dash.json). ClickUp-сторона не трогается.
@@ -583,8 +585,9 @@ const itemText=x=>typeof x==='string'?x:(x&&x.text)||'';const isYa=x=>/^\s*Я:/.
 function togChk(id,v){localStorage.setItem('dash_check_'+id,v?'1':'0');if(typeof render==='function')render();else location.reload()}
 function attnRaw(d){if(MA_KINDS.includes(d.kind))return maAttn(d);if(d.cu_sort){const n=(d.cu_sort||[]).filter(t=>!t.bday&&!maSph(cuK(t))).length;return n?[{grp:'🗂 ClickUp — на сортировку',text:n+' на сортировку — блок внизу «Общего»',why:'сортировка',cls:'',cnt:n}]:[]} /* Rost t3913u 27.10: только название+кол-во */const it=dataIssues(d).concat(repAttn(d)).concat(ofFarmAttn(d)).concat(reAttn(d)).concat(tbkAttn(d)).concat(persAttn(d));
  if(d.id==='defense'){(d.unanswered_replies||(d.board&&d.board.unanswered_replies)||[]).filter(r=>r&&!r.scheduled_at&&!['scheduled','answered','waiting','awaiting_their_reply'].includes(String(r.status||'open').toLowerCase().trim())).forEach(r=>{const who=r.company||r.from||'компания';const subj=r.subject||'ответ';it.push({grp:'Ответы без ответа',text:who+' — '+subj+(r.note?': '+r.note:''),url:r.url||null,why:'разобрать',cls:''})});return it} // Rost 25.10: attn только если нужно решать сейчас; запланированный ответ/запуск — не attn
- (d.tasks||[]).forEach(t=>{const st=String(t.status||'');if(DONE.test(st))return;const over=t.due&&t.due<TODAY;let why=null;
-  if(t.priority==='urgent')why='срочно'+(over?' · просрочено':'');else if(BLOCK.test(st))why='заблокировано';else if(t.priority==='high'&&over)why='высокий · просрочено';
+ /* Rost t5704u: CU Urgent сам по себе ≠ «требует внимания». Срочно — только если срок сегодня или уже просрочен (иначе периодические задачи с постоянным Urgent, вроде скринов аккаунтов, зря попадают в уведомления). Без даты due срочность оставляем. */
+ (d.tasks||[]).forEach(t=>{const st=String(t.status||'');if(DONE.test(st))return;const over=t.due&&t.due<TODAY;const dueToday=t.due&&t.due===TODAY;let why=null;
+  if(t.priority==='urgent'&&over)why='срочно · просрочено';else if(t.priority==='urgent'&&(dueToday||!t.due))why='срочно';else if(BLOCK.test(st))why='заблокировано';else if(t.priority==='high'&&over)why='высокий · просрочено';
   if(why)it.push({grp:t.list||'Задачи',text:t.name,url:t.url,why,cls:''})});
  (d.people||[]).forEach(p=>{if(p.status==='attention')(p.items||[]).filter(x=>isYa(x)&&!isChk(x)).forEach(x=>it.push({grp:(p.icon?p.icon+' ':'')+p.name,text:itemText(x),why:'внимание',cls:''}))}); // Rost 25.10: в счёт идут только пункты «Я:»
  (d.gaps||[]).forEach(g=>it.push({grp:'Пробелы в данных',text:g,why:'пробел',cls:'gap'}));
