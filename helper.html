@@ -1024,7 +1024,7 @@ function ofBlocksHTML(d){if(d.id!=='of'||!d.of_blocks)return '';const B=d.of_blo
  const tsOpen=x=>tsAlive(x.tasks).length?' style="cursor:pointer" onclick="if(!event.target.closest(\'a,button\')){const n=this.nextElementSibling;if(n&&n.classList.contains(\'of-ts-detail\'))n.hidden=!n.hidden}"':'';
  const tsList=x=>tsCu(x);
  const tsDetail=(x,cols)=>{const ts=tsAlive(x.tasks);return ts.length?`<tr class="of-ts-detail" hidden><td colspan="${cols}">${tk(ts)}</td></tr>`:'';};
- const raPlace=ra=>{const m=String(ra||'').match(/(\d+)/);const virt=['130','180','185'].includes(m?m[1]:'');return ` <span class="note">${virt?'виртуально':'Колумбия'}</span>`};
+ const raPlace=ra=>{const m=String(ra||'').match(/(\d+)/);const virt=['130','180','185'].includes(m?m[1]:'');return ` <span class="pill" style="font-size:9px;font-weight:600;padding:1px 5px;line-height:1.2;vertical-align:middle;${virt?'color:#2563eb;background:#e8f1ff;border:1px solid #bfdbfe':'color:#92400e;background:#fff6d6;border:1px solid #f5e6a8'}">${virt?'виртуально':'Колумбия'}</span>`};
  const H=(t,sub)=>`<h3>${t}${sub?` <span class="st">${sub}</span>`:''}</h3>`;let h='';
  /* 1) Ферма */
  const F=B.farm;if(F){const C=F.current||{},L=F.last_snapshot||{},wait=!C.as_of;
