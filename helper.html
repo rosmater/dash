@@ -1024,6 +1024,7 @@ function ofBlocksHTML(d){if(d.id!=='of'||!d.of_blocks)return '';const B=d.of_blo
  const tsOpen=x=>tsAlive(x.tasks).length?' style="cursor:pointer" onclick="if(!event.target.closest(\'a,button\')){const n=this.nextElementSibling;if(n&&n.classList.contains(\'of-ts-detail\'))n.hidden=!n.hidden}"':'';
  const tsList=x=>tsCu(x);
  const tsDetail=(x,cols)=>{const ts=tsAlive(x.tasks);return ts.length?`<tr class="of-ts-detail" hidden><td colspan="${cols}">${tk(ts)}</td></tr>`:'';};
+ const raPlace=ra=>{const m=String(ra||'').match(/(\d+)/);const virt=['130','180','185'].includes(m?m[1]:'');return ` <span class="note">${virt?'виртуально':'Колумбия'}</span>`};
  const H=(t,sub)=>`<h3>${t}${sub?` <span class="st">${sub}</span>`:''}</h3>`;let h='';
  /* 1) Ферма */
  const F=B.farm;if(F){const C=F.current||{},L=F.last_snapshot||{},wait=!C.as_of;
@@ -1051,7 +1052,7 @@ ${L.as_of?`<details style="margin-top:10px"><summary style="cursor:pointer;font-
   <div class="note" style="margin:6px 0">${esc(T.arpu_note||'')}</div>
   <h5 style="margin:10px 0 4px">Модели (${T.models.length}) · ${esc(T.models_label||'')}</h5>
   <div class="tblwrap" style="margin-top:6px"><table><tr><th>Модель</th><th>Задачи</th><th class="n">Наш доход</th><th class="n">Было</th><th class="n">Оборот</th><th class="n">%</th><th class="n">Фаны (нетто)</th></tr>
-  ${T.models.map(x=>`<tr${tsOpen(x)}><td><b>${esc(x.ra)}</b>${x.note?' <span class="note">'+esc(x.note)+'</span>':''}</td><td>${tsList(x)}</td><td class="n">${$u(x.net)}</td><td class="n">${x.prev_net!=null?$u(x.prev_net):'—'}</td><td class="n">${$u(x.gross)}</td><td class="n">${esc(x.pct)}</td><td class="n">${n(x.fans_new)}</td></tr>${tsDetail(x,7)}`).join('')}
+  ${T.models.map(x=>`<tr${tsOpen(x)}><td><b>${esc(x.ra)}</b>${raPlace(x.ra)}${x.note?' <span class="note">'+esc(x.note)+'</span>':''}</td><td>${tsList(x)}</td><td class="n">${$u(x.net)}</td><td class="n">${x.prev_net!=null?$u(x.prev_net):'—'}</td><td class="n">${$u(x.gross)}</td><td class="n">${esc(x.pct)}</td><td class="n">${n(x.fans_new)}</td></tr>${tsDetail(x,7)}`).join('')}
   </table></div>
   <div class="note" style="margin-top:6px">ClickUp-снимок ${esc(String(T.cu_fetched_at||'').slice(0,16).replace('T',' '))} · фаны = нетто новых за неделю (05services)</div></div>`}
  /* 3) ОФТВ */
