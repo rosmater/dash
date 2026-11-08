@@ -1020,6 +1020,9 @@ function ofBlocksHTML(d){if(d.id!=='of'||!d.of_blocks)return '';const B=d.of_blo
  const tk=(ts,empty)=>ts&&ts.length?ts.map(t=>`<div class="task"><span class="pill p-normal">${esc(t.status)}</span><div style="flex:1"><a href="${cuAppUrl(t.url)}" target="_blank" rel="noopener">${esc(t.name)}</a><div class="note">на ком: <b>${esc(t.who||'—')}</b>${t.parent?' · ↳ '+esc(t.parent):''}</div></div></div>`).join(''):`<div class="empty">${empty||'задач нет'}</div>`;
  /* Rost t5609u–t5615u: ТС/ОФТВ — фиолетовая плашка CU N; без задач — белая «задач нет» */
  const tsCu=x=>{const ts=x.tasks||[];if(!ts.length)return `<span style="display:inline-block;font-size:9px;font-weight:700;color:#6b7280;background:#fff;border:1px solid #d1d5db;border-radius:4px;padding:1px 4px;line-height:1.2;vertical-align:middle">задач нет</span>`;const u=ts[0]&&ts[0].url?cuAppUrl(ts[0].url):'';const tip=esc(ts.map(t=>t.name||'').filter(Boolean).join('\n'));const lab='CU '+ts.length;const st='display:inline-block;font-size:9px;font-weight:800;color:#fff;background:#7b68ee;border-radius:4px;padding:1px 4px;text-decoration:none;line-height:1.2;vertical-align:middle';return u?`<a href="${esc(u)}" target="_blank" rel="noopener" title="${tip}" onclick="event.stopPropagation()" style="${st}">${lab}</a>`:`<span title="${tip}" style="${st}">${lab}</span>`};
+ const tsOpen=x=>(x.tasks&&x.tasks.length)?' style="cursor:pointer" onclick="if(!event.target.closest(\'a,button\')){const d=this.querySelector(\'details.of-ts\');if(d)d.open=!d.open}"':'';
+ const tsList=x=>`${tsCu(x)}${(x.tasks&&x.tasks.length)?`<details class="of-ts" style="margin-top:3px"><summary hidden></summary>${tk(x.tasks)}</details>`:''}`;
+
  const H=(t,sub)=>`<h3>${t}${sub?` <span class="st">${sub}</span>`:''}</h3>`;let h='';
  /* 1) Ферма */
  const F=B.farm;if(F){const C=F.current||{},L=F.last_snapshot||{},wait=!C.as_of;
@@ -1039,8 +1042,8 @@ function ofBlocksHTML(d){if(d.id!=='of'||!d.of_blocks)return '';const B=d.of_blo
   <div class="grid g4">${tile('💵 Прошлая неделя',w(T.last),ws(T.last)+(dlt!=null?` · <b style="color:${dlt>=0?'#0b7a59':'#b42318'}">${dlt>=0?'+':''}${$u(dlt)}</b>`:''))}${tile('💵 Позапрошлая неделя',w(T.prev),ws(T.prev))}${tile('👤 ARPU (наш доход / модель)',$u(T.last.arpu),'ARPU gross '+$u(T.last.arpu_gross)+' · '+esc(T.last.label))}${T.cur?tile('⏳ Текущая (неполная)',w(T.cur),ws(T.cur)):''}</div>
   <div class="note" style="margin:6px 0">${esc(T.arpu_note||'')}</div>
   <h5 style="margin:10px 0 4px">Модели (${T.models.length}) · ${esc(T.models_label||'')}</h5>
-  <div class="tblwrap" style="margin-top:6px"><table><tr><th>Модель</th><th class="n">Наш доход</th><th class="n">Было</th><th class="n">Оборот</th><th class="n">%</th><th class="n">Фаны (нетто)</th><th>Задачи</th></tr>
-  ${T.models.map(x=>`<tr><td><b>${esc(x.ra)}</b>${x.note?' <span class="note">'+esc(x.note)+'</span>':''}</td><td class="n">${$u(x.net)}</td><td class="n">${x.prev_net!=null?$u(x.prev_net):'—'}</td><td class="n">${$u(x.gross)}</td><td class="n">${esc(x.pct)}</td><td class="n">${n(x.fans_new)}</td><td style="white-space:normal">${tsCu(x)}${(x.tasks&&x.tasks.length)?`<details style="margin-top:3px"><summary class="note" style="cursor:pointer">список</summary>${tk(x.tasks)}</details>`:''}</td></tr>`).join('')}
+  <div class="tblwrap" style="margin-top:6px"><table><tr><th>Модель</th><th>Задачи</th><th class="n">Наш доход</th><th class="n">Было</th><th class="n">Оборот</th><th class="n">%</th><th class="n">Фаны (нетто)</th></tr>
+  ${T.models.map(x=>`<tr${tsOpen(x)}><td><b>${esc(x.ra)}</b>${x.note?' <span class="note">'+esc(x.note)+'</span>':''}</td><td style="white-space:normal">${tsList(x)}</td><td class="n">${$u(x.net)}</td><td class="n">${x.prev_net!=null?$u(x.prev_net):'—'}</td><td class="n">${$u(x.gross)}</td><td class="n">${esc(x.pct)}</td><td class="n">${n(x.fans_new)}</td></tr>`).join('')}
   </table></div>
   <div class="note" style="margin-top:6px">ClickUp-снимок ${esc(String(T.cu_fetched_at||'').slice(0,16).replace('T',' '))} · фаны = нетто новых за неделю (05services)</div></div>`}
  /* 3) ОФТВ */
@@ -1049,8 +1052,8 @@ function ofBlocksHTML(d){if(d.id!=='of'||!d.of_blocks)return '';const B=d.of_blo
   h+=`<div class="card" style="margin-bottom:14px">${H(esc(O.title),'неделя '+esc(O.week.label))}
   <div class="grid g4">${tile('💰 Общий оборот за неделю',$u(O.total_gross),'gross · '+esc(O.week.label)+' · '+O.models.length+' модели')}${tile('💵 Net моделей (OF)',$u(O.total_net),'после 20% OF')}${tile('🆕 Новые подписки',n(O.models.reduce((a,x)=>a+(x.fans_new||0),0)),'сумма за '+esc(O.week.label))}${tile('🎬 Активных моделей',O.models.length,'в сборе (scope Rost 14.10)')}</div>
   <h5 style="margin:10px 0 4px">Активные модели</h5>
-  <div class="tblwrap" style="margin-top:6px"><table><tr><th>Модель</th><th>Кто</th><th class="n">Оборот</th><th class="n">Net</th><th class="n">Фанов</th><th class="n">Новых</th><th>Задачи</th></tr>
-  ${O.models.map(x=>`<tr><td><b>${esc(x.name)}</b></td><td>${esc(x.person)}${x.team?' <span class="note">· '+esc(x.team)+'</span>':''}</td><td class="n">${$u(x.gross)}</td><td class="n">${$u(x.net)}</td><td class="n">${fansC(x)}</td><td class="n">${n(x.fans_new)}</td><td style="white-space:normal">${tsCu(x)}${(x.tasks&&x.tasks.length)?`<details style="margin-top:3px"><summary class="note" style="cursor:pointer">список</summary>${tk(x.tasks)}</details>`:''}</td></tr>`).join('')}
+  <div class="tblwrap" style="margin-top:6px"><table><tr><th>Модель</th><th>Кто</th><th>Задачи</th><th class="n">Оборот</th><th class="n">Net</th><th class="n">Фанов</th><th class="n">Новых</th></tr>
+  ${O.models.map(x=>`<tr${tsOpen(x)}><td><b>${esc(x.name)}</b></td><td>${esc(x.person)}${x.team?' <span class="note">· '+esc(x.team)+'</span>':''}</td><td style="white-space:normal">${tsList(x)}</td><td class="n">${$u(x.gross)}</td><td class="n">${$u(x.net)}</td><td class="n">${fansC(x)}</td><td class="n">${n(x.fans_new)}</td></tr>`).join('')}
   </table></div>
   <div style="border-top:1px solid var(--line);margin:14px 0 10px"></div>
   ${lst('🚀 Модели на запуск',O.launch||[])}
