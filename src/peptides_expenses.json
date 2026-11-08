@@ -1,6 +1,6 @@
 {
  "src": "GSheet «Expensed Peso Saludable» 1-X24SE_ZfP7mXm9_WUFRwCo-H45ryI9R2yvYpOu-bIE, вкладка «expenses» (gid 0)",
- "fetched_at": "2026-11-07 03:46",
+ "fetched_at": "2026-11-08 13:56",
  "costs": [
   {
    "date": "2026-09-02",
@@ -24,18 +24,39 @@
    "payer": "553785"
   },
   {
-   "date": "2026-10-01",
-   "label": "Papelería peptidos",
-   "amount": 23900.0,
-   "cur": "COP",
-   "payer": "23900"
-  },
-  {
    "date": "2026-10-15",
    "label": "target R brocard (02.09–15.10)",
    "amount": 1272664.0,
    "cur": "COP",
    "payer": "1272664"
+  },
+  {
+   "date": "2026-11-08",
+   "label": "IG pesosaludable.col + IVA 19% (21.10–08.11)",
+   "amount": 591460.0,
+   "cur": "COP",
+   "payer": "591460"
+  },
+  {
+   "date": "2026-11-08",
+   "label": "IG pesosaludable.laureles + IVA 19% (21.10–08.11)",
+   "amount": 36267.0,
+   "cur": "COP",
+   "payer": "36267"
+  },
+  {
+   "date": "2026-11-08",
+   "label": "TikTok pesosaludable.col + IVA 19%",
+   "amount": 27846.0,
+   "cur": "COP",
+   "payer": "27846"
+  },
+  {
+   "date": "2026-10-01",
+   "label": "Papelería peptidos",
+   "amount": 23900.0,
+   "cur": "COP",
+   "payer": "23900"
   },
   {
    "date": "2026-10-25",
