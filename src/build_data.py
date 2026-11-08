@@ -36,9 +36,13 @@ for r in rows:
         continue
     by_week.setdefault(r['week_start'], []).append(r)
 RA130_WEEK = round(48.5 * 12 / 52, 2)  # фикс $48.50/мес → неделя
-payout_src = 'knowledge/of-marketing-shared/irina-sunday/<дата>/report.md (база выплат с карточек CU, статус to do — не подтверждено)'
-payouts = {  # неделя (пн) -> воскресный отчёт Ирины, который перечисляет выплаты понедельника
-    '2026-09-14': '2026-09-20', '2026-09-21': '2026-09-27', '2026-09-28': '2026-10-04', '2026-10-05': '2026-10-11'}
+# HARD Rost 2026-11-08 t685u/t688u: выплаты моделям = факт USDT из Informe / Plan → Gastos $$$ → pagos a modelos (OKX).
+# Снимок src/of_payouts_week.json (src/ingest_of_payouts.py); пустой USDT = ещё не платили, не считаем. Курс = COP/USDT строк недели.
+_OFP_PATH = os.path.join(os.path.dirname(__file__), 'of_payouts_week.json')
+OFP = json.load(open(_OFP_PATH)) if os.path.exists(_OFP_PATH) else {'weeks': {}}
+OF_PROFIT_TIP = 'Прибыль без учета съемок'  # Rost t688u — подпись при наведении на прибыль
+def _rate_lbl(r):
+    return ('курс ~' + f"{round(r):,}".replace(',', '\u00a0')) if r else None
 for wk, rs in sorted(by_week.items()):
     partial = any(r['partial'] == 'yes' for r in rs)
     net = 0.0; gross = 0.0; fans = 0; table = []
@@ -51,12 +55,17 @@ for wk, rs in sorted(by_week.items()):
         table.append([r['ra'], round(g, 2), r['agency_pct'] if r['ra'] != 'RA130' else 'фикс', round(n, 2), int(float(r['fans'] or 0))])
     inc = [item('Наш доход 05services (сумма по моделям)', round(net, 2), 'USD', of_src)]
     exp = []
-    if wk in payouts:
-        exp.append(item('Выплаты моделям OFTV (Татьяна, Кэтрин, Лаура, Хулиана) — база с карточек', 2500000, 'COP', payout_src.replace('<дата>', payouts[wk]),
-                        note='плановые суммы со статусом to do; факт оплаты не подтверждён'))
+    pw = OFP['weeks'].get('W:' + wk)
+    if pw and pw.get('usdt'):
+        bits = [x for x in (_rate_lbl(pw.get('rate')) + ' COP/USDT' if pw.get('rate') else None,
+                            f"{pw['n']} выплат", (f"ещё не оплачено {pw['unpaid_n']} (без USDT)" if pw.get('unpaid_n') else None)) if x]
+        it = item('Выплаты моделям (факт USDT, Gastos $$$)', pw['usdt'], 'USD', OFP.get('src', 'Informe / Plan · Gastos $$$'), note=' · '.join(bits))
+        it.update(kind='payout', usdt=pw['usdt'], cop=pw.get('cop'), fx_rate=pw.get('rate'), fx_label=_rate_lbl(pw.get('rate')), n=pw['n'],
+                  unpaid_n=pw.get('unpaid_n', 0), unpaid_cop=pw.get('unpaid_cop', 0))
+        exp.append(it)
     of_periods['W:' + wk] = dict(status='partial' if partial else 'full', income=inc, expenses=exp,
         metrics={'Оборот моделей (gross), $': round(gross, 2), 'Новые фаны (нетто)': fans, 'Моделей в сборе': len(rs)},
-        note=None if exp else 'Расходы (выплаты моделям) за эту неделю в базе не найдены')
+        note=None if exp else 'Выплат моделям с USDT за эту неделю в Gastos $$$ нет')
     of_break.append(dict(period='W:' + wk, title='По моделям (05services)', columns=['Модель', 'Оборот $', '% агентства', 'Наш доход $', 'Фаны'], rows=table))
 
 # ---------- Peptides ----------
@@ -612,8 +621,12 @@ def _ts_week(k):
     net = sum(float(r[3] or 0) for r in act)
     gross = sum(float(r[1] or 0) for r in act)
     w = next((x for x in weeks if 'W:' + x['id'] == k), None)
+    _po = next((e for e in of_periods[k]['expenses'] if e.get('kind') == 'payout'), None)
+    _inc = of_periods[k]['income'][0]['amount']
+    _pay = dict(payout=_po['usdt'], payout_rate=_po.get('fx_rate'), payout_rate_label=_po.get('fx_label'), payout_unpaid_n=_po.get('unpaid_n', 0),
+                profit=round(_inc - _po['usdt'], 2), profit_tip=OF_PROFIT_TIP) if _po else dict(payout=None, profit=None)
     return dict(id=k, label=w['label'] if w else k[2:], status=of_periods[k]['status'], net=round(net, 2), gross=round(gross, 2),
-                models=len(act), arpu=round(net / len(act), 2) if act else None, arpu_gross=round(gross / len(act), 2) if act else None)
+                models=len(act), arpu=round(net / len(act), 2) if act else None, arpu_gross=round(gross / len(act), 2) if act else None, **_pay)
 _ts_last, _ts_prev = (_wk_full[-1] if _wk_full else None), (_wk_full[-2] if len(_wk_full) > 1 else None)
 _ts_cur = _wk_part[-1] if _wk_part and (not _ts_last or _wk_part[-1] > _ts_last) else None
 _lb = next((x for x in of_break if x['period'] == (_ts_cur or _ts_last)), {'rows': []})
@@ -739,7 +752,8 @@ data = dict(
          gaps=[],  # Rost 25.10: ЗП Сары внесут позже — не attn; не-киты COGS 100k; TG Target gap убран
          ),
     dict(id='of', stage='money', name='ОФ', subtitle='OnlyFans · агентство моделей', currency='USD', color='#a78bfa', icon='🎬',
-         overview_note='ОФ: «наш доход» 05services; выплаты моделям вычтены только в неделях, где они есть в отчётах Ирины.',
+         overview_note='ОФ: «наш доход» 05services минус фактические выплаты моделям (USDT из Gastos $$$); прибыль без учёта съёмок.',
+         payout_col=True, profit_tip=OF_PROFIT_TIP,
          periods=of_periods, breakdowns=of_break,
          goals=[
            dict(label='Баланс «Доступно» (RAH) ≥ порога', unit='$', target=1220, by_period={'W:2026-10-12': 635.65, 'W:2026-10-05': 876.09}, src='05services latest-report 18.10 / 11.10; порог из income-rules.md'),
@@ -748,7 +762,7 @@ data = dict(
          ],
          tasks=tasks(['86bcn2d1t', '86b6z79t1', '86b7heru3', '86b9abep9', '86bcn2g2q', '86b9wh8cd']),  # 86bc1tdu5 IPRoyal → COMMS BOT R (Rost 08.11 t678–t680), not OF attn
          of_blocks=OFB,
-         gaps=of_gaps_extra+['Выплаты моделям — только база с карточек (to do), факт оплат не сверён', 'Расходы офиса, прокси (IPRoyal), AdsPower и пр. не учтены', 'RA185 — наш доход 0 до 15.01.2027; RA222 в скоупе с 25.10']),
+         gaps=of_gaps_extra+['Расходы офиса, прокси (IPRoyal), AdsPower и пр. не учтены', 'RA185 — наш доход 0 до 15.01.2027; RA222 в скоупе с 25.10']),
     dict(id='realestate', stage='money', name='Недвижимость', subtitle='Испания · Украина · Колумбия', currency='EUR', color='#f59e0b', icon='🏠',
          overview_note='Недвижимость: только месячные итоги (янв–авг 2026), недельных нет.',
          periods=re_periods, breakdowns=re_break,

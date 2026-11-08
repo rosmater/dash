@@ -1,3 +1,6 @@
 data.json
 shots/
 data-test-ma.json
+
+src/of_payouts_week.json
+src/of_payouts_raw/
