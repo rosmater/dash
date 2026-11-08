@@ -746,7 +746,7 @@ data = dict(
            dict(label='Наш доход за неделю', unit='$', target=1500, example=True, by_period={k: v['income'][0]['amount'] for k, v in of_periods.items()}, src='цель — пример'),
            dict(label='Наш доход за месяц', unit='$', target=6000, example=True, period_type='month', by_period={}, auto_month='income', src='цель — пример; факт = сумма недель'),
          ],
-         tasks=tasks(['86bcn2d1t', '86b6z79t1', '86bc1tdu5', '86b7heru3', '86b9abep9', '86bcn2g2q', '86b9wh8cd']),
+         tasks=tasks(['86bcn2d1t', '86b6z79t1', '86b7heru3', '86b9abep9', '86bcn2g2q', '86b9wh8cd']),  # 86bc1tdu5 IPRoyal → COMMS BOT R (Rost 08.11 t678–t680), not OF attn
          of_blocks=OFB,
          gaps=of_gaps_extra+['Выплаты моделям — только база с карточек (to do), факт оплат не сверён', 'Расходы офиса, прокси (IPRoyal), AdsPower и пр. не учтены', 'RA185 — наш доход 0 до 15.01.2027; RA222 в скоупе с 25.10']),
     dict(id='realestate', stage='money', name='Недвижимость', subtitle='Испания · Украина · Колумбия', currency='EUR', color='#f59e0b', icon='🏠',
