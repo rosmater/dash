@@ -1,11 +1,25 @@
 #!/usr/bin/env python3
-"""Merge src/oftv_week.json into of_blocks.oftv (week + per-model fans/net)."""
+"""Merge src/oftv_week.json into of_blocks.oftv (week + per-model fans/net).
+
+Does not invent numbers. Does not overwrite a known fans total with null
+(Kelly ≈1900 must stay until a real total arrives).
+
+When week.id changes: old week → prev, old prev → prev2, so a third collected
+week (e.g. 19–25.10) is not dropped when the next Monday snap arrives.
+Never ingest oftv_history/* by copying it over oftv_week.json.
+"""
 from __future__ import annotations
 import json, sys
 from pathlib import Path
 ROOT = Path(__file__).resolve().parent
 SRC = ROOT / "oftv_week.json"
 BLOCKS = ROOT / "of_blocks.json"
+
+def _sum_net(models):
+    return round(sum((m.get("net") or 0) for m in models), 2)
+
+def _sum_fans_new(models):
+    return sum((m.get("fans_new") or 0) for m in models)
 
 def main() -> int:
     if not SRC.exists():
@@ -21,13 +35,17 @@ def main() -> int:
     old_week = oftv.get("week") or {}
     if old_week.get("id") and new_id and old_week.get("id") != new_id:
         models = oftv.get("models") or []
-        oftv["prev"] = {
+        archived = {
             "id": old_week.get("id"),
             "label": old_week.get("label"),
             "src": old_week.get("src"),
-            "net": round(sum((m.get("net") or 0) for m in models), 2),
-            "fans_new": sum((m.get("fans_new") or 0) for m in models),
+            "net": oftv["total_net"] if oftv.get("total_net") is not None else _sum_net(models),
+            "fans_new": _sum_fans_new(models),
         }
+        old_prev = oftv.get("prev")
+        if old_prev and old_prev.get("id") and old_prev.get("id") != archived.get("id"):
+            oftv["prev2"] = old_prev
+        oftv["prev"] = archived
     oftv["week"] = {
         "id": new_id,
         "label": (snap.get("week") or {}).get("label"),
@@ -44,8 +62,26 @@ def main() -> int:
                 m[fld] = row[fld]
                 if fld == "fans":
                     m.pop("fans_approx", None)
+    models = oftv.get("models") or []
+    oftv["total_net"] = _sum_net(models)
+    oftv["total_gross"] = round(sum((m.get("gross") or 0) for m in models), 2)
+    cur = {
+        "id": oftv["week"].get("id"),
+        "label": oftv["week"].get("label"),
+        "net": oftv.get("total_net"),
+        "fans_new": _sum_fans_new(models),
+    }
+    chain = [cur]
+    for key in ("prev", "prev2"):
+        slot = oftv.get(key)
+        if slot and slot.get("id") and slot.get("id") != cur.get("id"):
+            chain.append(slot)
+    oftv["weeks"] = chain[:3]
     BLOCKS.write_text(json.dumps(blocks, ensure_ascii=False, indent=2) + "\n")
-    print(f"ingested OFTV week {oftv['week'].get('label')} models={len(by_key)}")
+    print(
+        f"ingested OFTV week {oftv['week'].get('label')} models={len(by_key)} "
+        f"prev={(oftv.get('prev') or {}).get('label')} prev2={(oftv.get('prev2') or {}).get('label')}"
+    )
     return 0
 
 if __name__ == "__main__":
