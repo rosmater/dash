@@ -813,8 +813,7 @@ function reBlocksHTML(d){if(d.id!=='realestate'||!d.re_blocks)return '';const B=
  const badge=st=>st==='attention'?'<span class="pill p-urgent">требует внимания</span>':st==='ok'?'<span class="pill p-low" style="background:#e7f8ee;color:#127a3e">🟢 ок</span>':'<span class="pill p-normal">—</span>';
  const cul=(url,t)=>url?`<a href="${cuAppUrl(url)}" target="_blank" rel="noopener">${esc(t)}</a>`:esc(t);
  const tk=ts=>ts&&ts.length?ts.map(t=>`<div class="task"><span class="pill p-normal">${esc(t.status||'—')}</span><div style="flex:1">${cul(t.url,t.name)}</div></div>`).join(''):'<div class="empty">открытых подзадач нет</div>';
- /* Rost t5609u–t5615u: ТС/ОФТВ — фиолетовая плашка CU N; без задач — белая «задач нет» */
- const tsCu=x=>{const ts=x.tasks||[];if(!ts.length)return `<span style="display:inline-block;font-size:9px;font-weight:700;color:#6b7280;background:#fff;border:1px solid #d1d5db;border-radius:4px;padding:1px 4px;line-height:1.2;vertical-align:middle">задач нет</span>`;const u=ts[0]&&ts[0].url?cuAppUrl(ts[0].url):'';const tip=esc(ts.map(t=>t.name||'').filter(Boolean).join('\n'));const lab='CU '+ts.length;const st='display:inline-block;font-size:9px;font-weight:800;color:#fff;background:#7b68ee;border-radius:4px;padding:1px 4px;text-decoration:none;line-height:1.2;vertical-align:middle';return u?`<a href="${esc(u)}" target="_blank" rel="noopener" title="${tip}" onclick="event.stopPropagation()" style="${st}">${lab}</a>`:`<span title="${tip}" style="${st}">${lab}</span>`};
+
  let h='';
  /* 1) Цель */
  const G=B.goal;if(G){const F=G.fact||{},fu=F.amount!=null?Dash.conv(F.amount,F.cur,'USD'):null,pc=fu!=null?Math.round(fu/G.main.amount*100):null;
@@ -1018,6 +1017,8 @@ function ofBlocksHTML(d){if(d.id!=='of'||!d.of_blocks)return '';const B=d.of_blo
  const PL={today:'вчера',week:'неделя',month:'месяц'},pk=m==='today'||m==='week'||m==='month'?m:'week';
  const tile=(l,v,s,cls)=>`<div class="card kpi${cls?' bt '+cls:''}"><div class="l">${l}</div><div class="v" style="font-size:22px">${v}</div><div class="s">${s||''}</div></div>`;
  const tk=(ts,empty)=>ts&&ts.length?ts.map(t=>`<div class="task"><span class="pill p-normal">${esc(t.status)}</span><div style="flex:1"><a href="${cuAppUrl(t.url)}" target="_blank" rel="noopener">${esc(t.name)}</a><div class="note">на ком: <b>${esc(t.who||'—')}</b>${t.parent?' · ↳ '+esc(t.parent):''}</div></div></div>`).join(''):`<div class="empty">${empty||'задач нет'}</div>`;
+ /* Rost t5609u–t5615u: ТС/ОФТВ — фиолетовая плашка CU N; без задач — белая «задач нет» */
+ const tsCu=x=>{const ts=x.tasks||[];if(!ts.length)return `<span style="display:inline-block;font-size:9px;font-weight:700;color:#6b7280;background:#fff;border:1px solid #d1d5db;border-radius:4px;padding:1px 4px;line-height:1.2;vertical-align:middle">задач нет</span>`;const u=ts[0]&&ts[0].url?cuAppUrl(ts[0].url):'';const tip=esc(ts.map(t=>t.name||'').filter(Boolean).join('\n'));const lab='CU '+ts.length;const st='display:inline-block;font-size:9px;font-weight:800;color:#fff;background:#7b68ee;border-radius:4px;padding:1px 4px;text-decoration:none;line-height:1.2;vertical-align:middle';return u?`<a href="${esc(u)}" target="_blank" rel="noopener" title="${tip}" onclick="event.stopPropagation()" style="${st}">${lab}</a>`:`<span title="${tip}" style="${st}">${lab}</span>`};
  const H=(t,sub)=>`<h3>${t}${sub?` <span class="st">${sub}</span>`:''}</h3>`;let h='';
  /* 1) Ферма */
  const F=B.farm;if(F){const C=F.current||{},L=F.last_snapshot||{},wait=!C.as_of;
