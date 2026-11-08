@@ -795,12 +795,24 @@ function ofBlocksHTML(d){if(d.id!=='of'||!d.of_blocks)return '';const B=d.of_blo
   const tot=dayRec?(dayRec.total!=null?dayRec.total:(fol==null||lik==null||sto==null)?null:Number(fol)+Number(lik)+Number(sto)):((C.total&&C.total[pk]!=null)?C.total[pk]:(fol==null||lik==null||sto==null)?null:(Number(fol)+Number(lik)+Number(sto)));
   const liveN=dayRec?dayRec.live_ok:C.live_ok;
   const idleN=dayRec&&'idle' in dayRec?dayRec.idle:(C.idle!=null?C.idle:F.idle);
-  const st=wait?['—','','ждём снимок Сейдера']:idleN==null?['—','','нет в снимке']:idleN>0?['🔴 '+idleN,'at','требует внимания']:['🟢 ок','ok','все живые отработали'];
   const snapLbl=dayRec?yest:(C.as_of||'');
+  const snapDot=s=>{const m=String(s||'').match(/(\d{4})-(\d{2})-(\d{2})/);return m?m[3]+'.'+m[2]:'';};
+  const srcTime=String((dayRec&&dayRec.src)||C.src||'').match(/(\d{1,2}:\d{2})/);
+  const cap=wait?'ждём снимок':[PL[pk],snapDot(snapLbl),srcTime?srcTime[1]:''].filter(Boolean).join(' · ');
+  const normPh=list=>(list||[]).map(x=>typeof x==='string'?{name:x}:x).filter(x=>x&&x.name);
+  const phoneRows=normPh((dayRec&&dayRec.phones)||C.phones||F.phones);
+  const rows=phoneRows.length?phoneRows:[{name:'22126RN91Y'},{name:'Celular 11'}];
+  const cell=v=>`<td class="n">${wait?'—':n(v)}</td>`;
+  const idleCell=v=>{const red=v!=null&&Number(v)>0;return `<td class="n"${red?' style="color:#b42318;font-weight:700;background:#fff5f5"':''}>${wait?'—':n(v)}</td>`;};
+  const phTot=p=>p.total!=null?p.total:(p.follows==null||p.likes==null||p.story_views==null)?null:Number(p.follows)+Number(p.likes)+Number(p.story_views);
+  const phRow=p=>`<tr><td>${esc(p.name)}</td>${cell(p.follows)}${cell(p.likes)}${cell(p.story_views)}${cell(phTot(p))}${cell(p.live_ok)}${idleCell(p.idle)}</tr>`;
   h+=`<div class="card" style="margin-bottom:14px">${H(esc(F.title),'цель — теория')}
   <div class="card bgoal" style="padding:12px;margin-bottom:10px"><b>🎯 ${esc(F.goal.label)}</b>${(F.checkpoints||[]).map(c=>`<div class="task"><span class="pill ${c.status==='in_progress'?'p-high':'p-normal'}">${c.status==='in_progress'?'в работе':c.status==='done'?'✓':'план'}</span><div style="flex:1"><b style="font-size:13.5px">${esc(c.label)} → ${n(c.per_day)} фолловингов/день</b><div class="note">${esc(c.note||'')}</div></div></div>`).join('')}</div>
-  <div class="note" style="margin-bottom:6px">Монитор · период: <b>${PL[pk]}</b> (переключатель сверху)${wait?' · <span style="color:#a5620a">'+esc(C.note||'ждём снимок Сейдера')+'</span>':(dayRec?' · день '+esc(snapLbl)+(dayRec.src?' · '+esc(dayRec.src):''):' · снимок '+esc(C.as_of))}</div>
-  <div class="grid g3b eq">${tile('➕ Фолловинги · '+PL[pk],n(fol),wait?'ждём снимок Сейдера':'')}${tile('❤️ Лайки · '+PL[pk],n(lik),wait?'ждём снимок Сейдера':'')}${tile('👁 Просмотры сторис · '+PL[pk],n(sto),wait?'ждём снимок Сейдера':(sto==null?'нет в снимке':''))}${tile('Σ Итого · '+PL[pk],n(tot),wait?'ждём снимок Сейдера':(tot==null?'фолловинги + лайки + сторис':'фолловинги + лайки + сторис'))}${tile('✅ Живые без проблем',n(liveN),wait?'ждём снимок Сейдера':'')}${tile('⏸ Живые, не отработали',st[0],st[2],st[1])}</div>
+  <div class="note" style="margin-bottom:6px">${esc(cap)}</div>
+  <div class="tblwrap"><table><tr><th>Телефон</th><th class="n">Фолловинги</th><th class="n">Лайки</th><th class="n">Сторис</th><th class="n">Итого</th><th class="n">Живые</th><th class="n">не отработали</th></tr>
+  ${rows.map(phRow).join('')}
+  <tr style="font-weight:700;background:#f4f7fb"><td>Сумма</td>${cell(fol)}${cell(lik)}${cell(sto)}${cell(tot)}${cell(liveN)}${idleCell(idleN)}</tr>
+  </table></div>
 ${L.as_of?`<details style="margin-top:10px"><summary style="cursor:pointer;font-weight:700;font-size:13px">Последний известный снимок · ${esc(L.label)} ▼</summary><div class="tblwrap" style="margin-top:6px"><table><tr><th>Профилей</th><th class="n">Отработали</th><th class="n">Не отработали</th><th class="n">⚠ флаг</th><th class="n">Фолловинги за ночь</th><th class="n">Лайки</th></tr><tr><td>${n(L.profiles)} из ${n(L.target_profiles)}</td><td class="n">${n(L.worked)}</td><td class="n">${n(L.idle)}</td><td class="n">${n(L.warn_flag)}</td><td class="n">${n(L.follows)}</td><td class="n">${n(L.likes)}</td></tr></table></div><div class="note">${esc(L.note||'')} · ${esc(L.src||'')} · старый снимок во «внимание» не идёт</div></details>`:''}
   ${F.cu_task?`<div class="note" style="margin-top:6px">ClickUp: <a href="${cuAppUrl(F.cu_task.url)}" target="_blank" rel="noopener">${esc(F.cu_task.id)} · ${esc(F.cu_task.name)}</a></div>`:''}</div>`}
  /* 2) ТС */
