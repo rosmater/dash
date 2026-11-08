@@ -143,36 +143,16 @@ _OBJ = {'Profile visits': 'Визиты профиля', 'Conversations (app)': 
 _A, _R = _j('ads.json'), _j('replies.json')
 def _ad(a, st):
     ss = a.get('stats_at_verify') or {}
-    lk = a.get('last_known_conversation_stats') or {}
-    conv = a.get('conversations')
-    if conv is None:
-        conv = ss.get('messaging_conversations')
-    if conv is None:
-        conv = lk.get('messaging_conversations')
-    cpc = a.get('cost_per_conversation_cop')
-    if cpc is None:
-        cpc = ss.get('cost_per_conversation_cop')
-    if cpc is None:
-        cpc = lk.get('cost_per_conversation_cop')
-    _blob = ' '.join(str(a.get(k) or '') for k in ('platform','network','account','id','name','objective','creative'))
-    plat = a.get('platform') if a.get('platform') in ('TikTok','Instagram') else ('TikTok' if re.search(r'tiktok|pstt-|more profile views|musically', _blob, re.I) else 'Instagram')
     return dict(name=a.get('creative') or a.get('id'), account=a.get('account', ''), status=st,
-                platform=plat,
                 start=_hm(a.get('started_at') or a.get('launch_at') or a.get('start')), end=a.get('finishes_approx', ''),
                 days=a.get('duration_days'), objective=next((v for k, v in _OBJ.items() if str(a.get('objective', '')).startswith(k)), a.get('objective', '')), audience=a.get('audience', ''),
                 budget=a.get('budget_cop_total') or a.get('budget_cop'), day_budget=a.get('budget_cop_day'),
                 spent=ss.get('spent_cop', a.get('spent_cop')), views=ss.get('views', a.get('views')),
-                conversations=conv, profile_visits=ss.get('profile_visits', a.get('profile_visits')),
-                cpc=cpc, checked=_hm(ss.get('at')) if ss.get('at') else '', note=a.get('post_note', ''))
-_OFF = {'paused', 'off', 'stopped', 'completed', 'finalizada', 'inactive', 'paused_completed'}
-_raw_act, _raw_arch = list(_A.get('active') or []), list(_A.get('archive') or [])
-_moved = [a for a in _raw_act if str(a.get('status') or '').lower() in _OFF]
-_raw_act = [a for a in _raw_act if a not in _moved]
-_arch_ids = {x.get('id') for x in _raw_arch}
-_raw_arch = _moved + [a for a in _raw_arch if a.get('id') not in {x.get('id') for x in _moved}]
-pep_ads = dict(active=[_ad(a, 'active') for a in _raw_act],
+                conversations=a.get('conversations'), profile_visits=ss.get('profile_visits', a.get('profile_visits')),
+                cpc=a.get('cost_per_conversation_cop'), checked=_hm(ss.get('at')) if ss.get('at') else '', note=a.get('post_note', ''))
+pep_ads = dict(active=[_ad(a, 'active') for a in _A.get('active', [])],
                scheduled=[_ad(a, 'scheduled') for a in _A.get('scheduled', [])],
-               archive=[_ad(a, 'done') for a in _raw_arch],
+               archive=[_ad(a, 'done') for a in _A.get('archive', [])],
                totals=_A.get('totals_archive'), summary=_A.get('archive_summary'), plan=_A.get('plan'), as_of=_hm(_A.get('as_of')), last_verify=_hm((_A.get('live_check') or {}).get('last_ig_verify')),
                stale=not (_A.get('live_check') or {}).get('phone_recheck_today', False),
                cron_failed=bool(_A.get('cron_failed') or (_A.get('live_check') or {}).get('cron_failed')),
@@ -755,7 +735,7 @@ data = dict(
          ],
          tasks=tasks(['86bcn2d1t', '86b6z79t1', '86bc1tdu5', '86b7heru3', '86b9abep9', '86bcn2g2q', '86b9wh8cd']),
          of_blocks=OFB,
-         gaps=of_gaps_extra+['Выплаты моделям — только база с карточек (to do), факт оплат не сверён', 'Расходы офиса, прокси (IPRoyal), AdsPower и пр. не учтены', 'Неделя 12–18.10 partial', 'RA185 — наш доход 0 до 15.01.2027; RA222 в скоупе с 25.10']),
+         gaps=of_gaps_extra+['Выплаты моделям — только база с карточек (to do), факт оплат не сверён', 'Расходы офиса, прокси (IPRoyal), AdsPower и пр. не учтены', 'RA185 — наш доход 0 до 15.01.2027; RA222 в скоупе с 25.10']),
     dict(id='realestate', stage='money', name='Недвижимость', subtitle='Испания · Украина · Колумбия', currency='EUR', color='#f59e0b', icon='🏠',
          overview_note='Недвижимость: только месячные итоги (янв–авг 2026), недельных нет.',
          periods=re_periods, breakdowns=re_break,
@@ -892,21 +872,6 @@ try:
     data['overview']['cu_sort'] = _keep
 except FileNotFoundError:
     pass
-# Rost t949u: закрытые CU-задачи не тянуть в блок «с датой» / «на сортировку»
-def _cu_not_closed(t):
-    st = (t.get('cu_status') or t.get('status') or '').lower()
-    tid = t.get('id') or ''
-    if not tid:
-        m = re.search(r'/t/(?:\d+/)?([0-9a-z]+)', t.get('url') or '')
-        tid = m.group(1) if m else ''
-    if tid == '86bcnvnmr':
-        return False
-    return not (st.startswith('complete') or st in ('closed', 'done') or 'закрыт' in st)
-for _d in data['directions']:
-    if _d.get('cu_dated'):
-        _d['cu_dated'] = [t for t in _d['cu_dated'] if _cu_not_closed(t)]
-if data.get('overview') and data['overview'].get('cu_sort'):
-    data['overview']['cu_sort'] = [t for t in data['overview']['cu_sort'] if _cu_not_closed(t)]
 # Rost t3956–59u: ДР в шапке — чеклист/описание ДР-задач (src/cu_bday_extra.json {id:{checklist:[{name,done}],desc}}), заполняет синк ClickUp
 try:
     _BX = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'cu_bday_extra.json'))).get('tasks', {})
@@ -925,5 +890,21 @@ try:
         if isinstance(_d, dict) and isinstance(_d.get('unsorted'), list):
             _d['unsorted'] = [u for u in _d['unsorted'] if str(u.get('key') or (str(u.get('channel',''))+'|'+str(u.get('title','')))).lower() not in _PIG]
 except Exception as _e: print('perm-ignore skip', _e)
+
+# Rost t949u: закрытые CU-задачи не тянуть в блок «с датой» / «на сортировку»
+def _cu_not_closed(t):
+    st = (t.get('cu_status') or t.get('status') or '').lower()
+    tid = t.get('id') or ''
+    if not tid:
+        m = re.search(r'/t/(?:\d+/)?([0-9a-z]+)', t.get('url') or '')
+        tid = m.group(1) if m else ''
+    if tid == '86bcnvnmr':
+        return False
+    return not (st.startswith('complete') or st in ('closed', 'done') or 'закрыт' in st)
+for _d in data['directions']:
+    if _d.get('cu_dated'):
+        _d['cu_dated'] = [t for t in _d['cu_dated'] if _cu_not_closed(t)]
+if data.get('overview') and data['overview'].get('cu_sort'):
+    data['overview']['cu_sort'] = [t for t in data['overview']['cu_sort'] if _cu_not_closed(t)]
 json.dump(data, open(OUT, 'w'), ensure_ascii=False, indent=1)
 print('wrote', os.path.abspath(OUT), os.path.getsize(OUT))
