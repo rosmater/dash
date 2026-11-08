@@ -792,6 +792,11 @@ function ofBlocksHTML(d){if(d.id!=='of'||!d.of_blocks)return '';const B=d.of_blo
  const _p0=n=>String(n).padStart(2,'0');
  const curId='W:'+_mon0.toISOString().slice(0,10);
  const curLab=_p0(_mon0.getUTCDate())+'–'+_p0(_sun0.getUTCDate())+'.'+_p0(_mon0.getUTCMonth()+1);
+ const weekTitles=['Текущая','Прошлая','Позапрошлая'];
+ const weekSkip={id:1,label:1,title:1,src:1,sort:1};
+ const weekHas=w=>{if(!w)return false;return Object.keys(w).some(k=>{if(weekSkip[k])return false;const v=w[k];if(v==null||v==='')return false;if(typeof v==='object'){return Object.keys(v).some(kk=>{const x=v[kk];if(x==null||x==='')return false;if(typeof x==='object')return x.fans!=null||x.delta!=null;return true;});}return true;});};
+ const weekCols=list=>(list||[]).filter(weekHas).slice(0,3).map((w,i)=>({title:weekTitles[i],...w}));
+ const weekColgroup=cols=>{const n=Math.max(cols.length,1);const rest=(72/n).toFixed(4);return `<colgroup><col style="width:28%">${cols.map(()=>`<col style="width:${rest}%">`).join('')}</colgroup>`};
  const tk=(ts,empty)=>ts&&ts.length?ts.map(t=>`<div class="task"><span class="pill p-normal">${esc(t.status)}</span><div style="flex:1"><a href="${cuAppUrl(t.url)}" target="_blank" rel="noopener">${esc(t.name)}</a><div class="note">на ком: <b>${esc(t.who||'—')}</b>${t.parent?' · ↳ '+esc(t.parent):''}</div></div></div>`).join(''):`<div class="empty">${empty||'задач нет'}</div>`;
  /* Rost t5609u–t5615u: ТС/ОФТВ — фиолетовая плашка CU N; без задач — белая «задач нет» */
  const tsAlive=ts=>(ts||[]).filter(t=>{const s=String(t.status||'').toLowerCase();return !(s.startsWith('complete')||s==='models'||s==='main'||s==='closed'||s==='done'||/закрыт|заверш/.test(s));});
@@ -850,15 +855,13 @@ function ofBlocksHTML(d){if(d.id!=='of'||!d.of_blocks)return '';const B=d.of_blo
  const O=B.oftv;if(O){const fansC=x=>x.fans==null?'—':(x.fans_approx?'≈':'')+n(x.fans);
   const fromModels=(O.models||[]).reduce((a,x)=>({net:a.net+(+x.net||0),fans_new:a.fans_new+(+x.fans_new||0)}),{net:0,fans_new:0});
   const fromCurWeek=O.week?{id:O.week.id,label:O.week.label,net:O.total_net!=null?O.total_net:fromModels.net,fans_new:fromModels.fans_new}:null;
-  const oCur=O.cur||(fromCurWeek&&fromCurWeek.id===curId?fromCurWeek:{id:curId,label:curLab,net:null,fans_new:null});
-  const oLast=O.last||(fromCurWeek&&fromCurWeek.id!==curId?fromCurWeek:null);
   const oPrev=O.prev||null;
   const attn=x=>{const v=x.fans_new;if(v==null)return '';return v<100?` <span class="pill" style="font-size:9px;font-weight:700;padding:1px 5px;line-height:1.2;vertical-align:middle;color:#b42318;background:#fee4e2;border:1px solid #fda29b">требует внимания</span>`:` <span class="pill" style="font-size:9px;font-weight:700;padding:1px 5px;line-height:1.2;vertical-align:middle;color:#0b7a59;background:#d1fadf;border:1px solid #abefc6">все ок</span>`};
   const lst=(t,xs)=>`<details style="margin-top:8px"><summary style="cursor:pointer;font-weight:700;font-size:13px">${t} (${xs.length})</summary>${xs.length?xs.map(x=>`<div class="task"><span class="pill p-high">${esc(x.cu?x.cu.status:'—')}</span><div style="flex:1"><b style="font-size:13.5px">${esc(x.name)}</b><div class="note">${esc(x.note||'')}${x.cu?` · <a href="${cuAppUrl(x.cu.url)}" target="_blank" rel="noopener">CU</a> · на ком: <b>${esc(x.cu.who)}</b>`:''}</div></div></div>`).join(''):'<div class="empty">пусто</div>'}</details>`;
-  const oCols=[{title:'Текущая',...(oCur||{})},{title:'Прошлая',...(oLast||{})},{title:'Позапрошлая',...(oPrev||{})}];
+  const oCols=weekCols((O.weeks&&O.weeks.length)?O.weeks:[fromCurWeek,oPrev]);
   const oCell=(w,fn,kind)=>{const v=fn(w||{});return v==null||v===''?'—':kind==='$'?$u(v):n(v)};
   h+=`<div class="card" style="margin-bottom:14px">${H(esc(O.title))}
-  <div class="tblwrap" style="margin-top:6px"><table style="table-layout:fixed;width:100%"><colgroup><col style="width:28%"><col style="width:24%"><col style="width:24%"><col style="width:24%"></colgroup>
+  <div class="tblwrap" style="margin-top:6px"><table style="table-layout:fixed;width:100%">${weekColgroup(oCols)}
   <tr><th>Показатель</th>${oCols.map(c=>`<th class="n">${esc(c.title)}${c.label?`<div class="note">${esc(c.label)}</div>`:''}</th>`).join('')}</tr>
   <tr><td>Оборот (-20% OF)</td>${oCols.map(c=>`<td class="n">${oCell(c,w=>w.net,'$')}</td>`).join('')}</tr>
   <tr><td>Новые фаны</td>${oCols.map(c=>`<td class="n">${oCell(c,w=>w.fans_new,'n')}</td>`).join('')}</tr>
@@ -874,37 +877,51 @@ function ofBlocksHTML(d){if(d.id!=='of'||!d.of_blocks)return '';const B=d.of_blo
   <div style="border-top:1px solid var(--line);margin:14px 0 10px"></div>
   <details style="margin-top:0"><summary style="cursor:pointer;font-weight:700;font-size:13px">📋 Задачи ClickUp по направлению (${tsAlive(O.tasks).length})</summary>${tk(tsAlive(O.tasks))}</details>
   </div>`}
+
  /* 4) LolaPop */
- const P=B.lolapop;if(P){const LS=P.last_snapshot,raw=(P.periods||{}).week||{},row=(re)=>((LS&&LS.rows)||[]).find(r=>re.test(r[0])),subs=row(/подписк/i),msgs=row(/сообщен|PPV/i),tot=row(/итого/i),tips=row(/чаевые/i),posts=row(/посты/i),mv=row(/ManyVids/i),c4s=row(/Clips4Sale|C4S/i);
+ const P=B.lolapop;if(P){const LS=P.last_snapshot,row=(re)=>((LS&&LS.rows)||[]).find(r=>re.test(r[0])),subs=row(/подписк/i),msgs=row(/сообщен|PPV/i),tot=row(/итого/i),tips=row(/чаевые/i),posts=row(/посты/i),mv=row(/ManyVids/i),c4s=row(/Clips4Sale|C4S/i);
   const fromLS=LS?{label:LS.label,inc_subs:subs?subs[2]:null,inc_msgs:msgs?msgs[2]:null,inc_tips:tips?tips[2]:null,inc_posts:posts?posts[2]:null,inc_total:tot?tot[2]:null,mv:mv?mv[2]:null,c4s:c4s?c4s[2]:null,subs_new:null,rebills:null,fans:null,fans_new:null}:null;
-  const lpCur=P.cur||{label:curLab};
-  const lpLast=P.last||null;
-  const lpPrev=P.prev||(fromLS&&(!P.last||P.last.label!==fromLS.label)?fromLS:null);
-  const lpCols=[{title:'Текущая',...lpCur},{title:'Прошлая',...(lpLast||{})},{title:'Позапрошлая',...(lpPrev||{})}];
-  const lpCell=(w,fn,kind)=>{const v=fn(w||{});if(v==null||v==='')return '—';if(kind==='$')return $u(v);if(kind==='ig'){const num=Number(v);if(!Number.isFinite(num))return '—';const sign=num>0?'+':num<0?'−':'';return `${sign}${n(Math.abs(num))} подписчиков`;}return n(v)};
+  const lpCols=weekCols((P.weeks&&P.weeks.length)?P.weeks:[P.cur,P.last,P.prev,fromLS]);
+  const lpCell=(w,fn,kind)=>{const v=fn(w||{});if(v==null||v==='')return '—';if(kind==='$')return $u(v);if(kind==='ig'){const x=(typeof v==='object')?v:{delta:v};if(x.fans==null&&x.delta==null)return '—';const fans=x.fans==null?'—':n(x.fans);let badge='';if(x.delta!=null){const d=Number(x.delta);if(Number.isFinite(d)){const sign=d>0?'+':d<0?'−':'';badge=` <span class="pill" style="font-size:11px;font-weight:700;padding:1px 6px;line-height:1.2;vertical-align:middle;color:${d<0?'#b42318':'#0b7a59'};background:${d<0?'#fee4e2':'#d1fadf'};border:1px solid ${d<0?'#fda29b':'#abefc6'}">${sign}${n(Math.abs(d))}</span>`;}}return `<span style="display:inline-flex;align-items:center;gap:6px;flex-wrap:wrap;justify-content:flex-end">${fans}${badge}</span>`;}return n(v)};
   const igAcc=(P.ig_accounts&&P.ig_accounts.length)?P.ig_accounts:[{handle:'lolabig.lolapop'},{handle:'lolapopstarted'},{handle:'lolastartjourney'}];
-  const lpSec=(title,rows)=>`<tr><td colspan="4" style="background:#f4f7fb;font-weight:700;text-align:left">${title}</td></tr>`+rows.map(([lab,fn,kind])=>`<tr><td>${lab}</td>${lpCols.map(c=>`<td class="n">${lpCell(c,fn,kind)}</td>`).join('')}</tr>`).join('');
+  const psSites=P.pornstocks_sites||['Pornhub','Tnaflix','Xhamster','Faphouse','Xvideos','Xnxx','Eporner'];
+  const lpN=1+lpCols.length;
+  const lpSec=(title,rows)=>`<tr><td colspan="${lpN}" style="background:#f4f7fb;font-weight:700;text-align:left">${title}</td></tr>`+rows.map(([lab,fn,kind])=>`<tr><td>${lab}</td>${lpCols.map(c=>`<td class="n">${lpCell(c,fn,kind)}</td>`).join('')}</tr>`).join('');
   h+=`<div class="card" style="margin-bottom:14px">${H(esc(P.title),esc(P.profile||''))}
-  <div class="tblwrap" style="margin-top:6px"><table style="table-layout:fixed;width:100%"><colgroup><col style="width:28%"><col style="width:24%"><col style="width:24%"><col style="width:24%"></colgroup>
+  <div class="tblwrap" style="margin-top:6px"><table style="table-layout:fixed;width:100%">${weekColgroup(lpCols)}
   <tr><th>Показатель</th>${lpCols.map(c=>`<th class="n">${esc(c.title)}${c.label?`<div class="note">${esc(c.label)}</div>`:''}</th>`).join('')}</tr>
   ${lpSec('OnlyFans',[
-    ['Итого OF',w=>w.inc_total,'$'],
-    ['Подписки',w=>w.inc_subs,'$'],
-    ['Сообщения',w=>w.inc_msgs,'$'],
-    ['Чаевые',w=>w.inc_tips,'$'],
-    ['Посты',w=>w.inc_posts,'$'],
-    ['Фанов',w=>w.fans,'n'],
-    ['Новых фанов',w=>w.fans_new,'n'],
-    ['Новые подписки',w=>w.subs_new,'n'],
-    ['Ребилы',w=>w.rebills,'n']
+    ['Итого оборот OF (-20% OF)',w=>w.inc_total,'$'],
+    ['Подписки доход',w=>w.inc_subs,'$'],
+    ['Сообщения доход',w=>w.inc_msgs,'$'],
+    ['Чаевые доход',w=>w.inc_tips,'$'],
+    ['Посты доход',w=>w.inc_posts,'$'],
+    ['Фанов итого',w=>w.fans,'n'],
+    ['Новых фанов за период',w=>w.fans_new,'n'],
+    ['Ребилы за период',w=>w.rebills,'n']
   ])}
   ${lpSec('Сайты с видео',[
-    ['ManyVids',w=>w.mv,'$'],
-    ['Clips4Sale',w=>w.c4s,'$']
+    ['ManyVids доход',w=>w.mv,'$'],
+    ['Clips4Sale доход',w=>w.c4s,'$']
   ])}
-  ${lpSec('Instagram',igAcc.map(a=>['@'+a.handle,w=>((w.ig||{})[a.handle]??(w.ig||{})[a.handle&&a.handle.replace(/^@/,'')]),'ig']))}
+  ${lpSec('Instagram · количество фанов',igAcc.map(a=>['@'+a.handle,w=>((w.ig||{})[a.handle]??(w.ig||{})[a.handle&&a.handle.replace(/^@/,'')]),'ig']))}
+  ${lpSec('Порнстоки',psSites.map(name=>[name,w=>((w.pornstocks||{})[name]),'n']).concat([['Итого просмотров',w=>(w.pornstocks||{}).total,'n']]))}
+  </table></div></div>`}
+ /* 5) Fetish Rooms */
+ const FR=B.fetish_rooms;if(FR){const frCols=weekCols(FR.weeks||[]);
+  const frN=1+frCols.length;
+  const frCell=(w,fn,kind)=>{const v=fn(w||{});if(v==null||v==='')return '—';return kind==='$'?$u(v):n(v)};
+  const frSec=(title,rows)=>`<tr><td colspan="${frN}" style="background:#f4f7fb;font-weight:700;text-align:left">${title}</td></tr>`+rows.map(([lab,fn,kind])=>`<tr><td>${lab}</td>${frCols.map(c=>`<td class="n">${frCell(c,fn,kind)}</td>`).join('')}</tr>`).join('');
+  h+=`<div class="card" style="margin-bottom:14px">${H(esc(FR.title||'Fetish Rooms'))}
+  <div class="tblwrap" style="margin-top:6px"><table style="table-layout:fixed;width:100%">${weekColgroup(frCols)}
+  <tr><th>Показатель</th>${frCols.map(c=>`<th class="n">${esc(c.title)}${c.label?`<div class="note">${esc(c.label)}</div>`:''}</th>`).join('')}</tr>
+  ${frSec('Сайты с видео',[
+    ['ManyVids доход',w=>w.mv,'$'],
+    ['IWantMyClips доход',w=>w.iwc,'$']
+  ])}
   </table></div></div>`}
  return h}
+
 function pepPlanHTML(d){if(d.id!=='peptides')return '';const cur=Dash.curOf(d),n=v=>v==null?'—':esc(Dash.num(v)),dd=x=>x&&/^20/.test(x)?x.slice(8,10)+'.'+x.slice(5,7)+(x.length>10?' '+x.slice(11,16):''):esc(x||'—');
  const A=d.ads_monitor||{},R=d.repeat_sales||{};
  const act=(A.active||[]).concat(A.scheduled||[]),ar=A.archive||[],T=A.totals||{};
