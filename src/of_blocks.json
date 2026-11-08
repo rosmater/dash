@@ -104,9 +104,9 @@
   "oftv": {
     "title": "📺 ОФТВ (с Лёшей 60/40)",
     "week": {
-      "id": "W:2026-10-12",
-      "label": "12–18.10",
-      "src": "обновлено 19.10 (OF Statistics, 4 модели)"
+      "id": "W:2026-10-26",
+      "label": "26.10–01.11",
+      "src": "Lesha OFTV sheet · блок 02.11.26 (models HE:HM); gross из OF Statistics съёма oftv0211 за 26.10–01.11"
     },
     "models": [
       {
@@ -114,10 +114,10 @@
         "name": "Sofia Lunara",
         "person": "Laura (RA213)",
         "team": "Маркиз",
-        "gross": 565.0,
-        "net": 452.0,
+        "gross": 715.0,
+        "net": 572.0,
         "fans": null,
-        "fans_new": 247,
+        "fans_new": 565,
         "match": [
           "Sofia Lunara",
           "RA 213",
@@ -129,11 +129,10 @@
         "name": "Kelly Sunelly",
         "person": "Juliana Manco (RA208/216)",
         "team": null,
-        "gross": 92.97,
-        "net": 74.37,
+        "gross": 23.0,
+        "net": 18.4,
         "fans": 1900,
-        "fans_approx": true,
-        "fans_new": 331,
+        "fans_new": 9,
         "match": [
           "Kelly",
           "Juliana Manco",
@@ -145,10 +144,10 @@
         "name": "Bella Cruz",
         "person": "Scarlet",
         "team": null,
-        "gross": 53.99,
-        "net": 43.19,
+        "gross": 0.0,
+        "net": 0.0,
         "fans": null,
-        "fans_new": 154,
+        "fans_new": 17,
         "match": [
           "Scarlet"
         ]
@@ -158,10 +157,10 @@
         "name": "I am rosie",
         "person": "Katerine (RA207/212)",
         "team": null,
-        "gross": 79.98,
-        "net": 63.98,
+        "gross": 0.0,
+        "net": 0.0,
         "fans": null,
-        "fans_new": 147,
+        "fans_new": 11,
         "match": [
           "Katerine",
           "Katherine",

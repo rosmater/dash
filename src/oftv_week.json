@@ -1,0 +1,42 @@
+{
+  "as_of": "2026-11-02",
+  "week": {
+    "id": "W:2026-10-26",
+    "label": "26.10–01.11"
+  },
+  "src": "Lesha OFTV sheet · блок 02.11.26 (models HE:HM); gross из OF Statistics съёма oftv0211 за 26.10–01.11",
+  "models": [
+    {
+      "key": "sofia",
+      "name": "Sofia Lunara",
+      "fans": null,
+      "fans_new": 565,
+      "gross": 715.0,
+      "net": 572.0
+    },
+    {
+      "key": "kelly",
+      "name": "Kelly Sunelly",
+      "fans": null,
+      "fans_new": 9,
+      "gross": 23.0,
+      "net": 18.4
+    },
+    {
+      "key": "bella",
+      "name": "Bella Cruz",
+      "fans": null,
+      "fans_new": 17,
+      "gross": 0.0,
+      "net": 0.0
+    },
+    {
+      "key": "rosie",
+      "name": "I am rosie",
+      "fans": null,
+      "fans_new": 11,
+      "gross": 0.0,
+      "net": 0.0
+    }
+  ]
+}
