@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-07T08:12:00-05:00",
+  "updated_at": "2026-11-08T01:44:57-05:00",
   "note": "Rost 06.11 t453: «Клиенты в процессе» = все живые диалоги с этапом intro/catalog/deal/call, не только «ждут каталог». Закрытые не держим.",
   "clients_in_progress": [
     {
@@ -40,13 +40,13 @@
       "id": "military-industries",
       "company": "Military Industries SAS (Колумбия)",
       "contact": "Carlos Bedoya <licitaciones2@militaryjr.com.co>",
-      "status": "catalog_sent",
+      "status": "waiting",
       "pipeline": "catalog",
-      "status_label": "Каталог отправлен",
+      "status_label": "Ждём ответа",
       "promised_at": "2026-10-27",
-      "note": "Каталог ES+EN ушёл 06.11. 06.11 16:45 Bedoya ответил: изучают; спрашивают, контактировали ли мы уже с другими колумбийскими компаниями — нужен наш ответ (черновик в CU 86bbzxnvx).",
+      "note": "Ответ Bedoya отправлен 07.11 ~15:34 Bogotá (msg 1a1b7b7ba55200e9, thread 1a17a185cf09528b). Нет эксклюзива в Колумбии, ищем сотрудничество (представление там не развито); рынки — Европа, Азия, Северная Америка, страны Залива. Мяч у них: предложения / возможный созвон.",
       "url": "https://rosmater.github.io/cu/?t=86bbzxnvx",
-      "ctx": "QUEUE.md catalog-military-industries"
+      "ctx": "QUEUE.md military-industries-colombia-q"
     },
     {
       "id": "prodesaten",
