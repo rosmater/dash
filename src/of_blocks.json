@@ -23,20 +23,34 @@
       }
     ],
     "current": {
-      "as_of": "2026-10-26",
+      "as_of": "2026-11-08",
       "follows": {
-        "today": 0,
-        "week": 0,
-        "month": null
-      },
-      "likes": {
         "today": 0,
         "week": null,
         "month": null
       },
-      "live_ok": 0,
-      "idle": 0,
-      "note": "baseline Seider 26.10 02:37 Bogotá · IG HYBRID 17.2.6 · phone 22126RN91Y Connected 0/1 Running 0/1 · accounts 20 · follows/unfollows/30d 0/0/0 · Reports 7d: Idle 14 / Healthy 0 / Needs attn 0 / No tools 6 / No run window 12 · JO 0 · Post Monitors 0 · APP ID 20/20 — честный ноль до Connected, не «требует внимания»"
+      "likes": {
+        "today": null,
+        "week": null,
+        "month": null
+      },
+      "story_views": {
+        "today": null,
+        "week": null,
+        "month": null
+      },
+      "total": {
+        "today": null,
+        "week": null,
+        "month": null
+      },
+      "live_ok": null,
+      "idle": null,
+      "connected": "1/2",
+      "running": "0/2",
+      "accounts": 30,
+      "src": "Onimator UI · Devices 08.11 ~15:05 Bogotá",
+      "note": "Connected 1/2, Running 0/2, 30 акков. Живой 22126RN91Y зелёный, Celular 11 офлайн. Start не поднимает бота, лога за 08.11 нет. Healthy/idle и сторис сегодня не снимал (последний Reports 07.11: 4 healthy / 25 idle; видимые сторис 07.11 = 77)."
     },
     "last_snapshot": {
       "as_of": "2026-10-13",
@@ -56,7 +70,32 @@
       "name": "Seider — ферма mass following (отчёт)",
       "url": "https://app.clickup.com/t/86b9ycbby"
     },
-    "idle": 0
+    "idle": null,
+    "days": {
+      "2026-11-07": {
+        "follows": 0,
+        "likes": 0,
+        "story_views": 77,
+        "total": 77,
+        "live_ok": 4,
+        "idle": 25,
+        "src": "Onimator Reports 07.11 ~18:51 Bogotá (Фермовод)",
+        "note": "полный Reports: 4 healthy / 25 idle; follows 0; видимые successful story views 77; лайки в UI 0"
+      },
+      "2026-11-08": {
+        "follows": 0,
+        "likes": null,
+        "story_views": null,
+        "total": null,
+        "live_ok": null,
+        "idle": null,
+        "src": "Onimator UI · Devices 08.11 ~15:05 Bogotá",
+        "note": "Connected 1/2, Running 0/2, 30 акков. Живой 22126RN91Y зелёный, Celular 11 офлайн. Start не поднимает бота, лога за 08.11 нет. Healthy/idle и сторис сегодня не снимал (последний Reports 07.11: 4 healthy / 25 idle; видимые сторис 07.11 = 77).",
+        "connected": "1/2",
+        "running": "0/2",
+        "accounts": 30
+      }
+    }
   },
   "ts": {
     "title": "🤝 ТС партнёрка (05services)",
