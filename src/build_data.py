@@ -43,6 +43,8 @@ for wk, rs in sorted(by_week.items()):
     partial = any(r['partial'] == 'yes' for r in rs)
     net = 0.0; gross = 0.0; fans = 0; table = []
     for r in sorted(rs, key=lambda x: x['ra']):
+        if r['ra'] == 'RA215':
+            continue  # Rost t5593u: давно не в счёт
         n = RA130_WEEK if r['ra'] == 'RA130' else float(r['our_net'] or 0)
         g = float(r['income_usd'] or 0)
         net += n; gross += g; fans += int(float(r['fans'] or 0))
@@ -594,11 +596,21 @@ def _ra_nums(s):
 # ТС: две последние закрытые недели + текущая неполная
 _wk_full = sorted([k for k, v in of_periods.items() if v['status'] == 'full'])
 _wk_part = sorted([k for k, v in of_periods.items() if v['status'] != 'full'])
+RA185_INCOME_FROM = datetime.date(2027, 1, 15)  # income-rules.md / Rost t5593u
 def _ts_week(k):
     if not k: return None
     b = next((x for x in of_break if x['period'] == k), None); rows = b['rows'] if b else []
-    act = [r for r in rows if (r[1] or 0) > 0]
-    net = of_periods[k]['income'][0]['amount']; gross = of_periods[k]['metrics']['Оборот моделей (gross), $']
+    try:
+        ws = datetime.date.fromisoformat(k.split(':', 1)[1])
+    except Exception:
+        ws = None
+    def _in_arpu(r):
+        if r[0] == 'RA185' and (ws is None or ws < RA185_INCOME_FROM):
+            return False
+        return (r[1] or 0) > 0
+    act = [r for r in rows if _in_arpu(r)]
+    net = sum(float(r[3] or 0) for r in act)
+    gross = sum(float(r[1] or 0) for r in act)
     w = next((x for x in weeks if 'W:' + x['id'] == k), None)
     return dict(id=k, label=w['label'] if w else k[2:], status=of_periods[k]['status'], net=round(net, 2), gross=round(gross, 2),
                 models=len(act), arpu=round(net / len(act), 2) if act else None, arpu_gross=round(gross / len(act), 2) if act else None)
@@ -611,7 +623,8 @@ for r in _lb['rows']:
     num = r[0][2:]
     ts_tasks = [_cut(t) for t in _ocu_open if num in (_ra_nums(t['name']) | _ra_nums(t.get('parent')))]
     p = _pb.get(r[0])
-    _ts_models.append(dict(ra=r[0], gross=r[1], pct=r[2], net=r[3], fans_new=r[4], prev_net=p[3] if p else None, prev_gross=p[1] if p else None, tasks=ts_tasks))
+    note = 'наш доход 0 до 15.01.2027' if r[0] == 'RA185' else ''
+    _ts_models.append(dict(ra=r[0], gross=r[1], pct=r[2], net=r[3], fans_new=r[4], prev_net=p[3] if p else None, prev_gross=p[1] if p else None, tasks=ts_tasks, note=note))
 OFB['ts'].update(last=_ts_week(_ts_last), prev=_ts_week(_ts_prev), cur=_ts_week(_ts_cur), models=_ts_models,
                  models_week=(_ts_cur or _ts_last), models_label=(_ts_week(_ts_cur or _ts_last) or {}).get('label'), src=of_src, cu_fetched_at=_OCU['fetched_at'])
 # ОФТВ: задачи по моделям / направлению
