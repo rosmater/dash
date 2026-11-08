@@ -17,8 +17,19 @@ def main() -> int:
         return 2
     blocks = json.loads(BLOCKS.read_text())
     oftv = blocks.setdefault("oftv", {})
+    new_id = (snap.get("week") or {}).get("id")
+    old_week = oftv.get("week") or {}
+    if old_week.get("id") and new_id and old_week.get("id") != new_id:
+        models = oftv.get("models") or []
+        oftv["prev"] = {
+            "id": old_week.get("id"),
+            "label": old_week.get("label"),
+            "src": old_week.get("src"),
+            "net": round(sum((m.get("net") or 0) for m in models), 2),
+            "fans_new": sum((m.get("fans_new") or 0) for m in models),
+        }
     oftv["week"] = {
-        "id": (snap.get("week") or {}).get("id"),
+        "id": new_id,
         "label": (snap.get("week") or {}).get("label"),
         "src": snap.get("src"),
     }
