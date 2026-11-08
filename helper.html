@@ -1073,12 +1073,17 @@ function ofBlocksHTML(d){if(d.id!=='of'||!d.of_blocks)return '';const B=d.of_blo
 </div>`}
  /* 3) ОФТВ */
  const O=B.oftv;if(O){const fansC=x=>x.fans==null?'—':(x.fans_approx?'≈':'')+n(x.fans);
+  const oLast=O.last||(O.week?{id:O.week.id,label:O.week.label,net:O.total_net!=null?O.total_net:(O.models||[]).reduce((a,x)=>a+(+x.net||0),0),fans_new:(O.models||[]).reduce((a,x)=>a+(+x.fans_new||0),0)}:null);
+  const oPrev=O.prev||null;
+  const oSubs=x=>x&&x.fans_new!=null?`<span class="pill" style="font-size:11px;font-weight:700;padding:2px 7px;line-height:1.2;vertical-align:middle;color:#374151;background:#f3f4f6;border:1px solid #e5e7eb">новые ${n(x.fans_new)}</span>`:'';
+  const oVal=x=>x&&x.net!=null?`<span style="display:inline-flex;align-items:center;gap:8px;flex-wrap:wrap">${$u(x.net)}${oSubs(x)}</span>`:'—';
+  const attn=x=>{const v=x.fans_new;if(v==null)return '';return v<100?` <span class="pill" style="font-size:9px;font-weight:700;padding:1px 5px;line-height:1.2;vertical-align:middle;color:#b42318;background:#fee4e2;border:1px solid #fda29b">требует внимания</span>`:` <span class="pill" style="font-size:9px;font-weight:700;padding:1px 5px;line-height:1.2;vertical-align:middle;color:#0b7a59;background:#d1fadf;border:1px solid #abefc6">все ок</span>`};
   const lst=(t,xs)=>`<details style="margin-top:8px"><summary style="cursor:pointer;font-weight:700;font-size:13px">${t} (${xs.length})</summary>${xs.length?xs.map(x=>`<div class="task"><span class="pill p-high">${esc(x.cu?x.cu.status:'—')}</span><div style="flex:1"><b style="font-size:13.5px">${esc(x.name)}</b><div class="note">${esc(x.note||'')}${x.cu?` · <a href="${cuAppUrl(x.cu.url)}" target="_blank" rel="noopener">CU</a> · на ком: <b>${esc(x.cu.who)}</b>`:''}</div></div></div>`).join(''):'<div class="empty">пусто</div>'}</details>`;
-  h+=`<div class="card" style="margin-bottom:14px">${H(esc(O.title),'неделя '+esc(O.week.label))}
-  <div class="grid g3b">${tile('💰 Общий оборот за неделю',$u(O.total_net),'после комиссии OnlyFans 20% · '+esc(O.week.label)+' · '+O.models.length+' модели')}${tile('🆕 Новые подписки',n(O.models.reduce((a,x)=>a+(x.fans_new||0),0)),'сумма за '+esc(O.week.label))}${tile('🎬 Активных моделей',O.models.length,'в сборе (scope Rost 14.10)')}</div>
+  h+=`<div class="card" style="margin-bottom:14px">${H(esc(O.title))}
+  <div class="grid g2e">${tile('💵 Прошлая неделя',oVal(oLast),oLast&&oLast.label?esc(oLast.label):'')}${tile('💵 Позапрошлая неделя',oVal(oPrev),oPrev&&oPrev.label?esc(oPrev.label):'')}</div>
   <h5 style="margin:10px 0 4px">Активные модели</h5>
   <div class="tblwrap" style="margin-top:6px"><table><tr><th>Модель</th><th>Кто</th><th>Задачи</th><th class="n">Оборот</th><th class="n">Фанов</th><th class="n">Новых</th></tr>
-  ${O.models.map(x=>`<tr${tsOpen(x)}><td><b>${esc(x.name)}</b></td><td>${esc(x.person)}${x.team?' <span class="note">· '+esc(x.team)+'</span>':''}</td><td>${tsList(x)}</td><td class="n">${$u(x.net)}</td><td class="n">${fansC(x)}</td><td class="n">${n(x.fans_new)}</td></tr>${tsDetail(x,6)}`).join('')}
+  ${O.models.map(x=>`<tr${tsOpen(x)}><td><b>${esc(x.name)}</b>${attn(x)}</td><td>${esc(x.person)}${x.team?' <span class="note">· '+esc(x.team)+'</span>':''}</td><td>${tsList(x)}</td><td class="n">${$u(x.net)}</td><td class="n">${fansC(x)}</td><td class="n">${n(x.fans_new)}</td></tr>${tsDetail(x,6)}`).join('')}
   </table></div>
   <div style="border-top:1px solid var(--line);margin:14px 0 10px"></div>
   ${lst('🚀 Модели на запуск',O.launch||[])}
@@ -1086,7 +1091,7 @@ function ofBlocksHTML(d){if(d.id!=='of'||!d.of_blocks)return '';const B=d.of_blo
   ${lst('📉 Пытаемся вернуть трафик',O.traffic_back||[])}
   <div style="border-top:1px solid var(--line);margin:14px 0 10px"></div>
   <details style="margin-top:0"><summary style="cursor:pointer;font-weight:700;font-size:13px">📋 Задачи ClickUp по направлению (${tsAlive(O.tasks).length})</summary>${tk(tsAlive(O.tasks))}</details>
-  <div class="note" style="margin-top:6px">Оборот — после комиссии OnlyFans 20%. OF Statistics${(O.week&&O.week.src&&String(O.week.src).match(/\d{1,2}\.\d{2}/))?' '+esc(String(O.week.src).match(/\d{1,2}\.\d{2}/)[0]):''} · новые = seguidores nuevos${O.cu_fetched_at?` · списки CU ${esc(String(O.cu_fetched_at).slice(0,10))}`:''}</div></div>`}
+  <div class="note" style="margin-top:6px">Оборот — после комиссии OF 20%</div></div>`}
  /* 4) LolaPop */
  const P=B.lolapop;if(P){const LS=P.last_snapshot,raw=(P.periods||{}).week||{},row=(re)=>((LS&&LS.rows)||[]).find(r=>re.test(r[0])),subs=row(/подписк/i),msgs=row(/сообщен|PPV/i),tot=row(/итого/i),mv=row(/ManyVids/i),c4s=row(/Clips4Sale|C4S/i);
   const pp={subs_new:raw.subs_new,rebills:raw.rebills,inc_subs:raw.inc_subs!=null?raw.inc_subs:(subs?subs[2]:null),inc_msgs:raw.inc_msgs!=null?raw.inc_msgs:(msgs?msgs[2]:null)};
