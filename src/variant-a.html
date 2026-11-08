@@ -786,7 +786,7 @@ function ofBlocksHTML(d){if(d.id!=='of'||!d.of_blocks)return '';const B=d.of_blo
  const raPlace=ra=>{const m=String(ra||'').match(/(\d+)/);const virt=['130','180','185'].includes(m?m[1]:'');return ` <span class="pill" style="font-size:9px;font-weight:600;padding:1px 5px;line-height:1.2;vertical-align:middle;${virt?'color:#2563eb;background:#e8f1ff;border:1px solid #bfdbfe':'color:#92400e;background:#fff6d6;border:1px solid #f5e6a8'}">${virt?'виртуально':'Колумбия'}</span>`};
  const H=(t,sub)=>`<h3>${t}${sub?` <span class="st">${sub}</span>`:''}</h3>`;let h='';
  /* 1) Ферма */
- const F=B.farm;if(F){const C=F.current||{},L=F.last_snapshot||{},wait=!C.as_of;
+ const F=B.farm;if(F){const C=F.current||{},wait=!C.as_of;
   const bogToday=(new Intl.DateTimeFormat('en-CA',{timeZone:'America/Bogota'})).format(new Date());
   const bogShift=(ymd,n)=>{const [y,m,d]=String(ymd).split('-').map(Number);return new Date(Date.UTC(y,m-1,d)+n*864e5).toISOString().slice(0,10);};
   const yest=bogShift(bogToday,-1);
@@ -813,7 +813,7 @@ function ofBlocksHTML(d){if(d.id!=='of'||!d.of_blocks)return '';const B=d.of_blo
   ${rows.map(phRow).join('')}
   <tr style="font-weight:700;background:#f4f7fb"><td>Сумма</td>${cell(fol)}${cell(lik)}${cell(sto)}${cell(tot)}${cell(liveN)}${idleCell(idleN)}</tr>
   </table></div>
-${L.as_of?`<details style="margin-top:10px"><summary style="cursor:pointer;font-weight:700;font-size:13px">Последний известный снимок · ${esc(L.label)} ▼</summary><div class="tblwrap" style="margin-top:6px"><table><tr><th>Профилей</th><th class="n">Отработали</th><th class="n">Не отработали</th><th class="n">⚠ флаг</th><th class="n">Фолловинги за ночь</th><th class="n">Лайки</th></tr><tr><td>${n(L.profiles)} из ${n(L.target_profiles)}</td><td class="n">${n(L.worked)}</td><td class="n">${n(L.idle)}</td><td class="n">${n(L.warn_flag)}</td><td class="n">${n(L.follows)}</td><td class="n">${n(L.likes)}</td></tr></table></div><div class="note">${esc(L.note||'')} · ${esc(L.src||'')} · старый снимок во «внимание» не идёт</div></details>`:''}
+
   ${F.cu_task?`<div class="note" style="margin-top:6px">ClickUp: <a href="${cuAppUrl(F.cu_task.url)}" target="_blank" rel="noopener">${esc(F.cu_task.id)} · ${esc(F.cu_task.name)}</a></div>`:''}</div>`}
  /* 2) ТС */
  const T=B.ts;if(T&&T.last){const w=x=>x?`${$u(x.net)}`:'—',ws=x=>x?`${esc(x.label)} · оборот ${$u(x.gross)} · моделей ${x.models}`:'';
