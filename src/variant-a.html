@@ -826,7 +826,7 @@ function ofBlocksHTML(d){if(d.id!=='of'||!d.of_blocks)return '';const B=d.of_blo
   <div class="grid g3b">${T.cur?tile('⏳ Текущая (неполная)',wv(T.cur),ws(T.cur)):''}${tile('💵 Прошлая неделя',wv(T.last),ws(T.last)+(dlt!=null?` · <b style="color:${dlt>=0?'#0b7a59':'#b42318'}">${dlt>=0?'+':''}${$u(dlt)}</b>`:''))}${tile('💵 Позапрошлая неделя',wv(T.prev),ws(T.prev))}</div>
   <div class="note" style="margin:6px 0">${esc(T.arpu_note||'')}</div>
   <h5 style="margin:10px 0 4px">${tsPart?'Неполная неделя · ':''}Модели (${T.models.length})${T.models_label?' · '+esc(T.models_label):''}</h5>
-  <div class="tblwrap" style="margin-top:6px"><table><tr><th>Модель</th><th>Задачи</th><th class="n">Наш доход</th><th class="n">Было</th><th class="n">Оборот</th><th class="n">%</th><th class="n">Фаны (нетто)</th></tr>
+  <div class="tblwrap" style="margin-top:6px"><table><tr><th>Модель</th><th>Задачи</th><th class="n">Наш доход</th><th class="n">Прошлая неделя</th><th class="n">Оборот</th><th class="n">%</th><th class="n">Фаны (нетто)</th></tr>
   ${T.models.map(x=>`<tr${tsOpen(x)}><td><b>${esc(x.ra)}</b>${raPlace(x.ra)}${x.note?' <span class="note">'+esc(x.note)+'</span>':''}</td><td>${tsList(x)}</td><td class="n">${$u(x.net)}</td><td class="n">${x.prev_net!=null?$u(x.prev_net):'—'}</td><td class="n">${$u(x.gross)}</td><td class="n">${esc(x.pct)}</td><td class="n">${n(x.fans_new)}</td></tr>${tsDetail(x,7)}`).join('')}
   </table></div>
 </div>`}
