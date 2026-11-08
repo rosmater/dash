@@ -813,6 +813,8 @@ function reBlocksHTML(d){if(d.id!=='realestate'||!d.re_blocks)return '';const B=
  const badge=st=>st==='attention'?'<span class="pill p-urgent">требует внимания</span>':st==='ok'?'<span class="pill p-low" style="background:#e7f8ee;color:#127a3e">🟢 ок</span>':'<span class="pill p-normal">—</span>';
  const cul=(url,t)=>url?`<a href="${cuAppUrl(url)}" target="_blank" rel="noopener">${esc(t)}</a>`:esc(t);
  const tk=ts=>ts&&ts.length?ts.map(t=>`<div class="task"><span class="pill p-normal">${esc(t.status||'—')}</span><div style="flex:1">${cul(t.url,t.name)}</div></div>`).join(''):'<div class="empty">открытых подзадач нет</div>';
+ /* Rost t5609u–t5615u: ТС/ОФТВ — фиолетовая плашка CU N; без задач — белая «задач нет» */
+ const tsCu=x=>{const ts=x.tasks||[];if(!ts.length)return `<span style="display:inline-block;font-size:9px;font-weight:700;color:#6b7280;background:#fff;border:1px solid #d1d5db;border-radius:4px;padding:1px 4px;line-height:1.2;vertical-align:middle">задач нет</span>`;const u=ts[0]&&ts[0].url?cuAppUrl(ts[0].url):'';const tip=esc(ts.map(t=>t.name||'').filter(Boolean).join('\n'));const lab='CU '+ts.length;const st='display:inline-block;font-size:9px;font-weight:800;color:#fff;background:#7b68ee;border-radius:4px;padding:1px 4px;text-decoration:none;line-height:1.2;vertical-align:middle';return u?`<a href="${esc(u)}" target="_blank" rel="noopener" title="${tip}" onclick="event.stopPropagation()" style="${st}">${lab}</a>`:`<span title="${tip}" style="${st}">${lab}</span>`};
  let h='';
  /* 1) Цель */
  const G=B.goal;if(G){const F=G.fact||{},fu=F.amount!=null?Dash.conv(F.amount,F.cur,'USD'):null,pc=fu!=null?Math.round(fu/G.main.amount*100):null;
@@ -1032,27 +1034,37 @@ function ofBlocksHTML(d){if(d.id!=='of'||!d.of_blocks)return '';const B=d.of_blo
   h+=`<div class="card" style="margin-bottom:14px">${H(esc(T.title),'наш доход')}
   <div class="grid g4">${tile('💵 Прошлая неделя',w(T.last),ws(T.last)+(dlt!=null?` · <b style="color:${dlt>=0?'#0b7a59':'#b42318'}">${dlt>=0?'+':''}${$u(dlt)}</b>`:''))}${tile('💵 Позапрошлая неделя',w(T.prev),ws(T.prev))}${tile('👤 ARPU (наш доход / модель)',$u(T.last.arpu),'ARPU gross '+$u(T.last.arpu_gross)+' · '+esc(T.last.label))}${T.cur?tile('⏳ Текущая (неполная)',w(T.cur),ws(T.cur)):''}</div>
   <div class="note" style="margin:6px 0">${esc(T.arpu_note||'')}</div>
-  <h5 style="margin:10px 0 4px">Модели (${T.models.length}) · ${esc(T.models_label||'')} ▼ задачи по модели</h5>
-  ${T.models.map(x=>`<details style="border-top:1px solid var(--line);padding:6px 0"><summary style="cursor:pointer;font-size:13.5px"><b>${esc(x.ra)}</b> · наш ${$u(x.net)}${x.prev_net!=null?' <span class="note">(было '+$u(x.prev_net)+')</span>':''} · оборот ${$u(x.gross)} · % ${esc(x.pct)} · фаны (нетто) ${n(x.fans_new)}${x.note?' · <span class="note">'+esc(x.note)+'</span>':''} · <span class="st">задач ${x.tasks.length}</span></summary>${tk(x.tasks)}</details>`).join('')}
+  <h5 style="margin:10px 0 4px">Модели (${T.models.length}) · ${esc(T.models_label||'')}</h5>
+  <div class="tblwrap" style="margin-top:6px"><table><tr><th>Модель</th><th class="n">Наш доход</th><th class="n">Было</th><th class="n">Оборот</th><th class="n">%</th><th class="n">Фаны (нетто)</th><th>Задачи</th></tr>
+  ${T.models.map(x=>`<tr><td><b>${esc(x.ra)}</b>${x.note?' <span class="note">'+esc(x.note)+'</span>':''}</td><td class="n">${$u(x.net)}</td><td class="n">${x.prev_net!=null?$u(x.prev_net):'—'}</td><td class="n">${$u(x.gross)}</td><td class="n">${esc(x.pct)}</td><td class="n">${n(x.fans_new)}</td><td style="white-space:normal">${tsCu(x)}${(x.tasks&&x.tasks.length)?`<details style="margin-top:3px"><summary class="note" style="cursor:pointer">список</summary>${tk(x.tasks)}</details>`:''}</td></tr>`).join('')}
+  </table></div>
   <div class="note" style="margin-top:6px">ClickUp-снимок ${esc(String(T.cu_fetched_at||'').slice(0,16).replace('T',' '))} · фаны = нетто новых за неделю (05services)</div></div>`}
  /* 3) ОФТВ */
  const O=B.oftv;if(O){const fansC=x=>x.fans==null?'—':(x.fans_approx?'≈':'')+n(x.fans);
   const lst=(t,xs)=>`<details style="margin-top:8px"><summary style="cursor:pointer;font-weight:700;font-size:13px">${t} (${xs.length})</summary>${xs.length?xs.map(x=>`<div class="task"><span class="pill p-high">${esc(x.cu?x.cu.status:'—')}</span><div style="flex:1"><b style="font-size:13.5px">${esc(x.name)}</b><div class="note">${esc(x.note||'')}${x.cu?` · <a href="${cuAppUrl(x.cu.url)}" target="_blank" rel="noopener">CU</a> · на ком: <b>${esc(x.cu.who)}</b>`:''}</div></div></div>`).join(''):'<div class="empty">пусто</div>'}</details>`;
   h+=`<div class="card" style="margin-bottom:14px">${H(esc(O.title),'неделя '+esc(O.week.label))}
   <div class="grid g4">${tile('💰 Общий оборот за неделю',$u(O.total_gross),'gross · '+esc(O.week.label)+' · '+O.models.length+' модели')}${tile('💵 Net моделей (OF)',$u(O.total_net),'после 20% OF')}${tile('🆕 Новые подписки',n(O.models.reduce((a,x)=>a+(x.fans_new||0),0)),'сумма за '+esc(O.week.label))}${tile('🎬 Активных моделей',O.models.length,'в сборе (scope Rost 14.10)')}</div>
-  <h5 style="margin:10px 0 4px">Активные модели ▼ задачи (на ком)</h5>
-  ${O.models.map(x=>`<details style="border-top:1px solid var(--line);padding:6px 0"><summary style="cursor:pointer;font-size:13.5px"><b>${esc(x.name)}</b> <span class="note">${esc(x.person)}${x.team?' · '+esc(x.team):''}</span> · оборот ${$u(x.gross)} · net ${$u(x.net)} · фанов ${fansC(x)} · новых ${n(x.fans_new)} · <span class="st">задач ${x.tasks.length}</span></summary>${tk(x.tasks)}</details>`).join('')}
-  ${lst('🚀 Модели на запуск',O.launch||[])}${lst('📉 Пытаемся вернуть трафик',O.traffic_back||[])}
-  ${(O.closed||[]).length?`<div class="note" style="margin-top:6px">Закрыты: ${O.closed.map(esc).join(' · ')}</div>`:''}
-  <details style="margin-top:8px"><summary style="cursor:pointer;font-weight:700;font-size:13px">📋 Задачи ClickUp по направлению (${O.tasks.length})</summary>${tk(O.tasks)}</details>
-  <div class="note" style="margin-top:6px">${esc(O.week.src)} · ${esc(O.fans_new_note||'')} · ${esc(O.lists_note||'')}</div></div>`}
+  <h5 style="margin:10px 0 4px">Активные модели</h5>
+  <div class="tblwrap" style="margin-top:6px"><table><tr><th>Модель</th><th>Кто</th><th class="n">Оборот</th><th class="n">Net</th><th class="n">Фанов</th><th class="n">Новых</th><th>Задачи</th></tr>
+  ${O.models.map(x=>`<tr><td><b>${esc(x.name)}</b></td><td>${esc(x.person)}${x.team?' <span class="note">· '+esc(x.team)+'</span>':''}</td><td class="n">${$u(x.gross)}</td><td class="n">${$u(x.net)}</td><td class="n">${fansC(x)}</td><td class="n">${n(x.fans_new)}</td><td style="white-space:normal">${tsCu(x)}${(x.tasks&&x.tasks.length)?`<details style="margin-top:3px"><summary class="note" style="cursor:pointer">список</summary>${tk(x.tasks)}</details>`:''}</td></tr>`).join('')}
+  </table></div>
+  <div style="border-top:1px solid var(--line);margin:14px 0 10px"></div>
+  ${lst('🚀 Модели на запуск',O.launch||[])}
+  <div style="border-top:1px solid var(--line);margin:14px 0 10px"></div>
+  ${lst('📉 Пытаемся вернуть трафик',O.traffic_back||[])}
+  <div style="border-top:1px solid var(--line);margin:14px 0 10px"></div>
+  <details style="margin-top:0"><summary style="cursor:pointer;font-weight:700;font-size:13px">📋 Задачи ClickUp по направлению (${O.tasks.length})</summary>${tk(O.tasks)}</details>
+  <div class="note" style="margin-top:6px">OF Statistics${(O.week&&O.week.src&&String(O.week.src).match(/\d{1,2}\.\d{2}/))?' '+esc(String(O.week.src).match(/\d{1,2}\.\d{2}/)[0]):''} · новые = seguidores nuevos${O.cu_fetched_at?` · списки CU ${esc(String(O.cu_fetched_at).slice(0,10))}`:''}</div></div>`}
  /* 4) LolaPop */
- const P=B.lolapop;if(P){const LS=P.last_snapshot,raw=(P.periods||{}).week||{},row=(re)=>((LS&&LS.rows)||[]).find(r=>re.test(r[0])),subs=row(/подписк/i),msgs=row(/сообщен|PPV/i);
+ const P=B.lolapop;if(P){const LS=P.last_snapshot,raw=(P.periods||{}).week||{},row=(re)=>((LS&&LS.rows)||[]).find(r=>re.test(r[0])),subs=row(/подписк/i),msgs=row(/сообщен|PPV/i),tot=row(/итого/i),mv=row(/ManyVids/i),c4s=row(/Clips4Sale|C4S/i);
   const pp={subs_new:raw.subs_new,rebills:raw.rebills,inc_subs:raw.inc_subs!=null?raw.inc_subs:(subs?subs[2]:null),inc_msgs:raw.inc_msgs!=null?raw.inc_msgs:(msgs?msgs[2]:null)};
+  pp.inc_total=raw.inc_total!=null?raw.inc_total:(tot?tot[2]:(pp.inc_subs!=null&&pp.inc_msgs!=null?Math.round((pp.inc_subs+pp.inc_msgs)*100)/100:null));
+  pp.mv=raw.mv!=null?raw.mv:(mv?mv[2]:null);pp.c4s=raw.c4s!=null?raw.c4s:(c4s?c4s[2]:null);
   const wlab=LS&&LS.label?LS.label:'неделя';
   h+=`<div class="card" style="margin-bottom:14px">${H(esc(P.title),esc(P.profile||''))}
   <div class="grid g4">${tile('👥 Фанов',n(P.fans),P.fans==null?'в недельном съёме OF Statistics → Subscriptions':'неделя')}${tile('🆕 Новых фанов',n(P.fans_new),P.fans_new==null?'в недельном съёме OF Statistics → Subscriptions':'неделя')}${tile('➕ Новые подписки · '+wlab,n(pp.subs_new),pp.subs_new==null?'нет в последнем недельном съёме':'')}${tile('🔁 Ребилы · '+wlab,n(pp.rebills),pp.rebills==null?'нет в последнем недельном съёме':'')}</div>
-  <div class="grid g2b" style="margin-top:10px">${tile('💳 Доход · подписки · '+wlab,$u(pp.inc_subs),pp.inc_subs==null?'нет снимка за неделю':(LS&&LS.src?esc(LS.src):'нетто за неделю'))}${tile('💬 Доход · сообщения (PPV/чат) · '+wlab,$u(pp.inc_msgs),pp.inc_msgs==null?'нет снимка за неделю':(LS&&LS.src?esc(LS.src):'нетто за неделю'))}</div>
+  <div class="grid g4" style="margin-top:10px">${tile('💳 Доход · подписки · '+wlab,$u(pp.inc_subs),pp.inc_subs==null?'нет в Earnings':'нетто · OF Earnings')}${tile('💬 Доход · сообщения · '+wlab,$u(pp.inc_msgs),pp.inc_msgs==null?'нет в Earnings':'нетто · OF Earnings')}${tile('💵 Итого OF · подписки + сообщения · '+wlab,$u(pp.inc_total),pp.inc_total==null?'нет в Earnings':'нетто · OF Earnings')}${tile('🎬 ManyVids · '+wlab,$u(pp.mv),pp.mv==null?'нет снимка кабинета MV':'кабинет MV')}</div>
+  <div class="grid g2b" style="margin-top:10px">${tile('📁 Clips4Sale · '+wlab,$u(pp.c4s),pp.c4s==null?'нет снимка кабинета C4S':'кабинет C4S')}</div>
   ${LS?`<details style="margin-top:10px" open><summary style="cursor:pointer;font-weight:700;font-size:13px">Последний снимок дохода · ${esc(LS.label)}</summary><div class="tblwrap" style="margin-top:6px"><table><tr><th>Источник</th><th class="n">Брутто</th><th class="n">Нетто</th></tr>${LS.rows.map(r=>`<tr${/итого/.test(r[0])?' style="font-weight:700"':''}><td>${esc(r[0])}</td><td class="n">${$u(r[1])}</td><td class="n">${$u(r[2])}</td></tr>`).join('')}</table></div><div class="note">${esc(LS.src)}</div></details>`:''}
   <div class="tblwrap" style="margin-top:8px"><table><tr><th>Соцсеть</th><th>Статистика</th></tr>${(P.social||[]).map(s=>`<tr><td>${esc(s.net)}</td><td style="white-space:normal"><span class="note">${esc(s.note)}</span></td></tr>`).join('')}</table></div>
   ${P.audit?`<div class="note" style="margin-top:6px">🔎 Аудит ${esc(P.audit.date.slice(8,10)+'.'+P.audit.date.slice(5,7))}: ${esc(P.audit.text)}</div>`:''}</div>`}
