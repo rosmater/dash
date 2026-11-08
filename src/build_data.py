@@ -35,7 +35,6 @@ for r in rows:
     if r['week_start'] not in [w['id'] for w in weeks]:
         continue
     by_week.setdefault(r['week_start'], []).append(r)
-RA130_WEEK = round(48.5 * 12 / 52, 2)  # фикс $48.50/мес → неделя
 # HARD Rost 2026-11-08 t685u/t688u: выплаты моделям = факт USDT из Informe / Plan → Gastos $$$ → pagos a modelos (OKX).
 # Снимок src/of_payouts_week.json (src/ingest_of_payouts.py); пустой USDT = ещё не платили, не считаем. Курс = COP/USDT строк недели.
 _OFP_PATH = os.path.join(os.path.dirname(__file__), 'of_payouts_week.json')
@@ -49,10 +48,10 @@ for wk, rs in sorted(by_week.items()):
     for r in sorted(rs, key=lambda x: x['ra']):
         if r['ra'] == 'RA215':
             continue  # Rost t5593u: давно не в счёт
-        n = RA130_WEEK if r['ra'] == 'RA130' else float(r['our_net'] or 0)
+        n = float(r['our_net'] or 0)
         g = float(r['income_usd'] or 0)
         net += n; gross += g; fans += int(float(r['fans'] or 0))
-        table.append([r['ra'], round(g, 2), r['agency_pct'] if r['ra'] != 'RA130' else 'фикс', round(n, 2), int(float(r['fans'] or 0))])
+        table.append([r['ra'], round(g, 2), r['agency_pct'], round(n, 2), int(float(r['fans'] or 0))])
     inc = [item('Наш доход 05services (сумма по моделям)', round(net, 2), 'USD', of_src)]
     exp = []
     pw = OFP['weeks'].get('W:' + wk)
