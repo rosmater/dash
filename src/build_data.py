@@ -143,16 +143,35 @@ _OBJ = {'Profile visits': 'Визиты профиля', 'Conversations (app)': 
 _A, _R = _j('ads.json'), _j('replies.json')
 def _ad(a, st):
     ss = a.get('stats_at_verify') or {}
+    lk = a.get('last_known_conversation_stats') or {}
+    conv = a.get('conversations')
+    if conv is None:
+        conv = ss.get('messaging_conversations')
+    if conv is None:
+        conv = lk.get('messaging_conversations')
+    cpc = a.get('cost_per_conversation_cop')
+    if cpc is None:
+        cpc = ss.get('cost_per_conversation_cop')
+    if cpc is None:
+        cpc = lk.get('cost_per_conversation_cop')
+    plat = a.get('platform') or ('TikTok' if 'tiktok' in str(a.get('network') or a.get('account') or '').lower() else 'Instagram')
     return dict(name=a.get('creative') or a.get('id'), account=a.get('account', ''), status=st,
+                platform=plat,
                 start=_hm(a.get('started_at') or a.get('launch_at') or a.get('start')), end=a.get('finishes_approx', ''),
                 days=a.get('duration_days'), objective=next((v for k, v in _OBJ.items() if str(a.get('objective', '')).startswith(k)), a.get('objective', '')), audience=a.get('audience', ''),
                 budget=a.get('budget_cop_total') or a.get('budget_cop'), day_budget=a.get('budget_cop_day'),
                 spent=ss.get('spent_cop', a.get('spent_cop')), views=ss.get('views', a.get('views')),
-                conversations=a.get('conversations'), profile_visits=ss.get('profile_visits', a.get('profile_visits')),
-                cpc=a.get('cost_per_conversation_cop'), checked=_hm(ss.get('at')) if ss.get('at') else '', note=a.get('post_note', ''))
-pep_ads = dict(active=[_ad(a, 'active') for a in _A.get('active', [])],
+                conversations=conv, profile_visits=ss.get('profile_visits', a.get('profile_visits')),
+                cpc=cpc, checked=_hm(ss.get('at')) if ss.get('at') else '', note=a.get('post_note', ''))
+_OFF = {'paused', 'off', 'stopped', 'completed', 'finalizada', 'inactive', 'paused_completed'}
+_raw_act, _raw_arch = list(_A.get('active') or []), list(_A.get('archive') or [])
+_moved = [a for a in _raw_act if str(a.get('status') or '').lower() in _OFF]
+_raw_act = [a for a in _raw_act if a not in _moved]
+_arch_ids = {x.get('id') for x in _raw_arch}
+_raw_arch = _moved + [a for a in _raw_arch if a.get('id') not in {x.get('id') for x in _moved}]
+pep_ads = dict(active=[_ad(a, 'active') for a in _raw_act],
                scheduled=[_ad(a, 'scheduled') for a in _A.get('scheduled', [])],
-               archive=[_ad(a, 'done') for a in _A.get('archive', [])],
+               archive=[_ad(a, 'done') for a in _raw_arch],
                totals=_A.get('totals_archive'), summary=_A.get('archive_summary'), plan=_A.get('plan'), as_of=_hm(_A.get('as_of')), last_verify=_hm((_A.get('live_check') or {}).get('last_ig_verify')),
                stale=not (_A.get('live_check') or {}).get('phone_recheck_today', False),
                cron_failed=bool(_A.get('cron_failed') or (_A.get('live_check') or {}).get('cron_failed')),
