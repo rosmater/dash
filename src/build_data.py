@@ -892,6 +892,21 @@ try:
     data['overview']['cu_sort'] = _keep
 except FileNotFoundError:
     pass
+# Rost t949u: закрытые CU-задачи не тянуть в блок «с датой» / «на сортировку»
+def _cu_not_closed(t):
+    st = (t.get('cu_status') or t.get('status') or '').lower()
+    tid = t.get('id') or ''
+    if not tid:
+        m = re.search(r'/t/(?:\d+/)?([0-9a-z]+)', t.get('url') or '')
+        tid = m.group(1) if m else ''
+    if tid == '86bcnvnmr':
+        return False
+    return not (st.startswith('complete') or st in ('closed', 'done') or 'закрыт' in st)
+for _d in data['directions']:
+    if _d.get('cu_dated'):
+        _d['cu_dated'] = [t for t in _d['cu_dated'] if _cu_not_closed(t)]
+if data.get('overview') and data['overview'].get('cu_sort'):
+    data['overview']['cu_sort'] = [t for t in data['overview']['cu_sort'] if _cu_not_closed(t)]
 # Rost t3956–59u: ДР в шапке — чеклист/описание ДР-задач (src/cu_bday_extra.json {id:{checklist:[{name,done}],desc}}), заполняет синк ClickUp
 try:
     _BX = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'cu_bday_extra.json'))).get('tasks', {})
