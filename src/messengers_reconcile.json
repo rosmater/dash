@@ -333,8 +333,8 @@
  "mismatch": 0,
  "note": "ок · все каналы: диалоги = live · perm-dm cut: +57 301 3647812 (Rost t5042–44: «не нашёл» (Daniela Angel); +57 320 8308814 (Rost t5042–44: «не нашёл» (Marcela) — но)",
  "published_ok": true,
- "published_at": "2026-11-08T09:32:01-05:00",
+ "published_at": "2026-11-09T09:42:09-05:00",
  "published_note": "Pages data.enc == local HEAD build",
- "published_sha": "ad7a45a52db75c83490462905237d66c2cb61ee385f48fc1da271eda3a2b1263",
- "build_commit": "f642cb23c6e59fe27538f6c980c22c788fa0b221"
+ "published_sha": "6072687641f4ee9fe8f5804a994e2621bb00df61a3d224a3d41fb9308a54cb71",
+ "build_commit": "0151e7c5a7dcdade563c007cabc3749560fdfa97"
 }

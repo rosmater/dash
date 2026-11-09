@@ -1,12 +1,12 @@
 {
   "published_ok": true,
-  "published_at": "2026-11-08T09:32:01-05:00",
+  "published_at": "2026-11-09T09:42:09-05:00",
   "note": "Pages data.enc == local HEAD build",
-  "commit": "f642cb23c6e59fe27538f6c980c22c788fa0b221",
-  "commit_short": "f642cb2",
-  "local_data_sha": "ad7a45a52db75c83490462905237d66c2cb61ee385f48fc1da271eda3a2b1263",
-  "remote_data_sha": "ad7a45a52db75c83490462905237d66c2cb61ee385f48fc1da271eda3a2b1263",
-  "elapsed_sec": 40.2,
+  "commit": "0151e7c5a7dcdade563c007cabc3749560fdfa97",
+  "commit_short": "0151e7c",
+  "local_data_sha": "6072687641f4ee9fe8f5804a994e2621bb00df61a3d224a3d41fb9308a54cb71",
+  "remote_data_sha": "6072687641f4ee9fe8f5804a994e2621bb00df61a3d224a3d41fb9308a54cb71",
+  "elapsed_sec": 140.6,
   "pages_url": "https://rosmater.github.io/dash/data.enc.json",
   "rule": "t5158"
 }
