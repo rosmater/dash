@@ -699,10 +699,7 @@ except Exception as _fh_err:
 of_gaps_extra = []
 if not _F['current'].get('as_of'):
     of_gaps_extra.append('Ферма: свежего снимка Сейдера нет (последний ' + _F['last_snapshot']['label'] + ') — монитор ждёт данные')
-_fh = _F.get('health') or {}
-if _fh.get('ok') is False:
-    for r in (_fh.get('reasons') or [])[:3]:
-        of_gaps_extra.append('Ферма: ' + str(r))
+# health.ok=false → UI plaque + ofFarmAttn (не дублировать в of_gaps_extra / data_issues)
 
 
 # ---------- Календарь (Rost 25.10): Google Calendar + ClickUp-задачи со временем, одна лента ----------
