@@ -277,7 +277,7 @@
     "title": "💜 Своя модель — LolaPop",
     "profile": "OF lolapop_bbw_pear_ass · ManyVids LolaPopBBW · Clips4Sale",
     "fans": 62,
-    "fans_new": null,
+    "fans_new": 3,
     "periods": {
       "today": {
         "subs_new": null,
@@ -293,7 +293,8 @@
         "inc_tips": 0.0,
         "inc_posts": 0.0,
         "inc_total": 65.97,
-        "fans": 62
+        "fans": 62,
+        "fans_new": 3
       },
       "month": {
         "subs_new": null,
@@ -305,7 +306,7 @@
     "last_snapshot": {
       "label": "02–08.11.2026",
       "as_of": "2026-11-09",
-      "src": "OF main k1h26w3l (@lolapop_bbw_pear_ass) Statistics → Subscriptions + Earnings custom 02–08.11 (AdsPower Local API); fans = Collections→Fans Active; IG via logged-in @rosscompass (delta vs Informe Insta 04.11). MV/C4S не сняты: кабинеты только в AdsPower k1gxh3kk (вне скоупа этого прогона). fans_new null: прошлого тотала фанов нет.",
+      "src": "OF main k1h26w3l (@lolapop_bbw_pear_ass) Statistics → Subscriptions + Earnings custom 02–08.11 (AdsPower Local API); fans = Collections→Fans Active; IG via logged-in @rosscompass (delta vs Informe Insta 04.11). MV/C4S не сняты: кабинеты только в AdsPower k1gxh3kk (вне скоупа этого прогона). fans_new null: прошлого тотала фанов нет; fans_new ← subs_new (OF Statistics → Subscriptions; no prior fans total for delta).",
       "rows": [
         [
           "OF · подписки",
@@ -342,7 +343,11 @@
           null,
           null
         ]
-      ]
+      ],
+      "fans": 62,
+      "fans_new": 3,
+      "subs_new": 3,
+      "fans_new_source": "subs_new"
     },
     "social": [],
     "audit": {
@@ -401,7 +406,8 @@
         "fans": 62,
         "subs_new": 3,
         "rebills": 2,
-        "mv_c4s_note": "nulled 2026-11-09: 18.58/11.98 from dee9d712 hand-fill had no dated capture for 02–08.11; ОФ Маркетинг left manyvids_net/c4s_net null (k1gxh3kk out of scope)"
+        "mv_c4s_note": "nulled 2026-11-09: 18.58/11.98 from dee9d712 hand-fill had no dated capture for 02–08.11; ОФ Маркетинг left manyvids_net/c4s_net null (k1gxh3kk out of scope)",
+        "fans_new": 3
       },
       {
         "id": "W:2026-10-26",
@@ -858,7 +864,7 @@
       "mv": null,
       "c4s": null,
       "fans": 62,
-      "fans_new": null,
+      "fans_new": 3,
       "subs_new": 3,
       "rebills": 2,
       "ig": {

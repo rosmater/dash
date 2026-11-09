@@ -1,3 +1,5 @@
+- 2026-11-09 t5822u: LolaPop «Своя модель» fans_new ← subs_new=3 (02–08.11) когда нет прошлого тотала; ingest_lolapop_week.py + snapshot fans total.
+- 2026-11-09 t5816u: ma_q rebuild debounce 150s + push only on content change; secretary-inbox-relay dash_touch (stopped Pages flood).
 ## 2026-11-09 t5824u: CU calendar snapshot + cu_dated dues
 - Rost moved CU 86b8rn9wf (С ИРИНОЙ: Подсчеты ОФ) to 10.11 (date-only) at 15:06 Bogotá; dash still showed today 21:00.
 - Refreshed cu_cal_dash.json via clickup_filter_tasks → refresh_cu_cal_dash.py; surgical patch calendar.events + of.cu_dated (86b8rn9wf → 10.11; 86b9axevh → 16.11). No build.sh.

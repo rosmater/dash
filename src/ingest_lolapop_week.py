@@ -154,6 +154,11 @@ def main() -> int:
     fans = _num(week.get("fans"))
     fans_new = _num(week.get("fans_new"))
     subs_new = _num(week.get("subs_new"))
+    # t5822u: no previous fans total → fans_new null; use OF Statistics → Subscriptions (subs_new)
+    fans_new_src = None
+    if fans_new is None and subs_new is not None:
+        fans_new = subs_new
+        fans_new_src = "subs_new"
     rebills = _num(week.get("rebills"))
     inc_subs = _num(earn.get("subs_net"))
     inc_msgs = _num(earn.get("msgs_net"))
@@ -231,12 +236,21 @@ def main() -> int:
         ["ManyVids (net)", None, mv],
         ["Clips4Sale", None, c4s],
     ]
-    P["last_snapshot"] = {
+    snap = {
         "label": new_label or (old_ls or {}).get("label"),
         "as_of": as_of,
         "src": src,
         "rows": rows,
+        "fans": fans if fans is not None else P.get("fans"),
+        "fans_new": fans_new,
+        "subs_new": subs_new,
     }
+    if fans_new_src:
+        snap["fans_new_source"] = fans_new_src
+        # keep human note on why fans_new came from subscriptions
+        note = "fans_new ← subs_new (OF Statistics → Subscriptions; no prior fans total for delta)"
+        snap["src"] = (src + "; " if src else "") + note
+    P["last_snapshot"] = snap
     BLOCKS.write_text(json.dumps(blocks, ensure_ascii=False, indent=2) + "\n")
     print(
         f"ingested {WEEK.name}: period={new_label} as_of={as_of} "
