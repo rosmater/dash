@@ -1,20 +1,21 @@
 {
   "_note": "Живые ответы компаний (STE). Красный «разобрать» = open (мы не ответили). Жёлтый «ждём ответа» = waiting / awaiting_their_reply (наш ответ ушёл). answered/scheduled — снять с внимания. Пишет ste / Оборонка.",
-  "updated_at": "2026-11-08T08:14:00-05:00",
+  "updated_at": "2026-11-09T03:00:00-05:00",
   "unanswered_replies": [
     {
       "company": "TEREM-Letets / TEREM Holding (Bulgaria)",
       "from": "Georgi Nalbantov <g_nalbantov@terem.bg> (cc Tsvetan Kamenov <ts_kamenov@terem.bg>)",
       "subject": "RE: Mi-8/17 overhaul and spare parts — SpetsTechnoExport",
       "received_at": "2026-11-06T05:42:59-05:00",
-      "note": "Ответ клиенту 06.11 ~15:30. Запрос Дмитрию STE (WA UKR) 06.11 16:02 — склад + 8× Safir APU. CU 86bczu31g due 07.11 (просрочено). Ждём данные Дмитрия → дослать TEREM.",
+      "note": "Новый ответ Nalbantov 09.11 02:17 Bogotá: ждёт наш список склада, затем запросит цены; 8× Safir APU 5K/GMIS всё ещё актуально; ВВС Болгарии неофициально прислали заявки на запчасти. Ответили 06.11; данные от Дмитрия STE (CU 86bczu31g) просрочены — ждём.",
       "url": "https://mail.google.com/mail/u/0/#inbox/1a1b07471fccc536",
       "status": "waiting",
       "priority": false,
       "our_reply_at": "2026-11-06T15:30:00-05:00",
       "last_outbound": "WA UKR Dmitry STE 06.11 16:02",
       "pipeline": "deal",
-      "status_label": "Детали сделки"
+      "status_label": "Детали сделки",
+      "last_inbound_at": "2026-11-09T02:17:11-05:00"
     },
     {
       "company": "PRODESATEN (Colombia)",
