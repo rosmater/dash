@@ -722,7 +722,7 @@ for e in _g.get('events', []):
         src = 'clickup'; t = t.replace('🔄 ', '', 1).split(' :: ')[0]
     cal_events.append(dict(src=src, title=t, start=e['start'], end=e['end'], all_day=e['all_day'],
                            url=e.get('url'), via='gcal-sync' if src == 'clickup' else None))
-_seen = {x['title'].strip().lower() for x in cal_events if x['src'] == 'clickup'}
+_seen = {x['title'].strip().lower() for x in cal_events if x['src'] == 'clickup' and not x.get('all_day')}  # t5824u: all-day gcal-sync must not block timed CU
 for t in _cu.get('tasks', []):
     d = datetime.datetime.fromtimestamp(t['due_ms'] / 1000, _BOG)
     if d.strftime('%H:%M') == '04:00':  # без времени (только дата) — в ленту не берём, они идут через GCal-синк

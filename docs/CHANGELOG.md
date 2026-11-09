@@ -1,3 +1,7 @@
+## 2026-11-09 t5824u follow-up: cu_due_sync + calendar all-day _seen fix
+- New deterministic `src/cu_due_sync.py` (today→+2d merge into cu_cal_dash, cu_dated dues, surgical enc, pull --rebase push; exit 10 = noop).
+- `build_data.py`: all-day gcal-sync titles no longer fill `_seen` — timed CU 86bc8fkbt (Алла / топят 10.11 21:00) returns to calendar.events.
+
 ## 2026-11-09 t5824u: CU calendar snapshot + cu_dated dues
 - Rost moved CU 86b8rn9wf (С ИРИНОЙ: Подсчеты ОФ) to 10.11 (date-only) at 15:06 Bogotá; dash still showed today 21:00.
 - Refreshed cu_cal_dash.json via clickup_filter_tasks → refresh_cu_cal_dash.py; surgical patch calendar.events + of.cu_dated (86b8rn9wf → 10.11; 86b9axevh → 16.11). No build.sh.

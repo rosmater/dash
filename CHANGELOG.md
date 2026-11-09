@@ -1,3 +1,7 @@
+## 2026-11-09 t5824u follow-up: cu_due_sync + calendar all-day _seen fix
+- New deterministic `src/cu_due_sync.py` (today→+2d merge into cu_cal_dash, cu_dated dues, surgical enc, pull --rebase push; exit 10 = noop).
+- `build_data.py`: all-day gcal-sync titles no longer fill `_seen` — timed CU 86bc8fkbt (Алла / топят 10.11 21:00) returns to calendar.events.
+
 - 2026-11-09 t5822u: LolaPop «Своя модель» fans_new ← subs_new=3 (02–08.11) когда нет прошлого тотала; ingest_lolapop_week.py + snapshot fans total.
 - 2026-11-09 t5816u: ma_q rebuild debounce 150s + push only on content change; secretary-inbox-relay dash_touch (stopped Pages flood).
 ## 2026-11-09 t5824u: CU calendar snapshot + cu_dated dues
