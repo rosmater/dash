@@ -1,3 +1,10 @@
+## 2026-11-09 ОФ: неделя 02–08.11 (OFTV + LolaPop) — ingest → surgical publish
+- Цепочка t5713u: dated `src/oftv_history/02.11-08.11.2026.json` + `src/lolapop_history/02.11-08.11.2026.json` → `ingest_oftv_week.py` / `ingest_lolapop_week.py` → surgical patch только `of_blocks.oftv` + `of_blocks.lolapop` в data*.enc.json (без build.sh).
+- OFTV Текущая 02–08.11 net $1754.40: Sofia 1482.40 / 1396, Kelly 42.40 / 1961, Bella 0 / 3773, Rosie 229.60 / 3407. Прошлая = 26.10–01.11, позапрошлая = 19–25.10.
+- LolaPop OF net $65.97 (subs 30 + msgs 35.97); fans 62; subs_new 3; rebills 2. IG: lolabig.lolapop 26511/+32, lolapopstarted 26011/+95, lolastartjourney 9771/+3.
+- MV/C4S за 02–08.11 → «—»: в of_blocks лежали 18.58/11.98 из dee9d712 (08.11 hand-fill) без dated capture; ОФ Маркетинг оставил manyvids_net/c4s_net null (кабинеты только в k1gxh3kk). Не выдумывали.
+- Архив last_snapshot 01–15.10 ($173.28) ушёл в lolapop.prev/last. Порнстоки недели сохранены. Остальные направления не трогали.
+
 ## 2026-11-05 t5162 lite snaps DELETED
 - Snaps only unread-dash-daily 09:00+13:00 Bogotá, plus on-demand «актуализируй мессенджеры» (writes *_live.json).
 - Lite 11/15/17/19 removed from KB. Night 23:00–08:45: no snaps / no stale сбой.
