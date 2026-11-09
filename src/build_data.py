@@ -427,9 +427,7 @@ for m, kind, rent_, tax_, net_, tot_, props in RE_MONTHS:
     re_rows.append([mname, rent_, tax_, net_, tot_])
 re_break = [
   dict(period=None, title='По месяцам 2026 (EUR) · 3 закрытых месяца', columns=['Месяц', 'Испания получено', 'Налог 24%', 'Испания чистая', 'ИТОГО (стр. 14, старая таблица)'], rows=re_rows),
-  dict(period=None, title='Колумбия: Base Loft — вторая квартира (поиск 18.10, объявления)', columns=['Вариант', 'м²', 'COP/мес', 'Статус'],
-       rows=[['Loft-дуплекс, эт. 10, мебель (CALIPTO)', 50, 2600000, 'активно'], ['Apartaestudio C4632 (ALNAGO)', 53, 2500000, 'активно'], ['Apartaestudio с балконом', 34, 1750000, 'активно']]),
-]
+]  # t5733u/t5734u: Colombia search table removed — no RE portfolio there
 
 # ---------- Недвижимость: блоки (Rost 25.10 23:38) — Цель / Solvia / Окупасы / Аренда / Инвесторы ----------
 import csv as _csv
@@ -779,7 +777,7 @@ data = dict(
          tasks=tasks(['86bcn2d1t', '86b6z79t1', '86b7heru3', '86b9abep9', '86bcn2g2q', '86b9wh8cd']),  # 86bc1tdu5 IPRoyal → COMMS BOT R (Rost 08.11 t678–t680), not OF attn
          of_blocks=OFB,
          gaps=of_gaps_extra),  # t703u/t704u: known-rule notes (office/IPRoyal, RA185/RA222) removed — not attn
-    dict(id='realestate', stage='money', name='Недвижимость', subtitle='Испания · Украина · Колумбия', currency='EUR', color='#f59e0b', icon='🏠',
+    dict(id='realestate', stage='money', name='Недвижимость', subtitle='Испания · Украина', currency='EUR', color='#f59e0b', icon='🏠',
          overview_note='Недвижимость: учёт месячный, всегда 3 закрытых месяца (прошлый / позапрошлый / позапозапрошлый); при новом месяце все три перечитываются (старые долги могут прийти позже). По август — старая таблица ИТОГИ, с сентября — новая P&L.',  # Rost t5723u/t5724u
          periods=re_periods, breakdowns=re_break,
          goals=[
@@ -788,7 +786,7 @@ data = dict(
          ],
          tasks=tasks(['86b7wu7jq', '86b6qz12h', '86b88jb1f', '86baqkyw4', '86bc1d1wj', '86b9va7c4', '86b8ttzmc']),
          re_blocks=REB,  # Rost 25.10: блоки Недвижимости
-         gaps=['Валюта в таблице не подписана — принято EUR (Испания)', 'Колумбия: доходов от аренды в базе нет; Los Pueblos/Топасио — ремонт, расходы не сведены']),  # t5723u: weekly note removed — monthly is the rule,
+         gaps=[]),  # t5732u: EUR confirmed — not attn; t5733u/t5734u: no Colombia portfolio — gap+search table removed; t5723u: weekly note removed — monthly is the rule,
     dict(id='tabakevich', stage='money', name='Табакевич', subtitle='Украина · e-shop + магазин', currency='USD', color='#38bdf8', icon='💨',
          overview_note='Табакевич: валовая прибыль всего направления (до опер. расходов, ФОТ и доли партнёра), не доход Rost.',
          periods=tb_periods, breakdowns=tb_break,
