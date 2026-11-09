@@ -1090,8 +1090,9 @@ function ofBlocksHTML(d){if(d.id!=='of'||!d.of_blocks)return '';const B=d.of_blo
   const idleCell=v=>{const red=v!=null&&Number(v)>0;return `<td class="n"${red?' style="color:#b42318;font-weight:700;background:#fff5f5"':''}>${wait?'—':n(v)}</td>`;};
   const phTot=p=>p.total!=null?p.total:(p.follows==null||p.likes==null||p.story_views==null)?null:Number(p.follows)+Number(p.likes)+Number(p.story_views);
   const phRow=p=>`<tr><td>${esc(p.name)}</td>${cell(p.follows)}${cell(p.likes)}${cell(p.story_views)}${cell(phTot(p))}${cell(p.live_ok)}${idleCell(p.idle)}${idleCell(p.replace)}</tr>`;
-  h+=`<div class="card" style="margin-bottom:14px">${H(esc(F.title),'цель — теория')}
-  ${!farmHl.ok?`<div style="margin:0 0 10px;padding:10px 12px;border-radius:10px;background:#fff1f1;border:1px solid #fda29b;color:#b42318"><b>⚠️ Требует внимания</b> · съём данных: ${esc((farmHl.reasons||[]).slice(0,4).join('; '))}</div>`:''}
+  /* Rost t5827u: плашка съёма — компактный pill в одном ряду с заголовком фермы (~11px), на узком — wrap под title */
+  const farmAttnPill=!farmHl.ok?`<span class="pill" style="font-size:11px;font-weight:700;padding:2px 8px;line-height:1.25;color:#b42318;background:#fff1f1;border:1px solid #fda29b;text-transform:none;letter-spacing:0;white-space:normal;max-width:100%">⚠️ Требует внимания · съём данных: ${esc((farmHl.reasons||[]).slice(0,4).join('; '))}</span>`:'';
+  h+=`<div class="card" style="margin-bottom:14px"><h3 style="flex-wrap:wrap"><span>${esc(F.title)} <span class="st">цель — теория</span></span>${farmAttnPill}</h3>
   <div class="card bgoal" style="padding:12px;margin-bottom:10px"><b>🎯 ${esc(F.goal.label)}</b>${(F.checkpoints||[]).map(c=>`<div class="task"><span class="pill ${c.status==='in_progress'?'p-high':'p-normal'}">${c.status==='in_progress'?'в работе':c.status==='done'?'✓':'план'}</span><div style="flex:1"><b style="font-size:13.5px">${esc(c.label)} → ${n(c.per_day)} фолловингов/день</b>${c.note?`<div class="note">${esc(c.note)}</div>`:''}</div></div>`).join('')}</div>
   <div class="note" style="margin-bottom:6px">${esc(cap)}</div>
   <div class="tblwrap"><table><tr><th>Телефон</th><th class="n">Фолловинги</th><th class="n">Лайки</th><th class="n">Сторис</th><th class="n">Итого</th><th class="n">Живые (отработали)</th><th class="n">Живые (не отработали)</th><th class="n">Блок (под замену)</th></tr>
