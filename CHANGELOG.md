@@ -1,3 +1,8 @@
+## 2026-11-08 t5736u Base Loft → Личное (приоритетная CU), не таблица Недвижимости
+- Убрана таблица объявлений Base Loft с вкладки Недвижимость (`realestate.breakdowns` = только «По месяцам 2026»).
+- В `personal.tasks` первой: 86bcma7tp «БОТ-ЧАСТЬ: Найти лофт побольше в Base Loft…» (to do, high, due 2026-10-26); 86b6qq509 сохранена.
+- gaps [] · subtitle «Испания · Украина» · Aug/Sep/Oct EUR без изменений.
+
 ## 2026-11-05 t5158 messengers-tab polish + published check
 - marked_unread → blue dot (not «0») via maUnreadChip; chats count, 0 msgs.
 - 📦 версия данных HH:MM · commit on Мессенджеры; client reads published_status.json for CDN lag note.

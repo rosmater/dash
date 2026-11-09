@@ -427,9 +427,7 @@ for m, kind, rent_, tax_, net_, tot_, props in RE_MONTHS:
     re_rows.append([mname, rent_, tax_, net_, tot_])
 re_break = [
   dict(period=None, title='По месяцам 2026 (EUR) · 3 закрытых месяца', columns=['Месяц', 'Испания получено', 'Налог 24%', 'Испания чистая', 'ИТОГО (стр. 14, старая таблица)'], rows=re_rows),
-  dict(period=None, title='Колумбия: Base Loft — вторая квартира (поиск 18.10, объявления)', columns=['Вариант', 'м²', 'COP/мес', 'Статус'],
-       rows=[['Loft-дуплекс, эт. 10, мебель (CALIPTO)', 50, 2600000, 'активно'], ['Apartaestudio C4632 (ALNAGO)', 53, 2500000, 'активно'], ['Apartaestudio с балконом', 34, 1750000, 'активно']]),
-]  # t5735u: Base Loft search stays (personal housing); t5733u/t5734u: no Colombia rental portfolio
+]  # t5736u: Base Loft search is personal CU task 86bcma7tp (not RE breakdown); t5733u/t5734u: no Colombia rental portfolio
 
 # ---------- Недвижимость: блоки (Rost 25.10 23:38) — Цель / Solvia / Окупасы / Аренда / Инвесторы ----------
 import csv as _csv
@@ -788,7 +786,7 @@ data = dict(
          ],
          tasks=tasks(['86b7wu7jq', '86b6qz12h', '86b88jb1f', '86baqkyw4', '86bc1d1wj', '86b9va7c4', '86b8ttzmc']),
          re_blocks=REB,  # Rost 25.10: блоки Недвижимости
-         gaps=[]),  # t5732u: EUR confirmed; t5733u/t5734u: no Colombia rental portfolio (gaps empty); t5735u: Base Loft search stays (personal); t5723u: weekly note removed — monthly is the rule,
+         gaps=[]),  # t5732u: EUR confirmed; t5733u/t5734u: no Colombia rental portfolio (gaps empty); t5736u: Base Loft = personal CU 86bcma7tp (not RE table); t5723u: weekly note removed — monthly is the rule,
     dict(id='tabakevich', stage='money', name='Табакевич', subtitle='Украина · e-shop + магазин', currency='USD', color='#38bdf8', icon='💨',
          overview_note='Табакевич: валовая прибыль всего направления (до опер. расходов, ФОТ и доли партнёра), не доход Rost.',
          periods=tb_periods, breakdowns=tb_break,
@@ -831,7 +829,7 @@ data = dict(
     dict(id='personal', name='Личное', subtitle='Личные финансы · здоровье', currency='USD', color='#14b8a6', icon='🧍', no_overview_totals=True, monthly_only=True,
          overview_note='Личное не входит в итоги «Общего» (не бизнес).',
          periods=me_periods, breakdowns=[], goals=[],
-         tasks=tasks(['86b6qq509']),
+         tasks=tasks(['86bcma7tp', '86b6qq509']),  # t5736u: Base Loft housing search = personal priority task
          personal_blocks=PERSB,  # Rost 25.10: Документы / Чеклист / БЖУ / Сон / Дейтинг🔒 / Мероприятия / Испанский / Шаги / Зал / Бокс / Употребление🔒 / Здоровье🔒
          monitors=[
            dict(name='Питание / БЖУ', status='active', note='дневник ведётся (today-*.md + Google Sheet); в дашборд — только счёт дней', src='shared-health/nutrition-bju'),
