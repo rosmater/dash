@@ -1,21 +1,9 @@
 {
-  "_doc": "Rost t5828u 2026-11-09: «📅 Назначенные встречи» вверху вкладки Личное. Источник — ClickUp list Personal 901413854636, открытые задачи с TIMED due (HH:MM ≠ 04:00 Богота) от сегодня. Формат = of_calls/defense_pins.scheduled_calls + kind=meeting. on_done=comment → «Встреча состоялась (с даша, DD.MM)». Прошедшие build_data отбрасывает. Обновляет personal_meetings_sync.py (пакеты 10:42 / 22:45).",
-  "updated_at": "2026-11-09T15:36:30-05:00",
-  "src": "ClickUp Personal list 901413854636",
+  "_doc": "Rost t5828u/t5829u/t5831u: «📅 Назначенные встречи». Sources: (1) CU Personal list 901413854636 TIMED due; (2) Role=🚶GO (field 1469c8d4… option 95771463…) any list — includes all-day 04:00. Exclude: src/meetings_exclude.json. on_done=comment.",
+  "updated_at": "2026-11-09T15:46:20-05:00",
+  "src": "Personal 901413854636 + Role GO 95771463-42ea-45fc-8b87-ad4b48108cbf",
   "list_url": "https://app.clickup.com/90144414983/v/li/901413854636",
   "scheduled_meetings": [
-    {
-      "id": "86bcnrmt7",
-      "name": "🥊 Бокс 10:00–11:30 (Johann Ruiz)",
-      "url": "https://app.clickup.com/t/86bcnrmt7",
-      "status": "to do",
-      "due": "2026-11-10",
-      "due_t": "11:30",
-      "start": "2026-11-10T10:00",
-      "kind": "meeting",
-      "on_done": "comment",
-      "note": ""
-    },
     {
       "id": "86bcma7tp",
       "name": "Найти лофт побольше в Base Loft (долгосрочная аренда)",
@@ -24,9 +12,11 @@
       "due": "2026-11-10",
       "due_t": "17:00",
       "start": "2026-11-10T16:00",
+      "all_day": false,
       "kind": "meeting",
       "on_done": "comment",
-      "note": ""
+      "note": "",
+      "src": "go"
     }
   ]
 }

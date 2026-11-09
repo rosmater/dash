@@ -1,3 +1,8 @@
+## 2026-11-09 t5829u/t5831u meetings Role GO + exclude
+- Источник 2: Role «🚶GO» (не list status; statuses=[go]=0). All-day 04:00 → баннер «Встреча: name» без времени.
+- Exclude: src/meetings_exclude.json (бокс/зал/gym/smart fit + id 86bcnrmt7).
+- Sync принимает personal.json + go.json, dedupe by id.
+
 ## 2026-11-09 t5826u LolaPop MV/C4S
 - ManyVids + Clips4Sale за 3 закрытые недели (AdsPower k1gxh3kk 09.11): 02–08.11 MV $0 / C4S net $8.39 (gross $13.99); 26.10–01.11 MV $18.57 / C4S $11.98; 19–25.10 MV $0 / C4S $15.58. Helper src/ingest_mv_c4s_week.py. Zero = verified no sales.
 

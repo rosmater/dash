@@ -1,0 +1,5 @@
+{
+  "_doc": "Rost t5831u: исключить из «Назначенные встречи» (бокс/зал/тренировки). name_re — case-insensitive; ids — явный список CU id.",
+  "ids": ["86bcnrmt7"],
+  "name_re": "бокс|boxing|\\bbox\\b|спортзал|зал|gym|тренировк|smart fit"
+}

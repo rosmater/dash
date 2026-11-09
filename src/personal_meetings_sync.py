@@ -1,19 +1,37 @@
 #!/usr/bin/env python3
-"""Rost t5828u: Personal list timed dues → src/personal_meetings.json (+ optional surgical enc patch).
+"""Rost t5828u/t5829u/t5831u: Personal timed + Role GO → src/personal_meetings.json.
 
-Sibling to cu_due_sync.py. Call from morning 10:42 / night 22:45 packs after:
-  clickup_filter_tasks list_ids=[901413854636] include_closed=false
-    due_date_from=<today Bogotá> write_to_file=true  (paginate if has_more)
+Sibling to cu_due_sync.py. Call from morning 10:42 / night 22:45 packs after BOTH filters:
+
+  1) Personal list (timed meetings):
+     clickup_filter_tasks list_ids=[901413854636] include_closed=false
+       due_date_from=<today Bogotá> write_to_file=true
+
+  2) Role GO anywhere (Rost «гоу» = physically go; NOT a list status — statuses=[go] returns 0):
+     clickup_filter_tasks assignees=[me] include_closed=false
+       custom_fields=[{field_id:1469c8d4-a3b4-4925-958a-7f442d9e002f, operator:ANY,
+         value:["95771463-42ea-45fc-8b87-ad4b48108cbf"]}]  # Role option «🚶GO»
+       write_to_file=true
+
+  python3 /workspace/dashboard-mockup/src/personal_meetings_sync.py <personal.json> <go.json>
+  (multiple files OK; dedupe by id. Tag a file as GO-source with --go FILE or by
+   putting «go»/«role» in the filename, else pass --go-ids via second+ files with
+   --mode auto: files after the first are treated as GO if --go-all-files-but-first.)
 
 USAGE:
-  python3 /workspace/dashboard-mockup/src/personal_meetings_sync.py <filter.json> [...]
-  Flags: --dry (report only), --no-push (write json + patch enc, skip git),
-         --no-patch (only rewrite personal_meetings.json).
+  python3 …/personal_meetings_sync.py personal.json go.json
+  Flags: --dry, --no-push, --no-patch,
+         --go FILE (repeatable; those files allow all-day 04:00),
+         --personal FILE (repeatable; timed-only, skip 04:00),
+         --allow-past (keep past dues — e2e only).
 
-Filter: open tasks (not main/complete/closed/done) with TIMED due
-(HH:MM Bogotá ≠ 04:00) and due date ≥ today Bogotá. Start–end: parse
-HH:MM–HH:MM from the name when present; else start=due time, end=+1h.
-on_done=comment (drain: «Встреча состоялась (с даша, DD.MM)»).
+Rules:
+  - Personal source: open, due≥today, TIMED (HH:MM≠04:00 Bogotá).
+  - GO source: open (not main/complete/closed/done), due≥today; 04:00 = all-day
+    (no time in block/banner «Встреча: <name>»).
+  - Exclude: src/meetings_exclude.json (ids + name_re).
+  - Dedupe by id (GO wins on merge if both).
+  - on_done=comment → drain «Встреча состоялась (с даша, DD.MM)».
 """
 from __future__ import annotations
 
@@ -28,10 +46,13 @@ BOG = datetime.timezone(datetime.timedelta(hours=-5))
 MOCK = Path('/workspace/dashboard-mockup')
 GH = Path('/workspace/dash-gh')
 OUT = MOCK / 'src' / 'personal_meetings.json'
+EXCL = MOCK / 'src' / 'meetings_exclude.json'
 VAULT_MAIN = Path('/home/box/contacts/knowledge/secrets/vault/dashboard-password.md')
 VAULT_ASST = Path('/home/box/contacts/knowledge/secrets/vault/dashboard-password-assistant.md')
 LIST_ID = '901413854636'
 LIST_URL = 'https://app.clickup.com/90144414983/v/li/901413854636'
+ROLE_GO = '95771463-42ea-45fc-8b87-ad4b48108cbf'
+ROLE_FIELD = '1469c8d4-a3b4-4925-958a-7f442d9e002f'
 RANGE_RE = re.compile(r'(\d{1,2}:\d{2})\s*[–—\-]\s*(\d{1,2}:\d{2})')
 CLOSED = {'main', 'complete', 'completed', 'closed', 'done'}
 
@@ -70,6 +91,28 @@ def field(v, k):
     return v.get(k) if isinstance(v, dict) else v
 
 
+def load_exclude():
+    ids, cre = set(), None
+    if EXCL.exists():
+        try:
+            j = json.loads(EXCL.read_text())
+            ids = {str(x) for x in (j.get('ids') or []) if x}
+            pat = (j.get('name_re') or '').strip()
+            if pat:
+                cre = re.compile(pat, re.I)
+        except Exception as e:
+            print('warn: meetings_exclude.json:', e)
+    return ids, cre
+
+
+def excluded(t, ids, cre):
+    if t['id'] in ids:
+        return True
+    if cre and cre.search(t.get('name') or ''):
+        return True
+    return False
+
+
 def parse_tasks(files):
     raw = []
     for f in files:
@@ -93,33 +136,61 @@ def parse_tasks(files):
             url=t.get('url') or f'https://app.clickup.com/t/{tid}',
             status=field(t.get('status'), 'status') or '',
             due_ms=due_ms,
+            list=field(t.get('list'), 'name') or '',
         ))
     tasks.sort(key=lambda x: x['due_ms'])
     return tasks
 
 
-def to_meetings(tasks, today: str):
-    out = []
-    for t in tasks:
-        dt = datetime.datetime.fromtimestamp(t['due_ms'] / 1000, BOG)
-        hm = dt.strftime('%H:%M')
-        if hm == '04:00':
-            continue
-        day = dt.strftime('%Y-%m-%d')
-        if day < today:
-            continue
-        m = RANGE_RE.search(t['name'] or '')
-        if m:
-            start_hm, end_hm = m.group(1), m.group(2)
-        else:
-            start_hm = hm
-            end_hm = (dt + datetime.timedelta(hours=1)).strftime('%H:%M')
-        out.append(dict(
+def task_to_meeting(t, today: str, allow_allday: bool, allow_past: bool):
+    dt = datetime.datetime.fromtimestamp(t['due_ms'] / 1000, BOG)
+    hm = dt.strftime('%H:%M')
+    day = dt.strftime('%Y-%m-%d')
+    if day < today and not allow_past:
+        return None
+    allday = hm == '04:00'
+    if allday and not allow_allday:
+        return None
+    if allday:
+        return dict(
             id=t['id'], name=t['name'], url=t['url'], status=t['status'],
-            due=day, due_t=end_hm, start=f'{day}T{start_hm}',
+            due=day, due_t='', start=day, all_day=True,
             kind='meeting', on_done='comment', note='',
-        ))
-    out.sort(key=lambda x: (x['due'], x['start'], x['due_t']))
+            src='go' if allow_allday else 'personal',
+        )
+    m = RANGE_RE.search(t['name'] or '')
+    if m:
+        start_hm, end_hm = m.group(1), m.group(2)
+    else:
+        start_hm = hm
+        end_hm = (dt + datetime.timedelta(hours=1)).strftime('%H:%M')
+    return dict(
+        id=t['id'], name=t['name'], url=t['url'], status=t['status'],
+        due=day, due_t=end_hm, start=f'{day}T{start_hm}', all_day=False,
+        kind='meeting', on_done='comment', note='',
+        src='go' if allow_allday else 'personal',
+    )
+
+
+def merge_meetings(personal_tasks, go_tasks, today: str, allow_past=False):
+    ids, cre = load_exclude()
+    by_id = {}
+    for t in personal_tasks:
+        if excluded(t, ids, cre):
+            continue
+        m = task_to_meeting(t, today, allow_allday=False, allow_past=allow_past)
+        if m:
+            m['src'] = 'personal'
+            by_id[m['id']] = m
+    for t in go_tasks:
+        if excluded(t, ids, cre):
+            continue
+        m = task_to_meeting(t, today, allow_allday=True, allow_past=allow_past)
+        if m:
+            m['src'] = 'go'
+            by_id[m['id']] = m  # GO wins
+    out = list(by_id.values())
+    out.sort(key=lambda x: (x['due'], '1' if x.get('all_day') else '0', x.get('start') or '', x.get('due_t') or ''))
     return out
 
 
@@ -169,11 +240,11 @@ def surgical_patch(meetings, list_url, updated_at):
     for f in ['data.enc.json', 'data-asst.enc.json']:
         if (MOCK / f).exists():
             shutil.copy(MOCK / f, GH / f)
-    shutil.copy(OUT, GH / 'src' / 'personal_meetings.json')
-    if (MOCK / 'src' / 'personal_meetings_sync.py').exists():
-        shutil.copy(MOCK / 'src' / 'personal_meetings_sync.py', GH / 'src' / 'personal_meetings_sync.py')
-    if (MOCK / 'src' / 'build_data.py').exists():
-        shutil.copy(MOCK / 'src' / 'build_data.py', GH / 'src' / 'build_data.py')
+    for rel in ['src/personal_meetings.json', 'src/personal_meetings_sync.py',
+                'src/meetings_exclude.json', 'src/build_data.py']:
+        src = MOCK / rel
+        if src.exists():
+            shutil.copy(src, GH / rel)
 
 
 def git_push(note: str):
@@ -184,13 +255,16 @@ def git_push(note: str):
         raise SystemExit(f'git pull --rebase failed: {r.stderr or r.stdout}')
     files = [
         'data.enc.json', 'data-asst.enc.json',
-        'src/personal_meetings.json', 'src/personal_meetings_sync.py', 'src/build_data.py',
+        'src/personal_meetings.json', 'src/personal_meetings_sync.py',
+        'src/meetings_exclude.json', 'src/build_data.py',
+        'index.html', 'helper.html', 'variant-a.html', 'src/variant-a.html',
+        'CHANGELOG.md', 'docs/CHANGELOG.md',
     ]
     subprocess.run(['git', 'add'] + [f for f in files if (GH / f).exists()], cwd=GH, check=True)
     if subprocess.run(['git', 'diff', '--cached', '--quiet'], cwd=GH).returncode == 0:
         print('git: nothing to commit')
         return None
-    msg = f'Даш t5828u: personal meetings sync — {note[:100]}'
+    msg = f'Даш t5829u/t5831u: meetings GO+exclude — {note[:90]}'
     subprocess.run(['git', 'commit', '-m', msg], cwd=GH, check=True)
     r = subprocess.run(['git', 'push', 'origin', 'main'], cwd=GH, capture_output=True, text=True)
     if r.returncode != 0:
@@ -200,55 +274,90 @@ def git_push(note: str):
     return sha
 
 
+def classify_files(positional, personal_flags, go_flags):
+    """Return (personal_files, go_files)."""
+    pers = list(personal_flags or [])
+    go = list(go_flags or [])
+    rest = list(positional or [])
+    if pers or go:
+        # explicit flags; leftover positionals → personal
+        pers.extend(rest)
+        return pers, go
+    if len(rest) == 0:
+        return [], []
+    if len(rest) == 1:
+        # single file: treat as both (timed rules for personal path + GO all-day if Role dump)
+        return rest, rest
+    # 2+: first = personal, rest = go (filename hint can swap)
+    p, g = [], []
+    for i, f in enumerate(rest):
+        name = Path(f).name.lower()
+        if i == 0 and not re.search(r'go|role', name):
+            p.append(f)
+        elif re.search(r'go|role', name) or i > 0:
+            g.append(f)
+        else:
+            p.append(f)
+    if not p and g:
+        p = g[:]  # unlikely
+    return p, g
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument('files', nargs='+', help='clickup_filter_tasks JSON file(s) for Personal list')
+    ap.add_argument('files', nargs='*', help='filter JSON file(s)')
+    ap.add_argument('--personal', action='append', default=[], help='Personal-list filter file(s)')
+    ap.add_argument('--go', action='append', default=[], help='Role-GO filter file(s); allows all-day')
     ap.add_argument('--dry', action='store_true')
     ap.add_argument('--no-push', action='store_true')
     ap.add_argument('--no-patch', action='store_true')
+    ap.add_argument('--allow-past', action='store_true', help='keep past dues (e2e)')
     a = ap.parse_args()
 
     today = datetime.datetime.now(BOG).strftime('%Y-%m-%d')
-    tasks = parse_tasks(a.files)
-    meetings = to_meetings(tasks, today)
+    pfiles, gfiles = classify_files(a.files, a.personal, a.go)
+    if not pfiles and not gfiles:
+        sys.exit('personal_meetings_sync: pass personal.json and/or go.json')
+
+    personal_tasks = parse_tasks(pfiles) if pfiles else []
+    go_tasks = parse_tasks(gfiles) if gfiles else []
+    meetings = merge_meetings(personal_tasks, go_tasks, today, allow_past=a.allow_past)
     updated_at = datetime.datetime.now(BOG).strftime('%Y-%m-%dT%H:%M:%S-05:00')
     doc = {
-        '_doc': OUT.read_text()[:200] if OUT.exists() else 'personal meetings from CU Personal list',
+        '_doc': (
+            'Rost t5828u/t5829u/t5831u: «📅 Назначенные встречи». '
+            'Sources: (1) CU Personal list 901413854636 TIMED due; '
+            '(2) Role=🚶GO (field 1469c8d4… option 95771463…) any list — includes all-day 04:00. '
+            'Exclude: src/meetings_exclude.json. on_done=comment.'
+        ),
         'updated_at': updated_at,
-        'src': f'ClickUp Personal list {LIST_ID}',
+        'src': f'Personal {LIST_ID} + Role GO {ROLE_GO}',
         'list_url': LIST_URL,
         'scheduled_meetings': meetings,
     }
-    # keep long _doc if present
     if OUT.exists():
         try:
             prev = json.loads(OUT.read_text())
-            if prev.get('_doc'):
+            if prev.get('_doc') and 't5829u' in prev.get('_doc', ''):
                 doc['_doc'] = prev['_doc']
         except Exception:
             pass
 
-    prev_ids = []
-    try:
-        prev_ids = [x.get('id') for x in json.loads(OUT.read_text()).get('scheduled_meetings') or []]
-    except Exception:
-        pass
-    new_ids = [x['id'] for x in meetings]
-    changed = prev_ids != new_ids or True  # always rewrite timestamps; compare content below
     try:
         old = json.loads(OUT.read_text()).get('scheduled_meetings') or []
-        changed = [{k: x.get(k) for k in ('id', 'due', 'due_t', 'start', 'name', 'status')} for x in old] != \
-                  [{k: x.get(k) for k in ('id', 'due', 'due_t', 'start', 'name', 'status')} for x in meetings]
+        key = lambda xs: [{k: x.get(k) for k in ('id', 'due', 'due_t', 'start', 'name', 'status', 'all_day')} for x in xs]
+        changed = key(old) != key(meetings)
     except Exception:
         changed = True
 
-    print(f'personal_meetings: {len(meetings)} timed open from today; changed={changed}')
+    print(f'personal_meetings: {len(meetings)} (personal_in={len(personal_tasks)} go_in={len(go_tasks)}); changed={changed}')
     for m in meetings:
-        print(f"  {m['due']} {m['start'][11:]}–{m['due_t']} {m['id']} {m['name'][:60]}")
+        tag = 'all-day' if m.get('all_day') else f"{(m.get('start') or '')[11:]}–{m.get('due_t')}"
+        print(f"  {m['due']} {tag} [{m.get('src')}] {m['id']} {m['name'][:55]}")
 
     if a.dry:
         print('dry: would write', OUT)
-        sys.exit(0 if not changed else 0)
+        sys.exit(0)
 
     tmp = str(OUT) + '.tmp'
     json.dump(doc, open(tmp, 'w'), ensure_ascii=False, indent=2)
@@ -262,7 +371,7 @@ def main():
     if a.no_push:
         print('no-push: local patch only')
         sys.exit(0)
-    note = f"{len(meetings)} meetings: " + ', '.join(f"{m['id']}@{m['due']}T{m['start'][11:]}" for m in meetings[:5])
+    note = f"{len(meetings)} mtg: " + ', '.join(f"{m['id']}@{m['due']}" for m in meetings[:6])
     git_push(note or 'refresh')
 
 
