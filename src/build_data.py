@@ -597,7 +597,10 @@ def tasks(ids):
         if (t.get('status') or '').lower() == 'main':
             continue  # Rost t5718u: status main = parent branch, not work
         name = re.sub(r'\+?\d[\d \-]{6,}\d', '…', t['name']).strip()  # no phone numbers
-        out.append(dict(id=i, name=name, status=t['status'], priority=t['priority'], due=t['due'], list=t['list'], url=f'https://rosmater.github.io/cu/?t={i}'))
+        asg=[a for a in (t.get('assignees') or []) if a]
+        out.append(dict(id=i, name=name, status=t['status'], priority=t['priority'], due=t['due'], list=t['list'],
+                        assignees=asg, who=', '.join(asg) if asg else None,
+                        url=f'https://rosmater.github.io/cu/?t={i}'))  # Rost t5825u: assignees → плашки в Срок сегодня / Просрочено
     return out
 
 
@@ -727,8 +730,9 @@ for t in _cu.get('tasks', []):
     if 'complete' in (t.get('status') or '') or 'closed' in (t.get('status') or ''): continue
     nm = re.sub(r'\+?\d[\d \-]{6,}\d', '…', t['name']).strip()
     if nm.lower() in _seen: continue
+    asg=[a for a in (t.get('assignees') or []) if a] or ['Rost']  # cu_cal snapshot = assignee me
     cal_events.append(dict(src='clickup', title=nm, start=d.isoformat(), end=None, all_day=False, due=True,
-                           list=t.get('list'), url=f"https://rosmater.github.io/cu/?t={t['id']}"))
+                           list=t.get('list'), url=f"https://rosmater.github.io/cu/?t={t['id']}", assignees=asg))
 # Rost 25.10: в календаре только события со временем — задачи ClickUp «на весь день» (gcal-sync) не показываем
 cal_events = [x for x in cal_events if not x['all_day']]
 # Привязка ClickUp-карточек к событиям Google (справа от события): тот же день + похожее название
@@ -750,7 +754,7 @@ for c in [x for x in cal_events if x['src'] == 'clickup']:
         if sc and g['start'] <= c['start'] <= g['end']: sc += 0.5
         if sc > bs: best, bs = g, sc
     if best and bs >= 2:
-        best.setdefault('cu', []).append(dict(title=c['title'], url=c['url'], list=c.get('list'), due=c['start']))
+        best.setdefault('cu', []).append(dict(title=c['title'], url=c['url'], list=c.get('list'), due=c['start'], assignees=c.get('assignees')))
         c['linked'] = True
 cal_events = [x for x in cal_events if not x.get('linked')]
 cal_events.sort(key=lambda x: x['start'])
