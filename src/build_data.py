@@ -765,7 +765,7 @@ data = dict(
          of_blocks=OFB,
          gaps=of_gaps_extra),  # t703u/t704u: known-rule notes (office/IPRoyal, RA185/RA222) removed — not attn
     dict(id='realestate', stage='money', name='Недвижимость', subtitle='Испания · Украина · Колумбия', currency='EUR', color='#f59e0b', icon='🏠',
-         overview_note='Недвижимость: только месячные итоги (янв–авг 2026), недельных нет.',
+         overview_note='Недвижимость: учёт месячный, всегда 3 закрытых месяца (прошлый / позапрошлый / позапозапрошлый); при новом месяце все три перечитываются (старые долги могут прийти позже).'  # Rost t5723u/t5724u,
          periods=re_periods, breakdowns=re_break,
          goals=[
            dict(label='Чистая прибыль аренды за месяц', unit='€', target=5000, example=True, period_type='month', by_period={'M:' + f'2026-{i+1:02d}': total[i] for i in range(8)}, src='цель — пример; факт ИТОГИ!стр.14'),
@@ -773,7 +773,7 @@ data = dict(
          ],
          tasks=tasks(['86b7wu7jq', '86b6qz12h', '86b88jb1f', '86baqkyw4', '86bc1d1wj', '86b9va7c4', '86b8ttzmc']),
          re_blocks=REB,  # Rost 25.10: блоки Недвижимости
-         gaps=['Недельной разбивки нет — только месяцы', 'Сентябрь и октябрь 2026 в таблице ещё не заполнены', 'Валюта в таблице не подписана — принято EUR (Испания)', 'Колумбия: доходов от аренды в базе нет; Los Pueblos/Топасио — ремонт, расходы не сведены']),
+         gaps=['Сентябрь и октябрь 2026 в таблице ещё не заполнены', 'Валюта в таблице не подписана — принято EUR (Испания)', 'Колумбия: доходов от аренды в базе нет; Los Pueblos/Топасио — ремонт, расходы не сведены']),  # t5723u: weekly note removed — monthly is the rule,
     dict(id='tabakevich', stage='money', name='Табакевич', subtitle='Украина · e-shop + магазин', currency='USD', color='#38bdf8', icon='💨',
          overview_note='Табакевич: валовая прибыль всего направления (до опер. расходов, ФОТ и доли партнёра), не доход Rost.',
          periods=tb_periods, breakdowns=tb_break,
