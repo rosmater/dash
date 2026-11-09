@@ -1,644 +1,658 @@
 {
- "_note": "Снимок на момент сборки 25.10.2026 ~23:59 Bogotá (UTC-5). Только реальные цифры из KB/BAS/ClickUp; null = источника нет → «—». Обновлять вручную/по мере новых выгрузок (кронов не создавали).",
- "fetched_at": "2026-10-25T23:59:00-05:00",
- "decisions": {
-  "title": "На решение",
-  "items": [
-   {
-    "slot": "Юля · кошелёк / фонд безопасности",
-    "cu": "86bbhwpa6",
-    "url": "https://rosmater.github.io/cu/?t=86bbhwpa6",
-    "name": "Проверить общий кошелек Наташа для денег на безопасность",
-    "full_name": "(поговорить с Юлей как решить этот вопрос или считать процент меньше) Проверить общий кошелек Наташа для денег на безопасность",
-    "status": "to do",
-    "due": "2026-10-28",
-    "who": "Rost, Ірина Шекель"
-   },
-   {
-    "slot": "Юля · закрытие смен",
-    "cu": "86bagudj7",
-    "url": "https://rosmater.github.io/cu/?t=86bagudj7",
-    "name": "ПРОБЛЕМА ЗАКРЫТИЕ СМЕН: Юля тестирования с программистами",
-    "status": "to do",
-    "due": "2026-10-28",
-    "who": "Rost"
-   },
-   {
-    "slot": "ещё (Rost допишет)",
-    "cu": null,
-    "url": null,
-    "name": null,
-    "placeholder": true
-   }
-  ],
-  "src": "ClickUp get_task 25.10 (статус/срок), родитель 86b6z6qzp"
- },
- "fin": {
-  "title": "Фин-сводки",
-  "links": [
-   {
-    "label": "Проверка фин-отчётов и переучётов 10-го",
-    "cu": "86b6qqajb",
-    "url": "https://rosmater.github.io/cu/?t=86b6qqajb",
-    "status": "to do",
-    "due": "2026-11-10",
-    "note": "баланс, фин. рез (ФОТ ≤10% прибыли), ДДС, долги франшиз, переучёты"
-   },
-   {
-    "label": "TABAKEVICH ФИНАНСЫ+ОТЧЕТЫ (родитель)",
-    "cu": "86b6z6qzp",
-    "url": "https://rosmater.github.io/cu/?t=86b6z6qzp",
-    "status": "main"
-   },
-   {
-    "label": "Дебиторка (с Ириной)",
+  "_note": "Снимок на момент сборки 25.10.2026 ~23:59 Bogotá (UTC-5). Только реальные цифры из KB/BAS/ClickUp; null = источника нет → «—». Обновлять вручную/по мере новых выгрузок (кронов не создавали).",
+  "fetched_at": "2026-10-25T23:59:00-05:00",
+  "decisions": {
+    "title": "На решение",
+    "items": [
+      {
+        "slot": "Юля · кошелёк / фонд безопасности",
+        "cu": "86bbhwpa6",
+        "url": "https://rosmater.github.io/cu/?t=86bbhwpa6",
+        "name": "Проверить общий кошелек Наташа для денег на безопасность",
+        "full_name": "(поговорить с Юлей как решить этот вопрос или считать процент меньше) Проверить общий кошелек Наташа для денег на безопасность",
+        "status": "to do",
+        "due": "2026-10-28",
+        "who": "Rost, Ірина Шекель"
+      },
+      {
+        "slot": "Юля · закрытие смен",
+        "cu": "86bagudj7",
+        "url": "https://rosmater.github.io/cu/?t=86bagudj7",
+        "name": "ПРОБЛЕМА ЗАКРЫТИЕ СМЕН: Юля тестирования с программистами",
+        "status": "to do",
+        "due": "2026-10-28",
+        "who": "Rost"
+      },
+      {
+        "slot": "ещё (Rost допишет)",
+        "cu": null,
+        "url": null,
+        "name": null,
+        "placeholder": true
+      }
+    ],
+    "src": "ClickUp get_task 25.10 (статус/срок), родитель 86b6z6qzp"
+  },
+  "fin": {
+    "title": "Фин-сводки",
+    "links": [
+      {
+        "label": "Проверка фин-отчётов и переучётов 10-го",
+        "cu": "86b6qqajb",
+        "url": "https://rosmater.github.io/cu/?t=86b6qqajb",
+        "status": "to do",
+        "due": "2026-11-10",
+        "note": "баланс, фин. рез (ФОТ ≤10% прибыли), ДДС, долги франшиз, переучёты"
+      },
+      {
+        "label": "TABAKEVICH ФИНАНСЫ+ОТЧЕТЫ (родитель)",
+        "cu": "86b6z6qzp",
+        "url": "https://rosmater.github.io/cu/?t=86b6z6qzp",
+        "status": "main"
+      },
+      {
+        "label": "Дебиторка (с Ириной)",
+        "cu": "86bacy8cr",
+        "url": "https://rosmater.github.io/cu/?t=86bacy8cr",
+        "status": "for check",
+        "due": "2026-10-28"
+      },
+      {
+        "label": "GSheet сверка авг↔сен 2026",
+        "url": "https://docs.google.com/spreadsheets/d/1xThVaKDmJw2KBlUB7mhs8X9TT5FqPeRx90Cf1hAfAnQ/edit"
+      },
+      {
+        "label": "GSheet отчёт по дебиторке (Дима)",
+        "url": "https://docs.google.com/spreadsheets/d/19jjGnX2M6TnLSgyYrbAzH6uKrtE2LFZEr6Fh_1gCVVY/edit"
+      }
+    ],
+    "kb": "knowledge/tbk-1c-reports/ (README + analysis-2026-09)"
+  },
+  "eshop": {
+    "title": "Интернет-магазин",
+    "periods": [
+      "W 12–18.10",
+      "W 05–11.10",
+      "MTD 01–19.10"
+    ],
+    "sites": [
+      {
+        "name": "tabakevich.co",
+        "unit": "Tabakevich",
+        "seo": true,
+        "seo_who": "@Andrii_Matviienko",
+        "ctx": null,
+        "ctx_note": "не подтверждено (Перемены: контекст на 2 сайта — Palm и Hookah)",
+        "rev": [
+          11889.58,
+          13069.55,
+          32469.65
+        ],
+        "gp": [
+          4003.82,
+          4256.82,
+          10697.07
+        ],
+        "orders": [
+          null,
+          null,
+          null
+        ],
+        "products": null,
+        "texts_last_month": null,
+        "links_bought": null,
+        "dr": null,
+        "organic": "GA4 органика 46 995 сессий за 3 мес. (≈13.07–12.10) vs 72 398 пред. 3 мес. (−35%); GSC клики 9.15k vs 23.8k (−62%)",
+        "organic_src": "tabakevich-co/TRAFFIC_DROP_GA_2026-10-13.md + TRAFFIC_DROP_GSC_2026-10-14.md",
+        "seo_report": "сен: отчёт Andrii 29.09 (тех. анализ, 301 региональных стр., disavow); окт: отчёта ещё нет (ждём с 17.10)",
+        "cu_site": "86b8gv8kj"
+      },
+      {
+        "name": "hookahshop.org",
+        "unit": "Hookahshop",
+        "seo": true,
+        "seo_who": "@marchello_tt",
+        "ctx": true,
+        "ctx_note": "реклама Хукашоп через Palma (@denis_polishchukk), стоп при критике",
+        "rev": [
+          1019.44,
+          1316.93,
+          2584.47
+        ],
+        "gp": [
+          229.39,
+          329.08,
+          641.39
+        ],
+        "orders": [
+          55,
+          null,
+          null
+        ],
+        "orders_note": "55 — строк в «Заказы покупателей» BAS вкл. помеченные на удаление (~15–25%)",
+        "products": null,
+        "texts_last_month": null,
+        "links_bought": null,
+        "dr": null,
+        "organic": null,
+        "cu_site": "86b934b1v"
+      },
+      {
+        "name": "palmvapeshop.com",
+        "unit": "Palm VapeShop",
+        "seo": true,
+        "seo_who": "@marchello_tt",
+        "ctx": true,
+        "ctx_note": "Google Ads (Denis): CPA 14–20.10 avg $18.11 (порог $8); окт MTD $692.66 / 63 продажи; с 19.10 бюджет урезан",
+        "rev": [
+          340.08,
+          313.37,
+          1009.93
+        ],
+        "gp": [
+          102.98,
+          102.28,
+          325.54
+        ],
+        "orders": [
+          null,
+          null,
+          null
+        ],
+        "ads_sales_oct": 63,
+        "products": null,
+        "texts_last_month": null,
+        "links_bought": null,
+        "dr": null,
+        "organic": null,
+        "cu_site": "86b92hrcp"
+      },
+      {
+        "name": "felix-shop.com",
+        "unit": "Felix Shop",
+        "seo": true,
+        "seo_who": "@kdombrovskyi",
+        "ctx": null,
+        "rev": [
+          179.06,
+          67.23,
+          277.66
+        ],
+        "gp": [
+          64.74,
+          26.19,
+          101.19
+        ],
+        "orders": [
+          null,
+          null,
+          null
+        ],
+        "products": null,
+        "texts_last_month": null,
+        "links_bought": null,
+        "dr": null,
+        "organic": "GA4 органика 7 780 сессий (конец июля–11.10), ≈79% выручки сайта; GSC клики 9.21k за 3 мес. vs 13.5k (−32%)",
+        "organic_src": "felix-shop/TRAFFIC_DROP_GSC_GA_2026-10-13.md",
+        "cu_site": "86b8r59kx"
+      }
+    ],
+    "other": [
+      {
+        "name": "SmokeJeen",
+        "rev": [
+          2412.07,
+          1093.56,
+          4243.26
+        ],
+        "gp": [
+          838.5,
+          483.37,
+          1650.85
+        ],
+        "note": "заказы ведёт в своей Google-таблице (1С-процесс #74); тип канала не уточнён"
+      },
+      {
+        "name": "SMOK instagram",
+        "rev": [
+          6.65,
+          null,
+          43.08
+        ],
+        "gp": [
+          3.98,
+          null,
+          23.43
+        ]
+      }
+    ],
+    "total": {
+      "rev": [
+        21748.6,
+        23271.53,
+        56391.93
+      ],
+      "gp": [
+        7054.88,
+        7366.91,
+        18181.44
+      ],
+      "label": "Интернет продажи — итог BAS (вкл. маркетплейсы и дроп)"
+    },
+    "orders_all": {
+      "w": 1125,
+      "mtd": 3086,
+      "note": "все заказы компании (без фильтра подразделения), строки BAS вкл. помеченные на удаление"
+    },
+    "src": "BAS «Валовая прибыль по номенклатуре — подразделения» (USD) 19.10: knowledge/tbk-1c-reports/kalyan-weekly/2026-10-19-EXTRACT.md + -ORDERS.md; SEO/ads: knowledge/<site>/README + latest-report 21.10",
+    "missing": "Кол-во товаров, текстов за прошлый месяц, купленных ссылок, DR-срез — нет источника (ждём ежемесячный SEO-отчёт / доступ GSC/Ahrefs). Заказы по сайтам в BAS не сняты (лаг)."
+  },
+  "dropship": {
+    "title": "Дропшипперы",
+    "periods": [
+      "W 12–18.10",
+      "W 05–11.10",
+      "MTD 01–19.10"
+    ],
+    "list": [
+      {
+        "name": "Family Smokes",
+        "since": "2025-06-11",
+        "unit": "Familysmokes",
+        "rev": [
+          238.73,
+          569.23,
+          976.37
+        ],
+        "gp": [
+          99.66,
+          248.27,
+          423.54
+        ]
+      },
+      {
+        "name": "Radus",
+        "since": "2025-08-08",
+        "unit": "Radus",
+        "rev": [
+          240.46,
+          21.17,
+          341.34
+        ],
+        "gp": [
+          111.92,
+          7.94,
+          158.18
+        ]
+      },
+      {
+        "name": "Hookario",
+        "since": "2025-08-23",
+        "unit": "Hookario",
+        "rev": [
+          246.8,
+          156.15,
+          383.29
+        ],
+        "gp": [
+          105.63,
+          60.38,
+          158.98
+        ]
+      },
+      {
+        "name": "My Opti",
+        "since": "2025-09-06",
+        "unit": "My Opti",
+        "rev": [
+          0,
+          0,
+          0
+        ],
+        "gp": [
+          0,
+          0,
+          0
+        ],
+        "note": "в отчёте BAS нет = продаж нет"
+      },
+      {
+        "name": "Vape Store UA",
+        "since": "2025-11-11",
+        "unit": "Vape Store UA",
+        "rev": [
+          0,
+          0,
+          0
+        ],
+        "gp": [
+          0,
+          0,
+          0
+        ],
+        "note": "в отчёте BAS нет = продаж нет"
+      }
+    ],
+    "alltime": "Дроп за всё время: 1 031 заказ, ≈17.3 тыс. $ прибыли (база #74 «Отдел Продаж»)",
+    "debt": [
+      {
+        "name": "Дропшип Никита (Интернет)",
+        "amt": 169414.0,
+        "prev": 154016.0
+      },
+      {
+        "name": "Инесса Дроп (Опт)",
+        "amt": 553707.3,
+        "prev": 192457.3
+      }
+    ],
+    "orders": null,
+    "src": "notion-brain/business/tabakevich/instructions/text/74_otdel_prodazh.md + «База действующих дропшипперов»; цифры — BAS 19.10; долги — debitorka-weekly 20.10"
+  },
+  "marketplaces": {
+    "title": "Маркетплейсы",
+    "periods": [
+      "W 12–18.10",
+      "W 05–11.10",
+      "MTD 01–19.10"
+    ],
+    "list": [
+      {
+        "name": "Rozetka",
+        "rev": [
+          4114.15,
+          5827.92,
+          11874.82
+        ],
+        "gp": [
+          1228.42,
+          1575.79,
+          3350.67
+        ],
+        "orders": [
+          null,
+          null,
+          null
+        ]
+      },
+      {
+        "name": "Prom",
+        "rev": [
+          1061.58,
+          836.42,
+          2188.06
+        ],
+        "gp": [
+          265.84,
+          276.79,
+          650.6
+        ],
+        "orders": [
+          null,
+          null,
+          null
+        ]
+      },
+      {
+        "name": "Епицентр",
+        "rev": [
+          null,
+          null,
+          null
+        ],
+        "gp": [
+          null,
+          null,
+          null
+        ],
+        "orders": [
+          null,
+          null,
+          null
+        ],
+        "note": "в регламенте менеджера есть, в отчёте BAS отдельной строки нет"
+      },
+      {
+        "name": "Алло",
+        "rev": [
+          null,
+          null,
+          null
+        ],
+        "gp": [
+          null,
+          null,
+          null
+        ],
+        "orders": [
+          null,
+          null,
+          null
+        ],
+        "note": "в регламенте менеджера есть, в отчёте BAS отдельной строки нет"
+      }
+    ],
+    "src": "BAS 19.10 (USD); заказы по площадкам не сняты"
+  },
+  "managers": {
+    "title": "Монитор работы менеджеров",
+    "week": "W42 · 12–18.10",
+    "calls": {
+      "total": 233,
+      "scored": 192,
+      "of": 227,
+      "inc": 78,
+      "out": 155,
+      "people": [
+        {
+          "name": "Ліза",
+          "pct": 87,
+          "calls": 81,
+          "bad": 11
+        },
+        {
+          "name": "Катя",
+          "pct": 87,
+          "calls": 79,
+          "bad": 7
+        },
+        {
+          "name": "Саша",
+          "pct": 78,
+          "calls": 32,
+          "bad": 4
+        }
+      ],
+      "note": "оценка по 5 правилам регламента (faster-whisper); W41 не разбиралась — сравнение с W43",
+      "src": "notion-brain/business/tabakevich/call-control/REPORT 2026-W42.md",
+      "cu": "86bcmacku",
+      "url": "https://rosmater.github.io/cu/?t=86bcmacku"
+    },
+    "chats": {
+      "chats": 43,
+      "asks": 64,
+      "answered": 59,
+      "unanswered": 5,
+      "median": "11 мин",
+      "le10": "29 из 59 (49%)",
+      "gt4h": 12,
+      "worst": "19 ч 44 мин",
+      "first_new_median": "51 мин",
+      "prev": {
+        "week": "W41",
+        "chats": 34,
+        "asks": 60,
+        "unanswered": 0,
+        "median": "17 мин",
+        "gt4h": 9
+      },
+      "people": [
+        {
+          "name": "Оксана",
+          "asks": 29,
+          "median": "2 мин",
+          "gt4h": 1
+        },
+        {
+          "name": "Евгения",
+          "asks": 18,
+          "median": "1 ч 17 мин",
+          "gt4h": 6
+        },
+        {
+          "name": "Катя",
+          "asks": 12,
+          "median": "45 мин",
+          "gt4h": 5
+        }
+      ],
+      "ratings": "great 8 · average 2 · poor 0",
+      "src": "notion-brain/business/tabakevich/call-control/archive/helpcrunch-2026-W42/SUMMARY.md"
+    },
+    "resp_trend": "время ответа (CU 86ba96qf2, Ирина): было ~400 мин → 70 (июль) → 38 → 50 → 27 мин (сен, держится 30.09)",
+    "stale_note": "W43 (19–25.10) ещё не разобрана — снимок W42"
+  },
+  "retail": {
+    "title": "Розница",
+    "shop": "Магазин Центр «Кальяны»",
+    "periods": [
+      "W 12–18.10",
+      "W 05–11.10",
+      "MTD 01–19.10"
+    ],
+    "rev": [
+      8590.49,
+      9725.57,
+      29778.12
+    ],
+    "gp": [
+      2527.28,
+      2991.18,
+      10686.81
+    ],
+    "margin": [
+      "29.4%",
+      "30.8%",
+      "35.9%"
+    ],
+    "units": [
+      1353,
+      1505,
+      4422
+    ],
+    "checks": {
+      "yesterday": null,
+      "week": null,
+      "month": null
+    },
+    "checks_note": "кол-во чеков нет ни в одном источнике (нужен отчёт BAS по чекам / кассе)",
+    "src": "BAS 19.10 «Розничные продажи» (USD); «Количество» = единицы товара, не чеки"
+  },
+  "opt": {
+    "title": "Опт + дебиторка",
+    "cur": "UAH",
+    "sales": null,
+    "sales_note": "в источниках нет (BAS-выгрузка 19.10 только по кальян-направлению); нужен отчёт BAS по подразделению «Оптовые продажи»",
+    "debt": {
+      "col": "на 03.11.2026",
+      "prev_col": "на 27.10.2026",
+      "total": 22019655.03,
+      "prev_total": 32797990.88,
+      "delta": -10778335.85,
+      "opt": 9563223.42,
+      "franchise": 11307942.59,
+      "internet": 1148489.02,
+      "staff": 67895.22,
+      "advances": 122414.62,
+      "repaid_week": null,
+      "lent_week": null,
+      "flows_note": "«отдано/вернули» и «дано в долг» в этом срезе не считал — в источнике нет готовых итогов. «Итого» = Интернет+Франшиза+Опт.",
+      "history": [
+        {
+          "col": "на 16.09.26",
+          "internet": 844951.24,
+          "franchise": 9374325.92,
+          "opt": 26451912.58,
+          "total": 36671189.74
+        },
+        {
+          "col": "на 23.09.2026",
+          "internet": 709411.66,
+          "franchise": 10303819.62,
+          "opt": 23910106.0,
+          "total": 34923337.28
+        },
+        {
+          "col": "на 30.09.2026",
+          "internet": 827448.82,
+          "franchise": 9297587.3,
+          "opt": 21131386.0,
+          "total": 31256422.12
+        },
+        {
+          "col": "на 07.10.2026",
+          "internet": 680458.0,
+          "franchise": 15118170.79,
+          "opt": 19134578.64,
+          "total": 34933207.43
+        },
+        {
+          "col": "на 14.10.2026",
+          "internet": 767238.34,
+          "franchise": 10288480.49,
+          "opt": 18851759.64,
+          "total": 29907478.47
+        },
+        {
+          "col": "на 20.10.2026",
+          "internet": 813625.18,
+          "franchise": 10185575.58,
+          "opt": 19494290.26,
+          "total": 30493491.02
+        },
+        {
+          "col": "на 27.10.2026",
+          "internet": 816887.97,
+          "franchise": 10159018.02,
+          "opt": 21822084.89,
+          "total": 32797990.88
+        },
+        {
+          "col": "на 03.11.2026",
+          "internet": 1148489.02,
+          "franchise": 11307942.59,
+          "opt": 9563223.42,
+          "total": 22019655.03
+        }
+      ]
+    },
+    "problems": [
+      {
+        "name": "Грищенко Антон",
+        "amt": 924003.0,
+        "weeks": 3,
+        "note": "3 среза без движения; «Жду когда можно будет свернуть взаиморасчёт»",
+        "flag": false
+      },
+      {
+        "name": "Магазин Кривой Рог (франшиза)",
+        "amt": 1601379.32,
+        "weeks": 2,
+        "note": "2 недели без движения (27.10 = 03.11)",
+        "flag": false
+      },
+      {
+        "name": "Герасименко Виктор",
+        "amt": 140030.0,
+        "weeks": 2,
+        "note": "2 недели без движения; «занесёт на обменник»",
+        "flag": false
+      }
+    ],
+    "suppliers_note": "Поставщики: сигнал ≥4 недели без уменьшения (12) ≈ 19.51 млн грн + 77 768,59 USD (SMOK 7.14 млн и растёт, Маноли 5.92 млн, Горд 2 5.85 млн …)",
+    "src": "knowledge/debitorka-weekly/snapshots/2026-11-04.md + history/clients.json (GSheet Димы, колонка на 03.11.2026); CU 86bacy8cr",
     "cu": "86bacy8cr",
     "url": "https://rosmater.github.io/cu/?t=86bacy8cr",
-    "status": "for check",
-    "due": "2026-10-28"
-   },
-   {
-    "label": "GSheet сверка авг↔сен 2026",
-    "url": "https://docs.google.com/spreadsheets/d/1xThVaKDmJw2KBlUB7mhs8X9TT5FqPeRx90Cf1hAfAnQ/edit"
-   },
-   {
-    "label": "GSheet отчёт по дебиторке (Дима)",
-    "url": "https://docs.google.com/spreadsheets/d/19jjGnX2M6TnLSgyYrbAzH6uKrtE2LFZEr6Fh_1gCVVY/edit"
-   }
-  ],
-  "kb": "knowledge/tbk-1c-reports/ (README + analysis-2026-09)"
- },
- "eshop": {
-  "title": "Интернет-магазин",
-  "periods": [
-   "W 12–18.10",
-   "W 05–11.10",
-   "MTD 01–19.10"
-  ],
-  "sites": [
-   {
-    "name": "tabakevich.co",
-    "unit": "Tabakevich",
-    "seo": true,
-    "seo_who": "@Andrii_Matviienko",
-    "ctx": null,
-    "ctx_note": "не подтверждено (Перемены: контекст на 2 сайта — Palm и Hookah)",
-    "rev": [
-     11889.58,
-     13069.55,
-     32469.65
-    ],
-    "gp": [
-     4003.82,
-     4256.82,
-     10697.07
-    ],
-    "orders": [
-     null,
-     null,
-     null
-    ],
-    "products": null,
-    "texts_last_month": null,
-    "links_bought": null,
-    "dr": null,
-    "organic": "GA4 органика 46 995 сессий за 3 мес. (≈13.07–12.10) vs 72 398 пред. 3 мес. (−35%); GSC клики 9.15k vs 23.8k (−62%)",
-    "organic_src": "tabakevich-co/TRAFFIC_DROP_GA_2026-10-13.md + TRAFFIC_DROP_GSC_2026-10-14.md",
-    "seo_report": "сен: отчёт Andrii 29.09 (тех. анализ, 301 региональных стр., disavow); окт: отчёта ещё нет (ждём с 17.10)",
-    "cu_site": "86b8gv8kj"
-   },
-   {
-    "name": "hookahshop.org",
-    "unit": "Hookahshop",
-    "seo": true,
-    "seo_who": "@marchello_tt",
-    "ctx": true,
-    "ctx_note": "реклама Хукашоп через Palma (@denis_polishchukk), стоп при критике",
-    "rev": [
-     1019.44,
-     1316.93,
-     2584.47
-    ],
-    "gp": [
-     229.39,
-     329.08,
-     641.39
-    ],
-    "orders": [
-     55,
-     null,
-     null
-    ],
-    "orders_note": "55 — строк в «Заказы покупателей» BAS вкл. помеченные на удаление (~15–25%)",
-    "products": null,
-    "texts_last_month": null,
-    "links_bought": null,
-    "dr": null,
-    "organic": null,
-    "cu_site": "86b934b1v"
-   },
-   {
-    "name": "palmvapeshop.com",
-    "unit": "Palm VapeShop",
-    "seo": true,
-    "seo_who": "@marchello_tt",
-    "ctx": true,
-    "ctx_note": "Google Ads (Denis): CPA 14–20.10 avg $18.11 (порог $8); окт MTD $692.66 / 63 продажи; с 19.10 бюджет урезан",
-    "rev": [
-     340.08,
-     313.37,
-     1009.93
-    ],
-    "gp": [
-     102.98,
-     102.28,
-     325.54
-    ],
-    "orders": [
-     null,
-     null,
-     null
-    ],
-    "ads_sales_oct": 63,
-    "products": null,
-    "texts_last_month": null,
-    "links_bought": null,
-    "dr": null,
-    "organic": null,
-    "cu_site": "86b92hrcp"
-   },
-   {
-    "name": "felix-shop.com",
-    "unit": "Felix Shop",
-    "seo": true,
-    "seo_who": "@kdombrovskyi",
-    "ctx": null,
-    "rev": [
-     179.06,
-     67.23,
-     277.66
-    ],
-    "gp": [
-     64.74,
-     26.19,
-     101.19
-    ],
-    "orders": [
-     null,
-     null,
-     null
-    ],
-    "products": null,
-    "texts_last_month": null,
-    "links_bought": null,
-    "dr": null,
-    "organic": "GA4 органика 7 780 сессий (конец июля–11.10), ≈79% выручки сайта; GSC клики 9.21k за 3 мес. vs 13.5k (−32%)",
-    "organic_src": "felix-shop/TRAFFIC_DROP_GSC_GA_2026-10-13.md",
-    "cu_site": "86b8r59kx"
-   }
-  ],
-  "other": [
-   {
-    "name": "SmokeJeen",
-    "rev": [
-     2412.07,
-     1093.56,
-     4243.26
-    ],
-    "gp": [
-     838.5,
-     483.37,
-     1650.85
-    ],
-    "note": "заказы ведёт в своей Google-таблице (1С-процесс #74); тип канала не уточнён"
-   },
-   {
-    "name": "SMOK instagram",
-    "rev": [
-     6.65,
-     null,
-     43.08
-    ],
-    "gp": [
-     3.98,
-     null,
-     23.43
-    ]
-   }
-  ],
-  "total": {
-   "rev": [
-    21748.6,
-    23271.53,
-    56391.93
-   ],
-   "gp": [
-    7054.88,
-    7366.91,
-    18181.44
-   ],
-   "label": "Интернет продажи — итог BAS (вкл. маркетплейсы и дроп)"
-  },
-  "orders_all": {
-   "w": 1125,
-   "mtd": 3086,
-   "note": "все заказы компании (без фильтра подразделения), строки BAS вкл. помеченные на удаление"
-  },
-  "src": "BAS «Валовая прибыль по номенклатуре — подразделения» (USD) 19.10: knowledge/tbk-1c-reports/kalyan-weekly/2026-10-19-EXTRACT.md + -ORDERS.md; SEO/ads: knowledge/<site>/README + latest-report 21.10",
-  "missing": "Кол-во товаров, текстов за прошлый месяц, купленных ссылок, DR-срез — нет источника (ждём ежемесячный SEO-отчёт / доступ GSC/Ahrefs). Заказы по сайтам в BAS не сняты (лаг)."
- },
- "dropship": {
-  "title": "Дропшипперы",
-  "periods": [
-   "W 12–18.10",
-   "W 05–11.10",
-   "MTD 01–19.10"
-  ],
-  "list": [
-   {
-    "name": "Family Smokes",
-    "since": "2025-06-11",
-    "unit": "Familysmokes",
-    "rev": [
-     238.73,
-     569.23,
-     976.37
-    ],
-    "gp": [
-     99.66,
-     248.27,
-     423.54
-    ]
-   },
-   {
-    "name": "Radus",
-    "since": "2025-08-08",
-    "unit": "Radus",
-    "rev": [
-     240.46,
-     21.17,
-     341.34
-    ],
-    "gp": [
-     111.92,
-     7.94,
-     158.18
-    ]
-   },
-   {
-    "name": "Hookario",
-    "since": "2025-08-23",
-    "unit": "Hookario",
-    "rev": [
-     246.8,
-     156.15,
-     383.29
-    ],
-    "gp": [
-     105.63,
-     60.38,
-     158.98
-    ]
-   },
-   {
-    "name": "My Opti",
-    "since": "2025-09-06",
-    "unit": "My Opti",
-    "rev": [
-     0,
-     0,
-     0
-    ],
-    "gp": [
-     0,
-     0,
-     0
-    ],
-    "note": "в отчёте BAS нет = продаж нет"
-   },
-   {
-    "name": "Vape Store UA",
-    "since": "2025-11-11",
-    "unit": "Vape Store UA",
-    "rev": [
-     0,
-     0,
-     0
-    ],
-    "gp": [
-     0,
-     0,
-     0
-    ],
-    "note": "в отчёте BAS нет = продаж нет"
-   }
-  ],
-  "alltime": "Дроп за всё время: 1 031 заказ, ≈17.3 тыс. $ прибыли (база #74 «Отдел Продаж»)",
-  "debt": [
-   {
-    "name": "Дропшип Никита (Интернет)",
-    "amt": 169414.0,
-    "prev": 154016.0
-   },
-   {
-    "name": "Инесса Дроп (Опт)",
-    "amt": 553707.3,
-    "prev": 192457.3
-   }
-  ],
-  "orders": null,
-  "src": "notion-brain/business/tabakevich/instructions/text/74_otdel_prodazh.md + «База действующих дропшипперов»; цифры — BAS 19.10; долги — debitorka-weekly 20.10"
- },
- "marketplaces": {
-  "title": "Маркетплейсы",
-  "periods": [
-   "W 12–18.10",
-   "W 05–11.10",
-   "MTD 01–19.10"
-  ],
-  "list": [
-   {
-    "name": "Rozetka",
-    "rev": [
-     4114.15,
-     5827.92,
-     11874.82
-    ],
-    "gp": [
-     1228.42,
-     1575.79,
-     3350.67
-    ],
-    "orders": [
-     null,
-     null,
-     null
-    ]
-   },
-   {
-    "name": "Prom",
-    "rev": [
-     1061.58,
-     836.42,
-     2188.06
-    ],
-    "gp": [
-     265.84,
-     276.79,
-     650.6
-    ],
-    "orders": [
-     null,
-     null,
-     null
-    ]
-   },
-   {
-    "name": "Епицентр",
-    "rev": [
-     null,
-     null,
-     null
-    ],
-    "gp": [
-     null,
-     null,
-     null
-    ],
-    "orders": [
-     null,
-     null,
-     null
-    ],
-    "note": "в регламенте менеджера есть, в отчёте BAS отдельной строки нет"
-   },
-   {
-    "name": "Алло",
-    "rev": [
-     null,
-     null,
-     null
-    ],
-    "gp": [
-     null,
-     null,
-     null
-    ],
-    "orders": [
-     null,
-     null,
-     null
-    ],
-    "note": "в регламенте менеджера есть, в отчёте BAS отдельной строки нет"
-   }
-  ],
-  "src": "BAS 19.10 (USD); заказы по площадкам не сняты"
- },
- "managers": {
-  "title": "Монитор работы менеджеров",
-  "week": "W42 · 12–18.10",
-  "calls": {
-   "total": 233,
-   "scored": 192,
-   "of": 227,
-   "inc": 78,
-   "out": 155,
-   "people": [
-    {
-     "name": "Ліза",
-     "pct": 87,
-     "calls": 81,
-     "bad": 11
-    },
-    {
-     "name": "Катя",
-     "pct": 87,
-     "calls": 79,
-     "bad": 7
-    },
-    {
-     "name": "Саша",
-     "pct": 78,
-     "calls": 32,
-     "bad": 4
-    }
-   ],
-   "note": "оценка по 5 правилам регламента (faster-whisper); W41 не разбиралась — сравнение с W43",
-   "src": "notion-brain/business/tabakevich/call-control/REPORT 2026-W42.md",
-   "cu": "86bcmacku",
-   "url": "https://rosmater.github.io/cu/?t=86bcmacku"
-  },
-  "chats": {
-   "chats": 43,
-   "asks": 64,
-   "answered": 59,
-   "unanswered": 5,
-   "median": "11 мин",
-   "le10": "29 из 59 (49%)",
-   "gt4h": 12,
-   "worst": "19 ч 44 мин",
-   "first_new_median": "51 мин",
-   "prev": {
-    "week": "W41",
-    "chats": 34,
-    "asks": 60,
-    "unanswered": 0,
-    "median": "17 мин",
-    "gt4h": 9
-   },
-   "people": [
-    {
-     "name": "Оксана",
-     "asks": 29,
-     "median": "2 мин",
-     "gt4h": 1
-    },
-    {
-     "name": "Евгения",
-     "asks": 18,
-     "median": "1 ч 17 мин",
-     "gt4h": 6
-    },
-    {
-     "name": "Катя",
-     "asks": 12,
-     "median": "45 мин",
-     "gt4h": 5
-    }
-   ],
-   "ratings": "great 8 · average 2 · poor 0",
-   "src": "notion-brain/business/tabakevich/call-control/archive/helpcrunch-2026-W42/SUMMARY.md"
-  },
-  "resp_trend": "время ответа (CU 86ba96qf2, Ирина): было ~400 мин → 70 (июль) → 38 → 50 → 27 мин (сен, держится 30.09)",
-  "stale_note": "W43 (19–25.10) ещё не разобрана — снимок W42"
- },
- "retail": {
-  "title": "Розница",
-  "shop": "Магазин Центр «Кальяны»",
-  "periods": [
-   "W 12–18.10",
-   "W 05–11.10",
-   "MTD 01–19.10"
-  ],
-  "rev": [
-   8590.49,
-   9725.57,
-   29778.12
-  ],
-  "gp": [
-   2527.28,
-   2991.18,
-   10686.81
-  ],
-  "margin": [
-   "29.4%",
-   "30.8%",
-   "35.9%"
-  ],
-  "units": [
-   1353,
-   1505,
-   4422
-  ],
-  "checks": {
-   "yesterday": null,
-   "week": null,
-   "month": null
-  },
-  "checks_note": "кол-во чеков нет ни в одном источнике (нужен отчёт BAS по чекам / кассе)",
-  "src": "BAS 19.10 «Розничные продажи» (USD); «Количество» = единицы товара, не чеки"
- },
- "opt": {
-  "title": "Опт + дебиторка",
-  "cur": "UAH",
-  "sales": null,
-  "sales_note": "в источниках нет (BAS-выгрузка 19.10 только по кальян-направлению); нужен отчёт BAS по подразделению «Оптовые продажи»",
-  "debt": {
-   "col": "на 20.10.2026",
-   "prev_col": "на 14.10.2026",
-   "total": 30493491.02,
-   "prev_total": 29907478.47,
-   "delta": 586012.55,
-   "opt": 19494290.26,
-   "franchise": 10185575.58,
-   "internet": 813625.18,
-   "staff": 44160.18,
-   "advances": 144640.45,
-   "repaid_week": 788534.57,
-   "lent_week": 1368163.28,
-   "flows_note": "«отдано/вернули» и «дано в долг» = сумма уменьшений / увеличений остатков по строкам клиентов (нетто по клиенту за неделю, не кассовые поступления); ДРУГИЕ — одной строкой",
-   "history": [
-    {
-     "col": "на 16.09.26",
-     "internet": 844951.24,
-     "franchise": 9374325.92,
-     "opt": 26451912.58,
-     "total": 36671189.74
-    },
-    {
-     "col": "на 23.09.2026",
-     "internet": 709411.66,
-     "franchise": 10303819.62,
-     "opt": 23910106.0,
-     "total": 34923337.28
-    },
-    {
-     "col": "на 30.09.2026",
-     "internet": 827448.82,
-     "franchise": 9297587.3,
-     "opt": 21131386.0,
-     "total": 31256422.12
-    },
-    {
-     "col": "на 07.10.2026",
-     "internet": 680458.0,
-     "franchise": 15118170.79,
-     "opt": 19134578.64,
-     "total": 34933207.43
-    },
-    {
-     "col": "на 14.10.2026",
-     "internet": 767238.34,
-     "franchise": 10288480.49,
-     "opt": 18851759.64,
-     "total": 29907478.47
-    },
-    {
-     "col": "на 20.10.2026",
-     "internet": 813625.18,
-     "franchise": 10185575.58,
-     "opt": 19494290.26,
-     "total": 30493491.02
-    }
-   ]
-  },
-  "problems": [
-   {
-    "name": "Табакерочка ТОВ",
-    "amt": 15288096.33,
-    "weeks": 6,
-    "note": "без движения с 16.09 (6 срезов), 78% блока опт; «пишу А. ещё раз»",
-    "flag": true
-   },
-   {
-    "name": "Самовывоз Евгений",
-    "amt": 55837.0,
-    "weeks": 2,
-    "note": "2 недели без движения; «жду когда свернуть взаиморасчёт»",
-    "flag": false
-   },
-   {
-    "name": "Магазин Кривой Рог (франшиза)",
-    "amt": 1701873.48,
-    "weeks": null,
-    "note": "растёт 4-ю неделю подряд (1 526 564 → 1 701 873)",
-    "flag": false
-   }
-  ],
-  "suppliers_note": "Поставщики: 10 предоплат без уменьшения ≥4 срезов ≈ 11.35 млн грн + 77 768,59 USD (Маноли 5.92 млн, Горд 2 4.83 млн …)",
-  "src": "knowledge/debitorka-weekly/snapshots/2026-10-21.md + history/clients.json (GSheet Димы, колонка на 20.10.2026); CU 86bacy8cr",
-  "cu": "86bacy8cr",
-  "url": "https://rosmater.github.io/cu/?t=86bacy8cr",
-  "next": "следующий срез — ср 28.10"
- }
+    "next": "следующий срез — ср 11.11"
+  }
 }

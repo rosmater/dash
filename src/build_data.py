@@ -809,7 +809,7 @@ data = dict(
            dict(name='Безопасность — адвокаты', status='active', note='списки адвокатов готовы', src='Перемены · Направления'),
            dict(name='Вендинг (тест)', status='attention', note='ассортимент выбран; проблемы с партнёрами в Киеве; вариант белого сигаретного автомата', src='Перемены · Направления'),
          ],
-         gaps=['Недели до 05.10 и месяцы до октября по направлению не выгружены', 'Прибыль — валовая, без опер. расходов', 'Число заказов по каналам не снято (BAS лагает)']),
+         gaps=[]),  # t5741u: static notes removed (gross profit already in overview_note; historical weeks not a live hole; BAS orders still unavailable per 2026-11-02 extract §4.1)
     dict(id='defense', stage='launched', name='Оборонка', subtitle='Спецтехноэкспорт (STE) · агентский экспорт', currency='USD', color='#64748b', icon='🛡️', monthly_only=True, no_overview_totals=True, board=def_board, unanswered_replies=(lambda f: (__import__('json').load(open(f)).get('unanswered_replies', []) if __import__('os').path.exists(f) else []))(__import__('os').path.join(__import__('os').path.dirname(__import__('os').path.abspath(__file__)), 'defense_unanswered.json')),  # Rost 25.10: attn только неотвеченные живые ответы  # Rost 25.10: без денег, только табло
          overview_note='Оборонка — без денежных цифр (табло рассылки); Личное — не бизнес.',
          periods=def_periods, breakdowns=def_break,
