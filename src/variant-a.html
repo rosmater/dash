@@ -605,8 +605,7 @@ function reBlocksHTML(d){if(d.id!=='realestate'||!d.re_blocks)return '';const B=
   <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">${st==='attention'?'<span class="pill p-urgent">требует внимания</span>':st==='ok'?'<span class="pill" style="background:#e7f8ee;color:#127a3e">🟢 ок — непросмотренных нет, новых объектов нет</span>':'<span class="pill p-normal">нет данных</span>'}
    <span class="note">непросмотрено: <b>${n(S_.unread_count)}</b> · новых объектов: <b>${n(S_.new_objects)}</b> · под ≤60k: <b>${n(S_.fit_60k)}</b></span></div>
   ${(S_.pending||[]).map(x=>`<div class="task"><span class="pill p-high">${dd(x.date)}</span><div style="flex:1"><b style="font-size:13.5px">${esc(x.text)}</b><div class="note">${x.fit?'подходит под модель':'выше порога ≤60k'}</div></div></div>`).join('')}
-  <div class="note" style="margin-top:6px">CU: ${cul(S_.cu_url,S_.cu_name)} · статус <b>${esc(S_.cu_status||'—')}</b> · последний отчёт в CU ${dd(S_.last_cu_report_at)}${S_.last_cu_report?' — '+esc(S_.last_cu_report):''}</div>
-  <div class="note">${esc(S_.note||'')} · ${esc(S_.src||'')}</div>`)}
+  <div class="note" style="margin-top:6px">${cul(S_.cu_url,S_.cu_name)}${S_.last_cu_report?' · '+esc(S_.last_cu_report):''}</div>`)}
  /* 3) Окупасы */
  const O=B.okupas;if(O){const M=O.market||[];
   h+=card(`${H('🚪 '+esc(O.title),'квартир '+(O.count!=null?O.count:O.ours.reduce((a,o)=>a+(o.count_as||1),0))+' · карточек '+O.ours.length)}
