@@ -394,25 +394,39 @@ if not _A: pep_issues.append('Реклама: нет снимка ads.json от 
 if not _R: pep_issues.append('Ответы WA: нет снимка replies.json от Пептида')
 # нет файла диалогов вообще → не attn (есть fallback РК); cron_failed ловит dataIssues
 
-# ---------- Real estate (sheet Расчет_Аренда / ИТОГИ, read 19.10.2026) ----------
-re_src = 'GSheet «Расчет_Аренда» 1GU84qAq…k6-o, вкладка ИТОГИ (прочитано 19.10.2026)'
-es_rent = [5375, 4925, 5220, 5014, 4652.91, 5257.91, 6715.91, 6070.91]
-es_tax = [1290, 1182, 1252.8, 1203.36, 1116.7, 1261.9, 1611.82, 1457.02]
-es_net = [4085, 3743, 3967.2, 3810.64, 3536.21, 3996.01, 5104.09, 4613.89]
-total = [4955.47, 4627.10, 4841.03, 4740.17, 4824.95, 5046.83, 5422.69, 4663.89]
+# ---------- Real estate: 3 закрытых месяца (Rost t5723u/t5724u; два источника t5726u–t5730u) ----------
+# Прошлые периоды по август 2026 — старая «Расчет_Аренда» / ИТОГИ; с сентября 2026 — новая «Upgraded_Rent_Database_Chronology» / «Отчет P&L».
+# «Испания чистая» = получено − налог 24% (не «Чистейший доход» — тот уже после эксплуатационных расходов). Прочитано 08.11.2026.
+re_src_old = 'GSheet «Расчет_Аренда» 1GU84qAq…k6-o, вкладка ИТОГИ (прочитано 08.11.2026)'
+re_src_new = 'GSheet «Upgraded_Rent_Database_Chronology» 1V-gDAxn…OM_c, вкладка «Отчет P&L», строки «Всего оплачено Аренда» / «Налог 24%» (прочитано 08.11.2026)'
+re_src = 'Август 2026 — ' + re_src_old + '; сентябрь–октябрь 2026 — ' + re_src_new
+# (месяц, источник, получено, налог 24%, Испания чистая, ИТОГО стр.14 или None, объекты)
+RE_MONTHS = [
+  ('2026-08', 'old', 6070.91, 1457.02, 4613.89, 4663.89, None),
+  ('2026-09', 'new', 5385.00, 1292.40, 4092.60, None,
+   {'Оливино': 920, 'Рей Пастор': 1125, 'Лос Пуэблос': 1000, 'Кооперасион': 1840, 'Сагунто': 500}),
+  ('2026-10', 'new', 7256.91, 1741.66, 5515.25, None,
+   {'Оливино': 1920, 'Рей Пастор': 1326.91, 'Лос Пуэблос': 1840, 'Кооперасион': 1370, 'Сагунто': 800}),
+]
 re_periods, re_rows = {}, []
-for i in range(8):
-    m = f'2026-{i+1:02d}'
-    ua = round(total[i] - es_net[i], 2)
-    re_periods['M:' + m] = dict(status='partial' if i == 7 else 'full',
-        income=[item('Испания: получено аренды', es_rent[i], 'EUR', re_src),
-                item('Украина нетто − долги (= ИТОГО − Испания)', ua, 'EUR', re_src, note='расчётная строка')],
-        expenses=[item('Испания: налог 24%', es_tax[i], 'EUR', re_src)],
-        metrics={'ИТОГО чистая прибыль (строка 14)': total[i], 'Слотов в аренде (Украина)': 3},
-        note='Август может быть неполным (лаг аренды)' if i == 7 else None)
-    re_rows.append([MONTH_NAMES[i], es_rent[i], es_tax[i], es_net[i], total[i]])
+for m, kind, rent_, tax_, net_, tot_, props in RE_MONTHS:
+    src_ = re_src_old if kind == 'old' else re_src_new
+    mname = MONTH_NAMES[int(m[5:]) - 1]
+    inc = [item('Испания: получено аренды', rent_, 'EUR', src_)]
+    met = {'Испания чистая (получено − налог 24%)': net_}
+    if tot_ is not None:
+        inc.append(item('Украина нетто − долги (= ИТОГО − Испания)', round(tot_ - net_, 2), 'EUR', src_, note='расчётная строка'))
+        met['ИТОГО чистая прибыль (строка 14)'] = tot_
+        met['Слотов в аренде (Украина)'] = 3
+    if props:
+        for k_, v_ in props.items():
+            met['Оплачено: ' + k_] = v_
+    re_periods['M:' + m] = dict(status='full', income=inc,
+        expenses=[item('Испания: налог 24%', tax_, 'EUR', src_)], metrics=met,
+        note=None if kind == 'old' else 'Новая таблица (P&L): Украины и «ИТОГО стр. 14» нет — только Испания.')
+    re_rows.append([mname, rent_, tax_, net_, tot_])
 re_break = [
-  dict(period=None, title='По месяцам 2026 (EUR)', columns=['Месяц', 'Испания получено', 'Налог 24%', 'Испания чистая', 'ИТОГО (стр. 14)'], rows=re_rows),
+  dict(period=None, title='По месяцам 2026 (EUR) · 3 закрытых месяца', columns=['Месяц', 'Испания получено', 'Налог 24%', 'Испания чистая', 'ИТОГО (стр. 14, старая таблица)'], rows=re_rows),
   dict(period=None, title='Колумбия: Base Loft — вторая квартира (поиск 18.10, объявления)', columns=['Вариант', 'м²', 'COP/мес', 'Статус'],
        rows=[['Loft-дуплекс, эт. 10, мебель (CALIPTO)', 50, 2600000, 'активно'], ['Apartaestudio C4632 (ALNAGO)', 53, 2500000, 'активно'], ['Apartaestudio с балконом', 34, 1750000, 'активно']]),
 ]
@@ -421,8 +435,9 @@ re_break = [
 import csv as _csv
 REB = json.load(open(os.path.join(os.path.dirname(__file__), 're_blocks.json')))
 _cuu = lambda i: f'https://rosmater.github.io/cu/?t={i}' if i else None
-# цель: факт = последний месяц ИТОГО (стр. 14), EUR; конверсия в USD — на клиенте по курсу meta.fx
-REB['goal']['fact'] = dict(amount=total[-1], cur='EUR', period=MONTH_NAMES[len(total) - 1] + ' 2026', partial=True, src=re_src)
+# цель: факт = Испания чистая (получено − налог 24%) последнего закрытого месяца, EUR; конверсия в USD — на клиенте по курсу meta.fx
+REB['goal']['fact'] = dict(amount=RE_MONTHS[-1][4], cur='EUR', period=MONTH_NAMES[int(RE_MONTHS[-1][0][5:]) - 1].lower() + ' 2026', partial=False, src=re_src_new)
+REB['goal']['fact_note'] = 'факт = Испания чистая (получено − налог 24%), последний закрытый месяц; с сентября 2026 — новая таблица «Отчет P&L»'
 # Solvia: attn только по данным (непросмотренные письма / новые объекты), иначе ок
 _S = REB['solvia']
 _S['status'] = 'attention' if ((_S.get('unread_count') or 0) > 0 or (_S.get('new_objects') or 0) > 0) else ('ok' if _S.get('unread_count') == 0 and _S.get('new_objects') == 0 else 'nodata')
@@ -765,15 +780,15 @@ data = dict(
          of_blocks=OFB,
          gaps=of_gaps_extra),  # t703u/t704u: known-rule notes (office/IPRoyal, RA185/RA222) removed — not attn
     dict(id='realestate', stage='money', name='Недвижимость', subtitle='Испания · Украина · Колумбия', currency='EUR', color='#f59e0b', icon='🏠',
-         overview_note='Недвижимость: учёт месячный, всегда 3 закрытых месяца (прошлый / позапрошлый / позапозапрошлый); при новом месяце все три перечитываются (старые долги могут прийти позже).'  # Rost t5723u/t5724u,
+         overview_note='Недвижимость: учёт месячный, всегда 3 закрытых месяца (прошлый / позапрошлый / позапозапрошлый); при новом месяце все три перечитываются (старые долги могут прийти позже). По август — старая таблица ИТОГИ, с сентября — новая P&L.',  # Rost t5723u/t5724u
          periods=re_periods, breakdowns=re_break,
          goals=[
-           dict(label='Чистая прибыль аренды за месяц', unit='€', target=5000, example=True, period_type='month', by_period={'M:' + f'2026-{i+1:02d}': total[i] for i in range(8)}, src='цель — пример; факт ИТОГИ!стр.14'),
-           dict(label='Слоты в аренде (Украина)', unit='шт', target=3, example=True, period_type='month', by_period={'M:' + f'2026-{i+1:02d}': 3 for i in range(8)}, src='цель — пример; факт из таблицы'),
+           dict(label='Чистая прибыль аренды за месяц', unit='€', target=5000, example=True, period_type='month', by_period={'M:' + r_[0]: r_[5] for r_ in RE_MONTHS if r_[5] is not None}, src='цель — пример; факт ИТОГИ!стр.14 (только старая таблица, по август 2026)'),
+           dict(label='Слоты в аренде (Украина)', unit='шт', target=3, example=True, period_type='month', by_period={'M:' + r_[0]: 3 for r_ in RE_MONTHS if r_[5] is not None}, src='цель — пример; факт из таблицы (старая, по август 2026)'),
          ],
          tasks=tasks(['86b7wu7jq', '86b6qz12h', '86b88jb1f', '86baqkyw4', '86bc1d1wj', '86b9va7c4', '86b8ttzmc']),
          re_blocks=REB,  # Rost 25.10: блоки Недвижимости
-         gaps=['Сентябрь и октябрь 2026 в таблице ещё не заполнены', 'Валюта в таблице не подписана — принято EUR (Испания)', 'Колумбия: доходов от аренды в базе нет; Los Pueblos/Топасио — ремонт, расходы не сведены']),  # t5723u: weekly note removed — monthly is the rule,
+         gaps=['Валюта в таблице не подписана — принято EUR (Испания)', 'Колумбия: доходов от аренды в базе нет; Los Pueblos/Топасио — ремонт, расходы не сведены']),  # t5723u: weekly note removed — monthly is the rule,
     dict(id='tabakevich', stage='money', name='Табакевич', subtitle='Украина · e-shop + магазин', currency='USD', color='#38bdf8', icon='💨',
          overview_note='Табакевич: валовая прибыль всего направления (до опер. расходов, ФОТ и доли партнёра), не доход Rost.',
          periods=tb_periods, breakdowns=tb_break,
