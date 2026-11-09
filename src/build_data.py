@@ -466,7 +466,7 @@ for p_ in REB['investors']['people']:
 TBKB = json.load(open(os.path.join(os.path.dirname(__file__), 'tbk_blocks.json')))
 # Rost 25.10 ~23:55: блоки «Личное» — снимок src/personal_blocks.json (генератор personal_blocks_gen.py); hide_from_helper-блоки вырезаются в data-asst
 PERSB = json.load(open(os.path.join(os.path.dirname(__file__), 'personal_blocks.json')))
-tb_src = 'knowledge/tbk-1c-reports/kalyan-weekly/2026-10-19-EXTRACT.md (BAS «Валовая прибыль по номенклатуре», USD)'
+tb_src = 'knowledge/tbk-1c-reports/kalyan-weekly/2026-10-19-EXTRACT.md + 2026-11-02-EXTRACT.md (BAS «Валовая прибыль по номенклатуре», USD)'
 def tb(rev, gp, status, label):
     return dict(status=status, income=[item('Выручка направления (интернет + магазин «Кальяны»)', rev, 'USD', tb_src)],
                 expenses=[item('Себестоимость товара (выручка − валовая прибыль)', round(rev - gp, 2), 'USD', tb_src)],
@@ -474,16 +474,20 @@ def tb(rev, gp, status, label):
 tb_periods = {
   'W:2026-10-05': tb(32997.10, 10358.09, 'full', ''),
   'W:2026-10-12': tb(30339.09, 9582.16, 'full', ''),
-  'M:2026-10': dict(tb(86170.05, 28868.25, 'partial', 'Месяц-к-дате 01–19.10 из BAS (не сумма недель: недели 05–18.10 + 01–04.10 + 19.10).'),
-                    metrics={'Валовая маржа': '33.5%', 'Вывел Rost 01–10.10 (деньги собственников), $': 6566.15}),
+  'W:2026-10-19': tb(40956, 10406, 'full', 'Неделя 19–25.10'),
+  'W:2026-10-26': tb(33481, 9158, 'full', ''),
+  'M:2026-10': dict(tb(148671, 43407, 'full', 'Октябрь целиком 01–31.10 из BAS (2026-11-02-EXTRACT.md).'),
+                    metrics={'Валовая маржа': '29.2%', 'Вывел Rost 01–10.10 (деньги собственников), $': 6566.15}),
   'M:2026-09': dict(status='full', income=[], expenses=[], metrics={'Вывел Rost (деньги собственников), $': 27618.79},
                     note='По направлению за сентябрь цифр нет; ниже — P&L компании целиком.'),
   'M:2026-08': dict(status='full', income=[], expenses=[], metrics={'Вывел Rost (деньги собственников), $': 34132.03}, note='По направлению за август цифр нет.'),
 }
 tb_ch = {
- 'W:2026-10-12': [['Tabakevich', 11889.58, 4003.82], ['Rozetka', 4114.15, 1228.42], ['SmokeJeen', 2412.07, 838.50], ['Prom', 1061.58, 265.84], ['Hookahshop', 1019.44, 229.39], ['Palm VapeShop', 340.08, 102.98], ['Hookario', 246.80, 105.63], ['Radus', 240.46, 111.92], ['Familysmokes', 238.73, 99.66], ['Felix Shop', 179.06, 64.74], ['Магазин Центр «Кальяны»', 8590.49, 2527.28]],
  'W:2026-10-05': [['Tabakevich', 13069.55, 4256.82], ['Rozetka', 5827.92, 1575.79], ['SmokeJeen', 1093.56, 483.37], ['Prom', 836.42, 276.79], ['Hookahshop', 1316.93, 329.08], ['Palm VapeShop', 313.37, 102.28], ['Hookario', 156.15, 60.38], ['Radus', 21.17, 7.94], ['Familysmokes', 569.23, 248.27], ['Felix Shop', 67.23, 26.19], ['Магазин Центр «Кальяны»', 9725.57, 2991.18]],
- 'M:2026-10': [['Tabakevich', 32469.65, 10697.07], ['Rozetka', 11874.82, 3350.67], ['SmokeJeen', 4243.26, 1650.85], ['Prom', 2188.06, 650.60], ['Hookahshop', 2584.47, 641.39], ['Palm VapeShop', 1009.93, 325.54], ['Hookario', 383.29, 158.98], ['Radus', 341.34, 158.18], ['Familysmokes', 976.37, 423.54], ['Felix Shop', 277.66, 101.19], ['Магазин Центр «Кальяны»', 29778.12, 10686.81]],
+ 'W:2026-10-12': [['Tabakevich', 11889.58, 4003.82], ['Rozetka', 4114.15, 1228.42], ['SmokeJeen', 2412.07, 838.50], ['Prom', 1061.58, 265.84], ['Hookahshop', 1019.44, 229.39], ['Palm VapeShop', 340.08, 102.98], ['Hookario', 246.80, 105.63], ['Radus', 240.46, 111.92], ['Familysmokes', 238.73, 99.66], ['Felix Shop', 179.06, 64.74], ['Магазин Центр «Кальяны»', 8590.49, 2527.28]],
+ 'W:2026-10-19': [['Tabakevich', 14499, 4100], ['Rozetka', 3462, 1017], ['SmokeJeen', 1478, 591], ['Hookahshop', 933, 248], ['Prom', 417, 125], ['Familysmokes', 256, 108], ['Radus', 395, 186], ['Palm VapeShop', 368, 125], ['Hookario', 114, 41], ['Felix Shop', -14, -7], ['SMOK instagram', 10, 5], ['Магазин Центр «Кальяны»', 19040, 3866]],
+ 'W:2026-10-26': [['Tabakevich', 16017, 4413], ['Rozetka', 3544, 1045], ['SmokeJeen', 1907, 644], ['Hookahshop', 561, 146], ['Prom', 379, 116], ['Familysmokes', 336, 130], ['Radus', 245, 108], ['Palm VapeShop', 235, 75], ['Hookario', 65, 24], ['Магазин Центр «Кальяны»', 10193, 2458]],
+ 'M:2026-10': [['Tabakevich', 59871, 18331], ['Rozetka', 18360, 5264], ['SmokeJeen', 7270, 2727], ['Hookahshop', 3908, 980], ['Prom', 2951, 884], ['Familysmokes', 1526, 640], ['Radus', 941, 433], ['Palm VapeShop', 1549, 507], ['Hookario', 619, 248], ['Felix Shop', 278, 101], ['SMOK instagram', 53, 28], ['Магазин Центр «Кальяны»', 51345, 13265]],
 }
 tb_break = [dict(period=p, title='По каналам (USD)', columns=['Канал', 'Выручка $', 'Валовая прибыль $', 'Маржа'],
                  rows=[[n, r, g, f"{g/r*100:.0f}%"] for n, r, g in sorted(v, key=lambda x: -x[2])]) for p, v in tb_ch.items()]
@@ -791,8 +795,8 @@ data = dict(
          overview_note='Табакевич: валовая прибыль всего направления (до опер. расходов, ФОТ и доли партнёра), не доход Rost.',
          periods=tb_periods, breakdowns=tb_break,
          goals=[
-           dict(label='Выручка направления за неделю', unit='$', target=35000, example=True, by_period={'W:2026-10-05': 32997.10, 'W:2026-10-12': 30339.09}, src='цель — пример'),
-           dict(label='Валовая маржа', unit='%', target=33, example=True, by_period={'W:2026-10-05': 31.4, 'W:2026-10-12': 31.6, 'M:2026-10': 33.5}, src='цель — пример'),
+           dict(label='Выручка направления за неделю', unit='$', target=35000, example=True, by_period={'W:2026-10-05': 32997.10, 'W:2026-10-12': 30339.09, 'W:2026-10-19': 40956, 'W:2026-10-26': 33481}, src='цель — пример'),
+           dict(label='Валовая маржа', unit='%', target=33, example=True, by_period={'W:2026-10-05': 31.4, 'W:2026-10-12': 31.6, 'W:2026-10-19': 25.4, 'W:2026-10-26': 27.4, 'M:2026-10': 29.2}, src='цель — пример'),
            dict(label='ФОТ ≤ 10% от прибыли', unit='%', target=10, lower_is_better=True, by_period={}, src='правило из задачи 86b6qqajb; факт не считан'),
          ],
          tasks=tasks(['86b6u7p2v', '86b7n8kwx', '86bcj512x', '86bcgckxu', '86b92hrcp', '86b8gv8kj']),
