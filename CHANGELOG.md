@@ -1,3 +1,8 @@
+## 2026-11-09 t5812u ОФ: блок созвонов выше «Требует внимания» + vault sync
+- Порядок в `direction()`/`directionToday()`: `scCallsHTML` сразу под шапкой направления, потом attn (как у Оборонки срочные+созвоны вверху). Fallback `d.scheduled_calls||d.board.scheduled_calls`.
+- Durable vault `secrets/vault/dashboard-mockup/src/{of_calls.json,variant-a.html,build_data.py}` синхронизирован — иначе restore откатывал t5810u.
+- Cache-bust stamp в HTML.
+
 ## 2026-11-09 t5810u «📅 Запланированные созвоны» в ОФ + красная плашка в день созвона
 - Вкладка ОФ: блок «📅 Запланированные созвоны» вверху (сразу под «Требует внимания»), тот же вид, что у Оборонки. Источник `src/of_calls.json` (формат = `defense_pins.scheduled_calls`) → `build_data.py` → `d.scheduled_calls`. Первый: Slash / Novax — USAS & Banking Support (Ed, Rorey), чт 12.11 12:30–13:00 Богота, CU 86b6q8m9x.
 - Общий код `scCallsHTML()` для всех блоков созвонов (Оборонка + ОФ + будущие): созвоны на сегодня (Богота) — наверх, прошедшие не показываются, пусто = блока нет.
