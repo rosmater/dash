@@ -25,6 +25,11 @@ On a change it:
 
 Flags: --dry (report only), --no-push (patch locally, skip git),
        --out PATH (default /workspace/cu_cal_dash.json).
+Also (same packs, after Personal-list filter):
+  clickup_filter_tasks list_ids=[901413854636] include_closed=false
+    due_date_from=<today Bogotá> write_to_file=true
+  python3 /workspace/dashboard-mockup/src/personal_meetings_sync.py <file>
+  → src/personal_meetings.json + surgical scheduled_meetings on personal.
 """
 from __future__ import annotations
 

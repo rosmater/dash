@@ -1,3 +1,9 @@
+## 2026-11-09 t5828u назначенные встречи
+- «📅 Назначенные встречи» вверху Личного (src/personal_meetings.json ← CU Personal list 901413854636, TIMED due ≠ 04:00 Богота).
+- Красная строка #bdhdr: «Встреча: <name> HH:MM» + «✅ Встретились» (тот же sc* каркас, kind=meeting).
+- Sync: src/personal_meetings_sync.py в пакетах 10:42 / 22:45 рядом с cu_due_sync.
+- Drain call_done + kind=meeting → коммент «Встреча состоялась (с даша, DD.MM)».
+
 ## 2026-11-09 Pages deploy bump (cu_due_sync / Alla calendar)
 
 ## 2026-11-09 t5824u follow-up: cu_due_sync + calendar all-day _seen fix
