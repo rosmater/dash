@@ -1,3 +1,4 @@
+- 2026-11-09 t5816u hotfix: rename call-day `bogDay`→`scBogDay` (collision with hang-days `const bogDay` broke gate/JS); live day tick for call banner.
 ## 2026-11-09 t5812u ОФ: блок созвонов выше «Требует внимания» + vault sync
 - Порядок в `direction()`/`directionToday()`: `scCallsHTML` сразу под шапкой направления, потом attn (как у Оборонки срочные+созвоны вверху). Fallback `d.scheduled_calls||d.board.scheduled_calls`.
 - Durable vault `secrets/vault/dashboard-mockup/src/{of_calls.json,variant-a.html,build_data.py}` синхронизирован — иначе restore откатывал t5810u.
