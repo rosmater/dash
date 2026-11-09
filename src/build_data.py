@@ -577,6 +577,8 @@ def tasks(ids):
     for i in ids:
         t = cu.get(i)
         if not t: continue
+        if (t.get('status') or '').lower() == 'main':
+            continue  # Rost t5718u: status main = parent branch, not work
         name = re.sub(r'\+?\d[\d \-]{6,}\d', '…', t['name']).strip()  # no phone numbers
         out.append(dict(id=i, name=name, status=t['status'], priority=t['priority'], due=t['due'], list=t['list'], url=f'https://rosmater.github.io/cu/?t={i}'))
     return out
