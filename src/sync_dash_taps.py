@@ -5,7 +5,7 @@
   "ignores":[{"id","channel","title","kind","perm","ignored_at"|null}]}   (ignored_at=null → вернуть)
 Скрипт: chats.csv.direction (по title+channel, иначе новая строка), src/ignored_chats.json (дедуп по id),
 затем build_test_ma.sh + build.sh + push в /workspace/dash-gh, файлы → sync/done/.
-Также: key 'cu|…'/channel ClickUp → src/cu_dir_overrides.json (build_data убирает из «на сортировку»); action cu_close / cu_ok → sync/cu_actions_pending.json.
+Также: key 'cu|…'/channel ClickUp → src/cu_dir_overrides.json (build_data убирает из «на сортировку»); action cu_close / cu_ok / call_done → sync/cu_actions_pending.json.
 Запуск: python3 src/sync_dash_taps.py [--no-push]. Запускает вочер/утренняя мега, если в inbox есть файлы."""
 import json, csv, os, sys, glob, shutil, subprocess, datetime, re
 R=os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -55,6 +55,11 @@ for f in files:
             i=str(s.get('cu') or '').strip() or cuid(s.get('url') or s.get('key'))
             if i and not any(a.get('id')==i and a.get('action')=='cu_ok' and a.get('updated')==s.get('updated') for a in act['pending']+act['done']):
                 act['pending'].append({'id':i,'action':'cu_ok','kind':'for_check','title':s.get('title'),'bot':s.get('bot'),'updated':s.get('updated'),'tapped_at':s.get('at')}); na+=1
+            continue
+        if s.get('action')=='call_done':  # Rost t5810u: «✅ Созвонились» на красной плашке созвона → COMMS: коммент «Созвонились» в CU (close только если on_done=close)
+            i=str(s.get('cu') or '').strip() or cuid(s.get('url'))
+            if i and not any(a.get('id')==i and a.get('action')=='call_done' and a.get('due')==s.get('due') for a in act['pending']+act['done']):
+                act['pending'].append({'id':i,'action':'call_done','kind':'call','title':s.get('title'),'url':s.get('url'),'due':s.get('due'),'dir':s.get('dir'),'on_done':s.get('on_done') or 'comment','tapped_at':s.get('at')}); na+=1
             continue
         if s.get('action')=='cu_close':
             i=cuid(s.get('url')) or (s.get('key') or '').split('|')[-1]

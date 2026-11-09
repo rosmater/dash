@@ -609,6 +609,11 @@ def _cu_open(t):
     st = (t.get('status') or '').lower()
     return not (st.startswith('complete') or st in ('models', 'main', 'closed', 'done'))
 _ocu_open = [t for t in _OCU['tasks'] if _cu_open(t)]
+# Rost t5810u: «📅 Запланированные созвоны» вверху ОФ (src/of_calls.json; формат как defense_pins.scheduled_calls; нет файла → пусто)
+_ocf = os.path.join(_HERE, 'of_calls.json')
+_oc = json.load(open(_ocf)) if os.path.exists(_ocf) else {}
+_today_bo = datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=-5))).strftime('%Y-%m-%d')
+of_calls = sorted([t for t in (_oc.get('scheduled_calls') or []) if isinstance(t, dict) and str(t.get('due') or t.get('start') or '9999')[:10] >= _today_bo], key=lambda t: (str(t.get('due') or t.get('start') or ''), str(t.get('start') or ''), str(t.get('due_t') or '')))
 def _cut(t):
     nm = re.sub(r'\+?\d[\d \-]{6,}\d', '…', t['name']).strip()
     return dict(id=t['id'], name=nm, status=t['status'], who=', '.join(a for a in t.get('assignees') or [] if a) or '—',
@@ -780,6 +785,7 @@ data = dict(
          ],
          tasks=tasks(['86bcn2d1t', '86b6z79t1', '86b7heru3', '86b9abep9', '86bcn2g2q', '86b9wh8cd']),  # 86bc1tdu5 IPRoyal → COMMS BOT R (Rost 08.11 t678–t680), not OF attn
          of_blocks=OFB,
+         scheduled_calls=of_calls,  # Rost t5810u
          gaps=of_gaps_extra),  # t703u/t704u: known-rule notes (office/IPRoyal, RA185/RA222) removed — not attn
     dict(id='realestate', stage='money', name='Недвижимость', subtitle='Испания · Украина', currency='EUR', color='#f59e0b', icon='🏠',
          overview_note='Недвижимость: учёт месячный, всегда 3 закрытых месяца (прошлый / позапрошлый / позапозапрошлый); при новом месяце все три перечитываются (старые долги могут прийти позже). По август — старая таблица ИТОГИ, с сентября — новая P&L.',  # Rost t5723u/t5724u
