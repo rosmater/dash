@@ -9,6 +9,7 @@ When the period changes, archive the full last_snapshot (rows — e.g. 01–15.1
 $173.28 / MV $7.79 / C4S $0) into prev and last. Do not build prev from the
 often-empty periods.week. The new file becomes cur + last_snapshot.
 Also ingest `ig` (handle → {fans, delta} or a legacy delta number).
+HARD t717–t721u: never wipe lolapop.ig_accounts[].status/note — merge by handle.
 """
 from __future__ import annotations
 
@@ -69,6 +70,61 @@ def week_from_snapshot(ls):
         "fans_new": None,
     }
 
+
+
+def preserve_ig_accounts(existing, incoming=None):
+    """Keep lolapop.ig_accounts status/note across ingests (t717–t721u).
+
+    existing/incoming: list of {handle, status?, note?, status_at?} or plain handle strings.
+    Merge by handle (strip leading @); status/note/status_at from existing win unless
+    incoming supplies a non-empty value for that field.
+    """
+    def norm_list(raw):
+        out = []
+        if not isinstance(raw, list):
+            return out
+        for a in raw:
+            if isinstance(a, dict) and a.get("handle"):
+                out.append({
+                    "handle": str(a["handle"]).lstrip("@"),
+                    "status": a.get("status"),
+                    "note": a.get("note"),
+                    "status_at": a.get("status_at"),
+                })
+            elif isinstance(a, str) and a.strip():
+                out.append({"handle": a.strip().lstrip("@"), "status": None, "note": None, "status_at": None})
+        return out
+
+    by = {}
+    order = []
+    for a in norm_list(existing):
+        h = a["handle"]
+        if h not in by:
+            order.append(h)
+        by[h] = dict(a)
+    for a in norm_list(incoming):
+        h = a["handle"]
+        if h not in by:
+            order.append(h)
+            by[h] = dict(a)
+        else:
+            cur = by[h]
+            for k in ("status", "note", "status_at"):
+                if a.get(k) not in (None, ""):
+                    cur[k] = a[k]
+                # else keep existing
+    out = []
+    for h in order:
+        row = {"handle": h}
+        st = by[h].get("status")
+        if st not in (None, ""):
+            row["status"] = st
+        if by[h].get("status_at"):
+            row["status_at"] = by[h]["status_at"]
+        if by[h].get("note"):
+            row["note"] = by[h]["note"]
+        out.append(row)
+    return out
 
 def normalize_ig(raw, existing=None):
     out = {}
@@ -149,6 +205,8 @@ def main() -> int:
         return 2
     blocks = json.loads(BLOCKS.read_text())
     P = blocks.setdefault("lolapop", {})
+    # t717–t721u: carry ig_accounts status/note (week may omit or only list handles)
+    P["ig_accounts"] = preserve_ig_accounts(P.get("ig_accounts"), week.get("ig_accounts"))
     earn = week.get("earnings") or {}
 
     fans = _num(week.get("fans"))

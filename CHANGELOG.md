@@ -1,3 +1,8 @@
+## 2026-11-09 t717–t721u LolaPop IG status badges
+- lolapop.ig_accounts: status/note (lolastartjourney=attn «Нет рекомендаций не-подписчикам»; lolabig.lolapop + lolapopstarted=ok).
+- variant-a IG rows: pill «⚠️ требует внимания» (+ note) / «✓ ок».
+- ingest_lolapop_week preserve_ig_accounts; ingest_mv_c4s does not touch ig_accounts.
+
 ## 2026-11-09 t5829u/t5831u meetings Role GO + exclude
 - Источник 2: Role «🚶GO» (не list status; statuses=[go]=0). All-day 04:00 → баннер «Встреча: name» без времени.
 - Exclude: src/meetings_exclude.json (бокс/зал/gym/smart fit + id 86bcnrmt7).

@@ -360,13 +360,20 @@
     },
     "ig_accounts": [
       {
-        "handle": "lolabig.lolapop"
+        "handle": "lolabig.lolapop",
+        "status": "ok",
+        "status_at": "2026-11-09"
       },
       {
-        "handle": "lolapopstarted"
+        "handle": "lolapopstarted",
+        "status": "ok",
+        "status_at": "2026-11-09"
       },
       {
-        "handle": "lolastartjourney"
+        "handle": "lolastartjourney",
+        "status": "attn",
+        "status_at": "2026-11-09",
+        "note": "Нет рекомендаций не-подписчикам (Account Status, 09.11). Открыть «Recommendation eligibility» → обжаловать/убрать посты."
       }
     ],
     "weeks": [

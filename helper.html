@@ -1182,7 +1182,7 @@ function ofBlocksHTML(d){if(d.id!=='of'||!d.of_blocks)return '';const B=d.of_blo
     ['ManyVids доход',w=>w.mv,'$'],
     ['Clips4Sale доход',w=>w.c4s,'$']
   ])}
-  ${lpSec('Instagram · количество подписчиков',igAcc.map(a=>['@'+a.handle,w=>((w.ig||{})[a.handle]??(w.ig||{})[a.handle&&a.handle.replace(/^@/,'')]),'ig']))}
+  ${lpSec('Instagram · количество подписчиков',igAcc.map(a=>['@'+esc(a.handle)+(a.status==='attn'?' '+lpPill('⚠️ требует внимания','#b42318','#fee4e2','#fda29b')+(a.note?'<div class="note">'+esc(a.note)+'</div>':''):a.status==='ok'?' '+lpPill('✓ ок','#0b7a59','#d1fadf','#abefc6'):''),w=>((w.ig||{})[a.handle]??(w.ig||{})[a.handle&&a.handle.replace(/^@/,'')]),'ig']))}
   ${lpSec('Порнстоки',psSites.map(name=>[name,w=>((w.pornstocks||{})[name]),'n']).concat([['Итого просмотров',w=>(w.pornstocks||{}).total,'n']]))}
   </table></div>${lpDrop}</div>`}
  /* 5) Fetish Rooms */

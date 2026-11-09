@@ -24,6 +24,7 @@ Behaviour:
     rows for MV/C4S (does not wipe OF earnings or IG / pornstocks).
   - Mirrors newest closed week into lolapop_history/<DD.MM-DD.MM.YYYY>.json.
   - Does NOT encrypt, publish, or run build.sh. Caller publishes surgically.
+  - Does NOT rewrite lolapop.ig_accounts (keep status/note; t717–t721u).
 
 Usage:
   python3 src/ingest_mv_c4s_week.py /path/to/sales.json
@@ -306,6 +307,7 @@ def main() -> int:
         return 2
     blocks = json.loads(BLOCKS.read_text())
     P = blocks.setdefault("lolapop", {})
+    # t717–t721u: do not touch P["ig_accounts"] (status/note owned by OF Marketing / COMMS)
 
     # Update weeks list
     wlist = list(P.get("weeks") or [])
