@@ -1,3 +1,11 @@
+## 2026-11-09 t5825u — плашки исполнителя в Срок сегодня / Просрочено / Сегодня в календаре
+
+- В списках «📅 Сегодня в календаре», «Срок сегодня» и «Просрочено» — цветные плашки исполнителя (как в ОФ «Своя модель»: Rost / Michelle / Sara / другие).
+- Мои задачи (assignee Rost 60710247) поднимаются вверх списка; порядок остальных сохраняется.
+- Google Calendar события без плашки, порядок по времени.
+- Снимок `cu_tasks_dash.json` + `build_data.py` отдают `assignees`/`who`; calendar ClickUp — тоже.
+- Общие хелперы `cuWhoNames` / `cuWhoHTML` / `cuRostFirst` (без дублей имён).
+
 ## 2026-11-09 ОФ: неделя 02–08.11 (OFTV + LolaPop) — ingest → surgical publish
 - Цепочка t5713u: dated `src/oftv_history/02.11-08.11.2026.json` + `src/lolapop_history/02.11-08.11.2026.json` → `ingest_oftv_week.py` / `ingest_lolapop_week.py` → surgical patch только `of_blocks.oftv` + `of_blocks.lolapop` в data*.enc.json (без build.sh).
 - OFTV Текущая 02–08.11 net $1754.40: Sofia 1482.40 / 1396, Kelly 42.40 / 1961, Bella 0 / 3773, Rosie 229.60 / 3407. Прошлая = 26.10–01.11, позапрошлая = 19–25.10.
