@@ -685,9 +685,24 @@ _O['cu_fetched_at'] = _OCU['fetched_at']
 # Ферма: idle только из свежего снимка (current), не из старого
 _F = OFB['farm']
 _F['idle'] = int(_F['current'].get('idle') or 0) if _F['current'].get('as_of') else 0
+# Rost t5821u: health съёма (ok/reasons/checked_at). Recompute from current if ingest left none.
+try:
+    from ingest_farm_status import compute_health as _farm_compute_health
+    _cur = dict(_F.get('current') or {})
+    if not _cur.get('as_of'):
+        _F['health'] = _farm_compute_health(None, missing=True)
+        # missing file vs empty current: prefer existing health if ingest already set reasons
+    else:
+        _F['health'] = _farm_compute_health(_cur)
+except Exception as _fh_err:
+    _F.setdefault('health', {'ok': False, 'reasons': ['health compute failed'], 'checked_at': None})
 of_gaps_extra = []
 if not _F['current'].get('as_of'):
     of_gaps_extra.append('Ферма: свежего снимка Сейдера нет (последний ' + _F['last_snapshot']['label'] + ') — монитор ждёт данные')
+_fh = _F.get('health') or {}
+if _fh.get('ok') is False:
+    for r in (_fh.get('reasons') or [])[:3]:
+        of_gaps_extra.append('Ферма: ' + str(r))
 
 
 # ---------- Календарь (Rost 25.10): Google Calendar + ClickUp-задачи со временем, одна лента ----------

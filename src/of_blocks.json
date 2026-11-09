@@ -120,6 +120,13 @@
         "running": "0/2",
         "accounts": 30
       }
+    },
+    "health": {
+      "ok": false,
+      "reasons": [
+        "live_ok/idle не сняты"
+      ],
+      "checked_at": "2026-11-09T15:08-05:00"
     }
   },
   "ts": {
