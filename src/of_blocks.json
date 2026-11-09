@@ -129,9 +129,9 @@
   "oftv": {
     "title": "📺 ОФТВ (с Лёшей 60/40)",
     "week": {
-      "id": "W:2026-10-26",
-      "label": "26.10–01.11",
-      "src": "Lesha OFTV sheet · блок 02.11.26 (models HE:HM); gross из OF Statistics съёма oftv0211 за 26.10–01.11"
+      "id": "W:2026-11-02",
+      "label": "02–08.11",
+      "src": "OF Statistics (AdsPower Local API, AX42 adspower) · Fans/Subscriptions + Earnings custom 02–08.11 · fans = Collections→Fans Active · снято 09.11"
     },
     "models": [
       {
@@ -139,10 +139,10 @@
         "name": "Sofia Lunara",
         "person": "Laura (RA213)",
         "team": "Маркиз",
-        "gross": 715.0,
-        "net": 572.0,
-        "fans": null,
-        "fans_new": 565,
+        "gross": 1853.0,
+        "net": 1482.4,
+        "fans": 1396,
+        "fans_new": 610,
         "match": [
           "Sofia Lunara",
           "RA 213",
@@ -154,16 +154,15 @@
         "name": "Kelly Sunelly",
         "person": "Juliana Manco (RA208/216)",
         "team": null,
-        "gross": 23.0,
-        "net": 18.4,
-        "fans": 1900,
-        "fans_new": 9,
+        "gross": 53.0,
+        "net": 42.4,
+        "fans": 1961,
+        "fans_new": 118,
         "match": [
           "Kelly",
           "Juliana Manco",
           "Juliana manco"
-        ],
-        "fans_approx": true
+        ]
       },
       {
         "key": "bella",
@@ -172,8 +171,8 @@
         "team": null,
         "gross": 0.0,
         "net": 0.0,
-        "fans": null,
-        "fans_new": 17,
+        "fans": 3773,
+        "fans_new": 10,
         "match": [
           "Scarlet"
         ]
@@ -183,10 +182,10 @@
         "name": "I am rosie",
         "person": "Katerine (RA207/212)",
         "team": null,
-        "gross": 0.0,
-        "net": 0.0,
-        "fans": null,
-        "fans_new": 11,
+        "gross": 287.0,
+        "net": 229.6,
+        "fans": 3407,
+        "fans_new": 88,
         "match": [
           "Katerine",
           "Katherine",
@@ -229,17 +228,48 @@
       "86b9ckxxk"
     ],
     "prev": {
+      "id": "W:2026-10-26",
+      "label": "26.10–01.11",
+      "src": "Lesha OFTV sheet · блок 02.11.26 (models HE:HM); gross из OF Statistics съёма oftv0211 за 26.10–01.11",
+      "net": 590.4,
+      "fans_new": 602
+    },
+    "prev2": {
       "id": "W:2026-10-19",
       "label": "19.10–25.10",
       "src": "Lesha OFTV sheet · блок 26.10.26 (models HA:HD); gross из OF Statistics съёма oftv2610 за 19–25.10",
       "net": 1560.8,
       "fans_new": 791
-    }
+    },
+    "total_net": 1754.4,
+    "total_gross": 2193.0,
+    "weeks": [
+      {
+        "id": "W:2026-11-02",
+        "label": "02–08.11",
+        "net": 1754.4,
+        "fans_new": 826
+      },
+      {
+        "id": "W:2026-10-26",
+        "label": "26.10–01.11",
+        "src": "Lesha OFTV sheet · блок 02.11.26 (models HE:HM); gross из OF Statistics съёма oftv0211 за 26.10–01.11",
+        "net": 590.4,
+        "fans_new": 602
+      },
+      {
+        "id": "W:2026-10-19",
+        "label": "19.10–25.10",
+        "src": "Lesha OFTV sheet · блок 26.10.26 (models HA:HD); gross из OF Statistics съёма oftv2610 за 19–25.10",
+        "net": 1560.8,
+        "fans_new": 791
+      }
+    ]
   },
   "lolapop": {
     "title": "💜 Своя модель — LolaPop",
     "profile": "OF lolapop_bbw_pear_ass · ManyVids LolaPopBBW · Clips4Sale",
-    "fans": null,
+    "fans": 62,
     "fans_new": null,
     "periods": {
       "today": {
@@ -249,10 +279,14 @@
         "inc_msgs": null
       },
       "week": {
-        "subs_new": null,
-        "rebills": null,
-        "inc_subs": null,
-        "inc_msgs": null
+        "subs_new": 3,
+        "rebills": 2,
+        "inc_subs": 30.0,
+        "inc_msgs": 35.97,
+        "inc_tips": 0.0,
+        "inc_posts": 0.0,
+        "inc_total": 65.97,
+        "fans": 62
       },
       "month": {
         "subs_new": null,
@@ -262,44 +296,44 @@
       }
     },
     "last_snapshot": {
-      "label": "01–15.10.2026",
-      "as_of": "2026-10-16",
-      "src": "обновлено 16.10 (OF Statistics → Earnings; MV / C4S кабинеты)",
+      "label": "02–08.11.2026",
+      "as_of": "2026-11-09",
+      "src": "OF main k1h26w3l (@lolapop_bbw_pear_ass) Statistics → Subscriptions + Earnings custom 02–08.11 (AdsPower Local API); fans = Collections→Fans Active; IG via logged-in @rosscompass (delta vs Informe Insta 04.11). MV/C4S не сняты: кабинеты только в AdsPower k1gxh3kk (вне скоупа этого прогона). fans_new null: прошлого тотала фанов нет.",
       "rows": [
         [
           "OF · подписки",
-          149.64,
-          119.7
+          37.5,
+          30.0
         ],
         [
           "OF · сообщения (PPV/чат)",
-          66.98,
-          53.58
+          44.97,
+          35.97
         ],
         [
           "OF · чаевые",
-          0,
-          0
+          0.0,
+          0.0
         ],
         [
           "OF · посты",
-          0,
-          0
+          0.0,
+          0.0
         ],
         [
           "OF · итого",
-          216.62,
-          173.28
+          82.47,
+          65.97
         ],
         [
           "ManyVids (net)",
           null,
-          7.79
+          null
         ],
         [
           "Clips4Sale",
-          0,
-          0
+          null,
+          null
         ]
       ]
     },
@@ -325,20 +359,20 @@
         "id": "W:2026-11-02",
         "label": "02–08.11",
         "sort": "2026-11-02",
-        "mv": 18.58,
-        "c4s": 11.98,
+        "mv": null,
+        "c4s": null,
         "ig": {
           "lolabig.lolapop": {
-            "fans": 26479,
-            "delta": 110
+            "fans": 26511,
+            "delta": 32
           },
           "lolapopstarted": {
-            "fans": 25916,
-            "delta": 188
+            "fans": 26011,
+            "delta": 95
           },
           "lolastartjourney": {
-            "fans": 9768,
-            "delta": 14
+            "fans": 9771,
+            "delta": 3
           }
         },
         "pornstocks": {
@@ -350,7 +384,17 @@
           "Xnxx": 193,
           "Eporner": 0,
           "total": 10088
-        }
+        },
+        "as_of": "2026-11-09",
+        "inc_subs": 30.0,
+        "inc_msgs": 35.97,
+        "inc_tips": 0.0,
+        "inc_posts": 0.0,
+        "inc_total": 65.97,
+        "fans": 62,
+        "subs_new": 3,
+        "rebills": 2,
+        "mv_c4s_note": "nulled 2026-11-09: 18.58/11.98 from dee9d712 hand-fill had no dated capture for 02–08.11; ОФ Маркетинг left manyvids_net/c4s_net null (k1gxh3kk out of scope)"
       },
       {
         "id": "W:2026-10-26",
@@ -762,7 +806,69 @@
         "freq": "única"
       }
     ],
-    "cu_fetched_at": "2026-10-25T23:45:00-05:00"
+    "cu_fetched_at": "2026-10-25T23:45:00-05:00",
+    "prev": {
+      "label": "01–15.10.2026",
+      "as_of": "2026-10-16",
+      "src": "обновлено 16.10 (OF Statistics → Earnings; MV / C4S кабинеты)",
+      "inc_subs": 119.7,
+      "inc_msgs": 53.58,
+      "inc_tips": 0,
+      "inc_posts": 0,
+      "inc_total": 173.28,
+      "mv": 7.79,
+      "c4s": 0,
+      "subs_new": null,
+      "rebills": null,
+      "fans": null,
+      "fans_new": null
+    },
+    "last": {
+      "label": "01–15.10.2026",
+      "as_of": "2026-10-16",
+      "src": "обновлено 16.10 (OF Statistics → Earnings; MV / C4S кабинеты)",
+      "inc_subs": 119.7,
+      "inc_msgs": 53.58,
+      "inc_tips": 0,
+      "inc_posts": 0,
+      "inc_total": 173.28,
+      "mv": 7.79,
+      "c4s": 0,
+      "subs_new": null,
+      "rebills": null,
+      "fans": null,
+      "fans_new": null
+    },
+    "cur": {
+      "id": "W:2026-11-02",
+      "label": "02–08.11",
+      "as_of": "2026-11-09",
+      "inc_subs": 30.0,
+      "inc_msgs": 35.97,
+      "inc_tips": 0.0,
+      "inc_posts": 0.0,
+      "inc_total": 65.97,
+      "mv": null,
+      "c4s": null,
+      "fans": 62,
+      "fans_new": null,
+      "subs_new": 3,
+      "rebills": 2,
+      "ig": {
+        "lolabig.lolapop": {
+          "fans": 26511,
+          "delta": 32
+        },
+        "lolapopstarted": {
+          "fans": 26011,
+          "delta": 95
+        },
+        "lolastartjourney": {
+          "fans": 9771,
+          "delta": 3
+        }
+      }
+    }
   },
   "fetish_rooms": {
     "title": "Fetish Rooms",

@@ -1,0 +1,11 @@
+{
+  "as_of": "2026-11-09",
+  "week": {"id": "W:2026-11-02", "label": "02–08.11"},
+  "src": "OF Statistics (AdsPower Local API, AX42 adspower) · Fans/Subscriptions + Earnings custom 02–08.11 · fans = Collections→Fans Active · снято 09.11",
+  "models": [
+    {"key": "sofia", "name": "Sofia Lunara", "fans": 1396, "fans_new": 610, "gross": 1853.0, "net": 1482.4},
+    {"key": "kelly", "name": "Kelly Sunelly", "fans": 1961, "fans_new": 118, "gross": 53.0, "net": 42.4},
+    {"key": "bella", "name": "Bella Cruz", "fans": 3773, "fans_new": 10, "gross": 0.0, "net": 0.0},
+    {"key": "rosie", "name": "I am rosie", "fans": 3407, "fans_new": 88, "gross": 287.0, "net": 229.6}
+  ]
+}
