@@ -1,3 +1,5 @@
+## 2026-11-09 Pages deploy bump (cu_due_sync / Alla calendar)
+
 ## 2026-11-09 t5824u follow-up: cu_due_sync + calendar all-day _seen fix
 - New deterministic `src/cu_due_sync.py` (today→+2d merge into cu_cal_dash, cu_dated dues, surgical enc, pull --rebase push; exit 10 = noop).
 - `build_data.py`: all-day gcal-sync titles no longer fill `_seen` — timed CU 86bc8fkbt (Алла / топят 10.11 21:00) returns to calendar.events.
