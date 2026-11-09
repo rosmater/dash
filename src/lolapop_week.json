@@ -1,7 +1,7 @@
 {
   "period": "02–08.11.2026",
   "as_of": "2026-11-09",
-  "src": "OF main k1h26w3l (@lolapop_bbw_pear_ass) Statistics → Subscriptions + Earnings custom 02–08.11 (AdsPower Local API); fans = Collections→Fans Active; IG via logged-in @rosscompass (delta vs Informe Insta 04.11). MV/C4S не сняты: кабинеты только в AdsPower k1gxh3kk (вне скоупа этого прогона). fans_new null: прошлого тотала фанов нет.",
+  "src": "OF main k1h26w3l (@lolapop_bbw_pear_ass) Statistics → Subscriptions + Earnings custom 02–08.11 (AdsPower Local API); fans = Collections→Fans Active; IG via logged-in @rosscompass (delta vs Informe Insta 04.11). fans_new null: прошлого тотала фанов нет.; MV My Earnings→Recent Sales Total + C4S Revenue details Income/net (AdsPower k1gxh3kk 09.11); screenshots c4s-earn-2026-11-09.png mv-earn-2026-11-09.png; zero weeks = verified no sales",
   "fans": 62,
   "fans_new": null,
   "subs_new": 3,
@@ -18,11 +18,21 @@
     "of_total_gross": 82.47,
     "of_total_net": 65.97
   },
-  "manyvids_net": null,
-  "c4s_net": null,
+  "manyvids_net": 0.0,
+  "c4s_net": 8.39,
   "ig": {
-    "lolabig.lolapop": {"fans": 26511, "delta": 32},
-    "lolapopstarted": {"fans": 26011, "delta": 95},
-    "lolastartjourney": {"fans": 9771, "delta": 3}
-  }
+    "lolabig.lolapop": {
+      "fans": 26511,
+      "delta": 32
+    },
+    "lolapopstarted": {
+      "fans": 26011,
+      "delta": 95
+    },
+    "lolastartjourney": {
+      "fans": 9771,
+      "delta": 3
+    }
+  },
+  "c4s_gross": 13.99
 }

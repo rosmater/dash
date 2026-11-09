@@ -1,3 +1,6 @@
+## 2026-11-09 t5826u LolaPop MV/C4S
+- ManyVids + Clips4Sale за 3 закрытые недели (AdsPower k1gxh3kk 09.11): 02–08.11 MV $0 / C4S net $8.39 (gross $13.99); 26.10–01.11 MV $18.57 / C4S $11.98; 19–25.10 MV $0 / C4S $15.58. Helper src/ingest_mv_c4s_week.py. Zero = verified no sales.
+
 ## 2026-11-09 t5828u назначенные встречи
 - «📅 Назначенные встречи» вверху Личного (src/personal_meetings.json ← CU Personal list 901413854636, TIMED due ≠ 04:00 Богота).
 - Красная строка #bdhdr: «Встреча: <name> HH:MM» + «✅ Встретились» (тот же sc* каркас, kind=meeting).
