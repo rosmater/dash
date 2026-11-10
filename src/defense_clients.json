@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-10T10:53:20-05:00",
+  "updated_at": "2026-11-10T14:22:07-05:00",
   "note": "Rost 06.11 t453: «Клиенты в процессе» = все живые диалоги с этапом intro/catalog/deal/call, не только «ждут каталог». Закрытые не держим.",
   "clients_in_progress": [
     {
@@ -17,12 +17,12 @@
       "id": "decsef",
       "company": "DECSEF Sistemas (México)",
       "contact": "José Gabriel Osorno <gabriel.osorno@decsef.com> / Antonio Santiago Romero <ryan@decsef.com>",
-      "status": "call",
+      "status": "waiting",
       "pipeline": "call",
-      "status_label": "Созвон",
-      "note": "вт 10.11 12:00 Богота / 11:00 CDMX, Meet https://meet.google.com/odi-oqbo-eaq. CU 86bcu0caf.",
+      "status_label": "Ждём ответа: формат + приоритетные модели",
+      "note": "Созвон прошёл 10.11 12:00 Bogotá (Meet odi-oqbo-eaq). Попросили варианты сотрудничества + каталог; отправили 10.11 14:20 оба. Ждём формат и приоритетные модели/заказчиков.",
       "url": "https://rosmater.github.io/cu/?t=86bcu0caf",
-      "ctx": "QUEUE.md decsef-slot-apply"
+      "ctx": "QUEUE.md decsef-call/reply"
     },
     {
       "id": "aviatek-sas",

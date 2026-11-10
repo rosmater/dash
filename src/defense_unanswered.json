@@ -1,6 +1,6 @@
 {
   "_note": "Живые ответы компаний (STE). Красный «разобрать» = open (мы не ответили). Жёлтый «ждём ответа» = waiting / awaiting_their_reply (наш ответ ушёл). answered/scheduled — снять с внимания. Пишет ste / Оборонка.",
-  "updated_at": "2026-11-10T10:53:20-05:00",
+  "updated_at": "2026-11-10T14:22:07-05:00",
   "unanswered_replies": [
     {
       "company": "TEREM-Letets / TEREM Holding (Bulgaria)",
@@ -72,14 +72,16 @@
       "from": "Antonio Santiago Romero <ryan@decsef.com> / José Gabriel Osorno <gabriel.osorno@decsef.com>",
       "subject": "RE: Representación UAV y anti-dron — SpetsTechnoExport",
       "received_at": "2026-11-03T12:32-05:00",
-      "note": "Созвон подтверждён: вт 10.11 11:00 CDMX / 12:00 Bogotá, Meet https://meet.google.com/odi-oqbo-eaq; CU 86bcu0caf; STE cal ka75eqhj02362tiqtd8a8ddkt0. Confirm reply 04.11 (msg 1a1a7e77a6649fc1). Ждём созвон.",
-      "url": "https://app.clickup.com/t/86bcu0caf",
-      "status": "scheduled",
-      "stage": "call_confirmed_2026-11-10",
-      "our_reply_at": "2026-11-03T16:00-05:00",
+      "note": "Созвон 10.11 12:00 Bogotá (Meet https://meet.google.com/odi-oqbo-eaq) прошёл. Попросили варианты сотрудничества + каталог. Ответ 10.11 14:20 Bogotá STE Gmail reply-all ryan@ + cc gabriel.osorno@, contacto@, arturo.vera@, gerencia.general@ (msg 1a1c6e7711f1cd45, thread 1a15fc1989806e19): 3 формата (representación/distribución/integración) + полные папки каталога ES+EN. Ждём формат и приоритетные модели/заказчиков.",
+      "url": "https://mail.google.com/mail/u/0/#inbox/1a15fc1989806e19",
+      "status": "waiting",
+      "our_reply_at": "2026-11-10T14:20:00-05:00",
       "priority": false,
       "pipeline": "call",
-      "status_label": "Созвон"
+      "status_label": "Ждём ответа: формат + приоритетные модели",
+      "last_outbound": "reply 2026-11-10 14:20 msg 1a1c6e7711f1cd45 thread 1a15fc1989806e19",
+      "thread_id": "1a15fc1989806e19",
+      "msg_id": "1a1c6e7711f1cd45"
     },
     {
       "company": "Dronamex (México)",

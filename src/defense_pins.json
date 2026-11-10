@@ -1,7 +1,7 @@
 {
-  "fetched_at": "2026-11-10T10:53:20-05:00",
+  "fetched_at": "2026-11-10T14:22:07-05:00",
   "src": "ClickUp Defense Systems space 90148618420",
-  "checked": "morning recon 10.11 08:00: urgent 86bctg47u + 86bczu31g (due 07.11, overdue, wait Дмитрий); call DECSEF 86bcu0caf today 12:00–13:00 Bogotá; Dronamex past excluded; new Engineering SAECA reply 10.11 07:35 upserted open; upsert open Aviatek SAS msg 1a1c5dcf1c44b3a3; upsert open Engineering SAECA msg 1a1c5ef4ce6346c2",
+  "checked": "morning recon 10.11 08:00: urgent 86bctg47u + 86bczu31g (due 07.11, overdue, wait Дмитрий); call DECSEF 86bcu0caf today 12:00–13:00 Bogotá; Dronamex past excluded; new Engineering SAECA reply 10.11 07:35 upserted open; upsert open Aviatek SAS msg 1a1c5dcf1c44b3a3; upsert open Engineering SAECA msg 1a1c5ef4ce6346c2; DECSEF call 10.11 held, pin cleared; formats+catalog reply 14:20 waiting; resolve waiting thread 1a15fc1989806e19 msg 1a1c6e7711f1cd45",
   "urgent_tasks": [
     {
       "id": "86bctg47u",
@@ -20,16 +20,5 @@
       "due": "2026-11-07"
     }
   ],
-  "scheduled_calls": [
-    {
-      "id": "86bcu0caf",
-      "name": "Созвон DECSEF — José Gabriel Osorno",
-      "url": "https://rosmater.github.io/cu/?t=86bcu0caf",
-      "status": "to do",
-      "due": "2026-11-10",
-      "due_t": "13:00",
-      "start": "2026-11-10T12:00",
-      "note": "12:00–13:00 Богота / 11:00–12:00 CDMX; Meet https://meet.google.com/odi-oqbo-eaq"
-    }
-  ]
+  "scheduled_calls": []
 }
