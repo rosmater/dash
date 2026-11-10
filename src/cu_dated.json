@@ -1,6 +1,6 @@
 {
- "generated": "2026-11-09 15:12",
- "source": "live filter_tasks 2026-11-09 (t5019+t5594u); base mapping cu-rost-dated.csv 27.10; t5824u refresh dues from filter 2026-11-09",
+ "generated": "2026-11-09 22:48",
+ "source": "live filter_tasks 2026-11-09 (t5019+t5594u); base mapping cu-rost-dated.csv 27.10; t5824u refresh dues from filter 2026-11-09; cu_due_sync",
  "note": "TZ cu-dash-sort §2: mapped, not shown elsewhere on dash",
  "by_dir": {
   "personal": [
@@ -76,8 +76,8 @@
     "name": "БОТ-ЧАСТЬ: Найти лофт побольше в Base Loft (долгосрочная аренда)",
     "url": "https://app.clickup.com/t/86bcma7tp",
     "status": "to do",
-    "due": "2026-10-26",
-    "due_t": "04:00",
+    "due": "2026-11-10",
+    "due_t": "16:00",
     "parent": "(корневая)",
     "list": "Personal",
     "cat": "Личное",
