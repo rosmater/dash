@@ -1,7 +1,7 @@
 {
-  "fetched_at": "2026-11-10T09:35:59-05:00",
+  "fetched_at": "2026-11-10T10:53:20-05:00",
   "src": "ClickUp Defense Systems space 90148618420",
-  "checked": "morning recon 10.11 08:00: urgent 86bctg47u + 86bczu31g (due 07.11, overdue, wait Дмитрий); call DECSEF 86bcu0caf today 12:00–13:00 Bogotá; Dronamex past excluded; new Engineering SAECA reply 10.11 07:35 upserted open; upsert open Aviatek SAS msg 1a1c5dcf1c44b3a3",
+  "checked": "morning recon 10.11 08:00: urgent 86bctg47u + 86bczu31g (due 07.11, overdue, wait Дмитрий); call DECSEF 86bcu0caf today 12:00–13:00 Bogotá; Dronamex past excluded; new Engineering SAECA reply 10.11 07:35 upserted open; upsert open Aviatek SAS msg 1a1c5dcf1c44b3a3; upsert open Engineering SAECA msg 1a1c5ef4ce6346c2",
   "urgent_tasks": [
     {
       "id": "86bctg47u",
