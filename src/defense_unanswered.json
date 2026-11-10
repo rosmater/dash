@@ -1,6 +1,6 @@
 {
   "_note": "Живые ответы компаний (STE). Красный «разобрать» = open (мы не ответили). Жёлтый «ждём ответа» = waiting / awaiting_their_reply (наш ответ ушёл). answered/scheduled — снять с внимания. Пишет ste / Оборонка.",
-  "updated_at": "2026-11-10T14:22:07-05:00",
+  "updated_at": "2026-11-10T14:29:09-05:00",
   "unanswered_replies": [
     {
       "company": "TEREM-Letets / TEREM Holding (Bulgaria)",
@@ -98,18 +98,18 @@
     },
     {
       "company": "Military Industries JR",
-      "from": "licitaciones2@militaryjr.com.co",
+      "from": "Carlos Bedoya <licitaciones2@militaryjr.com.co>",
       "subject": "RE: Representación UAV y anti-dron — SpetsTechnoExport",
       "received_at": "2026-11-09T09:16:45-05:00",
-      "note": "НОВЫЙ живой ответ 2026-11-09T09:16:45-05:00: нужен наш ответ. msg 1a1c0ab450958adf thread 1a17a185cf09528b.",
+      "note": "Ответ Bedoya 10.11 14:27 Bogotá STE Gmail (msg 1a1c6edcb4598416, thread 1a17a185cf09528b) на его вопрос 09.11 (msg 1a1c0ab450958adf): авторизован ли Gmail как канал STE и должность/связь Романа. Подтвердили: Gmail — рабочий канал STE; Роман — часть команды STE, международное сотрудничество, подпись Asesor de la Dirección; предложили подтверждение с корпоративной почты STE при необходимости. Ждём ответа. Если попросит корпоративное подтверждение — нужен Rost / руководство STE.",
       "url": "https://mail.google.com/mail/u/0/#inbox/1a17a185cf09528b",
-      "status": "open",
-      "our_reply_at": "2026-11-07T15:34:00-05:00",
-      "last_outbound": "reply 07.11 ~15:34 msg 1a1b7b7ba55200e9 thread 1a17a185cf09528b",
+      "status": "waiting",
+      "our_reply_at": "2026-11-10T14:27:00-05:00",
+      "last_outbound": "reply 2026-11-10 14:27 msg 1a1c6edcb4598416 thread 1a17a185cf09528b",
       "pipeline": "catalog",
-      "status_label": "Нужен наш ответ",
-      "priority": true,
-      "msg_id": "1a1c0ab450958adf",
+      "status_label": "Ждём ответа (подтвердили канал и роль Романа)",
+      "priority": false,
+      "msg_id": "1a1c6edcb4598416",
       "thread_id": "1a17a185cf09528b",
       "last_inbound_at": "2026-11-09T09:16:45-05:00",
       "last_inbound_msg_id": "1a1c0ab450958adf"
