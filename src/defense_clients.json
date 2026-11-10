@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-10T14:29:09-05:00",
+  "updated_at": "2026-11-10T14:44:04-05:00",
   "note": "Rost 06.11 t453: «Клиенты в процессе» = все живые диалоги с этапом intro/catalog/deal/call, не только «ждут каталог». Закрытые не держим.",
   "clients_in_progress": [
     {
@@ -38,11 +38,11 @@
     {
       "id": "engineering-saeca",
       "company": "Engineering SAECA",
-      "contact": "alopez@engineering.com.py",
-      "status": "need_reply",
+      "contact": "Aníbal López <alopez@engineering.com.py>",
+      "status": "waiting",
       "pipeline": "intro",
-      "status_label": "Нужен наш ответ",
-      "note": "Прислали брошюру Engineering SAECA по обороне (вложение)",
+      "status_label": "Ждём ответа: выбор слота созвона (пт 13.11 11:00 / вт 17.11 12:40 Богота)",
+      "note": "Ответ 10.11 14:42 Bogotá: предложили слоты пт 13.11 11:00 / вт 17.11 12:40 Bogotá (или их время); только Roman; Meet после выбора. Ждём выбор слота.",
       "url": "https://rosmater.github.io/cu/?t=86bbzxnvx",
       "ctx": "QUEUE.md engineering-saeca-reply"
     },

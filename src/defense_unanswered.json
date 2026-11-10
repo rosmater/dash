@@ -1,6 +1,6 @@
 {
   "_note": "Живые ответы компаний (STE). Красный «разобрать» = open (мы не ответили). Жёлтый «ждём ответа» = waiting / awaiting_their_reply (наш ответ ушёл). answered/scheduled — снять с внимания. Пишет ste / Оборонка.",
-  "updated_at": "2026-11-10T14:29:09-05:00",
+  "updated_at": "2026-11-10T14:44:04-05:00",
   "unanswered_replies": [
     {
       "company": "TEREM-Letets / TEREM Holding (Bulgaria)",
@@ -38,19 +38,19 @@
     },
     {
       "company": "Engineering SAECA",
-      "from": "alopez@engineering.com.py",
+      "from": "Aníbal López <alopez@engineering.com.py>",
       "subject": "RE: Potencial colaboración Engineering - SpetsTechnoExport",
       "received_at": "2026-11-10T09:49:09-05:00",
-      "note": "Прислали брошюру Engineering SAECA по обороне (вложение)",
+      "note": "Ответ López 10.11 14:42 Bogotá STE Gmail (msg 1a1c6fc2837f5b79, thread 1a1c093d6ca84c0a), кому alopez@engineering.com.py, копия andres@ / asosa@. Предложили слоты созвона: пт 13.11 13:00 PY (11:00 Bogotá) и вт 17.11 14:40 PY (12:40 Bogotá), или их время; на созвоне только Roman (Rost); ссылку Meet отправим после выбора слота. Ждём выбор слота.",
       "url": "https://mail.google.com/mail/u/0/#inbox/1a1c093d6ca84c0a",
-      "status": "open",
-      "priority": true,
-      "our_reply_at": "2026-11-09T20:24:00-05:00",
-      "last_outbound": "reply 2026-11-09 20:24 msg 1a1c30e5e824ebd7 thread 1a1c093d6ca84c0a",
+      "status": "waiting",
+      "priority": false,
+      "our_reply_at": "2026-11-10T14:42:00-05:00",
+      "last_outbound": "reply 2026-11-10 14:42 msg 1a1c6fc2837f5b79 thread 1a1c093d6ca84c0a",
       "pipeline": "intro",
-      "status_label": "Нужен наш ответ",
+      "status_label": "Ждём ответа: выбор слота созвона (пт 13.11 11:00 / вт 17.11 12:40 Богота)",
       "thread_id": "1a1c093d6ca84c0a",
-      "msg_id": "1a1c5ef4ce6346c2",
+      "msg_id": "1a1c6fc2837f5b79",
       "last_inbound_at": "2026-11-10T09:49:09-05:00",
       "last_inbound_msg_id": "1a1c5ef4ce6346c2"
     },
