@@ -1,6 +1,6 @@
 {
  "src": "GSheet «Expensed Peso Saludable» 1-X24SE_ZfP7mXm9_WUFRwCo-H45ryI9R2yvYpOu-bIE, вкладка «expenses» (gid 0)",
- "fetched_at": "2026-11-09 00:31",
+ "fetched_at": "2026-11-10 08:13",
  "costs": [
   {
    "date": "2026-09-02",
@@ -31,18 +31,18 @@
    "payer": "1272664"
   },
   {
-   "date": "2026-11-08",
-   "label": "IG pesosaludable.col + IVA 19% (21.10–08.11)",
-   "amount": 591460.0,
+   "date": "2026-11-10",
+   "label": "IG pesosaludable.col + IVA 19% (21.10–10.11)",
+   "amount": 1094389.0,
    "cur": "COP",
-   "payer": "591460"
+   "payer": "1094389"
   },
   {
-   "date": "2026-11-08",
-   "label": "IG pesosaludable.laureles + IVA 19% (21.10–08.11)",
-   "amount": 36267.0,
+   "date": "2026-11-10",
+   "label": "IG pesosaludable.laureles + IVA 19% (06.11–10.11)",
+   "amount": 159195.0,
    "cur": "COP",
-   "payer": "36267"
+   "payer": "159195"
   },
   {
    "date": "2026-11-08",
