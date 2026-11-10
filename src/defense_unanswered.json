@@ -1,6 +1,6 @@
 {
   "_note": "Живые ответы компаний (STE). Красный «разобрать» = open (мы не ответили). Жёлтый «ждём ответа» = waiting / awaiting_their_reply (наш ответ ушёл). answered/scheduled — снять с внимания. Пишет ste / Оборонка.",
-  "updated_at": "2026-11-09T03:00:00-05:00",
+  "updated_at": "2026-11-09T20:28:31-05:00",
   "unanswered_replies": [
     {
       "company": "TEREM-Letets / TEREM Holding (Bulgaria)",
@@ -16,6 +16,22 @@
       "pipeline": "deal",
       "status_label": "Детали сделки",
       "last_inbound_at": "2026-11-09T02:17:11-05:00"
+    },
+    {
+      "company": "Engineering SAECA (Paraguay)",
+      "from": "Aníbal López <alopez@engineering.com.py> (cc Juan Andrés Campos Cervera <andres@engineering.com.py>, Arthur Sosa <asosa@engineering.com.py>)",
+      "subject": "Potencial colaboración Engineering - SpetsTechnoExport",
+      "received_at": "2026-11-09T08:51:09-05:00",
+      "note": "Наш reply-all 09.11 20:24 Bogotá (msg 1a1c30e5e824ebd7, thread 1a1c093d6ca84c0a): квалификация reseller/distributor/integrator готовой продукции vs только локальная сборка/производство; какие учреждения и потребности; локальное производство обсудим с руководством; созвон после их ответа; каталог PY trimmed ES+EN. Мяч у них. CU 86bbzxnvx.",
+      "url": "https://mail.google.com/mail/u/0/#inbox/1a1c093d6ca84c0a",
+      "status": "waiting",
+      "priority": false,
+      "our_reply_at": "2026-11-09T20:24:00-05:00",
+      "last_outbound": "reply 2026-11-09 20:24 msg 1a1c30e5e824ebd7 thread 1a1c093d6ca84c0a",
+      "pipeline": "intro",
+      "status_label": "Ждём ответа",
+      "thread_id": "1a1c093d6ca84c0a",
+      "msg_id": "1a1c30e5e824ebd7"
     },
     {
       "company": "PRODESATEN (Colombia)",
@@ -61,15 +77,19 @@
       "company": "Military Industries SAS (Колумбия)",
       "from": "Carlos Bedoya <licitaciones2@militaryjr.com.co>",
       "subject": "RE: Representación UAV y anti-dron — SpetsTechnoExport",
-      "received_at": "2026-11-06T16:45:49-05:00",
-      "note": "Ответ отправлен 07.11 ~15:34 Bogotá (msg 1a1b7b7ba55200e9, thread 1a17a185cf09528b). Подтвердили: нет эксклюзивного соглашения в Колумбии, ищем сотрудничество, представление там не развито; рынки — Европа, Азия, Северная Америка, страны Залива. Ждём их предложения / возможный созвон.",
-      "url": "https://mail.google.com/mail/u/0/#inbox/1a1b2d341dcff4b3",
-      "status": "waiting",
+      "received_at": "2026-11-09T09:16:45-05:00",
+      "note": "НОВЫЙ вопрос 09.11 09:16 Bogotá (msg 1a1c0ab450958adf): просят подтвердить, что Gmail — авторизованный канал STE для международной коммерции, и сообщить должность/договорные отношения с STE. Интерес к сотрудничеству сохраняется. Черновик в CU 86bbzxnvx. Нужен Rost.",
+      "url": "https://mail.google.com/mail/u/0/#inbox/1a1c0ab450958adf",
+      "status": "open",
       "our_reply_at": "2026-11-07T15:34:00-05:00",
       "last_outbound": "reply 07.11 ~15:34 msg 1a1b7b7ba55200e9 thread 1a17a185cf09528b",
       "pipeline": "catalog",
-      "status_label": "Ждём ответа",
-      "priority": false
+      "status_label": "Нужен наш ответ",
+      "priority": true,
+      "msg_id": "1a1c0ab450958adf",
+      "thread_id": "1a17a185cf09528b",
+      "last_inbound_at": "2026-11-09T09:16:45-05:00",
+      "last_inbound_msg_id": "1a1c0ab450958adf"
     },
     {
       "company": "MER Group (México)",

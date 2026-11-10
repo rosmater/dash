@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-09T08:20:00-05:00",
+  "updated_at": "2026-11-09T20:28:31-05:00",
   "note": "Rost 06.11 t453: «Клиенты в процессе» = все живые диалоги с этапом intro/catalog/deal/call, не только «ждут каталог». Закрытые не держим.",
   "clients_in_progress": [
     {
@@ -25,6 +25,17 @@
       "ctx": "QUEUE.md decsef-slot-apply"
     },
     {
+      "id": "engineering-saeca",
+      "company": "Engineering SAECA (Парагвай)",
+      "contact": "Aníbal López <alopez@engineering.com.py> (cc Juan Andrés Campos Cervera <andres@engineering.com.py>, Arthur Sosa <asosa@engineering.com.py>)",
+      "status": "waiting",
+      "pipeline": "intro",
+      "status_label": "Ждём ответа",
+      "note": "Ответ ушёл 09.11 20:24 Bogotá reply-all (msg 1a1c30e5e824ebd7, thread 1a1c093d6ca84c0a). Спросили: reseller/distributor/integrator готовой продукции STE vs только сборка/производство на месте; с какими учреждениями работают и какие потребности видят. Локальное производство — обсудим с руководством; созвон предложим после их ответа. Каталог PY trimmed ES+EN отправлен. Мяч у них. CU 86bbzxnvx.",
+      "url": "https://rosmater.github.io/cu/?t=86bbzxnvx",
+      "ctx": "QUEUE.md engineering-saeca-reply"
+    },
+    {
       "id": "dronamex",
       "company": "Dronamex (México)",
       "contact": "Juan Carlos Pérez Juárez <juancarlos.perez@dronamex.com>",
@@ -40,13 +51,13 @@
       "id": "military-industries",
       "company": "Military Industries SAS (Колумбия)",
       "contact": "Carlos Bedoya <licitaciones2@militaryjr.com.co>",
-      "status": "waiting",
+      "status": "need_reply",
       "pipeline": "catalog",
-      "status_label": "Ждём ответа",
+      "status_label": "Нужен наш ответ",
       "promised_at": "2026-10-27",
-      "note": "Ответ Bedoya отправлен 07.11 ~15:34 Bogotá (msg 1a1b7b7ba55200e9, thread 1a17a185cf09528b). Нет эксклюзива в Колумбии, ищем сотрудничество (представление там не развито); рынки — Европа, Азия, Северная Америка, страны Залива. Мяч у них: предложения / возможный созвон.",
+      "note": "09.11 09:16 Bogotá Bedoya спросил про авторизованность Gmail-канала STE и должность отправителя. Черновик в CU 86bbzxnvx. Нужен наш ответ / Rost.",
       "url": "https://rosmater.github.io/cu/?t=86bbzxnvx",
-      "ctx": "QUEUE.md military-industries-colombia-q"
+      "ctx": "QUEUE.md military-industries-gmail-channel-q"
     },
     {
       "id": "prodesaten",
