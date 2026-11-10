@@ -1,3 +1,9 @@
+## 2026-11-09 t5863–t5865u compact header
+- Бренд (R + «Бизнес-дашборд» + дата) — маленький бокс (лого 24px, h1 13px, дата 10.5px).
+- `#bdhdr` (плашки Встреча/Созвон/ДР) вынесен из .brand в строку шапки между брендом и кнопками; 11.5px, компактные отступы.
+- Текст плашки в `.bdt`: ≤2 строк с «…» (line-clamp), кнопка справа; полный текст в `title` + раскрытие по hover/focus (`bdFit`).
+- Mobile ≤600px: плашки под брендом, кнопки отдельной строкой. Бэкапы *.bak-t5863.
+
 ## 2026-11-09 t724u timed_attn reminders
 - `src/timed_attn.json` → `d.timed_attn` (dir, show_from ISO -05:00, text, url, grp).
 - `build_data.py` loads items per direction; missing file → no-op.
