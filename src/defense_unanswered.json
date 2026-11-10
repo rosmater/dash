@@ -1,6 +1,6 @@
 {
   "_note": "Живые ответы компаний (STE). Красный «разобрать» = open (мы не ответили). Жёлтый «ждём ответа» = waiting / awaiting_their_reply (наш ответ ушёл). answered/scheduled — снять с внимания. Пишет ste / Оборонка.",
-  "updated_at": "2026-11-10T04:50:54-05:00",
+  "updated_at": "2026-11-10T08:01:21-05:00",
   "unanswered_replies": [
     {
       "company": "TEREM-Letets / TEREM Holding (Bulgaria)",
@@ -22,10 +22,10 @@
     },
     {
       "company": "Engineering SAECA Paraguay",
-      "from": "alopez@engineering.com.py",
-      "subject": "Potencial colaboración Engineering - SpetsTechnoExport",
-      "received_at": "2026-11-09T08:51:09-05:00",
-      "note": "НОВЫЙ живой ответ 2026-11-09T08:51:09-05:00: нужен наш ответ. msg 1a1c093d6ca84c0a thread 1a1c093d6ca84c0a.",
+      "from": "Anibal Lopez <alopez@engineering.com.py>",
+      "subject": "RE: Potencial colaboración Engineering - SpetsTechnoExport",
+      "received_at": "2026-11-10T07:35:36-05:00",
+      "note": "Ответ López 10.11 07:35: открыты к представительству/дистрибуции и интегратору (также Южная Америка), локальная сборка (maquila 1%) — дополнительно, не условие; институции раскроют на видеозвонке под NDA; ждут от нас дату/время созвона на этой/след. неделе (утро Парагвай 9–12 = 9–12 Богота). Нужен наш ответ с предложением слотов.",
       "url": "https://mail.google.com/mail/u/0/#inbox/1a1c093d6ca84c0a",
       "status": "open",
       "priority": true,
@@ -34,9 +34,9 @@
       "pipeline": "intro",
       "status_label": "Нужен наш ответ",
       "thread_id": "1a1c093d6ca84c0a",
-      "msg_id": "1a1c093d6ca84c0a",
-      "last_inbound_at": "2026-11-09T08:51:09-05:00",
-      "last_inbound_msg_id": "1a1c093d6ca84c0a"
+      "msg_id": "1a1c57508bae313b",
+      "last_inbound_at": "2026-11-10T07:35:36-05:00",
+      "last_inbound_msg_id": "1a1c57508bae313b"
     },
     {
       "company": "PRODESATEN (Colombia)",

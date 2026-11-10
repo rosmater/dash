@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-10T04:50:54-05:00",
+  "updated_at": "2026-11-10T08:01:21-05:00",
   "note": "Rost 06.11 t453: «Клиенты в процессе» = все живые диалоги с этапом intro/catalog/deal/call, не только «ждут каталог». Закрытые не держим.",
   "clients_in_progress": [
     {
@@ -27,11 +27,11 @@
     {
       "id": "engineering-saeca",
       "company": "Engineering SAECA Paraguay",
-      "contact": "alopez@engineering.com.py",
+      "contact": "Anibal Lopez <alopez@engineering.com.py>",
       "status": "need_reply",
       "pipeline": "intro",
       "status_label": "Нужен наш ответ",
-      "note": "НОВЫЙ живой ответ 2026-11-09T08:51:09-05:00: нужен наш ответ. msg 1a1c093d6ca84c0a thread 1a1c093d6ca84c0a.",
+      "note": "Ответ López 10.11 07:35: открыты к представительству/дистрибуции и интегратору (также Южная Америка), локальная сборка (maquila 1%) — дополнительно, не условие; институции раскроют на видеозвонке под NDA; ждут от нас дату/время созвона на этой/след. неделе (утро Парагвай 9–12 = 9–12 Богота). Нужен наш ответ с предложением слотов.",
       "url": "https://rosmater.github.io/cu/?t=86bbzxnvx",
       "ctx": "QUEUE.md engineering-saeca-reply"
     },
