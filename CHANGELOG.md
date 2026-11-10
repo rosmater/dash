@@ -1,3 +1,6 @@
+## 2026-11-10 morning-mega COMMS
+- gcal snapshot 10.11 + cu_inbox WIDE MCP harvest (desktop inbox preserved)
+
 ## 2026-11-10 cu_due_sync
 - timed_changed=True dated_rows=2
 
