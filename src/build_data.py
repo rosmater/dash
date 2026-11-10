@@ -915,6 +915,15 @@ try:
     ]
 except FileNotFoundError:
     pass
+# Rost t724u: timed_attn.json -> d.timed_attn (всплывает в «Требует внимания» в браузере с show_from, без бота)
+try:
+    _TA = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'timed_attn.json'))).get('items', [])
+    for _d in data['directions']:
+        _x = [t for t in _TA if isinstance(t, dict) and t.get('dir') == _d['id'] and t.get('show_from') and t.get('text')]
+        if _x:
+            _d['timed_attn'] = _x
+except FileNotFoundError:
+    pass
 # TZ cu-dash-sort §2 (27.10): CU-задачи Rost с датой, сопоставленные направлению и не показанные иначе -> d.cu_dated (карточка «🗂 ClickUp · задачи с датой», не attn)
 try:
     _CUD = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'cu_dated.json'))).get('by_dir', {})

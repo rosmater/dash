@@ -1,3 +1,9 @@
+## 2026-11-09 t724u timed_attn reminders
+- `src/timed_attn.json` → `d.timed_attn` (dir, show_from ISO -05:00, text, url, grp).
+- `build_data.py` loads items per direction; missing file → no-op.
+- `variant-a.html` attnRaw: `(d.timed_attn||[]).forEach` pushes into «Требует внимания» when `Date.now() >= show_from`.
+- First item: ОФ, 12.11 14:00, CU 86bd0y140 «Проверить: пришли ли Саре деньги на OKX + $10 на кошелёк».
+
 ## 2026-11-09 t717–t721u LolaPop IG status badges
 - lolapop.ig_accounts: status/note (lolastartjourney=attn «Нет рекомендаций не-подписчикам»; lolabig.lolapop + lolapopstarted=ok).
 - variant-a IG rows: pill «⚠️ требует внимания» (+ note) / «✓ ок».
