@@ -1,6 +1,6 @@
 {
   "_note": "Живые ответы компаний (STE). Красный «разобрать» = open (мы не ответили). Жёлтый «ждём ответа» = waiting / awaiting_their_reply (наш ответ ушёл). answered/scheduled — снять с внимания. Пишет ste / Оборонка.",
-  "updated_at": "2026-11-10T02:53:31-05:00",
+  "updated_at": "2026-11-10T04:50:50-05:00",
   "unanswered_replies": [
     {
       "company": "TEREM-Letets / TEREM Holding (Bulgaria)",
@@ -77,11 +77,11 @@
       "status_label": "Каталог отправлен"
     },
     {
-      "company": "Military Industries SAS (Колумбия)",
-      "from": "Carlos Bedoya <licitaciones2@militaryjr.com.co>",
+      "company": "Military Industries JR",
+      "from": "licitaciones2@militaryjr.com.co",
       "subject": "RE: Representación UAV y anti-dron — SpetsTechnoExport",
       "received_at": "2026-11-09T09:16:45-05:00",
-      "note": "Спрашивают, является ли Gmail STE авторизованным каналом, и просят должность/отношение Романа к STE; интерес сохраняется. Нужен ответ Rost.",
+      "note": "НОВЫЙ живой ответ 2026-11-09T09:16:45-05:00: нужен наш ответ. msg 1a1c0ab450958adf thread 1a17a185cf09528b.",
       "url": "https://mail.google.com/mail/u/0/#inbox/1a17a185cf09528b",
       "status": "open",
       "our_reply_at": "2026-11-07T15:34:00-05:00",
