@@ -1,6 +1,6 @@
 {
   "_note": "Живые ответы компаний (STE). Красный «разобрать» = open (мы не ответили). Жёлтый «ждём ответа» = waiting / awaiting_their_reply (наш ответ ушёл). answered/scheduled — снять с внимания. Пишет ste / Оборонка.",
-  "updated_at": "2026-11-09T20:28:31-05:00",
+  "updated_at": "2026-11-09T20:28:57-05:00",
   "unanswered_replies": [
     {
       "company": "TEREM-Letets / TEREM Holding (Bulgaria)",
@@ -79,7 +79,7 @@
       "subject": "RE: Representación UAV y anti-dron — SpetsTechnoExport",
       "received_at": "2026-11-09T09:16:45-05:00",
       "note": "НОВЫЙ вопрос 09.11 09:16 Bogotá (msg 1a1c0ab450958adf): просят подтвердить, что Gmail — авторизованный канал STE для международной коммерции, и сообщить должность/договорные отношения с STE. Интерес к сотрудничеству сохраняется. Черновик в CU 86bbzxnvx. Нужен Rost.",
-      "url": "https://mail.google.com/mail/u/0/#inbox/1a1c0ab450958adf",
+      "url": "https://mail.google.com/mail/u/0/#inbox/1a17a185cf09528b",
       "status": "open",
       "our_reply_at": "2026-11-07T15:34:00-05:00",
       "last_outbound": "reply 07.11 ~15:34 msg 1a1b7b7ba55200e9 thread 1a17a185cf09528b",

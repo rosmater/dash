@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-09T20:28:31-05:00",
+  "updated_at": "2026-11-09T20:28:57-05:00",
   "note": "Rost 06.11 t453: «Клиенты в процессе» = все живые диалоги с этапом intro/catalog/deal/call, не только «ждут каталог». Закрытые не держим.",
   "clients_in_progress": [
     {
@@ -55,7 +55,7 @@
       "pipeline": "catalog",
       "status_label": "Нужен наш ответ",
       "promised_at": "2026-10-27",
-      "note": "09.11 09:16 Bogotá Bedoya спросил про авторизованность Gmail-канала STE и должность отправителя. Черновик в CU 86bbzxnvx. Нужен наш ответ / Rost.",
+      "note": "НОВЫЙ вопрос 09.11 09:16 Bogotá (msg 1a1c0ab450958adf): просят подтвердить, что Gmail — авторизованный канал STE для международной коммерции, и сообщить должность/договорные отношения с STE. Интерес к сотрудничеству сохраняется. Черновик в CU 86bbzxnvx. Нужен Rost.",
       "url": "https://rosmater.github.io/cu/?t=86bbzxnvx",
       "ctx": "QUEUE.md military-industries-gmail-channel-q"
     },
