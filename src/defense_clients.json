@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-10T08:01:21-05:00",
+  "updated_at": "2026-11-10T09:35:59-05:00",
   "note": "Rost 06.11 t453: «Клиенты в процессе» = все живые диалоги с этапом intro/catalog/deal/call, не только «ждут каталог». Закрытые не держим.",
   "clients_in_progress": [
     {
@@ -23,6 +23,17 @@
       "note": "вт 10.11 12:00 Богота / 11:00 CDMX, Meet https://meet.google.com/odi-oqbo-eaq. CU 86bcu0caf.",
       "url": "https://rosmater.github.io/cu/?t=86bcu0caf",
       "ctx": "QUEUE.md decsef-slot-apply"
+    },
+    {
+      "id": "aviatek-sas",
+      "company": "Aviatek SAS",
+      "contact": "katherine.arero@aviateksas.com",
+      "status": "need_reply",
+      "pipeline": "intro",
+      "status_label": "Нужен наш ответ",
+      "note": "Заинтересованы; просят телефон/WhatsApp и актуальный каталог/презентацию",
+      "url": "https://rosmater.github.io/cu/?t=86bbzxnvx",
+      "ctx": "dash_reply_upsert 1a1c5dcf1c44b3a3"
     },
     {
       "id": "engineering-saeca",

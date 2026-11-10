@@ -1,6 +1,6 @@
 {
   "_note": "Живые ответы компаний (STE). Красный «разобрать» = open (мы не ответили). Жёлтый «ждём ответа» = waiting / awaiting_their_reply (наш ответ ушёл). answered/scheduled — снять с внимания. Пишет ste / Оборонка.",
-  "updated_at": "2026-11-10T08:01:21-05:00",
+  "updated_at": "2026-11-10T09:35:59-05:00",
   "unanswered_replies": [
     {
       "company": "TEREM-Letets / TEREM Holding (Bulgaria)",
@@ -19,6 +19,22 @@
       "msg_id": "1a1bf2b0926f76b7",
       "thread_id": "1a1a5ebf6b23a1f8",
       "last_inbound_msg_id": "1a1bf2b0926f76b7"
+    },
+    {
+      "company": "Aviatek SAS",
+      "from": "katherine.arero@aviateksas.com",
+      "subject": "RE: Representación UAV y anti-dron — SpetsTechnoExport",
+      "received_at": "2026-11-10T09:29:10-05:00",
+      "note": "Заинтересованы; просят телефон/WhatsApp и актуальный каталог/презентацию",
+      "url": "https://mail.google.com/mail/u/0/#inbox/1a174d555c8874b7",
+      "status": "open",
+      "priority": true,
+      "pipeline": "intro",
+      "status_label": "Нужен наш ответ",
+      "msg_id": "1a1c5dcf1c44b3a3",
+      "thread_id": "1a174d555c8874b7",
+      "last_inbound_at": "2026-11-10T09:29:10-05:00",
+      "last_inbound_msg_id": "1a1c5dcf1c44b3a3"
     },
     {
       "company": "Engineering SAECA Paraguay",
