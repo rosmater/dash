@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-10T04:50:50-05:00",
+  "updated_at": "2026-11-10T04:50:54-05:00",
   "note": "Rost 06.11 t453: «Клиенты в процессе» = все живые диалоги с этапом intro/catalog/deal/call, не только «ждут каталог». Закрытые не держим.",
   "clients_in_progress": [
     {
@@ -26,12 +26,12 @@
     },
     {
       "id": "engineering-saeca",
-      "company": "Engineering SAECA (Парагвай)",
-      "contact": "Aníbal López <alopez@engineering.com.py> (cc Juan Andrés Campos Cervera <andres@engineering.com.py>, Arthur Sosa <asosa@engineering.com.py>)",
-      "status": "waiting",
+      "company": "Engineering SAECA Paraguay",
+      "contact": "alopez@engineering.com.py",
+      "status": "need_reply",
       "pipeline": "intro",
-      "status_label": "Ждём ответа",
-      "note": "Ответ ушёл 09.11 20:24 Bogotá reply-all (msg 1a1c30e5e824ebd7, thread 1a1c093d6ca84c0a). Спросили: reseller/distributor/integrator готовой продукции STE vs только сборка/производство на месте; с какими учреждениями работают и какие потребности видят. Локальное производство — обсудим с руководством; созвон предложим после их ответа. Каталог PY trimmed ES+EN отправлен. Мяч у них. CU 86bbzxnvx.",
+      "status_label": "Нужен наш ответ",
+      "note": "НОВЫЙ живой ответ 2026-11-09T08:51:09-05:00: нужен наш ответ. msg 1a1c093d6ca84c0a thread 1a1c093d6ca84c0a.",
       "url": "https://rosmater.github.io/cu/?t=86bbzxnvx",
       "ctx": "QUEUE.md engineering-saeca-reply"
     },

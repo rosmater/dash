@@ -1,6 +1,6 @@
 {
   "_note": "Живые ответы компаний (STE). Красный «разобрать» = open (мы не ответили). Жёлтый «ждём ответа» = waiting / awaiting_their_reply (наш ответ ушёл). answered/scheduled — снять с внимания. Пишет ste / Оборонка.",
-  "updated_at": "2026-11-10T04:50:50-05:00",
+  "updated_at": "2026-11-10T04:50:54-05:00",
   "unanswered_replies": [
     {
       "company": "TEREM-Letets / TEREM Holding (Bulgaria)",
@@ -21,20 +21,22 @@
       "last_inbound_msg_id": "1a1bf2b0926f76b7"
     },
     {
-      "company": "Engineering SAECA (Paraguay)",
-      "from": "Aníbal López <alopez@engineering.com.py> (cc Juan Andrés Campos Cervera <andres@engineering.com.py>, Arthur Sosa <asosa@engineering.com.py>)",
+      "company": "Engineering SAECA Paraguay",
+      "from": "alopez@engineering.com.py",
       "subject": "Potencial colaboración Engineering - SpetsTechnoExport",
       "received_at": "2026-11-09T08:51:09-05:00",
-      "note": "Наш reply-all 09.11 20:24 Bogotá (msg 1a1c30e5e824ebd7, thread 1a1c093d6ca84c0a): квалификация reseller/distributor/integrator готовой продукции vs только локальная сборка/производство; какие учреждения и потребности; локальное производство обсудим с руководством; созвон после их ответа; каталог PY trimmed ES+EN. Мяч у них. CU 86bbzxnvx.",
+      "note": "НОВЫЙ живой ответ 2026-11-09T08:51:09-05:00: нужен наш ответ. msg 1a1c093d6ca84c0a thread 1a1c093d6ca84c0a.",
       "url": "https://mail.google.com/mail/u/0/#inbox/1a1c093d6ca84c0a",
-      "status": "waiting",
-      "priority": false,
+      "status": "open",
+      "priority": true,
       "our_reply_at": "2026-11-09T20:24:00-05:00",
       "last_outbound": "reply 2026-11-09 20:24 msg 1a1c30e5e824ebd7 thread 1a1c093d6ca84c0a",
       "pipeline": "intro",
-      "status_label": "Ждём ответа",
+      "status_label": "Нужен наш ответ",
       "thread_id": "1a1c093d6ca84c0a",
-      "msg_id": "1a1c30e5e824ebd7"
+      "msg_id": "1a1c093d6ca84c0a",
+      "last_inbound_at": "2026-11-09T08:51:09-05:00",
+      "last_inbound_msg_id": "1a1c093d6ca84c0a"
     },
     {
       "company": "PRODESATEN (Colombia)",

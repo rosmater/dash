@@ -1,7 +1,7 @@
 {
-  "fetched_at": "2026-11-10T04:50:50-05:00",
+  "fetched_at": "2026-11-10T04:50:54-05:00",
   "src": "ClickUp Defense Systems space 90148618420",
-  "checked": "morning recon 09.11: urgent 86bctg47u brochure + 86bczu31g parts (due 07.11 — просрочено, Дмитрий не прислал); call 86bcu0caf DECSEF 10.11 12:00–13:00 Bogotá; Dronamex 86bctgc67 past 28.10 excluded; after Engineering SAECA reply 09.11 20:24 — pins unchanged; resolve waiting thread 1a1c093d6ca84c0a msg 1a1c30e5e824ebd7; upsert open Military Industries SAS (Колумбия) msg 1a1c0ab450958adf; upsert open TEREM-Letets / TEREM Holding (Bulgaria) msg 1a1bf2b0926f76b7; upsert open Military Industries JR msg 1a1c0ab450958adf",
+  "checked": "morning recon 09.11: urgent 86bctg47u brochure + 86bczu31g parts (due 07.11 — просрочено, Дмитрий не прислал); call 86bcu0caf DECSEF 10.11 12:00–13:00 Bogotá; Dronamex 86bctgc67 past 28.10 excluded; after Engineering SAECA reply 09.11 20:24 — pins unchanged; resolve waiting thread 1a1c093d6ca84c0a msg 1a1c30e5e824ebd7; upsert open Military Industries SAS (Колумбия) msg 1a1c0ab450958adf; upsert open TEREM-Letets / TEREM Holding (Bulgaria) msg 1a1bf2b0926f76b7; upsert open Military Industries JR msg 1a1c0ab450958adf; upsert open Engineering SAECA Paraguay msg 1a1c093d6ca84c0a",
   "urgent_tasks": [
     {
       "id": "86bctg47u",
