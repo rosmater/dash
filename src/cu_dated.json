@@ -1,6 +1,6 @@
 {
- "generated": "2026-11-09 22:48",
- "source": "live filter_tasks 2026-11-09 (t5019+t5594u); base mapping cu-rost-dated.csv 27.10; t5824u refresh dues from filter 2026-11-09; cu_due_sync",
+ "generated": "2026-11-10 10:47",
+ "source": "live filter_tasks 2026-11-10 (t5019+t5594u); base mapping cu-rost-dated.csv 27.10; cu_due_sync",
  "note": "TZ cu-dash-sort §2: mapped, not shown elsewhere on dash",
  "by_dir": {
   "personal": [
@@ -69,19 +69,6 @@
     "list": "Personal",
     "cat": "Личное",
     "lead": "unknown",
-    "bday": false
-   },
-   {
-    "id": "86bcma7tp",
-    "name": "БОТ-ЧАСТЬ: Найти лофт побольше в Base Loft (долгосрочная аренда)",
-    "url": "https://app.clickup.com/t/86bcma7tp",
-    "status": "to do",
-    "due": "2026-11-10",
-    "due_t": "16:00",
-    "parent": "(корневая)",
-    "list": "Personal",
-    "cat": "Личное",
-    "lead": "bot",
     "bday": false
    },
    {
@@ -424,33 +411,6 @@
     "priority": "normal"
    },
    {
-    "id": "86bcn3c3u",
-    "name": "Проверить команду на iPhone для передачи шагов из «Здоровья» боту",
-    "url": "https://app.clickup.com/t/86bcn3c3u",
-    "status": "for check",
-    "due": "2026-11-06",
-    "due_t": "04:00",
-    "parent": "(корневая)",
-    "list": "Personal",
-    "cat": "Личное",
-    "lead": "unknown",
-    "bday": false
-   },
-   {
-    "id": "86bcmtpna",
-    "name": "GO: Smart Fit мама — очно в зале carta de cancelación",
-    "url": "https://app.clickup.com/t/86bcmtpna",
-    "status": "for check",
-    "due": "2026-11-06",
-    "due_t": "04:00",
-    "parent": "",
-    "list": "Personal",
-    "cat": "Личное",
-    "lead": "manual",
-    "bday": false,
-    "priority": "normal"
-   },
-   {
     "id": "86bbjq18f",
     "name": "(сканы) Кейс вынесли все вещи - подумать и подготовиться / с разрушкением дома",
     "url": "https://app.clickup.com/t/86bbjq18f",
@@ -569,6 +529,19 @@
     "bday": false
    },
    {
+    "id": "86bcn3c3u",
+    "name": "Проверить команду на iPhone для передачи шагов из «Здоровья» боту",
+    "url": "https://app.clickup.com/t/86bcn3c3u",
+    "status": "for check",
+    "due": "2026-11-09",
+    "due_t": "04:00",
+    "parent": "(корневая)",
+    "list": "Personal",
+    "cat": "Личное",
+    "lead": "unknown",
+    "bday": false
+   },
+   {
     "id": "86b7wmv85",
     "name": "СОЗВОН АДВОКАТ (1 января проверить) Симка лайф восстановить (ждем реакцию суда - чат с Алевтина)",
     "url": "https://app.clickup.com/t/86b7wmv85",
@@ -635,34 +608,6 @@
     "bday": false
    },
    {
-    "id": "86b7gjjg1",
-    "name": "Тренировка пн",
-    "url": "https://app.clickup.com/t/86b7gjjg1",
-    "status": "to do",
-    "due": "2026-11-09",
-    "due_t": "16:00",
-    "parent": "",
-    "list": "Personal",
-    "cat": "Личное",
-    "lead": "manual",
-    "bday": false,
-    "priority": "urgent"
-   },
-   {
-    "id": "86b7k95k6",
-    "name": "Ежедневный чеклист + привычки (помнить 1 час от подготовки к сну)",
-    "url": "https://app.clickup.com/t/86b7k95k6",
-    "status": "to do",
-    "due": "2026-11-10",
-    "due_t": "04:00",
-    "parent": "",
-    "list": "Personal",
-    "cat": "Личное",
-    "lead": "manual",
-    "bday": false,
-    "priority": "normal"
-   },
-   {
     "id": "86b791c7w",
     "name": "Леша Касаткин поздравить с ДР",
     "url": "https://app.clickup.com/t/86b791c7w",
@@ -676,12 +621,53 @@
     "bday": true
    },
    {
+    "id": "86bd0vyb9",
+    "name": "Забрать капы у ортодонта",
+    "url": "https://app.clickup.com/t/86bd0vyb9",
+    "status": "to do",
+    "due": "2026-11-10",
+    "due_t": "04:00",
+    "parent": "",
+    "list": "Personal",
+    "cat": "Личное",
+    "lead": "manual",
+    "bday": false,
+    "priority": "normal"
+   },
+   {
     "id": "86bcnrmt7",
     "name": "🥊 Бокс 10:00–11:30 (Johann Ruiz)",
     "url": "https://app.clickup.com/t/86bcnrmt7",
     "status": "to do",
-    "due": "2026-11-10",
+    "due": "2026-11-12",
     "due_t": "11:30",
+    "parent": "",
+    "list": "Personal",
+    "cat": "Личное",
+    "lead": "manual",
+    "bday": false,
+    "priority": "normal"
+   },
+   {
+    "id": "86bcma7tp",
+    "name": "Найти лофт побольше в Base Loft (долгосрочная аренда)",
+    "url": "https://app.clickup.com/t/86bcma7tp",
+    "status": "to do",
+    "due": "2026-11-10",
+    "due_t": "16:00",
+    "parent": "(корневая)",
+    "list": "Personal",
+    "cat": "Личное",
+    "lead": "bot",
+    "bday": false
+   },
+   {
+    "id": "86b7k95k6",
+    "name": "Ежедневный чеклист + привычки (помнить 1 час от подготовки к сну)",
+    "url": "https://app.clickup.com/t/86b7k95k6",
+    "status": "to do",
+    "due": "2026-11-11",
+    "due_t": "04:00",
     "parent": "",
     "list": "Personal",
     "cat": "Личное",
@@ -768,6 +754,20 @@
     "cat": "Личное",
     "lead": "unknown",
     "bday": false
+   },
+   {
+    "id": "86b7gjjg1",
+    "name": "Тренировка пн",
+    "url": "https://app.clickup.com/t/86b7gjjg1",
+    "status": "to do",
+    "due": "2026-11-16",
+    "due_t": "16:00",
+    "parent": "",
+    "list": "Personal",
+    "cat": "Личное",
+    "lead": "manual",
+    "bday": false,
+    "priority": "urgent"
    },
    {
     "id": "86b6vcfu9",
@@ -2834,6 +2834,20 @@
     "bday": false
    },
    {
+    "id": "86bd0u383",
+    "name": "Контроль: подключение света Пуэрто Сагунто (Андрей, электричество)",
+    "url": "https://app.clickup.com/t/86bd0u383",
+    "status": "to do",
+    "due": "2026-11-11",
+    "due_t": "04:00",
+    "parent": "",
+    "list": "Сервисная доска Недвижимость",
+    "cat": "Недвижимость",
+    "lead": "manual",
+    "bday": false,
+    "priority": "normal"
+   },
+   {
     "id": "86b72gukf",
     "name": "Кайша кредит - как успехи в освоении денег?",
     "url": "https://app.clickup.com/t/86b72gukf",
@@ -3261,25 +3275,11 @@
     "priority": "normal"
    },
    {
-    "id": "86b9axevh",
-    "name": "(тестим сбор) БОТ ЧАСТЬ: (ФБ рекомендации) 📊 Проверка статистики ЛолаПоп и принятие решений ",
-    "url": "https://app.clickup.com/t/86b9axevh",
-    "status": "for check",
-    "due": "2026-11-16",
-    "due_t": "04:00",
-    "parent": "",
-    "list": "General Tasks OF",
-    "cat": "ОФ",
-    "lead": "bot",
-    "bday": false,
-    "priority": "normal"
-   },
-   {
     "id": "86bae6v4h",
     "name": "БОТ: САРА: отвечать на комментарии - как успехи Сара?",
     "url": "https://app.clickup.com/t/86bae6v4h",
     "status": "for check",
-    "due": "2026-11-05",
+    "due": "2026-11-10",
     "due_t": "04:00",
     "parent": "",
     "list": "Models",
@@ -3295,20 +3295,6 @@
     "status": "to do",
     "due": "2026-11-05",
     "due_t": "21:55",
-    "parent": "",
-    "list": "Models",
-    "cat": "ОФ",
-    "lead": "bot",
-    "bday": false,
-    "priority": "normal"
-   },
-   {
-    "id": "86bbjyrf5",
-    "name": "БОТ: МИШЕЛЬ: Bulk Messaging проверить статистику и ответы фанам в сообщениях (потом передать сбор статистики Фетишь)",
-    "url": "https://app.clickup.com/t/86bbjyrf5",
-    "status": "for check",
-    "due": "2026-11-06",
-    "due_t": "04:00",
     "parent": "",
     "list": "Models",
     "cat": "ОФ",
@@ -3350,6 +3336,20 @@
     "status": "to do",
     "due": "2026-11-06",
     "due_t": "21:55",
+    "parent": "",
+    "list": "Models",
+    "cat": "ОФ",
+    "lead": "bot",
+    "bday": false,
+    "priority": "normal"
+   },
+   {
+    "id": "86bbjyrf5",
+    "name": "БОТ: МИШЕЛЬ: Bulk Messaging проверить статистику и ответы фанам в сообщениях (потом передать сбор статистики Фетишь)",
+    "url": "https://app.clickup.com/t/86bbjyrf5",
+    "status": "for check",
+    "due": "2026-11-09",
+    "due_t": "04:00",
     "parent": "",
     "list": "Models",
     "cat": "ОФ",
@@ -3493,6 +3493,20 @@
     "bday": false
    },
    {
+    "id": "86bd0y140",
+    "name": "Проверить: пришли ли Саре деньги на OKX + пришли ли $10 на кошелёк",
+    "url": "https://app.clickup.com/t/86bd0y140",
+    "status": "to do",
+    "due": "2026-11-12",
+    "due_t": "14:00",
+    "parent": "",
+    "list": "General Tasks OF",
+    "cat": "ОФ",
+    "lead": "manual",
+    "bday": false,
+    "priority": null
+   },
+   {
     "id": "86bamwnd3",
     "name": "Ревизия пользователей кликап",
     "url": "https://app.clickup.com/t/86bamwnd3",
@@ -3524,6 +3538,20 @@
     "url": "https://app.clickup.com/t/86bcnuxbv",
     "status": "to do",
     "due": "2026-11-15",
+    "due_t": "04:00",
+    "parent": "",
+    "list": "General Tasks OF",
+    "cat": "ОФ",
+    "lead": "bot",
+    "bday": false,
+    "priority": "normal"
+   },
+   {
+    "id": "86b9axevh",
+    "name": "(тестим сбор) БОТ ЧАСТЬ: (ФБ рекомендации) 📊 Проверка статистики ЛолаПоп и принятие решений ",
+    "url": "https://app.clickup.com/t/86b9axevh",
+    "status": "for check",
+    "due": "2026-11-16",
     "due_t": "04:00",
     "parent": "",
     "list": "General Tasks OF",
@@ -3776,7 +3804,7 @@
     "name": "БОТ-ЧАСТЬ: Рассылка / Сбор баз / Мониторинг тендеров - план 50 писем в неделю + участие в тендерах",
     "url": "https://app.clickup.com/t/86bbzxnvx",
     "status": "to do",
-    "due": "2026-11-09",
+    "due": "2026-11-10",
     "due_t": "04:00",
     "parent": "(корневая)",
     "list": "Tasks",
@@ -4200,7 +4228,7 @@
     "id": "86b6qqajb",
     "name": "БОТ-ЧАСТЬ: С ИРИНОЙ: Проверка фин отчетов и переучетов 10-го (10)",
     "url": "https://app.clickup.com/t/86b6qqajb",
-    "status": "to do",
+    "status": "for check",
     "due": "2026-11-10",
     "due_t": "04:00",
     "parent": "",
