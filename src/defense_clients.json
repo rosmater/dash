@@ -1,15 +1,15 @@
 {
-  "updated_at": "2026-11-10T02:53:28-05:00",
+  "updated_at": "2026-11-10T02:53:31-05:00",
   "note": "Rost 06.11 t453: «Клиенты в процессе» = все живые диалоги с этапом intro/catalog/deal/call, не только «ждут каталог». Закрытые не держим.",
   "clients_in_progress": [
     {
       "id": "terem-letets",
-      "company": "TEREM-Letets (Болгария)",
+      "company": "TEREM-Letets / TEREM Holding (Bulgaria)",
       "contact": "Georgi Nalbantov <g_nalbantov@terem.bg>",
-      "status": "deal",
+      "status": "need_reply",
       "pipeline": "deal",
-      "status_label": "Детали сделки",
-      "note": "Nalbantov 09.11 02:17 Bogotá ответил: ждёт наш список склада, затем запросит цены; 8× Safir APU 5K/GMIS актуально. Ждём от Дмитрия STE склад + Safir (запрос WA UKR 06.11 16:02; срок CU 07.11 просрочен). CU 86bczu31g.",
+      "status_label": "Нужен наш ответ",
+      "note": "Георги ждёт список запчастей со склада; ВВС Болгарии неофициально пришлют заявки к концу года; запрос 8× Safir APU 5K/GMIS в силе.",
       "url": "https://rosmater.github.io/cu/?t=86bczu31g",
       "ctx": "QUEUE.md terem-nalbantov"
     },
