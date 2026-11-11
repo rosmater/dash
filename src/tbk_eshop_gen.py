@@ -48,20 +48,33 @@ for s in E['sites']:
                    'mob':ps.get(p,{}).get('mobile'),'desk':ps.get(p,{}).get('desktop')} for p in PG}
 for o in E.get('other',[]):
     x=X.get('other',{}).get(o['name'],{}); o['orders']=x.get('orders',[None]*n); o['orders_src']=x.get('orders_src')
+# заказы из 1С (src/tbk_orders_1c.py; без помеченных на удаление) — перекрывают ручные входы
+O1=os.path.join(H,'tbk_orders_1c.json'); OC=None
+if os.path.exists(O1):
+    oj=json.load(open(O1))
+    if oj.get('periods')==E['periods']: OC=oj
+if OC:
+    C=OC['counts']
+    for r in E['sites']+E.get('other',[]):
+        r['orders']=C.get(r['name'],[0]*n); r['orders_src']=None
+    E['orders_src']=f"Заказы — BAS «Заказы покупателей» ({OC['file']}): проведённые, без помеченных на удаление (исключено {OC.get('deleted_excluded',0)}), вкл. отменённые; Glovo (контрагенты «Глово …» в Tabakevich) вынесен в МП — в «Итого свои сайты» заказы без Glovo, а выручка Tabakevich в BAS с Glovo"
 own=E['sites']
 E['own_total']={'label':'Итого свои сайты (без МП и дропа)','rev':col(own,'rev',n),'gp':col(own,'gp',n),'orders':col(own,'orders',n)}
 vt=col([{'v':s.get('visitors')} for s in own],'v',n)
 E['own_total']['conv']=[(round(100*o/v,2) if o is not None and v else None) for o,v in zip(E['own_total']['orders'],vt)]
 E['total']['orders']=X.get('total_orders',[None]*n)
+if OC: E['total']['orders']=[sum(v[i] for v in OC['counts'].values()) for i in range(n)]  # Glovo в BAS сидит внутри Tabakevich → входит в «Итого интернет»
 E['speed_src']=f"Загрузка — мин. из 2 прогонов curl, weekly-mega {SPD} (tabakevich — через UA-прокси). PageSpeed — {', '.join(sorted({(v.get(st) or {}).get('engine','') for P in (PSI.get('sites') or {}).values() for v in P.values() for st in ('mobile','desktop')}-{''})) or 'нет'} от {PSI.get('date','—')} (PSI API без ключа сегодня в квоте 429 → тот же Lighthouse локально); скрипт src/sites_psi.py"
-E['missing']=X.get('missing'); E['src']=X.get('src',E.get('src'))
+E['missing']=X.get('missing') if not OC else X.get('missing_after_1c',X.get('missing'))
+E['src']=X.get('src',E.get('src'))
+if OC: E['src']=(E['src'] or '')+'. '+E['orders_src']
 # дропшипперы: rolling 2 мес.
 today=datetime.date.fromisoformat(X.get('as_of')) if X.get('as_of') else datetime.date.today()
 m0=today.replace(day=1); prev=(m0-datetime.timedelta(days=1)).replace(day=1)
 win={m0.strftime('%Y-%m'),prev.strftime('%Y-%m')}
 allD=X['dropship']; vis=[]; hid=[]
 for d in Dr.get('all',Dr['list']):
-    xd=allD.get(d['name'],{}); d['monthly']=xd.get('monthly',d.get('monthly',{})); d['orders']=xd.get('orders',[None]*n)
+    xd=allD.get(d['name'],{}); d['monthly']=xd.get('monthly',d.get('monthly',{})); d['orders']=(OC['counts'].get(d['name'],[0]*n) if OC else xd.get('orders',[None]*n))
     (vis if any((d['monthly'].get(m) or 0)>0 for m in win) else hid).append(d)
 Dr['all']=vis+hid; Dr['list']=vis; Dr['hidden']=[d['name'] for d in hid]
 Dr['hidden_note']=f"Скрыты (нет продаж за {prev.strftime('%m.%Y')}–{m0.strftime('%m.%Y')}): "+', '.join(Dr['hidden']) if hid else None
@@ -94,6 +107,10 @@ M['lada_src']=f"Остатки/отмены/отзывы/рейтинг — Ла
 for m in M['list']:
     xm=X.get('marketplaces',{}).get(m['name'],{})
     m['orders']=xm.get('orders',m.get('orders',[None]*n)) if m['name']!='Glovo' else m.get('orders')
+    if OC and m['name']!='Glovo': m['orders']=OC['counts'].get(m['name'],[None]*n if m['name'] in ('Епицентр','Алло') else [0]*n)
+    if OC and m['name']=='Glovo' and 'Glovo' in OC['counts']:
+        m['orders']=OC['counts']['Glovo']; su=OC.get('sum_uah',{}).get('Glovo')
+        m['note']='в BAS выручка Glovo внутри Tabakevich (контрагенты «Глово …»)'+(f"; по заказам 1С: {' / '.join(f'{v:,}'.replace(',',' ')+' ₴' for v in su)}" if su else '')
     for k in ('note','rev','gp'):
         if k in xm: m[k]=xm[k]
 json.dump(B,open(J,'w'),ensure_ascii=False,indent=1)
