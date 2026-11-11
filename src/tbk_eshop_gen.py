@@ -25,6 +25,15 @@ def sm(a):
     return round(s,2) if s is not None else None
 def col(rows,k,n):
     return [sm([ (r.get(k) or [None]*n)[i] for r in rows]) for i in range(n)]
+bas=X.get('bas')
+if bas:  # Rost: выручка на последнюю выгрузку 1С
+    for blk in (E,Dr,M): blk['periods']=bas['periods']
+    U=bas['units']
+    for r in E['sites']+E.get('other',[])+Dr.get('all',Dr['list'])+M['list']:
+        if r['name'] in U: r['rev'],r['gp']=U[r['name']]
+        elif r['name']!='Glovo' and 'rev' in r and r.get('rev') and any(v is not None for v in r['rev']): r['rev'],r['gp']=[None]*3,[None]*3
+    E['total']['rev'],E['total']['gp']=bas['total']
+    Dr['src']=bas['src']
 n=len(E['periods'])
 for s in E['sites']:
     x=X['sites'].get(s['name'],{})
@@ -72,7 +81,7 @@ MPS={'Rozetka':('Розетка',dict(stock='В наличии',notready='зав
      'Glovo':('Глово',dict(stock='в наличии',sales='количество продаж',sales_uah='сумма продаж',new_good='хороших',new_bad='плохих')),
      'Епицентр':('Эпицентр',dict(stock='в наличии',sales='количество продаж',sales_uah='сумма продаж',rev_good='итого хороших',rev_bad='итого плохих',new_good='хороших отзывов 3-5',new_bad='плохих отзывов 1-2',promo='в акции')),
      'Алло':('Алло',dict(stock='в наличии',sales='количество продаж',sales_uah='сумма продаж',rev_good='итого хороших',rev_bad='итого плохих',new_good='хороших отзывов 3-5',new_bad='плохих отзывов 1-2',promo='в акции'))}
-WKP={'W 12–18.10':'12.10–18.10','W 05–11.10':'05.10–11.10'}
+WKP={'W 12–18.10':'12.10–18.10','W 05–11.10':'05.10–11.10','W 26.10–01.11':'26.10–01.11','W 19–25.10':'19.10–25.10'}
 for m in M['list']:
     if m['name'] in MPS:
         sec,mp=MPS[m['name']]; i,w=LS.last_week(sec)
