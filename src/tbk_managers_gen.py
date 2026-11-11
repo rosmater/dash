@@ -18,9 +18,14 @@ BIN = '/workspace/binotel'
 CC = '/home/box/contacts/knowledge/notion-brain/business/tabakevich/call-control'
 SHARE = '/workspace/tbk-1c/share-mgr'
 # 1С «Ответственный» → имя в Binotel/HelpCrunch. Заполнить по первой выгрузке (ФИО в 1С пока не видели).
-MAP_1C = {  # только однозначные (среди «Интернет продажи» одна Екатерина и одна Елизавета; Саша — нет Александры в ИМ)
+# Rost t6016u: Binotel «Саша» = Женя = Плотницкая Жанна в 1С — одно имя на даше
+WHO = 'Женя (Плотницкая Жанна)'
+BIN_NAME = {'Саша': WHO}
+RN = lambda x: BIN_NAME.get(x, x)
+MAP_1C = {  # только однозначные (среди «Интернет продажи» одна Екатерина и одна Елизавета)
     'Ткаченко Екатерина': 'Катя',
     'Теслина Елизавета': 'Ліза',
+    'Плотницкая Жанна': WHO,
 }
 
 def wk_ok(n):
@@ -43,11 +48,56 @@ def binotel(n):
     by_day = {}
     for x in missed: by_day[x['dt'][:10]] = by_day.get(x['dt'][:10], 0) + 1
     peak = max(by_day.items(), key=lambda kv: kv[1]) if by_day else None
-    people = [dict(name=k, pct=v['avg'], calls=v['scored'], bad=v['bad']) for k, v in S.items() if k != 'Все']
+    people = [dict(name=RN(k), pct=v['avg'], calls=v['scored'], bad=v['bad']) for k, v in S.items() if k != 'Все']
     return dict(total=total, scored=S['Все']['scored'], of=ge20, inc=inc, out=out, missed=len(missed),
                 missed_note=(f"пропущенных {len(missed)} с {len({x['ph'] for x in missed})} номеров · перезвонили {sum(1 for x in missed if x.get('cb_by'))}"
                              + (f" · пик {peak[0][8:10]}.{peak[0][5:7]} — {peak[1]}" if peak else '')),
                 people=people)
+
+EL = [('greet', 'Привет-<br>ствие*'), ('need', 'Потреб-<br>ность'), ('offer', 'Предло-<br>жение'), ('next', 'След.<br>шаг'), ('bye', 'Проща-<br>ние')]
+def script_check(n):
+    """Rost t6014u: % по элементам скрипта на менеджера из оценок W{n} (флаги 1/0/?; % = да ÷ (да+нет)) + разбор «физический магазин»."""
+    W = f'{CC}/archive/2026-W{n}'; p = f'{W}/pipeline/scores.txt'
+    if not os.path.exists(p): return None
+    C = {}
+    for l in open(p):
+        q = l.rstrip('\n').split('|')
+        if len(q) < 3 or q[1].strip() == '-' or len(q[2]) < 5: continue
+        f = f'{W}/transcripts/{q[0]}.md'
+        if not os.path.exists(f): continue
+        m = re.search(r'^manager: (.+)$', open(f).read(), re.M)
+        if not m: continue
+        c = C.setdefault(RN(m.group(1).strip()), {})
+        for i, (k, _) in enumerate(EL):
+            y, nn = c.get(k, (0, 0)); c[k] = (y + (q[2][i] == '1'), nn + (q[2][i] == '0'))
+    people = []
+    for name, c in C.items():
+        r = dict(name=name)
+        for k, _ in EL:
+            y, nn = c.get(k, (0, 0)); r[k] = round(y / (y + nn) * 100) if y + nn else None; r[k + '_n'] = f'{y}/{y + nn}'
+        people.append(r)
+    phys = None; sc = f'{W}/SCRIPT_CHECK.json'
+    if os.path.exists(sc):
+        J = json.load(open(sc)); phys = {}
+        for x in J.get('physical_store', []):
+            a = phys.setdefault(RN(x['manager']), [0, 0]); a[0] += bool(x['ok']); a[1] += 1
+        for r in people:
+            a = phys.get(r['name']); r['phys'] = f'{a[0]} из {a[1]}' if a else None
+    return dict(week=f'W{n}', elements=EL, people=people, phys_how=(J.get('how') if phys is not None else None),
+                note='% = «да» ÷ (да + нет), «не слышно» не считается; оценка по расшифровкам Binotel (faster-whisper medium)')
+
+def callbacks(n):
+    """Rost t6014u: перезвоны по пропущенным — CALLBACKS.json из notify-watchers/collect/binotel_callbacks.py (неделя блока + свежее)."""
+    out = []
+    for p in sorted(glob.glob(f'{CC}/archive/2026-W*/CALLBACKS.json')):
+        o = json.load(open(p)); w = int(o['week'].split('-W')[1])
+        if w < n: continue
+        mask = lambda ph: ph[:3] + '…' + ph[-4:] if len(ph) >= 8 else ph
+        out.append(dict(week=f"W{w}", missed=o['missed_calls'], clients=o['clients'], cb=o['called_back'], cb_reached=o['called_back_reached'],
+                        self=o['self_reached'], none=o['no_contact'], censored=o['censored'], avg=o['cb_time']['avg_min'], med=o['cb_time']['median_min'],
+                        by=[dict(name=RN(k), n=v['n'], avg=v['avg_min']) for k, v in o['by_manager'].items()],
+                        never=[dict(ph=mask(x['ph']), at=x['first'][8:10] + '.' + x['first'][5:7] + ' ' + x['first'][11:], misses=x['misses'], line=x['line']) for x in o['never']]))
+    return out
 
 def hc(n):
     p = f'{CC}/archive/helpcrunch-2026-W{n}'
@@ -105,6 +155,10 @@ def main():
     M['week'] = f"W{n} · {a:%d.%m}–{b:%d.%m}"
     M['period'] = [a.isoformat(), b.isoformat()]
     M['calls'] = {**M.get('calls', {}), **C}
+    M['calls']['script'] = script_check(n)
+    M['calls']['callbacks'] = callbacks(n)
+    cb0 = next((x for x in M['calls']['callbacks'] if x['week'] == f'W{n}'), None)
+    if cb0: M['calls']['missed_note'] = re.sub(r'пропущенных \d+ с \d+ номеров · перезвонили \d+', f"пропущенных {cb0['missed']} с {cb0['clients']} номеров · перезвонили {cb0['cb']}", M['calls']['missed_note'])
     if H:
         if P: H['prev'] = dict(week=f'W{n-1}', chats=P['chats'], asks=P['asks'], unanswered=P['unanswered'], median=P['median'], gt4h=P['gt4h'])
         M['chats'] = H
