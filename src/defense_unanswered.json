@@ -1,6 +1,6 @@
 {
   "_note": "Живые ответы компаний (STE). Красный «разобрать» = open (мы не ответили). Жёлтый «ждём ответа» = waiting / awaiting_their_reply (наш ответ ушёл). answered/scheduled — снять с внимания. Пишет ste / Оборонка.",
-  "updated_at": "2026-11-11T02:54:11-05:00",
+  "updated_at": "2026-11-11T02:54:15-05:00",
   "unanswered_replies": [
     {
       "company": "TEREM-Letets / TEREM Holding (Bulgaria)",
@@ -21,20 +21,20 @@
       "last_inbound_msg_id": "1a1bf2b0926f76b7"
     },
     {
-      "company": "Aviatek SAS",
+      "company": "Aviatek SAS (Colombia)",
       "from": "Gloria Katherine Arero Ortiz <katherine.arero@aviateksas.com>",
       "subject": "RE: Representación UAV y anti-dron — SpetsTechnoExport",
-      "received_at": "2026-11-10T09:29:10-05:00",
-      "note": "Ответ Arero 10.11 14:49 Bogotá STE Gmail (msg 1a1c702565400efe, thread 1a174d555c8874b7), кому katherine.arero@aviateksas.com. Отправили полный каталог ES+EN (папки), остаёмся в email (без телефона/WhatsApp), предложили Google Meet и попросили 2–3 слота, предпочтительный формат и приоритетные продукты. Ждём слоты Meet + формат + приоритеты.",
+      "received_at": "2026-11-10T17:20:54-05:00",
+      "note": "Хотят C-UAS (детекция/контрмеры), техдоки; предлагают созвон ср 18.11 или чт 19.11 16:00 Колумбия. Нужно подтвердить слот.",
       "url": "https://mail.google.com/mail/u/0/#inbox/1a174d555c8874b7",
-      "status": "waiting",
-      "priority": false,
+      "status": "open",
+      "priority": true,
       "pipeline": "catalog",
-      "status_label": "Ждём ответа: слоты Meet + формат + приоритеты (каталог отправлен)",
-      "msg_id": "1a1c702565400efe",
+      "status_label": "Нужен наш ответ",
+      "msg_id": "1a1c78cd552089e6",
       "thread_id": "1a174d555c8874b7",
-      "last_inbound_at": "2026-11-10T09:29:10-05:00",
-      "last_inbound_msg_id": "1a1c5dcf1c44b3a3",
+      "last_inbound_at": "2026-11-10T17:20:54-05:00",
+      "last_inbound_msg_id": "1a1c78cd552089e6",
       "our_reply_at": "2026-11-10T14:49:00-05:00",
       "last_outbound": "reply 2026-11-10 14:49 msg 1a1c702565400efe thread 1a174d555c8874b7"
     },

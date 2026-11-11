@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-11T02:54:11-05:00",
+  "updated_at": "2026-11-11T02:54:15-05:00",
   "note": "Rost 06.11 t453: «Клиенты в процессе» = все живые диалоги с этапом intro/catalog/deal/call, не только «ждут каталог». Закрытые не держим.",
   "clients_in_progress": [
     {
@@ -26,12 +26,12 @@
     },
     {
       "id": "aviatek-sas",
-      "company": "Aviatek SAS",
+      "company": "Aviatek SAS (Colombia)",
       "contact": "Gloria Katherine Arero Ortiz <katherine.arero@aviateksas.com>",
-      "status": "catalog_sent",
+      "status": "need_reply",
       "pipeline": "catalog",
-      "status_label": "Ждём ответа: слоты Meet + формат + приоритеты (каталог отправлен)",
-      "note": "Каталог ES+EN отправлен 10.11 14:49 Bogotá. Email+Meet only (без телефона/WhatsApp). Попросили 2–3 слота Meet, формат сотрудничества и приоритетные продукты. Ждём ответа.",
+      "status_label": "Нужен наш ответ",
+      "note": "Хотят C-UAS (детекция/контрмеры), техдоки; предлагают созвон ср 18.11 или чт 19.11 16:00 Колумбия. Нужно подтвердить слот.",
       "url": "https://rosmater.github.io/cu/?t=86bbzxnvx",
       "ctx": "QUEUE.md aviatek-sas-reply. Rost: email + Meet only, no phone/WhatsApp."
     },
