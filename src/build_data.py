@@ -989,5 +989,39 @@ for _d in data['directions']:
         _d['cu_dated'] = [t for t in _d['cu_dated'] if _cu_not_closed(t)]
 if data.get('overview') and data['overview'].get('cu_sort'):
     data['overview']['cu_sort'] = [t for t in data['overview']['cu_sort'] if _cu_not_closed(t)]
+# Rost t5962u: тех. подписи (пути к файлам KB/скриптам, имена .md/.json) на даше не показываем — чистим поля-подписи при сборке
+import re as _re_san
+_SAN_PATH = _re_san.compile(r'(?:(?:knowledge|notion-brain|shared-health|src|history|dating|perem|/workspace|/home)/\S*|[\w\-.*<>/]+\.(?:md|json|csv|py|txt|xlsx)\b)')
+_SAN_KEYS = {'src', 'kb', 'source', 'market_src', 'organic_src', 'dialogs_src', 'dialogs_today_src', 'yesterday_new_wa_src', 'tenders_src', 'note', '_note', 'definition', 'stale_note', 'missing'}
+_SAN_SKIP = {'bots', 'qs', 'queue', 'messengers', 'msgs', 'chats_rows'}
+_SAN_FIX = [(r'\s*\+\s*dating/PRIORITY\.md\s*\(([^)]*)\)', r' · \1'), (r'\s*→\s*STEPS_LOG\.md\s*', ' '),
+    (r'SLEEP_LOG\.md колонка «Употреблял» \+ «Дневник сна»', '«Дневник сна», колонка «Употреблял»'), (r'\s*·\s*perem [\w\-]+\.md', ''),
+    (r';\s*порог из [\w\-]+\.md', ''), (r'\s*·\s*PROCESS\.md\s*/\s*', ' · '), (r'today-\*\.md\s*\+\s*', '')]
+def _san_str(s):
+    t = s
+    for a, b in _SAN_FIX: t = _re_san.sub(a, b, t)
+    t = _SAN_PATH.sub('', t)
+    if t == s: return s
+    t = _re_san.sub(r'\(\s*[,;·+]?\s*\)', '', t)
+    t = _re_san.sub(r'\s*\+\s*(?=[)·;,]|$)', '', t)
+    t = _re_san.sub(r'(^|[(·;,])\s*\+\s*', r'\1 ', t)
+    t = _re_san.sub(r'(?:\s*[·;,]\s*){2,}', ' · ', t)
+    t = _re_san.sub(r'^\s*[·;,:+/]\s*|\s*[·;,:+/]\s*$', '', t)
+    t = _re_san.sub(r'\s{2,}', ' ', t).strip()
+    t = _re_san.sub(r'\(\s+', '(', t); t = _re_san.sub(r'\s+\)', ')', t)
+    return t
+def _san(o, depth=0):
+    if isinstance(o, dict):
+        for k, v in list(o.items()):
+            if k in _SAN_SKIP: continue
+            if isinstance(v, str) and (k in _SAN_KEYS or k.endswith('_src') or k.endswith('_note')):
+                o[k] = _san_str(v)
+            elif isinstance(v, (dict, list)):
+                _san(v, depth + 1)
+    elif isinstance(o, list):
+        for v in o: _san(v, depth + 1)
+for _d in data.get('directions') or []:
+    if _d.get('kind') in ('msgs', 'bots'): continue
+    _san(_d)
 json.dump(data, open(OUT, 'w'), ensure_ascii=False, indent=1)
 print('wrote', os.path.abspath(OUT), os.path.getsize(OUT))
