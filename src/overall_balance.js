@@ -141,7 +141,7 @@
     const opened = loadSess();
     let inner;
     if (opened) {
-      inner = `<div class="card bal-card" id="bal-box">${bodyHTML(opened)}</div>`;
+      inner = `<div class="card bal-card" id="bal-box" data-du="overview.balance">${bodyHTML(opened)}</div>`;
     } else {
       inner = `<div class="card bal-card bal-locked" id="bal-box">
         <div class="bal-ghost" aria-hidden="true">${ghostHTML()}</div>
@@ -163,6 +163,16 @@
     const box = document.getElementById('bal-box');
     if (opened) bindLock(box);
     else bindPin(box);
+    try {
+      if (typeof DataUpd !== 'undefined') {
+        if (opened) {
+          const ver = opened.data_ver || JSON.stringify({t: opened.total, h: opened.holdings, a: opened.as_of, s: opened.status});
+          DataUpd.register({id: 'overview.balance', dir: 'overview', title: opened.title || 'Общий баланс', ver: String(ver), anchor: 'bal-box'});
+        } else {
+          DataUpd.unregister('overview.balance');
+        }
+      }
+    } catch (e) {}
     const pin = document.getElementById('bal-pin');
     if (pin) setTimeout(() => { try { pin.focus(); } catch (e) {} }, 40);
   }

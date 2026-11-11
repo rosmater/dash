@@ -1154,5 +1154,8 @@ try:
     data['overall_balance'] = _OB
 except FileNotFoundError:
     pass
+# t6093u / t6095u: версии блоков еженедельного/ежемесячного сбора + data_ver внутри plaintext баланса (уйдёт в шифртекст)
+import data_updates_gen as _dug
+_dug.apply(data)
 json.dump(data, open(OUT, 'w'), ensure_ascii=False, indent=1)
 print('wrote', os.path.abspath(OUT), os.path.getsize(OUT))

@@ -99,6 +99,11 @@ if HIDE:
             if d.get('id') == 'assistants': d['bots'] = [b for b in d.get('bots', []) if b.get('name') not in hj['hide_bots']]
     if hide:
         data['directions'] = [d for d in data['directions'] if d.get('id') not in hide]
+    # t6093u: в payload helper только версии блоков видимых вкладок (баланс сюда не входит)
+    du = data.get('data_updates')
+    if isinstance(du, dict) and isinstance(du.get('blocks'), list):
+        keep = {d.get('id') for d in (data.get('directions') or [])}
+        du['blocks'] = [b for b in du['blocks'] if b.get('dir') in keep]
 pt = json.dumps(data, ensure_ascii=False).encode()
 ct = AESGCM(key).encrypt(iv, pt, None)
 b = lambda x: base64.b64encode(x).decode()

@@ -10,6 +10,8 @@ import sys
 v=sys.argv[1]
 core=open('src/core.js').read()
 html=open(f'src/variant-{v}.html').read().replace('/*CORE*/',core)
+if '/*DATAUPD*/' in html:
+    html=html.replace('/*DATAUPD*/', open('src/data_updates.js').read())
 # t6090u / t6091u: «Общий баланс» JS только в главном даше (variant-a / index), не в helper
 if v=='a':
     bal=open('src/overall_balance.js').read()
@@ -25,7 +27,7 @@ python3 src/encrypt_data.py
 python3 - <<'PY2'
 core=open('src/core.js').read()
 cfg="<script>window.DASH_ENC='data-asst.enc.json';window.DASH_LS='dash_key_asst_v1';window.DASH_TITLE='Дашборд (ассистент)';window.DASH_HELPER=true;</script>\n"
-html=open('src/variant-a.html').read().replace('/*CORE*/',core).replace('/*BALANCE*/','').replace('<head>\n','<head>\n'+cfg,1)  # Rost t3938–43: helper = index + 1 строка конфига; t6091u: без блока баланса
+html=open('src/variant-a.html').read().replace('/*CORE*/',core).replace('/*DATAUPD*/',open('src/data_updates.js').read()).replace('/*BALANCE*/','').replace('<head>\n','<head>\n'+cfg,1)  # Rost t3938–43: helper = index + 1 строка конфига; t6091u: без блока баланса
 # t6091u: в исходнике helper не должно быть блока / его данных, даже в page source
 for needle in ('Общий баланс', 'overall_balance', 'overall_balance_enc', 'BalView', 'dash_bal_sess_v1', 'bal-pin'):
     if needle in html:
