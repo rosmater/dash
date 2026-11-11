@@ -229,13 +229,16 @@ const Dash = (() => {
   }
   function goals(dir, mode = S.mode, id = pid()) {
     if (mode === 'today') mode = 'week';
-    return (dir.goals || []).filter(g => (g.period_type || 'week') === mode).map(g => {
+    return (dir.goals || []).filter(g => g.last_closed || (g.period_type || 'week') === mode).map(g => {
       let actual = g.by_period ? g.by_period[key(mode, id)] : undefined;
+      /* Rost: Недвижимость — помесячный учёт, всегда последний ЗАКРЫТЫЙ месяц (катится сам при закрытии нового) */
+      let closed_label = null;
+      if (g.last_closed && g.by_period) { const now = new Date().toISOString().slice(0, 7); const ks = Object.keys(g.by_period).filter(k => /^M:\d{4}-\d{2}$/.test(k) && k.slice(2) < now && g.by_period[k] != null).sort(); actual = undefined; if (ks.length) { const k = ks[ks.length - 1]; actual = g.by_period[k]; closed_label = new Date(k.slice(2) + '-15').toLocaleString('ru', { month: 'long' }); } }
       if (actual === undefined && g.auto_month === 'income' && mode === 'month') { const s = summary(dir, 'month', id, dir.currency); actual = s.income ?? undefined; }
       const has = actual !== undefined && actual !== null;
       let pct = null;
       if (has) pct = g.lower_is_better ? (actual <= g.target ? 100 : Math.max(0, 100 - (actual - g.target) / Math.max(g.target, 1) * 100)) : (g.target ? actual / g.target * 100 : null);
-      return { ...g, actual: has ? actual : null, pct };
+      return { ...g, actual: has ? actual : null, pct, closed_label };
     });
   }
   function breakdowns(dir, mode = S.mode, id = pid()) {

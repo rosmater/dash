@@ -54,13 +54,54 @@ def binotel(n):
                              + (f" · пик {peak[0][8:10]}.{peak[0][5:7]} — {peak[1]}" if peak else '')),
                 people=people)
 
+# Новый формат архива (t5444-коллектор): archive/2026-WNN/{rows.json, SCORES.txt, SCORED.json, CALLBACKS.json, SCRIPT_CHECK.json}
+# SCORES.txt: base|r1 r2 r3 r4 r5 (0–2) или -|флаги скрипта 5×(1/0/?)|0|с/н|заметка — как scores.txt старых недель; base = rows.json[].base
+# Неделя «готова», если есть SCORED.json (оценка закончена). Даты недели — Пн–Вс по метке ISO-недели.
+def arc(n): return f'{CC}/archive/2026-W{n}'
+def new_ok(n): return all(os.path.exists(f'{arc(n)}/{f}') for f in ('rows.json', 'SCORES.txt', 'SCORED.json'))
+def new_dates(n):
+    a = datetime.date.fromisocalendar(2026, n, 1); return a, a + datetime.timedelta(days=6)
+def new_scores(n):
+    """[(base, manager, sc|None, flags)] из SCORES.txt + rows.json."""
+    R = {r['base']: r for r in json.load(open(f'{arc(n)}/rows.json'))}; out = []
+    for l in open(f'{arc(n)}/SCORES.txt', encoding='utf-8'):
+        q = l.rstrip('\n').split('|')
+        if len(q) < 3 or q[0] not in R: continue
+        out.append((q[0], RN(R[q[0]]['manager']), None if q[1].strip() == '-' else [int(x) for x in q[1].split()], q[2], '|'.join(q[5:])))
+    return R, out
+def binotel_new(n):
+    R, S = new_scores(n)
+    ans = [r for r in R.values() if r['disposition'] == 'ANSWER' and r['seconds'] > 0]
+    sc = [x for x in S if x[2]]
+    people = {}
+    for b, m, v, fl, _ in sc:
+        people.setdefault(m, []).append(sum(v) * 10)
+    pl = [dict(name=m, pct=round(sum(v) / len(v)), calls=len(v), bad=sum(1 for x in v if x < 60)) for m, v in sorted(people.items(), key=lambda kv: -len(kv[1]))]
+    miss = [r for r in R.values() if r['direction'] == 'incoming' and r['disposition'] not in ('ANSWER', 'SMS-SUCCESS') and r['phone']]
+    by_day = {}
+    import zoneinfo
+    for r in miss:
+        d = datetime.datetime.fromtimestamp(r['start'], zoneinfo.ZoneInfo('Europe/Kyiv')).date().isoformat(); by_day[d] = by_day.get(d, 0) + 1
+    peak = max(by_day.items(), key=lambda kv: kv[1]) if by_day else None
+    return dict(total=len(ans), scored=len(sc), of=sum(1 for r in ans if r['seconds'] >= 20), inc=sum(1 for r in ans if r['direction'] == 'incoming'),
+                out=sum(1 for r in ans if r['direction'] == 'outgoing'), missed=len(miss),
+                missed_note=f"пропущенных {len(miss)} с {len({r['phone'] for r in miss})} номеров · перезвонили —" + (f" · пик {peak[0][8:10]}.{peak[0][5:7]} — {peak[1]}" if peak else ''),
+                people=pl)
+
 EL = [('greet', 'Привет-<br>ствие*'), ('need', 'Потреб-<br>ность'), ('offer', 'Предло-<br>жение'), ('next', 'След.<br>шаг'), ('bye', 'Проща-<br>ние')]
 def script_check(n):
     """Rost t6014u: % по элементам скрипта на менеджера из оценок W{n} (флаги 1/0/?; % = да ÷ (да+нет)) + разбор «физический магазин»."""
     W = f'{CC}/archive/2026-W{n}'; p = f'{W}/pipeline/scores.txt'
-    if not os.path.exists(p): return None
     C = {}
-    for l in open(p):
+    if new_ok(n):
+        for b, m, v, fl, _ in new_scores(n)[1]:
+            if not v or len(fl) < 5: continue
+            c = C.setdefault(m, {})
+            for i, (k, _) in enumerate(EL):
+                y, nn = c.get(k, (0, 0)); c[k] = (y + (fl[i] == '1'), nn + (fl[i] == '0'))
+        p = None
+    elif not os.path.exists(p): return None
+    for l in (open(p) if p else []):
         q = l.rstrip('\n').split('|')
         if len(q) < 3 or q[1].strip() == '-' or len(q[2]) < 5: continue
         f = f'{W}/transcripts/{q[0]}.md'
@@ -147,18 +188,21 @@ def sales_1c(a, b):
 
 def main():
     W = [int(re.search(r'w(\d+)$', d).group(1)) for d in glob.glob(f'{BIN}/w[0-9]*') if re.search(r'w(\d+)$', d)]
+    W += [int(re.search(r'W(\d+)$', d).group(1)) for d in glob.glob(f'{CC}/archive/2026-W[0-9]*') if re.search(r'W(\d+)$', d)]
     if '--week' in sys.argv: W = [int(sys.argv[sys.argv.index('--week') + 1])]
-    n = max(x for x in W if wk_ok(x))
-    a, b = week_dates(n)
+    n = max(x for x in W if new_ok(x) or wk_ok(x))  # последняя полная неделя: новый архив (SCORED.json) или старая папка
+    NEW = new_ok(n)
+    a, b = new_dates(n) if NEW else week_dates(n)
     B = json.load(open(J)); M = B['managers']
-    C = binotel(n); H = hc(n); P = hc(n - 1)
+    C = binotel_new(n) if NEW else binotel(n); H = hc(n); P = hc(n - 1)
     M['week'] = f"W{n} · {a:%d.%m}–{b:%d.%m}"
     M['period'] = [a.isoformat(), b.isoformat()]
     M['calls'] = {**M.get('calls', {}), **C}
+    M['calls']['src'] = f'archive/2026-W{n}' + (' (новый формат)' if NEW else ' (старый формат)')
     M['calls']['script'] = script_check(n)
     M['calls']['callbacks'] = callbacks(n)
     cb0 = next((x for x in M['calls']['callbacks'] if x['week'] == f'W{n}'), None)
-    if cb0: M['calls']['missed_note'] = re.sub(r'пропущенных \d+ с \d+ номеров · перезвонили \d+', f"пропущенных {cb0['missed']} с {cb0['clients']} номеров · перезвонили {cb0['cb']}", M['calls']['missed_note'])
+    if cb0: M['calls']['missed_note'] = re.sub(r'пропущенных \d+ с \d+ номеров · перезвонили (\d+|—)', f"пропущенных {cb0['missed']} с {cb0['clients']} номеров · перезвонили {cb0['cb']}", M['calls']['missed_note'])
     if H:
         if P: H['prev'] = dict(week=f'W{n-1}', chats=P['chats'], asks=P['asks'], unanswered=P['unanswered'], median=P['median'], gt4h=P['gt4h'])
         M['chats'] = H

@@ -56,6 +56,14 @@ def main():
         periods=P, total=tot, top_refusal=top, top_return=topr, by_channel=ch, by_manager=mg,
         orders_span=[o_lo.isoformat(), o_hi.isoformat()],
         note='Источник: GSheet «База» (из 1С: «Состояние» заказа + «Возвраты от покупателей»); % — от интернет-заказов 1С за период; причины — по ключевым словам комментария 1С. Возвраты последних недель неполные (возврат приходит позже отказа).')
+    # Rost t6030u: Розетка — отмены из кабинета продавца (снимок агента), 1С — только справка для сверки
+    RZ = '/workspace/tbk-dash-audit/rozetka_cancellations.json'
+    if os.path.exists(RZ):
+        z = json.load(open(RZ)); o = z.get('2026-10') or {}; nv = z.get('2026-11-01_10') or {}
+        B['marketplaces']['rozetka_cancel'] = dict(src='кабинет продавца Rozetka (аналитика + «Неуспешные»), снято 11.11',
+            periods=[dict(label='окт', orders=o.get('orders'), cancelled=o.get('cancelled'), pct=o.get('cancelled_pct'), sum=o.get('cancelled_sum_uah'), orders_sum=o.get('orders_sum_uah')),
+                     dict(label='01–10.11', orders=nv.get('orders'), cancelled=nv.get('cancelled_est'), pct=nv.get('cancelled_pct'), approx=True, processing_pct=nv.get('in_processing_pct'))],
+            reasons=sorted([[k, v] for k, v in (o.get('reasons') or {}).items() if v], key=lambda kv: -kv[1]))
     json.dump(B, open(J, 'w'), ensure_ascii=False, indent=1)
     print(json.dumps(dict(P=P, tot=tot, top=top, ch=ch, mg=mg), ensure_ascii=False))
 if __name__ == '__main__': main()
