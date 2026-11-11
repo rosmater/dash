@@ -112,9 +112,28 @@ for m in M['list']:
     m['orders']=xm.get('orders',m.get('orders',[None]*n)) if m['name']!='Glovo' else m.get('orders')
     if OC and m['name']!='Glovo': m['orders']=OC['counts'].get(m['name'],[None]*n if m['name'] in ('Епицентр','Алло') else [0]*n)
     if OC and m['name']=='Glovo' and 'Glovo' in OC['counts']:
-        m['orders']=OC['counts']['Glovo']; su=OC.get('sum_uah',{}).get('Glovo')
-        m['note']='в BAS выручка Glovo внутри Tabakevich (контрагенты «Глово …»)'+(f"; по заказам 1С: {' / '.join(f'{v:,}'.replace(',',' ')+' ₴' for v in su)}" if su else '')
+        G=OC.get('glovo') or {}
+        m['orders']=OC['counts']['Glovo']
+        su=G.get('sum_uah') or OC.get('sum_uah',{}).get('Glovo')
+        if su: m['sum_uah']=su
+        if G.get('cancelled'): m['cancelled']=G['cancelled']
+        if G.get('points'): m['points']=G['points']
+        if G.get('week_extra'): m['week_extra']=G['week_extra']
+        if G.get('currency'): m['currency']=G['currency']
+        parts=['суммы в ₴ из BAS «Заказы покупателей» (валюта грн; $ пусто — в BAS выручка Glovo внутри Tabakevich, контрагенты «Глово …»)']
+        if G.get('week_extra'):
+            w=G['week_extra']; parts.append(f"последняя закрытая неделя {w['label']}: {w['orders']:,} зак. / {w['sum_uah']:,} ₴".replace(',',' '))
+        m['note']=' · '.join(parts)
     for k in ('note','rev','gp'):
-        if k in xm: m[k]=xm[k]
+        if k in xm and not (m['name']=='Glovo' and k=='note' and OC and 'Glovo' in OC.get('counts',{})):
+            m[k]=xm[k]
+if OC and OC.get('glovo'):
+    G=OC['glovo']; w=G.get('week_extra') or {}
+    M['src']=(X.get('mp_src') or M.get('src') or '')
+    # mp_src already explains USD/BAS; добавим явную валюту и покрытие файла заказов
+    extra=f"Заказы и суммы Glovo — BAS «Заказы покупателей» ({OC['file']}, {G.get('file_dates','')}, валюта грн / UAH, без помеченных на удаление, вкл. отменённые). Состояние «Глово» — незавершённые; в историю входят контрагенты «Глово …» в Tabakevich."
+    if w: extra+=f" Файл покрывает последнюю закрытую неделю {w.get('label')}: {w.get('orders')} зак. / {w.get('sum_uah'):,} ₴ (в шапке периодов этой недели ещё нет — нет выручки BAS за неё).".replace(',',' ')
+    if M['src'] and extra not in M['src']: M['src']=M['src'].rstrip('.')+'. '+extra
+    else: M['src']=extra
 json.dump(B,open(J,'w'),ensure_ascii=False,indent=1)
 print('ok own_total',E['own_total']['rev'],'hidden',Dr['hidden'])
