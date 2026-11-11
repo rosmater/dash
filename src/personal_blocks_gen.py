@@ -131,5 +131,22 @@ for g in B['health']['groups']:
     for t in g['tasks']:
         if t['cu'] == '86b6q92zn': t['due'] = '2027-09-26'
         if t['cu'] == '86b6q93gw': t['due'] = '2028-07-17'
+# Rost t6060u: «🧭 На решение» в Личном (как Табакевич). Не мейн/родители.
+# t6061u: у ассистентки на Личном только этот блок и «Документы» — остальные hide_from_helper.
+B['decisions'] = dict(
+    title='На решение',
+    items=[
+        dict(slot='Виза Колумбия', cu='86b6qnxn8', url=cu('86b6qnxn8'),
+             name='Подать на новую визу колумбия - какой план?',
+             status='to do', due='2027-05-01', role='🚶GO', assignees=['Rost']),
+        dict(slot='Ирина · оплата', cu='86b82r2b5', url=cu('86b82r2b5'),
+             name='Ирина оплата (все пришло?) - проверка отчета и решение',
+             status='to do', due='2026-11-04', role='Control', assignees=['Rost']),
+    ],
+    src='CU Personal · открытые задачи, где Rost должен решить (не мейн/родители)',
+)
+for k in ('checklist', 'bju', 'sleep', 'dating', 'events', 'spanish', 'steps', 'gym', 'boxing', 'alcohol', 'health'):
+    if isinstance(B.get(k), dict):
+        B[k]['hide_from_helper'] = True
 json.dump(B, open(os.path.join(H, 'personal_blocks.json'), 'w'), ensure_ascii=False, indent=1)
 print('ok', B['sleep']['last'], B['gym']['week'], B['boxing']['week'], B['spanish']['month'])

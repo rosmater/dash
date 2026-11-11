@@ -742,6 +742,50 @@ for e in _g.get('events', []):
     cal_events.append(dict(src=src, title=t, start=e['start'], end=e['end'], all_day=e['all_day'],
                            url=e.get('url'), via='gcal-sync' if src == 'clickup' else None))
 _seen = {x['title'].strip().lower() for x in cal_events if x['src'] == 'clickup' and not x.get('all_day')}  # t5824u: all-day gcal-sync must not block timed CU
+# Rost t6062u: длина блока в календаре.
+# ClickUp: start_date→due_date, если оба со временем и интервал ≥30 мин;
+# иначе диапазон из названия («10:00–11:30»);
+# иначе start + time_estimate, иначе due − time_estimate.
+# Только due без длительности — end=None (маленький слот, как раньше).
+# Google Calendar: start→end уже из снимка.
+_RANGE_RE = re.compile(r'(\d{1,2}:\d{2})\s*[–—\-]\s*(\d{1,2}:\d{2})')
+def _hm(day, hm):
+    hh, mm = hm.split(':')
+    return datetime.datetime(day.year, day.month, day.day, int(hh), int(mm), tzinfo=_BOG)
+def _cu_span(t, due):
+    """Return (start_dt, end_dt). end_dt is None if only a due time, no duration."""
+    start = None
+    sms = t.get('start_ms') or t.get('start_date')
+    if sms not in (None, '', 0):
+        try:
+            start = datetime.datetime.fromtimestamp(int(sms) / 1000, _BOG)
+            if start.strftime('%H:%M') == '04:00':
+                start = None
+        except Exception:
+            start = None
+    te = t.get('time_estimate')
+    try:
+        te = int(te) if te not in (None, '', 0) else None
+    except Exception:
+        te = None
+    if start and due and (due - start) >= datetime.timedelta(minutes=30):
+        return start, due
+    m = _RANGE_RE.search(t.get('name') or '')
+    if m:
+        day = (start or due)
+        try:
+            a, b = _hm(day, m.group(1)), _hm(day, m.group(2))
+            if b <= a:
+                b += datetime.timedelta(days=1)
+            return a, b
+        except Exception:
+            pass
+    if start and te:
+        return start, start + datetime.timedelta(milliseconds=te)
+    if due and te:
+        return due - datetime.timedelta(milliseconds=te), due
+    return (start or due), None
+
 for t in _cu.get('tasks', []):
     d = datetime.datetime.fromtimestamp(t['due_ms'] / 1000, _BOG)
     if d.strftime('%H:%M') == '04:00':  # без времени (только дата) — в ленту не берём, они идут через GCal-синк
@@ -750,7 +794,8 @@ for t in _cu.get('tasks', []):
     nm = re.sub(r'\+?\d[\d \-]{6,}\d', '…', t['name']).strip()
     if nm.lower() in _seen: continue
     asg=[a for a in (t.get('assignees') or []) if a] or ['Rost']  # cu_cal snapshot = assignee me
-    cal_events.append(dict(src='clickup', title=nm, start=d.isoformat(), end=None, all_day=False, due=True,
+    st, en = _cu_span(t, d)
+    cal_events.append(dict(src='clickup', title=nm, start=st.isoformat(), end=en.isoformat() if en else None, all_day=False, due=True,
                            list=t.get('list'), url=f"https://rosmater.github.io/cu/?t={t['id']}", assignees=asg))
 # Rost 25.10: в календаре только события со временем — задачи ClickUp «на весь день» (gcal-sync) не показываем
 cal_events = [x for x in cal_events if not x['all_day']]
@@ -773,7 +818,7 @@ for c in [x for x in cal_events if x['src'] == 'clickup']:
         if sc and g['start'] <= c['start'] <= g['end']: sc += 0.5
         if sc > bs: best, bs = g, sc
     if best and bs >= 2:
-        best.setdefault('cu', []).append(dict(title=c['title'], url=c['url'], list=c.get('list'), due=c['start'], assignees=c.get('assignees')))
+        best.setdefault('cu', []).append(dict(title=c['title'], url=c['url'], list=c.get('list'), due=c['start'], start=c['start'], end=c.get('end'), assignees=c.get('assignees')))
         c['linked'] = True
 cal_events = [x for x in cal_events if not x.get('linked')]
 cal_events.sort(key=lambda x: x['start'])

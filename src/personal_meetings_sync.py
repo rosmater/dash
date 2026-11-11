@@ -106,6 +106,18 @@ def excluded(t, ids, cre):
     return False
 
 
+
+def _role_option_id(t):
+    for c in t.get('custom_fields') or []:
+        if not isinstance(c, dict) or c.get('id') != ROLE_FIELD:
+            continue
+        v = c.get('value')
+        if isinstance(v, dict):
+            return str(v.get('id') or '')
+        return str(v or '')
+    return None
+
+
 def parse_tasks(files):
     raw = []
     for f in files:
@@ -121,6 +133,11 @@ def parse_tasks(files):
             continue
         st = (field(t.get('status'), 'status') or '').lower()
         if st in CLOSED or st.startswith('complete'):
+            continue
+        # t5951u/t6060u: if the dump carries custom_fields, require Role=🚶GO.
+        # No fallback by due time, title emoji, missing role, or Personal list.
+        if 'custom_fields' in t and _role_option_id(t) != ROLE_GO:
+            print('skip not-GO', tid, (t.get('name') or '')[:50])
             continue
         seen.add(tid)
         tasks.append(dict(

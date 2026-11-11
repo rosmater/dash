@@ -46,6 +46,10 @@ if HIDE:
                         if isinstance(bv, dict):
                             for lk, lv in bv.items():
                                 if isinstance(lv, list): bv[lk] = [x for x in lv if not (isinstance(x, dict) and x.get('hide_from_helper'))]
+    # Rost t6061u: у ассистентки в Личном нет «Назначенных встреч» (только На решение + Документы)
+    for d in data['directions']:
+        if d.get('id') == 'personal':
+            d['scheduled_meetings'] = []
     if hj.get('messengers_monitor_only'):  # Rost 27.10 t3927: монитор оставить, контент-блоки мессенджеров убрать
         for d in data['directions']:
             if d.get('id') == 'messengers':

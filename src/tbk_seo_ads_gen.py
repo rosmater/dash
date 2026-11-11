@@ -2,6 +2,9 @@
 """Rost t6013u (11.11.2026): Табакевич — «Оценка сеошников» (Андрей / Кирилл + ссылки CU), «SEO по неделям»,
 реклама Google Ads → цена заказа по сайтам, плейсхолдеры «Отзывы» (Google Business Profile) и «Опт ИМ и опт-запросы».
 Патчит ТОЛЬКО: eshop.sites[*].seo_who/seo_report/ctx_note/ads, retail.checks_note, eshop.ads_src, ключи seo_team / seo_weekly / reviews / opt_im в src/tbk_blocks.json.
+UI (variant-a.html, не ломать при регенерации): t6063u–t6065u/t6067u — пояснения SEO (Товары/Тексты/Ссылки/DR) и методология (Ads/GA4/BAS) в свёрнутом «Пояснения»;
+«Скорость по страницам», «Выручка по сайтам», «⭐ Отзывы» — <details> закрыты по умолчанию;
+в таблице отзывов не выводим status=closed_perm (закрыто навсегда); closed_temp оставляем серым.
 Входы: src/tbk_seo_inputs.json (ручные, только из источников) + таблицы рекламы (GSheet export xlsx, публичная ссылка;
 кэш /workspace/tbk-dash-audit/ads/). Ничего не выдумывает: нет расхода → null.
 Запуск: python3 src/tbk_seo_ads_gen.py [--offline]"""

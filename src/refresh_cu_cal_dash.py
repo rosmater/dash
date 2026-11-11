@@ -10,7 +10,7 @@
 timed due. Упоминание календаря в чате само по себе — НЕ повод (Rost t4307).
 
 Вход: ответ filter_tasks ({tasks:[...]} / [tasks] / несколько JSON-строк). Выход — прежняя форма cu_cal_dash.json:
-  {fetched_at, tasks:[{id,name,status,priority,due_ms,list}]}
+  {fetched_at, tasks:[{id,name,status,priority,due_ms,start_ms,time_estimate,list}]}
 Без времени = due 04:00 Богота (09:00 UTC) — в снимке остаются (build_data.py сам их отбрасывает), но в счёт «timed» не идут.
 Флаги: --out PATH (по умолч. /workspace/cu_cal_dash.json), --dry (сводка без записи),
        --if-timed-changed (не писать и выйти с кодом 10, если набор timed (id,due_ms,status) не изменился против --out).
@@ -67,8 +67,21 @@ for t in raw:
     try: due_ms = int(due)
     except Exception: continue
     seen.add(tid)
-    tasks.append(dict(id=tid, name=t.get('name') or '(без названия)', status=s(t.get('status'), 'status'),
-                      priority=s(t.get('priority'), 'priority'), due_ms=due_ms, list=s(t.get('list'), 'name')))
+    start_ms = t.get('start_date') or t.get('start_ms')
+    try:
+        start_ms = int(start_ms) if start_ms not in (None, '', 0) else None
+    except Exception:
+        start_ms = None
+    te = t.get('time_estimate')
+    try:
+        te = int(te) if te not in (None, '', 0) else None
+    except Exception:
+        te = None
+    rec = dict(id=tid, name=t.get('name') or '(без названия)', status=s(t.get('status'), 'status'),
+               priority=s(t.get('priority'), 'priority'), due_ms=due_ms, list=s(t.get('list'), 'name'))
+    if start_ms: rec['start_ms'] = start_ms
+    if te: rec['time_estimate'] = te
+    tasks.append(rec)
 if not tasks:
     sys.exit('refresh_cu_cal_dash: во входе нет задач с due_date — снимок НЕ перезаписан')
 tasks.sort(key=lambda x: x['due_ms'])

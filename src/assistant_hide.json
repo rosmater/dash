@@ -1,1 +1,14 @@
-{"_note": "Что скрыть в копии ассистента (helper.html). directions: id вкладок. calendar_cu_only: в Календаре helper только задачи ClickUp со временем, без событий/меток Google (Rost 25.10). | 25.10 позже: Rost — у helper календаря НЕТ вообще (directions=[calendar]). | 25.10 ~23:59: strip_hidden_blocks — блоки *_blocks с hide_from_helper (Личное: Дейтинг, Употребление, Здоровье) вырезаются из data-asst; в helper.html ещё и JS-фильтр window.DASH_HELPER. | 26.10: Мессенджеры/Ассистенты/Боты (личные метаданные) — helper не видит. | 27.10 t3927: Rost — меню Мессенджеры/Ассистенты у helper ОСТАВИТЬ; в Мессенджерах только монитор (watchers/coverage), контент-блоки вырезаны; в Ассистентах скрыт только бот Дейтинг. | 27.10 t3934–35: данные мессенджеров НЕ режем (те же цифры монитора, что у основного); скрытие блоков только в UI (helper: шапка+монитор).", "directions": ["bots", "calendar", "unsorted"], "calendar_cu_only": true, "strip_hidden_blocks": true, "messengers_monitor_only": false, "hide_bots": ["Дейтинг"]}
+{
+  "_note": "Что скрыть в копии ассистента (helper.html). directions: id вкладок. calendar_cu_only: в Календаре helper только задачи ClickUp со временем, без событий/меток Google (Rost 25.10). | 25.10 позже: Rost — у helper календаря НЕТ вообще (directions=[calendar]). | 25.10 ~23:59: strip_hidden_blocks — блоки *_blocks с hide_from_helper (Личное: Дейтинг, Употребление, Здоровье) вырезаются из data-asst; в helper.html ещё и JS-фильтр window.DASH_HELPER. | 26.10: Мессенджеры/Ассистенты/Боты (личные метаданные) — helper не видит. | 27.10 t3927: Rost — меню Мессенджеры/Ассистенты у helper ОСТАВИТЬ; в Мессенджерах только монитор (watchers/coverage), контент-блоки вырезаны; в Ассистентах скрыт только бот Дейтинг. | 27.10 t3934–35: данные мессенджеров НЕ режем (те же цифры монитора, что у основного); скрытие блоков только в UI (helper: шапка+монитор). | 11.11 t6061u: Личное у helper — только «🧭 На решение» и «Документы»; остальные personal_blocks hide_from_helper, scheduled_meetings вырезаются.",
+  "directions": [
+    "bots",
+    "calendar",
+    "unsorted"
+  ],
+  "calendar_cu_only": true,
+  "strip_hidden_blocks": true,
+  "messengers_monitor_only": false,
+  "hide_bots": [
+    "Дейтинг"
+  ]
+}
