@@ -1,0 +1,2847 @@
+{
+  "fetched_at": "2026-11-11T15:55:00-05:00",
+  "as_of": "2026-11-11",
+  "payments": {
+    "title": "Оплаты квартирантов · долги · сверка",
+    "cur": "EUR",
+    "as_of": "2026-11-11",
+    "closed_months": [
+      "2026-08",
+      "2026-09",
+      "2026-10"
+    ],
+    "current_month": "2026-11",
+    "months": [
+      "2026-08",
+      "2026-09",
+      "2026-10",
+      "2026-11"
+    ],
+    "month_labels": {
+      "2026-08": "август",
+      "2026-09": "сентябрь",
+      "2026-10": "октябрь",
+      "2026-11": "ноябрь (неполный)"
+    },
+    "src": "GSheet Расчет_Аренда 1GU84qAqjkmkMKPMV1sghW9pCOyNPsXOPwoM1k0dk6-o · ИТОГИ + Начисление_аренды (по авг 2026); Начисление из кэша выгрузки, ИТОГИ перечитаны 11.11.2026 · GSheet Upgraded_Rent_Database_Chronology 1V-gDAxn36DfJ7e9jfTW_SI6GIoYofI_v4KWh3W9OM_c · Справочник объектов, Календарь начислений, Реестр платежей, Контроль баланса, Эксплуатационные расходы, Отчет P&L (прочитано 11.11.2026)",
+    "fetched_at": "2026-11-11T15:55:00-05:00",
+    "rows": [
+      {
+        "id": "O2-O1",
+        "property": "Оливино",
+        "unit": "Комната 1",
+        "tenant": "Литвиненко Наталья",
+        "vacant": false,
+        "vacant_reason": null,
+        "rate": 450.0,
+        "date_in": "2026-09-01",
+        "date_out": null,
+        "debt": 491.93,
+        "debt_rent": 450.0,
+        "debt_util": 41.93,
+        "status": "ok",
+        "months": {
+          "2026-08": {
+            "expected": 450.0,
+            "paid": 450.0,
+            "paid_dates": [
+              "2026-08-14"
+            ],
+            "diff": 0.0,
+            "status": "ok",
+            "vacant": false,
+            "tenant": "Литвиненко Наталья",
+            "unconfirmed": false,
+            "util_paid": null,
+            "deposit_paid": null,
+            "notes": []
+          },
+          "2026-09": {
+            "expected": 450.0,
+            "paid": 450.0,
+            "paid_dates": [
+              "2026-09-15"
+            ],
+            "diff": 0.0,
+            "status": "ok",
+            "vacant": false,
+            "tenant": "Литвиненко Наталья",
+            "unconfirmed": false,
+            "util_paid": 45.4,
+            "deposit_paid": null,
+            "notes": []
+          },
+          "2026-10": {
+            "expected": 450.0,
+            "paid": 450.0,
+            "paid_dates": [
+              "2026-10-13"
+            ],
+            "diff": 0.0,
+            "status": "ok",
+            "vacant": false,
+            "tenant": "Литвиненко Наталья",
+            "unconfirmed": false,
+            "util_paid": 54.7,
+            "deposit_paid": null,
+            "notes": []
+          },
+          "2026-11": {
+            "expected": 450.0,
+            "paid": 0.0,
+            "paid_dates": [],
+            "diff": -450.0,
+            "status": "mismatch",
+            "vacant": false,
+            "tenant": "Литвиненко Наталья",
+            "unconfirmed": false,
+            "util_paid": 0.0,
+            "deposit_paid": null,
+            "notes": []
+          }
+        },
+        "note": null
+      },
+      {
+        "id": "O2-O2",
+        "property": "Оливино",
+        "unit": "Комната 2",
+        "tenant": "Мила",
+        "vacant": false,
+        "vacant_reason": null,
+        "rate": 420.0,
+        "date_in": "2026-09-01",
+        "date_out": null,
+        "debt": 1612.8,
+        "debt_rent": 1260.0,
+        "debt_util": 352.8,
+        "status": "mismatch",
+        "months": {
+          "2026-08": {
+            "expected": 420.0,
+            "paid": 420.0,
+            "paid_dates": [
+              "2026-08-31"
+            ],
+            "diff": 0.0,
+            "status": "ok",
+            "vacant": false,
+            "tenant": "Мила",
+            "unconfirmed": false,
+            "util_paid": null,
+            "deposit_paid": null,
+            "notes": []
+          },
+          "2026-09": {
+            "expected": 420.0,
+            "paid": 0.0,
+            "paid_dates": [],
+            "diff": -420.0,
+            "status": "mismatch",
+            "vacant": false,
+            "tenant": "Мила",
+            "unconfirmed": false,
+            "util_paid": 0.0,
+            "deposit_paid": null,
+            "notes": []
+          },
+          "2026-10": {
+            "expected": 420.0,
+            "paid": 0.0,
+            "paid_dates": [],
+            "diff": -420.0,
+            "status": "mismatch",
+            "vacant": false,
+            "tenant": "Мила",
+            "unconfirmed": false,
+            "util_paid": 0.0,
+            "deposit_paid": null,
+            "notes": []
+          },
+          "2026-11": {
+            "expected": 420.0,
+            "paid": 0.0,
+            "paid_dates": [],
+            "diff": -420.0,
+            "status": "mismatch",
+            "vacant": false,
+            "tenant": "Мила",
+            "unconfirmed": false,
+            "util_paid": 0.0,
+            "deposit_paid": null,
+            "notes": []
+          }
+        },
+        "note": null
+      },
+      {
+        "id": "O2-O3",
+        "property": "Оливино",
+        "unit": "Комната 3",
+        "tenant": "Харкова Наталья",
+        "vacant": true,
+        "vacant_reason": "вакантно",
+        "rate": 460.0,
+        "date_in": "2026-09-01",
+        "date_out": "2026-10-15",
+        "debt": 1335.06,
+        "debt_rent": 1070.0,
+        "debt_util": 265.06,
+        "status": "mismatch",
+        "months": {
+          "2026-08": {
+            "expected": 460.0,
+            "paid": -460.0,
+            "paid_dates": [],
+            "diff": -920.0,
+            "status": "mismatch",
+            "vacant": false,
+            "tenant": "Харкова Наталья",
+            "unconfirmed": false,
+            "util_paid": null,
+            "deposit_paid": null,
+            "notes": [
+              "наличными",
+              "в Начисление_аренды оплата −460 (как в источнике)"
+            ]
+          },
+          "2026-09": {
+            "expected": 460.0,
+            "paid": 0.0,
+            "paid_dates": [],
+            "diff": -460.0,
+            "status": "mismatch",
+            "vacant": false,
+            "tenant": "Харкова Наталья",
+            "unconfirmed": false,
+            "util_paid": 0.0,
+            "deposit_paid": null,
+            "notes": []
+          },
+          "2026-10": {
+            "expected": 230.0,
+            "paid": 1000.0,
+            "paid_dates": [
+              "2026-10-28"
+            ],
+            "diff": 770.0,
+            "status": "mismatch",
+            "vacant": false,
+            "tenant": "Харкова Наталья",
+            "unconfirmed": false,
+            "util_paid": 0.0,
+            "deposit_paid": null,
+            "notes": [
+              "деньги у Ольги - наличные"
+            ]
+          },
+          "2026-11": {
+            "expected": 0.0,
+            "paid": 0.0,
+            "paid_dates": [],
+            "diff": 0.0,
+            "status": "ok",
+            "vacant": true,
+            "tenant": null,
+            "unconfirmed": false,
+            "util_paid": 0.0,
+            "deposit_paid": null,
+            "notes": []
+          }
+        },
+        "note": null
+      },
+      {
+        "id": "O2-O4",
+        "property": "Оливино",
+        "unit": "Комната 4",
+        "tenant": "Горденко Иветта",
+        "vacant": false,
+        "vacant_reason": null,
+        "rate": 470.0,
+        "date_in": "2026-09-01",
+        "date_out": null,
+        "debt": 5.0,
+        "debt_rent": 0.0,
+        "debt_util": 5.0,
+        "status": "ok",
+        "months": {
+          "2026-08": {
+            "expected": 470.0,
+            "paid": 470.0,
+            "paid_dates": [
+              "2026-08-06"
+            ],
+            "diff": 0.0,
+            "status": "ok",
+            "vacant": false,
+            "tenant": "Горденко Иветта",
+            "unconfirmed": false,
+            "util_paid": null,
+            "deposit_paid": null,
+            "notes": []
+          },
+          "2026-09": {
+            "expected": 470.0,
+            "paid": 470.0,
+            "paid_dates": [
+              "2026-09-05"
+            ],
+            "diff": 0.0,
+            "status": "ok",
+            "vacant": false,
+            "tenant": "Горденко Иветта",
+            "unconfirmed": false,
+            "util_paid": 118.22,
+            "deposit_paid": null,
+            "notes": []
+          },
+          "2026-10": {
+            "expected": 470.0,
+            "paid": 470.0,
+            "paid_dates": [
+              "2026-10-07"
+            ],
+            "diff": 0.0,
+            "status": "ok",
+            "vacant": false,
+            "tenant": "Горденко Иветта",
+            "unconfirmed": false,
+            "util_paid": 94.74,
+            "deposit_paid": null,
+            "notes": []
+          },
+          "2026-11": {
+            "expected": 470.0,
+            "paid": 470.0,
+            "paid_dates": [
+              "2026-11-04"
+            ],
+            "diff": 0.0,
+            "status": "ok",
+            "vacant": false,
+            "tenant": "Горденко Иветта",
+            "unconfirmed": false,
+            "util_paid": 47.66,
+            "deposit_paid": null,
+            "notes": []
+          }
+        },
+        "note": "Гордеевы были раньше"
+      },
+      {
+        "id": "O3-R1",
+        "property": "Рей Пастор",
+        "unit": "Комната 1",
+        "tenant": "Чебыкина Светлана",
+        "vacant": false,
+        "vacant_reason": null,
+        "rate": 450.0,
+        "date_in": "2026-09-01",
+        "date_out": null,
+        "debt": 4.93,
+        "debt_rent": 0.0,
+        "debt_util": 4.93,
+        "status": "mismatch",
+        "months": {
+          "2026-08": {
+            "expected": 450.0,
+            "paid": 250.0,
+            "paid_dates": [
+              "2026-08-08"
+            ],
+            "diff": -200.0,
+            "status": "mismatch",
+            "vacant": false,
+            "tenant": "Чебыкина Светлана",
+            "unconfirmed": false,
+            "util_paid": null,
+            "deposit_paid": null,
+            "notes": []
+          },
+          "2026-09": {
+            "expected": 450.0,
+            "paid": 675.0,
+            "paid_dates": [
+              "2026-09-22",
+              "2026-09-24"
+            ],
+            "diff": 225.0,
+            "status": "mismatch",
+            "vacant": false,
+            "tenant": "Чебыкина Светлана",
+            "unconfirmed": false,
+            "util_paid": 50.0,
+            "deposit_paid": null,
+            "notes": []
+          },
+          "2026-10": {
+            "expected": 450.0,
+            "paid": 445.0,
+            "paid_dates": [
+              "2026-10-11"
+            ],
+            "diff": -5.0,
+            "status": "mismatch",
+            "vacant": false,
+            "tenant": "Чебыкина Светлана",
+            "unconfirmed": false,
+            "util_paid": 60.0,
+            "deposit_paid": null,
+            "notes": []
+          },
+          "2026-11": {
+            "expected": 450.0,
+            "paid": 445.0,
+            "paid_dates": [
+              "2026-11-08"
+            ],
+            "diff": -5.0,
+            "status": "mismatch",
+            "vacant": false,
+            "tenant": "Чебыкина Светлана",
+            "unconfirmed": true,
+            "util_paid": 27.0,
+            "deposit_paid": null,
+            "notes": []
+          }
+        },
+        "note": "думает, что у нее аренда 445"
+      },
+      {
+        "id": "O3-R2",
+        "property": "Рей Пастор",
+        "unit": "Комната 2",
+        "tenant": "Бондаренко Ирина",
+        "vacant": false,
+        "vacant_reason": null,
+        "rate": 500.0,
+        "date_in": "2026-11-04",
+        "date_out": null,
+        "debt": -45.0,
+        "debt_rent": -50.0,
+        "debt_util": 5.0,
+        "status": "ok",
+        "months": {
+          "2026-08": {
+            "expected": 442.0,
+            "paid": 442.0,
+            "paid_dates": [
+              "2026-07-31"
+            ],
+            "diff": 0.0,
+            "status": "ok",
+            "vacant": false,
+            "tenant": "Полякова Наталья",
+            "unconfirmed": false,
+            "util_paid": null,
+            "deposit_paid": null,
+            "notes": []
+          },
+          "2026-09": {
+            "expected": 442.0,
+            "paid": 442.0,
+            "paid_dates": [
+              "2026-09-01"
+            ],
+            "diff": 0.0,
+            "status": "ok",
+            "vacant": false,
+            "tenant": "Полякова Наталья",
+            "unconfirmed": false,
+            "util_paid": 58.0,
+            "deposit_paid": null,
+            "notes": [
+              "через банкомат (наличкой)"
+            ]
+          },
+          "2026-10": {
+            "expected": 73.67,
+            "paid": 73.67,
+            "paid_dates": [
+              "2026-10-28"
+            ],
+            "diff": 0.0,
+            "status": "ok",
+            "vacant": false,
+            "tenant": "Полякова Наталья",
+            "unconfirmed": true,
+            "util_paid": 1.57,
+            "deposit_paid": null,
+            "notes": [
+              "вычли из суммы залога"
+            ]
+          },
+          "2026-11": {
+            "expected": 450.0,
+            "paid": 500.0,
+            "paid_dates": [
+              "2026-11-04"
+            ],
+            "diff": 50.0,
+            "status": "mismatch",
+            "vacant": false,
+            "tenant": "Бондаренко Ирина",
+            "unconfirmed": false,
+            "util_paid": 0.0,
+            "deposit_paid": 500.0,
+            "notes": [
+              "квитанция в чате на 1000"
+            ]
+          }
+        },
+        "note": "дочь 12 лет Бондаренко Арина"
+      },
+      {
+        "id": "O3-R3",
+        "property": "Рей Пастор",
+        "unit": "Комната 3",
+        "tenant": "Алексей - работы",
+        "vacant": false,
+        "vacant_reason": null,
+        "rate": 445.0,
+        "date_in": "2026-09-01",
+        "date_out": null,
+        "debt": 507.3,
+        "debt_rent": 445.0,
+        "debt_util": 62.3,
+        "status": "mismatch",
+        "months": {
+          "2026-08": {
+            "expected": 445.0,
+            "paid": 445.0,
+            "paid_dates": [],
+            "diff": 0.0,
+            "status": "ok",
+            "vacant": false,
+            "tenant": "Алексей - работы",
+            "unconfirmed": false,
+            "util_paid": null,
+            "deposit_paid": null,
+            "notes": [
+              "0"
+            ]
+          },
+          "2026-09": {
+            "expected": 445.0,
+            "paid": 0.0,
+            "paid_dates": [],
+            "diff": -445.0,
+            "status": "mismatch",
+            "vacant": false,
+            "tenant": "Алексей - работы",
+            "unconfirmed": false,
+            "util_paid": 0.0,
+            "deposit_paid": null,
+            "notes": []
+          },
+          "2026-10": {
+            "expected": 445.0,
+            "paid": 725.0,
+            "paid_dates": [
+              "2026-10-26"
+            ],
+            "diff": 280.0,
+            "status": "mismatch",
+            "vacant": false,
+            "tenant": "Алексей - работы",
+            "unconfirmed": false,
+            "util_paid": 41.0,
+            "deposit_paid": null,
+            "notes": [
+              "работы Алексея по отчету",
+              "работы Алексея по отчету"
+            ]
+          },
+          "2026-11": {
+            "expected": 445.0,
+            "paid": 0.0,
+            "paid_dates": [],
+            "diff": -445.0,
+            "status": "mismatch",
+            "vacant": false,
+            "tenant": "Алексей - работы",
+            "unconfirmed": false,
+            "util_paid": 0.0,
+            "deposit_paid": null,
+            "notes": []
+          }
+        },
+        "note": null
+      },
+      {
+        "id": "O3-R4",
+        "property": "Рей Пастор",
+        "unit": "Комната 4",
+        "tenant": "Политаева Эльвира",
+        "vacant": false,
+        "vacant_reason": null,
+        "rate": 450.0,
+        "date_in": "2026-09-01",
+        "date_out": null,
+        "debt": 540.09,
+        "debt_rent": 450.0,
+        "debt_util": 90.09,
+        "status": "mismatch",
+        "months": {
+          "2026-08": {
+            "expected": 462.0,
+            "paid": 450.0,
+            "paid_dates": [
+              "2026-08-19"
+            ],
+            "diff": -12.0,
+            "status": "mismatch",
+            "vacant": false,
+            "tenant": "Политаева Эльвира",
+            "unconfirmed": false,
+            "util_paid": null,
+            "deposit_paid": null,
+            "notes": []
+          },
+          "2026-09": {
+            "expected": 450.0,
+            "paid": 450.0,
+            "paid_dates": [
+              "2026-09-07"
+            ],
+            "diff": 0.0,
+            "status": "ok",
+            "vacant": false,
+            "tenant": "Политаева Эльвира",
+            "unconfirmed": false,
+            "util_paid": 0.0,
+            "deposit_paid": null,
+            "notes": [
+              "отдала Алексею наличными (эта сумма в 1800 что была передана Анатолию)"
+            ]
+          },
+          "2026-10": {
+            "expected": 450.0,
+            "paid": 450.0,
+            "paid_dates": [
+              "2026-10-29"
+            ],
+            "diff": 0.0,
+            "status": "ok",
+            "vacant": false,
+            "tenant": "Политаева Эльвира",
+            "unconfirmed": true,
+            "util_paid": 250.0,
+            "deposit_paid": null,
+            "notes": [
+              "деньги у Алексея (подтвердил получение)"
+            ]
+          },
+          "2026-11": {
+            "expected": 450.0,
+            "paid": 0.0,
+            "paid_dates": [],
+            "diff": -450.0,
+            "status": "mismatch",
+            "vacant": false,
+            "tenant": "Политаева Эльвира",
+            "unconfirmed": false,
+            "util_paid": 0.0,
+            "deposit_paid": null,
+            "notes": []
+          }
+        },
+        "note": null
+      },
+      {
+        "id": "O4-L1",
+        "property": "Лос Пуэблос",
+        "unit": "Комната 1",
+        "tenant": "Шестукхина Елена",
+        "vacant": false,
+        "vacant_reason": null,
+        "rate": 470.0,
+        "date_in": "2026-10-01",
+        "date_out": null,
+        "debt": 10.0,
+        "debt_rent": 0.0,
+        "debt_util": 10.0,
+        "status": "mismatch",
+        "months": {
+          "2026-08": {
+            "expected": 470.0,
+            "paid": 470.0,
+            "paid_dates": [
+              "2026-08-14"
+            ],
+            "diff": 0.0,
+            "status": "ok",
+            "vacant": false,
+            "tenant": "Хадим",
+            "unconfirmed": false,
+            "util_paid": null,
+            "deposit_paid": null,
+            "notes": []
+          },
+          "2026-09": {
+            "expected": 63.0,
+            "paid": 0.0,
+            "paid_dates": [],
+            "diff": -63.0,
+            "status": "mismatch",
+            "vacant": false,
+            "tenant": "Хадим",
+            "unconfirmed": false,
+            "util_paid": 158.0,
+            "deposit_paid": null,
+            "notes": []
+          },
+          "2026-10": {
+            "expected": 470.0,
+            "paid": 470.0,
+            "paid_dates": [
+              "2026-10-01"
+            ],
+            "diff": 0.0,
+            "status": "ok",
+            "vacant": false,
+            "tenant": "Шестукхина Елена",
+            "unconfirmed": false,
+            "util_paid": 0.0,
+            "deposit_paid": 470.0,
+            "notes": [
+              "новый жилец"
+            ]
+          },
+          "2026-11": {
+            "expected": 470.0,
+            "paid": 470.0,
+            "paid_dates": [
+              "2026-11-01"
+            ],
+            "diff": 0.0,
+            "status": "ok",
+            "vacant": false,
+            "tenant": "Шестукхина Елена",
+            "unconfirmed": false,
+            "util_paid": 0.0,
+            "deposit_paid": null,
+            "notes": [
+              "квитанция в чате (деньги отдадут Анатолию)"
+            ]
+          }
+        },
+        "note": null
+      },
+      {
+        "id": "O4-L2",
+        "property": "Лос Пуэблос",
+        "unit": "Комната 2",
+        "tenant": "Аби Гари",
+        "vacant": false,
+        "vacant_reason": null,
+        "rate": 500.0,
+        "date_in": "2026-09-01",
+        "date_out": null,
+        "debt": 28.05,
+        "debt_rent": 0.0,
+        "debt_util": 28.05,
+        "status": "ok",
+        "months": {
+          "2026-08": {
+            "expected": 500.0,
+            "paid": 500.0,
+            "paid_dates": [
+              "2026-08-05"
+            ],
+            "diff": 0.0,
+            "status": "ok",
+            "vacant": false,
+            "tenant": "Аби Гари",
+            "unconfirmed": false,
+            "util_paid": null,
+            "deposit_paid": null,
+            "notes": []
+          },
+          "2026-09": {
+            "expected": 500.0,
+            "paid": 500.0,
+            "paid_dates": [
+              "2026-09-02"
+            ],
+            "diff": 0.0,
+            "status": "ok",
+            "vacant": false,
+            "tenant": "Аби Гари",
+            "unconfirmed": false,
+            "util_paid": 50.0,
+            "deposit_paid": null,
+            "notes": []
+          },
+          "2026-10": {
+            "expected": 500.0,
+            "paid": 500.0,
+            "paid_dates": [
+              "2026-10-05"
+            ],
+            "diff": 0.0,
+            "status": "ok",
+            "vacant": false,
+            "tenant": "Аби Гари",
+            "unconfirmed": false,
+            "util_paid": 50.0,
+            "deposit_paid": null,
+            "notes": []
+          },
+          "2026-11": {
+            "expected": 500.0,
+            "paid": 500.0,
+            "paid_dates": [
+              "2026-11-03"
+            ],
+            "diff": 0.0,
+            "status": "ok",
+            "vacant": false,
+            "tenant": "Аби Гари",
+            "unconfirmed": false,
+            "util_paid": 50.0,
+            "deposit_paid": null,
+            "notes": [
+              "550 от Аби 3.11"
+            ]
+          }
+        },
+        "note": null
+      },
+      {
+        "id": "O4-L3",
+        "property": "Лос Пуэблос",
+        "unit": "Комната 3",
+        "tenant": "Черняну Ирина",
+        "vacant": false,
+        "vacant_reason": null,
+        "rate": 400.0,
+        "date_in": "2026-09-01",
+        "date_out": null,
+        "debt": 399.57,
+        "debt_rent": 400.0,
+        "debt_util": -0.43,
+        "status": "ok",
+        "months": {
+          "2026-08": {
+            "expected": 500.0,
+            "paid": 500.0,
+            "paid_dates": [
+              "2026-08-10"
+            ],
+            "diff": 0.0,
+            "status": "ok",
+            "vacant": false,
+            "tenant": "Черняну Ирина",
+            "unconfirmed": false,
+            "util_paid": null,
+            "deposit_paid": null,
+            "notes": []
+          },
+          "2026-09": {
+            "expected": 500.0,
+            "paid": 500.0,
+            "paid_dates": [
+              "2026-09-07"
+            ],
+            "diff": 0.0,
+            "status": "ok",
+            "vacant": false,
+            "tenant": "Черняну Ирина",
+            "unconfirmed": false,
+            "util_paid": 0.0,
+            "deposit_paid": null,
+            "notes": []
+          },
+          "2026-10": {
+            "expected": 400.0,
+            "paid": 400.0,
+            "paid_dates": [
+              "2026-10-14",
+              "2026-10-22"
+            ],
+            "diff": 0.0,
+            "status": "ok",
+            "vacant": false,
+            "tenant": "Черняну Ирина",
+            "unconfirmed": false,
+            "util_paid": 142.18,
+            "deposit_paid": null,
+            "notes": []
+          },
+          "2026-11": {
+            "expected": 400.0,
+            "paid": 0.0,
+            "paid_dates": [],
+            "diff": -400.0,
+            "status": "mismatch",
+            "vacant": false,
+            "tenant": "Черняну Ирина",
+            "unconfirmed": false,
+            "util_paid": 46.0,
+            "deposit_paid": null,
+            "notes": []
+          }
+        },
+        "note": "скидка 100 евро с 01.10.2026"
+      },
+      {
+        "id": "O4-L4",
+        "property": "Лос Пуэблос",
+        "unit": "Комната 4",
+        "tenant": null,
+        "vacant": true,
+        "vacant_reason": "ремонт",
+        "rate": null,
+        "date_in": null,
+        "date_out": null,
+        "debt": 0.0,
+        "debt_rent": 0.0,
+        "debt_util": 0.0,
+        "status": "ok",
+        "months": {
+          "2026-08": {
+            "expected": 0,
+            "paid": 0,
+            "paid_dates": [],
+            "diff": 0.0,
+            "status": "ok",
+            "vacant": true,
+            "tenant": null,
+            "unconfirmed": false,
+            "util_paid": null,
+            "deposit_paid": null,
+            "notes": []
+          },
+          "2026-09": {
+            "expected": 0.0,
+            "paid": 0.0,
+            "paid_dates": [],
+            "diff": 0.0,
+            "status": "ok",
+            "vacant": true,
+            "tenant": null,
+            "unconfirmed": false,
+            "util_paid": 0.0,
+            "deposit_paid": null,
+            "notes": []
+          },
+          "2026-10": {
+            "expected": 0.0,
+            "paid": 0.0,
+            "paid_dates": [],
+            "diff": 0.0,
+            "status": "ok",
+            "vacant": true,
+            "tenant": null,
+            "unconfirmed": false,
+            "util_paid": 0.0,
+            "deposit_paid": null,
+            "notes": []
+          },
+          "2026-11": {
+            "expected": 0.0,
+            "paid": 0.0,
+            "paid_dates": [],
+            "diff": 0.0,
+            "status": "ok",
+            "vacant": true,
+            "tenant": null,
+            "unconfirmed": false,
+            "util_paid": 0.0,
+            "deposit_paid": null,
+            "notes": []
+          }
+        },
+        "note": null
+      },
+      {
+        "id": "O5-K1",
+        "property": "Кооперасион",
+        "unit": "Комната 1",
+        "tenant": "Байгуш Алексей/Фостик Владимир",
+        "vacant": false,
+        "vacant_reason": null,
+        "rate": 470.0,
+        "date_in": "2026-09-20",
+        "date_out": null,
+        "debt": 188.89,
+        "debt_rent": 156.67,
+        "debt_util": 32.22,
+        "status": "mismatch",
+        "months": {
+          "2026-08": {
+            "expected": 0,
+            "paid": 0,
+            "paid_dates": [],
+            "diff": 0.0,
+            "status": "ok",
+            "vacant": true,
+            "tenant": null,
+            "unconfirmed": false,
+            "util_paid": null,
+            "deposit_paid": null,
+            "notes": []
+          },
+          "2026-09": {
+            "expected": 156.67,
+            "paid": 470.0,
+            "paid_dates": [
+              "2026-09-21"
+            ],
+            "diff": 313.33,
+            "status": "mismatch",
+            "vacant": false,
+            "tenant": "Байгуш Алексей/Фостик Владимир",
+            "unconfirmed": false,
+            "util_paid": 0.0,
+            "deposit_paid": 470.0,
+            "notes": [
+              "Анатолий получил от Аллы наличными"
+            ]
+          },
+          "2026-10": {
+            "expected": 470.0,
+            "paid": 470.0,
+            "paid_dates": [
+              "2026-10-21"
+            ],
+            "diff": 0.0,
+            "status": "ok",
+            "vacant": false,
+            "tenant": "Байгуш Алексей/Фостик Владимир",
+            "unconfirmed": false,
+            "util_paid": 0.0,
+            "deposit_paid": null,
+            "notes": [
+              "Алла забрала, взяла на счетчик 350, 90 установка счетчика, 30 уборка"
+            ]
+          },
+          "2026-11": {
+            "expected": 470.0,
+            "paid": 0.0,
+            "paid_dates": [],
+            "diff": -470.0,
+            "status": "mismatch",
+            "vacant": false,
+            "tenant": "Байгуш Алексей/Фостик Владимир",
+            "unconfirmed": false,
+            "util_paid": 0.0,
+            "deposit_paid": null,
+            "notes": []
+          }
+        },
+        "note": null
+      },
+      {
+        "id": "O5-K2",
+        "property": "Кооперасион",
+        "unit": "Комната 2",
+        "tenant": "Власов Алексей",
+        "vacant": false,
+        "vacant_reason": null,
+        "rate": 450.0,
+        "date_in": "2026-09-01",
+        "date_out": null,
+        "debt": 4.99,
+        "debt_rent": 0.0,
+        "debt_util": 4.99,
+        "status": "ok",
+        "months": {
+          "2026-08": {
+            "expected": 450.0,
+            "paid": 450.0,
+            "paid_dates": [
+              "2026-08-03"
+            ],
+            "diff": 0.0,
+            "status": "ok",
+            "vacant": false,
+            "tenant": "Власов Алексей",
+            "unconfirmed": false,
+            "util_paid": null,
+            "deposit_paid": null,
+            "notes": []
+          },
+          "2026-09": {
+            "expected": 450.0,
+            "paid": 450.0,
+            "paid_dates": [
+              "2026-09-12"
+            ],
+            "diff": 0.0,
+            "status": "ok",
+            "vacant": false,
+            "tenant": "Власов Алексей",
+            "unconfirmed": false,
+            "util_paid": 50.07,
+            "deposit_paid": null,
+            "notes": []
+          },
+          "2026-10": {
+            "expected": 450.0,
+            "paid": 450.0,
+            "paid_dates": [
+              "2026-10-14"
+            ],
+            "diff": 0.0,
+            "status": "ok",
+            "vacant": false,
+            "tenant": "Власов Алексей",
+            "unconfirmed": false,
+            "util_paid": 76.87,
+            "deposit_paid": null,
+            "notes": []
+          },
+          "2026-11": {
+            "expected": 450.0,
+            "paid": 450.0,
+            "paid_dates": [
+              "2026-11-03"
+            ],
+            "diff": 0.0,
+            "status": "ok",
+            "vacant": false,
+            "tenant": "Власов Алексей",
+            "unconfirmed": false,
+            "util_paid": 49.96,
+            "deposit_paid": null,
+            "notes": []
+          }
+        },
+        "note": null
+      },
+      {
+        "id": "O5-K3",
+        "property": "Кооперасион",
+        "unit": "Комната 3",
+        "tenant": "Богдан",
+        "vacant": false,
+        "vacant_reason": null,
+        "rate": 450.0,
+        "date_in": "2026-09-01",
+        "date_out": null,
+        "debt": 455.0,
+        "debt_rent": 450.0,
+        "debt_util": 5.0,
+        "status": "ok",
+        "months": {
+          "2026-08": {
+            "expected": 450.0,
+            "paid": 450.0,
+            "paid_dates": [
+              "2026-08-15"
+            ],
+            "diff": 0.0,
+            "status": "ok",
+            "vacant": false,
+            "tenant": "Богдан",
+            "unconfirmed": false,
+            "util_paid": null,
+            "deposit_paid": null,
+            "notes": []
+          },
+          "2026-09": {
+            "expected": 450.0,
+            "paid": 450.0,
+            "paid_dates": [
+              "2026-09-15"
+            ],
+            "diff": 0.0,
+            "status": "ok",
+            "vacant": false,
+            "tenant": "Богдан",
+            "unconfirmed": false,
+            "util_paid": 69.52,
+            "deposit_paid": null,
+            "notes": []
+          },
+          "2026-10": {
+            "expected": 450.0,
+            "paid": 450.0,
+            "paid_dates": [
+              "2026-10-30"
+            ],
+            "diff": 0.0,
+            "status": "ok",
+            "vacant": false,
+            "tenant": "Богдан",
+            "unconfirmed": false,
+            "util_paid": 81.69,
+            "deposit_paid": null,
+            "notes": []
+          },
+          "2026-11": {
+            "expected": 450.0,
+            "paid": 0.0,
+            "paid_dates": [],
+            "diff": -450.0,
+            "status": "mismatch",
+            "vacant": false,
+            "tenant": "Богдан",
+            "unconfirmed": false,
+            "util_paid": 73.57,
+            "deposit_paid": null,
+            "notes": []
+          }
+        },
+        "note": null
+      },
+      {
+        "id": "O6-S1",
+        "property": "Сагунто",
+        "unit": "Комната 1",
+        "tenant": null,
+        "vacant": true,
+        "vacant_reason": "вакантно",
+        "rate": 800.0,
+        "date_in": "2026-09-01",
+        "date_out": "2026-10-31",
+        "debt": 0.0,
+        "debt_rent": 0.0,
+        "debt_util": 0.0,
+        "status": "mismatch",
+        "months": {
+          "2026-08": {
+            "expected": 800.0,
+            "paid": 600.0,
+            "paid_dates": [
+              "2026-08-07"
+            ],
+            "diff": -200.0,
+            "status": "mismatch",
+            "vacant": false,
+            "tenant": "Алехандро (колумбиец)",
+            "unconfirmed": false,
+            "util_paid": null,
+            "deposit_paid": null,
+            "notes": [
+              "в Начисление_аренды оплачено 600; в «Подтверждение оплат» за август четыре платежа по 200 € = 800"
+            ]
+          },
+          "2026-09": {
+            "expected": 800.0,
+            "paid": 500.0,
+            "paid_dates": [
+              "2026-09-03"
+            ],
+            "diff": -300.0,
+            "status": "mismatch",
+            "vacant": false,
+            "tenant": "Алехандро (колумбиец)",
+            "unconfirmed": false,
+            "util_paid": 0.0,
+            "deposit_paid": null,
+            "notes": []
+          },
+          "2026-10": {
+            "expected": 800.0,
+            "paid": 800.0,
+            "paid_dates": [
+              "2026-10-22"
+            ],
+            "diff": 0.0,
+            "status": "ok",
+            "vacant": false,
+            "tenant": "Алехандро (колумбиец)",
+            "unconfirmed": false,
+            "util_paid": 0.0,
+            "deposit_paid": null,
+            "notes": [
+              "Р подтвердил по телефону"
+            ]
+          },
+          "2026-11": {
+            "expected": 0.0,
+            "paid": 0.0,
+            "paid_dates": [],
+            "diff": 0.0,
+            "status": "ok",
+            "vacant": true,
+            "tenant": null,
+            "unconfirmed": false,
+            "util_paid": 0.0,
+            "deposit_paid": null,
+            "notes": []
+          }
+        },
+        "note": "выезд 05.11.26; выселение закрыто, Алла сдаёт заново · Жилец съехал, выселение закрыто, Алла сдаёт заново"
+      },
+      {
+        "id": "O1-U1",
+        "property": "Украина",
+        "unit": "Комната 1",
+        "tenant": "Лузановка",
+        "vacant": false,
+        "vacant_reason": null,
+        "rate": 173.08,
+        "date_in": "2026-09-01",
+        "date_out": null,
+        "debt": 173.08,
+        "debt_rent": 173.08,
+        "debt_util": 0.0,
+        "status": "mismatch",
+        "months": {
+          "2026-08": {
+            "expected": 173.91,
+            "paid": 173.91,
+            "paid_dates": [
+              "2026-08-24"
+            ],
+            "diff": 0.0,
+            "status": "ok",
+            "vacant": false,
+            "tenant": "Лузановка",
+            "unconfirmed": false,
+            "util_paid": null,
+            "deposit_paid": null,
+            "notes": []
+          },
+          "2026-09": {
+            "expected": 173.08,
+            "paid": 346.16,
+            "paid_dates": [
+              "2026-09-24"
+            ],
+            "diff": 173.08,
+            "status": "mismatch",
+            "vacant": false,
+            "tenant": "Лузановка",
+            "unconfirmed": false,
+            "util_paid": 31.32,
+            "deposit_paid": null,
+            "notes": [
+              "9000 грн, карта 0147 (оплатила за два мес)",
+              "9000 грн, карта 0147"
+            ]
+          },
+          "2026-10": {
+            "expected": 173.08,
+            "paid": 0.0,
+            "paid_dates": [],
+            "diff": -173.08,
+            "status": "mismatch",
+            "vacant": false,
+            "tenant": "Лузановка",
+            "unconfirmed": false,
+            "util_paid": 0.0,
+            "deposit_paid": null,
+            "notes": []
+          },
+          "2026-11": {
+            "expected": 173.08,
+            "paid": 0.0,
+            "paid_dates": [],
+            "diff": -173.08,
+            "status": "mismatch",
+            "vacant": false,
+            "tenant": "Лузановка",
+            "unconfirmed": false,
+            "util_paid": 41.97,
+            "deposit_paid": null,
+            "notes": []
+          }
+        },
+        "note": "залог 9000 грн, 24.05.26"
+      },
+      {
+        "id": "O1-U2",
+        "property": "Украина",
+        "unit": "Комната 2",
+        "tenant": "Вишневое",
+        "vacant": false,
+        "vacant_reason": null,
+        "rate": 155.77,
+        "date_in": "2026-09-01",
+        "date_out": null,
+        "debt": 155.77,
+        "debt_rent": 155.77,
+        "debt_util": 0.0,
+        "status": "ok",
+        "months": {
+          "2026-08": {
+            "expected": 165.05,
+            "paid": 165.05,
+            "paid_dates": [],
+            "diff": 0.0,
+            "status": "ok",
+            "vacant": false,
+            "tenant": "Вишневое",
+            "unconfirmed": false,
+            "util_paid": null,
+            "deposit_paid": null,
+            "notes": [
+              "0"
+            ]
+          },
+          "2026-09": {
+            "expected": 147.12,
+            "paid": 147.12,
+            "paid_dates": [
+              "2026-09-24"
+            ],
+            "diff": 0.0,
+            "status": "ok",
+            "vacant": false,
+            "tenant": "Вишневое",
+            "unconfirmed": false,
+            "util_paid": 0.0,
+            "deposit_paid": null,
+            "notes": [
+              "7650грн//8100 грн с 01.10"
+            ]
+          },
+          "2026-10": {
+            "expected": 155.77,
+            "paid": 155.77,
+            "paid_dates": [
+              "2026-10-26"
+            ],
+            "diff": 0.0,
+            "status": "ok",
+            "vacant": false,
+            "tenant": "Вишневое",
+            "unconfirmed": false,
+            "util_paid": 0.0,
+            "deposit_paid": null,
+            "notes": [
+              "укр карта 1073 (8100 грн)"
+            ]
+          },
+          "2026-11": {
+            "expected": 155.77,
+            "paid": 0.0,
+            "paid_dates": [],
+            "diff": -155.77,
+            "status": "mismatch",
+            "vacant": false,
+            "tenant": "Вишневое",
+            "unconfirmed": false,
+            "util_paid": 0.0,
+            "deposit_paid": null,
+            "notes": []
+          }
+        },
+        "note": "залог 7650грн · повышение цены с 7650 на 8100"
+      },
+      {
+        "id": "O1-U3",
+        "property": "Украина",
+        "unit": "Комната 3",
+        "tenant": "Нивки 1 (206)",
+        "vacant": false,
+        "vacant_reason": null,
+        "rate": 336.54,
+        "date_in": "2026-09-01",
+        "date_out": null,
+        "debt": 336.54,
+        "debt_rent": 336.54,
+        "debt_util": 0.0,
+        "status": "ok",
+        "months": {
+          "2026-08": {
+            "expected": 377.56,
+            "paid": 377.56,
+            "paid_dates": [],
+            "diff": 0.0,
+            "status": "ok",
+            "vacant": false,
+            "tenant": "Нивки 1 (206)",
+            "unconfirmed": false,
+            "util_paid": null,
+            "deposit_paid": null,
+            "notes": [
+              "0"
+            ]
+          },
+          "2026-09": {
+            "expected": 336.54,
+            "paid": 336.54,
+            "paid_dates": [
+              "2026-09-24"
+            ],
+            "diff": 0.0,
+            "status": "ok",
+            "vacant": false,
+            "tenant": "Нивки 1 (206)",
+            "unconfirmed": false,
+            "util_paid": 0.0,
+            "deposit_paid": null,
+            "notes": [
+              "17500грн"
+            ]
+          },
+          "2026-10": {
+            "expected": 336.54,
+            "paid": 336.54,
+            "paid_dates": [
+              "2026-10-30"
+            ],
+            "diff": 0.0,
+            "status": "ok",
+            "vacant": false,
+            "tenant": "Нивки 1 (206)",
+            "unconfirmed": true,
+            "util_paid": 0.0,
+            "deposit_paid": null,
+            "notes": [
+              "жду отчет"
+            ]
+          },
+          "2026-11": {
+            "expected": 336.54,
+            "paid": 0.0,
+            "paid_dates": [],
+            "diff": -336.54,
+            "status": "mismatch",
+            "vacant": false,
+            "tenant": "Нивки 1 (206)",
+            "unconfirmed": false,
+            "util_paid": 0.0,
+            "deposit_paid": null,
+            "notes": []
+          }
+        },
+        "note": "залог 17500грн"
+      },
+      {
+        "id": "O1-U4",
+        "property": "Украина",
+        "unit": "Комната 4",
+        "tenant": "Нивки 2 (409)",
+        "vacant": false,
+        "vacant_reason": null,
+        "rate": 277.88,
+        "date_in": "2026-09-01",
+        "date_out": null,
+        "debt": 277.88,
+        "debt_rent": 277.88,
+        "debt_util": 0.0,
+        "status": "ok",
+        "months": {
+          "2026-08": {
+            "expected": 311.76,
+            "paid": 311.76,
+            "paid_dates": [],
+            "diff": 0.0,
+            "status": "ok",
+            "vacant": false,
+            "tenant": "Нивки 2 (409)",
+            "unconfirmed": false,
+            "util_paid": null,
+            "deposit_paid": null,
+            "notes": [
+              "0"
+            ]
+          },
+          "2026-09": {
+            "expected": 277.88,
+            "paid": 277.88,
+            "paid_dates": [
+              "2026-09-24"
+            ],
+            "diff": 0.0,
+            "status": "ok",
+            "vacant": false,
+            "tenant": "Нивки 2 (409)",
+            "unconfirmed": false,
+            "util_paid": 0.0,
+            "deposit_paid": null,
+            "notes": [
+              "14450грн"
+            ]
+          },
+          "2026-10": {
+            "expected": 277.88,
+            "paid": 277.88,
+            "paid_dates": [
+              "2026-10-30"
+            ],
+            "diff": 0.0,
+            "status": "ok",
+            "vacant": false,
+            "tenant": "Нивки 2 (409)",
+            "unconfirmed": true,
+            "util_paid": 0.0,
+            "deposit_paid": null,
+            "notes": [
+              "жду отчет"
+            ]
+          },
+          "2026-11": {
+            "expected": 277.88,
+            "paid": 0.0,
+            "paid_dates": [],
+            "diff": -277.88,
+            "status": "mismatch",
+            "vacant": false,
+            "tenant": "Нивки 2 (409)",
+            "unconfirmed": false,
+            "util_paid": 0.0,
+            "deposit_paid": null,
+            "notes": []
+          }
+        },
+        "note": "залог 14450грн"
+      }
+    ],
+    "notes": [
+      "Начислено и оплачено — аренда (без коммуналки и залога). Коммуналка, если была, указана в примечании месяца.",
+      "Долг накопительный — из «Контроль баланса» на дату выгрузки (по помещению, включая предыдущих жильцов, если ID тот же).",
+      "Всегда три закрытых месяца; ноябрь — месяц-к-дате, если в новой таблице уже есть начисления или оплаты.",
+      "Сагунто (Azorín 7, 4-14): с ноября вакантно — жилец съехал, выселение закрыто, Алла сдаёт заново.",
+      "В текущем (незакрытом) месяце «⚠️» значит, что к дате выгрузки начисление ещё не закрыто оплатой — это не долг за закрытый месяц.",
+      "В реестре 07.11: «320 Хадим — строка без ID помещения» 320.0 € без ID помещения — в таблицу не разнёс."
+    ]
+  },
+  "profit": {
+    "title": "Рентабельность по объектам",
+    "cur": "EUR",
+    "as_of": "2026-11-11",
+    "closed_months": [
+      "2026-08",
+      "2026-09",
+      "2026-10"
+    ],
+    "current_month": "2026-11",
+    "months": [
+      "2026-08",
+      "2026-09",
+      "2026-10",
+      "2026-11"
+    ],
+    "month_labels": {
+      "2026-08": "август",
+      "2026-09": "сентябрь",
+      "2026-10": "октябрь",
+      "2026-11": "ноябрь (неполный)"
+    },
+    "src": "GSheet Upgraded_Rent_Database_Chronology 1V-gDAxn36DfJ7e9jfTW_SI6GIoYofI_v4KWh3W9OM_c · Справочник объектов, Календарь начислений, Реестр платежей, Контроль баланса, Эксплуатационные расходы, Отчет P&L (прочитано 11.11.2026) · доход янв–авг 2026 и 2025 — Начисление_аренды (Расчет_Аренда)",
+    "fetched_at": "2026-11-11T15:55:00-05:00",
+    "properties": [
+      {
+        "property": "Оливино",
+        "vacant": false,
+        "vacant_note": null,
+        "monthly": {
+          "2026-08": {
+            "income": 1800.0,
+            "income_rent": 1800.0,
+            "income_util": null,
+            "expenses": null,
+            "expenses_by": null,
+            "net": null,
+            "margin_pct": null,
+            "missing": [
+              "все статьи расходов (коммунидад, IBI, коммуналка, ремонт, агентство, ипотека, страховка) — в старой таблице «ИТОГИ» по объектам нет"
+            ]
+          },
+          "2026-09": {
+            "income": 2080.38,
+            "income_rent": 1800.0,
+            "income_util": 280.38,
+            "expenses": 339.84,
+            "expenses_by": {
+              "Электричество": 135.77,
+              "Водоснабжение": 124.61,
+              "Интернет": 15.0,
+              "Страховка": 59.46,
+              "Прочие расходы": 5.0
+            },
+            "net": 1740.54,
+            "margin_pct": 83.66,
+            "missing": [
+              "Налоги",
+              "Коммунидад",
+              "IBI",
+              "Ипотека",
+              "Агентство"
+            ]
+          },
+          "2026-10": {
+            "income": 1708.4,
+            "income_rent": 1570.0,
+            "income_util": 138.4,
+            "expenses": 177.69,
+            "expenses_by": {
+              "Электричество": 103.23,
+              "Интернет": 15.0,
+              "Страховка": 59.46
+            },
+            "net": 1530.71,
+            "margin_pct": 89.6,
+            "missing": [
+              "Налоги",
+              "Коммунидад",
+              "IBI",
+              "Ипотека",
+              "Агентство"
+            ]
+          },
+          "2026-11": {
+            "income": 1355.0,
+            "income_rent": 1340.0,
+            "income_util": 15.0,
+            "expenses": 74.46,
+            "expenses_by": {
+              "Интернет": 15.0,
+              "Страховка": 59.46
+            },
+            "net": 1280.54,
+            "margin_pct": 94.5,
+            "missing": [
+              "Налоги",
+              "Коммунидад",
+              "IBI",
+              "Ипотека",
+              "Агентство"
+            ]
+          }
+        },
+        "annual": {
+          "2026": {
+            "income": 17483.78,
+            "expenses": 517.54,
+            "expenses_by": {
+              "Интернет": 30.0,
+              "Электричество": 239.0,
+              "Страховка": 118.93,
+              "Водоснабжение": 124.61,
+              "Прочие расходы": 5.0
+            },
+            "net": 16966.24,
+            "margin_pct": 97.04,
+            "yield_pct": null,
+            "value": null,
+            "partial": true,
+            "through": "2026-10",
+            "missing": [
+              "расходы янв–авг 2026 по объекту (в старой таблице нет разбивки)",
+              "стоимость / цена покупки объекта — в таблицах аренды нет, доходность (yield) посчитать нельзя",
+              "налог 24% не разнесён по объектам (есть только сводом по Испании в «ИТОГИ» / «Из чего сложилось»)",
+              "коммунидад, IBI, ипотека, агентство — отдельных статей в источниках нет"
+            ]
+          },
+          "2025": {
+            "income": 18307.0,
+            "expenses": null,
+            "expenses_by": null,
+            "net": null,
+            "margin_pct": null,
+            "yield_pct": null,
+            "value": null,
+            "partial": true,
+            "missing": [
+              "расходы 2025 по объекту — в источниках нет",
+              "стоимость / цена покупки — нет, yield % нет",
+              "доход 2025 = начисленная аренда из «Начисление_аренды» (без компенсации коммуналки)"
+            ]
+          }
+        }
+      },
+      {
+        "property": "Рей Пастор",
+        "vacant": false,
+        "vacant_note": null,
+        "monthly": {
+          "2026-08": {
+            "income": 1799.0,
+            "income_rent": 1799.0,
+            "income_util": null,
+            "expenses": null,
+            "expenses_by": null,
+            "net": null,
+            "margin_pct": null,
+            "missing": [
+              "все статьи расходов (коммунидад, IBI, коммуналка, ремонт, агентство, ипотека, страховка) — в старой таблице «ИТОГИ» по объектам нет"
+            ]
+          },
+          "2026-09": {
+            "income": 2075.88,
+            "income_rent": 1787.0,
+            "income_util": 288.88,
+            "expenses": 463.75,
+            "expenses_by": {
+              "Электричество": -7.39,
+              "Водоснабжение": 161.68,
+              "Интернет": 20.0,
+              "Ремонты/Обслуживание": 225.0,
+              "Страховка": 59.46,
+              "Прочие расходы": 5.0
+            },
+            "net": 1612.13,
+            "margin_pct": 77.66,
+            "missing": [
+              "Налоги",
+              "Коммунидад",
+              "IBI",
+              "Ипотека",
+              "Агентство"
+            ]
+          },
+          "2026-10": {
+            "income": 1532.12,
+            "income_rent": 1418.67,
+            "income_util": 113.45,
+            "expenses": 712.14,
+            "expenses_by": {
+              "Электричество": 136.68,
+              "Интернет": 20.0,
+              "Ремонты/Обслуживание": 456.0,
+              "Страховка": 59.46,
+              "Прочие расходы": 40.0
+            },
+            "net": 819.98,
+            "margin_pct": 53.52,
+            "missing": [
+              "Налоги",
+              "Коммунидад",
+              "IBI",
+              "Ипотека",
+              "Агентство"
+            ]
+          },
+          "2026-11": {
+            "income": 1815.0,
+            "income_rent": 1795.0,
+            "income_util": 20.0,
+            "expenses": 79.46,
+            "expenses_by": {
+              "Интернет": 20.0,
+              "Страховка": 59.46
+            },
+            "net": 1735.54,
+            "margin_pct": 95.62,
+            "missing": [
+              "Налоги",
+              "Коммунидад",
+              "IBI",
+              "Ипотека",
+              "Агентство"
+            ]
+          }
+        },
+        "annual": {
+          "2026": {
+            "income": 17928.0,
+            "expenses": 1175.9,
+            "expenses_by": {
+              "Интернет": 40.0,
+              "Электричество": 129.29,
+              "Страховка": 118.93,
+              "Водоснабжение": 161.68,
+              "Прочие расходы": 45.0,
+              "Ремонты/Обслуживание": 681.0
+            },
+            "net": 16752.1,
+            "margin_pct": 93.44,
+            "yield_pct": null,
+            "value": null,
+            "partial": true,
+            "through": "2026-10",
+            "missing": [
+              "расходы янв–авг 2026 по объекту (в старой таблице нет разбивки)",
+              "стоимость / цена покупки объекта — в таблицах аренды нет, доходность (yield) посчитать нельзя",
+              "налог 24% не разнесён по объектам (есть только сводом по Испании в «ИТОГИ» / «Из чего сложилось»)",
+              "коммунидад, IBI, ипотека, агентство — отдельных статей в источниках нет"
+            ]
+          },
+          "2025": {
+            "income": 17737.12,
+            "expenses": null,
+            "expenses_by": null,
+            "net": null,
+            "margin_pct": null,
+            "yield_pct": null,
+            "value": null,
+            "partial": true,
+            "missing": [
+              "расходы 2025 по объекту — в источниках нет",
+              "стоимость / цена покупки — нет, yield % нет",
+              "доход 2025 = начисленная аренда из «Начисление_аренды» (без компенсации коммуналки)"
+            ]
+          }
+        }
+      },
+      {
+        "property": "Лос Пуэблос",
+        "vacant": false,
+        "vacant_note": null,
+        "monthly": {
+          "2026-08": {
+            "income": 1470.0,
+            "income_rent": 1470.0,
+            "income_util": null,
+            "expenses": null,
+            "expenses_by": null,
+            "net": null,
+            "margin_pct": null,
+            "missing": [
+              "все статьи расходов (коммунидад, IBI, коммуналка, ремонт, агентство, ипотека, страховка) — в старой таблице «ИТОГИ» по объектам нет"
+            ]
+          },
+          "2026-09": {
+            "income": 1412.48,
+            "income_rent": 1063.0,
+            "income_util": 349.48,
+            "expenses": 630.62,
+            "expenses_by": {
+              "Электричество": 369.42,
+              "Водоснабжение": 106.74,
+              "Интернет": 15.0,
+              "Ремонты/Обслуживание": 50.0,
+              "Страховка": 59.46,
+              "Прочие расходы": 30.0
+            },
+            "net": 781.86,
+            "margin_pct": 55.35,
+            "missing": [
+              "Налоги",
+              "Коммунидад",
+              "IBI",
+              "Ипотека",
+              "Агентство"
+            ]
+          },
+          "2026-10": {
+            "income": 1536.33,
+            "income_rent": 1370.0,
+            "income_util": 166.33,
+            "expenses": 252.03,
+            "expenses_by": {
+              "Электричество": 177.57,
+              "Интернет": 15.0,
+              "Страховка": 59.46
+            },
+            "net": 1284.3,
+            "margin_pct": 83.6,
+            "missing": [
+              "Налоги",
+              "Коммунидад",
+              "IBI",
+              "Ипотека",
+              "Агентство"
+            ]
+          },
+          "2026-11": {
+            "income": 1380.0,
+            "income_rent": 1370.0,
+            "income_util": 10.0,
+            "expenses": 74.46,
+            "expenses_by": {
+              "Интернет": 15.0,
+              "Страховка": 59.46
+            },
+            "net": 1305.54,
+            "margin_pct": 94.6,
+            "missing": [
+              "Налоги",
+              "Коммунидад",
+              "IBI",
+              "Ипотека",
+              "Агентство"
+            ]
+          }
+        },
+        "annual": {
+          "2026": {
+            "income": 5888.81,
+            "expenses": 882.66,
+            "expenses_by": {
+              "Интернет": 30.0,
+              "Электричество": 546.99,
+              "Водоснабжение": 106.74,
+              "Прочие расходы": 30.0,
+              "Страховка": 118.93,
+              "Ремонты/Обслуживание": 50.0
+            },
+            "net": 5006.15,
+            "margin_pct": 85.01,
+            "yield_pct": null,
+            "value": null,
+            "partial": true,
+            "through": "2026-10",
+            "missing": [
+              "расходы янв–авг 2026 по объекту (в старой таблице нет разбивки)",
+              "стоимость / цена покупки объекта — в таблицах аренды нет, доходность (yield) посчитать нельзя",
+              "налог 24% не разнесён по объектам (есть только сводом по Испании в «ИТОГИ» / «Из чего сложилось»)",
+              "коммунидад, IBI, ипотека, агентство — отдельных статей в источниках нет"
+            ]
+          },
+          "2025": {
+            "income": null,
+            "expenses": null,
+            "expenses_by": null,
+            "net": null,
+            "margin_pct": null,
+            "yield_pct": null,
+            "value": null,
+            "partial": true,
+            "missing": [
+              "расходы 2025 по объекту — в источниках нет",
+              "стоимость / цена покупки — нет, yield % нет",
+              "доход 2025 = начисленная аренда из «Начисление_аренды» (без компенсации коммуналки)"
+            ]
+          }
+        }
+      },
+      {
+        "property": "Кооперасион",
+        "vacant": false,
+        "vacant_note": null,
+        "monthly": {
+          "2026-08": {
+            "income": 900.0,
+            "income_rent": 900.0,
+            "income_util": null,
+            "expenses": null,
+            "expenses_by": null,
+            "net": null,
+            "margin_pct": null,
+            "missing": [
+              "все статьи расходов (коммунидад, IBI, коммуналка, ремонт, агентство, ипотека, страховка) — в старой таблице «ИТОГИ» по объектам нет"
+            ]
+          },
+          "2026-09": {
+            "income": 1215.23,
+            "income_rent": 1056.67,
+            "income_util": 158.56,
+            "expenses": 523.64,
+            "expenses_by": {
+              "Электричество": 67.52,
+              "Водоснабжение": 131.76,
+              "Интернет": 15.0,
+              "Ремонты/Обслуживание": 229.9,
+              "Страховка": 59.46,
+              "Прочие расходы": 20.0
+            },
+            "net": 691.59,
+            "margin_pct": 56.91,
+            "missing": [
+              "Налоги",
+              "Коммунидад",
+              "IBI",
+              "Ипотека",
+              "Агентство"
+            ]
+          },
+          "2026-10": {
+            "income": 1520.75,
+            "income_rent": 1370.0,
+            "income_util": 150.75,
+            "expenses": 245.44,
+            "expenses_by": {
+              "Электричество": 140.98,
+              "Интернет": 15.0,
+              "Страховка": 59.46,
+              "Прочие расходы": 30.0
+            },
+            "net": 1275.31,
+            "margin_pct": 83.86,
+            "missing": [
+              "Налоги",
+              "Коммунидад",
+              "IBI",
+              "Ипотека",
+              "Агентство"
+            ]
+          },
+          "2026-11": {
+            "income": 1385.0,
+            "income_rent": 1370.0,
+            "income_util": 15.0,
+            "expenses": 74.46,
+            "expenses_by": {
+              "Интернет": 15.0,
+              "Страховка": 59.46
+            },
+            "net": 1310.54,
+            "margin_pct": 94.62,
+            "missing": [
+              "Налоги",
+              "Коммунидад",
+              "IBI",
+              "Ипотека",
+              "Агентство"
+            ]
+          }
+        },
+        "annual": {
+          "2026": {
+            "income": 13085.98,
+            "expenses": 769.09,
+            "expenses_by": {
+              "Ремонты/Обслуживание": 229.9,
+              "Интернет": 30.0,
+              "Электричество": 208.5,
+              "Страховка": 118.93,
+              "Водоснабжение": 131.76,
+              "Прочие расходы": 50.0
+            },
+            "net": 12316.89,
+            "margin_pct": 94.12,
+            "yield_pct": null,
+            "value": null,
+            "partial": true,
+            "through": "2026-10",
+            "missing": [
+              "расходы янв–авг 2026 по объекту (в старой таблице нет разбивки)",
+              "стоимость / цена покупки объекта — в таблицах аренды нет, доходность (yield) посчитать нельзя",
+              "налог 24% не разнесён по объектам (есть только сводом по Испании в «ИТОГИ» / «Из чего сложилось»)",
+              "коммунидад, IBI, ипотека, агентство — отдельных статей в источниках нет"
+            ]
+          },
+          "2025": {
+            "income": 15155.0,
+            "expenses": null,
+            "expenses_by": null,
+            "net": null,
+            "margin_pct": null,
+            "yield_pct": null,
+            "value": null,
+            "partial": true,
+            "missing": [
+              "расходы 2025 по объекту — в источниках нет",
+              "стоимость / цена покупки — нет, yield % нет",
+              "доход 2025 = начисленная аренда из «Начисление_аренды» (без компенсации коммуналки)"
+            ]
+          }
+        }
+      },
+      {
+        "property": "Сагунто",
+        "vacant": true,
+        "vacant_note": "Жилец съехал, выселение закрыто, Алла сдаёт заново",
+        "monthly": {
+          "2026-08": {
+            "income": 800.0,
+            "income_rent": 800.0,
+            "income_util": null,
+            "expenses": null,
+            "expenses_by": null,
+            "net": null,
+            "margin_pct": null,
+            "missing": [
+              "все статьи расходов (коммунидад, IBI, коммуналка, ремонт, агентство, ипотека, страховка) — в старой таблице «ИТОГИ» по объектам нет"
+            ]
+          },
+          "2026-09": {
+            "income": 800.0,
+            "income_rent": 800.0,
+            "income_util": 0.0,
+            "expenses": 59.46,
+            "expenses_by": {
+              "Страховка": 59.46
+            },
+            "net": 740.54,
+            "margin_pct": 92.57,
+            "missing": [
+              "Налоги",
+              "Коммунидад",
+              "IBI",
+              "Ипотека",
+              "Агентство"
+            ]
+          },
+          "2026-10": {
+            "income": 800.0,
+            "income_rent": 800.0,
+            "income_util": 0.0,
+            "expenses": 154.6,
+            "expenses_by": {
+              "Страховка": 59.46,
+              "Прочие расходы": 95.14
+            },
+            "net": 645.4,
+            "margin_pct": 80.67,
+            "missing": [
+              "Налоги",
+              "Коммунидад",
+              "IBI",
+              "Ипотека",
+              "Агентство"
+            ]
+          },
+          "2026-11": {
+            "income": 0.0,
+            "income_rent": 0.0,
+            "income_util": 0.0,
+            "expenses": 198.46,
+            "expenses_by": {
+              "Ремонты/Обслуживание": 120.0,
+              "Страховка": 59.46,
+              "Прочие расходы": 19.0
+            },
+            "net": -198.46,
+            "margin_pct": null,
+            "missing": [
+              "Налоги",
+              "Коммунидад",
+              "IBI",
+              "Ипотека",
+              "Агентство"
+            ]
+          }
+        },
+        "annual": {
+          "2026": {
+            "income": 8000.0,
+            "expenses": 214.07,
+            "expenses_by": {
+              "Страховка": 118.93,
+              "Прочие расходы": 95.14
+            },
+            "net": 7785.93,
+            "margin_pct": 97.32,
+            "yield_pct": null,
+            "value": null,
+            "partial": true,
+            "through": "2026-10",
+            "missing": [
+              "расходы янв–авг 2026 по объекту (в старой таблице нет разбивки)",
+              "стоимость / цена покупки объекта — в таблицах аренды нет, доходность (yield) посчитать нельзя",
+              "налог 24% не разнесён по объектам (есть только сводом по Испании в «ИТОГИ» / «Из чего сложилось»)",
+              "коммунидад, IBI, ипотека, агентство — отдельных статей в источниках нет"
+            ]
+          },
+          "2025": {
+            "income": 9600.0,
+            "expenses": null,
+            "expenses_by": null,
+            "net": null,
+            "margin_pct": null,
+            "yield_pct": null,
+            "value": null,
+            "partial": true,
+            "missing": [
+              "расходы 2025 по объекту — в источниках нет",
+              "стоимость / цена покупки — нет, yield % нет",
+              "доход 2025 = начисленная аренда из «Начисление_аренды» (без компенсации коммуналки)"
+            ]
+          }
+        }
+      },
+      {
+        "property": "Украина",
+        "vacant": false,
+        "vacant_note": null,
+        "monthly": {
+          "2026-08": {
+            "income": 1028.28,
+            "income_rent": 1028.28,
+            "income_util": null,
+            "expenses": null,
+            "expenses_by": null,
+            "net": null,
+            "margin_pct": null,
+            "missing": [
+              "все статьи расходов (коммунидад, IBI, коммуналка, ремонт, агентство, ипотека, страховка) — в старой таблице «ИТОГИ» по объектам нет"
+            ]
+          },
+          "2026-09": {
+            "income": 965.94,
+            "income_rent": 934.62,
+            "income_util": 31.32,
+            "expenses": 0.0,
+            "expenses_by": null,
+            "net": 965.94,
+            "margin_pct": 100.0,
+            "missing": [
+              "Налоги",
+              "Коммунидад",
+              "IBI",
+              "Ипотека",
+              "Агентство"
+            ]
+          },
+          "2026-10": {
+            "income": 985.24,
+            "income_rent": 943.27,
+            "income_util": 41.97,
+            "expenses": 0.0,
+            "expenses_by": null,
+            "net": 985.24,
+            "margin_pct": 100.0,
+            "missing": [
+              "Налоги",
+              "Коммунидад",
+              "IBI",
+              "Ипотека",
+              "Агентство"
+            ]
+          },
+          "2026-11": {
+            "income": 943.27,
+            "income_rent": 943.27,
+            "income_util": 0.0,
+            "expenses": 0.0,
+            "expenses_by": null,
+            "net": 943.27,
+            "margin_pct": 100.0,
+            "missing": [
+              "Налоги",
+              "Коммунидад",
+              "IBI",
+              "Ипотека",
+              "Агентство"
+            ]
+          }
+        },
+        "annual": {
+          "2026": {
+            "income": 9481.77,
+            "expenses": null,
+            "expenses_by": null,
+            "net": 9481.77,
+            "margin_pct": 100.0,
+            "yield_pct": null,
+            "value": null,
+            "partial": true,
+            "through": "2026-10",
+            "missing": [
+              "расходы янв–авг 2026 по объекту (в старой таблице нет разбивки)",
+              "стоимость / цена покупки объекта — в таблицах аренды нет, доходность (yield) посчитать нельзя",
+              "налог 24% не разнесён по объектам (есть только сводом по Испании в «ИТОГИ» / «Из чего сложилось»)",
+              "коммунидад, IBI, ипотека, агентство — отдельных статей в источниках нет",
+              "эксплуатационные расходы по Украине (в «Эксплуатационные расходы» только испанские объекты)",
+              "Украина нетто за июль и август 2026 в «ИТОГИ» не заполнены"
+            ]
+          },
+          "2025": {
+            "income": 9773.24,
+            "expenses": null,
+            "expenses_by": null,
+            "net": null,
+            "margin_pct": null,
+            "yield_pct": null,
+            "value": null,
+            "partial": true,
+            "missing": [
+              "расходы 2025 по объекту — в источниках нет",
+              "стоимость / цена покупки — нет, yield % нет",
+              "доход 2025 = начисленная аренда из «Начисление_аренды» (без компенсации коммуналки)"
+            ]
+          }
+        }
+      }
+    ],
+    "notes": [
+      "Суммы начислений и расходов по объектам за сен–ноя сходятся с «Отчет P&L» с точностью до округления (±1 €).",
+      "Доход с сентября — начисления арендаторам (аренда + свет/вода/интернет) из календаря. За янв–авг 2026 и за 2025 — только начисленная аренда (компенсация коммуналки в той выгрузке отдельно не сведена по объектам).",
+      "Чистая за месяц = начисления − эксплуатационные расходы. Налог 24% в P&L по объектам не разнесён (статья «Налоги» = 0).",
+      "Доходность (yield %) от стоимости объекта — основа: поля стоимости нет ни в одной из двух таблиц.",
+      "Колумбийского портфеля в аренде нет — только Испания и Украина."
+    ]
+  },
+  "fact_units": {
+    "2026-09": {
+      "Оливино": [
+        {
+          "unit": "Комната 1",
+          "tenant": "Литвиненко Наталья",
+          "accrued": 450.0,
+          "paid": 450.0,
+          "paid_dates": [
+            "2026-09-15"
+          ],
+          "deposit": null,
+          "debt": 491.93,
+          "date_in": "2026-09-01",
+          "date_out": null,
+          "vacant": false,
+          "unconfirmed": false
+        },
+        {
+          "unit": "Комната 2",
+          "tenant": "Мила",
+          "accrued": 420.0,
+          "paid": 0.0,
+          "paid_dates": [],
+          "deposit": null,
+          "debt": 1612.8,
+          "date_in": "2026-09-01",
+          "date_out": null,
+          "vacant": false,
+          "unconfirmed": false
+        },
+        {
+          "unit": "Комната 3",
+          "tenant": "Харкова Наталья",
+          "accrued": 460.0,
+          "paid": 0.0,
+          "paid_dates": [],
+          "deposit": null,
+          "debt": 1335.06,
+          "date_in": "2026-09-01",
+          "date_out": "2026-10-15",
+          "vacant": false,
+          "unconfirmed": false
+        },
+        {
+          "unit": "Комната 4",
+          "tenant": "Горденко Иветта",
+          "accrued": 470.0,
+          "paid": 470.0,
+          "paid_dates": [
+            "2026-09-05"
+          ],
+          "deposit": null,
+          "debt": 5.0,
+          "date_in": "2026-09-01",
+          "date_out": null,
+          "vacant": false,
+          "unconfirmed": false
+        }
+      ],
+      "Рей Пастор": [
+        {
+          "unit": "Комната 1",
+          "tenant": "Чебыкина Светлана",
+          "accrued": 450.0,
+          "paid": 675.0,
+          "paid_dates": [
+            "2026-09-22",
+            "2026-09-24"
+          ],
+          "deposit": null,
+          "debt": 4.93,
+          "date_in": "2026-09-01",
+          "date_out": null,
+          "vacant": false,
+          "unconfirmed": false
+        },
+        {
+          "unit": "Комната 2",
+          "tenant": "Полякова Наталья",
+          "accrued": 442.0,
+          "paid": 442.0,
+          "paid_dates": [
+            "2026-09-01"
+          ],
+          "deposit": null,
+          "debt": -45.0,
+          "date_in": "2026-09-01",
+          "date_out": "2026-10-05",
+          "vacant": false,
+          "unconfirmed": false
+        },
+        {
+          "unit": "Комната 3",
+          "tenant": "Алексей - работы",
+          "accrued": 445.0,
+          "paid": 0.0,
+          "paid_dates": [],
+          "deposit": null,
+          "debt": 507.3,
+          "date_in": "2026-09-01",
+          "date_out": null,
+          "vacant": false,
+          "unconfirmed": false
+        },
+        {
+          "unit": "Комната 4",
+          "tenant": "Политаева Эльвира",
+          "accrued": 450.0,
+          "paid": 450.0,
+          "paid_dates": [
+            "2026-09-07"
+          ],
+          "deposit": null,
+          "debt": 540.09,
+          "date_in": "2026-09-01",
+          "date_out": null,
+          "vacant": false,
+          "unconfirmed": false
+        }
+      ],
+      "Лос Пуэблос": [
+        {
+          "unit": "Комната 1",
+          "tenant": "Хадим",
+          "accrued": 63.0,
+          "paid": 0.0,
+          "paid_dates": [],
+          "deposit": null,
+          "debt": 10.0,
+          "date_in": "2026-09-01",
+          "date_out": "2026-09-13",
+          "vacant": false,
+          "unconfirmed": false
+        },
+        {
+          "unit": "Комната 2",
+          "tenant": "Аби Гари",
+          "accrued": 500.0,
+          "paid": 500.0,
+          "paid_dates": [
+            "2026-09-02"
+          ],
+          "deposit": null,
+          "debt": 28.05,
+          "date_in": "2026-09-01",
+          "date_out": null,
+          "vacant": false,
+          "unconfirmed": false
+        },
+        {
+          "unit": "Комната 3",
+          "tenant": "Черняну Ирина",
+          "accrued": 500.0,
+          "paid": 500.0,
+          "paid_dates": [
+            "2026-09-07"
+          ],
+          "deposit": null,
+          "debt": 399.57,
+          "date_in": "2026-09-01",
+          "date_out": null,
+          "vacant": false,
+          "unconfirmed": false
+        },
+        {
+          "unit": "Комната 4",
+          "tenant": "вакантно",
+          "accrued": 0.0,
+          "paid": 0.0,
+          "paid_dates": [],
+          "deposit": null,
+          "debt": 0.0,
+          "date_in": null,
+          "date_out": null,
+          "vacant": true,
+          "unconfirmed": false
+        }
+      ],
+      "Кооперасион": [
+        {
+          "unit": "Комната 1",
+          "tenant": "Байгуш Алексей/Фостик Владимир",
+          "accrued": 156.67,
+          "paid": 470.0,
+          "paid_dates": [
+            "2026-09-21"
+          ],
+          "deposit": 470.0,
+          "debt": 188.89,
+          "date_in": "2026-09-20",
+          "date_out": null,
+          "vacant": false,
+          "unconfirmed": false
+        },
+        {
+          "unit": "Комната 2",
+          "tenant": "Власов Алексей",
+          "accrued": 450.0,
+          "paid": 450.0,
+          "paid_dates": [
+            "2026-09-12"
+          ],
+          "deposit": null,
+          "debt": 4.99,
+          "date_in": "2026-09-01",
+          "date_out": null,
+          "vacant": false,
+          "unconfirmed": false
+        },
+        {
+          "unit": "Комната 3",
+          "tenant": "Богдан",
+          "accrued": 450.0,
+          "paid": 450.0,
+          "paid_dates": [
+            "2026-09-15"
+          ],
+          "deposit": null,
+          "debt": 455.0,
+          "date_in": "2026-09-01",
+          "date_out": null,
+          "vacant": false,
+          "unconfirmed": false
+        }
+      ],
+      "Сагунто": [
+        {
+          "unit": "Комната 1",
+          "tenant": "Алехандро (колумбиец)",
+          "accrued": 800.0,
+          "paid": 500.0,
+          "paid_dates": [
+            "2026-09-03"
+          ],
+          "deposit": null,
+          "debt": 0.0,
+          "date_in": "2026-09-01",
+          "date_out": "2026-10-31",
+          "vacant": false,
+          "unconfirmed": false
+        }
+      ]
+    },
+    "2026-10": {
+      "Оливино": [
+        {
+          "unit": "Комната 1",
+          "tenant": "Литвиненко Наталья",
+          "accrued": 450.0,
+          "paid": 450.0,
+          "paid_dates": [
+            "2026-10-13"
+          ],
+          "deposit": null,
+          "debt": 491.93,
+          "date_in": "2026-09-01",
+          "date_out": null,
+          "vacant": false,
+          "unconfirmed": false
+        },
+        {
+          "unit": "Комната 2",
+          "tenant": "Мила",
+          "accrued": 420.0,
+          "paid": 0.0,
+          "paid_dates": [],
+          "deposit": null,
+          "debt": 1612.8,
+          "date_in": "2026-09-01",
+          "date_out": null,
+          "vacant": false,
+          "unconfirmed": false
+        },
+        {
+          "unit": "Комната 3",
+          "tenant": "Харкова Наталья",
+          "accrued": 230.0,
+          "paid": 1000.0,
+          "paid_dates": [
+            "2026-10-28"
+          ],
+          "deposit": null,
+          "debt": 1335.06,
+          "date_in": "2026-09-01",
+          "date_out": "2026-10-15",
+          "vacant": false,
+          "unconfirmed": false
+        },
+        {
+          "unit": "Комната 4",
+          "tenant": "Горденко Иветта",
+          "accrued": 470.0,
+          "paid": 470.0,
+          "paid_dates": [
+            "2026-10-07"
+          ],
+          "deposit": null,
+          "debt": 5.0,
+          "date_in": "2026-09-01",
+          "date_out": null,
+          "vacant": false,
+          "unconfirmed": false
+        }
+      ],
+      "Рей Пастор": [
+        {
+          "unit": "Комната 1",
+          "tenant": "Чебыкина Светлана",
+          "accrued": 450.0,
+          "paid": 445.0,
+          "paid_dates": [
+            "2026-10-11"
+          ],
+          "deposit": null,
+          "debt": 4.93,
+          "date_in": "2026-09-01",
+          "date_out": null,
+          "vacant": false,
+          "unconfirmed": false
+        },
+        {
+          "unit": "Комната 2",
+          "tenant": "Полякова Наталья",
+          "accrued": 73.67,
+          "paid": 73.67,
+          "paid_dates": [
+            "2026-10-28"
+          ],
+          "deposit": null,
+          "debt": -45.0,
+          "date_in": "2026-09-01",
+          "date_out": "2026-10-05",
+          "vacant": false,
+          "unconfirmed": true
+        },
+        {
+          "unit": "Комната 3",
+          "tenant": "Алексей - работы",
+          "accrued": 445.0,
+          "paid": 725.0,
+          "paid_dates": [
+            "2026-10-26"
+          ],
+          "deposit": null,
+          "debt": 507.3,
+          "date_in": "2026-09-01",
+          "date_out": null,
+          "vacant": false,
+          "unconfirmed": false
+        },
+        {
+          "unit": "Комната 4",
+          "tenant": "Политаева Эльвира",
+          "accrued": 450.0,
+          "paid": 450.0,
+          "paid_dates": [
+            "2026-10-29"
+          ],
+          "deposit": null,
+          "debt": 540.09,
+          "date_in": "2026-09-01",
+          "date_out": null,
+          "vacant": false,
+          "unconfirmed": true
+        }
+      ],
+      "Лос Пуэблос": [
+        {
+          "unit": "Комната 1",
+          "tenant": "Шестукхина Елена",
+          "accrued": 470.0,
+          "paid": 470.0,
+          "paid_dates": [
+            "2026-10-01"
+          ],
+          "deposit": 470.0,
+          "debt": 10.0,
+          "date_in": "2026-10-01",
+          "date_out": null,
+          "vacant": false,
+          "unconfirmed": false
+        },
+        {
+          "unit": "Комната 2",
+          "tenant": "Аби Гари",
+          "accrued": 500.0,
+          "paid": 500.0,
+          "paid_dates": [
+            "2026-10-05"
+          ],
+          "deposit": null,
+          "debt": 28.05,
+          "date_in": "2026-09-01",
+          "date_out": null,
+          "vacant": false,
+          "unconfirmed": false
+        },
+        {
+          "unit": "Комната 3",
+          "tenant": "Черняну Ирина",
+          "accrued": 400.0,
+          "paid": 400.0,
+          "paid_dates": [
+            "2026-10-14",
+            "2026-10-22"
+          ],
+          "deposit": null,
+          "debt": 399.57,
+          "date_in": "2026-09-01",
+          "date_out": null,
+          "vacant": false,
+          "unconfirmed": false
+        },
+        {
+          "unit": "Комната 4",
+          "tenant": "вакантно",
+          "accrued": 0.0,
+          "paid": 0.0,
+          "paid_dates": [],
+          "deposit": null,
+          "debt": 0.0,
+          "date_in": null,
+          "date_out": null,
+          "vacant": true,
+          "unconfirmed": false
+        }
+      ],
+      "Кооперасион": [
+        {
+          "unit": "Комната 1",
+          "tenant": "Байгуш Алексей/Фостик Владимир",
+          "accrued": 470.0,
+          "paid": 470.0,
+          "paid_dates": [
+            "2026-10-21"
+          ],
+          "deposit": null,
+          "debt": 188.89,
+          "date_in": "2026-09-20",
+          "date_out": null,
+          "vacant": false,
+          "unconfirmed": false
+        },
+        {
+          "unit": "Комната 2",
+          "tenant": "Власов Алексей",
+          "accrued": 450.0,
+          "paid": 450.0,
+          "paid_dates": [
+            "2026-10-14"
+          ],
+          "deposit": null,
+          "debt": 4.99,
+          "date_in": "2026-09-01",
+          "date_out": null,
+          "vacant": false,
+          "unconfirmed": false
+        },
+        {
+          "unit": "Комната 3",
+          "tenant": "Богдан",
+          "accrued": 450.0,
+          "paid": 450.0,
+          "paid_dates": [
+            "2026-10-30"
+          ],
+          "deposit": null,
+          "debt": 455.0,
+          "date_in": "2026-09-01",
+          "date_out": null,
+          "vacant": false,
+          "unconfirmed": false
+        }
+      ],
+      "Сагунто": [
+        {
+          "unit": "Комната 1",
+          "tenant": "Алехандро (колумбиец)",
+          "accrued": 800.0,
+          "paid": 800.0,
+          "paid_dates": [
+            "2026-10-22"
+          ],
+          "deposit": null,
+          "debt": 0.0,
+          "date_in": "2026-09-01",
+          "date_out": "2026-10-31",
+          "vacant": false,
+          "unconfirmed": false
+        }
+      ]
+    }
+  },
+  "official_paid": {
+    "2026-09": {
+      "Оливино": 920,
+      "Рей Пастор": 1125,
+      "Лос Пуэблос": 1000,
+      "Кооперасион": 1840,
+      "Сагунто": 500
+    },
+    "2026-10": {
+      "Оливино": 1920,
+      "Рей Пастор": 1338.91,
+      "Лос Пуэблос": 1840,
+      "Кооперасион": 1370,
+      "Сагунто": 800
+    }
+  }
+}

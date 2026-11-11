@@ -441,6 +441,41 @@ RE_FACT = dict(title='Октябрь 2026', prev_label='сен', cur='EUR', cols
 import csv as _csv
 REB = json.load(open(os.path.join(os.path.dirname(__file__), 're_blocks.json')))
 _cuu = lambda i: f'https://rosmater.github.io/cu/?t={i}' if i else None
+# Rost t6087u / t6089u: оплаты, долги, сверка и рентабельность — src/re_finance.json (генератор re_finance_gen.py)
+_RF_PATH = os.path.join(os.path.dirname(__file__), 're_finance.json')
+try:
+    _RF = json.load(open(_RF_PATH))
+except Exception:
+    _RF = {}
+if _RF.get('payments'):
+    REB['payments'] = _RF['payments']
+if _RF.get('profit'):
+    REB['profit'] = _RF['profit']
+_FU = _RF.get('fact_units') or {}
+# «Из чего сложилось»: к строкам объектов — разбивка по юнитам/жильцам (октябрь и сентябрь)
+if _FU and RE_FACT.get('cols'):
+    for _col in RE_FACT['cols']:
+        if not str(_col.get('h') or '').startswith('Доход'):
+            continue
+        _new = []
+        for _row in _col['rows']:
+            _label = _row[0]
+            _oct = {((u.get('unit') or '') + '|' + (u.get('tenant') or '')): u for u in ((_FU.get('2026-10') or {}).get(_label) or [])}
+            # merge by unit
+            _byu = {}
+            for u in ((_FU.get('2026-10') or {}).get(_label) or []):
+                _byu[u.get('unit') or u.get('tenant')] = dict(u)
+            for u in ((_FU.get('2026-09') or {}).get(_label) or []):
+                k = u.get('unit') or u.get('tenant')
+                if k in _byu:
+                    _byu[k]['prev_paid'] = u.get('paid')
+                    _byu[k]['prev_tenant'] = u.get('tenant')
+                else:
+                    d = dict(u); d['prev_paid'] = u.get('paid'); d['paid'] = None; d['accrued'] = None
+                    _byu[k] = d
+            _units = list(_byu.values())
+            _new.append(list(_row) + [dict(units=_units)] if _units else list(_row))
+        _col['rows'] = _new
 # цель: факт = Испания чистая (получено − налог 24%) последнего закрытого месяца, EUR; конверсия в USD — на клиенте по курсу meta.fx
 REB['goal']['fact'] = dict(amount=RE_MONTHS[-1][4], cur='EUR', period=MONTH_NAMES[int(RE_MONTHS[-1][0][5:]) - 1].lower() + ' 2026', partial=False, src=re_src_new)
 REB['goal']['fact_note'] = 'факт = Испания чистая (получено − налог 24%), последний закрытый месяц; с сентября 2026 — новая таблица «Отчет P&L»'
@@ -466,6 +501,15 @@ for f in REB['rent']['flats']:
     f['status'] = 'attention' if f['problems'] or f.get('free_units') else ('ok' if f['occ_pct'] == 100 else 'nodata')
 for k in ('free', 'prep', 'prep_launch', 'for_sale', 'evict', 'other_pay', 'sold'):
     for x in REB['rent'].get(k) or []: x['url'] = _cuu(x.get('cu'))
+# t6087u: Сагунто — выселение закрыто, объект вакантен, Алла сдаёт заново
+for ev in REB['rent'].get('evict') or []:
+    if 'Сагунт' in (ev.get('where') or '') or 'Sagunto' in (ev.get('where') or ''):
+        ev['stage'] = 'выселение закрыто · жилец съехал · Алла сдаёт заново'
+        ev['status'] = 'завершено'
+if not any('Сагунт' in (x.get('flat') or x.get('unit') or '') or 'Sagunto' in (x.get('flat') or x.get('unit') or '') for x in (REB['rent'].get('free') or [])):
+    REB['rent'].setdefault('free', []).append(dict(
+        flat='Puerto Sagunto · Azorín 7, 4-14', unit='Azorín 7, 4-14', since='2026-11-01',
+        note='Жилец съехал, выселение закрыто, Алла сдаёт заново', cu='86b7wu7jq', verified=True))
 for p_ in REB['investors']['people']:
     p_['url'] = _cuu(p_.get('cu'))
 
