@@ -1,6 +1,6 @@
 {
   "_note": "Живые ответы компаний (STE). Красный «разобрать» = open (мы не ответили). Жёлтый «ждём ответа» = waiting / awaiting_their_reply (наш ответ ушёл). answered/scheduled — снять с внимания. Пишет ste / Оборонка.",
-  "updated_at": "2026-11-11T02:54:15-05:00",
+  "updated_at": "2026-11-11T09:41:59-05:00",
   "unanswered_replies": [
     {
       "company": "TEREM-Letets / TEREM Holding (Bulgaria)",
@@ -19,6 +19,22 @@
       "msg_id": "1a1bf2b0926f76b7",
       "thread_id": "1a1a5ebf6b23a1f8",
       "last_inbound_msg_id": "1a1bf2b0926f76b7"
+    },
+    {
+      "company": "LOM PRAHA s.p.",
+      "from": "Jakub.Jindrak@lompraha.cz",
+      "subject": "RE: Mi-8/17 overhaul and spare parts — SpetsTechnoExport",
+      "received_at": "2026-11-11T09:36:54-05:00",
+      "note": "LOM PRAHA (Чехия, гос. MRO) заинтересована: просят портфолио (запчасти, ремонт агрегатов, модернизация Mi-17), мобильный ремонт, предлагают онлайн-встречу",
+      "url": "https://mail.google.com/mail/u/0/#inbox/1a1c487883b55717",
+      "status": "open",
+      "priority": true,
+      "pipeline": "intro",
+      "status_label": "Нужен наш ответ",
+      "msg_id": "1a1cb0a62974da18",
+      "thread_id": "1a1c487883b55717",
+      "last_inbound_at": "2026-11-11T09:36:54-05:00",
+      "last_inbound_msg_id": "1a1cb0a62974da18"
     },
     {
       "company": "Aviatek SAS (Colombia)",
