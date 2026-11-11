@@ -451,79 +451,93 @@
  },
  "managers": {
   "title": "Монитор работы менеджеров",
-  "week": "W42 · 12–18.10",
+  "week": "W44 · 26.10–01.11",
   "calls": {
-   "total": 233,
-   "scored": 192,
-   "of": 227,
-   "inc": 78,
-   "out": 155,
+   "total": 370,
+   "scored": 266,
+   "of": 344,
+   "inc": 89,
+   "out": 281,
    "people": [
     {
      "name": "Ліза",
-     "pct": 87,
-     "calls": 81,
-     "bad": 11
+     "pct": 91,
+     "calls": 86,
+     "bad": 1,
+     "to": null,
+     "orders": null
     },
     {
      "name": "Катя",
-     "pct": 87,
-     "calls": 79,
-     "bad": 7
+     "pct": 91,
+     "calls": 133,
+     "bad": 3,
+     "to": null,
+     "orders": null
     },
     {
      "name": "Саша",
-     "pct": 78,
-     "calls": 32,
-     "bad": 4
+     "pct": 89,
+     "calls": 47,
+     "bad": 1,
+     "to": null,
+     "orders": null
     }
    ],
    "note": "",
    "cu": "86bcmacku",
-   "url": "https://rosmater.github.io/cu/?t=86bcmacku"
+   "url": "https://rosmater.github.io/cu/?t=86bcmacku",
+   "missed": 27,
+   "missed_note": "пропущенных 27 с 19 номеров · перезвонили 5 · пик 01.11 — 11"
   },
   "chats": {
-   "chats": 43,
-   "asks": 64,
-   "answered": 59,
-   "unanswered": 5,
-   "median": "11 мин",
-   "le10": "29 из 59 (49%)",
-   "gt4h": 12,
-   "worst": "19 ч 44 мин",
-   "first_new_median": "51 мин",
-   "prev": {
-    "week": "W41",
-    "chats": 34,
-    "asks": 60,
-    "unanswered": 0,
-    "median": "17 мин",
-    "gt4h": 9
-   },
+   "chats": 38,
+   "asks": 84,
+   "answered": 81,
+   "unanswered": 3,
+   "median": "1 мин",
+   "gt4h": 9,
+   "worst": "19 ч 18 мин",
+   "first_new_median": "16 мин",
+   "le10": "56 из 81 (69%)",
+   "ratings": "great 4 · average 1 · poor 1",
    "people": [
     {
      "name": "Оксана",
-     "asks": 29,
-     "median": "2 мин",
-     "gt4h": 1
+     "asks": 39,
+     "median": "40 с",
+     "gt4h": 3
     },
     {
-     "name": "Евгения",
-     "asks": 18,
-     "median": "1 ч 17 мин",
+     "name": "Мария",
+     "asks": 16,
+     "median": "1 ч 05 мин",
      "gt4h": 6
     },
     {
      "name": "Катя",
-     "asks": 12,
-     "median": "45 мин",
-     "gt4h": 5
+     "asks": 26,
+     "median": "1 мин",
+     "gt4h": 0
     }
    ],
-   "ratings": "great 8 · average 2 · poor 0"
+   "prev": {
+    "week": "W43",
+    "chats": 33,
+    "asks": 65,
+    "unanswered": 2,
+    "median": "16 мин",
+    "gt4h": 8
+   }
   },
   "resp_trend": "Время ответа (Ирина): ~400 → 70 → 38 → 50 → 27 мин (сен)",
-  "stale_note": "W43 ещё не разобрана"
+  "stale_note": "",
+  "period": [
+   "2026-10-26",
+   "2026-11-01"
+  ],
+  "sales_1c_extra": [],
+  "sales_1c_src": "1С: выгрузки по менеджерам нет — ждёт выгрузку из BAS"
  },
  "retail": {
   "title": "Розница",
