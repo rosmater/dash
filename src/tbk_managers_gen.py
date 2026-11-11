@@ -117,7 +117,9 @@ def main():
         p['score'] = round(p['pct'] * (1 - ((x.get('refused') or 0) + (x.get('returned') or 0)) / x['orders']), 1) if x.get('orders') and (x.get('ref_pct') is not None) else None
     known = {p['name'] for p in M['calls']['people']}
     M['sales_1c_extra'] = [dict(name=k, **v) for k, v in (S or {}).items() if k not in known]
-    M['sales_1c_src'] = ('1С/BAS: ' + ', '.join(used) + f' · {a:%d.%m}–{b:%d.%m} · только «Интернет продажи» · непроведённые заказы исключены') if S else '1С: выгрузки по менеджерам нет — ждёт выгрузку из BAS'
+    M['sales_1c_src'] = ('1С/BAS ' + ' + '.join(x for x, k in (('«Заказы покупателей»', 'zakaz'), ('«Расходные накладные»', 'realiz'), ('«Возвраты от покупателей»', 'vozvrat')) if any(k in u for u in used))
+        + f' · {a:%d.%m}–{b:%d.%m} · только «Интернет продажи» · непроведённые заказы исключены'
+        + ('; в реализациях пометка удаления не выгружена (ждёт выгрузку №2)' if any(u.startswith('⚠') for u in used) else '')) if S else '1С: выгрузки по менеджерам нет — ждёт выгрузку из BAS'
     M['score_formula'] = 'Итог = оценка звонков Binotel × (1 − (отказы + возвраты) ÷ заказы менеджера); отказ/возврат — по «Состояние» заказа и документам «Возврат от покупателя» из 1С'
     M['stale_note'] = '' if H else f'HelpCrunch W{n} не найден'
     json.dump(B, open(J, 'w'), ensure_ascii=False, indent=1)
