@@ -3479,15 +3479,6 @@
  },
  "attn_static": [
   {
-   "id": "felix-admin",
-   "grp": "🔑 Доступы",
-   "text": "Дать доступ к админке Felix (felix-shop.com) — Rost выдаст, узнаёт",
-   "owner": "Я",
-   "why": "ждёт Rost",
-   "added": "2026-11-11",
-   "src": "Rost t6023u"
-  },
-  {
    "id": "server-access",
    "grp": "🔑 Доступы",
    "text": "Дать доступы к серверу — Rost выдаст завтра",
