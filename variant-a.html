@@ -887,7 +887,7 @@ function reBlocksHTML(d){if(d.id!=='realestate'||!d.re_blocks)return '';const B=
    <span class="note">непросмотрено: <b>${n(S_.unread_count)}</b> · новых объектов: <b>${n(S_.new_objects)}</b> · под ≤60k: <b>${n(S_.fit_60k)}</b></span></div>
   ${(S_.pending||[]).map(x=>`<div class="task"><span class="pill p-high">${dd(x.date)}</span><div style="flex:1"><b style="font-size:13.5px">${esc(x.text)}</b><div class="note">${x.fit?'подходит под модель':'выше порога ≤60k'}</div></div></div>`).join('')}
   <div class="note" style="margin-top:6px">${cul(S_.cu_url,S_.cu_name)}${S_.last_cu_report?' · '+esc(S_.last_cu_report):''}</div>`)}
- if(solv||goal)h+=`<div class="re-row">${solv}${goal}</div>`;
+ if(solv||goal)h+=`<div class="re-row">${goal}${solv}</div>`;/* Rost t5980u: Цель слева, Solvia справа */
  /* 3) Окупасы */
  const O=B.okupas;if(O){const M=O.market||[];
   h+=card(`${H('🚪 '+esc(O.title),'квартир '+(O.count!=null?O.count:O.ours.reduce((a,o)=>a+(o.count_as||1),0))+' · карточек '+O.ours.length)}
@@ -942,7 +942,7 @@ function tbkBlocksHTML(d){if(d.id!=='tabakevich'||!d.tbk_blocks)return '';const 
   ${F.links.map(x=>`<div class="task"><span class="pill p-normal">${x.cu?'CU':'GSheet'}</span><div style="flex:1">${cul(x.url,x.label)}${x.status||x.due||x.note?`<div class="note">${[x.status?esc(x.status):'',x.due?'срок '+dd(x.due):'',x.note?esc(x.note):''].filter(Boolean).join(' · ')}</div>`:''}</div></div>`).join('')}`)}
  if(Dc){dec=cardN(`${H('🧭 '+esc(Dc.title),'для Rost')}
   ${Dc.items.map(x=>x.placeholder?`<div class="task"><span class="pill p-normal">слот</span><div style="flex:1"><span class="note">${esc(x.slot)} — пусто</span></div></div>`:`<div class="task"><span class="pill p-high">${esc(x.status||'—')}</span><div style="flex:1"><b style="font-size:13.5px">${esc(x.slot)}</b><div>${cul(x.url,x.name)}</div><div class="note">срок ${dd(x.due)}${x.who?' · '+esc(x.who):''}</div></div></div>`).join('')}`)}
- if(fin||dec)h+=`<div class="tbk-row">${fin}${dec}</div>`;
+ if(fin||dec)h+=`<div class="tbk-row">${dec}${fin}</div>`;/* Rost t5981u: На решение слева, Фин-сводки справа */
  /* 3–6) Отдел ИМ: Интернет-магазин → Монитор менеджеров — одна рамка-группа */
  let im='';
  const E=B.eshop;if(E){im+=card(`${H('🛒 '+esc(E.title),'сайтов '+E.sites.length)}
