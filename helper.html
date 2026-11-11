@@ -215,6 +215,25 @@ details.mrow .mbody>.task{padding:5px 0}
 <script>/* ===== Password gate (Rost 24.10): data.enc.json расшифровывается паролем; ключ помнится в localStorage до «Выйти» ===== */
 const Gate = (() => {
   const LS = window.DASH_LS || 'dash_key_v1';
+  const LS_DAY = LS + '_day';
+  const bogotaDay = () => new Date().toLocaleDateString('en-CA', { timeZone: 'America/Bogota' });
+  const isHelper = () => !!window.DASH_HELPER;
+  function expireHelperKey() {
+    if (!isHelper()) return;
+    try {
+      const d = localStorage.getItem(LS_DAY);
+      if (d !== bogotaDay()) { localStorage.removeItem(LS); localStorage.removeItem(LS_DAY); }
+    } catch (e) {}
+  }
+  function rememberKey(raw) {
+    try {
+      localStorage.setItem(LS, raw);
+      if (isHelper()) localStorage.setItem(LS_DAY, bogotaDay());
+    } catch (e) {}
+  }
+  function forgetKey() {
+    try { localStorage.removeItem(LS); localStorage.removeItem(LS_DAY); } catch (e) {}
+  }
   const b2u = s => Uint8Array.from(atob(s), c => c.charCodeAt(0));
   const u2b = u => btoa(String.fromCharCode(...new Uint8Array(u)));
   async function decrypt(enc, key) {
@@ -247,33 +266,50 @@ const Gate = (() => {
 #gate-out{position:fixed;right:14px;bottom:14px;z-index:50;border:1px solid #e2e8f0;background:#fff;color:#64748b;border-radius:999px;padding:6px 12px;font-size:12px;cursor:pointer;box-shadow:0 2px 8px rgba(15,23,42,.08)}
 #gate-out:hover,#gate-ref:hover{color:#0f172a}
 #gate-out{padding:6px 10px;font-size:15px;line-height:1}
-#gate-ref{position:fixed;right:58px;bottom:14px;z-index:50;border:1px solid #e2e8f0;background:#fff;color:#64748b;border-radius:999px;padding:6px 10px;font-size:15px;line-height:1;cursor:pointer;box-shadow:0 2px 8px rgba(15,23,42,.08)}`;
+#gate-ref{position:fixed;right:58px;bottom:14px;z-index:50;border:1px solid #e2e8f0;background:#fff;color:#64748b;border-radius:999px;padding:6px 10px;font-size:15px;line-height:1;cursor:pointer;box-shadow:0 2px 8px rgba(15,23,42,.08)}
+#gate-x{position:fixed;top:10px;right:12px;z-index:80;border:0;background:transparent;color:#64748b;font-size:18px;line-height:1;cursor:pointer;padding:4px 8px;border-radius:8px}
+#gate-x:hover{color:#0f172a;background:#f1f5f9}`;
     document.head.appendChild(s);
   }
   function logoutBtn() {
     const b = document.createElement('button');
     b.id = 'gate-out'; b.textContent = '🔒'; b.title = 'Выйти (забыть пароль на этом устройстве)'; b.setAttribute('aria-label','Выйти');
-    b.onclick = () => { try { localStorage.removeItem(LS); } catch (e) {} location.reload(); };
+    b.onclick = () => { forgetKey(); location.reload(); };
     document.body.appendChild(b);
     const r = document.createElement('button');
     r.id = 'gate-ref'; r.textContent = '↻'; r.title = 'Обновить (свежая версия, без кеша)'; r.setAttribute('aria-label','Обновить');
     r.onclick = () => { const u = new URL(location.href); u.searchParams.set('v', Date.now()); location.replace(u.toString()); };
     document.body.appendChild(r);
+    if (isHelper()) { /* t6090u: маленький ✕ сверху справа — на экран пароля */
+      const x = document.createElement('button');
+      x.id = 'gate-x'; x.textContent = '✕'; x.title = 'Выйти на экран пароля'; x.setAttribute('aria-label','Закрыть');
+      x.onclick = () => { forgetKey(); location.reload(); };
+      document.body.appendChild(x);
+    }
   }
   function prompt(enc) {
     return new Promise(res => {
       document.body.classList.add('gate-blur');
       const g = document.createElement('div'); g.id = 'gate';
-      g.innerHTML = `<form autocomplete="on"><div class="lg">🔒</div><h2>${window.DASH_TITLE || 'Бизнес-дашборд'}</h2><p>Введите пароль, чтобы открыть</p>
-<input type="text" name="username" value="rost" autocomplete="username" hidden>
-<div class="row"><input id="gate-pw" class="masked" type="text" lang="ru" inputmode="text" autocomplete="current-password" autocapitalize="off" autocorrect="off" spellcheck="false" enterkeyhint="go" placeholder="Пароль" autofocus><button type="button" class="eye" title="Показать пароль">👁</button></div>
+      const helperGate = isHelper(); /* t6090u: helper — без save-password, пароль на день */
+      const formAuto = helperGate ? 'off' : 'on';
+      const pwAuto = helperGate ? 'off' : 'current-password';
+      const userField = helperGate ? '' : '<input type="text" name="username" value="rost" autocomplete="username" hidden>';
+      const pwName = helperGate ? 'dash-asst-code' : undefined;
+      const hintStay = helperGate
+        ? 'Пароль нужно вводить каждый день. Браузер его не сохраняет.'
+        : 'Один раз ввёл — на этом устройстве больше не спрашиваем (до «Выйти»).';
+      g.innerHTML = `<form autocomplete="${formAuto}" data-lpignore="true" data-1p-ignore="true"><div class="lg">🔒</div><h2>${window.DASH_TITLE || 'Бизнес-дашборд'}</h2><p>Введите пароль, чтобы открыть</p>
+${userField}
+<div class="row"><input id="gate-pw" class="masked" type="text" lang="ru" inputmode="text" autocomplete="${pwAuto}" autocapitalize="off" autocorrect="off" spellcheck="false" enterkeyhint="go" placeholder="Пароль" name="${helperGate ? 'dash-asst-code' : 'password'}" ${helperGate ? 'data-lpignore="true" data-1p-ignore="true" data-form-type="other" readonly' : ''} autofocus><button type="button" class="eye" title="Показать пароль">👁</button></div>
 <button type="button" class="ru" style="margin:8px 0 0;padding:6px 12px;border:1.5px solid #cbd5e1;border-radius:10px;background:#fff;font-size:14px">⌨️ RU: выкл</button>
 <div class="hint" style="margin-top:4px">Нет русской раскладки? Включи RU и печатай латиницей на тех же клавишах (Ш=i, Е=t…).</div>
 <button class="go" type="submit">Открыть</button><div class="err"></div>
-<div class="hint">Один раз ввёл — на этом устройстве больше не спрашиваем (до «Выйти»).</div></form>`;
+<div class="hint">${hintStay}</div></form>`;
       document.body.appendChild(g);
       const f = g.querySelector('form'), i = g.querySelector('#gate-pw'), err = g.querySelector('.err'), go = g.querySelector('.go');
       g.querySelector('.eye').onclick = () => { i.classList.toggle('masked'); i.focus(); };
+      if (helperGate) i.addEventListener('focus', () => i.removeAttribute('readonly'));
       setTimeout(() => i.focus(), 50);
       const L2R = {q:'й',w:'ц',e:'у',r:'к',t:'е',y:'н',u:'г',i:'ш',o:'щ',p:'з','[':'х',']':'ъ',a:'ф',s:'ы',d:'в',f:'а',g:'п',h:'р',j:'о',k:'л',l:'д',';':'ж',"'":'э',z:'я',x:'ч',c:'с',v:'м',b:'и',n:'т',m:'ь',',':'б','.':'ю','`':'ё'};
       const toRu = v => v.toLowerCase().split('').map(c => L2R[c] || c).join('');
@@ -288,7 +324,7 @@ const Gate = (() => {
           let key = await derive(pv, enc), data;
           try { data = await decrypt(enc, key); }
           catch (eL) { const pr = toRu(pv); if (pr === pv) throw eL; key = await derive(pr, enc); data = await decrypt(enc, key); }
-          try { localStorage.setItem(LS, u2b(await crypto.subtle.exportKey('raw', key))); } catch (e2) {}
+          rememberKey(u2b(await crypto.subtle.exportKey('raw', key)));
           g.remove(); document.body.classList.remove('gate-blur'); res(data);
         } catch (e1) {
           err.textContent = 'Неверный пароль'; f.classList.remove('shake'); void f.offsetWidth; f.classList.add('shake');
@@ -299,11 +335,12 @@ const Gate = (() => {
   }
   async function unlock(src) {
     css();
+    expireHelperKey();
     const r = await fetch(src, { cache: 'no-store' });
     if (!r.ok) throw new Error(src + ': HTTP ' + r.status);
     const enc = await r.json();
     let data = null;
-    try { const raw = localStorage.getItem(LS); if (raw) data = await decrypt(enc, await imp(raw)); } catch (e) { try { localStorage.removeItem(LS); } catch (e2) {} }
+    try { const raw = localStorage.getItem(LS); if (raw) data = await decrypt(enc, await imp(raw)); } catch (e) { forgetKey(); }
     if (!data) data = await prompt(enc);
     logoutBtn();
     return data;
@@ -1050,8 +1087,7 @@ function reBlocksHTML(d){if(d.id!=='realestate'||!d.re_blocks)return '';const B=
   ${(Pr.properties||[]).map(one).join('')}
   <details class="tbk-det"><summary>Пояснения / что подключить</summary>${(Pr.notes||[]).map(n=>`<div class="note" style="margin-top:4px">${esc(n)}</div>`).join('')}${missH}</details></details>`}
  /* 5) Инвесторы */
- const I=B.investors;if(I){h+=card(`${H('🤝 '+esc(I.title),esc(I.src||''))}`
-
+ const I=B.investors;if(I){h+=card(`${H('🤝 '+esc(I.title),esc(I.src||''))}
   ${I.people.map(p=>`<div class="task"><span class="pill p-high">${p.icon||''} ${esc(p.name)}</span><div style="flex:1">${p.items.map(x=>'<b style="font-size:13.5px">'+esc(x)+'</b>').join('<br>')}${p.debt!==undefined?`<div class="note">сумма долга: <b>${p.debt==null?'—':fmt(p.debt,p.debt_cur||'EUR')}</b>${p.debt_note?' · '+esc(p.debt_note):''}</div>`:''}${p.url?`<div class="note">${cul(p.url,'CU: '+(p.cu_label||p.cu))}</div>`:''}</div></div>`).join('')}`)}
  return h}
 function tbkAttn(d){const B=d.tbk_blocks;if(!B)return [];const out=[];/* Rost: attn только то, что требует действия сейчас; пустой 3-й слот и плановое — не attn */
@@ -2047,5 +2083,6 @@ function bdHdr(){try{syncBogDay()}catch(e){}const el=$('#bdhdr');if(!el)return;l
 function bdDone(b){let L={};try{L=JSON.parse(localStorage.getItem('dash_bday_done')||'{}')}catch(e){}L[b.dataset.u]=b.dataset.due;try{localStorage.setItem('dash_bday_done',JSON.stringify(L))}catch(e){}
  tapPush({key:'bday|'+b.dataset.u,channel:'ClickUp',action:'cu_close',kind:'bday',title:b.dataset.t,url:b.dataset.u,due:b.dataset.due,sphere:'done'});bdHdr()}
 function render(){AT_REG=[];try{bdHdr()}catch(e){}setTimeout(()=>{try{tapResync()}catch(e){}},1500);try{maOqApply()}catch(e){}kill();ensureMode();Dash.save();controls();const d=Dash.D.directions.find(x=>x.id===S.tab),td=S.mode==='today';try{d?(d.kind==='msgs'?msgsTab(d):d.kind==='unsorted'?unsortedTab(d):d.kind==='assistants'?asstTab(d):d.kind==='bots'?botsTab(d):d.kind==='people'?people(d):d.kind==='calendar'?calendar(d):d.board?board(d):td?directionToday(d):direction(d)):td?overviewToday():overview()}catch(er){/* Rost t4316: ошибка отрисовки вкладки — не оставлять на экране контент прошлой вкладки */console.error(er);$('#main').innerHTML=`<div class="card"><h3>⚠️ ${esc((d&&d.name)||S.tab)}: ошибка отрисовки</h3><div class="note">${esc(String(er&&er.message||er))}</div></div>`}try{thMount()}catch(e){}$('#foot').textContent=Dash.fxFooter();}
+
 Dash.load().then(()=>document.fonts.ready).then(()=>calReconLoad()).then(render).catch(e=>{$('#main').innerHTML='<div class="card">Не удалось загрузить data.json: '+esc(e.message)+'</div>'});
 </script></body></html>

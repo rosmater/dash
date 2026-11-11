@@ -1147,5 +1147,12 @@ import sys as _sys; _sys.path.insert(0, os.path.dirname(os.path.abspath(__file__
 import cu_parents as _cup
 _rm = _cup.strip(data)
 if _rm: print('cu_parents: убрано', len(_rm), sorted({(r[1], r[2]) for r in _rm}))
+# Rost t6090u / t6092u: «Общий баланс» — plaintext только в локальном data.json; в data.enc.json уйдёт ciphertext (encrypt_data.py), в data-asst — ничего.
+try:
+    _OB = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'overall_balance.json')))
+    _OB.pop('_note', None)
+    data['overall_balance'] = _OB
+except FileNotFoundError:
+    pass
 json.dump(data, open(OUT, 'w'), ensure_ascii=False, indent=1)
 print('wrote', os.path.abspath(OUT), os.path.getsize(OUT))

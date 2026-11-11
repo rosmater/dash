@@ -1,0 +1,17 @@
+{
+  "_note": "t6090u foundation: total money and where it is held. Amounts only from a real source — never invented. Personal cards/accounts/cash are not connected yet (dashboard CONNECTIONS.md). Encrypted at build with PIN (t6092u); not shipped to helper (t6091u).",
+  "title": "Общий баланс",
+  "status": "foundation",
+  "as_of": null,
+  "currency": "USD",
+  "total": null,
+  "holdings": [
+    {"id": "banks", "name": "Банки / карты", "amount": null, "cur": "USD", "status": "not_connected"},
+    {"id": "cash", "name": "Наличные", "amount": null, "cur": "USD", "status": "not_connected"},
+    {"id": "crypto", "name": "Крипто", "amount": null, "cur": "USD", "status": "not_connected"}
+  ],
+  "gaps": [
+    "Личные доходы, карты, счета и нал пока не подключены — в даше нет живого источника остатков.",
+    "Когда появится снимок счетов, суммы встанут сюда; блок уже PIN-закрыт и не попадает к ассистентке."
+  ]
+}

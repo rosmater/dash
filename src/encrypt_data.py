@@ -9,6 +9,41 @@ ROOT = os.path.join(os.path.dirname(__file__), '..')
 VAULT = sys.argv[1] if len(sys.argv) > 1 else '/home/box/contacts/knowledge/secrets/vault/dashboard-password.md'
 OUT = sys.argv[2] if len(sys.argv) > 2 else 'data.enc.json'
 HIDE = sys.argv[3] if len(sys.argv) > 3 else None
+PIN_ENV = os.environ.get('BALANCE_PIN_FILE', '/home/box/secrets/balance-pin.env')
+BAL_ITER = 600000  # t6092u: high iterations; short PIN, brute-force costly in browser too
+
+def _read_balance_pin():
+    """Return PIN from env file. Never print it."""
+    raw = open(PIN_ENV).read()
+    m = re.search(r'^BALANCE_PIN=(.*)$', raw, re.M)
+    if not m:
+        raise SystemExit('BALANCE_PIN missing in pin env file')
+    pin = unicodedata.normalize('NFC', m.group(1).strip())
+    if not pin:
+        raise SystemExit('BALANCE_PIN empty')
+    return pin
+
+def _b64(x):
+    return base64.b64encode(x).decode()
+
+def _encrypt_overall_balance(data):
+    """Replace plaintext overall_balance with AES-GCM ciphertext (PIN via PBKDF2-SHA256)."""
+    plain = data.pop('overall_balance', None)
+    data.pop('overall_balance_enc', None)
+    if not plain:
+        return
+    pin = _read_balance_pin()
+    salt = os.urandom(16)
+    iv = os.urandom(12)
+    key = PBKDF2HMAC(algorithm=hashes.SHA256(), length=32, salt=salt, iterations=BAL_ITER).derive(pin.encode())
+    ct = AESGCM(key).encrypt(iv, json.dumps(plain, ensure_ascii=False).encode(), None)
+    data['overall_balance_enc'] = dict(v=1, kdf='PBKDF2-SHA256', iter=BAL_ITER, salt=_b64(salt), iv=_b64(iv), ct=_b64(ct))
+
+def _strip_overall_balance(data):
+    """t6091u: assistant payload must not contain the block or its ciphertext."""
+    data.pop('overall_balance', None)
+    data.pop('overall_balance_enc', None)
+
 pw = re.search(r'^password:\s*(\S+)', open(VAULT).read(), re.M).group(1)
 pw = unicodedata.normalize('NFC', pw.strip()).lower()  # same normalization as gate.js
 ITER = 250000
@@ -21,6 +56,10 @@ except Exception:
     salt = os.urandom(16)
 key = PBKDF2HMAC(algorithm=hashes.SHA256(), length=32, salt=salt, iterations=ITER).derive(pw.encode())
 data = json.load(open(os.path.join(ROOT, 'data.json')))
+if HIDE:
+    _strip_overall_balance(data)
+elif data.get('overall_balance') or data.get('overall_balance_enc'):
+    _encrypt_overall_balance(data)
 if HIDE:
     hj = json.load(open(HIDE))
     hide = set(hj.get('directions', []))
