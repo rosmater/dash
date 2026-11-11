@@ -55,8 +55,12 @@ R['all'] = {'rev': tot['inc'], 'res': tot['res'], 'shops': len(sell), 'gp': sumv
 def _city(s):
     return 'Киев' if any(s is k for k in kyiv) else 'Одесса'
 odesa = [s for s in sell if not any(s is k for k in kyiv)]
-R['stores'] = sorted([{'name': s['name'].replace('"', '«', 1).replace('"', '»', 1), 'city': _city(s), 'rev': s['rev'], 'gp': s['gp'], 'res': s['res']} for s in shops], key=lambda x: -(x['rev'][2] or 0))
-R['odesa'] = {'shops': sorted([{'name': s['name'].replace('"', '«', 1).replace('"', '»', 1), 'rev': s['rev'], 'gp': s['gp'], 'res': s['res']} for s in odesa], key=lambda x: -(x['rev'][2] or 0)),
+# Rost t5982u: «Розничные точки» — только свои точки без Киева (франшизы в рознице 1С и так отдельным направлением)
+_own = [s for s in shops if not any(s is k for k in kyiv)]
+R['stores'] = sorted([{'name': s['name'].replace('"', '«', 1).replace('"', '»', 1), 'rev': s['rev'], 'gp': s['gp'], 'res': s['res']} for s in _own], key=lambda x: -(x['rev'][2] or 0))
+R['stores_total'] = {'rev': sumv(_own, 'rev'), 'gp': sumv(_own, 'gp'), 'res': sumv(_own, 'res')}
+R.pop('odesa', None)
+_unused_odesa = {'shops': sorted([{'name': s['name'].replace('"', '«', 1).replace('"', '»', 1), 'rev': s['rev'], 'gp': s['gp'], 'res': s['res']} for s in odesa], key=lambda x: -(x['rev'][2] or 0)),
               'total': {'rev': sumv(odesa, 'rev'), 'gp': sumv(odesa, 'gp'), 'res': sumv(odesa, 'res')}}
 R['kyiv'] = {'shops': [{k: s[k] for k in ('name', 'rev', 'gp', 'res')} for s in kyiv],
              'total': {'rev': sumv(kyiv, 'rev'), 'gp': sumv(kyiv, 'gp'), 'res': sumv(kyiv, 'res')}}
@@ -65,4 +69,4 @@ R['franchise'] = {'rev': fr['rev'], 'gp': fr['gp'], 'res': fr['res'], 'debt_col'
 R['month_at'] = '10.11'
 if opt: B['opt']['sales_months'] = {'months': ['авг', 'сен', 'окт'], 'rev': opt['rev'], 'gp': opt['gp'], 'res': opt['res']}
 json.dump(B, open(J, 'w'), ensure_ascii=False, indent=2)
-print('retail: shops', len(sell), 'odesa', len(R['odesa']['shops']), R['odesa']['total']['rev'], R['odesa']['total']['res'], 'kyiv', len(kyiv), 'franchise stores', len(stores), 'debt', R['franchise']['debt_total'])
+print('retail: shops', len(sell), 'stores', len(R['stores']), R['stores_total'], 'kyiv', len(kyiv), 'franchise stores', len(stores), 'debt', R['franchise']['debt_total'])
