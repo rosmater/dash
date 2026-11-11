@@ -1104,7 +1104,7 @@ function reBlocksHTML(d){if(d.id!=='realestate'||!d.re_blocks)return '';const B=
  return h}
 function tbkAttn(d){const B=d.tbk_blocks;if(!B)return [];const out=[];/* Rost: attn только то, что требует действия сейчас; пустой 3-й слот и плановое — не attn */
  ((B.decisions&&B.decisions.items)||[]).forEach(x=>{if(x.placeholder||!x.cu||DONE.test(String(x.status||'')))return;if(x.due&&x.due<TODAY)out.push({grp:'🧭 На решение',text:x.slot+' — '+x.name,url:x.url,why:'просрочено',cls:''})});
- /* Rost t6023u: статичные пункты (снимаются вручную) */(B.attn_static||[]).forEach(x=>out.push({grp:x.grp||'⚠️ Табакевич',text:x.text+(x.owner?' · 👤 '+x.owner:''),url:x.url,why:x.why||'',cls:''}));
+ /* Rost t6023u: статичные пункты (снимаются вручную); t6101u: hide_from_helper не на helper */(B.attn_static||[]).forEach(x=>{if(window.DASH_HELPER&&x.hide_from_helper)return;out.push({id:x.id,grp:x.grp||'⚠️ Табакевич',text:x.text+(x.owner?' · 👤 '+x.owner:''),url:x.url,why:x.why||'',cls:''})});
  ((B.opt&&B.opt.problems)||[]).forEach(p=>{if(p.flag&&(p.weeks||0)>=4)out.push({grp:'💳 Дебиторка',text:p.name+' — '+Dash.num(p.amt)+' ₴ без движения '+p.weeks+' срезов',url:B.opt.url,why:'долг стоит',cls:''})});
  return out}
 /* Rost t5963u: текущее vs прошлое — значение мягко зелёное (выше) / приглушённо-красное (ниже) + разница рядом (абс. и %). inv=true: меньше = лучше (долги, ожидание) */

@@ -85,6 +85,10 @@ if HIDE:
                         if isinstance(bv, dict):
                             for lk, lv in bv.items():
                                 if isinstance(lv, list): bv[lk] = [x for x in lv if not (isinstance(x, dict) and x.get('hide_from_helper'))]
+                    # t6101u: списки на верхнем уровне блока (attn_static и т.п.)
+                    for lk, lv in list(v.items()):
+                        if isinstance(lv, list):
+                            v[lk] = [x for x in lv if not (isinstance(x, dict) and x.get('hide_from_helper'))]
     # Rost t6061u: у ассистентки в Личном нет «Назначенных встреч» (только На решение + Документы)
     for d in data['directions']:
         if d.get('id') == 'personal':
