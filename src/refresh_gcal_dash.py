@@ -21,6 +21,7 @@ ap = argparse.ArgumentParser()
 ap.add_argument('files', nargs='*')
 ap.add_argument('--out', default='/workspace/gcal_dash.json')
 ap.add_argument('--days', type=int, default=14)
+ap.add_argument('--start', default=None, help='YYYY-MM-DD, inclusive (default: today). For t6071u recon from 2026-11-01.')
 ap.add_argument('--dry', action='store_true')
 a = ap.parse_args()
 
@@ -65,7 +66,7 @@ for e in raw:
 ev.sort(key=lambda x: (x['start'] or ''))
 
 now = datetime.datetime.now(BOG)
-d0 = now.date()
+d0 = datetime.date.fromisoformat(a.start) if a.start else now.date()
 res = dict(fetched_at=now.strftime('%Y-%m-%dT%H:%M-05:00'), calendar=cal or 'zayavki.ua@gmail.com',
            range=dict(start=d0.isoformat(), end=(d0 + datetime.timedelta(days=a.days)).isoformat(), tz='America/Bogota'),
            events=ev)

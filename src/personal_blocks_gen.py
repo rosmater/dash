@@ -138,7 +138,7 @@ B['decisions'] = dict(
     items=[
         dict(slot='Виза Колумбия', cu='86b6qnxn8', url=cu('86b6qnxn8'),
              name='Подать на новую визу колумбия - какой план?',
-             status='to do', due='2027-05-01', role='🚶GO', assignees=['Rost']),
+             status='to do', due='2027-05-01', role='TO DO', assignees=['Rost']),
         dict(slot='Ирина · оплата', cu='86b82r2b5', url=cu('86b82r2b5'),
              name='Ирина оплата (все пришло?) - проверка отчета и решение',
              status='to do', due='2026-11-04', role='Control', assignees=['Rost']),

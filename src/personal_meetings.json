@@ -1,22 +1,8 @@
 {
   "_doc": "Rost t5952u: «📅 Назначенные встречи». Source: Role=🚶GO (field 1469c8d4-a3b4-4925-958a-7f442d9e002f option 95771463-42ea-45fc-8b87-ad4b48108cbf) any list, open, due≥today; 04:00 = all-day. Exclude: src/meetings_exclude.json. on_done=comment. Personal list 901413854636 is not a source (созвоны ≠ встречи).",
-  "updated_at": "2026-11-11T07:59:14-05:00",
+  "updated_at": "2026-11-11T15:32:55-05:00",
   "src": "Role GO 95771463-42ea-45fc-8b87-ad4b48108cbf",
   "list_url": "",
-  "scheduled_meetings": [
-    {
-      "id": "86b6qnxn8",
-      "name": "Подать на новую визу колумбия - какой план?",
-      "url": "https://app.clickup.com/t/86b6qnxn8",
-      "status": "to do",
-      "due": "2027-05-01",
-      "due_t": "",
-      "start": "2027-05-01",
-      "all_day": true,
-      "kind": "meeting",
-      "on_done": "comment",
-      "note": "",
-      "src": "go"
-    }
-  ]
+  "scheduled_meetings": [],
+  "note": "t6072u: 86b6qnxn8 Role GO→TO DO, убрана из Назначенных встреч; остаётся в На решение."
 }

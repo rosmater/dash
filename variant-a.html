@@ -3,13 +3,13 @@
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"><meta http-equiv="Pragma" content="no-cache"><meta http-equiv="Expires" content="0">
 <script>/* Rost 27.10 t3915u: авто-сброс кеша — при любом деплое страница сама перезагружается свежей */
 (function(){const h=t=>{let x=0;for(let i=0;i<t.length;i++)x=(x*31+t.charCodeAt(i))|0;return x};let base=null;
-async function chk(){try{const p=location.pathname,r=await fetch(p+'?nc='+Date.now(),{cache:'no-store'});if(!r.ok)return;const v=h(await r.text());if(base===null){base=v;return}if(v!==base){const u=new URL(location.href);u.searchParams.set('v',Date.now());location.replace(u.toString())}}catch(e){}}
+async function chk(){try{const p=/\/[^/]+\.html$/.test(location.pathname)?location.pathname:(location.pathname.replace(/\/?$/,'/')+'index.html');const r=await fetch(p+'?nc='+Date.now(),{cache:'no-store'});if(!r.ok)return;const v=h(await r.text());if(base===null){base=v;return}if(v!==base){const u=new URL(location.href);u.searchParams.set('v',Date.now());location.replace(u.toString())}}catch(e){}}
 if('serviceWorker'in navigator)navigator.serviceWorker.getRegistrations().then(a=>a.forEach(x=>x.unregister())).catch(()=>{});
 chk();setInterval(chk,120000);document.addEventListener('visibilitychange',()=>{if(!document.hidden)chk()});
 /* Rost t5110u 05.11: новые данные (data.enc.json) подтягиваются сами — раз в 2 мин и при возврате на вкладку; без перезагрузки страницы */
 let dbase=null;async function dchk(){try{const s=(window.DASH_ENC||'data.enc.json'),r=await fetch(s+'?t='+Date.now(),{cache:'no-store'});if(!r.ok)return;const v=h(await r.text());if(dbase===null){dbase=v;return}if(v!==dbase){dbase=v;if(typeof Dash!=='undefined'&&Dash.reload&&typeof render==='function'){await Dash.reload();try{keepOpen(render)}catch(e){render()}}else location.reload()}}catch(e){}}
 setTimeout(dchk,3000);setInterval(dchk,120000);document.addEventListener('visibilitychange',()=>{if(!document.hidden)dchk()});})();</script>
-<!-- dash-bust t5812u 1794253115 -->
+<!-- dash-bust t6070u-t6072u 1794440000 -->
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#f5f6fa"><meta name="apple-mobile-web-app-capable" content="yes">
 <title>Дашборд — вариант A (Light SaaS)</title>
@@ -180,7 +180,22 @@ details.mrow .mbody>.task{padding:5px 0}
 .fact-cols{display:grid;grid-template-columns:repeat(var(--n),minmax(0,1fr));gap:14px;align-items:start}@media(max-width:720px){.fact-cols{grid-template-columns:1fr}}.fact-res{display:flex;flex-wrap:wrap;gap:6px 18px;margin-top:8px;font-size:13px}
 .tbk-det{border-top:1px dashed var(--line);margin-top:8px;padding-top:6px}.tbk-det>summary{cursor:pointer;font-weight:700;font-size:13px;padding:4px 0;list-style:revert}.tbk-det>summary .dl{font-weight:600}
 .tbk-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px;margin-bottom:14px}.tbk-grp{border:2px solid #c9c1f5;border-radius:16px;padding:10px 10px 0;margin-bottom:14px;background:#7c5cff0a}.tbk-grp-h{font-weight:800;font-size:15px;margin:0 4px 10px;color:#4b3bb8}.tbk-sub{border-top:1px dashed var(--line);margin-top:10px;padding-top:2px}.vu{color:#3f8f63}.vd{color:#c0665f}.dl{font-size:11px;font-weight:600;white-space:nowrap;color:#8a94a6}.dl.vu{color:#3f8f63}.dl.vd{color:#c0665f}
-/* Rost t5965u: Недвижимость — Монитор Solvia слева, Цель справа, один ряд; на узком — столбиком */.re-row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-bottom:14px;align-items:stretch}.re-row>.card{margin:0}@media(max-width:720px){.re-row{grid-template-columns:1fr}}/* Rost t5966u: компактная строка ссылок/статуса вместо большой плашки названия вкладки */.tab-head{display:flex;justify-content:flex-end;align-items:center;flex-wrap:wrap;gap:6px 10px;margin:0 0 10px;min-height:0}.tab-head .note{margin:0}/* Rost t5967u: свёрнутая «🔴 Требует внимания · N» уже и ниже (~половина), красный акцент слева сохраняем */.attn{padding:5px 10px;border-radius:10px}.attn h4{margin:0;line-height:1.25}.attn .attnd>summary{display:flex;align-items:center;gap:6px;margin:0;padding:1px 0;color:inherit;font-size:inherit;line-height:1.25}.attn .attnd[open]>summary{margin-bottom:6px}/* Rost t5970u–t5972u: зазоры между блоками вдвое меньше — и горизонталь (карточки в ряд), и вертикаль (друг под другом), в том числе после «🔴 Требует внимания» */#main .grid,#main .g2b,#main .g3b,#main .dlgrow,#main .mcols2,#main .pcol,#main .tbk-row,#main .re-row{gap:7px}#main .mcols{column-gap:7px}#main .attn,#main .tbk-grp,#main .tbk-row,#main .re-row,#main .dlgrow,#main .cal-day,#main .tl-wrap,#main .pin-hi{margin-bottom:7px}#main .tab-head{margin-bottom:5px}#main .mcols2 .card,#main .mcols>.card{margin-bottom:7px}#main>[style*="margin-bottom:14px"],#main [style*="margin-bottom:14px"]{margin-bottom:7px!important}#main [style*="margin-top:14px"]{margin-top:7px!important}#main [style*="margin:14px 0"]{margin-top:7px!important;margin-bottom:5px!important}#main>div[style="height:14px"],#main div[style="height:14px"]{height:7px!important}#main .grid>.card,#main .tbk-row>.card,#main .re-row>.card,#main .dlgrow>.card,#main .g2b>.card,#main .g3b>.card,#main .pcol>.card{margin-bottom:0!important}@media(max-width:520px){#main .g4{gap:5px}}/* Rost t5973u: вдвое меньше вертикальный зазор между шапкой (логотип / периоды / Календарь / Мессенджеры) и рядом направлений; у таблеток направлений — вдвое меньше внутренний отступ */header{margin-bottom:6px}nav.tabs{padding-top:4px}nav.tabs button{padding:5px 8px}/* Rost t5974u: вдвое меньше отступ от верхнего края экрана до шапки */.wrap{padding-top:10px}@media(max-width:520px){.wrap{padding-top:7px}}/* Rost t5975u: вдвое меньше внутренний отступ у кнопок верхнего ряда шапки (Сегодня/Неделя/Месяц, Календарь, Мессенджеры / Ассистенты) */header .seg{padding:2px}header .seg button{padding:4px 7px}#mode button+button:before,#mabtn button+button:before{top:4px;bottom:4px}/* Rost t1055u 11.11: вдвое меньше вертикальный зазор между рядом направлений (Общий / Личное / … / Коучинг) и блоком «Требует внимания» */nav.tabs{margin-bottom:9px;padding-bottom:3px}/* Rost t1057u 11.11: стрелки ‹ › внутри кнопок Неделя/Месяц — листать уже существующие периоды */#mode button{display:inline-flex;align-items:center;gap:1px}#mode button .pnav{display:inline-flex;align-items:center;justify-content:center;min-width:12px;padding:0 2px;margin:0;border:0;background:none;color:inherit;font:700 12px/1 Inter;cursor:pointer;user-select:none;opacity:.75}#mode button .pnav:hover{opacity:1}#mode button .pnav.sp{visibility:hidden;pointer-events:none;cursor:default}/* Rost t5983u: display:inline-flex у .seg и у #mode button (стрелки ‹ ›, t1057u/c7f602de) перебивал атрибут hidden — недоступные Сегодня/Неделя/Месяц снова были видны; скрытые чипы и весь ряд #mode при одном периоде должны быть display:none */#mode[hidden],#mode button[hidden],.seg[hidden]{display:none!important}</style><link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%2322c3a6%22/%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%237b5cff%22/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2216%22%20fill%3D%22url%28%23g%29%22/%3E%3Crect%20x%3D%2215%22%20y%3D%2234%22%20width%3D%228%22%20height%3D%2215%22%20rx%3D%223%22%20fill%3D%22%23fff%22/%3E%3Crect%20x%3D%2228%22%20y%3D%2224%22%20width%3D%228%22%20height%3D%2225%22%20rx%3D%223%22%20fill%3D%22%23fff%22/%3E%3Crect%20x%3D%2241%22%20y%3D%2215%22%20width%3D%228%22%20height%3D%2234%22%20rx%3D%223%22%20fill%3D%22%23fff%22%20opacity%3D%22.92%22/%3E%3C/svg%3E">
+/* Rost t5965u: Недвижимость — Монитор Solvia слева, Цель справа, один ряд; на узком — столбиком */.re-row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-bottom:14px;align-items:stretch}.re-row>.card{margin:0}@media(max-width:720px){.re-row{grid-template-columns:1fr}}/* Rost t5966u: компактная строка ссылок/статуса вместо большой плашки названия вкладки */.tab-head{display:flex;justify-content:flex-end;align-items:center;flex-wrap:wrap;gap:6px 10px;margin:0 0 10px;min-height:0}.tab-head .note{margin:0}/* Rost t5967u: свёрнутая «🔴 Требует внимания · N» уже и ниже (~половина), красный акцент слева сохраняем */.attn{padding:5px 10px;border-radius:10px}.attn h4{margin:0;line-height:1.25}.attn .attnd>summary{display:flex;align-items:center;gap:6px;margin:0;padding:1px 0;color:inherit;font-size:inherit;line-height:1.25}.attn .attnd[open]>summary{margin-bottom:6px}/* Rost t5970u–t5972u: зазоры между блоками вдвое меньше — и горизонталь (карточки в ряд), и вертикаль (друг под другом), в том числе после «🔴 Требует внимания» */#main .grid,#main .g2b,#main .g3b,#main .dlgrow,#main .mcols2,#main .pcol,#main .tbk-row,#main .re-row{gap:7px}#main .mcols{column-gap:7px}#main .attn,#main .tbk-grp,#main .tbk-row,#main .re-row,#main .dlgrow,#main .cal-day,#main .tl-wrap,#main .pin-hi{margin-bottom:7px}#main .tab-head{margin-bottom:5px}#main .mcols2 .card,#main .mcols>.card{margin-bottom:7px}#main>[style*="margin-bottom:14px"],#main [style*="margin-bottom:14px"]{margin-bottom:7px!important}#main [style*="margin-top:14px"]{margin-top:7px!important}#main [style*="margin:14px 0"]{margin-top:7px!important;margin-bottom:5px!important}#main>div[style="height:14px"],#main div[style="height:14px"]{height:7px!important}#main .grid>.card,#main .tbk-row>.card,#main .re-row>.card,#main .dlgrow>.card,#main .g2b>.card,#main .g3b>.card,#main .pcol>.card{margin-bottom:0!important}@media(max-width:520px){#main .g4{gap:5px}}/* Rost t5973u: вдвое меньше вертикальный зазор между шапкой (логотип / периоды / Календарь / Мессенджеры) и рядом направлений; у таблеток направлений — вдвое меньше внутренний отступ */header{margin-bottom:6px}nav.tabs{padding-top:4px}nav.tabs button{padding:5px 8px}/* Rost t5974u: вдвое меньше отступ от верхнего края экрана до шапки */.wrap{padding-top:10px}@media(max-width:520px){.wrap{padding-top:7px}}/* Rost t5975u: вдвое меньше внутренний отступ у кнопок верхнего ряда шапки (Сегодня/Неделя/Месяц, Календарь, Мессенджеры / Ассистенты) */header .seg{padding:2px}header .seg button{padding:4px 7px}#mode button+button:before,#mabtn button+button:before{top:4px;bottom:4px}/* Rost t1055u 11.11: вдвое меньше вертикальный зазор между рядом направлений (Общий / Личное / … / Коучинг) и блоком «Требует внимания» */nav.tabs{margin-bottom:9px;padding-bottom:3px}/* Rost t1057u 11.11: стрелки ‹ › внутри кнопок Неделя/Месяц — листать уже существующие периоды */#mode button{display:inline-flex;align-items:center;gap:1px}#mode button .pnav{display:inline-flex;align-items:center;justify-content:center;min-width:12px;padding:0 2px;margin:0;border:0;background:none;color:inherit;font:700 12px/1 Inter;cursor:pointer;user-select:none;opacity:.75}#mode button .pnav:hover{opacity:1}#mode button .pnav.sp{visibility:hidden;pointer-events:none;cursor:default}/* Rost t5983u: display:inline-flex у .seg и у #mode button (стрелки ‹ ›, t1057u/c7f602de) перебивал атрибут hidden — недоступные Сегодня/Неделя/Месяц снова были видны; скрытые чипы и весь ряд #mode при одном периоде должны быть display:none */#mode[hidden],#mode button[hidden],.seg[hidden]{display:none!important}/* Rost t6070u–t6072u / t6071u: неделя, категории, сверка; без Google-входа */
+.calview.seg button{padding:5px 10px}.calbreak{margin:8px 0 0}.calbreak .cb-row{display:flex;align-items:center;gap:8px;margin:3px 0;font-size:12.5px}.calbreak .cb-lab{min-width:92px;font-weight:600}.calbreak .cb-bar{flex:1;height:8px;border-radius:99px;background:#eef0f5;overflow:hidden}.calbreak .cb-bar>i{display:block;height:100%;border-radius:99px}.calbreak .cb-hrs{min-width:70px;text-align:right;color:var(--mut);font-variant-numeric:tabular-nums}
+.calweek{display:grid;grid-template-columns:36px 1fr;border:1px solid var(--line);border-radius:12px;background:var(--panel);overflow:auto;max-height:min(70vh,760px);-webkit-overflow-scrolling:touch}
+.cw-axis{position:relative;min-height:calc(24 * 22px);border-right:1px solid var(--line);background:var(--panel)}
+.cw-axis .tl-h{font-size:10px;color:var(--mut)}
+.cw-days{display:grid;grid-template-columns:repeat(7,minmax(108px,1fr));min-width:756px}
+.cw-col{position:relative;border-left:1px solid var(--line);min-height:calc(24 * 22px + 36px)}
+.cw-col:first-child{border-left:0}
+.cw-h{position:sticky;top:0;z-index:3;display:block;width:100%;border:0;background:#f7f8fc;padding:6px 4px;font:700 11.5px Inter;color:var(--txt);cursor:pointer;text-align:center;border-bottom:1px solid var(--line)}
+.cw-h:hover{background:#eef2ff}.cw-h.on{background:#e8f0fe;color:#1a56c4}.cw-h.today{box-shadow:inset 0 -2px 0 #4285f4}
+.cw-body{position:relative;height:calc(24 * 22px)}
+.cw-ev{position:absolute;left:2px;right:2px;box-sizing:border-box;border-radius:5px;padding:1px 4px;font-size:10.5px;line-height:1.2;overflow:hidden;border-left:3px solid #4285f4;background:#e8f0fe;z-index:1;cursor:pointer}
+.cw-ev.past{opacity:.55}.cw-ev.now{box-shadow:0 0 0 2px #4285f455}
+.calrecon{}.calrecon .cr-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:4px 0;border-top:1px solid #eef0f5;font-size:13px}.calrecon .cr-ok{color:#127a3e;font-weight:700}.calrecon .cr-no{color:#b42318;font-weight:700}
+.calmark{font:600 12px Inter;border:1px solid var(--line);background:#fff;border-radius:99px;padding:4px 10px;cursor:pointer}.calmark.on{background:#e7f8ee;border-color:#abefc6;color:#127a3e}
+</style><link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%2322c3a6%22/%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%237b5cff%22/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2216%22%20fill%3D%22url%28%23g%29%22/%3E%3Crect%20x%3D%2215%22%20y%3D%2234%22%20width%3D%228%22%20height%3D%2215%22%20rx%3D%223%22%20fill%3D%22%23fff%22/%3E%3Crect%20x%3D%2228%22%20y%3D%2224%22%20width%3D%228%22%20height%3D%2225%22%20rx%3D%223%22%20fill%3D%22%23fff%22/%3E%3Crect%20x%3D%2241%22%20y%3D%2215%22%20width%3D%228%22%20height%3D%2234%22%20rx%3D%223%22%20fill%3D%22%23fff%22%20opacity%3D%22.92%22/%3E%3C/svg%3E">
 </head><body><div class="wrap">
 <header><div class="brand"><div class="logo">R</div><div><h1>Бизнес-дашборд</h1><small id="sub"></small></div></div><div id="bdhdr"></div>
 <div class="ctrls"><div class="seg" id="mode"><button data-m="today">Сегодня</button><button data-m="week">Неделя</button><button data-m="month">Месяц</button></div><div class="seg" id="calbtn"><button data-t="calendar">📅 Календарь</button></div><div class="seg" id="mabtn"></div>
@@ -430,56 +445,12 @@ const Dash = (() => {
   return { reload, rollup, load, S, save, get D() { return D; }, conv, curOf, pid, record, summary, series, goals, breakdowns, overview, periods, periodLabel, fmt, num, pct, esc, fxFooter, EX, PRI, trend, weeksOfMonth };
 })();
 </script>
-<script>/* Rost т251 / CU 86bctqe8h (27.10): ЖИВОЙ Google Calendar в браузере (GIS OAuth → Calendar API events.list).
- Нет clientId / нет токена / ошибка → всё как раньше (снимок gcal_dash.json). ClickUp-сторона не трогается.
- Client ID (не секрет, OAuth «Web», origin https://rosmater.github.io): вписать в GCAL_CLIENT_ID ниже
- ИЛИ один раз открыть даш с ?gcal_client_id=XXX.apps.googleusercontent.com (кладётся в localStorage). Токен — только sessionStorage. */
-(function(){
- const GCAL_CLIENT_ID='922031222882-miv1qq347mjjtu847l8s9c9712l29ikg.apps.googleusercontent.com';/* OAuth Web rost-dash-gcal · project eternal-dynamo-388019 · 27.10 */
- try{const q=new URLSearchParams(location.search).get('gcal_client_id');if(q!==null){q?localStorage.setItem('dash_gcal_client_id',q):localStorage.removeItem('dash_gcal_client_id')}}catch(e){}
- let ls='';try{ls=localStorage.getItem('dash_gcal_client_id')||''}catch(e){}
- window.DASH_GCAL=Object.assign({clientId:ls||GCAL_CLIENT_ID,calendarId:'primary',tz:'America/Bogota',days:15},window.DASH_GCAL||{});
- const C=window.DASH_GCAL,TK='dash_gcal_tok',SCOPE='https://www.googleapis.com/auth/calendar.readonly';
- const GL=window.GL={st:'off',events:null,at:null,err:'',tc:null,busy:false};
- const on=()=>!window.DASH_HELPER&&!!C.clientId;
- const tok=()=>{try{const t=JSON.parse(sessionStorage.getItem(TK)||'null');return t&&t.exp>Date.now()+6e4?t.t:null}catch(e){return null}};
- const rr=()=>{try{if(typeof render==='function'&&typeof S!=='undefined'&&(S.tab==='calendar'||(S.tab==='overview'&&S.mode==='today')))render()}catch(e){}};
- const hm=d=>new Intl.DateTimeFormat('ru-RU',{timeZone:C.tz,hour:'2-digit',minute:'2-digit'}).format(d);
- GL.on=on;GL.hasTok=()=>!!tok();
- // текст вместо «снимок GCal …»
- GL.note=c=>{const snap='снимок GCal '+String(c.gcal_fetched_at||'—');if(!on())return snap;
-  if(GL.at&&GL.events)return 'live GCal · обновлено '+hm(GL.at)+(GL.err?' · ⚠ '+GL.err:'');
-  if(GL.busy)return snap+' · live GCal загружается…';
-  return snap+(GL.err?' · ⚠ live: '+GL.err:'')};
- GL.btn=()=>on()&&!tok()&&!GL.busy?'<button class="chip" data-glin="1" style="cursor:pointer;background:#1a73e8;color:#fff;border-color:#1a73e8">Войти в Google</button>':'';
- // подмешать live-события поверх снимка: gcal из снимка → live, clickup остаются; привязки CU (e.cu) переносим по id/ссылке/названию+старту
- GL.apply=c=>{if(!c||!GL.events||!on())return;if(!c._snapEv)c._snapEv=(c.events||[]).slice();
-  const snapG=c._snapEv.filter(e=>e.src==='gcal'),keep=c._snapEv.filter(e=>e.src!=='gcal');
-  const key=e=>(e.title||'').trim().toLowerCase()+'|'+new Date(e.start).getTime(),eid=u=>{const m=/[?&]eid=([^&#]+)/.exec(u||'');return m?m[1]:null};
-  const byE={},byK={};snapG.forEach(e=>{if(eid(e.url))byE[eid(e.url)]=e;byK[key(e)]=e});
-  const used=new Set(),live=GL.events.map(e=>{const s=byE[eid(e.url)]||byK[key(e)];if(s&&s.cu){used.add(s);return Object.assign({},e,{cu:s.cu})}return e});
-  const orphan=[];snapG.forEach(s=>{if(s.cu&&!used.has(s))s.cu.forEach(x=>orphan.push({src:'clickup',title:x.title,start:x.due,end:null,all_day:false,due:true,list:x.list,url:x.url}))});
-  c.events=[...live,...keep,...orphan].sort((a,b)=>String(a.start).localeCompare(String(b.start)));c.gcal_live_at=GL.at.toISOString()};
- function mapEv(e){const s=e.start||{},en=e.end||{},t=e.summary||'(без названия)';
-  if(e.status==='cancelled'||!s.dateTime||t.includes(' :: '))return null;/* весь день и CU-синк «🔄 … :: …» — как в build_data: в ленту не идут */
-  return {src:'gcal',title:t,start:s.dateTime,end:en.dateTime||null,all_day:false,url:e.htmlLink||null,live:true}}
- GL.fetch=async function(){const t=tok();if(!on()||!t||GL.busy)return;GL.busy=true;
-  try{const d0=new Date(new Date().toLocaleString('en-CA',{timeZone:C.tz}).slice(0,10)+'T00:00:00-05:00'),d1=new Date(d0.getTime()+C.days*864e5);
-   let items=[],pt='';for(let i=0;i<5;i++){const q=new URLSearchParams({singleEvents:'true',orderBy:'startTime',maxResults:'250',timeZone:C.tz,timeMin:d0.toISOString(),timeMax:d1.toISOString()});if(pt)q.set('pageToken',pt);
-    const r=await fetch('https://www.googleapis.com/calendar/v3/calendars/'+encodeURIComponent(C.calendarId)+'/events?'+q,{headers:{Authorization:'Bearer '+t}});
-    if(r.status===401||r.status===403){sessionStorage.removeItem(TK);throw new Error(r.status===401?'вход истёк':'нет доступа')}
-    if(!r.ok)throw new Error('HTTP '+r.status);const j=await r.json();items=items.concat(j.items||[]);pt=j.nextPageToken;if(!pt)break}
-   GL.events=items.map(mapEv).filter(Boolean);GL.at=new Date();GL.err='';
-   const c=Dash&&Dash.D&&Dash.D.directions.find(x=>x.kind==='calendar');if(c)GL.apply(c)}
-  catch(e){GL.err=String(e.message||e).slice(0,60);console.warn('GCal live',e)}
-  finally{GL.busy=false;rr()}};
- function initTC(){if(GL.tc||!(window.google&&google.accounts&&google.accounts.oauth2))return;
-  GL.tc=google.accounts.oauth2.initTokenClient({client_id:C.clientId,scope:SCOPE,callback:r=>{if(r&&r.access_token){sessionStorage.setItem(TK,JSON.stringify({t:r.access_token,exp:Date.now()+(+r.expires_in||3600)*1e3}));GL.err='';GL.fetch()}else{GL.err='вход отменён';rr()}},error_callback:e=>{GL.err=(e&&e.type)==='popup_closed'?'окно закрыто':'вход не удался';rr()}})}
- GL.login=()=>{initTC();if(GL.tc)GL.tc.requestAccessToken({prompt:''});else{GL.err='Google ещё грузится';rr()}};
- document.addEventListener('click',ev=>{const b=ev.target.closest&&ev.target.closest('[data-glin]');if(b){ev.preventDefault();GL.login()}});
- if(on()){const s=document.createElement('script');s.src='https://accounts.google.com/gsi/client';s.async=true;s.defer=true;s.onload=initTC;s.onerror=()=>{GL.err='GIS не загрузился';rr()};document.head.appendChild(s);
-  const go=()=>{if(tok())GL.fetch()};setTimeout(go,800);setInterval(()=>{if(document.visibilityState==='visible')go()},5*6e4);document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible'&&GL.at&&Date.now()-GL.at>6e4)go()})}
-})();
+<script>/* Rost t6070u / t6072u: календарь только из снимка gcal_dash.json.
+ Живой GIS OAuth убран. Кнопка «Войти в Google» появлялась даже когда Rost уже залогинен
+ в Google Calendar в браузере: токен даша жил только в sessionStorage, а тихий вход
+ ломают third-party cookies / FedCM на github.io. Пароль даша — в localStorage до «Выйти»,
+ авто-обновление страницы и data.enc.json повторно пароль не спрашивают. */
+window.GL={note:c=>'снимок GCal '+String(c.gcal_fetched_at||'—'),btn:()=>'',apply:()=>{},on:()=>false,hasTok:()=>false};
 </script>
 <script>
 const $=s=>document.querySelector(s);const {S,fmt,esc,EX}=Dash;let charts=[];
@@ -766,8 +737,70 @@ function people(d){const ps=d.people||[];
  $('#main').innerHTML=h}
 const BOG='America/Bogota';const bDay=iso=>iso.length===10?iso:new Intl.DateTimeFormat('en-CA',{timeZone:BOG,year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date(iso));
 const bTime=iso=>new Date(iso).toLocaleTimeString('ru-RU',{timeZone:BOG,hour:'2-digit',minute:'2-digit'});
-let calSrc='all',calDay=null;
 const calAdd=(k,n)=>{const t=new Date(k+'T12:00:00Z');t.setUTCDate(t.getUTCDate()+n);return t.toISOString().slice(0,10)};
+/* Rost t6071u: категории по названию события (в снимке нет colorId / отдельного календаря). */
+let calSrc='all',calDay=null,calView='day';
+const CAL_CATS=[
+ {id:'sleep',name:'Сон',color:'#6366f1',bg:'#eef2ff',re:/сон|подготовк\w* ко сну/i},
+ {id:'sport',name:'Спорт',color:'#10b981',bg:'#ecfdf5',re:/зал|турник|бокс/i},
+ {id:'dating',name:'Девушка',color:'#ec4899',bg:'#fdf2f8',re:/девушк/i},
+ {id:'friends',name:'Друзья',color:'#8b5cf6',bg:'#f5f3ff',re:/друзья|тусовк|^карен$/i},
+ {id:'work',name:'Работа',color:'#3b82f6',bg:'#eff6ff',re:/clickup|работа|офис|созвон|чек-лист|ирина|usas|banking|домен|переписк|^алекса$|ste\b|decsef/i},
+ {id:'study',name:'Учёба',color:'#14b8a6',bg:'#f0fdfa',re:/испанск/i},
+ {id:'morning',name:'Утро',color:'#f59e0b',bg:'#fffbeb',re:/проснуться|завтрак/i},
+ {id:'food',name:'Еда',color:'#f97316',bg:'#fff7ed',re:/ужин/i},
+ {id:'rest',name:'Отдых',color:'#64748b',bg:'#f1f5f9',re:/свободно/i},
+ {id:'other',name:'Прочее',color:'#94a3b8',bg:'#f8fafc',re:/.*/}
+];
+function calCat(title){const t=String(title||'').trim();if(/ :: /.test(t)||t.startsWith('🔄'))return CAL_CATS.find(c=>c.id==='other');return CAL_CATS.find(c=>c.re.test(t))||CAL_CATS[CAL_CATS.length-1]}
+function calCatStyle(title){const c=calCat(title);return `border-left-color:${c.color};background:${c.bg}`}
+const calMon=k=>{const t=new Date(k+'T12:00:00Z');t.setUTCDate(t.getUTCDate()-((t.getUTCDay()+6)%7));return t.toISOString().slice(0,10)};
+const calWeekDays=k=>[...Array(7)].map((_,i)=>calAdd(calMon(k),i));
+function calFmtHrs(ms){const h=ms/36e5;if(!h)return '0 ч';const n=Math.round(h*10)/10;return (Number.isInteger(n)?String(n):n.toFixed(1).replace('.',','))+' ч'}
+function calBreakHTML(evs,days){
+ const g=(evs||[]).filter(e=>e&&e.src==='gcal'&&!e.all_day&&e.start&&!/ :: /.test(e.title||'')&&!(e.title||'').startsWith('🔄'));
+ const msCat=Object.fromEntries(CAL_CATS.map(c=>[c.id,0]));let covered=0,total=days.length*864e5;
+ days.forEach(k=>{const d0=new Date(k+'T00:00:00-05:00').getTime(),d1=d0+864e5;
+  const iv=[];g.forEach(e=>{const s=new Date(e.start).getTime(),en=e.end?new Date(e.end).getTime():s+30*6e4,a=Math.max(s,d0),b=Math.min(en,d1);if(b>a){iv.push({a,b,id:calCat(e.title).id});msCat[calCat(e.title).id]+=b-a}});
+  iv.sort((x,y)=>x.a-y.a);let u=d0;iv.forEach(x=>{if(x.b<=u)return;covered+=x.b-Math.max(x.a,u);u=Math.max(u,x.b)})});
+ const gap=Math.max(0,total-covered);
+ const rows=CAL_CATS.map(c=>({c,ms:msCat[c.id]})).filter(x=>x.ms>0);
+ if(gap>30*1e3)rows.push({c:{id:'gap',name:'Не размечено',color:'#cbd5e1',bg:'#f8fafc'},ms:gap});
+ if(!rows.length)return `<div class="note calbreak">В этом периоде в снимке нет событий со временем.</div>`;
+ const max=Math.max(...rows.map(x=>x.ms),1);
+ return `<div class="calbreak"><div class="note" style="margin:0 0 4px">Разбивка ${days.length===1?'дня':'недели'} · часы и % от ${days.length*24} ч</div>${rows.map(({c,ms})=>{const pct=Math.round(ms/total*1000)/10,w=Math.max(2,ms/max*100);return `<div class="cb-row"><span class="cb-lab" style="color:${c.color}">${esc(c.name)}</span><span class="cb-bar"><i style="width:${w}%;background:${c.color}"></i></span><span class="cb-hrs">${calFmtHrs(ms)} · ${String(pct).replace('.',',')}%</span></div>`}).join('')}</div>`}
+function tlWeekHTML(evs,k,o={}){
+ const days=calWeekDays(k),PX=22,now=Date.now(),today=bDay(new Date().toISOString()),src=o.src||'all',cuOnly=!!o.cuOnly;
+ const WD=new Intl.DateTimeFormat('ru-RU',{timeZone:'UTC',weekday:'short',day:'numeric'});
+ let h=`<div class="calweek"><div><div style="height:36px;border-bottom:1px solid var(--line)"></div><div class="cw-axis" style="height:${24*PX}px">`;
+ for(let i=0;i<24;i++)h+=`<div class="tl-h" style="top:${i*PX}px"><span>${String(i).padStart(2,'0')}</span></div>`;
+ h+=`</div></div><div class="cw-days">`;
+ days.forEach(day=>{const d0=new Date(day+'T00:00:00-05:00').getTime(),d1=d0+864e5,y=t=>Math.max(0,Math.min(24*PX,(t-d0)/36e5*PX));
+  h+=`<div class="cw-col"><button type="button" class="cw-h${day===today?' today':''}${day===k?' on':''}" data-cday="${day}">${esc(WD.format(new Date(day+'T12:00:00Z')))}${calReconHas(day)?' ✓':''}</button><div class="cw-body">`;
+  if(!cuOnly&&src!=='clickup')(evs||[]).filter(e=>e.src==='gcal'&&!e.all_day).forEach(e=>{const s=new Date(e.start).getTime(),en=e.end?new Date(e.end).getTime():s+30*6e4;if(en<=d0||s>=d1)return;
+   const top=y(s),ht=Math.max(14,y(en)-top),cat=calCat(e.title),past=en<now,cur=s<=now&&now<en;
+   h+=`<div class="cw-ev${past?' past':''}${cur?' now':''}" style="top:${top}px;height:${ht}px;${calCatStyle(e.title)}" title="${esc((e.title||'')+' · '+(s<d0?'…':bTime(e.start))+'–'+(en>d1?'…':bTime(e.end)))}">${esc(e.title||'')}</div>`});
+  if(day===today)h+=`<div class="tl-now" style="top:${y(now)}px"></div>`;
+  h+=`</div></div>`});
+ return h+`</div></div>`}
+const CAL_RECON_START='2026-11-01',CAL_RECON_LS='dash_cal_reconciled';
+let calRecon={start:CAL_RECON_START,dates:{}};
+function calReconHas(d){return !!(calRecon.dates&&calRecon.dates[d])}
+function calReconSave(){try{localStorage.setItem(CAL_RECON_LS,JSON.stringify({start:calRecon.start||CAL_RECON_START,dates:calRecon.dates||{}}))}catch(e){}}
+async function calReconLoad(){try{const r=await fetch('calendar_reconciled.json?t='+Date.now(),{cache:'no-store'});if(r.ok){const j=await r.json();calRecon.start=j.start||CAL_RECON_START;calRecon.dates=Object.assign({},j.dates||{})}}catch(e){}
+ try{const loc=JSON.parse(localStorage.getItem(CAL_RECON_LS)||'{}');Object.assign(calRecon.dates,loc.dates||(Array.isArray(loc)?Object.fromEntries(loc.map(d=>[d,true])):loc));if(loc.start&&loc.start<calRecon.start)calRecon.start=loc.start}catch(e2){}}
+function calReconPast(){const today=bDay(new Date().toISOString());const out=[];let t=calRecon.start||CAL_RECON_START;while(t<today){out.push(t);t=calAdd(t,1)}return out}
+function calReconFirstMiss(){return calReconPast().find(d=>!calReconHas(d))||null}
+function calMarkRecon(d,on){if(!d)return;if(on==null)on=!calReconHas(d);if(!calRecon.dates)calRecon.dates={};if(on)calRecon.dates[d]=true;else delete calRecon.dates[d];calReconSave();try{tapPush({key:'calrecon|'+d,action:'cal_recon',date:d,on:!!on})}catch(e){}}
+function calGoDay(d,view){if(d)calDay=d;if(view)calView=view;S.tab='calendar';try{render();scrollTo({top:0,behavior:'smooth'})}catch(e){}}
+function calGoUnrecon(){const m=calReconFirstMiss();if(!m){try{maToast('Все прошлые дни с '+((calRecon.start||CAL_RECON_START).slice(8,10)+'.'+(calRecon.start||CAL_RECON_START).slice(5,7))+' уже сверены')}catch(e){}return}calGoDay(m,'day')}
+function calReconBlockHTML(){if(window.DASH_HELPER)return '';const L=calReconPast(),nOk=L.filter(calReconHas).length,miss=calReconFirstMiss(),dd=s=>s.slice(8,10)+'.'+s.slice(5,7),WD=['вс','пн','вт','ср','чт','пт','сб'],wd=s=>WD[new Date(s+'T12:00:00Z').getUTCDay()];
+ const start=calRecon.start||CAL_RECON_START;
+ return `<div class="card calrecon" style="margin-bottom:14px"><h3>🗓️ Сверка календаря <span class="st">${nOk}/${L.length} дней с ${dd(start)}</span></h3>
+  <div class="note" style="margin:0 0 8px">Чтобы потом разбирать поведение, календарь должен быть точным. Отметь прошедший день, когда сверил события со снимком.</div>
+  <div style="display:flex;gap:8px;flex-wrap:wrap;margin:0 0 8px"><button type="button" class="calmark" onclick="calGoUnrecon()">Сверить календарь</button>${miss?`<span class="note">первый несверенный: ${wd(miss)} ${dd(miss)}</span>`:'<span class="cr-ok">всё сверено</span>'}</div>
+  ${L.map(d=>`<div class="cr-row"><span style="min-width:72px">${wd(d)} ${dd(d)}</span>${calReconHas(d)?'<span class="cr-ok">✓ сверен</span>':'<span class="cr-no">не сверен</span>'}<button type="button" class="calmark${calReconHas(d)?' on':''}" onclick="calMarkRecon('${d}');keepOpen(render)">${calReconHas(d)?'снять отметку':'отметить сверенным'}</button><button type="button" class="tolink" onclick="calGoDay('${d}','day')">открыть день →</button></div>`).join('')}
+  <div class="note" style="margin-top:6px">Отметки в этом браузере (localStorage) и в calendar_reconciled.json на даше после синка.</div></div>`}
 /* Rost 25.10: таймлайн дня в две колонки — слева Google Календарь, справа задачи ClickUp со временем на тех же промежутках */
 function tlLanes(xs){const lanes=[];xs.forEach(o=>{let i=lanes.findIndex(t=>t<=o.s);if(i<0){i=lanes.length;lanes.push(0)}lanes[i]=o.en;o.l=i});
  xs.forEach(o=>{o.n=Math.max(1,...xs.filter(p=>p.s<o.en&&p.en>o.s).map(p=>p.l+1))});return xs}
@@ -786,7 +819,7 @@ function tlHTML(evs,k,o={}){const PX=46,now=Date.now(),d0=new Date(k+'T00:00:00-
  if(!cuOnly)h+=`<div class="tl-split" style="left:calc(${AX}px + ${L})"></div>`;
  G.forEach(({e,s,en,l,n})=>{const top=y(s),ht=Math.max(22,y(en)-top),past=en<now,cur=s<=now&&now<en,tm=(s<d0?'…':bTime(e.start))+'–'+(en>d1?'…':bTime(e.end));
   const t=e.url?`<a href="${cuAppUrl(e.url)}" target="_blank" rel="noopener">${esc(e.title)}</a>`:esc(e.title);
-  h+=`<div class="tl-ev gcal ${past?'past':''} ${cur?'now':''}" style="top:${top}px;height:${ht}px;left:calc(${AX}px + ${L}*${l}/${n});width:calc(${L}/${n} - 4px)"><div class="tl-main"><span class="tm">${tm}</span> ${t}${(e.cu||[]).length?` <span class="ls" title="есть задача ClickUp на это время (справа)">🔗${e.cu.length}</span>`:''}</div></div>`});
+  h+=`<div class="tl-ev gcal ${past?'past':''} ${cur?'now':''}" style="top:${top}px;height:${ht}px;left:calc(${AX}px + ${L}*${l}/${n});width:calc(${L}/${n} - 4px);${calCatStyle(e.title)}"><div class="tl-main"><span class="tm">${tm}</span> ${t}${(e.cu||[]).length?` <span class="ls" title="есть задача ClickUp на это время (справа)">🔗${e.cu.length}</span>`:''}</div></div>`});
  C.forEach(({c,s,en,l,n})=>{const top=y(s),span=en>s,ht=span?Math.max(22,y(en)-top):22,past=(span?en:s)<now,cur=span&&s<=now&&now<en;
   const tm=span?bTime(c.start)+'–'+bTime(c.end):(c.due?'до ':'')+bTime(c.start);
   const t=c.url?`<a href="${cuAppUrl(c.url)}" target="_blank" rel="noopener">${esc(c.title)}</a>`:esc(c.title);
@@ -798,21 +831,32 @@ function tlHTML(evs,k,o={}){const PX=46,now=Date.now(),d0=new Date(k+'T00:00:00-
  h+=`</div>${G.length||C.length?'':`<div class="empty" style="padding:14px">${o.empty||'На этот день событий со временем нет в снимке.'}</div>`}</div>`;
  return {h,nG:G.length,nC:C.length,sc:k===today?Math.max(0,y(now)-120):7*PX}}
 function tlScroll(sc){requestAnimationFrame(()=>document.querySelectorAll('.tl-wrap').forEach(w=>w.scrollTop=sc))}
-function calendar(d){if(window.GL)GL.apply(d);const ev=(d.events||[]).filter(e=>!e.all_day),today=bDay(new Date().toISOString()),tmr=calAdd(today,1);
- if(!calDay)calDay=today;const k=calDay;
+function calendar(d){const ev=(d.events||[]).filter(e=>!e.all_day),today=bDay(new Date().toISOString()),tmr=calAdd(today,1);
+ if(!calDay)calDay=today;const k=calDay,week=calView==='week',days=week?calWeekDays(k):[k],mon=calMon(k);
  const nG=ev.filter(e=>e.src==='gcal').length,nC=ev.filter(e=>e.src==='clickup').length+ev.reduce((a,e)=>a+(e.cu||[]).length,0);
  const WD=new Intl.DateTimeFormat('ru-RU',{timeZone:'UTC',weekday:'long',day:'numeric',month:'long'});
+ const WDr=new Intl.DateTimeFormat('ru-RU',{timeZone:'UTC',day:'numeric',month:'long'});
  const bt=(on,a,l)=>`<button data-nav="${a}" class="${on?'on':''}">${l}</button>`;
- let h=`<div class="card" style="margin-bottom:14px;background:linear-gradient(135deg,#e8f0fe,var(--panel));border-color:#c6dafc"><div class="tab-head"><span class="note">${[d.cu_only?'':(window.GL?GL.note(d):'снимок GCal '+(d.gcal_fetched_at||'—')),'ClickUp '+esc(d.cu_fetched_at||'—')].filter(Boolean).join(' · ')}</span>
- <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap"><div class="seg calf" ${d.cu_only?'hidden':''}>${[['all','Все'],['gcal','Google ('+nG+')'],['clickup','ClickUp ('+nC+')']].map(([s,l])=>`<button data-s="${s}" class="${calSrc===s?'on':''}">${l}</button>`).join('')}</div>${!d.cu_only&&window.GL?GL.btn():''}${d.gcal_url?`<a class="chip" href="${d.gcal_url}" target="_blank" rel="noopener" style="text-decoration:none">Google Календарь ↗</a>`:''}</div></div>
- <div class="calnav"><div class="seg">${bt(0,-1,'‹')}${bt(k===today,'today','Сегодня')}${bt(k===tmr,'tmr','Завтра')}${bt(0,1,'›')}</div><input type="date" id="calpick" value="${k}"><b style="font-size:15px;text-transform:capitalize">${esc(WD.format(new Date(k+'T12:00:00Z')))}</b>${k===today?'<span class="chip" style="background:#4285f4;color:#fff;border-color:#4285f4">Сегодня</span>':''}</div>
- <div class="slegend">${d.cu_only?'':'<span><span class="src gcal">Google</span> слева — события</span>'}<span><span class="src clickup">ClickUp</span> ${d.cu_only?'':'справа — '}задачи со временем, на своём часе</span><span><span class="tl-cumark lg"></span> метка у шкалы = есть задача ClickUp на это время</span></div></div>`;
- const t=tlHTML(ev,k,{cuOnly:d.cu_only,src:calSrc});h+=t.h;
+ const weekLab=WDr.format(new Date(mon+'T12:00:00Z'))+' – '+WDr.format(new Date(calAdd(mon,6)+'T12:00:00Z'));
+ const past=k<today,marked=calReconHas(k);
+ let h=`<div class="card" style="margin-bottom:14px;background:linear-gradient(135deg,#e8f0fe,var(--panel));border-color:#c6dafc"><div class="tab-head"><span class="note">${[d.cu_only?'':'снимок GCal '+(d.gcal_fetched_at||'—'),'ClickUp '+esc(d.cu_fetched_at||'—')].filter(Boolean).join(' · ')} · без входа в Google</span>
+ <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap"><div class="seg calf" ${d.cu_only?'hidden':''}>${[['all','Все'],['gcal','Google ('+nG+')'],['clickup','ClickUp ('+nC+')']].map(([s,l])=>`<button data-s="${s}" class="${calSrc===s?'on':''}">${l}</button>`).join('')}</div></div></div>
+ <div class="calnav"><div class="seg calview">${bt(!week,'day','День')}${bt(week,'week','Неделя')}</div>
+ ${week?`<div class="seg">${bt(0,'w-1','‹')}${bt(mon===calMon(today),'w0','Эта неделя')}${bt(0,'w1','›')}</div><b style="font-size:15px;text-transform:capitalize">${esc(weekLab)}</b>`
+ :`<div class="seg">${bt(0,-1,'‹')}${bt(k===today,'today','Сегодня')}${bt(k===tmr,'tmr','Завтра')}${bt(0,1,'›')}</div><input type="date" id="calpick" value="${k}"><b style="font-size:15px;text-transform:capitalize">${esc(WD.format(new Date(k+'T12:00:00Z')))}</b>${k===today?'<span class="chip" style="background:#4285f4;color:#fff;border-color:#4285f4">Сегодня</span>':''}${past?`<button type="button" class="calmark${marked?' on':''}" data-cmark="${k}">${marked?'✓ День сверен':'Сверить этот день'}</button>`:''}`}</div>
+ ${calBreakHTML(ev,days)}
+ <div class="slegend">${d.cu_only?'':'<span><span class="src gcal">Google</span> слева — события</span>'}<span><span class="src clickup">ClickUp</span> ${d.cu_only?'':'справа — '}задачи со временем, на своём часе</span><span><span class="tl-cumark lg"></span> метка у шкалы = есть задача ClickUp на это время</span>
+ ${CAL_CATS.slice(0,9).map(c=>`<span><span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:${c.color};margin-right:4px"></span>${esc(c.name)}</span>`).join('')}</div></div>`;
+ let sc=0;
+ if(week){h+=tlWeekHTML(ev,k,{cuOnly:d.cu_only,src:calSrc})}
+ else{const t=tlHTML(ev,k,{cuOnly:d.cu_only,src:calSrc});h+=t.h;sc=t.sc}
  $('#main').innerHTML=h;
  document.querySelectorAll('.calf button').forEach(b=>b.onclick=()=>{calSrc=b.dataset.s;calendar(d)});
- document.querySelectorAll('[data-nav]').forEach(b=>b.onclick=()=>{const a=b.dataset.nav;calDay=a==='today'?today:a==='tmr'?tmr:calAdd(calDay,+a);calendar(d)});
- const pk=$('#calpick');pk.onchange=()=>{if(pk.value){calDay=pk.value;calendar(d)}};
- tlScroll(t.sc)}
+ document.querySelectorAll('[data-nav]').forEach(b=>b.onclick=()=>{const a=b.dataset.nav;if(a==='day'||a==='week'){calView=a;calendar(d);return}if(a==='today'){calDay=today;calView='day'}else if(a==='tmr'){calDay=tmr;calView='day'}else if(a==='w-1')calDay=calAdd(mon,-7);else if(a==='w1')calDay=calAdd(mon,7);else if(a==='w0')calDay=today;else calDay=calAdd(calDay,+a);calendar(d)});
+ const pk=$('#calpick');if(pk)pk.onchange=()=>{if(pk.value){calDay=pk.value;calView='day';calendar(d)}};
+ document.querySelectorAll('[data-cday]').forEach(b=>b.onclick=()=>{calDay=b.dataset.cday;calView='day';calendar(d)});
+ document.querySelectorAll('[data-cmark]').forEach(b=>b.onclick=()=>{calMarkRecon(b.dataset.cmark);calendar(d)});
+ if(!week)tlScroll(sc)}
 /* ===== Режим «Сегодня» (Rost 25.10): рабочий экран; неделя/месяц — только сводка ===== */
 const calDir=()=>Dash.D.directions.find(x=>x.kind==='calendar');
 const tIdOf=u=>{const m=/[?&]t=([^&#]+)/.exec(u||'');return m?m[1]:null};
@@ -1112,6 +1156,7 @@ function persBlocksHTML(d){if(d.id!=='personal'||!d.personal_blocks)return '';co
  let h='';
  /* 0) На решение — Rost t6060u; у ассистентки этот блок и Документы — единственные (t6061u) */
  if(B.decisions)h+=decisionsBlockHTML(B.decisions);
+ if(!window.DASH_HELPER)h+=calReconBlockHTML();/* Rost t6071u: сверка календаря — только у Rost */
  /* 1) Документы */
  if(!hid('docs')){const Dc=B.docs;h+=card(`${H('📄 '+esc(Dc.title))}
   ${Dc.items.map(x=>`<div class="task"><span class="pill ${x.state==='prep'?'p-urgent':'p-normal'}">${esc(x.status)}</span><div style="flex:1"><b style="font-size:13.5px">${esc(x.name)}</b>${x.state==='prep'?' <span class="chip st-at" style="background:#ffe3e5;color:#b42318">🔴 требует внимания</span>':''}
@@ -1911,5 +1956,5 @@ function bdHdr(){try{syncBogDay()}catch(e){}const el=$('#bdhdr');if(!el)return;l
 function bdDone(b){let L={};try{L=JSON.parse(localStorage.getItem('dash_bday_done')||'{}')}catch(e){}L[b.dataset.u]=b.dataset.due;try{localStorage.setItem('dash_bday_done',JSON.stringify(L))}catch(e){}
  tapPush({key:'bday|'+b.dataset.u,channel:'ClickUp',action:'cu_close',kind:'bday',title:b.dataset.t,url:b.dataset.u,due:b.dataset.due,sphere:'done'});bdHdr()}
 function render(){AT_REG=[];try{bdHdr()}catch(e){}setTimeout(()=>{try{tapResync()}catch(e){}},1500);try{maOqApply()}catch(e){}kill();ensureMode();Dash.save();controls();const d=Dash.D.directions.find(x=>x.id===S.tab),td=S.mode==='today';try{d?(d.kind==='msgs'?msgsTab(d):d.kind==='unsorted'?unsortedTab(d):d.kind==='assistants'?asstTab(d):d.kind==='bots'?botsTab(d):d.kind==='people'?people(d):d.kind==='calendar'?calendar(d):d.board?board(d):td?directionToday(d):direction(d)):td?overviewToday():overview()}catch(er){/* Rost t4316: ошибка отрисовки вкладки — не оставлять на экране контент прошлой вкладки */console.error(er);$('#main').innerHTML=`<div class="card"><h3>⚠️ ${esc((d&&d.name)||S.tab)}: ошибка отрисовки</h3><div class="note">${esc(String(er&&er.message||er))}</div></div>`}$('#foot').textContent=Dash.fxFooter();}
-Dash.load().then(()=>document.fonts.ready).then(render).catch(e=>{$('#main').innerHTML='<div class="card">Не удалось загрузить data.json: '+esc(e.message)+'</div>'});
+Dash.load().then(()=>document.fonts.ready).then(()=>calReconLoad()).then(render).catch(e=>{$('#main').innerHTML='<div class="card">Не удалось загрузить data.json: '+esc(e.message)+'</div>'});
 </script></body></html>
