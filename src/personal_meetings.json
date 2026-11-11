@@ -1,6 +1,6 @@
 {
   "_doc": "Rost t5828u/t5829u/t5831u: «📅 Назначенные встречи». Sources: (1) CU Personal list 901413854636 TIMED due; (2) Role=🚶GO (field 1469c8d4… option 95771463…) any list — includes all-day 04:00. Exclude: src/meetings_exclude.json. on_done=comment.",
-  "updated_at": "2026-11-10T10:49:21-05:00",
+  "updated_at": "2026-11-10T22:43:28-05:00",
   "src": "Personal 901413854636 + Role GO 95771463-42ea-45fc-8b87-ad4b48108cbf",
   "list_url": "https://app.clickup.com/90144414983/v/li/901413854636",
   "scheduled_meetings": [
@@ -19,37 +19,9 @@
       "src": "go"
     },
     {
-      "id": "86b89dz9q",
-      "name": "Ирина Шекель созвон ВТ",
-      "url": "https://app.clickup.com/t/86b89dz9q",
-      "status": "to do",
-      "due": "2026-11-10",
-      "due_t": "17:00",
-      "start": "2026-11-10T16:00",
-      "all_day": false,
-      "kind": "meeting",
-      "on_done": "comment",
-      "note": "",
-      "src": "personal"
-    },
-    {
       "id": "86bd0vyb9",
       "name": "Забрать капы у ортодонта",
       "url": "https://app.clickup.com/t/86bd0vyb9",
-      "status": "to do",
-      "due": "2026-11-10",
-      "due_t": "",
-      "start": "2026-11-10",
-      "all_day": true,
-      "kind": "meeting",
-      "on_done": "comment",
-      "note": "",
-      "src": "go"
-    },
-    {
-      "id": "86bb9uf39",
-      "name": "Встреча русский чувак встретиться (запланировать)",
-      "url": "https://app.clickup.com/t/86bb9uf39",
       "status": "to do",
       "due": "2026-11-10",
       "due_t": "",
@@ -110,6 +82,20 @@
       "due": "2026-11-16",
       "due_t": "16:50",
       "start": "2026-11-16T15:50",
+      "all_day": false,
+      "kind": "meeting",
+      "on_done": "comment",
+      "note": "",
+      "src": "personal"
+    },
+    {
+      "id": "86b89dz9q",
+      "name": "Ирина Шекель созвон ВТ",
+      "url": "https://app.clickup.com/t/86b89dz9q",
+      "status": "to do",
+      "due": "2026-11-17",
+      "due_t": "17:00",
+      "start": "2026-11-17T16:00",
       "all_day": false,
       "kind": "meeting",
       "on_done": "comment",
