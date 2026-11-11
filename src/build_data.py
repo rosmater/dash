@@ -394,6 +394,20 @@ if not _A: pep_issues.append('Реклама: нет снимка ads.json от 
 if not _R: pep_issues.append('Ответы WA: нет снимка replies.json от Пептида')
 # нет файла диалогов вообще → не attn (есть fallback РК); cron_failed ловит dataIssues
 
+# Rost t1092u: баланс Bancolombia на рекламу (якорь + burn; проекция в JS)
+try:
+    import importlib.util as _ilu
+    _bal_py = os.path.join(_MON, 'balance.py')
+    if os.path.isfile(_bal_py):
+        _spec = _ilu.spec_from_file_location('pep_ad_balance', _bal_py)
+        _mod = _ilu.module_from_spec(_spec)
+        _spec.loader.exec_module(_mod)
+        _snap = _mod.snapshot_for_dash(_j('balance.json') or None, _A)
+        if _snap:
+            pep_ads['ad_balance'] = _snap
+except Exception as _bal_err:
+    pep_issues.append('Баланс рекламы: не собрался снимок (' + type(_bal_err).__name__ + ')')
+
 # ---------- Real estate: 3 закрытых месяца (Rost t5723u/t5724u; два источника t5726u–t5730u) ----------
 # Прошлые периоды по август 2026 — старая «Расчет_Аренда» / ИТОГИ; с сентября 2026 — новая «Upgraded_Rent_Database_Chronology» / «Отчет P&L».
 # «Испания чистая» = получено − налог 24% (не «Чистейший доход» — тот уже после эксплуатационных расходов). Прочитано 08.11.2026.
