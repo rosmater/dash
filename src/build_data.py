@@ -408,6 +408,52 @@ try:
 except Exception as _bal_err:
     pep_issues.append('Баланс рекламы: не собрался снимок (' + type(_bal_err).__name__ + ')')
 
+
+# Rost t1101u: лента дневных лидов WA с рекламы (над повторными продажами)
+def _pep_leads_strip():
+    today = datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=-5))).date()
+    rows = {str(r.get('date'))[:10]: r for r in ((_DS or {}).get('days') or []) if isinstance(r, dict) and r.get('date')}
+    since = str((_DS or {}).get('since') or (min(rows) if rows else today.isoformat()))[:10]
+    try:
+        start = datetime.date.fromisoformat(since)
+    except Exception:
+        start = today
+    out = []
+    d0 = start
+    while d0 <= today:
+        key = d0.isoformat()
+        r = rows.get(key)
+        ads = tot = None
+        if r:
+            tot = r.get('new_dialogs')
+            try:
+                tot = int(tot) if tot is not None else None
+            except (TypeError, ValueError):
+                tot = None
+            bs = r.get('by_source') or {}
+            if isinstance(bs, dict) and bs:
+                ads = 0
+                for k, v in bs.items():
+                    if v is None:
+                        continue
+                    kl = str(k).lower()
+                    if kl in ('ig_promote', 'ads_meta') or 'tiktok' in kl or kl.startswith('tt'):
+                        try:
+                            ads += int(v)
+                        except (TypeError, ValueError):
+                            pass
+            elif tot == 0:
+                ads = 0
+        out.append(dict(date=key, ads=ads, total=tot, today=(d0 == today), no_data=(ads is None and tot is None)))
+        d0 += datetime.timedelta(days=1)
+    return dict(
+        as_of=(_DS or {}).get('as_of'),
+        since=since,
+        days=out,
+        src='Пептид: dialogs-since-2026-10-12.json (новые входящие WA за день Bogotá; с рекламы = ig_promote + ads_meta + tiktok)')
+
+pep_leads_strip = _pep_leads_strip()
+
 # ---------- Real estate: 3 закрытых месяца (Rost t5723u/t5724u; два источника t5726u–t5730u) ----------
 # Прошлые периоды по август 2026 — старая «Расчет_Аренда» / ИТОГИ; с сентября 2026 — новая «Upgraded_Rent_Database_Chronology» / «Отчет P&L».
 # «Испания чистая» = получено − налог 24% (не «Чистейший доход» — тот уже после эксплуатационных расходов). Прочитано 08.11.2026.
@@ -922,7 +968,7 @@ data = dict(
   directions=[
     dict(id='peptides', stage='launched', name='Пептиды', subtitle='Peso Saludable · Медельин', currency='COP', color='#22d3a6', icon='💉',
          periods=pep_periods, breakdowns=pep_break, ledger=pep_ledger,
-         ads_monitor=pep_ads, repeat_sales=pep_repeat, replies_monitor=pep_replies, dialogs_today=pep_dialogs_today, data_issues=pep_issues,  # Rost 25.10: мониторы Пептидов (локально, до OK)
+         ads_monitor=pep_ads, repeat_sales=pep_repeat, replies_monitor=pep_replies, dialogs_today=pep_dialogs_today, leads_strip=pep_leads_strip, data_issues=pep_issues,  # Rost 25.10: мониторы Пептидов; t1101u лента лидов
          goals=[
            dict(label='Первый ответ ≤15 мин (рабочие часы)', unit='%', target=100, by_period={'W:2026-10-12': 75.8}, src='PROCESS.md / WEEK-SUMMARY: 25 из 33'),
            dict(label='Непрочитанные к 18:30', unit='шт', target=0, lower_is_better=True, by_period={'W:2026-10-12': 4.0}, src='WEEK-SUMMARY: среднее за 6 дней'),
