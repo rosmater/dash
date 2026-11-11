@@ -62,6 +62,10 @@ def main() -> int:
                 m[fld] = row[fld]
                 if fld == "fans":
                     m.pop("fans_approx", None)
+        # t6088u: copy balances if the week snapshot has them; do not wipe an older balance when absent
+        for fld in ("balance_current", "balance_pending", "balance_as_of", "balance_src"):
+            if fld in row and row[fld] is not None:
+                m[fld] = row[fld]
     models = oftv.get("models") or []
     oftv["total_net"] = _sum_net(models)
     oftv["total_gross"] = round(sum((m.get("gross") or 0) for m in models), 2)

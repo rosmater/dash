@@ -704,6 +704,26 @@ for lst in ('launch', 'traffic_back'):
         t = _byid.get(x.get('task'))
         x['cu'] = _cut(t) if t else None
 _O['cu_fetched_at'] = _OCU['fetched_at']
+# Rost t6088u: Current/Pending balances (OF Statements). null → «—». Source: src/of_balances.json.
+try:
+    _OBAL = json.load(open(os.path.join(_HERE, 'of_balances.json')))
+except Exception:
+    _OBAL = {}
+_obal_acc = {a['key']: a for a in (_OBAL.get('accounts') or []) if a.get('key')}
+def _apply_bal(dst, key):
+    b = _obal_acc.get(key)
+    if not b:
+        return
+    dst['balance_current'] = b.get('current')
+    dst['balance_pending'] = b.get('pending')
+    dst['balance_as_of'] = b.get('as_of')
+    dst['balance_src'] = b.get('src')
+for m in _O['models']:
+    _apply_bal(m, m.get('key'))
+_LP = OFB.get('lolapop') or {}
+_apply_bal(_LP, 'lolapop')
+OFB['own_accounts'] = [dict(a) for a in (_OBAL.get('accounts') or []) if a.get('group') == 'own']
+OFB['balances'] = {'note': _OBAL.get('note') or ''}
 # Ферма: idle только из свежего снимка (current), не из старого
 _F = OFB['farm']
 _F['idle'] = int(_F['current'].get('idle') or 0) if _F['current'].get('as_of') else 0

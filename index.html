@@ -1270,6 +1270,12 @@ function persBlocksHTML(d){if(d.id!=='personal'||!d.personal_blocks)return '';co
  h+=`<div class="note" style="margin:-6px 0 14px">Блоки «Личное» — снимок ${esc((B.fetched_at||'').slice(0,16).replace('T',' '))} Богота (UTC−5). ${esc(B._note||'')}</div>`;
  return h}
 function ofBlocksHTML(d){if(d.id!=='of'||!d.of_blocks)return '';const B=d.of_blocks,cur=Dash.curOf(d),$u=v=>v==null?'—':fmt(Dash.conv(v,'USD',cur),cur),n=v=>v==null?'—':esc(Dash.num(v)),m=S.mode;
+ /* Rost t6088u: Current / Pending balances on анкеты (OFTV + своя модель) */
+ const ddBal=s=>{const m=String(s||'').match(/(\d{4})-(\d{2})-(\d{2})/);return m?m[3]+'.'+m[2]:''};
+ const balCell=(v,asOf)=>`<td class="n">${v==null||v===''?'—':$u(v)}${asOf?`<div class="note">снимок ${ddBal(asOf)}</div>`:''}</td>`;
+ const ofNotes=txt=>txt?`<details style="margin-top:10px"><summary style="cursor:pointer;font-weight:700;font-size:13px">Пояснения</summary><div class="note" style="margin-top:8px;white-space:pre-wrap;line-height:1.45">${esc(txt)}</div></details>`:'';
+ const balNote=(B.balances&&B.balances.note)||'';
+
  const PL={today:'вчера',week:'неделя',month:'месяц'},pk=m==='today'||m==='week'||m==='month'?m:'week';
  const tile=(l,v,s,cls)=>`<div class="card kpi${cls?' bt '+cls:''}"><div class="l">${l}</div><div class="v" style="font-size:22px">${v}</div><div class="s">${s||'&nbsp;'}</div></div>`;
  const bogYmd0=(new Intl.DateTimeFormat('en-CA',{timeZone:'America/Bogota'})).format(new Date());
@@ -1361,9 +1367,10 @@ function ofBlocksHTML(d){if(d.id!=='of'||!d.of_blocks)return '';const B=d.of_blo
   <tr><td>Новые фаны</td>${oCols.map(c=>`<td class="n">${oCell(c,w=>w.fans_new,'n')}</td>`).join('')}</tr>
   </table></div>
   <h5 style="margin:10px 0 4px">Активные модели</h5>
-  <div class="tblwrap" style="margin-top:6px"><table><tr><th>Модель</th><th>Кто</th><th>Задачи</th><th class="n">Оборот</th><th class="n">Фанов</th><th class="n">Новых</th></tr>
-  ${O.models.map(x=>`<tr${tsOpen(x)}><td><b>${esc(x.name)}</b>${attn(x)}</td><td>${esc(x.person)}${x.team?' <span class="note">· '+esc(x.team)+'</span>':''}</td><td>${tsList(x)}</td><td class="n">${$u(x.net)}</td><td class="n">${fansC(x)}</td><td class="n">${n(x.fans_new)}</td></tr>${tsDetail(x,6)}`).join('')}
+  <div class="tblwrap" style="margin-top:6px"><table><tr><th>Модель</th><th>Кто</th><th>Задачи</th><th class="n">Оборот</th><th class="n">Фанов</th><th class="n">Новых</th><th class="n">В холде</th><th class="n">Доступно к выплате</th></tr>
+  ${O.models.map(x=>`<tr${tsOpen(x)}><td><b>${esc(x.name)}</b>${attn(x)}</td><td>${esc(x.person)}${x.team?' <span class="note">· '+esc(x.team)+'</span>':''}</td><td>${tsList(x)}</td><td class="n">${$u(x.net)}</td><td class="n">${fansC(x)}</td><td class="n">${n(x.fans_new)}</td>${balCell(x.balance_pending,x.balance_as_of)}${balCell(x.balance_current,x.balance_as_of)}</tr>${tsDetail(x,8)}`).join('')}
   </table></div>
+  ${ofNotes(balNote)}
   <div style="border-top:1px solid var(--line);margin:14px 0 10px"></div>
   ${lst('🚀 Модели на запуск',O.launch||[])}
   <div style="border-top:1px solid var(--line);margin:14px 0 10px"></div>
@@ -1412,7 +1419,13 @@ function ofBlocksHTML(d){if(d.id!=='of'||!d.of_blocks)return '';const B=d.of_blo
   ])}
   ${lpSec('Instagram · количество подписчиков',igAcc.map(a=>['@'+esc(a.handle)+(a.status==='attn'?' '+lpPill('⚠️ требует внимания','#b42318','#fee4e2','#fda29b')+(a.note?'<div class="note">'+esc(a.note)+'</div>':''):a.status==='ok'?' '+lpPill('✓ ок','#0b7a59','#d1fadf','#abefc6'):''),w=>((w.ig||{})[a.handle]??(w.ig||{})[a.handle&&a.handle.replace(/^@/,'')]),'ig']))}
   ${lpSec('Порнстоки',psSites.map(name=>[name,w=>((w.pornstocks||{})[name]),'n']).concat([['Итого просмотров',w=>(w.pornstocks||{}).total,'n']]))}
-  </table></div>${lpDrop}</div>`}
+  </table></div>
+  <h5 style="margin:14px 0 4px">Анкеты</h5>
+  <div class="tblwrap" style="margin-top:6px"><table><tr><th>Анкета</th><th class="n">В холде</th><th class="n">Доступно к выплате</th></tr>
+  ${(B.own_accounts&&B.own_accounts.length?B.own_accounts:[{name:P.title||'LolaPop',handle:(P.profile||''),current:P.balance_current,pending:P.balance_pending,as_of:P.balance_as_of}]).map(a=>`<tr><td><b>${esc(a.name||'')}</b>${a.handle?' <span class="note">'+esc(a.handle)+'</span>':''}${a.label?' <span class="note">· '+esc(a.label)+'</span>':''}</td>${balCell(a.pending,a.as_of)}${balCell(a.current,a.as_of)}</tr>`).join('')}
+  </table></div>
+  ${ofNotes(balNote)}
+  ${lpDrop}</div>`}
  /* 5) Fetish Rooms */
  const FR=B.fetish_rooms;if(FR){const frCols=weekCols(FR.weeks||[]);
   const frN=1+frCols.length;

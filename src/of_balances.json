@@ -1,0 +1,74 @@
+{
+  "_doc": "Rost t6088u: Current balance (доступно к выплате) и Pending balance (в холде) с страницы OnlyFans Statements. null = нет снимка, в даше «—». Числа не выдумывать. Подмешивает build_data.py.",
+  "note": "«В холде» — Pending balance OnlyFans (деньги ещё не вышли из холда). «Доступно к выплате» — Current balance (можно вывести; минимум $20).\n\nОФТВ и LolaPop: съём понедельника 09.11, страница Statistics → Statements → Earnings, боковая панель Current balance / Pending balance (у Kelly — Saldo actual / Saldo pendiente). AdsPower, пользователь Windows adspower, Local API: Sofia Lunara k1h26u5b, Kelly Sunelly k1h0ygjd, Bella Cruz k1h26w02, I am rosie k1h26w2x, LolaPop k1h26w3l.\n\nAlexa Herrera (K Agency, @alexaherrera.oficial): в съёме 08–09.11 балансы не записывали, только заработок и фаны. В таблице стоит последний снимок 26.10 (та же панель Ganancias, AdsPower 1708 / k1i5o02l, группа Alexa, Windows adspower). Цифра старая — не ориентироваться на вывод, пока не снимут заново.\n\nКак обновлять: вместе с понедельничной статистикой ОФ. На каждом аккаунте открыть OnlyFans → Statements (https://onlyfans.com/my/statements/earnings) и записать Current balance и Pending balance. Тот же блок виден и в Statistics → Statements → Earnings. Следующий съём: понедельник 16.11 утром (Богота), вместе с недельными цифрами ОФТВ / LolaPop / Alexa.",
+  "accounts": [
+    {
+      "key": "sofia",
+      "name": "Sofia Lunara",
+      "handle": "@sofialunara",
+      "group": "oftv",
+      "adspower_id": "k1h26u5b",
+      "current": 36.98,
+      "pending": 1468.0,
+      "as_of": "2026-11-09",
+      "src": "OF Statistics → Statements → Earnings, AdsPower k1h26u5b, съём 09.11 (неделя 02–08.11)"
+    },
+    {
+      "key": "kelly",
+      "name": "Kelly Sunelly",
+      "handle": "@kellysunelly",
+      "group": "oftv",
+      "adspower_id": "k1h0ygjd",
+      "current": 19.38,
+      "pending": 60.8,
+      "as_of": "2026-11-09",
+      "src": "OF Estadísticas → Estado de cuenta → Ganancias (Saldo actual / Saldo pendiente), AdsPower k1h0ygjd, съём 09.11"
+    },
+    {
+      "key": "bella",
+      "name": "Bella Cruz",
+      "handle": "@bela_cruz",
+      "group": "oftv",
+      "adspower_id": "k1h26w02",
+      "current": 0.96,
+      "pending": 0.0,
+      "as_of": "2026-11-09",
+      "src": "OF Statistics → Statements → Earnings, AdsPower k1h26w02, съём 09.11"
+    },
+    {
+      "key": "rosie",
+      "name": "I am rosie",
+      "handle": "@i_am_rosie",
+      "group": "oftv",
+      "adspower_id": "k1h26w2x",
+      "current": 0.6,
+      "pending": 229.6,
+      "as_of": "2026-11-09",
+      "src": "OF Statistics → Statements → Earnings, AdsPower k1h26w2x, съём 09.11"
+    },
+    {
+      "key": "lolapop",
+      "name": "LolaPop",
+      "handle": "@lolapop_bbw_pear_ass",
+      "group": "own",
+      "adspower_id": "k1h26w3l",
+      "current": 0.27,
+      "pending": 53.98,
+      "as_of": "2026-11-09",
+      "src": "OF Statistics → Statements → Earnings, AdsPower k1h26w3l, съём 09.11 (вместе с неделей LolaPop 02–08.11)"
+    },
+    {
+      "key": "alexa",
+      "name": "Alexa Herrera",
+      "handle": "@alexaherrera.oficial",
+      "group": "own",
+      "label": "K Agency",
+      "adspower_id": "k1i5o02l",
+      "adspower_serial": "1708",
+      "current": 251.71,
+      "pending": 28.38,
+      "as_of": "2026-10-26",
+      "src": "OF Estadísticas → Estado de cuenta → Ganancias, AdsPower 1708 / k1i5o02l, 26.10. В съёме 08–09.11 балансы не записывали."
+    }
+  ]
+}
