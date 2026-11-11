@@ -18,7 +18,10 @@ BIN = '/workspace/binotel'
 CC = '/home/box/contacts/knowledge/notion-brain/business/tabakevich/call-control'
 SHARE = '/workspace/tbk-1c/share-mgr'
 # 1С «Ответственный» → имя в Binotel/HelpCrunch. Заполнить по первой выгрузке (ФИО в 1С пока не видели).
-MAP_1C = {}
+MAP_1C = {  # только однозначные (среди «Интернет продажи» одна Екатерина и одна Елизавета; Саша — нет Александры в ИМ)
+    'Ткаченко Екатерина': 'Катя',
+    'Теслина Елизавета': 'Ліза',
+}
 
 def wk_ok(n):
     d = f'{BIN}/w{n}'
@@ -67,41 +70,30 @@ def hc(n):
     return r
 
 def sales_1c(a, b):
-    """{имя: {'to': сумма, 'orders': n}} из xlsx в SHARE; None если выгрузки нет."""
-    import openpyxl
-    fs = sorted(glob.glob(f'{SHARE}/*.xlsx'))
-    if not fs: return None, None
-    out, used = {}, []
-    for f in fs:
-        kind = 'orders' if re.search(r'заказ|order', os.path.basename(f), re.I) else 'to' if re.search(r'реализ|расход|накладн|sale|prodazh', os.path.basename(f), re.I) else None
-        if not kind: continue
-        ws = openpyxl.load_workbook(f, data_only=True).active
-        rows = list(ws.iter_rows(values_only=True)); hi = None
-        for i, r in enumerate(rows[:30]):
-            h = [str(x or '').strip().lower() for x in r]
-            if any(x.startswith('ответствен') for x in h) and any(x.startswith('дата') for x in h): hi = i; break
-        if hi is None: continue
-        h = [str(x or '').strip().lower() for x in rows[hi]]
-        ci = lambda p: next((k for k, x in enumerate(h) if x.startswith(p)), None)
-        cd, cr, cs, cdel = ci('дата'), ci('ответствен'), ci('сумма'), ci('пометка удал')
-        for r in rows[hi + 1:]:
-            if cd is None or r[cd] is None or not r[cr]: continue
-            if cdel is not None and str(r[cdel]).strip().lower() in ('да', 'true', '1', 'так', 'yes'): continue
-            d = r[cd] if isinstance(r[cd], datetime.datetime) else None
-            if d is None:
-                m = re.match(r'(\d{2})\.(\d{2})\.(\d{4})', str(r[cd]))
-                if not m: continue
-                d = datetime.datetime(int(m.group(3)), int(m.group(2)), int(m.group(1)))
-            if not (a <= d.date() <= b): continue
-            nm = MAP_1C.get(str(r[cr]).strip(), str(r[cr]).strip())
-            o = out.setdefault(nm, {'to': None, 'orders': None})
-            if kind == 'orders': o['orders'] = (o['orders'] or 0) + 1
-            else:
-                v = r[cs] if cs is not None else None
-                v = float(str(v).replace('\xa0', '').replace(' ', '').replace(',', '.')) if v not in (None, '') else 0
-                o['to'] = round((o['to'] or 0) + v, 2)
-        used.append(os.path.basename(f))
-    return (out if used else None), used
+    """{имя: {to, orders, refused, returned, ref_pct, ret_pct}} из выгрузок BAS (src/tbk_1c_orders.py); None если нет."""
+    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+    import tbk_1c_orders as O
+    D = [d for d in O.docs(SHARE) if a <= d['date'] <= b and O.is_im(d)]  # только подразделения «… (Интернет продажи)»
+    if not D: return None, None
+    out = {}
+    for d in D:
+        nm = MAP_1C.get(d['manager'], d['manager'])
+        o = out.setdefault(nm, dict(to=None, orders=None, refused=0, returned=0))
+        if d['kind'] == 'sale': o['to'] = round((o['to'] or 0) + (d['sum'] or 0), 2)
+        if d['kind'] == 'order': o['orders'] = (o['orders'] or 0) + 1
+        t = O.outcome(d)
+        if t == 'отказ': o['refused'] += 1
+        if t == 'возврат': o['returned'] += 1
+    has_state = any(d['finish'] for d in D if d['kind'] == 'order')
+    has_ret = any(d['kind'] == 'return' for d in D) or has_state
+    for o in out.values():
+        n = o['orders']
+        o['ref_pct'] = round(o['refused'] / n * 100, 1) if n and has_state else None
+        o['ret_pct'] = round(o['returned'] / n * 100, 1) if n and has_ret else None
+        if not has_state: o['refused'] = None
+        if not has_ret: o['returned'] = None
+    nodel = sorted({d['file'] for d in D if not d['has_del_col'] and not d['has_post_col']})
+    return out, sorted({d['file'] for d in D}) + ([f'⚠ без колонки пометки удаления/проведения: {", ".join(nodel)}'] if nodel else [])
 
 def main():
     W = [int(re.search(r'w(\d+)$', d).group(1)) for d in glob.glob(f'{BIN}/w[0-9]*') if re.search(r'w(\d+)$', d)]
@@ -119,10 +111,14 @@ def main():
     S, used = sales_1c(a, b)
     for p in M['calls']['people']:
         x = (S or {}).get(p['name']) or {}
-        p['to'] = x.get('to'); p['orders'] = x.get('orders')
+        for k in ('to', 'orders', 'refused', 'returned', 'ref_pct', 'ret_pct'): p[k] = x.get(k)
+        p['upsell'] = None  # допродажи: в BAS нет признака — источника пока нет
+        # Rost t6007u: итог = Binotel % × (1 − (отказы + возвраты) / заказы)
+        p['score'] = round(p['pct'] * (1 - ((x.get('refused') or 0) + (x.get('returned') or 0)) / x['orders']), 1) if x.get('orders') and (x.get('ref_pct') is not None) else None
     known = {p['name'] for p in M['calls']['people']}
     M['sales_1c_extra'] = [dict(name=k, **v) for k, v in (S or {}).items() if k not in known]
-    M['sales_1c_src'] = ('1С/BAS: ' + ', '.join(used) + ' (без пометки удаления)') if S else '1С: выгрузки по менеджерам нет — ждёт выгрузку из BAS'
+    M['sales_1c_src'] = ('1С/BAS: ' + ', '.join(used) + f' · {a:%d.%m}–{b:%d.%m} · только «Интернет продажи» · непроведённые заказы исключены') if S else '1С: выгрузки по менеджерам нет — ждёт выгрузку из BAS'
+    M['score_formula'] = 'Итог = оценка звонков Binotel × (1 − (отказы + возвраты) ÷ заказы менеджера); отказ/возврат — по «Состояние» заказа и документам «Возврат от покупателя» из 1С'
     M['stale_note'] = '' if H else f'HelpCrunch W{n} не найден'
     json.dump(B, open(J, 'w'), ensure_ascii=False, indent=1)
     print('managers →', M['week'], '| missed', C['missed'], '| 1С', 'есть' if S else 'нет')

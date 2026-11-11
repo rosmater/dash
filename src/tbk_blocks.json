@@ -1162,16 +1162,28 @@
      "pct": 91,
      "calls": 86,
      "bad": 1,
-     "to": null,
-     "orders": null
+     "to": 399015.0,
+     "orders": 271,
+     "refused": 5,
+     "returned": 1,
+     "ref_pct": 1.8,
+     "ret_pct": 0.4,
+     "upsell": null,
+     "score": 89.0
     },
     {
      "name": "Катя",
      "pct": 91,
      "calls": 133,
      "bad": 3,
-     "to": null,
-     "orders": null
+     "to": 529699.04,
+     "orders": 431,
+     "refused": 24,
+     "returned": 3,
+     "ref_pct": 5.6,
+     "ret_pct": 0.7,
+     "upsell": null,
+     "score": 85.3
     },
     {
      "name": "Саша",
@@ -1179,7 +1191,13 @@
      "calls": 47,
      "bad": 1,
      "to": null,
-     "orders": null
+     "orders": null,
+     "refused": null,
+     "returned": null,
+     "ref_pct": null,
+     "ret_pct": null,
+     "upsell": null,
+     "score": null
     }
    ],
    "note": "",
@@ -1234,8 +1252,28 @@
    "2026-10-26",
    "2026-11-01"
   ],
-  "sales_1c_extra": [],
-  "sales_1c_src": "1С: выгрузки по менеджерам нет — ждёт выгрузку из BAS"
+  "sales_1c_extra": [
+   {
+    "name": "Плотницкая Жанна",
+    "to": 206750.0,
+    "orders": 170,
+    "refused": 25,
+    "returned": 0,
+    "ref_pct": 14.7,
+    "ret_pct": 0.0
+   },
+   {
+    "name": "Шостак Максим",
+    "to": 520.0,
+    "orders": 2,
+    "refused": 0,
+    "returned": 0,
+    "ref_pct": 0.0,
+    "ret_pct": 0.0
+   }
+  ],
+  "sales_1c_src": "1С/BAS: realizacii_2026-10-26_11-08.xlsx, zakazy_pokupateley_2026-10-26_11-08.xlsx, ⚠ без колонки пометки удаления/проведения: realizacii_2026-10-26_11-08.xlsx · 26.10–01.11 · без пометки удаления",
+  "score_formula": "Итог = оценка звонков Binotel × (1 − (отказы + возвраты) ÷ заказы менеджера); отказ/возврат — по «Состояние» заказа и документам «Возврат от покупателя» из 1С"
  },
  "retail": {
   "title": "Розница",
