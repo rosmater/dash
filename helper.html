@@ -1114,7 +1114,7 @@ function persBlocksHTML(d){if(d.id!=='personal'||!d.personal_blocks)return '';co
  /* 12) Здоровье — скрыто от помощницы */
  if(!hid('health')){const Hh=B.health;h+=card(`${H('🩺 '+esc(Hh.title),'🔒 не видно помощнице')}
   ${Hh.groups.map(g=>`<div class="grp" style="font-weight:700;font-size:13px;margin:8px 0 2px">${g.url?cul(g.url,g.name):esc(g.name)}</div>${g.tasks.map(t=>`<div class="task" style="padding:6px 0"><span class="pill ${t.due&&t.due.slice(0,10)<=B.today?'p-high':'p-normal'}">${t.due?dd(t.due.slice(0,10))+(t.due.length>10?' '+t.due.slice(11):''):'без срока'}</span><div style="flex:1">${cul(t.url,t.name)} <span class="note">· ${esc(t.status)}</span></div></div>`).join('')}`).join('')}
-  <div class="note">${cul(Hh.url,'CU '+Hh.cu)} · ${esc(Hh.src)}</div>`)}
+  <div class="note">${Hh.url?cul(Hh.url,'CU '+Hh.cu)+' · ':''}${esc(Hh.src||'')}</div>`)}
  h+=`<div class="note" style="margin:-6px 0 14px">Блоки «Личное» — снимок ${esc((B.fetched_at||'').slice(0,16).replace('T',' '))} Богота (UTC−5). ${esc(B._note||'')}</div>`;
  return h}
 function ofBlocksHTML(d){if(d.id!=='of'||!d.of_blocks)return '';const B=d.of_blocks,cur=Dash.curOf(d),$u=v=>v==null?'—':fmt(Dash.conv(v,'USD',cur),cur),n=v=>v==null?'—':esc(Dash.num(v)),m=S.mode;

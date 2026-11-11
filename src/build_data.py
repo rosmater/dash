@@ -1033,5 +1033,10 @@ def _san(o, depth=0):
 for _d in data.get('directions') or []:
     if _d.get('kind') in ('msgs', 'bots'): continue
     _san(_d)
+# Rost t5996u (HARD): мейн/родительские CU-задачи не попадают в даш ни на одной вкладке (src/cu_parents.py)
+import sys as _sys; _sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import cu_parents as _cup
+_rm = _cup.strip(data)
+if _rm: print('cu_parents: убрано', len(_rm), sorted({(r[1], r[2]) for r in _rm}))
 json.dump(data, open(OUT, 'w'), ensure_ascii=False, indent=1)
 print('wrote', os.path.abspath(OUT), os.path.getsize(OUT))

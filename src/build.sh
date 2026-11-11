@@ -2,6 +2,7 @@
 # Inline src/core.js into each variant -> ../variant-*.html
 cd "$(dirname "$0")/.."
 python3 src/build_data.py
+python3 src/guard_parents.py || { echo 'guard_parents FAIL — мейн-задача в даше'; exit 1; }  # Rost t5996u
 for v in a b c; do
   [ -f src/variant-$v.html ] || continue
   python3 - "$v" <<'PY'

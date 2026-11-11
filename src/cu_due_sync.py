@@ -36,6 +36,7 @@ from __future__ import annotations
 
 import argparse, base64, datetime, json, os, re, shutil, subprocess, sys, unicodedata
 from pathlib import Path
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 from cryptography.hazmat.primitives import hashes
 from cryptography.hazmat.primitives.ciphers.aead import AESGCM
@@ -308,6 +309,7 @@ def surgical_patch(events, cu_at, gcal_at, by_dir):
                     d['gcal_fetched_at'] = gcal_at
             if d.get('id') in by_dir:
                 d['cu_dated'] = by_dir[d['id']]
+        import cu_parents; cu_parents.strip(data)  # Rost t5996u: мейн-задачи не в даш
         encrypt(data, meta, key, enc_path)
         print('patched', enc_path.name)
     for f in ['data.enc.json', 'data-asst.enc.json']:
