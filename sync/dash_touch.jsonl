@@ -1347,3 +1347,6 @@
 {"ts": "2026-11-11T18:06:49-05:00", "bot": "Пептид", "action": "peptide-block", "note": "t1101u лента лидов WA; t1102u–t1103u короткая плашка баланса с суммой на 7 дней", "files": ["src/variant-a.html", "src/build_data.py", "CHANGELOG.md", "docs/DECISIONS.md"]}
 {"ts": "2026-11-11T18:06:49-05:00", "bot": "Пептид", "action": "build", "note": "t1101u–t1103u сборка ленты лидов и короткой плашки баланса", "files": []}
 {"ts": "2026-11-11T18:07:44-05:00", "bot": "Пептид", "action": "push", "note": "Даш t1101u–t1103u: лента лидов WA и короткая плашка баланса", "files": ["src/variant-a.html", "src/build_data.py", "CHANGELOG.md", "docs/DECISIONS.md", "index.html", "helper.html", "data.enc.json"]}
+{"ts": "2026-11-11T18:22:27-05:00", "bot": "Пептид", "action": "peptide-block", "note": "t1104u плашка: Пепт: Пополнить BC на Y · остаток ~N", "files": ["src/variant-a.html", "CHANGELOG.md", "docs/DECISIONS.md"]}
+{"ts": "2026-11-11T18:22:27-05:00", "bot": "Пептид", "action": "build", "note": "t1104u пересборка короткой плашки баланса", "files": []}
+{"ts": "2026-11-11T18:22:35-05:00", "bot": "Пептид", "action": "push", "note": "Даш t1104u: плашка «Пепт: Пополнить BC на Y · остаток ~N»", "files": ["src/variant-a.html", "CHANGELOG.md", "docs/DECISIONS.md", "index.html", "helper.html"]}
