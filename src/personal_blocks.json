@@ -1,9 +1,9 @@
 {
  "_note": "Снимок из CU Personal + Google Sheets «Дневник сна»/«Тренировки» + Google Calendar + KB. Нет записи = «—», не выдумываем. Блоки с hide_from_helper не попадают в helper.html.",
- "fetched_at": "2026-10-25T23:59:00-05:00",
- "today": "2026-10-26",
- "week_from": "2026-10-26",
- "month_from": "2026-10-01",
+ "fetched_at": "2026-11-11T16:41:00-05:00",
+ "today": "2026-11-11",
+ "week_from": "2026-11-09",
+ "month_from": "2026-11-01",
  "docs": {
   "title": "Документы",
   "items": [
@@ -533,77 +533,77 @@
   "title": "Шаги",
   "days": [
    {
-    "date": "2026-10-13",
+    "date": "2026-10-29",
+    "steps": 7108,
+    "color": "green"
+   },
+   {
+    "date": "2026-10-30",
     "steps": null,
     "color": null
    },
    {
-    "date": "2026-10-14",
+    "date": "2026-10-31",
     "steps": null,
     "color": null
    },
    {
-    "date": "2026-10-15",
+    "date": "2026-11-01",
     "steps": null,
     "color": null
    },
    {
-    "date": "2026-10-16",
+    "date": "2026-11-02",
     "steps": null,
     "color": null
    },
    {
-    "date": "2026-10-17",
+    "date": "2026-11-03",
+    "steps": 1068,
+    "color": "red"
+   },
+   {
+    "date": "2026-11-04",
     "steps": null,
     "color": null
    },
    {
-    "date": "2026-10-18",
-    "steps": 6328,
+    "date": "2026-11-05",
+    "steps": null,
+    "color": null
+   },
+   {
+    "date": "2026-11-06",
+    "steps": null,
+    "color": null
+   },
+   {
+    "date": "2026-11-07",
+    "steps": 2679,
+    "color": "orange"
+   },
+   {
+    "date": "2026-11-08",
+    "steps": 6269,
     "color": "yellow"
    },
    {
-    "date": "2026-10-19",
+    "date": "2026-11-09",
     "steps": null,
     "color": null
    },
    {
-    "date": "2026-10-20",
-    "steps": 614,
+    "date": "2026-11-10",
+    "steps": 1446,
     "color": "red"
    },
    {
-    "date": "2026-10-21",
-    "steps": null,
-    "color": null
-   },
-   {
-    "date": "2026-10-22",
-    "steps": null,
-    "color": null
-   },
-   {
-    "date": "2026-10-23",
-    "steps": null,
-    "color": null
-   },
-   {
-    "date": "2026-10-24",
-    "steps": null,
-    "color": null
-   },
-   {
-    "date": "2026-10-25",
-    "steps": 207,
-    "color": "red"
-   },
-   {
-    "date": "2026-10-26",
+    "date": "2026-11-11",
     "steps": null,
     "color": null
    }
   ],
-  "src": "iPhone → STEPS_LOG.md (с 20.10) + 18.10 из «Дневника сна» · <2000 красный · 2000–3999 оранжевый · 4000–6999 жёлтый · ≥7000 зелёный",
+  "src": "iPhone → STEPS_LOG.md · <2000 красный · 2000–3999 оранжевый · 4000–6999 жёлтый · ≥7000 зелёный",
   "hide_from_helper": true
  },
  "gym": {

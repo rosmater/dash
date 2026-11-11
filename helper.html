@@ -531,7 +531,7 @@ function periodNav(mode){const list=periodList(mode),ids=list.map(p=>p.id),today
  const ix=i>=0?i:(ci>=0?ci:ids.length-1);
  return {ids,ix,curId,multi:ids.length>1,hasPrev:ix>0,hasNext:ci>=0&&ix>=0&&ix<ci}}
 function shiftPeriod(mode,dir,toOverview){const {ids,ix,curId}=periodNav(mode);if(!ids.length)return;const ci=ids.indexOf(curId);let n=ix+dir;if(n<0)n=0;if(ci>=0&&n>ci)n=ci;if(n>ids.length-1)n=ids.length-1;if(mode==='week')S.week=ids[n];else S.month=ids[n];S.mode=mode;if(toOverview)S.tab='overview';render()}
-function controls(){ensureMode();const isCal=S.tab==='calendar',allow=tabModes(S.tab),top=isCal||S.tab==='messengers'||S.tab==='assistants'||S.tab==='unsorted';const bar=$('#mode');if(bar)bar.hidden=!!isCal;/* Rost t6076u: на Календаре прячем глобальные Сегодня/Неделя/Месяц — переключатель внутри календаря. На остальных вкладках чипы как раньше (t5988u: при одном периоде ряд не прячем). */
+function controls(){ensureMode();const isCal=S.tab==='calendar',allow=tabModes(S.tab),top=isCal||S.tab==='messengers'||S.tab==='assistants'||S.tab==='unsorted';const bar=$('#mode');if(bar)bar.hidden=!!top;/* t6097u: прячем чипы периода, где они не действуют (Календарь, Мессенджеры, Ассистенты, Нерассортированные). Раньше t6076u скрывал только Календарь — на Мессенджерах/Ассистентах чипы висели пустыми. На остальных вкладках чипы как раньше (t5988u: при одном периоде ряд не прячем). */
  document.querySelectorAll('#mode button').forEach(b=>{const vis=top||allow.includes(b.dataset.m);b.hidden=!vis;b.classList.toggle('on',vis&&b.dataset.m===S.mode&&!top);
   const m=b.dataset.m;
   if(m==='week'||m==='month'){const lab=m==='week'?'Неделя':'Месяц';
