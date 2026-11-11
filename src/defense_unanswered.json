@@ -1,6 +1,6 @@
 {
   "_note": "Живые ответы компаний (STE). Красный «разобрать» = open (мы не ответили). Жёлтый «ждём ответа» = waiting / awaiting_their_reply (наш ответ ушёл). answered/scheduled — снять с внимания. Пишет ste / Оборонка.",
-  "updated_at": "2026-11-10T14:50:35-05:00",
+  "updated_at": "2026-11-11T02:54:11-05:00",
   "unanswered_replies": [
     {
       "company": "TEREM-Letets / TEREM Holding (Bulgaria)",
@@ -39,22 +39,22 @@
       "last_outbound": "reply 2026-11-10 14:49 msg 1a1c702565400efe thread 1a174d555c8874b7"
     },
     {
-      "company": "Engineering SAECA",
-      "from": "Aníbal López <alopez@engineering.com.py>",
-      "subject": "RE: Potencial colaboración Engineering - SpetsTechnoExport",
-      "received_at": "2026-11-10T09:49:09-05:00",
-      "note": "Ответ López 10.11 14:42 Bogotá STE Gmail (msg 1a1c6fc2837f5b79, thread 1a1c093d6ca84c0a), кому alopez@engineering.com.py, копия andres@ / asosa@. Предложили слоты созвона: пт 13.11 13:00 PY (11:00 Bogotá) и вт 17.11 14:40 PY (12:40 Bogotá), или их время; на созвоне только Roman (Rost); ссылку Meet отправим после выбора слота. Ждём выбор слота.",
+      "company": "Engineering SAECA (Paraguay)",
+      "from": "Anibal Lopez <alopez@engineering.com.py>",
+      "subject": "Re: Potencial colaboración Engineering - SpetsTechnoExport",
+      "received_at": "2026-11-10T18:57:20-05:00",
+      "note": "Подтвердили видеозвонок вт 17.11 14:40 (Парагвай); ждут ссылку Google Meet. Нужно отправить Meet-ссылку и создать событие.",
       "url": "https://mail.google.com/mail/u/0/#inbox/1a1c093d6ca84c0a",
-      "status": "waiting",
-      "priority": false,
+      "status": "open",
+      "priority": true,
       "our_reply_at": "2026-11-10T14:42:00-05:00",
       "last_outbound": "reply 2026-11-10 14:42 msg 1a1c6fc2837f5b79 thread 1a1c093d6ca84c0a",
       "pipeline": "intro",
-      "status_label": "Ждём ответа: выбор слота созвона (пт 13.11 11:00 / вт 17.11 12:40 Богота)",
+      "status_label": "Нужен наш ответ",
       "thread_id": "1a1c093d6ca84c0a",
-      "msg_id": "1a1c6fc2837f5b79",
-      "last_inbound_at": "2026-11-10T09:49:09-05:00",
-      "last_inbound_msg_id": "1a1c5ef4ce6346c2"
+      "msg_id": "1a1c7e5274bb75f4",
+      "last_inbound_at": "2026-11-10T18:57:20-05:00",
+      "last_inbound_msg_id": "1a1c7e5274bb75f4"
     },
     {
       "company": "PRODESATEN (Colombia)",
