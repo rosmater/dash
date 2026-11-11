@@ -409,7 +409,7 @@ except Exception as _bal_err:
     pep_issues.append('Баланс рекламы: не собрался снимок (' + type(_bal_err).__name__ + ')')
 
 
-# Rost t1101u: лента дневных лидов WA с рекламы (над повторными продажами)
+# Rost t1101u / t1110u: лента дневных лидов WA с рекламы + расход и цена диалога
 def _pep_leads_strip():
     today = datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=-5))).date()
     rows = {str(r.get('date'))[:10]: r for r in ((_DS or {}).get('days') or []) if isinstance(r, dict) and r.get('date')}
@@ -418,6 +418,16 @@ def _pep_leads_strip():
         start = datetime.date.fromisoformat(since)
     except Exception:
         start = today
+    spend_map = {}
+    try:
+        _sp_py = os.path.join(_MON, 'spend_days.py')
+        if os.path.isfile(_sp_py):
+            _spec = _ilu.spec_from_file_location('pep_spend_days', _sp_py)
+            _mod = _ilu.module_from_spec(_spec)
+            _spec.loader.exec_module(_mod)
+            spend_map = _mod.spend_by_day(today) or {}
+    except Exception as _sp_err:
+        pep_issues.append('Расход рекламы по дням: не собрался (' + type(_sp_err).__name__ + ')')
     out = []
     d0 = start
     while d0 <= today:
@@ -444,13 +454,30 @@ def _pep_leads_strip():
                             pass
             elif tot == 0:
                 ads = 0
-        out.append(dict(date=key, ads=ads, total=tot, today=(d0 == today), no_data=(ads is None and tot is None)))
+        rec = dict(date=key, ads=ads, total=tot, today=(d0 == today), no_data=(ads is None and tot is None))
+        sp = spend_map.get(key) or {}
+        rec['spend'] = sp.get('spend') if isinstance(sp.get('spend'), (int, float)) else None
+        if rec['spend'] is not None:
+            rec['spend'] = int(round(rec['spend']))
+            rec['spend_approx'] = bool(sp.get('approx'))
+            rec['spend_open'] = bool(sp.get('open'))
+            rec['spend_tip'] = sp.get('tip')
+            if ads:
+                rec['cpl'] = int(round(rec['spend'] / ads))
+            else:
+                rec['cpl'] = None
+        else:
+            rec['spend_approx'] = False
+            rec['spend_open'] = False
+            rec['spend_tip'] = None
+            rec['cpl'] = None
+        out.append(rec)
         d0 += datetime.timedelta(days=1)
     return dict(
         as_of=(_DS or {}).get('as_of'),
         since=since,
         days=out,
-        src='Пептид: dialogs-since-2026-10-12.json (новые входящие WA за день Bogotá; с рекламы = ig_promote + ads_meta + tiktok)')
+        src='Пептид: dialogs-since-2026-10-12.json (новые входящие WA за день Bogotá; с рекламы = ig_promote + ads_meta + tiktok). Расход — дельты накопительного spend из ads.json / снимков ads-daily / RESULT; TikTok по ad cost, не предоплата.')
 
 pep_leads_strip = _pep_leads_strip()
 
