@@ -112,14 +112,76 @@
      null,
      null
     ],
-    "products": null,
+    "products": 4137,
     "texts_last_month": null,
     "links_bought": null,
     "dr": null,
     "organic": "GA4 органика 46 995 сессий за 3 мес. (≈13.07–12.10) vs 72 398 пред. 3 мес. (−35%); GSC клики 9.15k vs 23.8k (−62%)",
     "organic_src": "tabakevich-co/TRAFFIC_DROP_GA_2026-10-13.md + TRAFFIC_DROP_GSC_2026-10-14.md",
     "seo_report": "сен: отчёт Andrii 29.09 (тех. анализ, 301 региональных стр., disavow); окт: отчёта ещё нет (ждём с 17.10)",
-    "cu_site": "86b8gv8kj"
+    "cu_site": "86b8gv8kj",
+    "products_src": "Лада «Интернет направление», нед. 02.11–08.11: в наличии 4137, добавлено 4, в акции 70; sitemap 06.11 — 21 661 URL товаров (вкл. нет в наличии)",
+    "texts_src": "окт: отчёта Andrii нет; в sitemap статей/блога нет",
+    "links_src": "окт: отчёта Andrii нет",
+    "dr_src": "Ahrefs — нужен браузер (капча)",
+    "visitors": [
+     null,
+     null,
+     null
+    ],
+    "visitors_src": null,
+    "orders_src": null,
+    "conv": [
+     null,
+     null,
+     null
+    ],
+    "speed": {
+     "home": {
+      "load_s": 7.04,
+      "mob": {
+       "error": "Cloudflare challenge: замерена страница проверки, а не сайт — невалидно",
+       "engine": "local-lighthouse 12.8.2"
+      },
+      "desk": {
+       "error": "Cloudflare challenge: замерена страница проверки, а не сайт — невалидно",
+       "engine": "local-lighthouse 12.8.2"
+      }
+     },
+     "category": {
+      "load_s": 6.97,
+      "mob": {
+       "error": "Cloudflare challenge: замерена страница проверки, а не сайт — невалидно",
+       "engine": "local-lighthouse 12.8.2"
+      },
+      "desk": {
+       "error": "Cloudflare challenge: замерена страница проверки, а не сайт — невалидно",
+       "engine": "local-lighthouse 12.8.2"
+      }
+     },
+     "product": {
+      "load_s": 6.14,
+      "mob": {
+       "error": "Cloudflare challenge: замерена страница проверки, а не сайт — невалидно",
+       "engine": "local-lighthouse 12.8.2"
+      },
+      "desk": {
+       "error": "Cloudflare challenge: замерена страница проверки, а не сайт — невалидно",
+       "engine": "local-lighthouse 12.8.2"
+      }
+     },
+     "sale": {
+      "load_s": 6.78,
+      "mob": {
+       "error": "Cloudflare challenge: замерена страница проверки, а не сайт — невалидно",
+       "engine": "local-lighthouse 12.8.2"
+      },
+      "desk": {
+       "error": "Cloudflare challenge: замерена страница проверки, а не сайт — невалидно",
+       "engine": "local-lighthouse 12.8.2"
+      }
+     }
+    }
    },
    {
     "name": "hookahshop.org",
@@ -139,17 +201,150 @@
      641.39
     ],
     "orders": [
-     55,
+     null,
      null,
      null
     ],
-    "orders_note": "строки BAS вкл. помеченные на удаление",
-    "products": null,
-    "texts_last_month": null,
-    "links_bought": null,
+    "products": 4145,
+    "texts_last_month": 7,
+    "links_bought": 1,
     "dr": null,
     "organic": null,
-    "cu_site": "86b934b1v"
+    "cu_site": "86b934b1v",
+    "products_src": "Лада «Интернет направление», нед. 02.11–08.11: в наличии 4145, добавлено 27, в акции 12; на сайте всего 7 013 (поиск 11.11), sitemap сломан (H-02)",
+    "texts_src": "SEO-аудит штатного SEO окт 2026 (seo-auditor/report-2026-10.md): опубликовано 7 (6 инфо + 1 категория)",
+    "links_src": "там же: размещена 1 ссылка (daypost.com.ua, 15.10, 1185 грн)",
+    "dr_src": "Ahrefs — нужен браузер (капча)",
+    "visitors": [
+     null,
+     null,
+     null
+    ],
+    "visitors_src": null,
+    "orders_src": null,
+    "conv": [
+     null,
+     null,
+     null
+    ],
+    "speed": {
+     "home": {
+      "load_s": 1.85,
+      "mob": {
+       "score": 45,
+       "lcp_s": 85.73,
+       "cls": 0.164,
+       "tbt_ms": 346,
+       "fcp_s": 3.0,
+       "inp_ms_field": null,
+       "lcp_ms_field": null,
+       "url": "https://hookahshop.org/",
+       "fetched": "2026-11-11T18:26:56.691Z",
+       "engine": "local-lighthouse 12.8.2",
+       "runtime_error": null
+      },
+      "desk": {
+       "score": 63,
+       "lcp_s": 9.39,
+       "cls": 0.002,
+       "tbt_ms": 6,
+       "fcp_s": 1.18,
+       "inp_ms_field": null,
+       "lcp_ms_field": null,
+       "url": "https://hookahshop.org/",
+       "fetched": "2026-11-11T18:26:56.682Z",
+       "engine": "local-lighthouse 12.8.2",
+       "runtime_error": null
+      }
+     },
+     "category": {
+      "load_s": 3.7,
+      "mob": {
+       "score": 47,
+       "lcp_s": 17.87,
+       "cls": 0.0,
+       "tbt_ms": 364,
+       "fcp_s": 5.51,
+       "inp_ms_field": null,
+       "lcp_ms_field": null,
+       "url": "https://hookahshop.org/kaliany",
+       "fetched": "2026-11-11T18:27:22.196Z",
+       "engine": "local-lighthouse 12.8.2",
+       "runtime_error": null
+      },
+      "desk": {
+       "score": 69,
+       "lcp_s": 3.32,
+       "cls": 0.001,
+       "tbt_ms": 10,
+       "fcp_s": 1.38,
+       "inp_ms_field": null,
+       "lcp_ms_field": null,
+       "url": "https://hookahshop.org/kaliany",
+       "fetched": "2026-11-11T18:27:26.624Z",
+       "engine": "local-lighthouse 12.8.2",
+       "runtime_error": null
+      }
+     },
+     "product": {
+      "load_s": 1.47,
+      "mob": {
+       "score": 53,
+       "lcp_s": 10.04,
+       "cls": 0.002,
+       "tbt_ms": 236,
+       "fcp_s": 4.04,
+       "inp_ms_field": null,
+       "lcp_ms_field": null,
+       "url": "https://hookahshop.org/led-pidsvichuvannia-pid-bliudtse-velyke-19-5-sm",
+       "fetched": "2026-11-11T18:28:47.729Z",
+       "engine": "local-lighthouse 12.8.2",
+       "runtime_error": null
+      },
+      "desk": {
+       "score": 76,
+       "lcp_s": 2.34,
+       "cls": 0.036,
+       "tbt_ms": 4,
+       "fcp_s": 1.44,
+       "inp_ms_field": null,
+       "lcp_ms_field": null,
+       "url": "https://hookahshop.org/led-pidsvichuvannia-pid-bliudtse-velyke-19-5-sm",
+       "fetched": "2026-11-11T18:28:47.739Z",
+       "engine": "local-lighthouse 12.8.2",
+       "runtime_error": null
+      }
+     },
+     "sale": {
+      "load_s": 1.5,
+      "mob": {
+       "score": 60,
+       "lcp_s": 7.09,
+       "cls": 0.046,
+       "tbt_ms": 196,
+       "fcp_s": 3.19,
+       "inp_ms_field": null,
+       "lcp_ms_field": null,
+       "url": "https://hookahshop.org/product/special",
+       "fetched": "2026-11-11T18:29:04.483Z",
+       "engine": "local-lighthouse 12.8.2",
+       "runtime_error": null
+      },
+      "desk": {
+       "score": 73,
+       "lcp_s": 3.36,
+       "cls": 0.005,
+       "tbt_ms": 5,
+       "fcp_s": 1.16,
+       "inp_ms_field": null,
+       "lcp_ms_field": null,
+       "url": "https://hookahshop.org/product/special",
+       "fetched": "2026-11-11T18:29:17.218Z",
+       "engine": "local-lighthouse 12.8.2",
+       "runtime_error": null
+      }
+     }
+    }
    },
    {
     "name": "palmvapeshop.com",
@@ -174,12 +369,146 @@
      null
     ],
     "ads_sales_oct": 63,
-    "products": null,
-    "texts_last_month": null,
-    "links_bought": null,
+    "products": 170,
+    "texts_last_month": 7,
+    "links_bought": 1,
     "dr": null,
     "organic": null,
-    "cu_site": "86b92hrcp"
+    "cu_site": "86b92hrcp",
+    "products_src": "Лада «Интернет направление», нед. 02.11–08.11: в наличии 170, добавлено 0, в акции 12; опубликовано 377 (WooCommerce API 11.11)",
+    "texts_src": "SEO-аудит окт 2026: опубликовано 7 инфо (всего постов в post-sitemap — 21)",
+    "links_src": "там же: 1 ссылка (faktyhub.org.ua, 15.10, 1165 грн)",
+    "dr_src": "Ahrefs — нужен браузер (капча)",
+    "visitors": [
+     null,
+     null,
+     null
+    ],
+    "visitors_src": null,
+    "orders_src": null,
+    "conv": [
+     null,
+     null,
+     null
+    ],
+    "speed": {
+     "home": {
+      "load_s": 6.29,
+      "mob": {
+       "score": 47,
+       "lcp_s": 19.7,
+       "cls": 0,
+       "tbt_ms": 364,
+       "fcp_s": 10.94,
+       "inp_ms_field": null,
+       "lcp_ms_field": null,
+       "url": "https://palmvapeshop.com/",
+       "fetched": "2026-11-11T18:29:20.367Z",
+       "engine": "local-lighthouse 12.8.2",
+       "runtime_error": null
+      },
+      "desk": {
+       "score": 83,
+       "lcp_s": 2.68,
+       "cls": 0,
+       "tbt_ms": 53,
+       "fcp_s": 1.13,
+       "inp_ms_field": null,
+       "lcp_ms_field": null,
+       "url": "https://palmvapeshop.com/",
+       "fetched": "2026-11-11T18:29:32.129Z",
+       "engine": "local-lighthouse 12.8.2",
+       "runtime_error": null
+      }
+     },
+     "category": {
+      "load_s": 2.31,
+      "mob": {
+       "score": 50,
+       "lcp_s": 16.68,
+       "cls": 0,
+       "tbt_ms": 420,
+       "fcp_s": 5.82,
+       "inp_ms_field": null,
+       "lcp_ms_field": null,
+       "url": "https://palmvapeshop.com/product-category/bahatorazovi-pod-systemy/",
+       "fetched": "2026-11-11T18:30:37.238Z",
+       "engine": "local-lighthouse 12.8.2",
+       "runtime_error": null
+      },
+      "desk": {
+       "score": 81,
+       "lcp_s": 3.19,
+       "cls": 0,
+       "tbt_ms": 36,
+       "fcp_s": 0.9,
+       "inp_ms_field": null,
+       "lcp_ms_field": null,
+       "url": "https://palmvapeshop.com/product-category/bahatorazovi-pod-systemy/",
+       "fetched": "2026-11-11T18:30:49.244Z",
+       "engine": "local-lighthouse 12.8.2",
+       "runtime_error": null
+      }
+     },
+     "product": {
+      "load_s": 3.21,
+      "mob": {
+       "score": 64,
+       "lcp_s": 8.57,
+       "cls": 0,
+       "tbt_ms": 358,
+       "fcp_s": 2.35,
+       "inp_ms_field": null,
+       "lcp_ms_field": null,
+       "url": "https://palmvapeshop.com/product/pod-systema-vaporesso-xros-6-mini/",
+       "fetched": "2026-11-11T18:31:52.389Z",
+       "engine": "local-lighthouse 12.8.2",
+       "runtime_error": null
+      },
+      "desk": {
+       "score": 90,
+       "lcp_s": 2.02,
+       "cls": 0,
+       "tbt_ms": 38,
+       "fcp_s": 0.79,
+       "inp_ms_field": null,
+       "lcp_ms_field": null,
+       "url": "https://palmvapeshop.com/product/pod-systema-vaporesso-xros-6-mini/",
+       "fetched": "2026-11-11T18:32:02.971Z",
+       "engine": "local-lighthouse 12.8.2",
+       "runtime_error": null
+      }
+     },
+     "sale": {
+      "load_s": 1.38,
+      "mob": {
+       "score": 60,
+       "lcp_s": 12.07,
+       "cls": 0,
+       "tbt_ms": 382,
+       "fcp_s": 2.64,
+       "inp_ms_field": null,
+       "lcp_ms_field": null,
+       "url": "https://palmvapeshop.com/product-category/aktsii/",
+       "fetched": "2026-11-11T18:32:08.628Z",
+       "engine": "local-lighthouse 12.8.2",
+       "runtime_error": null
+      },
+      "desk": {
+       "score": 84,
+       "lcp_s": 2.75,
+       "cls": 0,
+       "tbt_ms": 48,
+       "fcp_s": 0.82,
+       "inp_ms_field": null,
+       "lcp_ms_field": null,
+       "url": "https://palmvapeshop.com/product-category/aktsii/",
+       "fetched": "2026-11-11T18:33:14.695Z",
+       "engine": "local-lighthouse 12.8.2",
+       "runtime_error": null
+      }
+     }
+    }
    },
    {
     "name": "felix-shop.com",
@@ -202,13 +531,147 @@
      null,
      null
     ],
-    "products": null,
-    "texts_last_month": null,
-    "links_bought": null,
+    "products": 4135,
+    "texts_last_month": 2,
+    "links_bought": 1,
     "dr": null,
     "organic": "GA4 органика 7 780 сессий (конец июля–11.10), ≈79% выручки сайта; GSC клики 9.21k за 3 мес. vs 13.5k (−32%)",
     "organic_src": "felix-shop/TRAFFIC_DROP_GSC_GA_2026-10-13.md",
-    "cu_site": "86b8r59kx"
+    "cu_site": "86b8r59kx",
+    "products_src": "Лада «Интернет направление», нед. 02.11–08.11: в наличии 4135, добавлено 4, в акции 76; sitemap 11.11 — 14 061 URL /product/",
+    "texts_src": "SEO-аудит окт 2026: опубликовано 2 (категории)",
+    "links_src": "там же: 1 ссылка (faktyhub.org.ua, 15.10, 1165 грн)",
+    "dr_src": "Ahrefs — нужен браузер (капча)",
+    "visitors": [
+     null,
+     null,
+     null
+    ],
+    "visitors_src": null,
+    "orders_src": null,
+    "conv": [
+     null,
+     null,
+     null
+    ],
+    "speed": {
+     "home": {
+      "load_s": 0.23,
+      "mob": {
+       "score": 57,
+       "lcp_s": 7.34,
+       "cls": 0,
+       "tbt_ms": 654,
+       "fcp_s": 1.36,
+       "inp_ms_field": null,
+       "lcp_ms_field": null,
+       "url": "https://felix-shop.com/",
+       "fetched": "2026-11-11T18:33:21.625Z",
+       "engine": "local-lighthouse 12.8.2",
+       "runtime_error": null
+      },
+      "desk": {
+       "score": 92,
+       "lcp_s": 1.75,
+       "cls": 0.028,
+       "tbt_ms": 16,
+       "fcp_s": 0.4,
+       "inp_ms_field": null,
+       "lcp_ms_field": null,
+       "url": "https://felix-shop.com/",
+       "fetched": "2026-11-11T18:33:35.563Z",
+       "engine": "local-lighthouse 12.8.2",
+       "runtime_error": null
+      }
+     },
+     "category": {
+      "load_s": 0.29,
+      "mob": {
+       "score": 52,
+       "lcp_s": 10.59,
+       "cls": 0.021,
+       "tbt_ms": 618,
+       "fcp_s": 1.79,
+       "inp_ms_field": null,
+       "lcp_ms_field": null,
+       "url": "https://felix-shop.com/kaljany/",
+       "fetched": "2026-11-11T18:33:49.427Z",
+       "engine": "local-lighthouse 12.8.2",
+       "runtime_error": null
+      },
+      "desk": {
+       "score": 77,
+       "lcp_s": 1.56,
+       "cls": 0.327,
+       "tbt_ms": 47,
+       "fcp_s": 0.72,
+       "inp_ms_field": null,
+       "lcp_ms_field": null,
+       "url": "https://felix-shop.com/kaljany/",
+       "fetched": "2026-11-11T18:34:05.194Z",
+       "engine": "local-lighthouse 12.8.2",
+       "runtime_error": null
+      }
+     },
+     "product": {
+      "load_s": 0.26,
+      "mob": {
+       "score": 53,
+       "lcp_s": 7.33,
+       "cls": 0,
+       "tbt_ms": 730,
+       "fcp_s": 1.68,
+       "inp_ms_field": null,
+       "lcp_ms_field": null,
+       "url": "https://felix-shop.com/product/-kalyanemberyequalsilver-snow/",
+       "fetched": "2026-11-11T18:34:18.581Z",
+       "engine": "local-lighthouse 12.8.2",
+       "runtime_error": null
+      },
+      "desk": {
+       "score": 80,
+       "lcp_s": 0.37,
+       "cls": 0.433,
+       "tbt_ms": 58,
+       "fcp_s": 0.37,
+       "inp_ms_field": null,
+       "lcp_ms_field": null,
+       "url": "https://felix-shop.com/product/-kalyanemberyequalsilver-snow/",
+       "fetched": "2026-11-11T18:34:26.617Z",
+       "engine": "local-lighthouse 12.8.2",
+       "runtime_error": null
+      }
+     },
+     "sale": {
+      "load_s": 0.3,
+      "mob": {
+       "score": 54,
+       "lcp_s": 10.98,
+       "cls": 0.026,
+       "tbt_ms": 659,
+       "fcp_s": 1.18,
+       "inp_ms_field": null,
+       "lcp_ms_field": null,
+       "url": "https://felix-shop.com/rasprodazha/",
+       "fetched": "2026-11-11T18:34:34.728Z",
+       "engine": "local-lighthouse 12.8.2",
+       "runtime_error": null
+      },
+      "desk": {
+       "score": 89,
+       "lcp_s": 2.15,
+       "cls": 0.016,
+       "tbt_ms": 45,
+       "fcp_s": 0.71,
+       "inp_ms_field": null,
+       "lcp_ms_field": null,
+       "url": "https://felix-shop.com/rasprodazha/",
+       "fetched": "2026-11-11T18:34:40.289Z",
+       "engine": "local-lighthouse 12.8.2",
+       "runtime_error": null
+      }
+     }
+    }
    }
   ],
   "other": [
@@ -224,7 +687,13 @@
      483.37,
      1650.85
     ],
-    "note": "заказы в своей Google-таблице"
+    "note": "заказы в своей Google-таблице",
+    "orders": [
+     61,
+     55,
+     153
+    ],
+    "orders_src": "таблица заказов SmokeJeen (zakazy-jeen 27.10, уник. № заказа по дате)"
    },
    {
     "name": "SMOK instagram",
@@ -237,7 +706,13 @@
      3.98,
      null,
      23.43
-    ]
+    ],
+    "orders": [
+     null,
+     null,
+     null
+    ],
+    "orders_src": null
    }
   ],
   "total": {
@@ -251,15 +726,44 @@
     7366.91,
     18181.44
    ],
-   "label": "Итого интернет (вкл. МП и дроп)"
+   "label": "Итого интернет (вкл. МП и дроп)",
+   "orders": [
+    null,
+    null,
+    null
+   ]
   },
   "orders_all": {
    "w": 1125,
    "mtd": 3086,
    "note": "строки BAS вкл. удалённые"
   },
-  "src": "BAS · данные на 19.10",
-  "missing": "Товары, тексты, ссылки, DR — нет источника; заказы по сайтам не сняты."
+  "src": "Выручка/вал. прибыль — BAS «Валовая прибыль по номенклатуре — подразделения» (USD), данные на 19.10 (kalyan-weekly/2026-10-19-EXTRACT.md)",
+  "missing": "Заказы по сайтам/дропу/МП из BAS — нужна выгрузка «Заказы клиентов» без помеченных на удаление (старые 1 125 / 3 086 и Hookahshop 55 включали помеченные — убраны). Конверсия — нет уник. посетителей по периодам (GA4 Tabakevich/Felix через zayavki.ua@gmail.com не выгружен; Hookah/Palm — нет доступа к GA4). DR и ссылки-доноры — нужен Ahrefs (бесплатный чекер требует капчу в браузере). Тексты Tabakevich — октябрьского отчёта Andrii нет.",
+  "own_total": {
+   "label": "Итого свои сайты (без МП и дропа)",
+   "rev": [
+    13428.16,
+    14767.08,
+    36341.71
+   ],
+   "gp": [
+    4400.93,
+    4714.37,
+    11765.19
+   ],
+   "orders": [
+    null,
+    null,
+    null
+   ],
+   "conv": [
+    null,
+    null,
+    null
+   ]
+  },
+  "speed_src": "Загрузка — мин. из 2 прогонов curl, weekly-mega 2026-11-11 (tabakevich — через UA-прокси). PageSpeed — local-lighthouse 12.8.2 от 2026-11-11 (PSI API без ключа сегодня в квоте 429 → тот же Lighthouse локально); скрипт src/sites_psi.py"
  },
  "dropship": {
   "title": "Дропшипперы",
@@ -282,6 +786,14 @@
      99.66,
      248.27,
      423.54
+    ],
+    "monthly": {
+     "2026-10": 1526
+    },
+    "orders": [
+     null,
+     null,
+     null
     ]
    },
    {
@@ -297,6 +809,14 @@
      111.92,
      7.94,
      158.18
+    ],
+    "monthly": {
+     "2026-10": 941
+    },
+    "orders": [
+     null,
+     null,
+     null
     ]
    },
    {
@@ -312,39 +832,15 @@
      105.63,
      60.38,
      158.98
+    ],
+    "monthly": {
+     "2026-10": 619
+    },
+    "orders": [
+     null,
+     null,
+     null
     ]
-   },
-   {
-    "name": "My Opti",
-    "since": "2025-09-06",
-    "unit": "My Opti",
-    "rev": [
-     0,
-     0,
-     0
-    ],
-    "gp": [
-     0,
-     0,
-     0
-    ],
-    "note": "продаж нет"
-   },
-   {
-    "name": "Vape Store UA",
-    "since": "2025-11-11",
-    "unit": "Vape Store UA",
-    "rev": [
-     0,
-     0,
-     0
-    ],
-    "gp": [
-     0,
-     0,
-     0
-    ],
-    "note": "продаж нет"
    }
   ],
   "alltime": "Дроп за всё время: 1 031 заказ, ≈17,3 тыс. $ прибыли",
@@ -362,7 +858,131 @@
   ],
   "orders": null,
   "src": "BAS · данные на 19.10",
-  "debt_col": "на 20.10"
+  "debt_col": "на 20.10",
+  "all": [
+   {
+    "name": "Family Smokes",
+    "since": "2025-06-11",
+    "unit": "Familysmokes",
+    "rev": [
+     238.73,
+     569.23,
+     976.37
+    ],
+    "gp": [
+     99.66,
+     248.27,
+     423.54
+    ],
+    "monthly": {
+     "2026-10": 1526
+    },
+    "orders": [
+     null,
+     null,
+     null
+    ]
+   },
+   {
+    "name": "Radus",
+    "since": "2025-08-08",
+    "unit": "Radus",
+    "rev": [
+     240.46,
+     21.17,
+     341.34
+    ],
+    "gp": [
+     111.92,
+     7.94,
+     158.18
+    ],
+    "monthly": {
+     "2026-10": 941
+    },
+    "orders": [
+     null,
+     null,
+     null
+    ]
+   },
+   {
+    "name": "Hookario",
+    "since": "2025-08-23",
+    "unit": "Hookario",
+    "rev": [
+     246.8,
+     156.15,
+     383.29
+    ],
+    "gp": [
+     105.63,
+     60.38,
+     158.98
+    ],
+    "monthly": {
+     "2026-10": 619
+    },
+    "orders": [
+     null,
+     null,
+     null
+    ]
+   },
+   {
+    "name": "My Opti",
+    "since": "2025-09-06",
+    "unit": "My Opti",
+    "rev": [
+     0,
+     0,
+     0
+    ],
+    "gp": [
+     0,
+     0,
+     0
+    ],
+    "note": "продаж нет",
+    "monthly": {
+     "2026-10": 0
+    },
+    "orders": [
+     null,
+     null,
+     null
+    ]
+   },
+   {
+    "name": "Vape Store UA",
+    "since": "2025-11-11",
+    "unit": "Vape Store UA",
+    "rev": [
+     0,
+     0,
+     0
+    ],
+    "gp": [
+     0,
+     0,
+     0
+    ],
+    "note": "продаж нет",
+    "monthly": {
+     "2026-10": 0
+    },
+    "orders": [
+     null,
+     null,
+     null
+    ]
+   }
+  ],
+  "hidden": [
+   "My Opti",
+   "Vape Store UA"
+  ],
+  "hidden_note": "Скрыты (нет продаж за 10.2026–11.2026): My Opti, Vape Store UA"
  },
  "marketplaces": {
   "title": "Маркетплейсы",
@@ -388,7 +1008,19 @@
      null,
      null,
      null
-    ]
+    ],
+    "lada": {
+     "stock": 2071,
+     "notready": 0,
+     "cancel": 27,
+     "cancel_pct": 12.27,
+     "rev_good": 372,
+     "rev_bad": 18,
+     "new_good": 5,
+     "new_bad": 0,
+     "promo": 729
+    },
+    "lada_week": "02.11–08.11"
    },
    {
     "name": "Prom",
@@ -406,7 +1038,22 @@
      null,
      null,
      null
-    ]
+    ],
+    "lada": {
+     "stock": 1438,
+     "notready": 235,
+     "cancel": 5,
+     "cancel_pct": 7.35,
+     "sales_uah": 25249,
+     "rev_good": 617,
+     "rev_bad": 44,
+     "new_good": 5,
+     "new_bad": 0,
+     "rating_rev": 96,
+     "rating_ord": 92,
+     "promo": null
+    },
+    "lada_week": "02.11–08.11"
    },
    {
     "name": "Епицентр",
@@ -425,7 +1072,18 @@
      null,
      null
     ],
-    "note": "нет отдельной строки в BAS"
+    "note": "нет отдельной строки в BAS",
+    "lada": {
+     "stock": 1916,
+     "sales": 8,
+     "sales_uah": 15316,
+     "rev_good": 0,
+     "rev_bad": 0,
+     "new_good": 0,
+     "new_bad": 0,
+     "promo": 0
+    },
+    "lada_week": "02.11–08.11"
    },
    {
     "name": "Алло",
@@ -444,10 +1102,49 @@
      null,
      null
     ],
-    "note": "нет отдельной строки в BAS"
+    "note": "нет отдельной строки в BAS",
+    "lada": {
+     "stock": 1964,
+     "sales": 0,
+     "sales_uah": 0,
+     "rev_good": 0,
+     "rev_bad": 0,
+     "new_good": 0,
+     "new_bad": 0,
+     "promo": 0
+    },
+    "lada_week": "23.02–01.03"
+   },
+   {
+    "name": "Glovo",
+    "rev": [
+     null,
+     null,
+     null
+    ],
+    "gp": [
+     null,
+     null,
+     null
+    ],
+    "orders": [
+     78,
+     92,
+     null
+    ],
+    "note": "в 1С канала нет → $ пусто; заказы — Лада",
+    "lada": {
+     "stock": null,
+     "sales": 73,
+     "sales_uah": 40055,
+     "new_good": 5,
+     "new_bad": 0
+    },
+    "lada_week": "02.11–08.11"
    }
   ],
-  "src": "BAS · данные на 19.10"
+  "src": "Выручка/вал. — BAS 19.10 (USD). Glovo: в 1С канала нет (нет строки в «Валовой прибыли по подразделениям» 19.10 и 02.11; в «Динамике доходов/расходов» только «Глово Меркурий» 3,78 в Прочих доходах) → в «Итого интернет» (BAS) не входит; Глово заказы = продажи по неделям из строк Лады. Заказы Rozetka/Prom/Епицентр/Алло из 1С — ждут выгрузку «Заказы клиентов».",
+  "lada_src": "Остатки/отмены/отзывы/рейтинг — Лада «Интернет направление» (дамп 11.11 13:24); неделя указана в строке"
  },
  "managers": {
   "title": "Монитор работы менеджеров",

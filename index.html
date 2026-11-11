@@ -954,6 +954,8 @@ function tbkBlocksHTML(d){if(d.id!=='tabakevich'||!d.tbk_blocks)return '';const 
  const per=P=>(P||[]).map(p=>`<th class="n">${esc(p)}</th>`).join('');
  /* ci = индекс текущего периода, pi = прошлого (недели: 0 vs 1; месяцы авг/сен/окт: 2 vs 1) */
  const rg=(r,g,ci=0,pi=1)=>(r||[]).map((v,i)=>{const val=i===ci&&r[pi]!=null&&v!=null?dlV($u(v),v,r[pi],{f:$f,br:true}):$u(v);const gv=g&&g[i]!=null&&v?(i===ci&&g[pi]!=null?`<div class="note">вал. ${dlV($u(g[i]),g[i],g[pi],{f:$f})}</div>`:`<div class="note">вал. ${$u(g[i])}</div>`):'';return `<td class="n">${val}${gv}</td>`}).join('');
+ /* Rost t6002u: заказы рядом с суммой в той же ячейке, вал. прибыль под ней; t5995u: конверсия под ней */
+ const rgo=(r,g,o,cv,ci=0,pi=1)=>(r||[]).map((v,i)=>{const oz=o&&o[i]!=null?` <b class="note" style="white-space:nowrap">· ${n(o[i])} зак.</b>`:'';const val=i===ci&&r[pi]!=null&&v!=null?dlV($u(v)+oz,v,r[pi],{f:$f,br:true}):$u(v)+oz;const gv=g&&g[i]!=null&&v?(i===ci&&g[pi]!=null?`<div class="note">вал. ${dlV($u(g[i]),g[i],g[pi],{f:$f})}</div>`:`<div class="note">вал. ${$u(g[i])}</div>`):'';const cz=cv&&cv[i]!=null?`<div class="note">конв. ${String(cv[i]).replace('.',',')}%</div>`:'';return `<td class="n">${val}${gv}${cz}</td>`}).join('');
  const tbl=(head,rows)=>`<div class="tblwrap" style="margin-top:6px;overflow:auto"><table><tr>${head}</tr>${rows}</table></div>`;
  const sub=t=>`<div class="grp" style="font-weight:700;font-size:13px;margin:10px 0 4px">${t}</div>`;
  let h='';
@@ -967,25 +969,33 @@ function tbkBlocksHTML(d){if(d.id!=='tabakevich'||!d.tbk_blocks)return '';const 
  if(fin||dec)h+=`<div class="tbk-row">${dec}${fin}</div>`;/* Rost t5981u: На решение слева, Фин-сводки справа */
  /* 3–6) Отдел ИМ: Интернет-магазин → Монитор менеджеров — одна рамка-группа */
  let im='';
- const E=B.eshop;if(E){im+=card(`${H('🛒 '+esc(E.title),'сайтов '+E.sites.length)}
-  ${tbl(`<th>Сайт</th><th>SEO</th><th>Контекст</th><th class="n">Товаров</th><th class="n">Текстов (прошл. мес)</th><th class="n">Купл. ссылок</th><th class="n">DR-срез</th><th class="n">Органика</th>`,
+ const E=B.eshop;if(E){const PGN={home:'Главная',category:'Категория',product:'Товар',sale:'Акции'};
+  const spc=v=>v==null?'—':`<b style="color:${v>2?'#d9480f':'#2b8a3e'}">${String(v).replace('.',',')} с</b>`;
+  const psc=x=>!x||x.error||x.score==null?'—':`<b style="color:${x.score>=90?'#2b8a3e':x.score>=50?'#e67700':'#d9480f'}">${x.score}</b>`;
+  const spCell=c=>{if(!c)return '<td>—</td>';const m=c.mob||{},dk=c.desk||{};const er=(m.error||dk.error)?`<div class="note">PSI: ${esc(/Cloudflare/.test(m.error||dk.error||'')?'Cloudflare-капча':'нет замера')}</div>`:'';return `<td class="n">${spc(c.load_s)}<div class="note">PSI ${psc(m)}/${psc(dk)}</div>${m.lcp_s!=null&&!m.error?`<div class="note">LCP ${String(m.lcp_s).replace('.',',')}с CLS ${m.cls!=null?String(m.cls).replace('.',','):'—'}<br>TBT ${m.tbt_ms!=null?m.tbt_ms+'мс':'—'}${m.inp_ms_field!=null?' INP '+m.inp_ms_field+'мс':''}</div>`:''}${er}</td>`};
+  const srcL=(lbl,k)=>{const L=E.sites.filter(s=>s[k]).map(s=>`<b>${esc(s.name)}</b> — ${esc(s[k])}`);return L.length?`<div class="note">${lbl}: ${L.join(' · ')}</div>`:''};
+  im+=card(`${H('🛒 '+esc(E.title),'сайтов '+E.sites.length)}
+  ${tbl(`<th>Сайт</th><th>SEO</th><th>Контекст</th><th class="n">Товаров</th><th class="n">Текстов (окт)</th><th class="n">Купл. ссылок (окт)</th><th class="n">DR</th><th class="n">Органика</th>`,
    E.sites.map(s=>`<tr><td><b>${esc(s.name)}</b>${s.cu_site?`<div class="note">${cul('https://rosmater.github.io/cu/?t='+s.cu_site,'CU ↗')}</div>`:''}</td><td>${mk(s.seo)}<div class="note">${esc(s.seo_who||'')}</div></td><td>${mk(s.ctx)}${s.ctx_note?`<div class="note">${esc(s.ctx_note)}</div>`:''}</td><td class="n">${n(s.products)}</td><td class="n">${n(s.texts_last_month)}</td><td class="n">${n(s.links_bought)}</td><td class="n">${n(s.dr)}</td><td class="n">${s.organic?'см. ниже':'—'}</td></tr>`).join(''))}
+  ${srcL('📦 Товары','products_src')}${srcL('✍️ Тексты','texts_src')}${srcL('🔗 Ссылки','links_src')}${srcL('📈 DR','dr_src')}
   ${E.sites.filter(s=>s.organic).map(s=>`<div class="note">🌱 <b>${esc(s.name)}</b> органика: ${esc(s.organic)}</div>`).join('')}${E.sites.filter(s=>s.seo_report).map(s=>`<div class="note">📝 <b>${esc(s.name)}</b> SEO-отчёт: ${esc(s.seo_report)}</div>`).join('')}
-  ${sub('Выручка по сайтам (вал. прибыль под суммой)')}
-  ${tbl(`<th>Сайт / канал</th>${per(E.periods)}<th class="n">Заказы (нед.)</th>`,
-   E.sites.map(s=>`<tr><td>${esc(s.name)}</td>${rg(s.rev,s.gp)}<td class="n">${n(s.orders&&s.orders[0])}${s.orders_note?'*':''}</td></tr>`).join('')+
-   (E.other||[]).map(s=>`<tr><td>${esc(s.name)}${s.note?`<div class="note">${esc(s.note)}</div>`:''}</td>${rg(s.rev,s.gp)}<td class="n">—</td></tr>`).join('')+
-   (E.total?`<tr><td><b>${esc(E.total.label)}</b></td>${rg(E.total.rev,E.total.gp)}<td class="n">—</td></tr>`:''))}
+  ${E.sites.some(s=>s.speed)?sub('⚡ Скорость по страницам: загрузка · PageSpeed моб/деск · LCP/CLS/TBT (моб)')+tbl(`<th>Сайт</th>${['home','category','product','sale'].map(p=>`<th class="n">${PGN[p]}</th>`).join('')}`,E.sites.map(s=>`<tr><td><b>${esc(s.name)}</b></td>${['home','category','product','sale'].map(p=>spCell((s.speed||{})[p])).join('')}</tr>`).join(''))+(E.speed_src?`<div class="note">${esc(E.speed_src)}. Красным — загрузка >2 с.</div>`:''):''}
+  ${sub('Выручка по сайтам (вал. прибыль под суммой · заказы рядом · конверсия зак./уник. посетители)')}
+  ${tbl(`<th>Сайт / канал</th>${per(E.periods)}`,
+   E.sites.map(s=>`<tr><td>${esc(s.name)}</td>${rgo(s.rev,s.gp,s.orders,s.conv)}</tr>`).join('')+
+   (E.own_total?`<tr><td><b>${esc(E.own_total.label)}</b></td>${rgo(E.own_total.rev,E.own_total.gp,E.own_total.orders,E.own_total.conv)}</tr>`:'')+
+   (E.other||[]).map(s=>`<tr><td>${esc(s.name)}${s.note?`<div class="note">${esc(s.note)}</div>`:''}${s.orders_src?`<div class="note">заказы: ${esc(s.orders_src)}</div>`:''}</td>${rgo(s.rev,s.gp,s.orders)}</tr>`).join('')+
+   (E.total?`<tr><td><b>${esc(E.total.label)}</b></td>${rgo(E.total.rev,E.total.gp,E.total.orders)}</tr>`:''))}
   ${E.sites.filter(s=>s.orders_note).map(s=>`<div class="note">* ${esc(s.name)}: ${esc(s.orders_note)}</div>`).join('')}
-  ${E.orders_all?`<div class="note">Заказов всего по компании: неделя <b>${n(E.orders_all.w)}</b> · MTD <b>${n(E.orders_all.mtd)}</b>${E.orders_all.note?' ('+esc(E.orders_all.note)+')':''}</div>`:''}
   ${E.missing?`<div class="note" style="margin-top:4px">${esc(E.missing)}</div>`:''}${E.src?`<div class="note">${esc(E.src)}</div>`:''}`)}
  const Dr=B.dropship;if(Dr){im+=card(`${H('📦 '+esc(Dr.title),'действующих '+Dr.list.length)}
-  ${tbl(`<th>Дропшиппер</th><th>с</th>${per(Dr.periods)}<th class="n">Заказы</th>`,Dr.list.map(x=>`<tr><td><b>${esc(x.name)}</b>${x.note?`<div class="note">${esc(x.note)}</div>`:''}</td><td>${esc(x.since?x.since.slice(8,10)+'.'+x.since.slice(5,7)+'.'+x.since.slice(2,4):'')}</td>${rg(x.rev,x.gp)}<td class="n">—</td></tr>`).join(''))}
+  ${tbl(`<th>Дропшиппер</th><th>с</th>${per(Dr.periods)}`,Dr.list.map(x=>`<tr><td><b>${esc(x.name)}</b>${x.note?`<div class="note">${esc(x.note)}</div>`:''}</td><td>${esc(x.since?x.since.slice(8,10)+'.'+x.since.slice(5,7)+'.'+x.since.slice(2,4):'')}</td>${rgo(x.rev,x.gp,x.orders)}</tr>`).join(''))}${Dr.hidden_note?`<div class="note">${esc(Dr.hidden_note)} — появятся снова при продажах</div>`:''}
   ${Dr.alltime?`<div class="note">${esc(Dr.alltime)}</div>`:''}
   ${Dr.debt&&Dr.debt.length?`<div class="note">Долги дроп-клиентов${Dr.debt_col?' ('+esc(Dr.debt_col)+')':''}: ${Dr.debt.map(x=>esc(x.name)+' <b>'+dlV(uah(x.amt),x.amt,x.prev,{inv:true,f:uf})+'</b>').join(' · ')}</div>`:''}
   ${Dr.src?`<div class="note">${esc(Dr.src)}</div>`:''}`)}
  const M=B.marketplaces;if(M){im+=card(`${H('🏬 '+esc(M.title),'площадок '+M.list.length)}
-  ${tbl(`<th>Площадка</th>${per(M.periods)}<th class="n">Заказы</th>`,M.list.map(x=>`<tr><td><b>${esc(x.name)}</b>${x.note?`<div class="note">${esc(x.note)}</div>`:''}</td>${rg(x.rev,x.gp)}<td class="n">—</td></tr>`).join(''))}
+  ${tbl(`<th>Площадка</th>${per(M.periods)}`,M.list.map(x=>`<tr><td><b>${esc(x.name)}</b>${x.note?`<div class="note">${esc(x.note)}</div>`:''}</td>${rgo(x.rev,x.gp,x.orders)}</tr>`).join(''))}
+  ${M.list.some(x=>x.lada)?sub('Площадки — остатки, отмены, отзывы (неделя Лады)')+tbl('<th>Площадка</th><th class="n">В наличии</th><th class="n">Не готово</th><th class="n">В акции</th><th class="n">Продажи нед.</th><th class="n">Отмены</th><th class="n">Отзывы +/− (всего)</th><th class="n">Новые +/−</th><th class="n">Рейтинг</th>',M.list.filter(x=>x.lada).map(x=>{const L=x.lada;return `<tr><td><b>${esc(x.name)}</b><div class="note">нед. ${esc(x.lada_week||'—')}</div></td><td class="n">${n(L.stock)}</td><td class="n">${n(L.notready)}</td><td class="n">${n(L.promo)}</td><td class="n">${L.sales!=null||L.sales_uah!=null?`${L.sales!=null?n(L.sales)+' шт':''}${L.sales_uah!=null?`<div class="note">${uah(L.sales_uah)}</div>`:''}`:'—'}</td><td class="n">${L.cancel!=null?n(L.cancel)+(L.cancel_pct!=null?` <span class="note">(${String(L.cancel_pct).replace('.',',')}%)</span>`:''):'—'}</td><td class="n">${L.rev_good!=null||L.rev_bad!=null?`<span class="vu">${n(L.rev_good)}</span> / <span class="vd">${n(L.rev_bad)}</span>`:'—'}</td><td class="n">${L.new_good!=null||L.new_bad!=null?`+${n(L.new_good)} / −${n(L.new_bad)}`:'—'}</td><td class="n">${L.rating_rev!=null||L.rating_ord!=null?`${L.rating_rev!=null?L.rating_rev+'% отз.':''}${L.rating_ord!=null?'<div class="note">'+L.rating_ord+'% зак.</div>':''}`:'—'}</td></tr>`}).join(''))+(M.lada_src?`<div class="note">${esc(M.lada_src)}</div>`:''):''}
   ${M.src?`<div class="note">${esc(M.src)}</div>`:''}`)}
  const Mg=B.managers;if(Mg){const C=Mg.calls,Ch=Mg.chats,P=Ch.prev||{};const cm=(html,c,p,inv)=>Ch.prev?dlV(html,c,p,{inv,pct:false,f:inv===true&&typeof c==='number'&&typeof p==='number'&&html.indexOf('мин')>0?(v=>Math.round(v)+' мин'):undefined}):html;
   im+=card(`${H('🎧 '+esc(Mg.title),esc(Mg.week))}

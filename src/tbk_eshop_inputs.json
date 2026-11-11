@@ -1,0 +1,164 @@
+{
+ "as_of": "2026-11-11",
+ "src": "Выручка/вал. прибыль — BAS «Валовая прибыль по номенклатуре — подразделения» (USD), данные на 19.10 (kalyan-weekly/2026-10-19-EXTRACT.md)",
+ "missing": "Заказы по сайтам/дропу/МП из BAS — нужна выгрузка «Заказы клиентов» без помеченных на удаление (старые 1 125 / 3 086 и Hookahshop 55 включали помеченные — убраны). Конверсия — нет уник. посетителей по периодам (GA4 Tabakevich/Felix через zayavki.ua@gmail.com не выгружен; Hookah/Palm — нет доступа к GA4). DR и ссылки-доноры — нужен Ahrefs (бесплатный чекер требует капчу в браузере). Тексты Tabakevich — октябрьского отчёта Andrii нет.",
+ "sites": {
+  "tabakevich.co": {
+   "products": 4137,
+   "products_src": "таблица «Интернет направление» (Лада), нед. 02–08.11: в наличии 4 137, +4 за нед., 70 в акции; sitemap 06.11 — 21 661 URL товаров (вкл. нет в наличии)",
+   "texts_last_month": null,
+   "texts_src": "окт: отчёта Andrii нет; в sitemap статей/блога нет",
+   "links_bought": null,
+   "links_src": "окт: отчёта Andrii нет",
+   "dr": null,
+   "dr_src": "Ahrefs — нужен браузер (капча)",
+   "orders": [
+    null,
+    null,
+    null
+   ],
+   "visitors": [
+    null,
+    null,
+    null
+   ],
+   "products_extra": "sitemap 06.11 — 21 661 URL товаров (вкл. нет в наличии)"
+  },
+  "hookahshop.org": {
+   "products": 4145,
+   "products_src": "таблица «Интернет направление» (Лада), нед. 02–08.11: в наличии 4 145, +27, 12 в акции; на сайте всего 7 013 (поиск 11.11), sitemap сломан (H-02)",
+   "texts_last_month": 7,
+   "texts_src": "SEO-аудит штатного SEO окт 2026 (seo-auditor/report-2026-10.md): опубликовано 7 (6 инфо + 1 категория)",
+   "links_bought": 1,
+   "links_src": "там же: размещена 1 ссылка (daypost.com.ua, 15.10, 1185 грн)",
+   "dr": null,
+   "dr_src": "Ahrefs — нужен браузер (капча)",
+   "orders": [
+    null,
+    null,
+    null
+   ],
+   "visitors": [
+    null,
+    null,
+    null
+   ],
+   "products_extra": "на сайте всего 7 013 (поиск 11.11), sitemap сломан (H-02)"
+  },
+  "palmvapeshop.com": {
+   "products": 170,
+   "products_src": "таблица «Интернет направление» (Лада), нед. 02–08.11: в наличии 170, +0, 12 в акции; опубликовано 377 (Woo API 11.11)",
+   "texts_last_month": 7,
+   "texts_src": "SEO-аудит окт 2026: опубликовано 7 инфо (всего постов в post-sitemap — 21)",
+   "links_bought": 1,
+   "links_src": "там же: 1 ссылка (faktyhub.org.ua, 15.10, 1165 грн)",
+   "dr": null,
+   "dr_src": "Ahrefs — нужен браузер (капча)",
+   "orders": [
+    null,
+    null,
+    null
+   ],
+   "visitors": [
+    null,
+    null,
+    null
+   ],
+   "products_extra": "опубликовано 377 (WooCommerce API 11.11)"
+  },
+  "felix-shop.com": {
+   "products": 4135,
+   "products_src": "таблица «Интернет направление» (Лада), нед. 02–08.11: в наличии 4 135, +4, 76 в акции; sitemap 11.11 — 14 061 URL /product/",
+   "texts_last_month": 2,
+   "texts_src": "SEO-аудит окт 2026: опубликовано 2 (категории)",
+   "links_bought": 1,
+   "links_src": "там же: 1 ссылка (faktyhub.org.ua, 15.10, 1165 грн)",
+   "dr": null,
+   "dr_src": "Ahrefs — нужен браузер (капча)",
+   "orders": [
+    null,
+    null,
+    null
+   ],
+   "visitors": [
+    null,
+    null,
+    null
+   ],
+   "products_extra": "sitemap 11.11 — 14 061 URL /product/"
+  }
+ },
+ "other": {
+  "SmokeJeen": {
+   "orders": [
+    61,
+    55,
+    153
+   ],
+   "orders_src": "таблица заказов SmokeJeen (zakazy-jeen 27.10, уник. № заказа по дате)"
+  }
+ },
+ "total_orders": [
+  null,
+  null,
+  null
+ ],
+ "dropship": {
+  "Family Smokes": {
+   "monthly": {
+    "2026-10": 1526
+   },
+   "orders": [
+    null,
+    null,
+    null
+   ]
+  },
+  "Radus": {
+   "monthly": {
+    "2026-10": 941
+   },
+   "orders": [
+    null,
+    null,
+    null
+   ]
+  },
+  "Hookario": {
+   "monthly": {
+    "2026-10": 619
+   },
+   "orders": [
+    null,
+    null,
+    null
+   ]
+  },
+  "My Opti": {
+   "monthly": {
+    "2026-10": 0
+   },
+   "orders": [
+    null,
+    null,
+    null
+   ]
+  },
+  "Vape Store UA": {
+   "monthly": {
+    "2026-10": 0
+   },
+   "orders": [
+    null,
+    null,
+    null
+   ]
+  }
+ },
+ "marketplaces": {
+  "Glovo": {
+   "note": "в 1С канала нет → $ пусто; заказы — Лада"
+  }
+ },
+ "mp_src": "Выручка/вал. — BAS 19.10 (USD). Glovo: в 1С канала нет (нет строки в «Валовой прибыли по подразделениям» 19.10 и 02.11; в «Динамике доходов/расходов» только «Глово Меркурий» 3,78 в Прочих доходах) → в «Итого интернет» (BAS) не входит; Глово заказы = продажи по неделям из строк Лады. Заказы Rozetka/Prom/Епицентр/Алло из 1С — ждут выгрузку «Заказы клиентов»."
+}

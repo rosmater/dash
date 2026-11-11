@@ -1,0 +1,390 @@
+{
+ "date": "2026-11-11",
+ "source": "Google PageSpeed Insights v5 (lab Lighthouse; INP — полевые CrUX, если есть)",
+ "sites": {
+  "tabakevich.co": {
+   "home": {
+    "mobile": {
+     "error": "Cloudflare challenge: замерена страница проверки, а не сайт — невалидно",
+     "engine": "local-lighthouse 12.8.2"
+    },
+    "desktop": {
+     "error": "Cloudflare challenge: замерена страница проверки, а не сайт — невалидно",
+     "engine": "local-lighthouse 12.8.2"
+    }
+   },
+   "category": {
+    "mobile": {
+     "error": "Cloudflare challenge: замерена страница проверки, а не сайт — невалидно",
+     "engine": "local-lighthouse 12.8.2"
+    },
+    "desktop": {
+     "error": "Cloudflare challenge: замерена страница проверки, а не сайт — невалидно",
+     "engine": "local-lighthouse 12.8.2"
+    }
+   },
+   "product": {
+    "mobile": {
+     "error": "Cloudflare challenge: замерена страница проверки, а не сайт — невалидно",
+     "engine": "local-lighthouse 12.8.2"
+    },
+    "desktop": {
+     "error": "Cloudflare challenge: замерена страница проверки, а не сайт — невалидно",
+     "engine": "local-lighthouse 12.8.2"
+    }
+   },
+   "sale": {
+    "mobile": {
+     "error": "Cloudflare challenge: замерена страница проверки, а не сайт — невалидно",
+     "engine": "local-lighthouse 12.8.2"
+    },
+    "desktop": {
+     "error": "Cloudflare challenge: замерена страница проверки, а не сайт — невалидно",
+     "engine": "local-lighthouse 12.8.2"
+    }
+   }
+  },
+  "hookahshop.org": {
+   "home": {
+    "mobile": {
+     "score": 45,
+     "lcp_s": 85.73,
+     "cls": 0.164,
+     "tbt_ms": 346,
+     "fcp_s": 3.0,
+     "inp_ms_field": null,
+     "lcp_ms_field": null,
+     "url": "https://hookahshop.org/",
+     "fetched": "2026-11-11T18:26:56.691Z",
+     "engine": "local-lighthouse 12.8.2",
+     "runtime_error": null
+    },
+    "desktop": {
+     "score": 63,
+     "lcp_s": 9.39,
+     "cls": 0.002,
+     "tbt_ms": 6,
+     "fcp_s": 1.18,
+     "inp_ms_field": null,
+     "lcp_ms_field": null,
+     "url": "https://hookahshop.org/",
+     "fetched": "2026-11-11T18:26:56.682Z",
+     "engine": "local-lighthouse 12.8.2",
+     "runtime_error": null
+    }
+   },
+   "category": {
+    "mobile": {
+     "score": 47,
+     "lcp_s": 17.87,
+     "cls": 0.0,
+     "tbt_ms": 364,
+     "fcp_s": 5.51,
+     "inp_ms_field": null,
+     "lcp_ms_field": null,
+     "url": "https://hookahshop.org/kaliany",
+     "fetched": "2026-11-11T18:27:22.196Z",
+     "engine": "local-lighthouse 12.8.2",
+     "runtime_error": null
+    },
+    "desktop": {
+     "score": 69,
+     "lcp_s": 3.32,
+     "cls": 0.001,
+     "tbt_ms": 10,
+     "fcp_s": 1.38,
+     "inp_ms_field": null,
+     "lcp_ms_field": null,
+     "url": "https://hookahshop.org/kaliany",
+     "fetched": "2026-11-11T18:27:26.624Z",
+     "engine": "local-lighthouse 12.8.2",
+     "runtime_error": null
+    }
+   },
+   "product": {
+    "mobile": {
+     "score": 53,
+     "lcp_s": 10.04,
+     "cls": 0.002,
+     "tbt_ms": 236,
+     "fcp_s": 4.04,
+     "inp_ms_field": null,
+     "lcp_ms_field": null,
+     "url": "https://hookahshop.org/led-pidsvichuvannia-pid-bliudtse-velyke-19-5-sm",
+     "fetched": "2026-11-11T18:28:47.729Z",
+     "engine": "local-lighthouse 12.8.2",
+     "runtime_error": null
+    },
+    "desktop": {
+     "score": 76,
+     "lcp_s": 2.34,
+     "cls": 0.036,
+     "tbt_ms": 4,
+     "fcp_s": 1.44,
+     "inp_ms_field": null,
+     "lcp_ms_field": null,
+     "url": "https://hookahshop.org/led-pidsvichuvannia-pid-bliudtse-velyke-19-5-sm",
+     "fetched": "2026-11-11T18:28:47.739Z",
+     "engine": "local-lighthouse 12.8.2",
+     "runtime_error": null
+    }
+   },
+   "sale": {
+    "mobile": {
+     "score": 60,
+     "lcp_s": 7.09,
+     "cls": 0.046,
+     "tbt_ms": 196,
+     "fcp_s": 3.19,
+     "inp_ms_field": null,
+     "lcp_ms_field": null,
+     "url": "https://hookahshop.org/product/special",
+     "fetched": "2026-11-11T18:29:04.483Z",
+     "engine": "local-lighthouse 12.8.2",
+     "runtime_error": null
+    },
+    "desktop": {
+     "score": 73,
+     "lcp_s": 3.36,
+     "cls": 0.005,
+     "tbt_ms": 5,
+     "fcp_s": 1.16,
+     "inp_ms_field": null,
+     "lcp_ms_field": null,
+     "url": "https://hookahshop.org/product/special",
+     "fetched": "2026-11-11T18:29:17.218Z",
+     "engine": "local-lighthouse 12.8.2",
+     "runtime_error": null
+    }
+   }
+  },
+  "palmvapeshop.com": {
+   "home": {
+    "mobile": {
+     "score": 47,
+     "lcp_s": 19.7,
+     "cls": 0,
+     "tbt_ms": 364,
+     "fcp_s": 10.94,
+     "inp_ms_field": null,
+     "lcp_ms_field": null,
+     "url": "https://palmvapeshop.com/",
+     "fetched": "2026-11-11T18:29:20.367Z",
+     "engine": "local-lighthouse 12.8.2",
+     "runtime_error": null
+    },
+    "desktop": {
+     "score": 83,
+     "lcp_s": 2.68,
+     "cls": 0,
+     "tbt_ms": 53,
+     "fcp_s": 1.13,
+     "inp_ms_field": null,
+     "lcp_ms_field": null,
+     "url": "https://palmvapeshop.com/",
+     "fetched": "2026-11-11T18:29:32.129Z",
+     "engine": "local-lighthouse 12.8.2",
+     "runtime_error": null
+    }
+   },
+   "category": {
+    "mobile": {
+     "score": 50,
+     "lcp_s": 16.68,
+     "cls": 0,
+     "tbt_ms": 420,
+     "fcp_s": 5.82,
+     "inp_ms_field": null,
+     "lcp_ms_field": null,
+     "url": "https://palmvapeshop.com/product-category/bahatorazovi-pod-systemy/",
+     "fetched": "2026-11-11T18:30:37.238Z",
+     "engine": "local-lighthouse 12.8.2",
+     "runtime_error": null
+    },
+    "desktop": {
+     "score": 81,
+     "lcp_s": 3.19,
+     "cls": 0,
+     "tbt_ms": 36,
+     "fcp_s": 0.9,
+     "inp_ms_field": null,
+     "lcp_ms_field": null,
+     "url": "https://palmvapeshop.com/product-category/bahatorazovi-pod-systemy/",
+     "fetched": "2026-11-11T18:30:49.244Z",
+     "engine": "local-lighthouse 12.8.2",
+     "runtime_error": null
+    }
+   },
+   "product": {
+    "mobile": {
+     "score": 64,
+     "lcp_s": 8.57,
+     "cls": 0,
+     "tbt_ms": 358,
+     "fcp_s": 2.35,
+     "inp_ms_field": null,
+     "lcp_ms_field": null,
+     "url": "https://palmvapeshop.com/product/pod-systema-vaporesso-xros-6-mini/",
+     "fetched": "2026-11-11T18:31:52.389Z",
+     "engine": "local-lighthouse 12.8.2",
+     "runtime_error": null
+    },
+    "desktop": {
+     "score": 90,
+     "lcp_s": 2.02,
+     "cls": 0,
+     "tbt_ms": 38,
+     "fcp_s": 0.79,
+     "inp_ms_field": null,
+     "lcp_ms_field": null,
+     "url": "https://palmvapeshop.com/product/pod-systema-vaporesso-xros-6-mini/",
+     "fetched": "2026-11-11T18:32:02.971Z",
+     "engine": "local-lighthouse 12.8.2",
+     "runtime_error": null
+    }
+   },
+   "sale": {
+    "mobile": {
+     "score": 60,
+     "lcp_s": 12.07,
+     "cls": 0,
+     "tbt_ms": 382,
+     "fcp_s": 2.64,
+     "inp_ms_field": null,
+     "lcp_ms_field": null,
+     "url": "https://palmvapeshop.com/product-category/aktsii/",
+     "fetched": "2026-11-11T18:32:08.628Z",
+     "engine": "local-lighthouse 12.8.2",
+     "runtime_error": null
+    },
+    "desktop": {
+     "score": 84,
+     "lcp_s": 2.75,
+     "cls": 0,
+     "tbt_ms": 48,
+     "fcp_s": 0.82,
+     "inp_ms_field": null,
+     "lcp_ms_field": null,
+     "url": "https://palmvapeshop.com/product-category/aktsii/",
+     "fetched": "2026-11-11T18:33:14.695Z",
+     "engine": "local-lighthouse 12.8.2",
+     "runtime_error": null
+    }
+   }
+  },
+  "felix-shop.com": {
+   "home": {
+    "mobile": {
+     "score": 57,
+     "lcp_s": 7.34,
+     "cls": 0,
+     "tbt_ms": 654,
+     "fcp_s": 1.36,
+     "inp_ms_field": null,
+     "lcp_ms_field": null,
+     "url": "https://felix-shop.com/",
+     "fetched": "2026-11-11T18:33:21.625Z",
+     "engine": "local-lighthouse 12.8.2",
+     "runtime_error": null
+    },
+    "desktop": {
+     "score": 92,
+     "lcp_s": 1.75,
+     "cls": 0.028,
+     "tbt_ms": 16,
+     "fcp_s": 0.4,
+     "inp_ms_field": null,
+     "lcp_ms_field": null,
+     "url": "https://felix-shop.com/",
+     "fetched": "2026-11-11T18:33:35.563Z",
+     "engine": "local-lighthouse 12.8.2",
+     "runtime_error": null
+    }
+   },
+   "category": {
+    "mobile": {
+     "score": 52,
+     "lcp_s": 10.59,
+     "cls": 0.021,
+     "tbt_ms": 618,
+     "fcp_s": 1.79,
+     "inp_ms_field": null,
+     "lcp_ms_field": null,
+     "url": "https://felix-shop.com/kaljany/",
+     "fetched": "2026-11-11T18:33:49.427Z",
+     "engine": "local-lighthouse 12.8.2",
+     "runtime_error": null
+    },
+    "desktop": {
+     "score": 77,
+     "lcp_s": 1.56,
+     "cls": 0.327,
+     "tbt_ms": 47,
+     "fcp_s": 0.72,
+     "inp_ms_field": null,
+     "lcp_ms_field": null,
+     "url": "https://felix-shop.com/kaljany/",
+     "fetched": "2026-11-11T18:34:05.194Z",
+     "engine": "local-lighthouse 12.8.2",
+     "runtime_error": null
+    }
+   },
+   "product": {
+    "mobile": {
+     "score": 53,
+     "lcp_s": 7.33,
+     "cls": 0,
+     "tbt_ms": 730,
+     "fcp_s": 1.68,
+     "inp_ms_field": null,
+     "lcp_ms_field": null,
+     "url": "https://felix-shop.com/product/-kalyanemberyequalsilver-snow/",
+     "fetched": "2026-11-11T18:34:18.581Z",
+     "engine": "local-lighthouse 12.8.2",
+     "runtime_error": null
+    },
+    "desktop": {
+     "score": 80,
+     "lcp_s": 0.37,
+     "cls": 0.433,
+     "tbt_ms": 58,
+     "fcp_s": 0.37,
+     "inp_ms_field": null,
+     "lcp_ms_field": null,
+     "url": "https://felix-shop.com/product/-kalyanemberyequalsilver-snow/",
+     "fetched": "2026-11-11T18:34:26.617Z",
+     "engine": "local-lighthouse 12.8.2",
+     "runtime_error": null
+    }
+   },
+   "sale": {
+    "mobile": {
+     "score": 54,
+     "lcp_s": 10.98,
+     "cls": 0.026,
+     "tbt_ms": 659,
+     "fcp_s": 1.18,
+     "inp_ms_field": null,
+     "lcp_ms_field": null,
+     "url": "https://felix-shop.com/rasprodazha/",
+     "fetched": "2026-11-11T18:34:34.728Z",
+     "engine": "local-lighthouse 12.8.2",
+     "runtime_error": null
+    },
+    "desktop": {
+     "score": 89,
+     "lcp_s": 2.15,
+     "cls": 0.016,
+     "tbt_ms": 45,
+     "fcp_s": 0.71,
+     "inp_ms_field": null,
+     "lcp_ms_field": null,
+     "url": "https://felix-shop.com/rasprodazha/",
+     "fetched": "2026-11-11T18:34:40.289Z",
+     "engine": "local-lighthouse 12.8.2",
+     "runtime_error": null
+    }
+   }
+  }
+ }
+}
