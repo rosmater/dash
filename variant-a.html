@@ -500,7 +500,7 @@ function periodNav(mode){const list=periodList(mode),ids=list.map(p=>p.id),today
  const ix=i>=0?i:(ci>=0?ci:ids.length-1);
  return {ids,ix,curId,multi:ids.length>1,hasPrev:ix>0,hasNext:ci>=0&&ix>=0&&ix<ci}}
 function shiftPeriod(mode,dir,toOverview){const {ids,ix,curId}=periodNav(mode);if(!ids.length)return;const ci=ids.indexOf(curId);let n=ix+dir;if(n<0)n=0;if(ci>=0&&n>ci)n=ci;if(n>ids.length-1)n=ids.length-1;if(mode==='week')S.week=ids[n];else S.month=ids[n];S.mode=mode;if(toOverview)S.tab='overview';render()}
-function controls(){ensureMode();const allow=tabModes(S.tab),top=S.tab==='calendar'||S.tab==='messengers'||S.tab==='assistants'||S.tab==='unsorted';const bar=$('#mode');if(bar)bar.hidden=!top&&allow.length<=1;
+function controls(){ensureMode();const allow=tabModes(S.tab),top=S.tab==='calendar'||S.tab==='messengers'||S.tab==='assistants'||S.tab==='unsorted';const bar=$('#mode');if(bar)bar.hidden=false;/* Rost t5988u: при одном доступном периоде ряд не прячем — Недвижимость: видимый активный «Месяц», Оборонка: «Сегодня»; остальные чипы по-прежнему hidden (t5968u) */
  document.querySelectorAll('#mode button').forEach(b=>{const vis=top||allow.includes(b.dataset.m);b.hidden=!vis;b.classList.toggle('on',vis&&b.dataset.m===S.mode&&!top);
   const m=b.dataset.m;
   if(m==='week'||m==='month'){const lab=m==='week'?'Неделя':'Месяц';

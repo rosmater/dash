@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Rost t5983u: страж чипов периода в шапке (Сегодня/Неделя/Месяц).
-Правило t5968u: ОФ/Коучинг/Табакевич — без «Сегодня»; Недвижимость — только «Месяц»
-(ряд скрыт, если один вариант); Оборонка — только «Сегодня» (ряд скрыт).
+Правило t5968u/t5988u: ОФ/Коучинг/Табакевич — без «Сегодня»; Недвижимость — только видимый активный «Месяц»;
+Оборонка — только видимый активный «Сегодня» (ряд не прячем, даже если чип один).
 Недоступные чипы должны быть полностью скрыты (hidden + display:none !important),
 а не disabled/серые и не видны из-за display:inline-flex (регресс c7f602de / t1057u).
 Запуск: python3 src/guard_tab_modes.py [путь/к/variant-a.html]
@@ -71,8 +71,10 @@ def check_source(src: str):
         bad.append("найден #mode button{display:inline-flex} без перекрытия [hidden] — регресс t1057u/c7f602de")
     if 'function tabModes' not in src or 'b.hidden=!vis' not in src:
         bad.append("пропала JS-логика скрытия чипов (tabModes / b.hidden=!vis)")
-    if "bar.hidden=!top&&allow.length<=1" not in src:
-        bad.append("пропало скрытие всего ряда #mode, когда доступен только один период")
+    if "bar.hidden=!top&&allow.length<=1" in src:
+        bad.append("ряд #mode снова скрывается при одном периоде — t5988u: Недвижимость должна показывать «Месяц», Оборонка — «Сегодня»")
+    if "b.hidden=!vis" not in src:
+        bad.append("пропало скрытие отдельных чипов (b.hidden=!vis)")
     return bad
 
 def main():
@@ -88,10 +90,7 @@ def main():
     print('OK guard_tab_modes source:', p)
     spec, default_modes = tab_modes_from(src)
     shown = {k: [LABEL[m] for m in v] for k, v in {**{t: default_modes for t in ('overview','personal','peptides')}, **spec}.items() if k in EXPECT}
-    # single-option tabs: whole bar hidden
-    for t, modes in EXPECT.items():
-        if len(modes) <= 1:
-            shown[t] = []
+    # t5988u: one allowed period still shows that one chip (bar stays visible)
     print(json.dumps(shown, ensure_ascii=False, indent=2))
 
     if '--browser' in argv or any(a.startswith('--url=') for a in argv):
@@ -129,7 +128,7 @@ def check_browser(url):
       }
       console.log('TAB_MODES_RESULT '+JSON.stringify(out));
     })();
-    ''' % (json.dumps(list(EXPECT)), json.dumps({k:[LABEL[m] for m in v] if len(v)>1 else [] for k,v in EXPECT.items()}))
+    ''' % (json.dumps(list(EXPECT)), json.dumps({k:[LABEL[m] for m in v] for k,v in EXPECT.items()}))
     # implementation via caller screenshots script; here just document hook
     print('browser hook: use test_tab_modes_screens.mjs / chrome script; --browser placeholder in this guard is source-only unless chrome helper is present')
 
