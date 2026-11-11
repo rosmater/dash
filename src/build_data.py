@@ -826,8 +826,8 @@ data = dict(
          overview_note='Недвижимость: учёт месячный, всегда 3 закрытых месяца (прошлый / позапрошлый / позапозапрошлый); при новом месяце все три перечитываются (старые долги могут прийти позже). По август — старая таблица ИТОГИ, с сентября — новая P&L.',  # Rost t5723u/t5724u
          periods=re_periods, breakdowns=re_break,
          goals=[
-           dict(label='Чистая прибыль аренды за месяц', unit='€', target=5000, example=True, period_type='month', by_period={'M:' + r_[0]: (r_[5] if r_[5] is not None else r_[4]) for r_ in RE_MONTHS if (r_[5] if r_[5] is not None else r_[4]) is not None}, src='цель — пример; факт — чистая после налога'),
-           dict(label='Слоты в аренде (Украина)', unit='шт', target=3, example=True, period_type='month', by_period={'M:' + r_[0]: 3 for r_ in RE_MONTHS if r_[5] is not None}, src='цель — пример'),
+           dict(label='Чистая прибыль аренды за месяц', unit='€', target=5000, example=True, period_type='month', last_closed=True, by_period={'M:' + r_[0]: (r_[5] if r_[5] is not None else r_[4]) for r_ in RE_MONTHS if (r_[5] if r_[5] is not None else r_[4]) is not None}, src='цель — пример; факт — чистая после налога'),
+           dict(label='Слоты в аренде (Украина)', unit='шт', target=3, example=True, period_type='month', last_closed=True, by_period={'M:' + r_[0]: 3 for r_ in RE_MONTHS if r_[5] is not None}, src='цель — пример'),
          ],
          tasks=tasks(['86b7wu7jq', '86b6qz12h', '86b88jb1f', '86baqkyw4', '86bc1d1wj', '86b9va7c4', '86b8ttzmc']),
          re_blocks=REB, fact_1c=RE_FACT,  # Rost 25.10: блоки Недвижимости; t5985u: из чего сложилось
