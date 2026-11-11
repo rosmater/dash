@@ -9,7 +9,7 @@ chk();setInterval(chk,120000);document.addEventListener('visibilitychange',()=>{
 /* Rost t5110u 05.11: новые данные (data.enc.json) подтягиваются сами — раз в 2 мин и при возврате на вкладку; без перезагрузки страницы */
 let dbase=null;async function dchk(){try{const s=(window.DASH_ENC||'data.enc.json'),r=await fetch(s+'?t='+Date.now(),{cache:'no-store'});if(!r.ok)return;const v=h(await r.text());if(dbase===null){dbase=v;return}if(v!==dbase){dbase=v;if(typeof Dash!=='undefined'&&Dash.reload&&typeof render==='function'){await Dash.reload();try{keepOpen(render)}catch(e){render()}}else location.reload()}}catch(e){}}
 setTimeout(dchk,3000);setInterval(dchk,120000);document.addEventListener('visibilitychange',()=>{if(!document.hidden)dchk()});})();</script>
-<!-- dash-bust t6070u-t6072u 1794440000 -->
+<!-- dash-bust t6076u 1794442000 -->
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#f5f6fa"><meta name="apple-mobile-web-app-capable" content="yes">
 <title>Дашборд — вариант A (Light SaaS)</title>
@@ -471,7 +471,7 @@ function periodNav(mode){const list=periodList(mode),ids=list.map(p=>p.id),today
  const ix=i>=0?i:(ci>=0?ci:ids.length-1);
  return {ids,ix,curId,multi:ids.length>1,hasPrev:ix>0,hasNext:ci>=0&&ix>=0&&ix<ci}}
 function shiftPeriod(mode,dir,toOverview){const {ids,ix,curId}=periodNav(mode);if(!ids.length)return;const ci=ids.indexOf(curId);let n=ix+dir;if(n<0)n=0;if(ci>=0&&n>ci)n=ci;if(n>ids.length-1)n=ids.length-1;if(mode==='week')S.week=ids[n];else S.month=ids[n];S.mode=mode;if(toOverview)S.tab='overview';render()}
-function controls(){ensureMode();const allow=tabModes(S.tab),top=S.tab==='calendar'||S.tab==='messengers'||S.tab==='assistants'||S.tab==='unsorted';const bar=$('#mode');if(bar)bar.hidden=false;/* Rost t5988u: при одном доступном периоде ряд не прячем — Недвижимость: видимый активный «Месяц», Оборонка: «Сегодня»; остальные чипы по-прежнему hidden (t5968u) */
+function controls(){ensureMode();const isCal=S.tab==='calendar',allow=tabModes(S.tab),top=isCal||S.tab==='messengers'||S.tab==='assistants'||S.tab==='unsorted';const bar=$('#mode');if(bar)bar.hidden=!!isCal;/* Rost t6076u: на Календаре прячем глобальные Сегодня/Неделя/Месяц — переключатель внутри календаря. На остальных вкладках чипы как раньше (t5988u: при одном периоде ряд не прячем). */
  document.querySelectorAll('#mode button').forEach(b=>{const vis=top||allow.includes(b.dataset.m);b.hidden=!vis;b.classList.toggle('on',vis&&b.dataset.m===S.mode&&!top);
   const m=b.dataset.m;
   if(m==='week'||m==='month'){const lab=m==='week'?'Неделя':'Месяц';
@@ -494,7 +494,7 @@ function controls(){ensureMode();const allow=tabModes(S.tab),top=S.tab==='calend
  document.querySelectorAll('#mabtn button').forEach(b=>b.onclick=()=>{S.tab=b.dataset.t;render();scrollTo({top:0,behavior:'smooth'})});
  document.querySelectorAll('#tabs button').forEach(b=>b.onclick=()=>{S.tab=b.dataset.t;render();scrollTo({top:0,behavior:'smooth'})});
  const TD=new Intl.DateTimeFormat('ru-RU',{timeZone:BOG,weekday:'short',day:'numeric',month:'short'}).format(new Date());
- $('#sub').textContent=S.tab==='calendar'?'Календарь · день':S.mode==='today'?`Сегодня · ${TD}`:`${S.mode==='week'?'Неделя':'Месяц'}: ${Dash.periodLabel()}`;}
+ $('#sub').textContent=S.tab==='calendar'?(calView==='week'?'Календарь · неделя':'Календарь · день'):S.mode==='today'?`Сегодня · ${TD}`:`${S.mode==='week'?'Неделя':'Месяц'}: ${Dash.periodLabel()}`;}
 /* Rost t5825u: плашки исполнителя CU (как в «Своя модель») + мои задачи сверху в списках */
 const cuWhoNames=t=>{if(!t)return[];if(Array.isArray(t.assignees)&&t.assignees.length)return t.assignees.map(a=>typeof a==='string'?a:(a&&(a.username||a.name||'')||'')).map(s=>String(s).trim()).filter(Boolean);if(t.who&&t.who!=='—')return String(t.who).split(/,\s*/).map(s=>s.trim()).filter(Boolean);if(t.owner==='me')return['Rost'];if(t.owner)return[String(t.owner)];return[];};
 const cuIsRost=t=>!!(t&&(t.owner==='me'||cuWhoNames(t).some(nm=>{const s=String(nm).trim();return /^(я|me)$/i.test(s)||/^rost(yslav)?\b/i.test(s)||/zayavki\.ua@gmail\.com/i.test(s);})));
@@ -841,9 +841,11 @@ function calendar(d){const ev=(d.events||[]).filter(e=>!e.all_day),today=bDay(ne
  const past=k<today,marked=calReconHas(k);
  let h=`<div class="card" style="margin-bottom:14px;background:linear-gradient(135deg,#e8f0fe,var(--panel));border-color:#c6dafc"><div class="tab-head"><span class="note">${[d.cu_only?'':'снимок GCal '+(d.gcal_fetched_at||'—'),'ClickUp '+esc(d.cu_fetched_at||'—')].filter(Boolean).join(' · ')} · без входа в Google</span>
  <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap"><div class="seg calf" ${d.cu_only?'hidden':''}>${[['all','Все'],['gcal','Google ('+nG+')'],['clickup','ClickUp ('+nC+')']].map(([s,l])=>`<button data-s="${s}" class="${calSrc===s?'on':''}">${l}</button>`).join('')}</div></div></div>
- <div class="calnav"><div class="seg calview">${bt(!week,'day','День')}${bt(week,'week','Неделя')}</div>
- ${week?`<div class="seg">${bt(0,'w-1','‹')}${bt(mon===calMon(today),'w0','Эта неделя')}${bt(0,'w1','›')}</div><b style="font-size:15px;text-transform:capitalize">${esc(weekLab)}</b>`
- :`<div class="seg">${bt(0,-1,'‹')}${bt(k===today,'today','Сегодня')}${bt(k===tmr,'tmr','Завтра')}${bt(0,1,'›')}</div><input type="date" id="calpick" value="${k}"><b style="font-size:15px;text-transform:capitalize">${esc(WD.format(new Date(k+'T12:00:00Z')))}</b>${k===today?'<span class="chip" style="background:#4285f4;color:#fff;border-color:#4285f4">Сегодня</span>':''}${past?`<button type="button" class="calmark${marked?' on':''}" data-cmark="${k}">${marked?'✓ День сверен':'Сверить этот день'}</button>`:''}`}</div>
+ <div class="calnav"><div class="seg calview">${bt(0,'prev','‹')}${bt(!week,'day','День')}${bt(week,'week','Неделя')}${bt(0,'next','›')}</div>
+ <input type="date" id="calpick" value="${k}" title="${week?'неделя, в которой этот день':'день'}">
+ <b style="font-size:15px;text-transform:capitalize">${esc(week?weekLab:WD.format(new Date(k+'T12:00:00Z')))}</b>
+ ${week?(mon===calMon(today)?'<span class="chip" style="background:#4285f4;color:#fff;border-color:#4285f4">Эта неделя</span>':bt(0,'today','Эта неделя')):(k===today?'<span class="chip" style="background:#4285f4;color:#fff;border-color:#4285f4">Сегодня</span>':bt(0,'today','Сегодня'))}
+ ${!week&&past?`<button type="button" class="calmark${marked?' on':''}" data-cmark="${k}">${marked?'✓ День сверен':'Сверить этот день'}</button>`:''}</div>
  ${calBreakHTML(ev,days)}
  <div class="slegend">${d.cu_only?'':'<span><span class="src gcal">Google</span> слева — события</span>'}<span><span class="src clickup">ClickUp</span> ${d.cu_only?'':'справа — '}задачи со временем, на своём часе</span><span><span class="tl-cumark lg"></span> метка у шкалы = есть задача ClickUp на это время</span>
  ${CAL_CATS.slice(0,9).map(c=>`<span><span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:${c.color};margin-right:4px"></span>${esc(c.name)}</span>`).join('')}</div></div>`;
@@ -852,8 +854,8 @@ function calendar(d){const ev=(d.events||[]).filter(e=>!e.all_day),today=bDay(ne
  else{const t=tlHTML(ev,k,{cuOnly:d.cu_only,src:calSrc});h+=t.h;sc=t.sc}
  $('#main').innerHTML=h;
  document.querySelectorAll('.calf button').forEach(b=>b.onclick=()=>{calSrc=b.dataset.s;calendar(d)});
- document.querySelectorAll('[data-nav]').forEach(b=>b.onclick=()=>{const a=b.dataset.nav;if(a==='day'||a==='week'){calView=a;calendar(d);return}if(a==='today'){calDay=today;calView='day'}else if(a==='tmr'){calDay=tmr;calView='day'}else if(a==='w-1')calDay=calAdd(mon,-7);else if(a==='w1')calDay=calAdd(mon,7);else if(a==='w0')calDay=today;else calDay=calAdd(calDay,+a);calendar(d)});
- const pk=$('#calpick');if(pk)pk.onchange=()=>{if(pk.value){calDay=pk.value;calView='day';calendar(d)}};
+ document.querySelectorAll('[data-nav]').forEach(b=>b.onclick=()=>{const a=b.dataset.nav;if(a==='day'||a==='week'){calView=a;calendar(d);return}if(a==='prev')calDay=calAdd(week?mon:k,week?-7:-1);else if(a==='next')calDay=calAdd(week?mon:k,week?7:1);else if(a==='today')calDay=today;calendar(d)});
+ const pk=$('#calpick');if(pk)pk.onchange=()=>{if(pk.value){calDay=pk.value;calendar(d)}};
  document.querySelectorAll('[data-cday]').forEach(b=>b.onclick=()=>{calDay=b.dataset.cday;calView='day';calendar(d)});
  document.querySelectorAll('[data-cmark]').forEach(b=>b.onclick=()=>{calMarkRecon(b.dataset.cmark);calendar(d)});
  if(!week)tlScroll(sc)}
