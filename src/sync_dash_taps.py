@@ -56,13 +56,18 @@ for f in files:
             if i and not any(a.get('id')==i and a.get('action')=='cu_ok' and a.get('updated')==s.get('updated') for a in act['pending']+act['done']):
                 act['pending'].append({'id':i,'action':'cu_ok','kind':'for_check','title':s.get('title'),'bot':s.get('bot'),'updated':s.get('updated'),'tapped_at':s.get('at')}); na+=1
             continue
+        if s.get('action')=='cu_review':  # Rost t6080u: «На проверку боту» на любой задаче даша
+            i=str(s.get('cu') or '').strip() or cuid(s.get('url') or s.get('key'))
+            if i and not any(a.get('id')==i and a.get('action')=='cu_review' and not a.get('done_at') for a in act['pending']+act['done']):
+                act['pending'].append({'id':i,'action':'cu_review','kind':s.get('kind') or 'task','title':s.get('title'),'url':s.get('url'),'bot':s.get('bot'),'dir':s.get('dir'),'tapped_at':s.get('at')}); na+=1
+            continue
         if s.get('action')=='call_done':  # Rost t5810u: «✅ Созвонились» на красной плашке созвона → COMMS: коммент «Созвонились» в CU (close только если on_done=close)
             i=str(s.get('cu') or '').strip() or cuid(s.get('url'))
             if i and not any(a.get('id')==i and a.get('action')=='call_done' and a.get('due')==s.get('due') for a in act['pending']+act['done']):
                 act['pending'].append({'id':i,'action':'call_done','kind':'call','title':s.get('title'),'url':s.get('url'),'due':s.get('due'),'dir':s.get('dir'),'on_done':s.get('on_done') or 'comment','tapped_at':s.get('at')}); na+=1
             continue
         if s.get('action')=='cu_close':
-            i=cuid(s.get('url')) or (s.get('key') or '').split('|')[-1]
+            i=str(s.get('cu') or '').strip() or cuid(s.get('url')) or (s.get('key') or '').split('|')[-1]
             if i and not any(a['id']==i and a.get('due')==s.get('due') for a in act['pending']+act['done']):
                 act['pending'].append({'id':i,'action':'cu_close','kind':s.get('kind'),'title':s.get('title'),'url':s.get('url'),'due':s.get('due'),'tapped_at':s.get('at')}); na+=1
             continue
