@@ -904,11 +904,7 @@ data = dict(
                 cu=dict(id='86bcqw802', label='Мама (как дела?) — ClickUp · Personal', status='to do', url='https://rosmater.github.io/cu/?t=86bcqw802')),
            dict(name='Андрей Многотуров', icon='🧑', role='Бот · TripAdvisor', status='attention', items=['Я: Подключить к боту — чтобы сам мог править', 'Он: Найти 50 отзывов (TripAdvisor)', 'Я: Не забывать выводить деньги с Viator'], src='Rost, 24.10.2026',
                 cu=dict(id='86ba2y9ke', label='ТрипЭдвайсер (как дела?) — ClickUp · Personal', status='to do', url='https://rosmater.github.io/cu/?t=86ba2y9ke')),
-           dict(name='Андрей Партнер', icon='🧑‍💼', role='Партнёр · бот + 1С', status='attention', items=[
-                'Я: Подключить к боту (настроить и дать логин и пароль)',
-                'Я: · Выдать боту доступ в 1С',
-                'Я: · Передать знания о входе в 1С и работе с отчётами; поделиться нашими таблицами по сравнению 1С',
-              ], src='Rost, 25.10.2026'),
+           # Rost t5990u 11.11: «Андрей Партнер» перенесён в CU 86bd1xnvc → Табакевич «На решение»
            dict(name='Общее', icon='⚙️', role='Инфра / тест', status='attention',
                 items=[dict(id='teams-tariff-1h', text='Я: Протестировать работу через тариф Тимс — 1 час', highlight=True, checkable=True, url='https://rosmater.github.io/cu/?t=86bcn66b7')], src='Rost, 25.10.2026',
                 cu=dict(id='86bcn66b7', label='Протестировать Teams (командный план Grok Bot)', status='to do', url='https://rosmater.github.io/cu/?t=86bcn66b7')),
