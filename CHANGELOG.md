@@ -1,3 +1,8 @@
+## 2026-11-11 t5952u встречи только Role GO
+- «📅 Назначенные встречи» вверху Личного: только задачи с Role «🚶GO» (любой список, open, due≥сегодня).
+- Источник Personal list 901413854636 убран — созвоны (Шекель и др.) больше не попадают в блок. Встреча = статус/роль гоу, не любой timed task.
+- Exclude бокс/зал (`src/meetings_exclude.json`) сохранён. Sync: `personal_meetings_sync.py --go <go.json>` в пакетах 10:42 / 22:45.
+
 ## 2026-11-10 morning-mega COMMS
 - gcal snapshot 10.11 + cu_inbox WIDE MCP harvest (desktop inbox preserved)
 

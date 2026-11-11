@@ -1,36 +1,31 @@
 #!/usr/bin/env python3
-"""Rost t5828u/t5829u/t5831u: Personal timed + Role GO → src/personal_meetings.json.
+"""Rost t5952u: Role=🚶GO only → src/personal_meetings.json («📅 Назначенные встречи»).
 
-Sibling to cu_due_sync.py. Call from morning 10:42 / night 22:45 packs after BOTH filters:
+Sibling to cu_due_sync.py. Call from morning 10:42 / night 22:45 packs after ONE filter:
 
-  1) Personal list (timed meetings):
-     clickup_filter_tasks list_ids=[901413854636] include_closed=false
-       due_date_from=<today Bogotá> write_to_file=true
-
-  2) Role GO anywhere (Rost «гоу» = physically go; NOT a list status — statuses=[go] returns 0):
+  Role GO anywhere (Rost «гоу» / статус гоу = physically go; NOT a list status —
+  statuses=[go] returns 0). Open, due set, any list:
      clickup_filter_tasks assignees=[me] include_closed=false
+       due_date_from=<today Bogotá>
        custom_fields=[{field_id:1469c8d4-a3b4-4925-958a-7f442d9e002f, operator:ANY,
          value:["95771463-42ea-45fc-8b87-ad4b48108cbf"]}]  # Role option «🚶GO»
        write_to_file=true
 
-  python3 /workspace/dashboard-mockup/src/personal_meetings_sync.py <personal.json> <go.json>
-  (multiple files OK; dedupe by id. Tag a file as GO-source with --go FILE or by
-   putting «go»/«role» in the filename, else pass --go-ids via second+ files with
-   --mode auto: files after the first are treated as GO if --go-all-files-but-first.)
+  python3 /workspace/dashboard-mockup/src/personal_meetings_sync.py --go <go.json>
+  (multiple files OK; dedupe by id.)
 
 USAGE:
-  python3 …/personal_meetings_sync.py personal.json go.json
+  python3 …/personal_meetings_sync.py go.json
   Flags: --dry, --no-push, --no-patch,
-         --go FILE (repeatable; those files allow all-day 04:00),
-         --personal FILE (repeatable; timed-only, skip 04:00),
+         --go FILE (repeatable),
          --allow-past (keep past dues — e2e only).
+  --personal is accepted but ignored (dropped t5952u: Personal list is not a source).
 
 Rules:
-  - Personal source: open, due≥today, TIMED (HH:MM≠04:00 Bogotá).
-  - GO source: open (not main/complete/closed/done), due≥today; 04:00 = all-day
+  - Only Role=🚶GO: open (not main/complete/closed/done), due≥today; 04:00 = all-day
     (no time in block/banner «Встреча: <name>»).
-  - Exclude: src/meetings_exclude.json (ids + name_re).
-  - Dedupe by id (GO wins on merge if both).
+  - Exclude: src/meetings_exclude.json (ids + name_re) — бокс/зал kept.
+  - Dedupe by id.
   - on_done=comment → drain «Встреча состоялась (с даша, DD.MM)».
 """
 from __future__ import annotations
@@ -49,8 +44,6 @@ OUT = MOCK / 'src' / 'personal_meetings.json'
 EXCL = MOCK / 'src' / 'meetings_exclude.json'
 VAULT_MAIN = Path('/home/box/contacts/knowledge/secrets/vault/dashboard-password.md')
 VAULT_ASST = Path('/home/box/contacts/knowledge/secrets/vault/dashboard-password-assistant.md')
-LIST_ID = '901413854636'
-LIST_URL = 'https://app.clickup.com/90144414983/v/li/901413854636'
 ROLE_GO = '95771463-42ea-45fc-8b87-ad4b48108cbf'
 ROLE_FIELD = '1469c8d4-a3b4-4925-958a-7f442d9e002f'
 RANGE_RE = re.compile(r'(\d{1,2}:\d{2})\s*[–—\-]\s*(\d{1,2}:\d{2})')
@@ -156,7 +149,7 @@ def task_to_meeting(t, today: str, allow_allday: bool, allow_past: bool):
             id=t['id'], name=t['name'], url=t['url'], status=t['status'],
             due=day, due_t='', start=day, all_day=True,
             kind='meeting', on_done='comment', note='',
-            src='go' if allow_allday else 'personal',
+            src='go',
         )
     m = RANGE_RE.search(t['name'] or '')
     if m:
@@ -168,27 +161,20 @@ def task_to_meeting(t, today: str, allow_allday: bool, allow_past: bool):
         id=t['id'], name=t['name'], url=t['url'], status=t['status'],
         due=day, due_t=end_hm, start=f'{day}T{start_hm}', all_day=False,
         kind='meeting', on_done='comment', note='',
-        src='go' if allow_allday else 'personal',
+        src='go',
     )
 
 
-def merge_meetings(personal_tasks, go_tasks, today: str, allow_past=False):
+def merge_meetings(go_tasks, today: str, allow_past=False):
     ids, cre = load_exclude()
     by_id = {}
-    for t in personal_tasks:
-        if excluded(t, ids, cre):
-            continue
-        m = task_to_meeting(t, today, allow_allday=False, allow_past=allow_past)
-        if m:
-            m['src'] = 'personal'
-            by_id[m['id']] = m
     for t in go_tasks:
         if excluded(t, ids, cre):
             continue
         m = task_to_meeting(t, today, allow_allday=True, allow_past=allow_past)
         if m:
             m['src'] = 'go'
-            by_id[m['id']] = m  # GO wins
+            by_id[m['id']] = m
     out = list(by_id.values())
     out.sort(key=lambda x: (x['due'], '1' if x.get('all_day') else '0', x.get('start') or '', x.get('due_t') or ''))
     return out
@@ -221,7 +207,7 @@ def encrypt(data, enc, key, path: Path):
     }))
 
 
-def surgical_patch(meetings, list_url, updated_at):
+def surgical_patch(meetings, updated_at, list_url=''):
     for enc_path, vault in [
         (MOCK / 'data.enc.json', VAULT_MAIN),
         (MOCK / 'data-asst.enc.json', VAULT_ASST),
@@ -241,7 +227,8 @@ def surgical_patch(meetings, list_url, updated_at):
         if (MOCK / f).exists():
             shutil.copy(MOCK / f, GH / f)
     for rel in ['src/personal_meetings.json', 'src/personal_meetings_sync.py',
-                'src/meetings_exclude.json', 'src/build_data.py']:
+                'src/meetings_exclude.json', 'src/build_data.py',
+                'src/cu_due_sync.py']:
         src = MOCK / rel
         if src.exists():
             shutil.copy(src, GH / rel)
@@ -249,14 +236,14 @@ def surgical_patch(meetings, list_url, updated_at):
 
 def git_push(note: str):
     subprocess.run(['git', 'checkout', 'main'], cwd=GH, check=False, capture_output=True)
-    r = subprocess.run(['git', 'pull', '--rebase', 'origin', 'main'], cwd=GH, capture_output=True, text=True)
+    r = subprocess.run(['git', 'pull', '--rebase', '--autostash', 'origin', 'main'], cwd=GH, capture_output=True, text=True)
     if r.returncode != 0:
         subprocess.run(['git', 'rebase', '--abort'], cwd=GH, capture_output=True)
         raise SystemExit(f'git pull --rebase failed: {r.stderr or r.stdout}')
     files = [
         'data.enc.json', 'data-asst.enc.json',
         'src/personal_meetings.json', 'src/personal_meetings_sync.py',
-        'src/meetings_exclude.json', 'src/build_data.py',
+        'src/meetings_exclude.json', 'src/build_data.py', 'src/cu_due_sync.py',
         'index.html', 'helper.html', 'variant-a.html', 'src/variant-a.html',
         'CHANGELOG.md', 'docs/CHANGELOG.md',
     ]
@@ -264,7 +251,7 @@ def git_push(note: str):
     if subprocess.run(['git', 'diff', '--cached', '--quiet'], cwd=GH).returncode == 0:
         print('git: nothing to commit')
         return None
-    msg = f'Даш t5829u/t5831u: meetings GO+exclude — {note[:90]}'
+    msg = f'Даш t5952u: встречи только Role GO — {note[:90]}'
     subprocess.run(['git', 'commit', '-m', msg], cwd=GH, check=True)
     r = subprocess.run(['git', 'push', 'origin', 'main'], cwd=GH, capture_output=True, text=True)
     if r.returncode != 0:
@@ -275,39 +262,17 @@ def git_push(note: str):
 
 
 def classify_files(positional, personal_flags, go_flags):
-    """Return (personal_files, go_files)."""
-    pers = list(personal_flags or [])
-    go = list(go_flags or [])
-    rest = list(positional or [])
-    if pers or go:
-        # explicit flags; leftover positionals → personal
-        pers.extend(rest)
-        return pers, go
-    if len(rest) == 0:
-        return [], []
-    if len(rest) == 1:
-        # single file: treat as both (timed rules for personal path + GO all-day if Role dump)
-        return rest, rest
-    # 2+: first = personal, rest = go (filename hint can swap)
-    p, g = [], []
-    for i, f in enumerate(rest):
-        name = Path(f).name.lower()
-        if i == 0 and not re.search(r'go|role', name):
-            p.append(f)
-        elif re.search(r'go|role', name) or i > 0:
-            g.append(f)
-        else:
-            p.append(f)
-    if not p and g:
-        p = g[:]  # unlikely
-    return p, g
+    """Return go_files only. --personal is ignored (t5952u)."""
+    if personal_flags:
+        print('warn: --personal ignored (t5952u: meetings are Role=GO only, any list)')
+    return list(go_flags or []) + list(positional or [])
 
 
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument('files', nargs='*', help='filter JSON file(s)')
-    ap.add_argument('--personal', action='append', default=[], help='Personal-list filter file(s)')
-    ap.add_argument('--go', action='append', default=[], help='Role-GO filter file(s); allows all-day')
+    ap.add_argument('files', nargs='*', help='Role-GO filter JSON file(s)')
+    ap.add_argument('--personal', action='append', default=[], help='IGNORED (t5952u: Personal list is not a source)')
+    ap.add_argument('--go', action='append', default=[], help='Role-GO filter file(s)')
     ap.add_argument('--dry', action='store_true')
     ap.add_argument('--no-push', action='store_true')
     ap.add_argument('--no-patch', action='store_true')
@@ -315,33 +280,26 @@ def main():
     a = ap.parse_args()
 
     today = datetime.datetime.now(BOG).strftime('%Y-%m-%d')
-    pfiles, gfiles = classify_files(a.files, a.personal, a.go)
-    if not pfiles and not gfiles:
-        sys.exit('personal_meetings_sync: pass personal.json and/or go.json')
+    gfiles = classify_files(a.files, a.personal, a.go)
+    if not gfiles:
+        sys.exit('personal_meetings_sync: pass go.json (Role=🚶GO filter dump)')
 
-    personal_tasks = parse_tasks(pfiles) if pfiles else []
-    go_tasks = parse_tasks(gfiles) if gfiles else []
-    meetings = merge_meetings(personal_tasks, go_tasks, today, allow_past=a.allow_past)
+    go_tasks = parse_tasks(gfiles)
+    meetings = merge_meetings(go_tasks, today, allow_past=a.allow_past)
     updated_at = datetime.datetime.now(BOG).strftime('%Y-%m-%dT%H:%M:%S-05:00')
     doc = {
         '_doc': (
-            'Rost t5828u/t5829u/t5831u: «📅 Назначенные встречи». '
-            'Sources: (1) CU Personal list 901413854636 TIMED due; '
-            '(2) Role=🚶GO (field 1469c8d4… option 95771463…) any list — includes all-day 04:00. '
-            'Exclude: src/meetings_exclude.json. on_done=comment.'
+            'Rost t5952u: «📅 Назначенные встречи». '
+            'Source: Role=🚶GO (field 1469c8d4-a3b4-4925-958a-7f442d9e002f '
+            'option 95771463-42ea-45fc-8b87-ad4b48108cbf) any list, open, due≥today; '
+            '04:00 = all-day. Exclude: src/meetings_exclude.json. on_done=comment. '
+            'Personal list 901413854636 is not a source (созвоны ≠ встречи).'
         ),
         'updated_at': updated_at,
-        'src': f'Personal {LIST_ID} + Role GO {ROLE_GO}',
-        'list_url': LIST_URL,
+        'src': f'Role GO {ROLE_GO}',
+        'list_url': '',
         'scheduled_meetings': meetings,
     }
-    if OUT.exists():
-        try:
-            prev = json.loads(OUT.read_text())
-            if prev.get('_doc') and 't5829u' in prev.get('_doc', ''):
-                doc['_doc'] = prev['_doc']
-        except Exception:
-            pass
 
     try:
         old = json.loads(OUT.read_text()).get('scheduled_meetings') or []
@@ -350,7 +308,7 @@ def main():
     except Exception:
         changed = True
 
-    print(f'personal_meetings: {len(meetings)} (personal_in={len(personal_tasks)} go_in={len(go_tasks)}); changed={changed}')
+    print(f'personal_meetings: {len(meetings)} (go_in={len(go_tasks)}); changed={changed}')
     for m in meetings:
         tag = 'all-day' if m.get('all_day') else f"{(m.get('start') or '')[11:]}–{m.get('due_t')}"
         print(f"  {m['due']} {tag} [{m.get('src')}] {m['id']} {m['name'][:55]}")
@@ -367,7 +325,7 @@ def main():
     if a.no_patch:
         sys.exit(0)
 
-    surgical_patch(meetings, LIST_URL, updated_at)
+    surgical_patch(meetings, updated_at)
     if a.no_push:
         print('no-push: local patch only')
         sys.exit(0)

@@ -617,11 +617,11 @@ _ocf = os.path.join(_HERE, 'of_calls.json')
 _oc = json.load(open(_ocf)) if os.path.exists(_ocf) else {}
 _today_bo = datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=-5))).strftime('%Y-%m-%d')
 of_calls = sorted([t for t in (_oc.get('scheduled_calls') or []) if isinstance(t, dict) and str(t.get('due') or t.get('start') or '9999')[:10] >= _today_bo], key=lambda t: (str(t.get('due') or t.get('start') or ''), str(t.get('start') or ''), str(t.get('due_t') or '')))
-# Rost t5828u: «📅 Назначенные встречи» вверху Личного (src/personal_meetings.json; TIMED due из CU Personal list 901413854636)
+# Rost t5952u: «📅 Назначенные встречи» вверху Личного (src/personal_meetings.json; только Role=🚶GO, любой список; не CU Personal)
 _pmf = os.path.join(_HERE, 'personal_meetings.json')
 _pm = json.load(open(_pmf)) if os.path.exists(_pmf) else {}
 personal_meetings = sorted([t for t in (_pm.get('scheduled_meetings') or []) if isinstance(t, dict) and str(t.get('due') or t.get('start') or '9999')[:10] >= _today_bo], key=lambda t: (str(t.get('due') or t.get('start') or ''), str(t.get('start') or ''), str(t.get('due_t') or '')))
-personal_meetings_list_url = _pm.get('list_url') or 'https://app.clickup.com/90144414983/v/li/901413854636'
+personal_meetings_list_url = _pm.get('list_url') or ''
 def _cut(t):
     nm = re.sub(r'\+?\d[\d \-]{6,}\d', '…', t['name']).strip()
     return dict(id=t['id'], name=nm, status=t['status'], who=', '.join(a for a in t.get('assignees') or [] if a) or '—',

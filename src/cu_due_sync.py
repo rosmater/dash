@@ -25,11 +25,12 @@ On a change it:
 
 Flags: --dry (report only), --no-push (patch locally, skip git),
        --out PATH (default /workspace/cu_cal_dash.json).
-Also (same packs) personal meetings — TWO filters then sync:
-  clickup_filter_tasks list_ids=[901413854636] include_closed=false due_date_from=<today Bogotá> write_to_file=true
-  clickup_filter_tasks assignees=[me] include_closed=false custom_fields=[{field_id:1469c8d4-a3b4-4925-958a-7f442d9e002f,operator:ANY,value:["95771463-42ea-45fc-8b87-ad4b48108cbf"]}] write_to_file=true
+Also (same packs) personal meetings — ONE filter then sync (t5952u: Role=🚶GO only;
+  Personal list 901413854636 is not a source — созвоны ≠ встречи):
+  clickup_filter_tasks assignees=[me] include_closed=false due_date_from=<today Bogotá>
+    custom_fields=[{field_id:1469c8d4-a3b4-4925-958a-7f442d9e002f,operator:ANY,value:["95771463-42ea-45fc-8b87-ad4b48108cbf"]}] write_to_file=true
     # Role option «🚶GO» — statuses=[go] returns 0 (not a list status)
-  python3 /workspace/dashboard-mockup/src/personal_meetings_sync.py --personal <personal.json> --go <go.json>
+  python3 /workspace/dashboard-mockup/src/personal_meetings_sync.py --go <go.json>
 """
 from __future__ import annotations
 
