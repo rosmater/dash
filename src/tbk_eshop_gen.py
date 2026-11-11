@@ -92,6 +92,12 @@ for s in E['sites']:
     if v is not None:
         extra=(s.get('products_extra') or X['sites'].get(s['name'],{}).get('products_extra'))
         s['products']=v; s['products_src']=f"Лада «Интернет направление», нед. {w}: в наличии {v}, добавлено {ad if ad is not None else '—'}, в акции {pr if pr is not None else '—'}"+(f"; {extra}" if extra else '')
+    # Rost t6078u: «Товары в акции» — число позиций (SKU) из той же строки Лады, что и «в наличии». Остатка в штуках в источнике нет.
+    s['promo']=pr
+    if pr is not None:
+        s['promo_src']=f"Лада «Интернет направление», нед. {w}: «количество товаров в акции» = {pr} позиций (SKU), не остаток в штуках — в источнике остатка по акционным позициям нет"
+    else:
+        s['promo_src']=f"Лада «Интернет направление»: за нед. {w or '—'} строки «количество товаров в акции» нет"
 MPS={'Rozetka':('Розетка',dict(stock='В наличии',notready='зависших в подтверждении',cancel='отменых',cancel_pct='% неуспешных',rev_good='итого хороших',rev_bad='итого плохих',new_good='хороших отзывов 3-5',new_bad='плохих отзывов 1-2',promo='в акции')),
      'Prom':('Пром',dict(stock='в наличии',notready='не в готовности',cancel='отменых',cancel_pct='% неуспешных',sales_uah='сумма продаж',rev_good='Отзывы итого хороших',rev_bad='итого плохих',new_good='хороших отзывов 3-5',new_bad='плохих отзывов 1-2',rating_rev='рейтинг продавца пром отзывы',rating_ord='рейтинг продавца пром заказы',promo='в акции')),
      'Glovo':('Глово',dict(stock='в наличии',sales='количество продаж',sales_uah='сумма продаж',new_good='хороших',new_bad='плохих')),
