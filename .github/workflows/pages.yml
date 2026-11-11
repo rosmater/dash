@@ -1,0 +1,32 @@
+# Rost 11.11.2026: legacy «pages-build-deployment» (dynamic) стал падать с
+# startup_failure / «workflow file issue» без jobs (bf00187e 15:18, дальше очередь).
+# В репозитории своего workflow не было — это системный билдер GitHub Pages.
+# Ошибка билдов: «Page build failed.», duration 0. Переходим на Actions deploy.
+name: Deploy GitHub Pages
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+concurrency:
+  group: pages
+  cancel-in-progress: true
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Keep Jekyll off
+        run: touch .nojekyll
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+      - id: deployment
+        uses: actions/deploy-pages@v4
