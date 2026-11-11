@@ -68,6 +68,9 @@ E['speed_src']=f"Загрузка — мин. из 2 прогонов curl, week
 E['missing']=X.get('missing') if not OC else X.get('missing_after_1c',X.get('missing'))
 E['src']=X.get('src',E.get('src'))
 if OC: E['src']=(E['src'] or '')+'. '+E['orders_src']
+if OC and OC.get('real'):
+    R=OC['real']; own_r=[sum((R.get(x['name']) or [0]*n)[i] for x in E['sites']) for i in range(n)]; all_r=[sum(v[i] for v in R.values()) for i in range(n)]
+    E['src']+=f". Сверка с «Реализациями» ({OC['real_file']}, отгрузки без отменённых): свои сайты {' / '.join(map(str,own_r))}, весь интернет {' / '.join(map(str,all_r))}"
 # дропшипперы: rolling 2 мес.
 today=datetime.date.fromisoformat(X.get('as_of')) if X.get('as_of') else datetime.date.today()
 m0=today.replace(day=1); prev=(m0-datetime.timedelta(days=1)).replace(day=1)
