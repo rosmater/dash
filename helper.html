@@ -23,7 +23,7 @@ body{background:radial-gradient(1200px 600px at 10% -10%,#ebe5ff,transparent 60%
 .wrap{max-width:1280px;margin:0 auto;padding:20px 18px calc(30px + env(safe-area-inset-bottom))}
 header{display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between;margin-bottom:16px}
 .brand{display:flex;gap:12px;align-items:center}.logo{width:42px;height:42px;border-radius:12px;background:conic-gradient(from 200deg,#7c5cff,#22d3a6,#38bdf8,#7c5cff);display:grid;place-items:center;font-weight:800;color:#fff;box-shadow:0 6px 18px #7c5cff33}
-#bdhdr:empty{display:none}.brand:has(#bdhdr:not(:empty)){align-items:flex-start}#bdhdr{margin-top:6px;display:flex;flex-direction:column;gap:4px;max-width:min(560px,92vw)}.bdi{border:1.5px solid #f5a3c0;background:#fff5f9;border-radius:12px;padding:5px 9px;font-size:12.5px}.bdi.ov{border-color:#f04438;background:#fef3f2}.bdi.call{border-color:#f04438;background:#fef3f2}.bdi.call .bdbtn{background:#d92d20}.bdi a{color:inherit;font-weight:700}.bdi ul{margin:3px 0 0 16px;padding:0;font-size:12px}.bdi .bdbtn{margin-left:6px;border:0;border-radius:999px;padding:2px 9px;background:#12b76a;color:#fff;font-size:12px;cursor:pointer}
+#bdhdr:empty{display:none}.brand:has(#bdhdr:not(:empty)){align-items:flex-start}#bdhdr{margin-top:6px;display:flex;flex-direction:column;gap:4px;max-width:min(560px,92vw)}.bdi{border:1.5px solid #f5a3c0;background:#fff5f9;border-radius:12px;padding:5px 9px;font-size:12.5px}.bdi.ov{border-color:#f04438;background:#fef3f2}.bdi.bal{border-color:#f79009;background:#fffaeb}.bdi.balout{border-color:#f04438;background:#fef3f2}.bdi.call{border-color:#f04438;background:#fef3f2}.bdi.call .bdbtn{background:#d92d20}.bdi a{color:inherit;font-weight:700}.bdi ul{margin:3px 0 0 16px;padding:0;font-size:12px}.bdi .bdbtn{margin-left:6px;border:0;border-radius:999px;padding:2px 9px;background:#12b76a;color:#fff;font-size:12px;cursor:pointer}
 button.mxb,#main button.mxb{border:0!important;background:none!important;box-shadow:none!important;color:#b0b5c3!important;font-size:12px!important;line-height:1!important;padding:2px 4px!important;margin:0 0 0 4px!important;min-width:0!important;width:auto!important;height:auto!important;cursor:pointer;border-radius:6px!important;flex:none}button.mxb:hover{color:#6b7280!important;background:#f1f3f7!important}.rctl{display:inline-flex;align-items:center;gap:2px;margin-left:6px;flex:none}.rctl .rtag{font-size:10px;padding:0 5px;border-radius:8px;background:#eef2ff;color:#4f46e5;margin-right:2px}/* Rost t3979u: длинные имена — многоточие, полное имя в подсказке */.mnm{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0}.mrow>summary{flex-wrap:nowrap!important}summary>b.mnm{flex:0 1 auto;max-width:42%}summary>.note.mnm{flex:0 1 auto;max-width:26%}li>b.mnm{display:inline-block;max-width:55%;vertical-align:bottom}/* Rost t3978u: цвета тегов Личного */.rtag.rtc0{background:#dcfce7!important;color:#15803d!important}.rtag.rtc1{background:#fef3c7!important;color:#b45309!important}.rtag.rtc2{background:#fce7f3!important;color:#be185d!important}.rtag.rtc3{background:#dbeafe!important;color:#1d4ed8!important}#main .rctl button.rst,#main .rctl button.rbx{border:0!important;background:none!important;box-shadow:none!important;padding:1px 3px!important;margin:0!important;min-width:0!important;width:auto!important;height:auto!important;font-size:12px!important;line-height:1!important;color:#b0b5c3!important;cursor:pointer;border-radius:5px!important}#main .rctl button.rst:hover,#main .rctl button.rbx:hover{background:#f1f3f7!important;color:#4b5563!important}#main .rctl button.rst.on{color:#16a34a!important;font-weight:700}#main .rctl button.rsk.on{color:#6b7280!important;font-weight:700}.rctl .rsl{color:#d1d5db;font-size:11px}.rctl a.rcu{display:inline-block;font-size:9px;font-weight:800;color:#fff!important;background:#7b68ee;border-radius:4px;padding:1px 3px;text-decoration:none;line-height:1.2}.rctl a.rlk{font-size:11px;text-decoration:none;opacity:.55}.rctl a.rlk:hover{opacity:1}details.mrow.rdone>summary,li.rdone{opacity:.55}summary .rctl.rans{margin-left:auto;gap:0}summary .rans+.mcnt{margin-left:2px}/* Rost t3974u: ✓/✕ вплотную к кружку непрочитанных */
 .brand h1{font-size:19px;margin:0;font-weight:800;letter-spacing:-.02em}.brand small{color:var(--mut);font-size:12px}
 .ctrls{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
@@ -80,7 +80,28 @@ table{width:100%;border-collapse:collapse;font-size:12.5px}th,td{text-align:left
 .adsmon .admore>summary::before{content:'▸';display:inline-block;width:12px;color:#99a;font-size:10px}
 .adsmon .admore[open]>summary::before{content:'▾'}
 .adsmon .admore[open]>summary{white-space:normal}
-.adsmon .admore .note{margin:4px 0 0;line-height:1.4;white-space:normal}/* Rost t4212: автор строки — человек / БОТ */.pill.pwho{background:#f3f4f6;color:#374151;font-weight:600;max-width:110px;overflow:hidden;text-overflow:ellipsis}.pill.pbot{background:#e5e7eb;color:#6b7280;font-weight:800;letter-spacing:.3px}@media(max-width:480px){.mrow>summary>.pill.pbot,.mrow>summary>.pill.pwho{font-size:9px;padding:1px 4px;letter-spacing:0}.mrow>summary>.pill.pwho{max-width:60px}.mrow>summary>.pill{padding:1px 5px}}
+.adsmon .admore .note{margin:4px 0 0;line-height:1.4;white-space:normal}/* Rost t1092u: карточка баланса Bancolombia на рекламу */.pepbal .pepbal-v{font-size:22px;font-weight:800;letter-spacing:-.03em;margin:2px 0 4px;font-variant-numeric:tabular-nums}.pepbal.warn{border-color:#f79009;background:#fffaeb}.pepbal.out{border-color:#f04438;background:#fef3f2}/* Rost t1101u: лента дневных лидов WA с рекламы */
+.pepleads h3{margin-bottom:8px}
+.pepleads-strip{display:flex;gap:8px;overflow-x:auto;-webkit-overflow-scrolling:touch;scroll-snap-type:x mandatory;scroll-padding-inline:6px;padding:2px 2px 8px;overscroll-behavior-x:contain}
+.pepleads-strip::-webkit-scrollbar{height:6px}
+.pepleads-strip::-webkit-scrollbar-thumb{background:#d0d5dd;border-radius:99px}
+.pepleads-card{flex:0 0 auto;width:108px;scroll-snap-align:end;border:1px solid var(--line);border-radius:12px;padding:7px 6px 6px;background:var(--panel);text-align:center;box-sizing:border-box}
+.pepleads-card .d{font-size:11px;font-weight:600;color:var(--mut);line-height:1.2;white-space:nowrap}
+.pepleads-card .n{font-size:22px;font-weight:800;letter-spacing:-.03em;font-variant-numeric:tabular-nums;line-height:1.15;margin:3px 0 1px}
+.pepleads-card .lab{font-size:10px;color:var(--mut);line-height:1.2}
+.pepleads-card .tot{font-size:10px;color:var(--mut);margin-top:3px;line-height:1.25}
+.pepleads-card .spend,.pepleads-card .cpl{font-size:10px;font-variant-numeric:tabular-nums;line-height:1.25;white-space:nowrap}
+.pepleads-card .spend{margin-top:4px;color:var(--text)}
+.pepleads-card .cpl{margin-top:1px;color:var(--mut)}
+.pepleads-card[title]{cursor:help}
+.pepleads-card.today{border-color:#22d3a6;background:#f3fffb}
+.pepleads-card.today .d{color:#0f766e}
+.pepleads-card.nodata .n{color:var(--mut);font-weight:700}
+/* Rost t1103u: короткая плашка баланса, подробности в подсказке */
+header .bdi.bal,header .bdi.balout{position:relative;cursor:pointer}
+header .bdi .baltip{display:none;position:absolute;left:0;top:calc(100% + 5px);z-index:40;min-width:240px;max-width:min(380px,92vw);background:#111827;color:#fff;font-size:11.5px;font-weight:500;line-height:1.4;padding:8px 10px;border-radius:8px;box-shadow:0 8px 24px rgba(15,23,42,.2);white-space:pre-wrap;text-align:left}
+header .bdi.bal:hover .baltip,header .bdi.balout:hover .baltip,header .bdi.tipon .baltip{display:block}
+/* Rost t4212: автор строки — человек / БОТ */.pill.pwho{background:#f3f4f6;color:#374151;font-weight:600;max-width:110px;overflow:hidden;text-overflow:ellipsis}.pill.pbot{background:#e5e7eb;color:#6b7280;font-weight:800;letter-spacing:.3px}@media(max-width:480px){.mrow>summary>.pill.pbot,.mrow>summary>.pill.pwho{font-size:9px;padding:1px 4px;letter-spacing:0}.mrow>summary>.pill.pwho{max-width:60px}.mrow>summary>.pill{padding:1px 5px}}
 .st{font-size:10.5px;color:var(--mut);border:1px solid var(--line);padding:1px 7px;border-radius:99px;white-space:nowrap}
 .note{font-size:12.5px;color:var(--mut);line-height:1.5}.gap li{margin:4px 0;font-size:12.5px;color:#3a4160}
 .items li{font-size:12.5px;margin:5px 0;color:#3a4160}.items .amt{float:right;font-weight:600;color:var(--txt);margin-left:8px}
@@ -206,6 +227,17 @@ details.mrow .mbody>.task{padding:5px 0}
 .cw-ev.past{opacity:.55}.cw-ev.now{box-shadow:0 0 0 2px #4285f455}
 .calrecon{}.calrecon .cr-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:4px 0;border-top:1px solid #eef0f5;font-size:13px}.calrecon .cr-ok{color:#127a3e;font-weight:700}.calrecon .cr-no{color:#b42318;font-weight:700}
 .calmark{font:600 12px Inter;border:1px solid var(--line);background:#fff;border-radius:99px;padding:4px 10px;cursor:pointer}.calmark.on{background:#e7f8ee;border-color:#abefc6;color:#127a3e}
+/* t6093u / t6095u */
+.du-lines{margin:0 0 10px;display:flex;flex-direction:column;gap:4px}
+.du-ln{background:#fff8dc;border:1px solid #f5d56a;border-radius:8px;padding:8px 12px;font-size:13.5px;font-weight:650;color:#8a5a00;cursor:pointer}
+.du-ln:hover{background:#fff3c4}
+.du-head{display:inline-flex;align-items:center;gap:8px;min-width:0;flex:0 1 auto;text-transform:inherit;letter-spacing:inherit}
+.du-chip{display:inline-flex;align-items:center;justify-content:center;min-width:20px;height:20px;padding:0 6px;border:0;border-radius:99px;font:700 12px Inter,system-ui;line-height:1;vertical-align:middle;cursor:pointer;flex:0 0 auto}
+.du-chip.nu{background:#f5c84a;color:#6b4a00;box-shadow:0 0 0 1px #e0a82a}
+.du-chip.nu:hover{filter:brightness(.96)}
+.du-chip.ok{background:#e5e7eb;color:#6b7280;cursor:default}
+@keyframes duFlash{0%,100%{box-shadow:none}20%,70%{box-shadow:0 0 0 3px #f5c84a,0 0 16px #fde68a}}
+.du-flash{animation:duFlash 1.6s ease}
 </style><link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%2322c3a6%22/%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%237b5cff%22/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2216%22%20fill%3D%22url%28%23g%29%22/%3E%3Crect%20x%3D%2215%22%20y%3D%2234%22%20width%3D%228%22%20height%3D%2215%22%20rx%3D%223%22%20fill%3D%22%23fff%22/%3E%3Crect%20x%3D%2228%22%20y%3D%2224%22%20width%3D%228%22%20height%3D%2225%22%20rx%3D%223%22%20fill%3D%22%23fff%22/%3E%3Crect%20x%3D%2241%22%20y%3D%2215%22%20width%3D%228%22%20height%3D%2234%22%20rx%3D%223%22%20fill%3D%22%23fff%22%20opacity%3D%22.92%22/%3E%3C/svg%3E">
 </head><body><div class="wrap">
 <header><div class="brand"><div class="logo">R</div><div><h1>Бизнес-дашборд</h1><small id="sub"></small></div></div><div id="bdhdr"></div>
@@ -215,6 +247,25 @@ details.mrow .mbody>.task{padding:5px 0}
 <script>/* ===== Password gate (Rost 24.10): data.enc.json расшифровывается паролем; ключ помнится в localStorage до «Выйти» ===== */
 const Gate = (() => {
   const LS = window.DASH_LS || 'dash_key_v1';
+  const LS_DAY = LS + '_day';
+  const bogotaDay = () => new Date().toLocaleDateString('en-CA', { timeZone: 'America/Bogota' });
+  const isHelper = () => !!window.DASH_HELPER;
+  function expireHelperKey() {
+    if (!isHelper()) return;
+    try {
+      const d = localStorage.getItem(LS_DAY);
+      if (d !== bogotaDay()) { localStorage.removeItem(LS); localStorage.removeItem(LS_DAY); }
+    } catch (e) {}
+  }
+  function rememberKey(raw) {
+    try {
+      localStorage.setItem(LS, raw);
+      if (isHelper()) localStorage.setItem(LS_DAY, bogotaDay());
+    } catch (e) {}
+  }
+  function forgetKey() {
+    try { localStorage.removeItem(LS); localStorage.removeItem(LS_DAY); } catch (e) {}
+  }
   const b2u = s => Uint8Array.from(atob(s), c => c.charCodeAt(0));
   const u2b = u => btoa(String.fromCharCode(...new Uint8Array(u)));
   async function decrypt(enc, key) {
@@ -247,33 +298,50 @@ const Gate = (() => {
 #gate-out{position:fixed;right:14px;bottom:14px;z-index:50;border:1px solid #e2e8f0;background:#fff;color:#64748b;border-radius:999px;padding:6px 12px;font-size:12px;cursor:pointer;box-shadow:0 2px 8px rgba(15,23,42,.08)}
 #gate-out:hover,#gate-ref:hover{color:#0f172a}
 #gate-out{padding:6px 10px;font-size:15px;line-height:1}
-#gate-ref{position:fixed;right:58px;bottom:14px;z-index:50;border:1px solid #e2e8f0;background:#fff;color:#64748b;border-radius:999px;padding:6px 10px;font-size:15px;line-height:1;cursor:pointer;box-shadow:0 2px 8px rgba(15,23,42,.08)}`;
+#gate-ref{position:fixed;right:58px;bottom:14px;z-index:50;border:1px solid #e2e8f0;background:#fff;color:#64748b;border-radius:999px;padding:6px 10px;font-size:15px;line-height:1;cursor:pointer;box-shadow:0 2px 8px rgba(15,23,42,.08)}
+#gate-x{position:fixed;top:10px;right:12px;z-index:80;border:0;background:transparent;color:#64748b;font-size:18px;line-height:1;cursor:pointer;padding:4px 8px;border-radius:8px}
+#gate-x:hover{color:#0f172a;background:#f1f5f9}`;
     document.head.appendChild(s);
   }
   function logoutBtn() {
     const b = document.createElement('button');
     b.id = 'gate-out'; b.textContent = '🔒'; b.title = 'Выйти (забыть пароль на этом устройстве)'; b.setAttribute('aria-label','Выйти');
-    b.onclick = () => { try { localStorage.removeItem(LS); } catch (e) {} location.reload(); };
+    b.onclick = () => { forgetKey(); location.reload(); };
     document.body.appendChild(b);
     const r = document.createElement('button');
     r.id = 'gate-ref'; r.textContent = '↻'; r.title = 'Обновить (свежая версия, без кеша)'; r.setAttribute('aria-label','Обновить');
     r.onclick = () => { const u = new URL(location.href); u.searchParams.set('v', Date.now()); location.replace(u.toString()); };
     document.body.appendChild(r);
+    if (isHelper()) { /* t6090u: маленький ✕ сверху справа — на экран пароля */
+      const x = document.createElement('button');
+      x.id = 'gate-x'; x.textContent = '✕'; x.title = 'Выйти на экран пароля'; x.setAttribute('aria-label','Закрыть');
+      x.onclick = () => { forgetKey(); location.reload(); };
+      document.body.appendChild(x);
+    }
   }
   function prompt(enc) {
     return new Promise(res => {
       document.body.classList.add('gate-blur');
       const g = document.createElement('div'); g.id = 'gate';
-      g.innerHTML = `<form autocomplete="on"><div class="lg">🔒</div><h2>${window.DASH_TITLE || 'Бизнес-дашборд'}</h2><p>Введите пароль, чтобы открыть</p>
-<input type="text" name="username" value="rost" autocomplete="username" hidden>
-<div class="row"><input id="gate-pw" class="masked" type="text" lang="ru" inputmode="text" autocomplete="current-password" autocapitalize="off" autocorrect="off" spellcheck="false" enterkeyhint="go" placeholder="Пароль" autofocus><button type="button" class="eye" title="Показать пароль">👁</button></div>
+      const helperGate = isHelper(); /* t6090u: helper — без save-password, пароль на день */
+      const formAuto = helperGate ? 'off' : 'on';
+      const pwAuto = helperGate ? 'off' : 'current-password';
+      const userField = helperGate ? '' : '<input type="text" name="username" value="rost" autocomplete="username" hidden>';
+      const pwName = helperGate ? 'dash-asst-code' : undefined;
+      const hintStay = helperGate
+        ? 'Пароль нужно вводить каждый день. Браузер его не сохраняет.'
+        : 'Один раз ввёл — на этом устройстве больше не спрашиваем (до «Выйти»).';
+      g.innerHTML = `<form autocomplete="${formAuto}" data-lpignore="true" data-1p-ignore="true"><div class="lg">🔒</div><h2>${window.DASH_TITLE || 'Бизнес-дашборд'}</h2><p>Введите пароль, чтобы открыть</p>
+${userField}
+<div class="row"><input id="gate-pw" class="masked" type="text" lang="ru" inputmode="text" autocomplete="${pwAuto}" autocapitalize="off" autocorrect="off" spellcheck="false" enterkeyhint="go" placeholder="Пароль" name="${helperGate ? 'dash-asst-code' : 'password'}" ${helperGate ? 'data-lpignore="true" data-1p-ignore="true" data-form-type="other" readonly' : ''} autofocus><button type="button" class="eye" title="Показать пароль">👁</button></div>
 <button type="button" class="ru" style="margin:8px 0 0;padding:6px 12px;border:1.5px solid #cbd5e1;border-radius:10px;background:#fff;font-size:14px">⌨️ RU: выкл</button>
 <div class="hint" style="margin-top:4px">Нет русской раскладки? Включи RU и печатай латиницей на тех же клавишах (Ш=i, Е=t…).</div>
 <button class="go" type="submit">Открыть</button><div class="err"></div>
-<div class="hint">Один раз ввёл — на этом устройстве больше не спрашиваем (до «Выйти»).</div></form>`;
+<div class="hint">${hintStay}</div></form>`;
       document.body.appendChild(g);
       const f = g.querySelector('form'), i = g.querySelector('#gate-pw'), err = g.querySelector('.err'), go = g.querySelector('.go');
       g.querySelector('.eye').onclick = () => { i.classList.toggle('masked'); i.focus(); };
+      if (helperGate) i.addEventListener('focus', () => i.removeAttribute('readonly'));
       setTimeout(() => i.focus(), 50);
       const L2R = {q:'й',w:'ц',e:'у',r:'к',t:'е',y:'н',u:'г',i:'ш',o:'щ',p:'з','[':'х',']':'ъ',a:'ф',s:'ы',d:'в',f:'а',g:'п',h:'р',j:'о',k:'л',l:'д',';':'ж',"'":'э',z:'я',x:'ч',c:'с',v:'м',b:'и',n:'т',m:'ь',',':'б','.':'ю','`':'ё'};
       const toRu = v => v.toLowerCase().split('').map(c => L2R[c] || c).join('');
@@ -288,7 +356,7 @@ const Gate = (() => {
           let key = await derive(pv, enc), data;
           try { data = await decrypt(enc, key); }
           catch (eL) { const pr = toRu(pv); if (pr === pv) throw eL; key = await derive(pr, enc); data = await decrypt(enc, key); }
-          try { localStorage.setItem(LS, u2b(await crypto.subtle.exportKey('raw', key))); } catch (e2) {}
+          rememberKey(u2b(await crypto.subtle.exportKey('raw', key)));
           g.remove(); document.body.classList.remove('gate-blur'); res(data);
         } catch (e1) {
           err.textContent = 'Неверный пароль'; f.classList.remove('shake'); void f.offsetWidth; f.classList.add('shake');
@@ -299,11 +367,12 @@ const Gate = (() => {
   }
   async function unlock(src) {
     css();
+    expireHelperKey();
     const r = await fetch(src, { cache: 'no-store' });
     if (!r.ok) throw new Error(src + ': HTTP ' + r.status);
     const enc = await r.json();
     let data = null;
-    try { const raw = localStorage.getItem(LS); if (raw) data = await decrypt(enc, await imp(raw)); } catch (e) { try { localStorage.removeItem(LS); } catch (e2) {} }
+    try { const raw = localStorage.getItem(LS); if (raw) data = await decrypt(enc, await imp(raw)); } catch (e) { forgetKey(); }
     if (!data) data = await prompt(enc);
     logoutBtn();
     return data;
@@ -465,6 +534,7 @@ window.GL={note:c=>'снимок GCal '+String(c.gcal_fetched_at||'—'),btn:()=
 </script>
 <script>
 const $=s=>document.querySelector(s);const {S,fmt,esc,EX}=Dash;let charts=[];
+function duAttr(id){return id?` id="du-${String(id).replace(/\./g,'-')}" data-du="${esc(id)}"`:''}
 /* Rost t5579u: любая ссылка на задачу ClickUp открывает приложение, не сайт */
 const cuAppUrl=u=>{if(!u)return u||'';const s=String(u);if(/^clickup:\/\/t\//i.test(s)||/rosmater\.github\.io\/cu\/\?t=/i.test(s))return s;if(/[?&]comment=/.test(s))return s;const m=s.match(/(?:app\.)?clickup\.com\/t\/([A-Za-z0-9]+)/i);return m?('https://rosmater.github.io/cu/?t='+m[1]):s};
 const kill=()=>{charts.forEach(c=>c.destroy());charts=[]};
@@ -482,7 +552,7 @@ function periodNav(mode){const list=periodList(mode),ids=list.map(p=>p.id),today
  const ix=i>=0?i:(ci>=0?ci:ids.length-1);
  return {ids,ix,curId,multi:ids.length>1,hasPrev:ix>0,hasNext:ci>=0&&ix>=0&&ix<ci}}
 function shiftPeriod(mode,dir,toOverview){const {ids,ix,curId}=periodNav(mode);if(!ids.length)return;const ci=ids.indexOf(curId);let n=ix+dir;if(n<0)n=0;if(ci>=0&&n>ci)n=ci;if(n>ids.length-1)n=ids.length-1;if(mode==='week')S.week=ids[n];else S.month=ids[n];S.mode=mode;if(toOverview)S.tab='overview';render()}
-function controls(){ensureMode();const isCal=S.tab==='calendar',allow=tabModes(S.tab),top=isCal||S.tab==='messengers'||S.tab==='assistants'||S.tab==='unsorted';const bar=$('#mode');if(bar)bar.hidden=!!isCal;/* Rost t6076u: на Календаре прячем глобальные Сегодня/Неделя/Месяц — переключатель внутри календаря. На остальных вкладках чипы как раньше (t5988u: при одном периоде ряд не прячем). */
+function controls(){ensureMode();const isCal=S.tab==='calendar',allow=tabModes(S.tab),top=isCal||S.tab==='messengers'||S.tab==='assistants'||S.tab==='unsorted';const bar=$('#mode');if(bar)bar.hidden=!!top;/* t6097u: прячем чипы периода, где они не действуют (Календарь, Мессенджеры, Ассистенты, Нерассортированные). Раньше t6076u скрывал только Календарь — на Мессенджерах/Ассистентах чипы висели пустыми. На остальных вкладках чипы как раньше (t5988u: при одном периоде ряд не прячем). */
  document.querySelectorAll('#mode button').forEach(b=>{const vis=top||allow.includes(b.dataset.m);b.hidden=!vis;b.classList.toggle('on',vis&&b.dataset.m===S.mode&&!top);
   const m=b.dataset.m;
   if(m==='week'||m==='month'){const lab=m==='week'?'Неделя':'Месяц';
@@ -603,7 +673,7 @@ function factColsHTML(d,cur){const F=d.fact_1c;if(!F||!F.cols)return '';const $=
  const unitLines=us=>`<div style="margin:4px 0 2px 2px">${us.map(x=>{const name=esc((x.unit||'')+' · '+(x.tenant||'—'));const acc=x.accrued!=null?'начислено '+$(x.accrued):'начислено —';const pd=x.paid!=null?'оплачено '+$(x.paid)+(td(x.paid_dates)?' ('+td(x.paid_dates)+')':''):'оплачено —';const dep=x.deposit?' · залог '+$(x.deposit):'';const debt=x.debt!=null?' · долг '+$(x.debt):'';const ctr=[x.date_in?('с '+x.date_in.slice(8,10)+'.'+x.date_in.slice(5,7)+'.'+x.date_in.slice(0,4)):'',x.date_out?('по '+x.date_out.slice(8,10)+'.'+x.date_out.slice(5,7)+'.'+x.date_out.slice(0,4)):''].filter(Boolean).join(' ');return `<div class="note" style="padding:3px 0;border-top:1px dashed var(--line)">${name}${x.vacant?' · вакантно':''}${x.unconfirmed?' · не подтверждено':''}<br>${acc} · ${pd}${dep}${debt}${ctr?'<br>'+esc(ctr):''}</div>`}).join('')}</div>`;
  const r=(x,inv,b)=>{const l=x[0],c=x[1],p=x[2],u=x[3]&&x[3].units;const lab=u&&u.length?`<details style="margin:0"><summary style="cursor:pointer">${b?'<b>':''}${esc(l)}${b?'</b>':''} <span class="note">${u.length}</span></summary>${unitLines(u)}</details>`:`${b?'<b>':''}${esc(l)}${b?'</b>':''}`;return `<tr><td>${lab}</td><td class="n">${b?'<b>':''}${dlV($(c),c,p,{f:$f,inv,br:true})}${b?'</b>':''}</td></tr>`};
  const col=C=>`<div class="tblwrap"><table><tr><th>${esc(C.h)}</th><th class="n">${esc(F.title.split(' ')[0].toLowerCase())}</th></tr>${C.rows.map(x=>r(x,C.inv)).join('')}${C.total?r(C.total,C.total_inv===false?false:C.inv,true):''}${(C.extra||[]).map(x=>r(x,C.inv)).join('')}</table></div>`;
- return `<div class="card"><h3>Из чего сложилось <span class="st">${esc(F.title)} · к ${esc(F.prev_label)}</span></h3><div class="fact-cols" style="--n:${F.cols.length}">${F.cols.map(col).join('')}</div>${F.result&&F.result.length?`<div class="fact-res">${F.result.map(([l,c,p])=>`<span>${esc(l)}: <b>${dlV($(c),c,p,{f:$f})}</b></span>`).join('')}</div>`:''}</div>`}
+ return `<div class="card"${duAttr('realestate.fact')}><h3>Из чего сложилось <span class="st">${esc(F.title)} · к ${esc(F.prev_label)}</span></h3><div class="fact-cols" style="--n:${F.cols.length}">${F.cols.map(col).join('')}</div>${F.result&&F.result.length?`<div class="fact-res">${F.result.map(([l,c,p])=>`<span>${esc(l)}: <b>${dlV($(c),c,p,{f:$f})}</b></span>`).join('')}</div>`:''}</div>`}
 function finChartGoals(d,cur,m){return `<div class="grid g2"><div class="card"><h3>Доходы и расходы · ${m==='week'?'по неделям':'по месяцам'} (${cur})</h3><div class="chartbox"><canvas id="main-ch"></canvas></div></div><div class="card goals-compact"><h3>Цели vs факт</h3>${goalsHTML(d)}</div></div><div style="height:14px"></div>`}
 function tbkFinLayout(d,s,cur,m){const co=Dash.breakdowns(d).find(b=>/^Компания TBK/.test(b.title||''));/* Rost t5982u/t5985u: график | Цели (компактно) → Компания TBK → Из чего сложилось (таблица на всю ширину) → Приоритеты */
  /* Rost t5987u: график | Цели → Из чего сложилось → Компания TBK → Недели → месяц → Приоритеты */
@@ -614,7 +684,7 @@ function direction(d){if(window.DASH_HELPER&&d.id==='personal'){const h=attnHTML
  const cur=d.id==='realestate'?'EUR':Dash.curOf(d),s=Dash.summary(d,S.mode,Dash.pid(),cur),m=S.mode,ser=Dash.series(d,m,cur,{onlyData:true,last:10});/* Rost t6089u: цифры аренды в EUR, не конвертировать в $ */
  const kp=(l,v,sub,data,color,cls='')=>`<div class="card kpi" style="--glow:${color}"><div class="l">${l}</div><div class="v ${cls}">${v}</div><div class="s">${sub}</div><canvas class="sp" width="160" height="46" data-c="${color}" data-d='${JSON.stringify(data)}'></canvas></div>`;
  /* Rost t5976u/t5977u: ряд статус-плашек под табами («неделя/месяц не закрыт», «свёртка», «итог месяца из источника») убран на всех вкладках */
- let h=scCallsHTML(d.scheduled_calls||(d.board&&d.board.scheduled_calls),d)+scMeetingsHTML(d.scheduled_meetings,d)+attnHTML(d)+ofBlocksHTML(d)+reBlocksHTML(d)+tbkBlocksHTML(d)+persBlocksHTML(d)+pepPlanHTML(d)+pepMonHTML(d,'ads')+pepDlgRepRow(d)+ledgerHTML(d)+pepMonHTML(d,'repeat');/* Rost 25.10: «Требует внимания» выше показателей; мониторы Пептидов под продажами */
+ let h=scCallsHTML(d.scheduled_calls||(d.board&&d.board.scheduled_calls),d)+scMeetingsHTML(d.scheduled_meetings,d)+attnHTML(d)+ofBlocksHTML(d)+reBlocksHTML(d)+tbkBlocksHTML(d)+persBlocksHTML(d)+pepPlanHTML(d)+pepMonHTML(d,'ads')+pepDlgRepRow(d)+ledgerHTML(d)+pepLeadsStripHTML(d)+pepMonHTML(d,'repeat');/* Rost 25.10: «Требует внимания» выше показателей; мониторы Пептидов под продажами */
  if(!d.ledger)h+=`<div class="grid g4">${kp('Доход',fmt(s.income,cur),s.unknownInc?'есть продажи без суммы':'за период',ser.income,'#22d3a6')}${d.payout_col?(()=>{const p=payInfo(s.rec);return kp('Выплата',p?fmt(Dash.conv(p.usdt,'USD',cur),cur):'—',p?((p.label||'USDT моделям')+(p.unpaid?' · без USDT: '+p.unpaid:'')):'выплат с USDT нет',ser.expenses,'#ff5d7a')})():kp('Расходы',s.expensesKnown?fmt(s.expenses,cur):'—',s.expensesKnown?'учтённые':'нет данных о расходах',ser.expenses,'#ff5d7a')}
  ${d.payout_col?kp('Прибыль ±',profitNum(s.profit,cur,d.profit_tip),s.expensesKnown?'доход − выплата':'выплат с USDT нет',ser.profit,d.color,s.profit<0?'neg':''):kp('Прибыль',fmt(s.profit,cur),s.expensesKnown?'доход − расходы':'расходы не учтены',ser.profit,d.color,s.profit<0?'neg':'')}${kp('ROI',s.roi==null?'—':Dash.pct(s.roi),'прибыль / расходы',[],'#38bdf8',s.roi<0?'neg':'pos')}</div><div style="height:14px"></div>`;
  const mt=s.rec&&s.rec.metrics||{};
@@ -776,7 +846,7 @@ function stageLegend(){return `<div class="slegend">${Object.keys(STAGE_T).map(k
 function meFirst(items){const g=[];items.forEach(x=>{if(/^\s*—/.test(itemText(x))&&g.length)g[g.length-1].push(x);else g.push([x])});const me=x=>/^Я:/.test(itemText(x[0]));return g.filter(me).concat(g.filter(x=>!me(x))).flat()}
 function people(d){const ps=d.people||[];
  let h='';/* Rost t1054u 11.11: без серой строки «N чел. · требуют внимания: M» */
- const pc=p=>{const at=p.status==='attention';return `<div class="card person ${at?'at':''}"><div style="display:flex;justify-content:space-between;gap:8px;align-items:center"><div><div style="font-weight:700;font-size:16px">${p.icon||'👤'} ${esc(p.name)}</div><div class="note">${esc(p.role||'')}</div></div><span class="chip ${at?'st-at':'st-ok'}">${at?'🔴 требует внимания':'🟢 ок'}</span></div>
+ const pc=p=>{const at=p.status==='attention';const duAlexa=/Алехандра|Алекса Херр/.test(p.name||'');return `<div class="card person ${at?'at':''}"${duAlexa?duAttr('coaching.alexa'):''}><div style="display:flex;justify-content:space-between;gap:8px;align-items:center"><div><div style="font-weight:700;font-size:16px"${duAlexa?' class="du-slot"':''}>${p.icon||'👤'} ${esc(p.name)}</div><div class="note">${esc(p.role||'')}</div></div><span class="chip ${at?'st-at':'st-ok'}">${at?'🔴 требует внимания':'🟢 ок'}</span></div>
  ${!p.metrics&&p.goal?metricsHTML(p):''}${p.items&&p.items.length?`<ul>${meFirst(p.items).map(x=>{if(typeof x==='string')return `<li>${esc(x)}</li>`;const c=isChk(x);return `<li class="${x.highlight?'it-hi':''} ${c?'done':''}">${x.checkable?`<input type="checkbox" class="ck" ${c?'checked':''} onchange="togChk('${x.id}',this.checked)">`:''}<span>${x.url?`<a href="${esc(cuAppUrl(x.url))}" target="_blank" rel="noopener">${esc(x.text)}</a>`:esc(x.text)}</span></li>`}).join('')}</ul>`:''}${p.metrics?metricsHTML(p):''}${p.cu?[].concat(p.cu).map(c=>`<div style="margin-top:8px"><a href="${cuAppUrl(c.url)}" target="_blank" rel="noopener" style="font-size:13px;color:var(--acc);text-decoration:none">🔗 ${esc(c.label)}</a> <span class="st">${esc(c.status||'')}</span></div>`).join(''):''}${p.note?`<p class="note" style="margin:8px 0 0">${esc(p.note)}</p>`:''}${p.src?`<div class="note" style="font-size:11px;margin-top:6px">источник: ${esc(p.src)}</div>`:''}</div>`};
  ps.forEach(p=>(p.items||[]).filter(x=>x&&typeof x==='object'&&x.highlight).forEach(x=>{const c=isChk(x);h+=`<label class="pin-hi ${c?'done':''}">${x.checkable?`<input type="checkbox" ${c?'checked':''} onchange="togChk('${x.id}',this.checked)">`:''}<span>📌 ${x.url?`<a href="${esc(cuAppUrl(x.url))}" target="_blank" rel="noopener">${esc(x.text)}</a>`:esc(x.text)}</span><span class="chip st-at" style="margin-left:auto">${esc(p.name)}</span></label>`}));
  h+=`<div class="grid g2e"><div class="pcol">${ps.slice(0,1).map(pc).join('')}</div><div class="pcol">${ps.slice(1).map(pc).join('')}</div></div>`;
@@ -989,14 +1059,14 @@ function reBlocksHTML(d){if(d.id!=='realestate'||!d.re_blocks)return '';const B=
 
  let h='';
  /* 1–2) Монитор Solvia (слева) + Цель (справа) в одном ряду — Rost t5965u */
- const cardN=x=>`<div class="card" style="margin:0">${x}</div>`;
+ const cardN=(x,id)=>`<div class="card" style="margin:0"${duAttr(id)}>${x}</div>`;
  let goal='',solv='';
  const G=B.goal;if(G){const F=G.fact||{},fu=F.amount!=null?Dash.conv(F.amount,F.cur,'USD'):null,pc=fu!=null?Math.round(fu/G.main.amount*100):null;
   goal=cardN(`${H('🎯 '+esc(G.title),'основная цель в USD')}
   <div style="display:flex;gap:14px;flex-wrap:wrap;align-items:baseline"><div style="font-size:26px;font-weight:800">${esc(G.main.label)}</div>
   <div class="note">факт ${esc(F.period||'')}: <b>${F.amount!=null?fmt(F.amount,'EUR'):'—'}</b>${fu!=null?' ≈ <b>'+fmt(fu,'USD')+'</b> · '+pc+'% цели':''}${F.partial?' (месяц может быть неполным)':''}</div></div>
   <div class="note">${esc(G.fact_note||'')}</div>
-  <details style="margin-top:8px"><summary style="cursor:pointer;font-weight:700;font-size:13px">Подцели (${G.sub.length})</summary>${G.sub.map(x=>`<div class="task"><span class="pill p-normal">цель</span><div style="flex:1"><b style="font-size:13.5px">${esc(x.text)}</b>${x.kb?`<div class="note">знания: ${esc(x.kb_label||x.kb)} <span class="st">${esc(x.kb)}</span></div>`:''}</div></div>`).join('')}</details>`)}
+  <details style="margin-top:8px"><summary style="cursor:pointer;font-weight:700;font-size:13px">Подцели (${G.sub.length})</summary>${G.sub.map(x=>`<div class="task"><span class="pill p-normal">цель</span><div style="flex:1"><b style="font-size:13.5px">${esc(x.text)}</b>${x.kb?`<div class="note">знания: ${esc(x.kb_label||x.kb)} <span class="st">${esc(x.kb)}</span></div>`:''}</div></div>`).join('')}</details>`,'realestate.goal')}
  const S_=B.solvia;if(S_){const st=S_.status;
   solv=cardN(`${H('🏦 '+esc(S_.title),'письма-алерты + ClickUp')}
   <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">${st==='attention'?'<span class="pill p-urgent">требует внимания</span>':st==='ok'?'<span class="pill" style="background:#e7f8ee;color:#127a3e">🟢 ок — непросмотренных нет, новых объектов нет</span>':'<span class="pill p-normal">нет данных</span>'}
@@ -1033,7 +1103,7 @@ function reBlocksHTML(d){if(d.id!=='realestate'||!d.re_blocks)return '';const B=
  const Pay=B.payments;if(Pay){const months=Pay.months||[],ML=Pay.month_labels||{};
   const cell=c=>{if(!c)return '—';const who=c.tenant?`<div class="note">${esc(c.tenant)}</div>`:'';const vac=c.vacant&&!(c.expected||c.paid)?'<div class="note">вакантно</div>':'';return `${vac}${who}<div>начисл. ${eEUR(c.expected)}</div><div>опл. ${eEUR(c.paid)}${dts(c.paid_dates)?' · '+dts(c.paid_dates):''}${c.unconfirmed?' · не подтв.':''}</div><div>разница ${eEUR(c.diff)}</div><div>${stLab(c.status)}</div>${c.util_paid?`<div class="note">коммун. ${eEUR(c.util_paid)}</div>`:''}${c.deposit_paid?`<div class="note">залог ${eEUR(c.deposit_paid)}</div>`:''}${(c.notes&&c.notes.length)?`<div class="note">${esc(c.notes.join(' · '))}</div>`:''}`};
   const rows=(Pay.rows||[]).map(r=>`<tr><td><b>${esc(r.property)}</b></td><td>${esc(r.unit)}${r.tenant?' · '+esc(r.tenant):''}${r.vacant?' <span class="note">· '+(esc(r.vacant_reason||'вакантно'))+'</span>':''}${r.date_in?`<div class="note">${r.date_in.slice(8,10)+'.'+r.date_in.slice(5,7)+'.'+r.date_in.slice(0,4)}${r.date_out?' – '+r.date_out.slice(8,10)+'.'+r.date_out.slice(5,7)+'.'+r.date_out.slice(0,4):' – '}</div>`:''}</td><td class="n">${eEUR(r.rate)}</td>${months.map(m=>`<td style="font-size:12px;vertical-align:top">${cell(r.months&&r.months[m])}</td>`).join('')}<td class="n">${eEUR(r.debt)}${(r.debt_rent!=null||r.debt_util!=null)?`<div class="note">аренда ${eEUR(r.debt_rent)} · комм. ${eEUR(r.debt_util)}</div>`:''}</td><td>${stLab(r.status)}</td></tr>`).join('');
-  h+=`<details class="card" style="margin-bottom:14px"><summary style="cursor:pointer">${H('💶 '+esc(Pay.title),(months.map(m=>ML[m]||m).join(' · '))+' · EUR')}</summary>
+  h+=`<details class="card" style="margin-bottom:14px"${duAttr('realestate.payments')}><summary style="cursor:pointer">${H('💶 '+esc(Pay.title),(months.map(m=>ML[m]||m).join(' · '))+' · EUR')}</summary>
   <div class="tblwrap" style="margin-top:6px;overflow:auto"><table><tr><th>Объект</th><th>Юнит · жилец</th><th class="n">Ставка / мес.</th>${months.map(m=>`<th>${esc(ML[m]||m)}</th>`).join('')}<th class="n">Долг накопл.</th><th>Сверка</th></tr>${rows}</table></div>
   ${(Pay.notes||[]).map(n=>`<div class="note" style="margin-top:4px">${esc(n)}</div>`).join('')}</details>`}
  const Pr=B.profit;if(Pr){const months=Pr.months||[],ML=Pr.month_labels||{};
@@ -1046,17 +1116,16 @@ function reBlocksHTML(d){if(d.id!=='realestate'||!d.re_blocks)return '';const B=
     <div class="tblwrap" style="margin-top:6px"><table>${head}${row('Доход',b=>b.income)}${row('Расходы',b=>b.expenses)}${catRows}${row('Нетто',b=>b.net)}${row('Маржа %',b=>b.margin_pct,true)}${row('Yield %',()=>null,true)}</table></div>
     ${yb(p.annual&&p.annual['2026'],'2026, год к дате')}${yb(p.annual&&p.annual['2025'],'2025, год')}</details>`};
   const missH=(Pr.properties||[]).map(p=>{const ms=[...new Set([].concat(...(Pr.months||[]).map(m=>((p.monthly&&p.monthly[m]&&p.monthly[m].missing)||[])), (p.annual&&p.annual['2026']&&p.annual['2026'].missing)||[], (p.annual&&p.annual['2025']&&p.annual['2025'].missing)||[]))];return ms.length?`<div style="margin:4px 0"><b>${esc(p.property)}</b><ul style="margin:2px 0 0 18px">${ms.map(x=>'<li>'+esc(x)+'</li>').join('')}</ul></div>`:''}).join('');
-  h+=`<details class="card" style="margin-bottom:14px"><summary style="cursor:pointer">${H('📈 '+esc(Pr.title),'месяц / год · EUR · основа')}</summary>
+  h+=`<details class="card" style="margin-bottom:14px"${duAttr('realestate.profit')}><summary style="cursor:pointer">${H('📈 '+esc(Pr.title),'месяц / год · EUR · основа')}</summary>
   ${(Pr.properties||[]).map(one).join('')}
   <details class="tbk-det"><summary>Пояснения / что подключить</summary>${(Pr.notes||[]).map(n=>`<div class="note" style="margin-top:4px">${esc(n)}</div>`).join('')}${missH}</details></details>`}
  /* 5) Инвесторы */
  const I=B.investors;if(I){h+=card(`${H('🤝 '+esc(I.title),esc(I.src||''))}
-
   ${I.people.map(p=>`<div class="task"><span class="pill p-high">${p.icon||''} ${esc(p.name)}</span><div style="flex:1">${p.items.map(x=>'<b style="font-size:13.5px">'+esc(x)+'</b>').join('<br>')}${p.debt!==undefined?`<div class="note">сумма долга: <b>${p.debt==null?'—':fmt(p.debt,p.debt_cur||'EUR')}</b>${p.debt_note?' · '+esc(p.debt_note):''}</div>`:''}${p.url?`<div class="note">${cul(p.url,'CU: '+(p.cu_label||p.cu))}</div>`:''}</div></div>`).join('')}`)}
  return h}
 function tbkAttn(d){const B=d.tbk_blocks;if(!B)return [];const out=[];/* Rost: attn только то, что требует действия сейчас; пустой 3-й слот и плановое — не attn */
  ((B.decisions&&B.decisions.items)||[]).forEach(x=>{if(x.placeholder||!x.cu||DONE.test(String(x.status||'')))return;if(x.due&&x.due<TODAY)out.push({grp:'🧭 На решение',text:x.slot+' — '+x.name,url:x.url,why:'просрочено',cls:''})});
- /* Rost t6023u: статичные пункты (снимаются вручную) */(B.attn_static||[]).forEach(x=>out.push({grp:x.grp||'⚠️ Табакевич',text:x.text+(x.owner?' · 👤 '+x.owner:''),url:x.url,why:x.why||'',cls:''}));
+ /* Rost t6023u: статичные пункты (снимаются вручную); t6101u: hide_from_helper не на helper */(B.attn_static||[]).forEach(x=>{if(window.DASH_HELPER&&x.hide_from_helper)return;out.push({id:x.id,grp:x.grp||'⚠️ Табакевич',text:x.text+(x.owner?' · 👤 '+x.owner:''),url:x.url,why:x.why||'',cls:''})});
  ((B.opt&&B.opt.problems)||[]).forEach(p=>{if(p.flag&&(p.weeks||0)>=4)out.push({grp:'💳 Дебиторка',text:p.name+' — '+Dash.num(p.amt)+' ₴ без движения '+p.weeks+' срезов',url:B.opt.url,why:'долг стоит',cls:''})});
  return out}
 /* Rost t5963u: текущее vs прошлое — значение мягко зелёное (выше) / приглушённо-красное (ниже) + разница рядом (абс. и %). inv=true: меньше = лучше (долги, ожидание) */
@@ -1078,7 +1147,7 @@ function decisionsBlockHTML(Dc, cardFn){
 }
 function tbkBlocksHTML(d){if(d.id!=='tabakevich'||!d.tbk_blocks)return '';const B=d.tbk_blocks,cur=Dash.curOf(d),$u=v=>v==null?'—':fmt(Dash.conv(v,'USD',cur),cur),n=v=>v==null?'—':esc(Dash.num(v)),uah=v=>v==null?'—':fmt(v,'UAH'),dd=s=>s?s.slice(8,10)+'.'+s.slice(5,7):'—';
  const $f=v=>{const x=Dash.conv(v,'USD',cur);return fmt(Math.abs(x)>=100?Math.round(x):Math.round(x*10)/10,cur)},uf=v=>fmt(Math.round(v),'UAH');
- const H=(t,sub)=>`<h3>${t}${sub?` <span class="st">${sub}</span>`:''}</h3>`,card=x=>`<div class="card" style="margin-bottom:14px">${x}</div>`,cardN=x=>`<div class="card" style="margin:0">${x}</div>`;
+ const H=(t,sub)=>`<h3>${t}${sub?` <span class="st">${sub}</span>`:''}</h3>`,card=(x,id)=>`<div class="card" style="margin-bottom:14px"${duAttr(id)}>${x}</div>`,cardN=x=>`<div class="card" style="margin:0">${x}</div>`;
  const cul=(url,t)=>url?`<a href="${cuAppUrl(url)}" target="_blank" rel="noopener">${esc(t)}</a>`:esc(t);
  const cuL=url=>url?` <a class="note" href="${cuAppUrl(url)}" target="_blank" rel="noopener">CU ↗</a>`:'';
  const mk=v=>v===true?'✅':v===false?'—':'<span class="note">?</span>';
@@ -1116,7 +1185,7 @@ function tbkBlocksHTML(d){if(d.id!=='tabakevich'||!d.tbk_blocks)return '';const 
   ${E.sites.filter(s=>s.organic).map(s=>`<div class="note">🌱 <b>${esc(s.name)}</b> органика: ${esc(s.organic)}</div>`).join('')}${E.sites.filter(s=>s.seo_report).map(s=>`<div class="note">📝 <b>${esc(s.name)}</b> SEO-отчёт: ${esc(s.seo_report)}</div>`).join('')}
   ${E.sites.some(s=>s.speed)?fold('⚡ Скорость по страницам <span class="note">загрузка · PageSpeed моб/деск · LCP/CLS/TBT (моб)</span>',tbl(`<th>Сайт</th>${['home','category','product','sale'].map(p=>`<th class="n">${PGN[p]}</th>`).join('')}`,E.sites.map(s=>`<tr><td><b>${esc(s.name)}</b></td>${['home','category','product','sale'].map(p=>spCell((s.speed||{})[p])).join('')}</tr>`).join(''))+(E.speed_src?`<div class="note">${esc(E.speed_src)}. Красным — загрузка >2 с.</div>`:''),'speed'):''}
   ${/* Rost t6013u: реклама (Google Ads, Денис) → цена заказа по сайтам; таргет SMOK/Пальмы остановлен, ProSale — нет доступа */''}${E.sites.some(s=>s.ads)?sub('📣 Реклама Google Ads → цена заказа (расход · продажи кабинета · $ на продажу · $ на заказ 1С)')+tbl(`<th>Сайт</th>${per(E.periods)}<th class="n">Ноябрь MTD</th>`,E.sites.filter(s=>s.ads).map(s=>{const A=s.ads,c=i=>A.spend[i]==null?'<td class="n"><span class="note">нет расхода</span></td>':`<td class="n"><b>${$f(A.spend[i])}</b><div class="note">${n(A.sales[i])} прод.${A.fact&&A.fact[i]!=null?' (факт '+n(A.fact[i])+')':''} · ${A.cpa[i]!=null?$f(A.cpa[i]):'—'}/прод.</div><div class="note">${A.cpo_1c[i]!=null?$f(A.cpo_1c[i])+' на заказ 1С':''}</div></td>`;const M=A.mtd;return `<tr><td><b>${esc(s.name)}</b><div class="note"><a href="${esc(A.sheet)}" target="_blank" rel="noopener">📊 ${esc(A.sheet_title)} ↗</a></div></td>${E.periods.map((_,i)=>c(i)).join('')}<td class="n">${M?`<b>${$f(M.spend)}</b><div class="note">${esc(M.label)}: ${n(M.sales)} прод. · ${M.cpa!=null?$f(M.cpa):'—'}/прод.</div>`:'<span class="note">нет расхода</span>'}</td></tr>`}).join('')):''}
-  ${/* t6065u: пояснения Ads остаются у таблицы рекламы */notes('notes-ads',E.ads_src?`<div class="note">${esc(E.ads_src)}</div>`:'')}`)}
+  ${/* t6065u: пояснения Ads остаются у таблицы рекламы */notes('notes-ads',E.ads_src?`<div class="note">${esc(E.ads_src)}</div>`:'')}`,'tbk.eshop')}
  /* Rost t6078u: «Оценка сеошников» и «SEO по неделям» сразу под «Интернет-магазин» */
  const ST=B.seo_team;if(ST&&ST.people){const cuA=t=>{const x={id:t.id,name:t.name,url:'https://app.clickup.com/t/'+t.id,due:t.due,status:t.status};if(thHidden(x))return '';return `<div class="task" style="padding:3px 0"><span class="pill p-normal">${esc(t.status||'—')}</span><div style="flex:1">${cul(x.url,t.name)}${t.due?`<div class="note">срок ${dd(t.due)}</div>`:''}${thBtns(x)}</div></div>`};
   const li=a=>(a||[]).length?`<ul style="margin:3px 0 4px 16px;padding:0">${a.map(x=>`<li class="note" style="margin:1px 0;color:inherit">${esc(x)}</li>`).join('')}</ul>`:'';
@@ -1126,12 +1195,12 @@ function tbkBlocksHTML(d){if(d.id!=='tabakevich'||!d.tbk_blocks)return '';const 
    <div style="margin:4px 0;font-size:13px;line-height:1.4"><b>Оценка:</b> ${esc(p.assessment||'')}</div>
    ${sub('Задачи ClickUp')}${(p.cu||[]).map(cuA).join('')||'<div class="note">задач нет</div>'}
    <div class="note" style="font-size:11px">Источник: ${esc(p.src||'')}</div></div>`).join('')}
-   ${ST.weekly_hours?sub(esc(ST.weekly_hours.label))+tbl(`<th>Неделя</th><th class="n">Palm</th><th class="n">Felix</th><th class="n">Hooka</th><th class="n">Итого ч</th><th class="n">Опубл. стр.</th>`,ST.weekly_hours.weeks.map((w,i)=>{const pg=(ST.weekly_hours.pages||[])[i]||{};return `<tr><td>${esc(w.w)}</td><td class="n">${n(w.palm)}</td><td class="n">${n(w.felix)}</td><td class="n">${n(w.hooka)}</td><td class="n"><b>${n(w.palm+w.felix+w.hooka)}</b></td><td class="n">${n(pg.n)}${pg.note?`<div class="note">${esc(pg.note)}</div>`:''}</td></tr>`}).join(''))+'<div class="note">самоотчёт Кирилла; Yaware за окт — 5,26 ч/день активно (≈26 ч/нед)</div>':''}`)}
+   ${ST.weekly_hours?sub(esc(ST.weekly_hours.label))+tbl(`<th>Неделя</th><th class="n">Palm</th><th class="n">Felix</th><th class="n">Hooka</th><th class="n">Итого ч</th><th class="n">Опубл. стр.</th>`,ST.weekly_hours.weeks.map((w,i)=>{const pg=(ST.weekly_hours.pages||[])[i]||{};return `<tr><td>${esc(w.w)}</td><td class="n">${n(w.palm)}</td><td class="n">${n(w.felix)}</td><td class="n">${n(w.hooka)}</td><td class="n"><b>${n(w.palm+w.felix+w.hooka)}</b></td><td class="n">${n(pg.n)}${pg.note?`<div class="note">${esc(pg.note)}</div>`:''}</td></tr>`}).join(''))+'<div class="note">самоотчёт Кирилла; Yaware за окт — 5,26 ч/день активно (≈26 ч/нед)</div>':''}`,'tbk.seo_team')}
  const SW=B.seo_weekly;if(SW&&SW.rows){const pc=v=>v==null?'—':String(v).replace('.',',');
-  im+=card(`${H('📈 '+esc(SW.title),esc(SW.metric))}${tbl(`<th>Сайт</th>${SW.weeks.map(w=>`<th class="n">${esc(w)}</th>`).join('')}`,SW.rows.map(r=>`<tr><td><b>${esc(r.site)}</b><div class="note">${esc(r.src||'')}</div></td>${r.cells.map((c,i)=>{if(!c)return '<td class="n"><span class="note">не снято</span></td>';const pv=i>0?r.cells[i-1]:null;return `<td class="n">${pv?dlV(n(c.clicks),c.clicks,pv.clicks,{f:v=>Dash.num(Math.round(v))}):n(c.clicks)}<div class="note">поз. ${pv?`<span class="${dlCls(c.pos,pv.pos,true)}">${pc(c.pos)}</span>`:pc(c.pos)} · ${esc(c.d)}</div></td>`}).join('')}</tr>`).join(''))}${SW.note?`<div class="note">${esc(SW.note)}</div>`:''}`)}
+  im+=card(`${H('📈 '+esc(SW.title),esc(SW.metric))}${tbl(`<th>Сайт</th>${SW.weeks.map(w=>`<th class="n">${esc(w)}</th>`).join('')}`,SW.rows.map(r=>`<tr><td><b>${esc(r.site)}</b><div class="note">${esc(r.src||'')}</div></td>${r.cells.map((c,i)=>{if(!c)return '<td class="n"><span class="note">не снято</span></td>';const pv=i>0?r.cells[i-1]:null;return `<td class="n">${pv?dlV(n(c.clicks),c.clicks,pv.clicks,{f:v=>Dash.num(Math.round(v))}):n(c.clicks)}<div class="note">поз. ${pv?`<span class="${dlCls(c.pos,pv.pos,true)}">${pc(c.pos)}</span>`:pc(c.pos)} · ${esc(c.d)}</div></td>`}).join('')}</tr>`).join(''))}${SW.note?`<div class="note">${esc(SW.note)}</div>`:''}`,'tbk.seo_weekly')}
 
 /* Rost t6078u: «Выручка по сайтам» — отдельный блок как «Дропшипперы», сразу над ними, свёрнут (t6064u) */
-if(E){im+=`<details class="card" style="margin-bottom:14px" data-k="rev"><summary style="cursor:pointer">${H('Выручка по сайтам','вал. прибыль под суммой · заказы рядом · конверсия зак./уник. посетители')}</summary>
+if(E){im+=`<details class="card" style="margin-bottom:14px" data-k="rev"${duAttr('tbk.eshop_rev')}><summary style="cursor:pointer">${H('Выручка по сайтам','вал. прибыль под суммой · заказы рядом · конверсия зак./уник. посетители')}</summary>
   ${tbl(`<th>Сайт / канал</th>${per(E.periods)}`,
    E.sites.map(s=>`<tr><td>${esc(s.name)}</td>${rgo(s.rev,s.gp,s.orders,s.conv)}</tr>`).join('')+
    (E.own_total?`<tr><td><b>${esc(E.own_total.label)}</b></td>${rgo(E.own_total.rev,E.own_total.gp,E.own_total.orders,E.own_total.conv)}</tr>`:'')+
@@ -1143,12 +1212,12 @@ const Dr=B.dropship;if(Dr){im+=card(`${H('📦 '+esc(Dr.title),'действую
   ${tbl(`<th>Дропшиппер</th><th>с</th>${per(Dr.periods)}`,Dr.list.map(x=>`<tr><td><b>${esc(x.name)}</b>${x.note?`<div class="note">${esc(x.note)}</div>`:''}</td><td>${esc(x.since?x.since.slice(8,10)+'.'+x.since.slice(5,7)+'.'+x.since.slice(2,4):'')}</td>${rgo(x.rev,x.gp,x.orders)}</tr>`).join(''))}${Dr.hidden_note?`<div class="note">${esc(Dr.hidden_note)} — появятся снова при продажах</div>`:''}
   ${Dr.alltime?`<div class="note">${esc(Dr.alltime)}</div>`:''}
   ${Dr.debt&&Dr.debt.length?`<div class="note">Долги дроп-клиентов${Dr.debt_col?' ('+esc(Dr.debt_col)+')':''}: ${Dr.debt.map(x=>esc(x.name)+' <b>'+dlV(uah(x.amt),x.amt,x.prev,{inv:true,f:uf})+'</b>').join(' · ')}</div>`:''}
-  ${Dr.src?`<div class="note">${esc(Dr.src)}</div>`:''}`)}
+  ${Dr.src?`<div class="note">${esc(Dr.src)}</div>`:''}`,'tbk.dropship')}
  const M=B.marketplaces;if(M){im+=card(`${H('🏬 '+esc(M.title),'площадок '+M.list.length)}
   ${tbl(`<th>Площадка</th>${per(M.periods)}`,M.list.map(x=>`<tr><td><b>${esc(x.name)}</b>${x.note?`<div class="note">${esc(x.note)}</div>`:''}</td>${rgoMp(x)}</tr>`).join(''))}${glovoPts(M)}
   ${M.list.some(x=>x.lada)?sub('Площадки — остатки, отмены, отзывы (неделя Лады)')+tbl('<th>Площадка</th><th class="n">В наличии</th><th class="n">Не готово</th><th class="n">В акции</th><th class="n">Продажи нед.</th><th class="n">Отмены</th><th class="n">Отзывы +/− (всего)</th><th class="n">Новые +/−</th><th class="n">Рейтинг</th>',M.list.filter(x=>x.lada).map(x=>{const L=x.lada;return `<tr><td><b>${esc(x.name)}</b><div class="note">нед. ${esc(x.lada_week||'—')}</div></td><td class="n">${n(L.stock)}</td><td class="n">${n(L.notready)}</td><td class="n">${n(L.promo)}</td><td class="n">${L.sales!=null||L.sales_uah!=null?`${L.sales!=null?n(L.sales)+' шт':''}${L.sales_uah!=null?`<div class="note">${uah(L.sales_uah)}</div>`:''}`:'—'}</td><td class="n">${L.cancel!=null?n(L.cancel)+(L.cancel_pct!=null?` <span class="note">(${String(L.cancel_pct).replace('.',',')}%)</span>`:''):'—'}</td><td class="n">${L.rev_good!=null||L.rev_bad!=null?`<span class="vu">${n(L.rev_good)}</span> / <span class="vd">${n(L.rev_bad)}</span>`:'—'}</td><td class="n">${L.new_good!=null||L.new_bad!=null?`+${n(L.new_good)} / −${n(L.new_bad)}`:'—'}</td><td class="n">${L.rating_rev!=null||L.rating_ord!=null?`${L.rating_rev!=null?L.rating_rev+'% отз.':''}${L.rating_ord!=null?'<div class="note">'+L.rating_ord+'% зак.</div>':''}`:'—'}</td></tr>`}).join(''))+(M.lada_src?`<div class="note">${esc(M.lada_src)}</div>`:''):''}
   ${/* Rost t6014u: Розетка — отмены (обязательно) + сверка 1С ↔ площадки */''}${(()=>{const Rf=B.managers&&B.managers.refusals;let x=sub('❌ Розетка — отмены');const RZ=M.rozetka_cancel,pc1=v=>v==null?'—':String(Math.round(v*10)/10).replace('.',',')+'%';if(RZ){x+=tbl('<th>Период</th><th class="n">Заказов</th><th class="n">Отменено</th><th class="n">Сумма отмен</th>',RZ.periods.map(p=>`<tr><td>${esc(p.label)}</td><td class="n">${n(p.orders)}</td><td class="n"><b>${p.approx?'~':''}${n(p.cancelled)}</b> · ${p.approx?'~':''}${pc1(p.pct)}${p.processing_pct!=null?`<div class="note">ещё в обработке ${pc1(p.processing_pct)}</div>`:''}</td><td class="n">${p.sum!=null?uah(p.sum):'—'}</td></tr>`).join(''))+`<div class="note">Причины (окт): ${RZ.reasons.map(r=>esc(r[0])+' <b>'+r[1]+'</b>').join(' · ')}</div><div class="note" style="font-size:11px">Источник: ${esc(RZ.src)}</div>`}x+=Rf?`<div class="note" style="font-size:11px">для сверки — по 1С (отказ в «Состояние», канал Rozetka): ${[Rf.periods.find(p=>p.label==='окт')].filter(Boolean).map(p=>'окт '+n(p.rozetka_refused)+' из '+n(p.rozetka_orders)).join('')}</div>`:'';const rz=M.list.find(z=>z.name==='Rozetka');if(rz&&rz.lada&&rz.lada.cancel!=null)x+=`<div class="note">По таблице Лады (нед. ${esc(rz.lada_week||'—')}): <b>${n(rz.lada.cancel)}</b>${rz.lada.cancel_pct!=null?' ('+String(rz.lada.cancel_pct).replace('.',',')+'%)':''}</div>`;x+=(RZ?'':'<div class="note">Кабинет продавца Розетки (отмены с причинами): ждёт вход в кабинет</div>')+sub('🔄 Сверка 1С ↔ площадки (месяц)')+'<div class="note">Делаю сам раз в месяц: заказы и суммы 1С против кабинетов Розетки, Прома и Fox. Розетка: окт кабинет 1146 заказов / 292 отмены vs 1С 1087 / 147 — разница в разборе; Пром и Fox ждут вход</div>';return x})()}
-  ${M.src?`<div class="note">${esc(M.src)}</div>`:''}`)}
+  ${M.src?`<div class="note">${esc(M.src)}</div>`:''}`,'tbk.marketplaces')}
  const Mg=B.managers;if(Mg){const C=Mg.calls,Ch=Mg.chats,P=Ch.prev||{};const cm=(html,c,p,inv)=>Ch.prev?dlV(html,c,p,{inv,pct:false,f:inv===true&&typeof c==='number'&&typeof p==='number'&&html.indexOf('мин')>0?(v=>Math.round(v)+' мин'):undefined}):html;
   im+=card(`${H('🎧 '+esc(Mg.title),esc(Mg.week))}
   ${sub(`Звонки (Binotel) — оценено ${n(C.scored)} из ${n(C.of)} (вх. ${n(C.inc)} / исх. ${n(C.out)}${C.missed!=null?' / пропущено '+n(C.missed):''})${cuL(C.url)}`)}${C.missed_note?`<div class="note">📵 ${esc(C.missed_note)}</div>`:''}${/* Rost t6014u: перезвоны по пропущенным + скрипт по менеджерам */''}${(C.callbacks||[]).length?(()=>{const fm=m=>m==null?'—':m<120?m+' мин':String(Math.round(m/6)/10).replace('.',',')+' ч';return C.callbacks.map(x=>`<div class="note">📞 <b>Перезвоны ${esc(x.week)}: ${n(x.cb)} из ${n(x.clients)}</b> номеров (пропущено ${n(x.missed)} вх.) · среднее время перезвона <b>${fm(x.avg)}</b> · медиана ${fm(x.med)} · сам дозвонился ${n(x.self)} · без контакта <b style="color:#d9480f">${n(x.none)}</b>${x.by.length?' · перезванивали: '+x.by.map(b=>esc(b.name)+' '+b.n+' ('+fm(b.avg)+')').join(', '):''}</div>${x.never.length?`<details class="tbk-det" data-k="cbn-${esc(x.week)}"><summary class="note">без перезвона и контакта — ${x.never.length} номеров (${esc(x.week)})</summary><div class="note">${x.never.map(z=>esc(z.at)+' · '+esc(z.ph)+(z.misses>1?' ×'+z.misses:'')+' · '+esc(z.line)).join('<br>')}</div></details>`:''}`).join('')+'<div class="note" style="font-size:11px">Перезвон = исходящий на тот же номер ≤48 ч после первого пропуска; время календарное (ночь включена). Обновляется в недельной выгрузке Binotel</div>'})():''}${C.script?sub('Скрипт по менеджерам ('+esc(C.script.week)+', % звонков с «да»)')+tbl('<th>Менеджер</th>'+C.script.elements.map(e=>`<th class="n">${e[1]/* trusted label из генератора, с <br> */}</th>`).join('')+'<th class="n">Физ. магазин:<br>помогли</th>',C.script.people.map(p=>`<tr><td>${esc(p.name)}</td>${C.script.elements.map(e=>{const v=p[e[0]];return `<td class="n">${v==null?'—':`<b style="color:${v<50?'#d9480f':v<80?'#e67700':'#2b8a3e'}">${v}%</b>`}<div class="note">${esc(p[e[0]+'_n']||'')}</div></td>`}).join('')}<td class="n">${p.phys?esc(p.phys):'<span class="note">не было</span>'}</td></tr>`).join(''))+`<div class="note" style="font-size:11px">* приветствие = название магазина + имя · ${esc(C.script.note)}${C.script.phys_how?' · физ. магазин: '+esc(C.script.phys_how):''}</div>`:''}
@@ -1157,7 +1226,7 @@ const Dr=B.dropship;if(Dr){im+=card(`${H('📦 '+esc(Dr.title),'действую
   <div class="note">чатов <b>${cm(n(Ch.chats),Ch.chats,P.chats)}</b> · без ответа <b>${cm(n(Ch.unanswered),Ch.unanswered,P.unanswered,true)}</b> · медиана <b>${cm(esc(Ch.median),dlMin(Ch.median),dlMin(P.median),true)}</b> · >4 ч <b>${cm(n(Ch.gt4h),Ch.gt4h,P.gt4h,true)}</b> · худший ${esc(Ch.worst)} · оценки ${esc(Ch.ratings)}</div>
   ${Ch.prev?`<div class="note">пред. ${esc(P.week)}: чатов ${n(P.chats)} · без ответа ${n(P.unanswered)} · медиана ${esc(P.median)} · >4 ч ${n(P.gt4h)}</div>`:''}
   ${tbl('<th>Менеджер</th><th class="n">Обращений</th><th class="n">Медиана</th><th class="n">>4 ч</th>',Ch.people.map(p=>`<tr><td>${esc(p.name)}</td><td class="n">${n(p.asks)}</td><td class="n">${esc(p.median)}</td><td class="n">${n(p.gt4h)}</td></tr>`).join(''))}
-  ${Mg.resp_trend?`<div class="note">${esc(Mg.resp_trend)}</div>`:''}${Mg.stale_note?`<div class="note">${esc(Mg.stale_note)}</div>`:''}`)}
+  ${Mg.resp_trend?`<div class="note">${esc(Mg.resp_trend)}</div>`:''}${Mg.stale_note?`<div class="note">${esc(Mg.stale_note)}</div>`:''}`,'tbk.managers')}
  const RV=B.reviews;if(RV){const RVclosed=s=>s.status==='closed_perm'||s.status==='closed_temp';
   const RVflag=s=>{if(RVclosed(s))return `<span class="note" style="color:#888">${s.status==='closed_perm'?'закрыто навсегда':'временно закрыто'}</span>`;
    if(s.status==='needs_verify')return `<span class="note" style="color:#888">ИМ · нужно подтверждение карточки</span>`;
@@ -1166,12 +1235,12 @@ const Dr=B.dropship;if(Dr){im+=card(`${H('📦 '+esc(Dr.title),'действую
    const sub=[s.retail?(s.gbp||s.address):'', (!s.mapped&&s.status==='live')?'не сопоставлено с 1С':''].filter(Boolean);
    return `<b>${title}</b>${sub.length?`<div class="note">${esc(sub.join(' · '))}</div>`:''}`;};
   const RVrows=(RV.stores||[]).filter(s=>s.status!=='closed_perm');/* t6067u: закрыто навсегда не показываем; временно закрытые — серым */
-  im+=`<details class="card" style="margin-bottom:14px"><summary style="cursor:pointer">${H('⭐ '+esc(RV.title),esc(RV.subtitle||'точки Google'))}</summary>
+  im+=`<details class="card" style="margin-bottom:14px"${duAttr('tbk.reviews')}><summary style="cursor:pointer">${H('⭐ '+esc(RV.title),esc(RV.subtitle||'точки Google'))}</summary>
   ${tbl('<th>Магазин</th><th class="n">Рейтинг</th><th class="n">Негатив</th><th></th>',RVrows.map(s=>`<tr${RVclosed(s)||s.status==='needs_verify'?' style="color:#888"':''}><td>${RVname(s)}</td><td class="n">${s.rating!=null?String(s.rating).replace('.',','):'—'}${s.reviews!=null?`<div class="note">${n(s.reviews)} отз.</div>`:''}</td><td class="n">${s.neg!=null?n(s.neg):'—'}${s.neg_90!=null?`<div class="note">за 90 дн. ${n(s.neg_90)}</div>`:''}</td><td>${RVflag(s)}</td></tr>`).join(''))}
   ${RV.sheet?`<div class="note"><a href="${esc(RV.sheet)}" target="_blank" rel="noopener">${esc(RV.sheet_label||'таблица отзывов')} ↗</a>${RV.sheet_note?' · '+esc(RV.sheet_note):''}${RV.totals&&RV.totals.unique_neg!=null?' · всего уникальных негативных '+n(RV.totals.unique_neg):''}${RV.totals&&RV.totals.reportable!=null?' · похожи на нарушение правил Google: '+n(RV.totals.reportable):''}</div>`:''}
   ${RV.mapping_note?`<div class="note">${esc(RV.mapping_note)}</div>`:''}
   ${RV.src?`<div class="note" style="font-size:11px">${esc(RV.src)}</div>`:''}</details>`}/* t6067u */
- const OI=B.opt_im;if(OI){im+=card(`${H('📦 '+esc(OI.title),'опт с сайтов')}${(OI.rows||[]).length?'':`<div class="note">${esc(OI.empty||'')}</div>`}${OI.last_known?`<div class="note">${esc(OI.last_known)}</div>`:''}`)}
+ const OI=B.opt_im;if(OI){im+=card(`${H('📦 '+esc(OI.title),'опт с сайтов')}${(OI.rows||[]).length?'':`<div class="note">${esc(OI.empty||'')}</div>`}${OI.last_known?`<div class="note">${esc(OI.last_known)}</div>`:''}`,'tbk.opt_im')}
  if(im)h+=`<div class="tbk-grp"><div class="tbk-grp-h">🛒 Отдел ИМ <span class="note">интернет-магазин · дроп · маркетплейсы · менеджеры</span></div>${im}</div>`;
  /* 7) Розница: все магазины + подблоки Киев и Франшизы (1С помесячно) + Центр «Кальяны» по неделям (BAS) */
  const R=B.retail;if(R){const MO=R.months||['авг','сен','окт'],mo=per(MO);
@@ -1190,7 +1259,7 @@ const Dr=B.dropship;if(Dr){im+=card(`${H('📦 '+esc(Dr.title),'действую
    ${Fr.stores&&Fr.stores.length?`<div class="note" style="margin-top:6px">Долг франшиз (на ${esc(Fr.debt_col)}): <b>${uah(Fr.debt_total)}</b></div>${tbl('<th>Франшиза</th><th class="n">Долг</th>',Fr.stores.map(s=>`<tr><td>${esc(s.name)}</td><td class="n">${dlV(uah(s.debt),s.debt,s.prev,{inv:true,f:uf})}</td></tr>`).join(''))}`:''}
    <div class="note">Продажи по каждой франшизе — нет в источнике</div>`)}
   /* Rost t5982u: Центр «Кальяны» по неделям убран */rh+=`<div class="note" style="margin-top:8px">Чеков: вчера <b>${n(R.checks.yesterday)}</b> · неделя <b>${n(R.checks.week)}</b> · месяц <b>${n(R.checks.month)}</b>${R.checks_note?' ('+esc(R.checks_note)+')':''}</div>`;
-  h+=card(`${H('🏪 '+esc(R.title),R.month_at?'1С на '+esc(R.month_at):'')}${rh}${R.src?`<div class="note" style="margin-top:6px">${esc(R.src)}</div>`:''}`)}
+  h+=card(`${H('🏪 '+esc(R.title),R.month_at?'1С на '+esc(R.month_at):'')}${rh}${R.src?`<div class="note" style="margin-top:6px">${esc(R.src)}</div>`:''}`,'tbk.retail')}
  /* 8) Опт + дебиторка */
  const O=B.opt;if(O){const Db=O.debt,HI=Db.history||[];h+=card(`${H('🚚 '+esc(O.title),'срез '+esc(Db.col))}
   ${O.sales_months?`<div class="grp" style="font-weight:700;font-size:13px;margin:4px 0">Продажи опта по месяцам (1С)</div>${tbl(`<th></th>${per(O.sales_months.months)}`,[['Выручка','rev'],['Валовая прибыль','gp'],['Прибыль опта','res']].map(([l,k])=>{const v=O.sales_months[k]||[];return `<tr><td>${l}</td>${v.map((x,i)=>`<td class="n">${i===2&&v[1]!=null&&x!=null?dlV($u(x),x,v[1],{f:$f,br:true}):$u(x)}</td>`).join('')}</tr>`}).join(''))}<div class="note">По неделям — нет выгрузки BAS по опту</div>`:`<div class="note">Продажи опта: <b>—</b>${O.sales_note?' ('+esc(O.sales_note)+')':''}</div>`}
@@ -1206,7 +1275,7 @@ const Dr=B.dropship;if(Dr){im+=card(`${H('📦 '+esc(Dr.title),'действую
    return `<div class="tbk-2col"><div>${pr}</div><div>${av}</div></div>`})()}
   ${O.suppliers_note?`<div class="note" style="margin-top:4px">${esc(O.suppliers_note)}</div>`:''}
   <details style="margin-top:8px"><summary style="cursor:pointer;font-weight:700;font-size:13px">Долг по срезам (${HI.length})</summary>${tbl('<th>Срез</th><th class="n">Интернет</th><th class="n">Франшиза</th><th class="n">Опт</th><th class="n">Итого</th>',HI.map((x,i)=>{const pv=i>0?HI[i-1]:null,c=k=>pv?`<span class="${dlCls(x[k],pv[k],true)}">${uah(x[k])}</span>`:uah(x[k]);return `<tr><td>${esc(x.col)}</td><td class="n">${c('internet')}</td><td class="n">${c('franchise')}</td><td class="n">${c('opt')}</td><td class="n"><b>${c('total')}</b>${pv?'<br>'+dlTxt(x.total,pv.total,{inv:true,f:uf}):''}</td></tr>`}).join(''))}</details>
-  <div class="note" style="margin-top:6px">${[O.url?cul(O.url,'CU ↗'):'',O.next?esc(O.next):'',O.src?esc(O.src):''].filter(Boolean).join(' · ')}</div>`)}
+  <div class="note" style="margin-top:6px">${[O.url?cul(O.url,'CU ↗'):'',O.next?esc(O.next):'',O.src?esc(O.src):''].filter(Boolean).join(' · ')}</div>`,'tbk.opt')}
  if(B.data_at)h+=`<div class="note" style="margin:-6px 0 14px">${esc(B.data_at)}</div>`;
  return h}
 /* Rost 25.10 ~23:55: блоки «Личное». hide_from_helper → в helper.html не показываем (плюс вырезаются из data-asst при шифровании) */
@@ -1370,7 +1439,7 @@ function ofBlocksHTML(d){if(d.id!=='of'||!d.of_blocks)return '';const B=d.of_blo
   const arpu=x=>x&&x.arpu!=null?`<span class="pill" style="font-size:11px;font-weight:700;padding:2px 7px;line-height:1.2;vertical-align:middle;color:#374151;background:#f3f4f6;border:1px solid #e5e7eb">ARPU ${$u(x.arpu)}</span>`:'';
   const wv=x=>x?`<span style="display:inline-flex;align-items:center;gap:8px;flex-wrap:wrap">${$u(x.net)}${arpu(x)}</span>`:'—';
   const pl=x=>x&&x.payout!=null?`<div style="margin-top:4px;font-size:12.5px">выплата ${$u(x.payout)}${x.payout_rate_label?' <span class="note">'+esc(x.payout_rate_label)+'</span>':''} · прибыль ${profitNum(x.profit==null?null:Dash.conv(x.profit,'USD',cur),cur,x.profit_tip)}</div>`:(x?`<div class="note" style="margin-top:4px">выплат с USDT нет</div>`:'');
-  h+=`<div class="card" style="margin-bottom:14px">${H((tsPart?'Неполная неделя · ':'')+esc(T.title),[T.models_label, tsPart?'ещё идёт':'наш доход'].filter(Boolean).join(' · '))}
+  h+=`<div class="card" style="margin-bottom:14px"${duAttr('of.ts')}>${H((tsPart?'Неполная неделя · ':'')+esc(T.title),[T.models_label, tsPart?'ещё идёт':'наш доход'].filter(Boolean).join(' · '))}
   <div class="grid g3b">${T.cur?tile('⏳ Текущая (неполная)',wv(T.cur),ws(T.cur)+pl(T.cur)):''}${tile('💵 Прошлая неделя',wv(T.last),ws(T.last)+(dlt!=null?' · '+dlTxt(T.last.net,T.prev.net,{f:v=>$u(v)}):'')/* t5963u */+pl(T.last))}${tile('💵 Позапрошлая неделя',wv(T.prev),ws(T.prev)+pl(T.prev))}</div>
   <div class="note" style="margin:6px 0">${esc(T.arpu_note||'')}</div>
   <h5 style="margin:10px 0 4px">${tsPart?'Неполная неделя · ':''}Модели (${T.models.length})${T.models_label?' · '+esc(T.models_label):''}</h5>
@@ -1387,7 +1456,7 @@ function ofBlocksHTML(d){if(d.id!=='of'||!d.of_blocks)return '';const B=d.of_blo
   const lst=(t,xs)=>`<details style="margin-top:8px"><summary style="cursor:pointer;font-weight:700;font-size:13px">${t} (${xs.length})</summary>${xs.length?xs.map(x=>`<div class="task"><span class="pill p-high">${esc(x.cu?x.cu.status:'—')}</span><div style="flex:1"><b style="font-size:13.5px">${esc(x.name)}</b><div class="note">${esc(x.note||'')}${x.cu?` · <a href="${cuAppUrl(x.cu.url)}" target="_blank" rel="noopener">CU</a> · на ком: <b>${esc(x.cu.who)}</b>`:''}</div>${x.cu?thBtns({id:x.cu.id,name:x.name,url:x.cu.url,status:x.cu.status}):''}</div></div>`).join(''):'<div class="empty">пусто</div>'}</details>`;
   const oCols=weekCols([fromCurWeek,O.prev,O.prev2].concat(O.weeks||[]));
   const oCell=(w,fn,kind)=>{const v=fn(w||{});return v==null||v===''?'—':kind==='$'?$u(v):n(v)};
-  h+=`<div class="card" style="margin-bottom:14px">${H(esc(O.title))}
+  h+=`<div class="card" style="margin-bottom:14px"${duAttr('of.oftv')}>${H(esc(O.title))}
   <div class="tblwrap" style="margin-top:6px"><table style="table-layout:fixed;width:100%">${weekColgroup(oCols)}
   <tr><th>Показатель</th>${oCols.map(c=>`<th class="n">${esc(c.title)}${c.label?`<div class="note">${esc(c.label)}</div>`:''}</th>`).join('')}</tr>
   <tr><td>Оборот (-20% OF)</td>${oCols.map(c=>`<td class="n">${oCell(c,w=>w.net,'$')}</td>`).join('')}</tr>
@@ -1427,7 +1496,7 @@ function ofBlocksHTML(d){if(d.id!=='of'||!d.of_blocks)return '';const B=d.of_blo
   const lpGrouped=(()=>{const g={};lpTasks.forEach(t=>{const wk=lpWhoKey(t),fk=lpFreqKey(t);(g[wk]||(g[wk]={}))[fk]?(g[wk][fk].push(t)):(g[wk][fk]=[t]);});const whoOrd=['rost','michelle','sara','other'],freqOrd=['periodic','unique','none'];let out='';whoOrd.forEach(wk=>{if(!g[wk])return;const wm=lpWhoMeta[wk];out+=`<div style="margin-top:10px;padding-top:8px;border-top:1px solid var(--line)">${lpPill(wm.label,wm.c,wm.bg,wm.bd)}</div>`;freqOrd.forEach(fk=>{const list=g[wk][fk];if(!list||!list.length)return;const fm=lpFreqMeta[fk];out+=`<div style="margin:8px 0 4px;font-size:12px;font-weight:700;color:${fm.c}">${fm.label}</div>`+list.map(lpTaskRow).join('');});});return out;})();
   const lpDrop=`<details style="margin-top:10px"><summary style="cursor:pointer;font-weight:700;font-size:13px">📋 Задачи ClickUp по модели (${lpTasks.length})</summary>${lpTasks.length?lpGrouped:'<div class="empty">задач нет</div>'}</details>`;
   const lpSec=(title,rows)=>`<tr><td colspan="${lpN}" style="background:#f4f7fb;font-weight:700;text-align:left">${title}</td></tr>`+rows.map(([lab,fn,kind])=>`<tr><td>${lab}</td>${lpCols.map(c=>`<td class="n">${lpCell(c,fn,kind)}</td>`).join('')}</tr>`).join('');
-  h+=`<div class="card" style="margin-bottom:14px">${H(esc(P.title),esc(P.profile||''))}
+  h+=`<div class="card" style="margin-bottom:14px"${duAttr('of.lolapop')}>${H(esc(P.title),esc(P.profile||''))}
   <div class="tblwrap" style="margin-top:6px"><table style="table-layout:fixed;width:100%">${weekColgroup(lpCols)}
   <tr><th>Показатель</th>${lpCols.map(c=>`<th class="n">${esc(c.title)}${c.label?`<div class="note">${esc(c.label)}</div>`:''}</th>`).join('')}</tr>
   ${lpSec('OnlyFans',[
@@ -1458,7 +1527,7 @@ function ofBlocksHTML(d){if(d.id!=='of'||!d.of_blocks)return '';const B=d.of_blo
   const frN=1+frCols.length;
   const frCell=(w,fn,kind)=>{const v=fn(w||{});if(v==null||v==='')return '—';return kind==='$'?$u(v):n(v)};
   const frSec=(title,rows)=>`<tr><td colspan="${frN}" style="background:#f4f7fb;font-weight:700;text-align:left">${title}</td></tr>`+rows.map(([lab,fn,kind])=>`<tr><td>${lab}</td>${frCols.map(c=>`<td class="n">${frCell(c,fn,kind)}</td>`).join('')}</tr>`).join('');
-  h+=`<div class="card" style="margin-bottom:14px">${H(esc(FR.title||'Fetish Rooms'))}
+  h+=`<div class="card" style="margin-bottom:14px"${duAttr('of.fetish_rooms')}>${H(esc(FR.title||'Fetish Rooms'))}
   <div class="tblwrap" style="margin-top:6px"><table style="table-layout:fixed;width:100%">${weekColgroup(frCols)}
   <tr><th>Показатель</th>${frCols.map(c=>`<th class="n">${esc(c.title)}${c.label?`<div class="note">${esc(c.label)}</div>`:''}</th>`).join('')}</tr>
   ${frSec('Сайты с видео',[
@@ -1468,6 +1537,25 @@ function ofBlocksHTML(d){if(d.id!=='of'||!d.of_blocks)return '';const B=d.of_blo
   </table></div></div>`}
  return h}
 
+
+/* Rost t1092u: баланс Bancolombia на рекламу — проекция в браузере от якоря и burn/день, без ежедневной пересборки */
+function pepAdBalSrc(){const D=Dash.D||{},d=(D.directions||[]).find(x=>x.id==='peptides');return (d&&d.ads_monitor&&d.ads_monitor.ad_balance)||null}
+function pepAdBalNow(){const B=pepAdBalSrc();if(!B||B.anchor_balance==null||!B.as_of)return null;const as=Date.parse(B.as_of);if(Number.isNaN(as))return null;const elapsed=Math.max(0,(Date.now()-as)/864e5),burn=+B.burn_cop_day||0,anchor=+B.anchor_balance||0;let proj=anchor-burn*elapsed;if(proj<0)proj=0;const days=burn?proj/burn:null,run=burn&&anchor>0?new Date(as+(anchor/burn)*864e5):null,cover=B.cover_days||7,planned=B.planned||[],pDay=planned.reduce((s,x)=>s+(+x.cop_day||0),0),pVat=planned.reduce((s,x)=>s+(+x.vat_cop_day||0),0),pDays=planned.reduce((m,x)=>Math.max(m,+x.days||0),0);const cost=(extra,h)=>{const pd=Math.min(pDays,h),rest=Math.max(0,h-pd);return pd*(burn+extra)+rest*burn};return{B,proj,days,run,burn,elapsed,cover,topup:Math.max(0,Math.round(burn*cover-proj)),need:Math.round(burn*cover),topupPlan:Math.max(0,Math.round(cost(pDay,cover)-proj)),topupPlanVat:Math.max(0,Math.round(cost(pDay+pVat,cover)-proj)),pDay,pVat,pDays,planned,alert:B.alert_days||2}}
+function pepAdBalFmt(n){return (typeof Dash!=='undefined'&&Dash.fmt)?Dash.fmt(Math.round(n),'COP'):(Math.round(n).toLocaleString('ru-RU')+' COP')}
+function pepAdBalDays(d){if(d==null)return '—';if(d<=0)return '0 дн.';if(d<1)return Math.round(d*24)+' ч';return d.toFixed(1).replace('.',',')+' дн.'}
+function pepAdBalDate(dt){if(!dt)return '—';const p=new Intl.DateTimeFormat('en-GB',{timeZone:'America/Bogota',day:'2-digit',month:'2-digit',hour:'2-digit',minute:'2-digit',hourCycle:'h23'}).formatToParts(dt),g=t=>(p.find(x=>x.type===t)||{}).value;return g('day')+'.'+g('month')+(g('hour')?(' '+g('hour')+':'+g('minute')):'')}
+function pepAdBalHTML(){const P=pepAdBalNow();if(!P)return '';const warn=P.days!=null&&P.days<=P.alert,out=P.days!=null&&P.days<=0,items=(P.B.items||[]).map(it=>{const vat=it.vat_cop_day?(' + НДС '+pepAdBalFmt(it.vat_cop_day)):'';return esc(it.label||it.id)+' '+pepAdBalFmt(it.cop_day)+vat+'/день'}).join('; '),prepaid=(P.B.prepaid||[]).map(it=>esc(it.label||it.id)+' — предоплата, в расход не входит').join('; '),other=(P.B.other_card||[]).map(it=>esc(it.label||it.id)+' — другая карта, не этот счёт').join('; ');let plan='';if(P.planned.length){const lab=P.planned.map(x=>esc(x.label||x.id)+' '+pepAdBalFmt(x.cop_day)+'/день × '+(x.days||0)+' дн.').join('; ');plan=`<div class="note">С учётом запланированного (${lab}): доложить ${pepAdBalFmt(P.topupPlan)} на ${P.cover} дн.`+(P.pVat?`; с НДС 19% — ${pepAdBalFmt(P.topupPlanVat)}`:'')+'</div>'}const cls='card pepbal'+(out?' out':warn?' warn':'');return `<div id="pep-adbal" class="${cls}" style="margin-bottom:14px"><h3>💰 Баланс Bancolombia на рекламу${warn?` <span class="st" style="color:#b54708;border-color:#f79009">${out?'закончился — пополни':'хватит ≤2 дн. — пополни'}</span>`:''}</h3><div class="pepbal-v">${pepAdBalFmt(P.proj)}</div><div class="note">расход ${pepAdBalFmt(P.burn)}/день · хватит ~${pepAdBalDays(P.days)} · до ~${pepAdBalDate(P.run)} (Богота)</div><div class="note">Чтобы хватило ${P.cover} дн. текущего расхода — доложить ${pepAdBalFmt(P.topup)}</div>${items?`<div class="note">Сейчас: ${items}</div>`:''}${prepaid?`<div class="note">${prepaid}</div>`:''}${other?`<div class="note">${other}</div>`:''}${plan}</div>`}
+function pepAdBalInt(n){return Math.round(n).toLocaleString('ru-RU')}
+function pepAdBalTopup(P){return (P.planned&&P.planned.length)?(P.pVat?P.topupPlanVat:P.topupPlan):P.topup}
+function pepAdBalTipTxt(P){const items=(P.B.items||[]).map(it=>{const vat=it.vat_cop_day?(' + НДС '+pepAdBalFmt(it.vat_cop_day)):'';return (it.label||it.id)+' '+pepAdBalFmt(it.cop_day)+vat+'/день = '+pepAdBalFmt(it.total_cop_day||((+it.cop_day||0)+(+it.vat_cop_day||0)))}).join('; ');const prepaid=(P.B.prepaid||[]).map(it=>(it.label||it.id)+' — предоплата, в расход не входит').join('; ');const bits=['Хватит ~'+pepAdBalDays(P.days)+', закончится ~'+pepAdBalDate(P.run)+' (Богота)','Расход '+pepAdBalFmt(P.burn)+'/день'];if(items)bits.push('Сейчас: '+items);if(prepaid)bits.push(prepaid);bits.push('Пополнить на '+P.cover+' дн. текущего расхода: '+pepAdBalFmt(P.topup));if(P.planned&&P.planned.length){const lab=P.planned.map(x=>(x.label||x.id)+' '+pepAdBalFmt(x.cop_day)+'/день × '+(x.days||0)+' дн.').join('; ');bits.push('С учётом запланированного ('+lab+'): '+pepAdBalFmt(P.topupPlan)+(P.pVat?' · с НДС 19% — '+pepAdBalFmt(P.topupPlanVat):''))}return bits.join('\n')}
+function pepAdBalHdr(){const P=pepAdBalNow();if(!P||P.days==null||P.days>P.alert)return '';const out=P.days<=0,y=pepAdBalTopup(P),short='Пепт: Пополнить BC на '+pepAdBalInt(y)+' · остаток ~'+pepAdBalInt(P.proj),tip=pepAdBalTipTxt(P);return `<div class="bdi ${out?'balout':'bal'}" data-tip="${esc(tip)}" title="${esc(tip)}" onclick="pepAdBalTip(this)">💰 ${esc(short)}<span class="baltip">${esc(tip)}</span></div>`}
+function pepAdBalTip(el){if(!el)return;const on=el.classList.toggle('tipon');document.querySelectorAll('#bdhdr .bdi.tipon').forEach(x=>{if(x!==el)x.classList.remove('tipon')});if(on){try{el.title=''}catch(e){}}else{try{el.title=el.dataset.tip||''}catch(e){}}}
+
+function pepAdBalRefresh(){const box=document.getElementById('pep-adbal');if(!box)return;const h=pepAdBalHTML();if(h)box.outerHTML=h}
+
+/* Rost t1101u: лента лидов WA с рекламы над повторными продажами; по умолчанию прокручена к сегодня */
+function pepLeadsStripHTML(d){if(d.id!=='peptides')return '';const L=d.leads_strip||{};let days=(L.days||[]).slice();const today=(typeof bDay==='function'?bDay(new Date().toISOString()):(typeof TODAY_BOG!=='undefined'?TODAY_BOG:null));if(today&&!days.some(x=>x.date===today))days=days.concat([{date:today,ads:null,total:null,today:true,no_data:true}]);if(!days.length)return '';const dw=x=>['вс','пн','вт','ср','чт','пт','сб'][new Date(x+'T12:00:00Z').getUTCDay()],fd=x=>x.slice(8,10)+'.'+x.slice(5,7),num=v=>v==null?'—':esc(Dash.num(v));const cards=days.map(r=>{const isT=r.date===today||r.today,empty=r.no_data||(r.ads==null&&r.total==null),adsShow=empty||r.ads==null?'—':num(r.ads),approx=!!r.spend_approx,spendLine=r.spend==null?'расход —':('расход '+(approx?'≈':'')+num(r.spend)),cplLine=r.cpl==null?'диалог —':('диалог '+(approx?'≈':'')+num(r.cpl));const tip=r.spend_tip?esc(r.spend_tip).replace(/\n/g,'&#10;'):'';return `<div class="pepleads-card${isT?' today':''}${empty?' nodata':''}" data-d="${esc(r.date)}"${tip?` title="${tip}"`:''}><div class="d">${dw(r.date)} ${fd(r.date)}</div><div class="n">${adsShow}</div><div class="lab">с рекламы</div><div class="tot">всего новых ${r.total==null?'—':num(r.total)}</div><div class="spend">${spendLine}</div><div class="cpl">${cplLine}</div></div>`}).join('');const as=L.as_of?String(L.as_of):'';const asof=as.length>=10?as.slice(8,10)+'.'+as.slice(5,7)+(as.length>16?' '+as.slice(11,16):''):'';return `<div class="card pepleads" id="pepleads" style="margin-bottom:14px"><h3>Лиды WhatsApp с рекламы${asof?` <span class="st">сводка ${esc(asof)}</span>`:''}</h3><div class="pepleads-strip" id="pepleads-strip">${cards}</div></div>`}
+function pepLeadsStripMount(){const el=document.getElementById('pepleads-strip');if(!el)return;const go=()=>{el.scrollLeft=el.scrollWidth};go();requestAnimationFrame(()=>{go();requestAnimationFrame(go)})}
 function pepPlanHTML(d){if(d.id!=='peptides')return '';const cur=Dash.curOf(d),n=v=>v==null?'—':esc(Dash.num(v)),dd=x=>x&&/^20/.test(x)?x.slice(8,10)+'.'+x.slice(5,7)+(x.length>10?' '+x.slice(11,16):''):esc(x||'—');
  const A=d.ads_monitor||{},R=d.repeat_sales||{};
  const act=(A.active||[]).concat(A.scheduled||[]),ar=A.archive||[],T=A.totals||{};
@@ -1564,10 +1652,10 @@ hAds+=`<div class="card adsmon" style="margin-bottom:14px"><h3>📣 Монито
  <details style="margin-top:10px"><summary style="cursor:pointer;font-weight:700;font-size:13px">Без ответа сейчас (${qi.length})</summary>${qi.length?qi.map(x=>`<div class="task"><span class="pill ${Q.stale?'p-high':'p-urgent'}">${x.status==='partial_template_only'?'только шаблон':x.status&&x.status.indexOf('unread')>=0?'не прочитан':'без ответа'}</span><div style="flex:1"><b style="font-size:13.5px">${esc(x.who)}</b> <span class="note">· ${dd(x.since)}</span><div class="note">${esc(x.msg)}${x.note?' · '+esc(x.note):''}</div></div></div>`).join(''):'<div class="empty">Неотвеченных нет</div>'}</details>
  <p class="note" style="margin:8px 0 0">${esc(String(SP.definition||'').replace(/\s*\([^()]*\.(json|md|csv)[^()]*\)/g,''))}<br>обновлено ${dd(Q.as_of)}${Q.stale?' · ⚠️ '+esc(Q.stale_label||''):''}</p></div>`;
  /* Rost 25.10 ~10:25: порядок План работ → Монитор рекламы → Монитор ответов → Итого → Повторные */
- return part==='ads'?hAds:part==='replies'?hQ:part==='repeat'?hRep:hAds+hQ+hRep}
+ return part==='ads'?pepAdBalHTML()+hAds:part==='replies'?hQ:part==='repeat'?hRep:pepAdBalHTML()+hAds+hQ+hRep}
 function directionToday(d){if(window.DASH_HELPER&&d.id==='personal'){const h=attnHTML(d)+persBlocksHTML(d);$('#main').innerHTML=h;return;}/* t6061u */
  const c=calDir(),ev=c?todayEvents(d.id):[],dt=dueToday(d.tasks),ov=overdue(d.tasks),rest=openT(d.tasks).filter(t=>!dt.includes(t)&&!ov.includes(t));
- let h=tabHead(d.id==='peptides'?'':toWeek())+scCallsHTML(d.scheduled_calls||(d.board&&d.board.scheduled_calls),d)+scMeetingsHTML(d.scheduled_meetings,d)+attnHTML(d)+ofBlocksHTML(d)+reBlocksHTML(d)+tbkBlocksHTML(d)+persBlocksHTML(d)+pepPlanHTML(d)+pepMonHTML(d,'ads')+pepDlgRepRow(d)+ledgerHTML(d)+pepMonHTML(d,'repeat');/* Rost 25.10: «Требует внимания» выше показателей; мониторы Пептидов под продажами */
+ let h=tabHead(d.id==='peptides'?'':toWeek())+scCallsHTML(d.scheduled_calls||(d.board&&d.board.scheduled_calls),d)+scMeetingsHTML(d.scheduled_meetings,d)+attnHTML(d)+ofBlocksHTML(d)+reBlocksHTML(d)+tbkBlocksHTML(d)+persBlocksHTML(d)+pepPlanHTML(d)+pepMonHTML(d,'ads')+pepDlgRepRow(d)+ledgerHTML(d)+pepLeadsStripHTML(d)+pepMonHTML(d,'repeat');/* Rost 25.10: «Требует внимания» выше показателей; мониторы Пептидов под продажами */
  h+=`<div class="grid ${c?'g2e':''}">${c?`<div class="card"><div class="today-h"><h3 style="margin:0">📅 Сегодня в календаре</h3>${c?'<button class="tolink" data-calgo="1">таймлайн дня →</button>':''}</div><div style="margin-top:8px">${c?agendaHTML(ev,'Событий этого направления со временем на сегодня нет.'):'<div class="empty">Календарь скрыт</div>'}</div></div>`:''}
  <div class="card"><h3>Приоритеты · задачи ClickUp</h3>${tasksHTML(d.tasks)}</div></div>`;/* Rost t5978u: задачи направления всегда текущий открытый набор, период не фильтрует */
   if((d.monitors||[]).length){const mt=d.monitors_title||'Мониторы',ms=d.monitors_sub||'';h+=`<div style="height:14px"></div><div class="card"><h3>${esc(mt)}${ms?` <span class="st">${esc(ms)}</span>`:''}</h3>${d.monitors.map(x=>{const st=x.status||'planned',pill=st==='active'?'p-normal':'p-high',lab=st==='active'?'работает':st==='attention'?'внимание':'план';return `<div class="task"><span class="pill ${pill}">${lab}</span><div style="flex:1"><b style="font-size:13.5px">${esc(x.name)}</b><div class="note">${esc(x.note||'')}${x.src?' · '+esc(x.src):''}</div></div></div>`}).join('')}</div>`}
@@ -2015,7 +2103,7 @@ function scBogDay(){try{return new Intl.DateTimeFormat('en-CA',{timeZone:'Americ
 let TODAY_BOG=scBogDay();
 function syncBogDay(){TODAY_BOG=scBogDay()}
 /* Rost t5816u: TODAY_BOG живой — иначе вкладка, открытая через полночь, держит вчерашнюю дату и красная плашка не появляется/не снимается. Минутный тик + visibilitychange. */
-function scDayTick(){const prev=TODAY_BOG;syncBogDay();if(prev!==TODAY_BOG){try{keepOpen(render)}catch(e){try{render()}catch(e2){}}}else{try{bdHdr()}catch(e){}}}
+function scDayTick(){const prev=TODAY_BOG;syncBogDay();if(prev!==TODAY_BOG){try{keepOpen(render)}catch(e){try{render()}catch(e2){}}}else{try{bdHdr()}catch(e){}try{pepAdBalRefresh()}catch(e){}}}
 try{if(!window.__scDayTimer){window.__scDayTimer=1;setInterval(scDayTick,60000);document.addEventListener('visibilitychange',()=>{if(!document.hidden)scDayTick()})}}catch(e){}
 const scDay=t=>String((t&&(t.due||t.start))||'').slice(0,10);
 const scKey=t=>String(t.id||t.url||t.name||'')+'|'+scDay(t);
@@ -2042,10 +2130,217 @@ function bdHdr(){try{syncBogDay()}catch(e){}const el=$('#bdhdr');if(!el)return;l
  return `<div class="bdi call">📞 <b style="color:#b42318">Созвон сегодня</b> · ${t.url?`<a href="${esc(cuAppUrl(t.url))}" target="_blank" rel="noopener">${esc(t.name||'созвон')}</a>`:esc(t.name||'созвон')} <span class="note">${tm?esc(tm)+' (Богота)':''}${d&&d.name?' · '+esc(d.name):''}</span><button class="bdbtn" data-k="${esc(scKey(t))}" data-id="${esc(t.id||'')}" data-u="${esc(t.url||'')}" data-due="${esc(scDay(t))}" data-t="${esc(t.name||'')}" data-dir="${esc((d&&d.id)||'')}" data-od="${esc(t.on_done||'comment')}" data-kind="call" onclick="callDone(this)">✅ Созвонились</button></div>`}).join('')}catch(e){}try{const A=bdAll(),ov=A.filter(t=>t.due<TODAY),td=A.filter(t=>t.due===TODAY);
  const d0=new Date(TODAY+'T12:00:00'),end=new Date(d0.getTime()+((7-(d0.getDay()||7))*864e5)).toISOString().slice(0,10);let L=ov.concat(td).concat(A.filter(t=>t.due>TODAY&&t.due<=end));/* Rost t5978u: ДР в шапке статичны (просроченные + сегодня + эта неделя), не зависят от Сегодня/Неделя/Месяц */
   if(L.length){L.sort((a,b)=>a.due.localeCompare(b.due));const fd=x=>x.slice(8,10)+'.'+x.slice(5,7);
-  h+=L.map(t=>{const o=t.due<TODAY,ck=(t.checklist||[]);return `<div class="bdi ${o?'ov':''}">🎂 <a href="${esc(cuAppUrl(t.url))}" target="_blank" rel="noopener">${esc(t.name)}</a> <span class="note">${o?'<b style="color:#d92d20">⚠ просрочено · '+fd(t.due)+'</b>':t.due===TODAY?'сегодня':fd(t.due)}${t.desc?' · '+esc(t.desc):''}</span><button class="bdbtn" data-u="${esc(t.url)}" data-due="${esc(t.due)}" data-t="${esc(t.name)}" onclick="bdDone(this)">🎉 поздравил</button>${ck.length?`<ul>${ck.map(c=>`<li${c.done?' style="text-decoration:line-through;color:#98a2b3"':''}>${c.done?'☑':'☐'} ${esc(c.name)}</li>`).join('')}</ul>`:''}</div>`}).join('')}}catch(e){}el.innerHTML=h;try{bdFit(el)}catch(e){}}
-/* t5865u: текст плашки в .bdt (обрезка ≤2 строк), кнопка справа; полный текст — в title */function bdFit(el){el.querySelectorAll('.bdi').forEach(x=>{const b=x.querySelector(':scope>.bdbtn'),s=document.createElement('span');s.className='bdt';[...x.childNodes].forEach(n=>{if(n!==b)s.appendChild(n)});x.insertBefore(s,b||null);x.title=s.textContent.replace(/\s+/g,' ').trim()})}
+  h+=L.map(t=>{const o=t.due<TODAY,ck=(t.checklist||[]);return `<div class="bdi ${o?'ov':''}">🎂 <a href="${esc(cuAppUrl(t.url))}" target="_blank" rel="noopener">${esc(t.name)}</a> <span class="note">${o?'<b style="color:#d92d20">⚠ просрочено · '+fd(t.due)+'</b>':t.due===TODAY?'сегодня':fd(t.due)}${t.desc?' · '+esc(t.desc):''}</span><button class="bdbtn" data-u="${esc(t.url)}" data-due="${esc(t.due)}" data-t="${esc(t.name)}" onclick="bdDone(this)">🎉 поздравил</button>${ck.length?`<ul>${ck.map(c=>`<li${c.done?' style="text-decoration:line-through;color:#98a2b3"':''}>${c.done?'☑':'☐'} ${esc(c.name)}</li>`).join('')}</ul>`:''}</div>`}).join('')}}catch(e){}try{h+=pepAdBalHdr()}catch(e){}el.innerHTML=h;try{bdFit(el)}catch(e){}}
+/* t5865u: текст плашки в .bdt (обрезка ≤2 строк), кнопка справа; полный текст — в title */function bdFit(el){el.querySelectorAll('.bdi').forEach(x=>{if(x.querySelector(':scope>.bdt'))return;const b=x.querySelector(':scope>.bdbtn'),tip=x.querySelector(':scope>.baltip'),s=document.createElement('span');s.className='bdt';[...x.childNodes].forEach(n=>{if(n!==b&&n!==tip)s.appendChild(n)});x.insertBefore(s,b||tip||null);x.title=x.dataset.tip||s.textContent.replace(/\s+/g,' ').trim()})}
 function bdDone(b){let L={};try{L=JSON.parse(localStorage.getItem('dash_bday_done')||'{}')}catch(e){}L[b.dataset.u]=b.dataset.due;try{localStorage.setItem('dash_bday_done',JSON.stringify(L))}catch(e){}
  tapPush({key:'bday|'+b.dataset.u,channel:'ClickUp',action:'cu_close',kind:'bday',title:b.dataset.t,url:b.dataset.u,due:b.dataset.due,sphere:'done'});bdHdr()}
-function render(){AT_REG=[];try{bdHdr()}catch(e){}setTimeout(()=>{try{tapResync()}catch(e){}},1500);try{maOqApply()}catch(e){}kill();ensureMode();Dash.save();controls();const d=Dash.D.directions.find(x=>x.id===S.tab),td=S.mode==='today';try{d?(d.kind==='msgs'?msgsTab(d):d.kind==='unsorted'?unsortedTab(d):d.kind==='assistants'?asstTab(d):d.kind==='bots'?botsTab(d):d.kind==='people'?people(d):d.kind==='calendar'?calendar(d):d.board?board(d):td?directionToday(d):direction(d)):td?overviewToday():overview()}catch(er){/* Rost t4316: ошибка отрисовки вкладки — не оставлять на экране контент прошлой вкладки */console.error(er);$('#main').innerHTML=`<div class="card"><h3>⚠️ ${esc((d&&d.name)||S.tab)}: ошибка отрисовки</h3><div class="note">${esc(String(er&&er.message||er))}</div></div>`}try{thMount()}catch(e){}$('#foot').textContent=Dash.fxFooter();}
+function render(){AT_REG=[];try{bdHdr()}catch(e){}setTimeout(()=>{try{tapResync()}catch(e){}},1500);try{maOqApply()}catch(e){}kill();ensureMode();Dash.save();controls();const d=Dash.D.directions.find(x=>x.id===S.tab),td=S.mode==='today';try{d?(d.kind==='msgs'?msgsTab(d):d.kind==='unsorted'?unsortedTab(d):d.kind==='assistants'?asstTab(d):d.kind==='bots'?botsTab(d):d.kind==='people'?people(d):d.kind==='calendar'?calendar(d):d.board?board(d):td?directionToday(d):direction(d)):td?overviewToday():overview()}catch(er){/* Rost t4316: ошибка отрисовки вкладки — не оставлять на экране контент прошлой вкладки */console.error(er);$('#main').innerHTML=`<div class="card"><h3>⚠️ ${esc((d&&d.name)||S.tab)}: ошибка отрисовки</h3><div class="note">${esc(String(er&&er.message||er))}</div></div>`}try{thMount()}catch(e){}try{pepLeadsStripMount()}catch(e){}try{DataUpd.afterRender()}catch(e){}$('#foot').textContent=Dash.fxFooter();}
+/* t6093u / t6095u: жёлтая строка «Есть новые данные» + чип ✓ у блока.
+   Жёлтый = ещё не смотрел; после клика чип остаётся серым («Данные просмотрены DD.MM»),
+   строка под «Требует внимания» пропадает. Новые данные снова желтят чип.
+   Первый заход: seen = current, сразу серый чип. Хранилище helper отдельное. */
+const DataUpd = (() => {
+  const LS = window.DASH_HELPER ? 'dash_data_seen_asst_v1' : 'dash_data_seen_v1';
+  const extra = {};
+  let booted = false;
+
+  function bogDay(d) {
+    return new Intl.DateTimeFormat('en-CA', { timeZone: 'America/Bogota', year: 'numeric', month: '2-digit', day: '2-digit' }).format(d || new Date());
+  }
+  function bogDDMM(isoOrDate) {
+    let s;
+    if (typeof isoOrDate === 'string' && /^\d{4}-\d{2}-\d{2}/.test(isoOrDate)) s = isoOrDate.slice(0, 10);
+    else s = bogDay(isoOrDate instanceof Date ? isoOrDate : new Date());
+    const p = s.split('-');
+    return p[2] + '.' + p[1];
+  }
+  function loadSeen() {
+    try { return JSON.parse(localStorage.getItem(LS) || '{}') || {}; } catch (e) { return {}; }
+  }
+  function saveSeen(m) {
+    try { localStorage.setItem(LS, JSON.stringify(m)); } catch (e) {}
+  }
+  function catalog() {
+    const base = ((typeof Dash !== 'undefined' && Dash.D && Dash.D.data_updates) || {}).blocks || [];
+    const by = {};
+    base.forEach(b => { if (b && b.id) by[b.id] = b; });
+    Object.keys(extra).forEach(k => { by[k] = extra[k]; });
+    return Object.keys(by).map(k => by[k]);
+  }
+  function boot() {
+    const list = catalog();
+    if (!list.length && !Object.keys(extra).length) return;
+    const seen = loadSeen();
+    let ch = false;
+    const today = bogDay();
+    list.forEach(b => {
+      if (b && b.id && b.ver && !seen[b.id]) {
+        seen[b.id] = { ver: b.ver, seen_at: today };
+        ch = true;
+      }
+    });
+    if (ch) saveSeen(seen);
+    booted = true;
+  }
+  function stateOf(b) {
+    if (!b || !b.ver) return 'ok';
+    const s = loadSeen()[b.id];
+    if (!s) return 'ok'; // ещё не boot — не жёлтим
+    return s.ver === b.ver ? 'ok' : 'nu';
+  }
+  function unseen(dir) {
+    boot();
+    return catalog().filter(b => {
+      if (dir && b.dir !== dir) return false;
+      return stateOf(b) === 'nu';
+    });
+  }
+  function markSeen(id) {
+    const b = catalog().find(x => x.id === id);
+    if (!b) return;
+    const seen = loadSeen();
+    seen[id] = { ver: b.ver, seen_at: bogDay() };
+    saveSeen(seen);
+  }
+  function tip(b) {
+    const st = stateOf(b);
+    if (st === 'nu') return 'Есть обновления данных — нажми, если посмотрел';
+    const s = loadSeen()[b.id] || {};
+    const dd = s.seen_at ? bogDDMM(s.seen_at) : bogDDMM();
+    return 'Данные просмотрены ' + dd;
+  }
+  function chipHTML(b) {
+    const st = stateOf(b);
+    return `<button type="button" class="du-chip ${st}" data-du-chip="${esc(b.id)}" title="${esc(tip(b))}" aria-label="${esc(tip(b))}">✓</button>`;
+  }
+  function linesHTML(items) {
+    if (!items.length) return '';
+    return `<div class="du-lines">${items.map(b =>
+      `<div class="du-ln" data-du-go="${esc(b.id)}" role="link" tabindex="0">🟡 Есть новые данные — ${esc(b.title || b.id)}</div>`
+    ).join('')}</div>`;
+  }
+  function currentDir() {
+    try { return (typeof S !== 'undefined' && S.tab) || 'overview'; } catch (e) { return 'overview'; }
+  }
+  function placeLines() {
+    const main = document.getElementById('main');
+    if (!main) return;
+    const old = main.querySelector('.du-lines');
+    if (old) old.remove();
+    const tab = currentDir();
+    const items = (tab === 'overview') ? unseen(null) : unseen(tab);
+    const html = linesHTML(items);
+    if (!html) return;
+    const wrap = document.createElement('div');
+    wrap.innerHTML = html;
+    const node = wrap.firstElementChild;
+    const attn = main.querySelector('.attn');
+    const ovsub = document.getElementById('ovsub');
+    const head = main.querySelector('.tab-head');
+    if (attn) attn.insertAdjacentElement('afterend', node);
+    else if (ovsub) ovsub.insertAdjacentElement('afterend', node);
+    else if (head) head.insertAdjacentElement('afterend', node);
+    else main.insertAdjacentElement('afterbegin', node);
+  }
+  function slotFor(root) {
+    return root.querySelector('.du-slot') || root.querySelector(':scope > h3') || root.querySelector('summary h3') || root.querySelector('h3');
+  }
+  function headOf(slot) {
+    let head = slot.querySelector(':scope > .du-head');
+    if (head) return head;
+    head = document.createElement('span');
+    head.className = 'du-head';
+    const stay = n => n.nodeType === 1 && (n.classList.contains('st') || n.classList.contains('bal-lock') || n.classList.contains('du-chip') || n.classList.contains('du-head'));
+    const move = [];
+    [...slot.childNodes].forEach(n => { if (!stay(n)) move.push(n); });
+    move.forEach(n => head.appendChild(n));
+    const st = slot.querySelector(':scope > .st');
+    const lock = slot.querySelector(':scope > .bal-lock');
+    if (st) slot.insertBefore(head, st);
+    else if (lock) slot.insertBefore(head, lock);
+    else slot.insertBefore(head, slot.firstChild);
+    return head;
+  }
+  function paintChips() {
+    document.querySelectorAll('[data-du]').forEach(el => {
+      const id = el.getAttribute('data-du');
+      const b = catalog().find(x => x.id === id);
+      if (!b) return;
+      const slot = slotFor(el);
+      if (!slot) return;
+      const head = headOf(slot);
+      const tmp = document.createElement('div');
+      tmp.innerHTML = chipHTML(b);
+      const node = tmp.firstElementChild;
+      const existing = slot.querySelector('.du-chip');
+      if (existing) existing.replaceWith(node);
+      else head.appendChild(node);
+    });
+  }
+  function bind() {
+    document.querySelectorAll('[data-du-go]').forEach(el => {
+      const go = ev => { ev.preventDefault(); jump(el.getAttribute('data-du-go')); };
+      el.onclick = go;
+      el.onkeydown = ev => { if (ev.key === 'Enter' || ev.key === ' ') go(ev); };
+    });
+    document.querySelectorAll('[data-du-chip]').forEach(el => {
+      el.onclick = ev => {
+        ev.preventDefault();
+        ev.stopPropagation();
+        const id = el.getAttribute('data-du-chip');
+        const b = catalog().find(x => x.id === id);
+        if (!b || stateOf(b) !== 'nu') return;
+        markSeen(id);
+        afterRender();
+      };
+    });
+  }
+  function afterRender() {
+    if (typeof Dash === 'undefined' || !Dash.D) return;
+    boot();
+    placeLines();
+    paintChips();
+    bind();
+  }
+  function jump(id) {
+    const b = catalog().find(x => x.id === id);
+    if (!b) return;
+    try {
+      if (b.dir === 'overview' || b.id === 'overview.balance') {
+        S.tab = 'overview';
+        if (b.id === 'overview.balance') S.oview = 'balance';
+      } else {
+        S.tab = b.dir;
+      }
+    } catch (e) {}
+    try { render(); } catch (e) {}
+    setTimeout(() => {
+      const el = document.querySelector('[data-du="' + id + '"]') || document.getElementById(b.anchor || ('du-' + id.replace(/\./g, '-')));
+      if (!el) return;
+      let p = el;
+      while (p) {
+        if (p.tagName === 'DETAILS') p.open = true;
+        p = p.parentElement;
+      }
+      try { el.scrollIntoView({ behavior: 'smooth', block: 'center' }); } catch (e) { el.scrollIntoView(true); }
+      el.classList.remove('du-flash');
+      void el.offsetWidth;
+      el.classList.add('du-flash');
+      setTimeout(() => el.classList.remove('du-flash'), 1800);
+    }, 80);
+  }
+  function register(b) {
+    if (!b || !b.id || !b.ver) return;
+    extra[b.id] = b;
+    booted = false;
+    boot();
+  }
+  function unregister(id) {
+    delete extra[id];
+  }
+  return { afterRender, register, unregister, jump, unseen, boot, stateOf, catalog, LS };
+})();
+
+
 Dash.load().then(()=>document.fonts.ready).then(()=>calReconLoad()).then(render).catch(e=>{$('#main').innerHTML='<div class="card">Не удалось загрузить data.json: '+esc(e.message)+'</div>'});
 </script></body></html>
