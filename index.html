@@ -1495,7 +1495,7 @@ function ofBlocksHTML(d){if(d.id!=='of'||!d.of_blocks)return '';const B=d.of_blo
   const lpTasks=tsAlive(P.tasks||[]);
   const lpGrouped=(()=>{const g={};lpTasks.forEach(t=>{const wk=lpWhoKey(t),fk=lpFreqKey(t);(g[wk]||(g[wk]={}))[fk]?(g[wk][fk].push(t)):(g[wk][fk]=[t]);});const whoOrd=['rost','michelle','sara','other'],freqOrd=['periodic','unique','none'];let out='';whoOrd.forEach(wk=>{if(!g[wk])return;const wm=lpWhoMeta[wk];out+=`<div style="margin-top:10px;padding-top:8px;border-top:1px solid var(--line)">${lpPill(wm.label,wm.c,wm.bg,wm.bd)}</div>`;freqOrd.forEach(fk=>{const list=g[wk][fk];if(!list||!list.length)return;const fm=lpFreqMeta[fk];out+=`<div style="margin:8px 0 4px;font-size:12px;font-weight:700;color:${fm.c}">${fm.label}</div>`+list.map(lpTaskRow).join('');});});return out;})();
   const lpDrop=`<details style="margin-top:10px"><summary style="cursor:pointer;font-weight:700;font-size:13px">📋 Задачи ClickUp по модели (${lpTasks.length})</summary>${lpTasks.length?lpGrouped:'<div class="empty">задач нет</div>'}</details>`;
-  const lpSec=(title,rows)=>`<tr><td colspan="${lpN}" style="background:#f4f7fb;font-weight:700;text-align:left">${title}</td></tr>`+rows.map(([lab,fn,kind])=>`<tr><td>${lab}</td>${lpCols.map(c=>`<td class="n">${lpCell(c,fn,kind)}</td>`).join('')}</tr>`).join('');
+  const lpSec=(title,rows)=>`<tr><td colspan="${lpN}" style="background:#f4f7fb;font-weight:700;text-align:left">${title}</td></tr>`+rows.map(([lab,fn,kind,sub])=>`<tr><td>${lab}</td>${lpCols.map(c=>`<td class="n">${lpCell(c,fn,kind)}</td>`).join('')}</tr>${sub?`<tr><td colspan="${lpN}" class="note" style="white-space:normal;text-align:left;padding-top:0;border-top:0">${sub}</td></tr>`:''}`).join('');/* Rost t738u: примечание отдельной строкой на всю ширину, не поверх цифр */
   h+=`<div class="card" style="margin-bottom:14px"${duAttr('of.lolapop')}>${H(esc(P.title),esc(P.profile||''))}
   <div class="tblwrap" style="margin-top:6px"><table style="table-layout:fixed;width:100%">${weekColgroup(lpCols)}
   <tr><th>Показатель</th>${lpCols.map(c=>`<th class="n">${esc(c.title)}${c.label?`<div class="note">${esc(c.label)}</div>`:''}</th>`).join('')}</tr>
@@ -1513,7 +1513,7 @@ function ofBlocksHTML(d){if(d.id!=='of'||!d.of_blocks)return '';const B=d.of_blo
     ['ManyVids доход',w=>w.mv,'$'],
     ['Clips4Sale доход',w=>w.c4s,'$']
   ])}
-  ${lpSec('Instagram · количество подписчиков',igAcc.map(a=>['@'+esc(a.handle)+(a.status==='attn'?' '+lpPill('⚠️ требует внимания','#b42318','#fee4e2','#fda29b')+(a.note?'<div class="note">'+esc(a.note)+'</div>':''):a.status==='ok'?' '+lpPill('✓ ок','#0b7a59','#d1fadf','#abefc6'):''),w=>((w.ig||{})[a.handle]??(w.ig||{})[a.handle&&a.handle.replace(/^@/,'')]),'ig']))}
+  ${lpSec('Instagram · количество подписчиков',igAcc.map(a=>['@'+esc(a.handle)+(a.status==='attn'?' '+lpPill('⚠️ требует внимания','#b42318','#fee4e2','#fda29b'):a.status==='ok'?' '+lpPill('✓ ок','#0b7a59','#d1fadf','#abefc6'):''),w=>((w.ig||{})[a.handle]??(w.ig||{})[a.handle&&a.handle.replace(/^@/,'')]),'ig',a.status==='attn'&&a.note?esc(a.note):'']))}
   ${lpSec('Порнстоки',psSites.map(name=>[name,w=>((w.pornstocks||{})[name]),'n']).concat([['Итого просмотров',w=>(w.pornstocks||{}).total,'n']]))}
   </table></div>
   <h5 style="margin:14px 0 4px">Анкеты</h5>
