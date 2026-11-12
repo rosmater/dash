@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-12T02:51:22-05:00",
+  "updated_at": "2026-11-12T08:54:47-05:00",
   "note": "Rost 06.11 t453: «Клиенты в процессе» = все живые диалоги с этапом intro/catalog/deal/call, не только «ждут каталог». Закрытые не держим.",
   "clients_in_progress": [
     {
@@ -26,12 +26,12 @@
     },
     {
       "id": "baird-service-sas",
-      "company": "Baird Service SAS",
+      "company": "Baird Service",
       "contact": "jcguerron@bairdservice.com",
       "status": "need_reply",
       "pipeline": "intro",
       "status_label": "Нужен наш ответ",
-      "note": "Gerente Baird: очень заинтересованы, ждут встречи",
+      "note": "Gerente Baird заинтересован, просит встречу",
       "url": "https://rosmater.github.io/cu/?t=86bbzxnvx",
       "ctx": "dash_reply_upsert 1a1cd05339af3f58"
     },
