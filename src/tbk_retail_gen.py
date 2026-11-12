@@ -66,6 +66,16 @@ R['kyiv'] = {'shops': [{k: s[k] for k in ('name', 'rev', 'gp', 'res')} for s in 
              'total': {'rev': sumv(kyiv, 'rev'), 'gp': sumv(kyiv, 'gp'), 'res': sumv(kyiv, 'res')}}
 R['franchise'] = {'rev': fr['rev'], 'gp': fr['gp'], 'res': fr['res'], 'debt_col': col.replace('на ', ''), 'stores': stores,
                   'debt_total': sum(s['debt'] or 0 for s in stores)}
+# Rost t6145u/t6170u: франшизные магазины по точкам — из BAS OData (src/tbk_franchise_1c.json), не терять при перегенерации
+_FJ = os.path.join(os.path.dirname(__file__), 'tbk_franchise_1c.json')
+if os.path.exists(_FJ):
+    _F = json.load(open(_FJ)); _sh = []
+    for p in _F['points']:
+        _sh.append({'name': p['name'], 'rev': p['rev'], 'gp': [None if a is None or c is None else round(a - c, 2) for a, c in zip(p['rev'], p['cogs'])], 'res': [None] * 3})
+    _sh.sort(key=lambda x: -(x['rev'][2] or 0))
+    R['franchise']['shops'] = _sh
+    R['franchise']['shops_total'] = {'rev': sumv(_sh, 'rev'), 'gp': sumv(_sh, 'gp'), 'res': fr['res']}
+    R['franchise']['shops_src'] = _F['src']
 R['month_at'] = '10.11'
 if opt: B['opt']['sales_months'] = {'months': ['авг', 'сен', 'окт'], 'rev': opt['rev'], 'gp': opt['gp'], 'res': opt['res']}
 json.dump(B, open(J, 'w'), ensure_ascii=False, indent=2)
