@@ -1,18 +1,143 @@
 {
- "_rule": "t6157u (Rost 12.11): каждый бот пишет ТОЛЬКО свои файлы src/ ниже; build.sh собирает все блоки из HEAD (после pull). Чужие файлы не трогать, не откатывать, не 'брать свой файл целиком'. Проверка: bash src/verify_live.sh",
- "blocks": [
-  {"dir": "personal",   "owner": "Секретарь (COMMS)",        "files": ["src/personal_blocks.json","src/personal_meetings.json","src/meetings_exclude.json","src/timed_attn.json","src/overall_balance.json"]},
-  {"dir": "calendar",   "owner": "Секретарь (COMMS)",        "files": ["gcal_dash.json","src/cu_dated.json","src/personal_meetings.json"]},
-  {"dir": "coaching",   "owner": "Секретарь (COMMS)",        "files": ["src/build_data.py"]},
-  {"dir": "tabakevich", "owner": "Секретарь (COMMS)",        "files": ["src/tbk_blocks.json","src/tbk_eshop_inputs.json","src/tbk_orders_1c.json","src/tbk_seo_inputs.json","src/tbk_upsell_1c.json","src/tbk_managers_gen.py"],
-   "html_markers": ["Пропущенные"], "data_markers": ["Франшизные магазины"]},
-  {"dir": "realestate", "owner": "Помощник по всему (Недвижимость/Solvia)", "files": ["src/re_blocks.json","src/re_finance.json","src/re_finance_raw.json","src/re_old_accruals.json"]},
-  {"dir": "of",         "owner": "ОФ-бот (+ Фермовод: farm_status.json)", "files": ["src/of_blocks.json","src/of_balances.json","src/of_calls.json","src/of_cu_tasks.json","src/oftv_week.json","src/lolapop_week.json","src/farm_status.json"]},
-  {"dir": "peptides",   "owner": "Пептид",                    "files": ["src/peptides_cogs.json","src/peptides_expenses.json","src/peptides_first_contact_est.json","src/peptides_first_reply_leads.json","src/peptides_sales.json","src/peptides_tasks.json","src/repeat_tracking.json"],
-   "html_markers": ["pepAdBalHdr","Пополнить BC"], "data_markers": ["ad_balance"]},
-  {"dir": "defense",    "owner": "Оборонные системы",         "files": ["src/defense_unanswered.json","src/defense_clients.json","src/defense_pins.json","src/defense_extra.json","src/defense_failed.json","src/defense_sent_gmail.json"],
-   "data_markers": ["86bd2k3xk"]},
-  {"dir": "messengers", "owner": "Секретарь (COMMS)",        "files": ["src/tg_live.json","src/wa_ukr_live.json","src/wa_esp_live.json","src/viber_live.json","src/ig_direct_live.json","src/ignored_chats.json","src/msg_row_overrides.json","src/msg_sphere_overrides.json","src/messengers_reconcile.json","src/tg_novye_snap_meta.json","src/cu_dir_overrides.json","src/cu_needs_sort.json","src/ma_cu_inbox.json","src/ma_cu_inbox_mcp.json"]},
-  {"dir": "assistants", "owner": "все боты через /workspace/queue/ma_q.py (только add/resolve, не руками)", "files": ["src/ma_clickup.json","src/ma_bots_group.json","src/ma_email_important.json","src/routine_fail_resolved.json"]}
- ]
+  "_rule": "t6157u (Rost 12.11): каждый бот пишет ТОЛЬКО свои файлы src/ ниже; build.sh собирает все блоки из HEAD (после pull). Чужие файлы не трогать, не откатывать, не 'брать свой файл целиком'. Проверка: bash src/verify_live.sh",
+  "blocks": [
+    {
+      "dir": "personal",
+      "owner": "Секретарь (COMMS)",
+      "files": [
+        "src/personal_blocks.json",
+        "src/personal_meetings.json",
+        "src/meetings_exclude.json",
+        "src/timed_attn.json",
+        "src/overall_balance.json"
+      ]
+    },
+    {
+      "dir": "calendar",
+      "owner": "Секретарь (COMMS)",
+      "files": [
+        "gcal_dash.json",
+        "src/cu_dated.json",
+        "src/personal_meetings.json"
+      ]
+    },
+    {
+      "dir": "coaching",
+      "owner": "Секретарь (COMMS)",
+      "files": [
+        "src/build_data.py"
+      ]
+    },
+    {
+      "dir": "tabakevich",
+      "owner": "Секретарь (COMMS)",
+      "files": [
+        "src/tbk_blocks.json",
+        "src/tbk_eshop_inputs.json",
+        "src/tbk_orders_1c.json",
+        "src/tbk_seo_inputs.json",
+        "src/tbk_upsell_1c.json",
+        "src/tbk_managers_gen.py"
+      ],
+      "html_markers": [
+        "Пропущенные"
+      ],
+      "data_markers": [
+        "Франшизные магазины"
+      ]
+    },
+    {
+      "dir": "realestate",
+      "owner": "Помощник по всему (Недвижимость/Solvia)",
+      "files": [
+        "src/re_blocks.json",
+        "src/re_finance.json",
+        "src/re_finance_raw.json",
+        "src/re_old_accruals.json"
+      ]
+    },
+    {
+      "dir": "of",
+      "owner": "ОФ-бот (+ Фермовод: farm_status.json)",
+      "files": [
+        "src/of_blocks.json",
+        "src/of_balances.json",
+        "src/of_calls.json",
+        "src/of_cu_tasks.json",
+        "src/oftv_week.json",
+        "src/lolapop_week.json",
+        "src/farm_status.json",
+        "src/of_payouts_week.json",
+        "src/of_payouts_raw/",
+        "src/lolapop_history/",
+        "src/oftv_history/"
+      ],
+      "note": "of_payouts_week.json и of_payouts_raw/ в gitignore — только локально в dash-gh/src, не удалять."
+    },
+    {
+      "dir": "peptides",
+      "owner": "Пептид",
+      "files": [
+        "src/peptides_cogs.json",
+        "src/peptides_expenses.json",
+        "src/peptides_first_contact_est.json",
+        "src/peptides_first_reply_leads.json",
+        "src/peptides_sales.json",
+        "src/peptides_tasks.json",
+        "src/repeat_tracking.json"
+      ],
+      "html_markers": [
+        "pepAdBalHdr",
+        "Пополнить BC"
+      ],
+      "data_markers": [
+        "ad_balance"
+      ]
+    },
+    {
+      "dir": "defense",
+      "owner": "Оборонные системы",
+      "files": [
+        "src/defense_unanswered.json",
+        "src/defense_clients.json",
+        "src/defense_pins.json",
+        "src/defense_extra.json",
+        "src/defense_failed.json",
+        "src/defense_sent_gmail.json"
+      ],
+      "data_markers": [
+        "86bd2k3xk"
+      ]
+    },
+    {
+      "dir": "messengers",
+      "owner": "Секретарь (COMMS)",
+      "files": [
+        "src/tg_live.json",
+        "src/wa_ukr_live.json",
+        "src/wa_esp_live.json",
+        "src/viber_live.json",
+        "src/ig_direct_live.json",
+        "src/ignored_chats.json",
+        "src/msg_row_overrides.json",
+        "src/msg_sphere_overrides.json",
+        "src/messengers_reconcile.json",
+        "src/tg_novye_snap_meta.json",
+        "src/cu_dir_overrides.json",
+        "src/cu_needs_sort.json",
+        "src/ma_cu_inbox.json",
+        "src/ma_cu_inbox_mcp.json"
+      ]
+    },
+    {
+      "dir": "assistants",
+      "owner": "все боты через /workspace/queue/ma_q.py (только add/resolve, не руками)",
+      "files": [
+        "src/ma_clickup.json",
+        "src/ma_bots_group.json",
+        "src/ma_email_important.json",
+        "src/routine_fail_resolved.json"
+      ]
+    }
+  ]
 }
