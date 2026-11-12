@@ -264,23 +264,23 @@ details.mrow .mbody>.task{padding:5px 0}
 .re-pay .re-pay-note{display:block;color:var(--mut);font-size:10.5px;line-height:1.35;font-weight:400;white-space:normal;overflow-wrap:anywhere}
 .re-pay .re-m{font-size:11px;line-height:1.3;font-variant-numeric:tabular-nums}
 /* Rost t6185u: «Из чего сложилось» — по комнатам таблица, Итого под ней; свёрнутая строка как была */
-td.fact-hasu{white-space:normal;vertical-align:top}
+td.fact-hasu{white-space:normal;vertical-align:top;padding:0}
 .fact-cols .tblwrap{overflow:hidden;max-width:100%}
 .fact-cols table{table-layout:fixed;width:100%;min-width:0}
 .fact-cols th:first-child,.fact-cols td:first-child{white-space:normal;overflow-wrap:anywhere}
 .fact-cols th.n,.fact-cols td.n{width:32%;white-space:nowrap}
 .fact-rooms{margin:0}
-.fact-rooms>summary{cursor:pointer}
-.fact-units{margin:6px 0 2px;min-width:0}
+.fact-rooms>summary{cursor:pointer;list-style:none;display:flex;align-items:flex-start;gap:6px;padding:7px 6px}
+.fact-rooms>summary::-webkit-details-marker,.fact-rooms>summary::marker{display:none;content:none}
+.fact-rooms>summary::before{content:"\25B8";color:#94a3b8;font-size:11px;font-weight:700;flex:none;line-height:1;margin-top:3px}
+.fact-rooms[open]>summary::before{content:"\25BE"}
+.fact-name{flex:1;min-width:0}
+.fact-amt{flex:none;width:32%;text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+.fact-units{margin:0 6px 8px;min-width:0}
 .fact-units table{width:100%;table-layout:fixed;min-width:0}
 .fact-units th,.fact-units td{white-space:normal;overflow-wrap:anywhere;padding:4px 4px;font-size:11.5px;vertical-align:top}
-.fact-units th.n,.fact-units td.n{white-space:nowrap;text-align:right;font-variant-numeric:tabular-nums}
+.fact-units th.n,.fact-units td.n{white-space:nowrap;text-align:right;font-variant-numeric:tabular-nums;width:22%}
 .fact-units-tot{margin-top:4px;font-weight:700;font-size:12.5px}
-/* t6185u: на узком экране раскрытая таблица комнат на всю ширину, сумма строки — «Итого» под ней */
-@media(max-width:720px){
-  .fact-cols tr:has(details.fact-rooms[open])>td.n{display:none}
-  .fact-cols tr:has(details.fact-rooms[open])>td.fact-hasu{width:100%}
-}
 @media(max-width:520px){
   .re-pay th,.re-pay td{padding:4px 2px;font-size:10.5px}
   .re-pay .re-pay-note,.re-pay .note{font-size:9.5px}
@@ -447,7 +447,7 @@ function factColsHTML(d,cur){const F=d.fact_1c;if(!F||!F.cols)return '';const $=
  const fd=s=>s?s.slice(8,10)+'.'+s.slice(5,7)+'.'+s.slice(0,4):'';
  const stU=x=>{const bits=[];if(x.vacant)bits.push('вакантно');if(x.unconfirmed)bits.push('не подтв.');if(x.debt!=null&&x.debt>0)bits.push('долг '+$(x.debt));if(x.deposit)bits.push('залог '+$(x.deposit));return bits.length?bits.join(' · '):'ок'};
  const unitTable=(us,tot)=>{const rows=us.map(x=>{const acc=(x.accrued!=null&&x.accrued!==x.paid)?`<div class="note">начисл. ${$(x.accrued)}</div>`:'';const dates=td(x.paid_dates)?`<div class="note">${td(x.paid_dates)}</div>`:'';const ctr=[x.date_in?('с '+fd(x.date_in)):'',x.date_out?('по '+fd(x.date_out)):''].filter(Boolean).join(' ');const ten=ctr?`<div class="note">${esc(ctr)}</div>`:'';return `<tr><td>${esc(x.unit||'—')}</td><td>${esc(x.tenant||'—')}${ten}</td><td class="n">${x.paid!=null?$(x.paid):'—'}${dates}${acc}</td><td>${stU(x)}</td></tr>`}).join('');return `<div class="fact-units"><table><tr><th>Комната</th><th>Жилец</th><th class="n">Оплачено</th><th>Статус</th></tr>${rows}</table><div class="fact-units-tot">Итого: ${$(tot)}</div></div>`};
- const r=(x,inv,b)=>{const l=x[0],c=x[1],p=x[2],u=x[3]&&x[3].units;const lab=u&&u.length?`<details class="fact-rooms"><summary>${b?'<b>':''}${esc(l)}${b?'</b>':''} <span class="note">${u.length}</span></summary>${unitTable(u,c)}</details>`:`${b?'<b>':''}${esc(l)}${b?'</b>':''}`;return `<tr><td${u&&u.length?' class="fact-hasu"':''}>${lab}</td><td class="n">${b?'<b>':''}${dlV($(c),c,p,{f:$f,inv,br:true})}${b?'</b>':''}</td></tr>`};
+ const r=(x,inv,b)=>{const l=x[0],c=x[1],p=x[2],u=x[3]&&x[3].units,amt=`${b?'<b>':''}${dlV($(c),c,p,{f:$f,inv,br:true})}${b?'</b>':''}`;if(u&&u.length)return `<tr><td class="fact-hasu" colspan="2"><details class="fact-rooms"><summary><span class="fact-name">${b?'<b>':''}${esc(l)}${b?'</b>':''} <span class="note">${u.length}</span></span><span class="fact-amt">${amt}</span></summary>${unitTable(u,c)}</details></td></tr>`;return `<tr><td>${b?'<b>':''}${esc(l)}${b?'</b>':''}</td><td class="n">${amt}</td></tr>`};
  const col=C=>`<div class="tblwrap"><table><tr><th>${esc(C.h)}</th><th class="n">${esc(F.title.split(' ')[0].toLowerCase())}</th></tr>${C.rows.map(x=>r(x,C.inv)).join('')}${C.total?r(C.total,C.total_inv===false?false:C.inv,true):''}${(C.extra||[]).map(x=>r(x,C.inv)).join('')}</table></div>`;
  return `<div class="card"${duAttr('realestate.fact')}><h3>Из чего сложилось <span class="st">${esc(F.title)} · к ${esc(F.prev_label)}</span></h3><div class="fact-cols" style="--n:${F.cols.length}">${F.cols.map(col).join('')}</div>${F.result&&F.result.length?`<div class="fact-res">${F.result.map(([l,c,p])=>`<span>${esc(l)}: <b>${dlV($(c),c,p,{f:$f})}</b></span>`).join('')}</div>`:''}</div>`}
 function finChartGoals(d,cur,m){return `<div class="grid g2"><div class="card"><h3>Доходы и расходы · ${m==='week'?'по неделям':'по месяцам'} (${cur})</h3><div class="chartbox"><canvas id="main-ch"></canvas></div></div><div class="card goals-compact"><h3>Цели vs факт</h3>${goalsHTML(d)}</div></div><div style="height:14px"></div>`}
