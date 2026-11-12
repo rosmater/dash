@@ -1221,7 +1221,8 @@ function ofBlocksHTML(d){if(d.id!=='of'||!d.of_blocks)return '';const B=d.of_blo
   const lpGrouped=(()=>{const g={};lpTasks.forEach(t=>{const wk=lpWhoKey(t),fk=lpFreqKey(t);(g[wk]||(g[wk]={}))[fk]?(g[wk][fk].push(t)):(g[wk][fk]=[t]);});const whoOrd=['rost','michelle','sara','other'],freqOrd=['periodic','unique','none'];let out='';whoOrd.forEach(wk=>{if(!g[wk])return;const wm=lpWhoMeta[wk];out+=`<div style="margin-top:10px;padding-top:8px;border-top:1px solid var(--line)">${lpPill(wm.label,wm.c,wm.bg,wm.bd)}</div>`;freqOrd.forEach(fk=>{const list=g[wk][fk];if(!list||!list.length)return;const fm=lpFreqMeta[fk];out+=`<div style="margin:8px 0 4px;font-size:12px;font-weight:700;color:${fm.c}">${fm.label}</div>`+list.map(lpTaskRow).join('');});});return out;})();
   const lpDrop=`<details style="margin-top:10px"><summary style="cursor:pointer;font-weight:700;font-size:13px">📋 Задачи ClickUp по модели (${lpTasks.length})</summary>${lpTasks.length?lpGrouped:'<div class="empty">задач нет</div>'}</details>`;
   const lpSec=(title,rows)=>`<tr><td colspan="${lpN}" style="background:#f4f7fb;font-weight:700;text-align:left">${title}</td></tr>`+rows.map(([lab,fn,kind,sub])=>`<tr><td>${lab}</td>${lpCols.map(c=>`<td class="n">${lpCell(c,fn,kind)}</td>`).join('')}</tr>${sub?`<tr><td colspan="${lpN}" class="note" style="white-space:normal;text-align:left;padding-top:0;border-top:0">${sub}</td></tr>`:''}`).join('');/* Rost t738u: примечание отдельной строкой на всю ширину, не поверх цифр */
-  h+=`<div class="card" style="margin-bottom:14px"${duAttr('of.lolapop')}>${H(esc(P.title),esc(P.profile||''))}
+  const lpBal=(P.balance_pending!=null||P.balance_current!=null)?`<span class="st lp-bal" style="border:0;padding:0;display:inline-flex;gap:6px;align-items:center;text-transform:none;letter-spacing:0" title="${esc(balNote)}">${lpPill('В холде '+(P.balance_pending==null?'—':$u(P.balance_pending)),'#b54708','#fffaeb','#fedf89')}${lpPill('Доступно к выводу '+(P.balance_current==null?'—':$u(P.balance_current)),'#0b7a59','#d1fadf','#abefc6')}${P.balance_as_of?`<span class="note">обновлено ${ddBal(P.balance_as_of)}</span>`:''}</span>`:'';/* Rost t740u: балансы бейджами в шапке LolaPop, без отдельного блока «Анкеты» */
+  h+=`<div class="card" style="margin-bottom:14px"${duAttr('of.lolapop')}><h3>${esc(P.title)}${lpBal}${P.profile?` <span class="st">${esc(P.profile)}</span>`:''}</h3>
   <div class="tblwrap" style="margin-top:6px"><table style="table-layout:fixed;width:100%">${weekColgroup(lpCols)}
   <tr><th>Показатель</th>${lpCols.map(c=>`<th class="n">${esc(c.title)}${c.label?`<div class="note">${esc(c.label)}</div>`:''}</th>`).join('')}</tr>
   ${lpSec('OnlyFans',[
@@ -1241,11 +1242,6 @@ function ofBlocksHTML(d){if(d.id!=='of'||!d.of_blocks)return '';const B=d.of_blo
   ${lpSec('Instagram · количество подписчиков',igAcc.map(a=>['@'+esc(a.handle)+(a.status==='attn'?' '+lpPill('⚠️ требует внимания','#b42318','#fee4e2','#fda29b'):a.status==='ok'?' '+lpPill('✓ ок','#0b7a59','#d1fadf','#abefc6'):''),w=>((w.ig||{})[a.handle]??(w.ig||{})[a.handle&&a.handle.replace(/^@/,'')]),'ig',a.status==='attn'&&a.note?esc(a.note):'']))}
   ${lpSec('Порнстоки',psSites.map(name=>[name,w=>((w.pornstocks||{})[name]),'n']).concat([['Итого просмотров',w=>(w.pornstocks||{}).total,'n']]))}
   </table></div>
-  <h5 style="margin:14px 0 4px">Анкеты</h5>
-  <div class="tblwrap" style="margin-top:6px"><table><tr><th>Анкета</th><th class="n">В холде</th><th class="n">Доступно к выплате</th></tr>
-  ${(B.own_accounts&&B.own_accounts.length?B.own_accounts:[{name:P.title||'LolaPop',handle:(P.profile||''),current:P.balance_current,pending:P.balance_pending,as_of:P.balance_as_of}]).map(a=>`<tr><td><b>${esc(a.name||'')}</b>${a.handle?' <span class="note">'+esc(a.handle)+'</span>':''}${a.label?' <span class="note">· '+esc(a.label)+'</span>':''}</td>${balCell(a.pending,a.as_of)}${balCell(a.current,a.as_of)}</tr>`).join('')}
-  </table></div>
-  ${ofNotes(balNote)}
   ${lpDrop}</div>`}
  /* 5) Fetish Rooms */
  const FR=B.fetish_rooms;if(FR){const frCols=weekCols(FR.weeks||[]);
