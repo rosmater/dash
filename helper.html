@@ -277,6 +277,11 @@ td.fact-hasu{white-space:normal;vertical-align:top}
 .fact-units th,.fact-units td{white-space:normal;overflow-wrap:anywhere;padding:4px 4px;font-size:11.5px;vertical-align:top}
 .fact-units th.n,.fact-units td.n{white-space:nowrap;text-align:right;font-variant-numeric:tabular-nums}
 .fact-units-tot{margin-top:4px;font-weight:700;font-size:12.5px}
+/* t6185u: на узком экране раскрытая таблица комнат на всю ширину, сумма строки — «Итого» под ней */
+@media(max-width:720px){
+  .fact-cols tr:has(details.fact-rooms[open])>td.n{display:none}
+  .fact-cols tr:has(details.fact-rooms[open])>td.fact-hasu{width:100%}
+}
 @media(max-width:520px){
   .re-pay th,.re-pay td{padding:4px 2px;font-size:10.5px}
   .re-pay .re-pay-note,.re-pay .note{font-size:9.5px}
