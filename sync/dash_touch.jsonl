@@ -1366,3 +1366,4 @@
 {"ts": "2026-11-12T15:17:35-05:00", "bot": "Пептид", "action": "push", "note": "Даш t1092u: баланс Bancolombia на рекламу теперь 984855 COP", "files": []}
 {"ts": "2026-11-12T15:22:13-05:00", "bot": "ОФ Маркетинг", "action": "edit-html", "note": "LolaPop IG note on own row (t738u)", "files": []}
 {"ts": "2026-11-12T15:25:10-05:00", "bot": "ОФ Маркетинг", "action": "edit-html", "note": "LolaPop balances as header badges, drop Анкеты + Herrera (t739u/t740u)", "files": []}
+{"ts": "2026-11-12T15:27:36-05:00", "bot": "ОФ Маркетинг", "action": "edit-html", "note": "LolaPop balance badges quiet light-blue (t741u)", "files": []}
