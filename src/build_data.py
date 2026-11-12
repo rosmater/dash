@@ -814,7 +814,8 @@ for r in _lb['rows']:
     p = _pb.get(r[0])
     note = 'наш доход 0 до 15.01.2027' if r[0] == 'RA185' else ''
     _ts_models.append(dict(ra=r[0], gross=r[1], pct=r[2], net=r[3], fans_new=r[4], prev_net=p[3] if p else None, prev_gross=p[1] if p else None, tasks=ts_tasks, note=note))
-OFB['ts'].update(last=_ts_week(_ts_last), prev=_ts_week(_ts_prev), cur=_ts_week(_ts_cur), models=_ts_models,
+OFB['ts'].update(last=_ts_week(_ts_last), prev=_ts_week(_ts_prev), prev2=_ts_week(_wk_full[-3] if len(_wk_full) > 2 else None), cur=_ts_week(_ts_cur),  # Rost t747u: всегда 3 закрытые недели
+                  models=_ts_models,
                  models_week=(_ts_cur or _ts_last), models_label=(_ts_week(_ts_cur or _ts_last) or {}).get('label'), src=of_src, cu_fetched_at=_OCU['fetched_at'])
 # ОФТВ: задачи по моделям / направлению
 _O = OFB['oftv']; _used = set()
