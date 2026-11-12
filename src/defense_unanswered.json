@@ -1,6 +1,6 @@
 {
   "_note": "Живые ответы компаний (STE). Красный «разобрать» = open (мы не ответили). Жёлтый «ждём ответа» = waiting / awaiting_their_reply (наш ответ ушёл). answered/scheduled — снять с внимания. Пишет ste / Оборонка.",
-  "updated_at": "2026-11-11T10:50:53-05:00",
+  "updated_at": "2026-11-12T02:51:22-05:00",
   "unanswered_replies": [
     {
       "company": "TEREM-Letets / TEREM Holding (Bulgaria)",
@@ -19,6 +19,22 @@
       "msg_id": "1a1bf2b0926f76b7",
       "thread_id": "1a1a5ebf6b23a1f8",
       "last_inbound_msg_id": "1a1bf2b0926f76b7"
+    },
+    {
+      "company": "Baird Service SAS",
+      "from": "jcguerron@bairdservice.com",
+      "subject": "Re: Overhaul y repuestos Mi-8/17 — SpetsTechnoExport",
+      "received_at": "2026-11-11T18:50:20-05:00",
+      "note": "Gerente Baird: очень заинтересованы, ждут встречи",
+      "url": "https://mail.google.com/mail/u/0/#inbox/1a179f84d7f99278",
+      "status": "open",
+      "priority": true,
+      "pipeline": "intro",
+      "status_label": "Нужен наш ответ",
+      "msg_id": "1a1cd05339af3f58",
+      "thread_id": "1a179f84d7f99278",
+      "last_inbound_at": "2026-11-11T18:50:20-05:00",
+      "last_inbound_msg_id": "1a1cd05339af3f58"
     },
     {
       "company": "LOM PRAHA s.p.",
