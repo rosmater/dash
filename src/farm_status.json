@@ -1,14 +1,230 @@
 {
-  "as_of": "2026-11-08",
-  "follows": {"today": 0, "week": null, "month": null},
-  "likes": {"today": null, "week": null, "month": null},
-  "story_views": {"today": null, "week": null, "month": null},
-  "total": {"today": null, "week": null, "month": null},
-  "live_ok": null,
-  "idle": null,
-  "connected": "1/2",
-  "running": "0/2",
-  "accounts": 30,
-  "src": "Onimator UI · Devices 08.11 ~15:05 Bogotá",
-  "note": "Connected 1/2, Running 0/2, 30 акков. Живой 22126RN91Y зелёный, Celular 11 офлайн. Start не поднимает бота, лога за 08.11 нет. Healthy/idle и сторис сегодня не снимал (последний Reports 07.11: 4 healthy / 25 idle; видимые сторис 07.11 = 77)."
+  "as_of": "2026-11-12",
+  "collected_at": "2026-11-12T11:00:40-05:00",
+  "follows": {
+    "today": 0,
+    "week": null,
+    "month": null
+  },
+  "likes": {
+    "today": 0,
+    "week": null,
+    "month": null
+  },
+  "story_views": {
+    "today": 0,
+    "week": null,
+    "month": null
+  },
+  "total": {
+    "today": 0,
+    "week": null,
+    "month": null
+  },
+  "live_ok": 0,
+  "idle": 35,
+  "connected": "3/3",
+  "running": "0/3",
+  "accounts": 36,
+  "replace": 0,
+  "phones": [
+    {
+      "name": "22126RN91Y",
+      "id": "a6hew49dpfdq6d6l",
+      "status": "stopped",
+      "accounts": 10,
+      "follows": 0,
+      "likes": 0,
+      "story_views": 0,
+      "total": 0,
+      "live_ok": null,
+      "idle": null,
+      "replace": null,
+      "src": "Onimator Accounts Today 12.11 ~10:43 Bogotá: 10 акков Follow+Story, все счётчики 0; Start на Devices; 5 warning (al, ap, ar, kennethwilliams7852923, ninjadolphin517)"
+    },
+    {
+      "name": "Celular 11",
+      "id": "DU8XOVINQKE66PFU",
+      "status": "stopped",
+      "accounts": 20,
+      "follows": 0,
+      "likes": 0,
+      "story_views": 0,
+      "total": 0,
+      "live_ok": null,
+      "idle": null,
+      "replace": null,
+      "src": "Accounts Today 12.11: 20 акков только Story, счётчики 0; Start; warning camilamartin926, briellerios21"
+    },
+    {
+      "name": "celular 12",
+      "id": "LV8XLZJJUYT8PIR",
+      "status": "stopped",
+      "accounts": 6,
+      "follows": 0,
+      "likes": 0,
+      "story_views": 0,
+      "total": 0,
+      "live_ok": null,
+      "idle": null,
+      "replace": null,
+      "src": "Devices: зелёный 100%, Start, онлайн (вчера офлайн). 6 акков только Story, счётчики 0; warning bernicej.gandy. Новые: bharvadpujakha868, bhmareddy567, billyee.fedler, bukkamallareddy57."
+    }
+  ],
+  "days": [
+    {
+      "date": "2026-11-08",
+      "follows": 0,
+      "likes": 0,
+      "story_views": 0,
+      "total": 0,
+      "live_ok": 0,
+      "idle": 28,
+      "replace": 0,
+      "src": "Onimator Reports 08.11, просмотр 11.11 ~10:43 Bogotá",
+      "note": "0 attention / 28 idle / 0 healthy (tools on, did nothing). Лог-файлов 08.11 нет ни на 22126RN91Y, ни на Celular 11. Живой снимок 08.11: Connected 1/2, Running 0/2.",
+      "connected": "1/2",
+      "running": "0/2",
+      "accounts": 30
+    },
+    {
+      "date": "2026-11-09",
+      "follows": 0,
+      "likes": null,
+      "story_views": null,
+      "total": null,
+      "live_ok": 5,
+      "idle": 23,
+      "replace": 1,
+      "src": "Onimator Reports 09.11, просмотр 11.11 ~10:44 Bogotá",
+      "note": "1 attention (biraadambaerdenechimeg2026) / 23 idle / 5 healthy. Все видимые Follow-акки в Idle. Лог Celular 11 11-09 есть (139 KB до 23:34); на phone 1 файла 11-09 нет. story_views не снимал (Accounts date picker не трогал)."
+    },
+    {
+      "date": "2026-11-10",
+      "follows": 0,
+      "likes": null,
+      "story_views": null,
+      "total": null,
+      "live_ok": 11,
+      "idle": 16,
+      "replace": 2,
+      "src": "Onimator Reports 10.11, просмотр 11.11 ~10:45 Bogotá",
+      "note": "2 attention (briellerios21, kathleend.curtis) / 16 idle / 11 healthy. Все видимые Follow-акки в Idle. Логи есть: phone 1 241 KB до 23:28, Celular 11 290 KB до 23:00. story_views не снимал."
+    },
+    {
+      "date": "2026-11-11",
+      "follows": 40,
+      "likes": 0,
+      "story_views": 219,
+      "total": 259,
+      "live_ok": 12,
+      "idle": 16,
+      "replace": 8,
+      "src": "Onimator Accounts+Reports 11.11 полный день, просмотр 12.11 ~10:46–10:57 Bogotá",
+      "note": "follows 40 (lolapopbbw_ap 20, lolapopbbw_ar 20), unfollows 0, growth 30d −12. story_views 219 — нижняя оценка, только первые 20 строк Accounts (phone 1 + Celular 11 до brau.n780); 16 акков не листал. Reports 8/16/12, 11 problems, 0 login errors. Attention: kennethwilliams7852923, lolapopbbw_al/ap/ar, ninjadolphin517, briellerios21, camilamartin926, bernicej.gandy.",
+      "phones": [
+        {
+          "name": "22126RN91Y",
+          "id": "a6hew49dpfdq6d6l",
+          "status": "running",
+          "accounts": 10,
+          "follows": 40,
+          "likes": 0,
+          "story_views": 60,
+          "total": 100,
+          "live_ok": 0,
+          "idle": 5,
+          "replace": 5,
+          "src": "Onimator Accounts 11.11 полный день, просмотр 12.11 ~10:57 Bogotá: follows 20+20 у ap/ar; сторис freyamorris501 52 + anthonyevans9498939 8"
+        },
+        {
+          "name": "Celular 11",
+          "id": "DU8XOVINQKE66PFU",
+          "status": "running",
+          "accounts": 20,
+          "follows": 0,
+          "likes": 0,
+          "story_views": 159,
+          "total": 159,
+          "live_ok": null,
+          "idle": null,
+          "replace": 2,
+          "src": "Accounts 11.11 полный день, первый экран до brau.n780: сторис 13+16+8+5+85+32 (burmaschendelg, cathymsummersjik87, laws_on561, elizabethl.978, joannew.myers, brau.n780). Остаток списка не листал — 159 нижняя оценка."
+        },
+        {
+          "name": "celular 12",
+          "id": "LV8XLZJJUYT8PIR",
+          "status": "connected",
+          "accounts": 6,
+          "follows": null,
+          "likes": null,
+          "story_views": null,
+          "total": null,
+          "live_ok": null,
+          "idle": null,
+          "replace": 1,
+          "src": "11.11: bernicej.gandy в Reports Problem (2). Accounts date picker ниже brau.n780 не листал, сторис/follows phone 3 за полный день неизвестны. Лог 11-11 71 KB до 23:23."
+        }
+      ],
+      "accounts": 36
+    },
+    {
+      "date": "2026-11-12",
+      "follows": 0,
+      "likes": 0,
+      "story_views": 0,
+      "total": 0,
+      "live_ok": 0,
+      "idle": 35,
+      "replace": 0,
+      "src": "Onimator Accounts+Reports+Devices 12.11 ~10:36–11:00 Bogotá",
+      "note": "Неполный день. Connected 3/3 Running 0/3, 36 акка. Сегодня follows/likes/story 0. Reports 0/35/0 (36 акков, 1 не в трёх корзинах). На Accounts ещё 8 треугольников — те же problem с 11.11. Логи сегодня по 1 KB после полуночи. License dialog на Manage телефонов 2 и 3.",
+      "phones": [
+        {
+          "name": "22126RN91Y",
+          "id": "a6hew49dpfdq6d6l",
+          "status": "stopped",
+          "accounts": 10,
+          "follows": 0,
+          "likes": 0,
+          "story_views": 0,
+          "total": 0,
+          "live_ok": null,
+          "idle": null,
+          "replace": null,
+          "src": "Onimator Accounts Today 12.11 ~10:43 Bogotá: 10 акков Follow+Story, все счётчики 0; Start на Devices; 5 warning (al, ap, ar, kennethwilliams7852923, ninjadolphin517)"
+        },
+        {
+          "name": "Celular 11",
+          "id": "DU8XOVINQKE66PFU",
+          "status": "stopped",
+          "accounts": 20,
+          "follows": 0,
+          "likes": 0,
+          "story_views": 0,
+          "total": 0,
+          "live_ok": null,
+          "idle": null,
+          "replace": null,
+          "src": "Accounts Today 12.11: 20 акков только Story, счётчики 0; Start; warning camilamartin926, briellerios21"
+        },
+        {
+          "name": "celular 12",
+          "id": "LV8XLZJJUYT8PIR",
+          "status": "stopped",
+          "accounts": 6,
+          "follows": 0,
+          "likes": 0,
+          "story_views": 0,
+          "total": 0,
+          "live_ok": null,
+          "idle": null,
+          "replace": null,
+          "src": "Devices: зелёный 100%, Start, онлайн (вчера офлайн). 6 акков только Story, счётчики 0; warning bernicej.gandy. Новые: bharvadpujakha868, bhmareddy567, billyee.fedler, bukkamallareddy57."
+        }
+      ]
+    }
+  ],
+  "src": "Onimator UI · Devices/Accounts/Reports 12.11 ~10:36–11:00 Bogotá (Фермовод)",
+  "note": "Connected 3/3, Running 0/3, 36 акка, 3 телефона онлайн. Сегодня follows/likes/story 0, ферма не запущена (везде Start). celular 12 онлайн, 6 акков (вчера 2 офлайн). 11.11 полный день: follows 40 (ap 20, ar 20), growth −12, сторис ≥219 (первый экран), Reports 8/16/12. Лицензия: Manage на телефонах 2–3 блокируется («valid license / do not exceed allowed number of devices»); лицензия ранее была до 12.11. Логи сегодня ~1 KB с полуночи на всех трёх."
 }

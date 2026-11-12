@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 """Merge src/farm_status.json into of_blocks.farm without wiping earlier days.
 
+Optional farm_status.days (list[{date,...}] or dict) is merged into farm.days;
+days not present in the snapshot are kept. Current as_of still wins for that day.
+
 Also computes farm.health = {ok, reasons[], checked_at} for capture problems
 (Rost t5821u). Operational Seider/Onimator issues stay with Фермовод — we only
 flag problems with the dash capture/snapshot itself.
@@ -136,6 +139,35 @@ def compute_health(st: dict | None, *, missing: bool = False, unreadable: str | 
     return {"ok": len(uniq) == 0, "reasons": uniq, "checked_at": checked}
 
 
+
+def _days_from_status(st: dict) -> dict:
+    """Parse optional farm_status.days (list of {date|as_of,...} or date-keyed dict)."""
+    raw = st.get("days")
+    items: list[tuple[str, dict]] = []
+    if isinstance(raw, list):
+        for item in raw:
+            if not isinstance(item, dict):
+                continue
+            d = item.get("date") or item.get("as_of")
+            if d:
+                items.append((str(d)[:10], item))
+    elif isinstance(raw, dict):
+        for d, item in raw.items():
+            if isinstance(item, dict) and d:
+                items.append((str(d)[:10], item))
+    out = {}
+    keys = ("follows", "likes", "story_views", "total", "live_ok", "idle", "replace",
+            "src", "note", "connected", "running", "accounts", "phones", "collected_at")
+    for d, item in items:
+        rec = {}
+        for k in keys:
+            if k in item:
+                rec[k] = item.get(k)
+        if rec:
+            out[d] = rec
+    return out
+
+
 def main() -> int:
     missing = not STATUS.exists()
     unreadable = None
@@ -199,6 +231,9 @@ def main() -> int:
     if st.get("collected_at"):
         day_rec["collected_at"] = st.get("collected_at")
     days[as_of] = day_rec
+    # farm_status.days (list[{date,...}] or dict) — дописать историю, не затирая дни вне снимка
+    days.update(_days_from_status(st))
+    days[as_of] = day_rec  # current as_of побеждает, если тот же день есть в days[]
     farm["days"] = days
     current = {
         "as_of": as_of,
