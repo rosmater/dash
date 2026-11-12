@@ -1,6 +1,6 @@
 {
- "generated": "2026-11-10 22:42",
- "source": "live filter_tasks 2026-11-10 (t5019+t5594u); base mapping cu-rost-dated.csv 27.10; cu_due_sync",
+ "generated": "2026-11-11 09:16",
+ "source": "live filter_tasks 2026-11-11 (t5019+t5594u); base mapping cu-rost-dated.csv 27.10",
  "note": "TZ cu-dash-sort §2: mapped, not shown elsewhere on dash",
  "by_dir": {
   "personal": [
@@ -555,33 +555,6 @@
     "bday": false
    },
    {
-    "id": "86b6tvyc7",
-    "name": "БОТ: Дима долг собрать/напоминать/брать сроки",
-    "url": "https://app.clickup.com/t/86b6tvyc7",
-    "status": "to do",
-    "due": "2026-11-12",
-    "due_t": "04:00",
-    "parent": "86b6qq42y",
-    "list": "Personal",
-    "cat": "Личное",
-    "lead": "bot",
-    "bday": false
-   },
-   {
-    "id": "86bcgc3ze",
-    "name": "ЗАПИСЬ НА СОЗВОН С СОЗВОН Ed (JERZ) Slash банк Novax — вт 20.10 15:00 CO",
-    "url": "https://app.clickup.com/t/86bcgc3ze",
-    "status": "to do",
-    "due": "2026-11-12",
-    "due_t": "04:00",
-    "parent": "",
-    "list": "Personal",
-    "cat": "Личное",
-    "lead": "manual",
-    "bday": false,
-    "priority": "urgent"
-   },
-   {
     "id": "86b791c31",
     "name": "Женя Соларгепс поздравить с ДР",
     "url": "https://app.clickup.com/t/86b791c31",
@@ -635,20 +608,6 @@
     "priority": "normal"
    },
    {
-    "id": "86bcnrmt7",
-    "name": "🥊 Бокс 10:00–11:30 (Johann Ruiz)",
-    "url": "https://app.clickup.com/t/86bcnrmt7",
-    "status": "to do",
-    "due": "2026-11-12",
-    "due_t": "11:30",
-    "parent": "",
-    "list": "Personal",
-    "cat": "Личное",
-    "lead": "manual",
-    "bday": false,
-    "priority": "normal"
-   },
-   {
     "id": "86bcma7tp",
     "name": "Найти лофт побольше в Base Loft (долгосрочная аренда)",
     "url": "https://app.clickup.com/t/86bcma7tp",
@@ -660,20 +619,6 @@
     "cat": "Личное",
     "lead": "bot",
     "bday": false
-   },
-   {
-    "id": "86b7k95k6",
-    "name": "Ежедневный чеклист + привычки (помнить 1 час от подготовки к сну)",
-    "url": "https://app.clickup.com/t/86b7k95k6",
-    "status": "to do",
-    "due": "2026-11-11",
-    "due_t": "04:00",
-    "parent": "",
-    "list": "Personal",
-    "cat": "Личное",
-    "lead": "manual",
-    "bday": false,
-    "priority": "normal"
    },
    {
     "id": "86b7j38pw",
@@ -688,6 +633,61 @@
     "lead": "manual",
     "bday": false,
     "priority": "urgent"
+   },
+   {
+    "id": "86b6tvyc7",
+    "name": "БОТ: Дима долг собрать/напоминать/брать сроки",
+    "url": "https://app.clickup.com/t/86b6tvyc7",
+    "status": "to do",
+    "due": "2026-11-12",
+    "due_t": "04:00",
+    "parent": "86b6qq42y",
+    "list": "Personal",
+    "cat": "Личное",
+    "lead": "bot",
+    "bday": false
+   },
+   {
+    "id": "86bcgc3ze",
+    "name": "ЗАПИСЬ НА СОЗВОН С Ed (JERZ) Slash банк Novax — чт 12.11 12:30–13:00 CO",
+    "url": "https://app.clickup.com/t/86bcgc3ze",
+    "status": "to do",
+    "due": "2026-11-12",
+    "due_t": "04:00",
+    "parent": "",
+    "list": "Personal",
+    "cat": "Личное",
+    "lead": "manual",
+    "bday": false,
+    "priority": "urgent"
+   },
+   {
+    "id": "86b7k95k6",
+    "name": "Ежедневный чеклист + привычки (помнить 1 час от подготовки к сну)",
+    "url": "https://app.clickup.com/t/86b7k95k6",
+    "status": "to do",
+    "due": "2026-11-12",
+    "due_t": "04:00",
+    "parent": "",
+    "list": "Personal",
+    "cat": "Личное",
+    "lead": "manual",
+    "bday": false,
+    "priority": "normal"
+   },
+   {
+    "id": "86bcnrmt7",
+    "name": "🥊 Бокс 10:00–11:30 (Johann Ruiz)",
+    "url": "https://app.clickup.com/t/86bcnrmt7",
+    "status": "to do",
+    "due": "2026-11-12",
+    "due_t": "11:30",
+    "parent": "",
+    "list": "Personal",
+    "cat": "Личное",
+    "lead": "manual",
+    "bday": false,
+    "priority": "normal"
    },
    {
     "id": "86b7gjjgb",
@@ -2726,46 +2726,6 @@
     "priority": "normal"
    },
    {
-    "id": "86b6k34a6",
-    "name": "БОТ: Локаль ремонт (перевод в жилое) - Анатолий как дела?",
-    "url": "https://app.clickup.com/t/86b6k34a6",
-    "status": "to do",
-    "due": "2026-11-12",
-    "due_t": "04:00",
-    "parent": "",
-    "list": "Покупка, Ремонт, Продажа-Сдача",
-    "cat": "Недвижимость",
-    "lead": "bot",
-    "bday": false,
-    "priority": "normal"
-   },
-   {
-    "id": "86b6k2zug",
-    "name": "ОЛЯ ПОХОД - БОТ: Оксана бухгалтер жду - Проверить возврат налога (Шейх)",
-    "url": "https://app.clickup.com/t/86b6k2zug",
-    "status": "to do",
-    "due": "2026-11-12",
-    "due_t": "04:00",
-    "parent": "86b6k2zp9",
-    "list": "Покупка, Ремонт, Продажа-Сдача",
-    "cat": "Недвижимость",
-    "lead": "unknown",
-    "bday": false
-   },
-   {
-    "id": "86ba3bwhg",
-    "name": "БОТ: 🏠 Установка сигналки на Топасио - случилось? (электричество жду Андрей)",
-    "url": "https://app.clickup.com/t/86ba3bwhg",
-    "status": "for check",
-    "due": "2026-11-10",
-    "due_t": "04:00",
-    "parent": "86b6j4f2n",
-    "list": "Покупка, Ремонт, Продажа-Сдача",
-    "cat": "Недвижимость",
-    "lead": "bot",
-    "bday": false
-   },
-   {
     "id": "86bbzxcdw",
     "name": "🏠Solvia Мурсия - есть списки обьектов? (не отвечает, нужен вотсап)",
     "url": "https://app.clickup.com/t/86bbzxcdw",
@@ -2821,6 +2781,19 @@
     "priority": "normal"
    },
    {
+    "id": "86ba3bwhg",
+    "name": "БОТ: 🏠 Установка сигналки на Топасио - случилось? (электричество жду Андрей)",
+    "url": "https://app.clickup.com/t/86ba3bwhg",
+    "status": "for check",
+    "due": "2026-11-10",
+    "due_t": "04:00",
+    "parent": "86b6j4f2n",
+    "list": "Покупка, Ремонт, Продажа-Сдача",
+    "cat": "Недвижимость",
+    "lead": "bot",
+    "bday": false
+   },
+   {
     "id": "86bc8fkbt",
     "name": "Алла: помочь решить с тем что топят квартиранты сверху кооперасион",
     "url": "https://app.clickup.com/t/86bc8fkbt",
@@ -2846,6 +2819,33 @@
     "lead": "manual",
     "bday": false,
     "priority": "normal"
+   },
+   {
+    "id": "86b6k34a6",
+    "name": "БОТ: Локаль ремонт (перевод в жилое) - Анатолий как дела?",
+    "url": "https://app.clickup.com/t/86b6k34a6",
+    "status": "to do",
+    "due": "2026-11-12",
+    "due_t": "04:00",
+    "parent": "",
+    "list": "Покупка, Ремонт, Продажа-Сдача",
+    "cat": "Недвижимость",
+    "lead": "bot",
+    "bday": false,
+    "priority": "normal"
+   },
+   {
+    "id": "86b6k2zug",
+    "name": "ОЛЯ ПОХОД - БОТ: Оксана бухгалтер жду - Проверить возврат налога (Шейх)",
+    "url": "https://app.clickup.com/t/86b6k2zug",
+    "status": "to do",
+    "due": "2026-11-12",
+    "due_t": "04:00",
+    "parent": "86b6k2zp9",
+    "list": "Покупка, Ремонт, Продажа-Сдача",
+    "cat": "Недвижимость",
+    "lead": "unknown",
+    "bday": false
    },
    {
     "id": "86b72gukf",
@@ -3180,6 +3180,20 @@
     "bday": false
    },
    {
+    "id": "86b7y8n8m",
+    "name": "БОТ-ЧАСТЬ: Расчет с Аудри 30 процентов (скрины, подсчеты)",
+    "url": "https://app.clickup.com/t/86b7y8n8m",
+    "status": "to do",
+    "due": "2026-11-01",
+    "due_t": "04:00",
+    "parent": "",
+    "list": "Models",
+    "cat": "ОФ",
+    "lead": "bot",
+    "bday": false,
+    "priority": "normal"
+   },
+   {
     "id": "86bb4zv3p",
     "name": "Стримы ОФ-ТС - Джулиана/Катерина + Шейх стримы (жду Буллет/Шейх-RA)",
     "url": "https://app.clickup.com/t/86bb4zv3p",
@@ -3275,20 +3289,6 @@
     "priority": "normal"
    },
    {
-    "id": "86bae6v4h",
-    "name": "БОТ: САРА: отвечать на комментарии - как успехи Сара?",
-    "url": "https://app.clickup.com/t/86bae6v4h",
-    "status": "for check",
-    "due": "2026-11-10",
-    "due_t": "04:00",
-    "parent": "",
-    "list": "Models",
-    "cat": "ОФ",
-    "lead": "bot",
-    "bday": false,
-    "priority": "normal"
-   },
-   {
     "id": "86bbzx9x4",
     "name": "БОТ: Срочно контент снять OFTV Sofia Lunara - Laura (жду реакцию в чате Маркиза)",
     "url": "https://app.clickup.com/t/86bbzx9x4",
@@ -3344,53 +3344,11 @@
     "priority": "normal"
    },
    {
-    "id": "86bbjyrf5",
-    "name": "БОТ: МИШЕЛЬ: Bulk Messaging проверить статистику и ответы фанам в сообщениях (потом передать сбор статистики Фетишь)",
-    "url": "https://app.clickup.com/t/86bbjyrf5",
-    "status": "for check",
-    "due": "2026-11-10",
-    "due_t": "04:00",
-    "parent": "",
-    "list": "Models",
-    "cat": "ОФ",
-    "lead": "bot",
-    "bday": false,
-    "priority": "normal"
-   },
-   {
-    "id": "86bcnuxbj",
-    "name": "БОТ-ЧАСТЬ: 💳 Оплата чаттерам Никиты (счёт в TG 5–13 числа) Яна получить отчеты",
-    "url": "https://app.clickup.com/t/86bcnuxbj",
-    "status": "to do",
-    "due": "2026-11-12",
-    "due_t": "04:00",
-    "parent": "",
-    "list": "General Tasks OF",
-    "cat": "ОФ",
-    "lead": "bot",
-    "bday": false,
-    "priority": "normal"
-   },
-   {
     "id": "86bcn2ek8",
     "name": "БОТ: контроль Мишель по проверке состояния профилей LolaPop",
     "url": "https://app.clickup.com/t/86bcn2ek8",
     "status": "to do",
     "due": "2026-11-09",
-    "due_t": "04:00",
-    "parent": "",
-    "list": "Models",
-    "cat": "ОФ",
-    "lead": "bot",
-    "bday": false,
-    "priority": "normal"
-   },
-   {
-    "id": "86b9uqgqq",
-    "name": "БОТ: Andrea Cali - как дела по запуску ОФТВ? (напомнить за запуск)",
-    "url": "https://app.clickup.com/t/86b9uqgqq",
-    "status": "to do",
-    "due": "2026-11-12",
     "due_t": "04:00",
     "parent": "",
     "list": "Models",
@@ -3454,6 +3412,34 @@
     "priority": "normal"
    },
    {
+    "id": "86bae6v4h",
+    "name": "БОТ: САРА: отвечать на комментарии - как успехи Сара?",
+    "url": "https://app.clickup.com/t/86bae6v4h",
+    "status": "for check",
+    "due": "2026-11-10",
+    "due_t": "04:00",
+    "parent": "",
+    "list": "Models",
+    "cat": "ОФ",
+    "lead": "bot",
+    "bday": false,
+    "priority": "normal"
+   },
+   {
+    "id": "86bbjyrf5",
+    "name": "БОТ: МИШЕЛЬ: Bulk Messaging проверить статистику и ответы фанам в сообщениях (потом передать сбор статистики Фетишь)",
+    "url": "https://app.clickup.com/t/86bbjyrf5",
+    "status": "for check",
+    "due": "2026-11-10",
+    "due_t": "04:00",
+    "parent": "",
+    "list": "Models",
+    "cat": "ОФ",
+    "lead": "bot",
+    "bday": false,
+    "priority": "normal"
+   },
+   {
     "id": "86b8rn9wf",
     "name": "С ИРИНОЙ: Подсчеты ОФ (внести данные) + выплатить комиссию за новых моделей",
     "url": "https://app.clickup.com/t/86b8rn9wf",
@@ -3461,19 +3447,6 @@
     "due": "2026-11-10",
     "due_t": "04:00",
     "parent": "PAGOS / SERVICIOS",
-    "list": "General Tasks OF",
-    "cat": "ОФ",
-    "lead": "unknown",
-    "bday": false
-   },
-   {
-    "id": "86bb9uf39",
-    "name": "Встреча русский чувак встретиться (запланировать)",
-    "url": "https://app.clickup.com/t/86bb9uf39",
-    "status": "to do",
-    "due": "2026-11-10",
-    "due_t": "04:00",
-    "parent": "BUSQUEDA DE NUEVAS MODELOS",
     "list": "General Tasks OF",
     "cat": "ОФ",
     "lead": "unknown",
@@ -3491,6 +3464,34 @@
     "cat": "ОФ",
     "lead": "unknown",
     "bday": false
+   },
+   {
+    "id": "86bcnuxbj",
+    "name": "БОТ-ЧАСТЬ: 💳 Оплата чаттерам Никиты (счёт в TG 5–13 числа) Яна получить отчеты",
+    "url": "https://app.clickup.com/t/86bcnuxbj",
+    "status": "to do",
+    "due": "2026-11-12",
+    "due_t": "04:00",
+    "parent": "",
+    "list": "General Tasks OF",
+    "cat": "ОФ",
+    "lead": "bot",
+    "bday": false,
+    "priority": "normal"
+   },
+   {
+    "id": "86b9uqgqq",
+    "name": "БОТ: Andrea Cali - как дела по запуску ОФТВ? (напомнить за запуск)",
+    "url": "https://app.clickup.com/t/86b9uqgqq",
+    "status": "to do",
+    "due": "2026-11-12",
+    "due_t": "04:00",
+    "parent": "",
+    "list": "Models",
+    "cat": "ОФ",
+    "lead": "bot",
+    "bday": false,
+    "priority": "normal"
    },
    {
     "id": "86bd0y140",
@@ -3804,27 +3805,13 @@
     "name": "БОТ-ЧАСТЬ: Рассылка / Сбор баз / Мониторинг тендеров - план 50 писем в неделю + участие в тендерах",
     "url": "https://app.clickup.com/t/86bbzxnvx",
     "status": "to do",
-    "due": "2026-11-10",
+    "due": "2026-11-11",
     "due_t": "04:00",
     "parent": "(корневая)",
     "list": "Tasks",
     "cat": "Оборонка",
     "lead": "bot",
     "bday": false
-   },
-   {
-    "id": "86bcu0caf",
-    "name": "Созвон DECSEF — José Gabriel Osorno",
-    "url": "https://app.clickup.com/t/86bcu0caf",
-    "status": "to do",
-    "due": "2026-11-10",
-    "due_t": "13:00",
-    "parent": "",
-    "list": "Tasks",
-    "cat": "Оборонка",
-    "lead": "manual",
-    "bday": false,
-    "priority": "high"
    }
   ],
   "tabakevich": [
@@ -4198,20 +4185,6 @@
     "priority": "normal"
    },
    {
-    "id": "86b8r59kx",
-    "name": "БОТ: Феликс Шоп - проверить сайт",
-    "url": "https://app.clickup.com/t/86b8r59kx",
-    "status": "to do",
-    "due": "2026-11-06",
-    "due_t": "21:55",
-    "parent": "",
-    "list": "Задачи Tabakevich",
-    "cat": "Табакевич",
-    "lead": "bot",
-    "bday": false,
-    "priority": "normal"
-   },
-   {
     "id": "86b7gku15",
     "name": "📞 Денис планерка",
     "url": "https://app.clickup.com/t/86b7gku15",
@@ -4230,6 +4203,20 @@
     "url": "https://app.clickup.com/t/86b6qqajb",
     "status": "for check",
     "due": "2026-11-10",
+    "due_t": "04:00",
+    "parent": "",
+    "list": "Задачи Tabakevich",
+    "cat": "Табакевич",
+    "lead": "bot",
+    "bday": false,
+    "priority": "normal"
+   },
+   {
+    "id": "86b8r59kx",
+    "name": "БОТ: Феликс Шоп - проверить сайт",
+    "url": "https://app.clickup.com/t/86b8r59kx",
+    "status": "for check",
+    "due": "2026-11-11",
     "due_t": "04:00",
     "parent": "",
     "list": "Задачи Tabakevich",

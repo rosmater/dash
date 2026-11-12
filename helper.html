@@ -1050,7 +1050,7 @@ function reBlocksHTML(d){if(d.id!=='realestate'||!d.re_blocks)return '';const B=
   ${(Pr.properties||[]).map(one).join('')}
   <details class="tbk-det"><summary>Пояснения / что подключить</summary>${(Pr.notes||[]).map(n=>`<div class="note" style="margin-top:4px">${esc(n)}</div>`).join('')}${missH}</details></details>`}
  /* 5) Инвесторы */
- const I=B.investors;if(I){h+=card(`${H('🤝 '+esc(I.title),esc(I.src||''))}`
+ const I=B.investors;if(I){h+=card(`${H('🤝 '+esc(I.title),esc(I.src||''))}
 
   ${I.people.map(p=>`<div class="task"><span class="pill p-high">${p.icon||''} ${esc(p.name)}</span><div style="flex:1">${p.items.map(x=>'<b style="font-size:13.5px">'+esc(x)+'</b>').join('<br>')}${p.debt!==undefined?`<div class="note">сумма долга: <b>${p.debt==null?'—':fmt(p.debt,p.debt_cur||'EUR')}</b>${p.debt_note?' · '+esc(p.debt_note):''}</div>`:''}${p.url?`<div class="note">${cul(p.url,'CU: '+(p.cu_label||p.cu))}</div>`:''}</div></div>`).join('')}`)}
  return h}
