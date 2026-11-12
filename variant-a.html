@@ -226,10 +226,15 @@ details.mrow .mbody>.task{padding:5px 0}
 .cw-ev.past{opacity:.55}.cw-ev.now{box-shadow:0 0 0 2px #4285f455}
 .calrecon{}.calrecon .cr-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:4px 0;border-top:1px solid #eef0f5;font-size:13px}.calrecon .cr-ok{color:#127a3e;font-weight:700}.calrecon .cr-no{color:#b42318;font-weight:700}
 .calmark{font:600 12px Inter;border:1px solid var(--line);background:#fff;border-radius:99px;padding:4px 10px;cursor:pointer}.calmark.on{background:#e7f8ee;border-color:#abefc6;color:#127a3e}
-/* t6093u / t6095u */
-.du-lines{margin:0 0 10px;display:flex;flex-direction:column;gap:4px}
-.du-ln{background:#fff8dc;border:1px solid #f5d56a;border-radius:8px;padding:8px 12px;font-size:13.5px;font-weight:650;color:#8a5a00;cursor:pointer}
-.du-ln:hover{background:#fff3c4}
+/* t6093u / t6095u / t6166u / t6167u: один жёлтый блок как «Требует внимания», не строка на каждое обновление */
+.du-lines.du-attn{background:#fff8dc;border:1px solid #f5d56a;border-left:4px solid #e0a82a;border-radius:10px;padding:5px 10px;margin:0 0 7px;box-shadow:var(--shadow)}
+.du-attn h4{margin:0;line-height:1.25;font-size:13px;color:#8a5a00;display:inline;font-weight:700}
+.du-attn .attnd>summary{display:flex;align-items:center;gap:6px;margin:0;padding:1px 0;color:inherit;font-size:inherit;line-height:1.25;cursor:pointer;list-style:none}
+.du-attn .attnd>summary::-webkit-details-marker{display:none}
+.du-attn .attnd[open]>summary{margin-bottom:6px}
+.du-attn .du-ln{display:block;padding:4px 2px;border-bottom:1px solid #f0e2a0;border-radius:0;background:none;font-size:13px;font-weight:400;color:var(--txt);cursor:pointer;line-height:1.4}
+.du-attn .du-ln:last-child{border-bottom:0}
+.du-attn .du-ln:hover{background:#fff3c4;color:#8a5a00}
 .du-head{display:inline-flex;align-items:center;gap:8px;min-width:0;flex:0 1 auto;text-transform:inherit;letter-spacing:inherit}
 .du-chip{display:inline-flex;align-items:center;justify-content:center;min-width:20px;height:20px;padding:0 6px;border:0;border-radius:99px;font:700 12px Inter,system-ui;line-height:1;vertical-align:middle;cursor:pointer;flex:0 0 auto}
 .du-chip.nu{background:#f5c84a;color:#6b4a00;box-shadow:0 0 0 1px #e0a82a}
@@ -2136,13 +2141,14 @@ function bdHdr(){try{syncBogDay()}catch(e){}const el=$('#bdhdr');if(!el)return;l
 function bdDone(b){let L={};try{L=JSON.parse(localStorage.getItem('dash_bday_done')||'{}')}catch(e){}L[b.dataset.u]=b.dataset.due;try{localStorage.setItem('dash_bday_done',JSON.stringify(L))}catch(e){}
  tapPush({key:'bday|'+b.dataset.u,channel:'ClickUp',action:'cu_close',kind:'bday',title:b.dataset.t,url:b.dataset.u,due:b.dataset.due,sphere:'done'});bdHdr()}
 function render(){AT_REG=[];try{bdHdr()}catch(e){}setTimeout(()=>{try{tapResync()}catch(e){}},1500);try{maOqApply()}catch(e){}kill();ensureMode();Dash.save();controls();const d=Dash.D.directions.find(x=>x.id===S.tab),td=S.mode==='today';try{d?(d.kind==='msgs'?msgsTab(d):d.kind==='unsorted'?unsortedTab(d):d.kind==='assistants'?asstTab(d):d.kind==='bots'?botsTab(d):d.kind==='people'?people(d):d.kind==='calendar'?calendar(d):d.board?board(d):td?directionToday(d):direction(d)):td?overviewToday():overview()}catch(er){/* Rost t4316: ошибка отрисовки вкладки — не оставлять на экране контент прошлой вкладки */console.error(er);$('#main').innerHTML=`<div class="card"><h3>⚠️ ${esc((d&&d.name)||S.tab)}: ошибка отрисовки</h3><div class="note">${esc(String(er&&er.message||er))}</div></div>`}try{thMount()}catch(e){}try{pepLeadsStripMount()}catch(e){}try{DataUpd.afterRender()}catch(e){}$('#foot').textContent=Dash.fxFooter();}
-/* t6093u / t6095u / t6165u: жёлтая строка «Есть новые данные» + чип ✓ у блока
-   + жёлтый кружок на кнопках направлений (число непросмотренных блоков).
-   На «Общий» — сумма по всем направлениям, серый бейдж другого оттенка (не tbadge).
-   Жёлтый = ещё не смотрел; после клика чип остаётся серым («Данные просмотрены DD.MM»),
-   строка под «Требует внимания» пропадает, бейдж на вкладке пересчитывается.
-   Новые данные снова желтят чип и бейдж. Первый заход: seen = current, сразу серый чип.
-   Хранилище helper отдельное. На helper не считаем блок баланса и скрытые вкладки. */
+/* t6093u / t6095u / t6165u / t6166u / t6167u:
+   Один блок «🟡 Есть новые данные · N ▾» (как «🔴 Требует внимания · N ▾»):
+   свёрнут по умолчанию, раскрывается в список блоков, клик по строке — переход к блоку.
+   Не отдельная жёлтая строка на каждое обновление. Скрывается при N=0.
+   Чип ✓ у блока; клик помечает просмотренным, N и бейджи вкладок пересчитываются.
+   Жёлтый кружок на кнопках направлений; на «Общий» — серый сумматор другого оттенка.
+   Первый заход: seen = current, сразу серый чип. Хранилище helper отдельное.
+   На helper не считаем блок баланса и скрытые вкладки. */
 const DataUpd = (() => {
   const LS = window.DASH_HELPER ? 'dash_data_seen_asst_v1' : 'dash_data_seen_v1';
   const extra = {};
@@ -2261,11 +2267,13 @@ const DataUpd = (() => {
     const st = stateOf(b);
     return `<button type="button" class="du-chip ${st}" data-du-chip="${esc(b.id)}" title="${esc(tip(b))}" aria-label="${esc(tip(b))}">✓</button>`;
   }
-  function linesHTML(items) {
+  function linesHTML(items, open) {
     if (!items.length) return '';
-    return `<div class="du-lines">${items.map(b =>
-      `<div class="du-ln" data-du-go="${esc(b.id)}" role="link" tabindex="0">🟡 Есть новые данные — ${esc(b.title || b.id)}</div>`
-    ).join('')}</div>`;
+    const n = items.length;
+    const rows = items.map(b =>
+      `<div class="du-ln" data-du-go="${esc(b.id)}" role="link" tabindex="0">${esc(b.title || b.id)}</div>`
+    ).join('');
+    return `<div class="du-lines du-attn"><details class="attnd"${open ? ' open' : ''}><summary style="cursor:pointer"><h4 style="display:inline">🟡 Есть новые данные · ${n}</h4> <span class="note">▾</span></summary>${rows}</details></div>`;
   }
   function currentDir() {
     try { return (typeof S !== 'undefined' && S.tab) || 'overview'; } catch (e) { return 'overview'; }
@@ -2274,15 +2282,20 @@ const DataUpd = (() => {
     const main = document.getElementById('main');
     if (!main) return;
     const old = main.querySelector('.du-lines');
-    if (old) old.remove();
+    let wasOpen = false;
+    if (old) {
+      const det = old.matches('details') ? old : old.querySelector('details');
+      wasOpen = !!(det && det.open);
+      old.remove();
+    }
     const tab = currentDir();
     const items = (tab === 'overview') ? unseen(null) : unseen(tab);
-    const html = linesHTML(items);
+    const html = linesHTML(items, wasOpen);
     if (!html) return;
     const wrap = document.createElement('div');
     wrap.innerHTML = html;
     const node = wrap.firstElementChild;
-    const attn = main.querySelector('.attn');
+    const attn = main.querySelector('.attn:not(.du-attn)');
     const ovsub = document.getElementById('ovsub');
     const head = main.querySelector('.tab-head');
     if (attn) attn.insertAdjacentElement('afterend', node);

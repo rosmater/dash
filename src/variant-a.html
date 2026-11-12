@@ -226,10 +226,15 @@ details.mrow .mbody>.task{padding:5px 0}
 .cw-ev.past{opacity:.55}.cw-ev.now{box-shadow:0 0 0 2px #4285f455}
 .calrecon{}.calrecon .cr-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:4px 0;border-top:1px solid #eef0f5;font-size:13px}.calrecon .cr-ok{color:#127a3e;font-weight:700}.calrecon .cr-no{color:#b42318;font-weight:700}
 .calmark{font:600 12px Inter;border:1px solid var(--line);background:#fff;border-radius:99px;padding:4px 10px;cursor:pointer}.calmark.on{background:#e7f8ee;border-color:#abefc6;color:#127a3e}
-/* t6093u / t6095u */
-.du-lines{margin:0 0 10px;display:flex;flex-direction:column;gap:4px}
-.du-ln{background:#fff8dc;border:1px solid #f5d56a;border-radius:8px;padding:8px 12px;font-size:13.5px;font-weight:650;color:#8a5a00;cursor:pointer}
-.du-ln:hover{background:#fff3c4}
+/* t6093u / t6095u / t6166u / t6167u: один жёлтый блок как «Требует внимания», не строка на каждое обновление */
+.du-lines.du-attn{background:#fff8dc;border:1px solid #f5d56a;border-left:4px solid #e0a82a;border-radius:10px;padding:5px 10px;margin:0 0 7px;box-shadow:var(--shadow)}
+.du-attn h4{margin:0;line-height:1.25;font-size:13px;color:#8a5a00;display:inline;font-weight:700}
+.du-attn .attnd>summary{display:flex;align-items:center;gap:6px;margin:0;padding:1px 0;color:inherit;font-size:inherit;line-height:1.25;cursor:pointer;list-style:none}
+.du-attn .attnd>summary::-webkit-details-marker{display:none}
+.du-attn .attnd[open]>summary{margin-bottom:6px}
+.du-attn .du-ln{display:block;padding:4px 2px;border-bottom:1px solid #f0e2a0;border-radius:0;background:none;font-size:13px;font-weight:400;color:var(--txt);cursor:pointer;line-height:1.4}
+.du-attn .du-ln:last-child{border-bottom:0}
+.du-attn .du-ln:hover{background:#fff3c4;color:#8a5a00}
 .du-head{display:inline-flex;align-items:center;gap:8px;min-width:0;flex:0 1 auto;text-transform:inherit;letter-spacing:inherit}
 .du-chip{display:inline-flex;align-items:center;justify-content:center;min-width:20px;height:20px;padding:0 6px;border:0;border-radius:99px;font:700 12px Inter,system-ui;line-height:1;vertical-align:middle;cursor:pointer;flex:0 0 auto}
 .du-chip.nu{background:#f5c84a;color:#6b4a00;box-shadow:0 0 0 1px #e0a82a}

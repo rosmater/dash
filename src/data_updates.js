@@ -1,10 +1,11 @@
-/* t6093u / t6095u / t6165u: жёлтая строка «Есть новые данные» + чип ✓ у блока
-   + жёлтый кружок на кнопках направлений (число непросмотренных блоков).
-   На «Общий» — сумма по всем направлениям, серый бейдж другого оттенка (не tbadge).
-   Жёлтый = ещё не смотрел; после клика чип остаётся серым («Данные просмотрены DD.MM»),
-   строка под «Требует внимания» пропадает, бейдж на вкладке пересчитывается.
-   Новые данные снова желтят чип и бейдж. Первый заход: seen = current, сразу серый чип.
-   Хранилище helper отдельное. На helper не считаем блок баланса и скрытые вкладки. */
+/* t6093u / t6095u / t6165u / t6166u / t6167u:
+   Один блок «🟡 Есть новые данные · N ▾» (как «🔴 Требует внимания · N ▾»):
+   свёрнут по умолчанию, раскрывается в список блоков, клик по строке — переход к блоку.
+   Не отдельная жёлтая строка на каждое обновление. Скрывается при N=0.
+   Чип ✓ у блока; клик помечает просмотренным, N и бейджи вкладок пересчитываются.
+   Жёлтый кружок на кнопках направлений; на «Общий» — серый сумматор другого оттенка.
+   Первый заход: seen = current, сразу серый чип. Хранилище helper отдельное.
+   На helper не считаем блок баланса и скрытые вкладки. */
 const DataUpd = (() => {
   const LS = window.DASH_HELPER ? 'dash_data_seen_asst_v1' : 'dash_data_seen_v1';
   const extra = {};
@@ -123,11 +124,13 @@ const DataUpd = (() => {
     const st = stateOf(b);
     return `<button type="button" class="du-chip ${st}" data-du-chip="${esc(b.id)}" title="${esc(tip(b))}" aria-label="${esc(tip(b))}">✓</button>`;
   }
-  function linesHTML(items) {
+  function linesHTML(items, open) {
     if (!items.length) return '';
-    return `<div class="du-lines">${items.map(b =>
-      `<div class="du-ln" data-du-go="${esc(b.id)}" role="link" tabindex="0">🟡 Есть новые данные — ${esc(b.title || b.id)}</div>`
-    ).join('')}</div>`;
+    const n = items.length;
+    const rows = items.map(b =>
+      `<div class="du-ln" data-du-go="${esc(b.id)}" role="link" tabindex="0">${esc(b.title || b.id)}</div>`
+    ).join('');
+    return `<div class="du-lines du-attn"><details class="attnd"${open ? ' open' : ''}><summary style="cursor:pointer"><h4 style="display:inline">🟡 Есть новые данные · ${n}</h4> <span class="note">▾</span></summary>${rows}</details></div>`;
   }
   function currentDir() {
     try { return (typeof S !== 'undefined' && S.tab) || 'overview'; } catch (e) { return 'overview'; }
@@ -136,15 +139,20 @@ const DataUpd = (() => {
     const main = document.getElementById('main');
     if (!main) return;
     const old = main.querySelector('.du-lines');
-    if (old) old.remove();
+    let wasOpen = false;
+    if (old) {
+      const det = old.matches('details') ? old : old.querySelector('details');
+      wasOpen = !!(det && det.open);
+      old.remove();
+    }
     const tab = currentDir();
     const items = (tab === 'overview') ? unseen(null) : unseen(tab);
-    const html = linesHTML(items);
+    const html = linesHTML(items, wasOpen);
     if (!html) return;
     const wrap = document.createElement('div');
     wrap.innerHTML = html;
     const node = wrap.firstElementChild;
-    const attn = main.querySelector('.attn');
+    const attn = main.querySelector('.attn:not(.du-attn)');
     const ovsub = document.getElementById('ovsub');
     const head = main.querySelector('.tab-head');
     if (attn) attn.insertAdjacentElement('afterend', node);
