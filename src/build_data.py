@@ -473,10 +473,32 @@ def _pep_leads_strip():
             rec['cpl'] = None
         out.append(rec)
         d0 += datetime.timedelta(days=1)
+    # Rost t1133u: после ночной WA-сводки смотрим только последний закрытый день (не сегодня).
+    # «всего новых» = то же поле total / new_dialogs, что в ленте лидов. Нет данных → подпись, не attn.
+    # Пункт в «Требует внимания» висит, пока следующий закрытый день не наберёт ≥10; показываем только этот день.
+    attn = None
+    closed = [r for r in out if not r.get('today')]
+    latest = closed[-1] if closed else None
+    if latest is not None:
+        fd = str(latest['date'])[8:10] + '.' + str(latest['date'])[5:7]
+        if latest.get('total') is None:
+            latest['missing_label'] = 'нет данных'
+        elif int(latest['total']) < 10:
+            n = int(latest['total'])
+            latest['attn'] = True
+            latest['attn_label'] = '⚠ <10 лидов (' + str(n) + ')'
+            attn = dict(
+                date=latest['date'],
+                total=n,
+                threshold=10,
+                text='Пепт: мало лидов за ' + fd + ' — ' + str(n) + ' из 10',
+                card_label=latest['attn_label'],
+            )
     return dict(
         as_of=(_DS or {}).get('as_of'),
         since=since,
         days=out,
+        attn=attn,
         src='Пептид: dialogs-since-2026-10-12.json (новые входящие WA за день Bogotá; с рекламы = ig_promote + ads_meta + tiktok). Расход — дельты накопительного spend из ads.json / снимков ads-daily / RESULT; TikTok по ad cost, не предоплата.')
 
 pep_leads_strip = _pep_leads_strip()
