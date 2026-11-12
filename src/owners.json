@@ -38,7 +38,7 @@
         "src/tbk_seo_inputs.json",
         "src/tbk_upsell_1c.json",
         "src/tbk_managers_gen.py",
-        "src/tbk_franchise_1c.json"
+        "src/tbk_franchise_1c.json", "src/tbk_upsell_verify.json"
       ],
       "html_markers": [
         "Пропущенные"

@@ -1,0 +1,57 @@
+{
+ "src": "Rost t6181u: галочки «ДопЗаказ» в заказах 1С сверяются со всеми звонками Binotel по телефону клиента (окно −3/+1 сут.). Обновляется по понедельникам вместе с разбором звонков Binotel.",
+ "weeks": {
+  "W45": {
+   "period": [
+    "2026-11-02",
+    "2026-11-08"
+   ],
+   "checked": 45,
+   "confirmed": 11,
+   "refused": 1,
+   "self": 2,
+   "discrepancy": 1,
+   "unverified": 30,
+   "with_calls": 31,
+   "with_transcript": 23,
+   "people": {
+    "Катя": {
+     "checked": 25,
+     "confirmed": 8,
+     "refused": 1,
+     "self": 1,
+     "discrepancy": 0,
+     "unverified": 15
+    },
+    "Женя (Плотницкая Жанна)": {
+     "checked": 6,
+     "confirmed": 0,
+     "refused": 0,
+     "self": 0,
+     "discrepancy": 0,
+     "unverified": 6
+    },
+    "Ліза": {
+     "checked": 14,
+     "confirmed": 3,
+     "refused": 0,
+     "self": 1,
+     "discrepancy": 1,
+     "unverified": 9
+    }
+   },
+   "discrepancies": [
+    {
+     "order": "НФ00-000301",
+     "manager": "Ліза",
+     "call": "6974671799",
+     "note": "Входящий звонок-заказ: обсуждается только табак Serbetli, уголь Феникс ×2 в распознанном разговоре ни разу не звучит. Стоит переслушать."
+    }
+   ],
+   "tab": "W45",
+   "snapshot": "2026-11-12T21:11:09.680953+00:00",
+   "note": "Набор заказов — состояние 1С на 12.11 16:11 (Богота): 45 заказов с галочкой (Катя 25, Ліза 14, Женя 6). В столбце «Допродажи» — снимок 14:43 (37): галочки и проведение заказов менеджеры меняют задним числом."
+  }
+ },
+ "sheet_url": "https://docs.google.com/spreadsheets/d/1tRuczW6GXEL-Ozzh062E_sA4zN5-RrRoWFaEybKbcBk/edit"
+}

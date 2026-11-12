@@ -14,6 +14,7 @@
 """
 import datetime, glob, json, os, re, sys
 J = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'tbk_blocks.json')
+UV_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'tbk_upsell_verify.json')  # Rost t6181u: сверка доп. продаж
 UPSELL = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'tbk_upsell_1c.json'))) if os.path.exists(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'tbk_upsell_1c.json')) else {}
 BIN = '/workspace/binotel'
 CC = '/home/box/contacts/knowledge/notion-brain/business/tabakevich/call-control'
@@ -227,6 +228,10 @@ def main():
         + ('; в реализациях пометка удаления не выгружена (ждёт выгрузку №2)' if any(u.startswith('⚠') for u in used) else '')) if S else '1С: выгрузки по менеджерам нет — ждёт выгрузку из BAS'
     M['score_formula'] = 'Итог = оценка звонков Binotel × (1 − (отказы + возвраты) ÷ заказы менеджера); отказ/возврат — по «Состояние» заказа и документам «Возврат от покупателя» из 1С'
     M['upsell_src'] = (UPSELL.get('src') + f' · W{n} · {a:%d.%m}–{b:%d.%m}') if UPSELL.get('src') else None
+    # Rost t6181u: «Сверка доп. продаж» (галочка ДопЗаказ ↔ звонки Binotel) — свёрнутый блок под таблицей
+    UV = json.load(open(UV_PATH)) if os.path.exists(UV_PATH) else {}
+    x = (UV.get('weeks') or {}).get(f'W{n}')
+    M['upsell_verify'] = dict(week=f'W{n}', sheet_url=UV.get('sheet_url'), src=UV.get('src'), **x) if x else None
     M['stale_note'] = '' if H else f'HelpCrunch W{n} не найден'
     json.dump(B, open(J, 'w'), ensure_ascii=False, indent=1)
     print('managers →', M['week'], '| missed', C['missed'], '| 1С', 'есть' if S else 'нет')
