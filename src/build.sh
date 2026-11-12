@@ -1,7 +1,10 @@
 #!/bin/bash
 # Inline src/core.js into each variant -> ../variant-*.html
+{ # t1111u: тело в скобках — bash читает его целиком, git pull посреди сборки не ломает скрипт
 cd "$(dirname "$0")/.."
+bash src/guard_stale_src.sh; _g=$?; [ $_g -eq 10 ] && exec bash src/build.sh "$@"; [ $_g -ne 0 ] && exit 1  # t1111u: не собирать из отставшего src/ (10 = подтянул, пересобрать свежим build.sh)
 python3 src/build_data.py
+python3 src/guard_pep_balance.py || exit 1  # t1111u: баланс рекламы Пептидов не теряется
 python3 src/guard_parents.py || { echo 'guard_parents FAIL — мейн-задача в даше'; exit 1; }  # Rost t5996u
 for v in a b c; do
   [ -f src/variant-$v.html ] || continue
@@ -40,3 +43,5 @@ python3 src/encrypt_data.py /home/box/contacts/knowledge/secrets/vault/dashboard
 # Главный адрес https://rosmater.github.io/dash/ = Light A (Rost 25.10); variant-a.html остаётся алиасом
 cp variant-a.html index.html
 echo built
+exit
+}
