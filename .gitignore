@@ -4,3 +4,10 @@ data-test-ma.json
 
 src/of_payouts_week.json
 src/of_payouts_raw/
+
+# t6157u 12.11: локальные данные/мусор не публикуем
+__pycache__/
+*.pyc
+*.bak-*
+*.bak
+sync/*.csv

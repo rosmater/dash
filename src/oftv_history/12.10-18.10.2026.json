@@ -1,0 +1,42 @@
+{
+  "as_of": "2026-10-19",
+  "week": {
+    "id": "W:2026-10-12",
+    "label": "12.10–18.10"
+  },
+  "src": "Lesha OFTV Colombia sheet · models!GM1:GU6, блок 19.10.26 (fans_new GR3:GR6; net GS3:GS6); gross из OF Statistics съёма oftv1910 за 12–18.10 (share/w1910-*.json, 7-earn)",
+  "models": [
+    {
+      "key": "sofia",
+      "name": "Sofia Lunara",
+      "fans": null,
+      "fans_new": 247,
+      "gross": 565.0,
+      "net": 452.0
+    },
+    {
+      "key": "kelly",
+      "name": "Kelly Sunelly",
+      "fans": null,
+      "fans_new": 331,
+      "gross": 92.97,
+      "net": 74.37
+    },
+    {
+      "key": "bella",
+      "name": "Bella Cruz",
+      "fans": null,
+      "fans_new": 154,
+      "gross": 53.99,
+      "net": 43.19
+    },
+    {
+      "key": "rosie",
+      "name": "I am rosie",
+      "fans": null,
+      "fans_new": 147,
+      "gross": 79.98,
+      "net": 63.98
+    }
+  ]
+}
