@@ -129,7 +129,7 @@ for m in M['list']:
         parts=['суммы в ₴ из BAS «Заказы покупателей» (валюта грн; $ пусто — в BAS выручка Glovo внутри Tabakevich, контрагенты «Глово …»)']
         if G.get('week_extra'):
             w=G['week_extra']; parts.append(f"последняя закрытая неделя {w['label']}: {w['orders']:,} зак. / {w['sum_uah']:,} ₴".replace(',',' '))
-        m['note']=' · '.join(parts)
+        m.pop('note',None)  # Rost t6141u/t6171u: под строкой Glovo ничего; пояснение только в свёрнутых «Пояснения» (M['src'])
     for k in ('note','rev','gp'):
         if k in xm and not (m['name']=='Glovo' and k=='note' and OC and 'Glovo' in OC.get('counts',{})):
             m[k]=xm[k]
