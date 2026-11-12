@@ -248,6 +248,38 @@ details.mrow .mbody>.task{padding:5px 0}
 .du-flash{animation:duFlash 1.6s ease}
 /* Rost t6141u: таблицы МП / Glovo вписываются в ширину карточки и на мобиле, без гориз. скролла */
 @media(max-width:640px){.tbk-fit th,.tbk-fit td{white-space:normal!important;padding:4px 2px!important;font-size:10.5px!important;width:auto!important;overflow-wrap:anywhere}.tbk-fit .note,.tbk-fit b.note{white-space:normal!important;font-size:10px!important}.tbk-fit table{table-layout:fixed;width:100%}.tbk-fit th:first-child,.tbk-fit td:first-child{width:24%!important}}
+/* Rost t6184u: «Оплаты квартирантов» — комментарии только в 1-й колонке, таблица в ширину карточки, без гориз. скролла */
+.re-pay{min-width:0;overflow:hidden}
+.re-pay>.tblwrap{overflow:hidden;max-width:100%}
+.re-pay table{table-layout:fixed;width:100%;min-width:0}
+.re-pay th,.re-pay td{white-space:normal;overflow-wrap:break-word;word-break:normal;padding:5px 4px;vertical-align:top}
+.re-pay th{overflow-wrap:normal;hyphens:manual}
+.re-pay th.n{white-space:normal;text-align:right}
+.re-pay td.n,.re-pay td.re-num{white-space:nowrap;text-align:right;font-variant-numeric:tabular-nums}
+.re-pay th:first-child,.re-pay td:first-child{width:26%;white-space:normal;overflow-wrap:anywhere}
+.re-pay th:nth-child(2),.re-pay td:nth-child(2){width:9%}
+.re-pay th:last-child,.re-pay td:last-child{width:8%;text-align:center}
+.re-pay td:last-child{white-space:nowrap}
+.re-pay .re-pay-note{display:block;color:var(--mut);font-size:10.5px;line-height:1.35;font-weight:400;white-space:normal;overflow-wrap:anywhere}
+.re-pay .re-m{font-size:11px;line-height:1.3;font-variant-numeric:tabular-nums}
+/* Rost t6185u: «Из чего сложилось» — по комнатам таблица, Итого под ней; свёрнутая строка как была */
+td.fact-hasu{white-space:normal;vertical-align:top}
+.fact-rooms{margin:0}
+.fact-rooms>summary{cursor:pointer}
+.fact-units{margin:6px 0 2px;min-width:0}
+.fact-units table{width:100%;table-layout:fixed;min-width:0}
+.fact-units th,.fact-units td{white-space:normal;overflow-wrap:anywhere;padding:4px 4px;font-size:11.5px;vertical-align:top}
+.fact-units th.n,.fact-units td.n{white-space:nowrap;text-align:right;font-variant-numeric:tabular-nums}
+.fact-units-tot{margin-top:4px;font-weight:700;font-size:12.5px}
+@media(max-width:520px){
+  .re-pay th,.re-pay td{padding:4px 2px;font-size:10.5px}
+  .re-pay .re-pay-note,.re-pay .note{font-size:9.5px}
+  .re-pay .re-m{font-size:9.5px}
+  .re-pay th:first-child,.re-pay td:first-child{width:22%}
+  .re-pay th:nth-child(2),.re-pay td:nth-child(2){width:10%}
+  .re-pay th:last-child,.re-pay td:last-child{width:8%}
+  .fact-units th,.fact-units td{padding:3px 2px;font-size:10.5px}
+}
 </style><link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%2322c3a6%22/%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%237b5cff%22/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2216%22%20fill%3D%22url%28%23g%29%22/%3E%3Crect%20x%3D%2215%22%20y%3D%2234%22%20width%3D%228%22%20height%3D%2215%22%20rx%3D%223%22%20fill%3D%22%23fff%22/%3E%3Crect%20x%3D%2228%22%20y%3D%2224%22%20width%3D%228%22%20height%3D%2225%22%20rx%3D%223%22%20fill%3D%22%23fff%22/%3E%3Crect%20x%3D%2241%22%20y%3D%2215%22%20width%3D%228%22%20height%3D%2234%22%20rx%3D%223%22%20fill%3D%22%23fff%22%20opacity%3D%22.92%22/%3E%3C/svg%3E">
 </head><body><div class="wrap">
 <header><div class="brand"><div class="logo">R</div><div><h1>Бизнес-дашборд</h1><small id="sub"></small></div></div><div id="bdhdr"></div>
@@ -401,8 +433,11 @@ function bdTableHTML(b){return `<div class="card"><h3>${esc(b.title)}</h3><div c
 /* Rost t5985u: «Из чего сложилось» — таблица столбцами (Доход | Расход [| Текущие расходы]), текущий месяц к прошлому, мягкие дельты */
 function factColsHTML(d,cur){const F=d.fact_1c;if(!F||!F.cols)return '';const $=v=>fmt(Dash.conv(v,F.cur,cur),cur),$f=v=>fmt(Math.round(Dash.conv(v,F.cur,cur)),cur);
  const td=a=>(a&&a.length)?a.map(s=>s.slice(8,10)+'.'+s.slice(5,7)).join(', '):'';
- const unitLines=us=>`<div style="margin:4px 0 2px 2px">${us.map(x=>{const name=esc((x.unit||'')+' · '+(x.tenant||'—'));const acc=x.accrued!=null?'начислено '+$(x.accrued):'начислено —';const pd=x.paid!=null?'оплачено '+$(x.paid)+(td(x.paid_dates)?' ('+td(x.paid_dates)+')':''):'оплачено —';const dep=x.deposit?' · залог '+$(x.deposit):'';const debt=x.debt!=null?' · долг '+$(x.debt):'';const ctr=[x.date_in?('с '+x.date_in.slice(8,10)+'.'+x.date_in.slice(5,7)+'.'+x.date_in.slice(0,4)):'',x.date_out?('по '+x.date_out.slice(8,10)+'.'+x.date_out.slice(5,7)+'.'+x.date_out.slice(0,4)):''].filter(Boolean).join(' ');return `<div class="note" style="padding:3px 0;border-top:1px dashed var(--line)">${name}${x.vacant?' · вакантно':''}${x.unconfirmed?' · не подтверждено':''}<br>${acc} · ${pd}${dep}${debt}${ctr?'<br>'+esc(ctr):''}</div>`}).join('')}</div>`;
- const r=(x,inv,b)=>{const l=x[0],c=x[1],p=x[2],u=x[3]&&x[3].units;const lab=u&&u.length?`<details style="margin:0"><summary style="cursor:pointer">${b?'<b>':''}${esc(l)}${b?'</b>':''} <span class="note">${u.length}</span></summary>${unitLines(u)}</details>`:`${b?'<b>':''}${esc(l)}${b?'</b>':''}`;return `<tr><td>${lab}</td><td class="n">${b?'<b>':''}${dlV($(c),c,p,{f:$f,inv,br:true})}${b?'</b>':''}</td></tr>`};
+ /* Rost t6185u: раскрытый список по комнатам — таблица, Итого под ней; свёрнутый итог в правой колонке строки без изменений */
+ const fd=s=>s?s.slice(8,10)+'.'+s.slice(5,7)+'.'+s.slice(0,4):'';
+ const stU=x=>{const bits=[];if(x.vacant)bits.push('вакантно');if(x.unconfirmed)bits.push('не подтв.');if(x.debt!=null&&x.debt>0)bits.push('долг '+$(x.debt));if(x.deposit)bits.push('залог '+$(x.deposit));return bits.length?bits.join(' · '):'ок'};
+ const unitTable=(us,tot)=>{const rows=us.map(x=>{const acc=(x.accrued!=null&&x.accrued!==x.paid)?`<div class="note">начисл. ${$(x.accrued)}</div>`:'';const dates=td(x.paid_dates)?`<div class="note">${td(x.paid_dates)}</div>`:'';const ctr=[x.date_in?('с '+fd(x.date_in)):'',x.date_out?('по '+fd(x.date_out)):''].filter(Boolean).join(' ');const ten=ctr?`<div class="note">${esc(ctr)}</div>`:'';return `<tr><td>${esc(x.unit||'—')}</td><td>${esc(x.tenant||'—')}${ten}</td><td class="n">${x.paid!=null?$(x.paid):'—'}${dates}${acc}</td><td>${stU(x)}</td></tr>`}).join('');return `<div class="fact-units"><table><tr><th>Комната</th><th>Жилец</th><th class="n">Оплачено</th><th>Статус</th></tr>${rows}</table><div class="fact-units-tot">Итого: ${$(tot)}</div></div>`};
+ const r=(x,inv,b)=>{const l=x[0],c=x[1],p=x[2],u=x[3]&&x[3].units;const lab=u&&u.length?`<details class="fact-rooms"><summary>${b?'<b>':''}${esc(l)}${b?'</b>':''} <span class="note">${u.length}</span></summary>${unitTable(u,c)}</details>`:`${b?'<b>':''}${esc(l)}${b?'</b>':''}`;return `<tr><td${u&&u.length?' class="fact-hasu"':''}>${lab}</td><td class="n">${b?'<b>':''}${dlV($(c),c,p,{f:$f,inv,br:true})}${b?'</b>':''}</td></tr>`};
  const col=C=>`<div class="tblwrap"><table><tr><th>${esc(C.h)}</th><th class="n">${esc(F.title.split(' ')[0].toLowerCase())}</th></tr>${C.rows.map(x=>r(x,C.inv)).join('')}${C.total?r(C.total,C.total_inv===false?false:C.inv,true):''}${(C.extra||[]).map(x=>r(x,C.inv)).join('')}</table></div>`;
  return `<div class="card"${duAttr('realestate.fact')}><h3>Из чего сложилось <span class="st">${esc(F.title)} · к ${esc(F.prev_label)}</span></h3><div class="fact-cols" style="--n:${F.cols.length}">${F.cols.map(col).join('')}</div>${F.result&&F.result.length?`<div class="fact-res">${F.result.map(([l,c,p])=>`<span>${esc(l)}: <b>${dlV($(c),c,p,{f:$f})}</b></span>`).join('')}</div>`:''}</div>`}
 function finChartGoals(d,cur,m){return `<div class="grid g2"><div class="card"><h3>Доходы и расходы · ${m==='week'?'по неделям':'по месяцам'} (${cur})</h3><div class="chartbox"><canvas id="main-ch"></canvas></div></div><div class="card goals-compact"><h3>Цели vs факт</h3>${goalsHTML(d)}</div></div><div style="height:14px"></div>`}
@@ -827,15 +862,20 @@ function reBlocksHTML(d){if(d.id!=='realestate'||!d.re_blocks)return '';const B=
   ${R.evict.map(x=>`<div class="task"><span class="pill p-urgent">${esc(x.status||'—')}</span><div style="flex:1"><b style="font-size:13.5px">${esc(x.who)}</b> <span class="note">· ${esc(x.where)}</span><div class="note">${esc(x.stage)} · ${cul(x.url,'CU')}</div></div></div>`).join('')}
   ${R.other_pay&&R.other_pay.length?`<div class="note" style="margin-top:4px">Не платят (не выселение): ${R.other_pay.map(x=>'<b>'+esc(x.who)+'</b> — '+esc(x.stage)+' · '+cul(x.url,'CU')).join('; ')}</div>`:''}
   <div class="note" style="margin-top:6px">${esc(R.src||'')}</div>`)}
- /* 4b-4c) Оплаты квартирантов + рентабельность — Rost t6087u */
+ /* 4b-4c) Оплаты квартирантов + рентабельность — Rost t6087u; t6184u: комментарии в 1-й колонке, без расширения остальных */
  const eEUR=v=>v==null?'—':fmt(v,'EUR');
+ const eC=v=>{if(v==null)return '—';const n=Math.round(v*100)/100;return Number.isInteger(n)?String(n):String(n).replace('.',',')};
  const dts=a=>(a&&a.length)?a.map(s=>s.slice(8,10)+'.'+s.slice(5,7)).join(', '):'';
+ const stIco=s=>s==='ok'?'✅':s==='mismatch'?'⚠️':'❓';
  const stLab=s=>s==='ok'?'✅ сходится':s==='mismatch'?'⚠️ расхождение':'❓ нет данных';
  const Pay=B.payments;if(Pay){const months=Pay.months||[],ML=Pay.month_labels||{};
-  const cell=c=>{if(!c)return '—';const who=c.tenant?`<div class="note">${esc(c.tenant)}</div>`:'';const vac=c.vacant&&!(c.expected||c.paid)?'<div class="note">вакантно</div>':'';return `${vac}${who}<div>начисл. ${eEUR(c.expected)}</div><div>опл. ${eEUR(c.paid)}${dts(c.paid_dates)?' · '+dts(c.paid_dates):''}${c.unconfirmed?' · не подтв.':''}</div><div>разница ${eEUR(c.diff)}</div><div>${stLab(c.status)}</div>${c.util_paid?`<div class="note">коммун. ${eEUR(c.util_paid)}</div>`:''}${c.deposit_paid?`<div class="note">залог ${eEUR(c.deposit_paid)}</div>`:''}${(c.notes&&c.notes.length)?`<div class="note">${esc(c.notes.join(' · '))}</div>`:''}`};
-  const rows=(Pay.rows||[]).map(r=>`<tr><td><b>${esc(r.property)}</b></td><td>${esc(r.unit)}${r.tenant?' · '+esc(r.tenant):''}${r.vacant?' <span class="note">· '+(esc(r.vacant_reason||'вакантно'))+'</span>':''}${r.date_in?`<div class="note">${r.date_in.slice(8,10)+'.'+r.date_in.slice(5,7)+'.'+r.date_in.slice(0,4)}${r.date_out?' – '+r.date_out.slice(8,10)+'.'+r.date_out.slice(5,7)+'.'+r.date_out.slice(0,4):' – '}</div>`:''}</td><td class="n">${eEUR(r.rate)}</td>${months.map(m=>`<td style="font-size:12px;vertical-align:top">${cell(r.months&&r.months[m])}</td>`).join('')}<td class="n">${eEUR(r.debt)}${(r.debt_rent!=null||r.debt_util!=null)?`<div class="note">аренда ${eEUR(r.debt_rent)} · комм. ${eEUR(r.debt_util)}</div>`:''}</td><td>${stLab(r.status)}</td></tr>`).join('');
-  h+=`<details class="card" style="margin-bottom:14px"${duAttr('realestate.payments')}><summary style="cursor:pointer">${H('💶 '+esc(Pay.title),(months.map(m=>ML[m]||m).join(' · '))+' · EUR')}</summary>
-  <div class="tblwrap" style="margin-top:6px;overflow:auto"><table><tr><th>Объект</th><th>Юнит · жилец</th><th class="n">Ставка / мес.</th>${months.map(m=>`<th>${esc(ML[m]||m)}</th>`).join('')}<th class="n">Долг накопл.</th><th>Сверка</th></tr>${rows}</table></div>
+  const mShort=m=>{const x=ML[m]||m,map={'август':'авг','сентябрь':'сен','октябрь':'окт','ноябрь (неполный)':'ноя','ноябрь':'ноя'};return map[x]||String(x).slice(0,3)};
+  const cell=c=>{if(!c)return '—';if(c.vacant&&!(c.expected||c.paid))return '<span class="note">—</span>';return `<div class="re-m">${eC(c.expected)}</div><div class="re-m">${eC(c.paid)}${dts(c.paid_dates)?`<div class="note">${dts(c.paid_dates)}</div>`:''}</div><div class="re-m">${eC(c.diff)}</div><div title="${esc(stLab(c.status))}">${stIco(c.status)}</div>`};
+  const rowNotes=r=>{const bits=[];if(r.vacant)bits.push(r.vacant_reason&&r.vacant_reason!=='вакантно'?('вакантно — '+r.vacant_reason):(r.vacant_reason||'вакантно'));if(r.date_in||r.date_out){const a=r.date_in?r.date_in.slice(8,10)+'.'+r.date_in.slice(5,7)+'.'+r.date_in.slice(0,4):'';const b=r.date_out?r.date_out.slice(8,10)+'.'+r.date_out.slice(5,7)+'.'+r.date_out.slice(0,4):'';bits.push(a&&b?a+' – '+b:a?('с '+a):('по '+b))}months.forEach(m=>{const c=r.months&&r.months[m];if(!c)return;const parts=[];const uniq=[...new Set((c.notes||[]).map(x=>String(x).trim()).filter(x=>x&&x!=='0'))];if(uniq.length)parts.push(uniq.join(' · '));if(c.util_paid)parts.push('коммун. '+eEUR(c.util_paid));if(c.deposit_paid)parts.push('залог '+eEUR(c.deposit_paid));if(c.unconfirmed)parts.push('оплата не подтверждена');if(c.tenant&&r.tenant&&c.tenant!==r.tenant)parts.push('жилец '+c.tenant);if(parts.length)bits.push(mShort(m)+': '+parts.join(' · '))});if(r.debt_rent!=null||r.debt_util!=null)bits.push('долг: аренда '+eEUR(r.debt_rent)+' · комм. '+eEUR(r.debt_util));return bits};
+  const rows=(Pay.rows||[]).map(r=>`<tr><td><b>${esc(r.property)}</b><div>${esc(r.unit||'')}${r.tenant?' · '+esc(r.tenant):''}</div>${rowNotes(r).map(t=>`<div class="re-pay-note">${esc(t)}</div>`).join('')}</td><td class="n re-num">${eC(r.rate)}</td>${months.map(m=>`<td class="re-num">${cell(r.months&&r.months[m])}</td>`).join('')}<td class="n re-num">${eC(r.debt)}</td><td title="${esc(stLab(r.status))}">${stIco(r.status)}</td></tr>`).join('');
+  h+=`<details class="card re-pay" style="margin-bottom:14px"${duAttr('realestate.payments')}><summary style="cursor:pointer">${H('💶 '+esc(Pay.title),(months.map(m=>ML[m]||m).join(' · '))+' · EUR')}</summary>
+  <div class="tblwrap" style="margin-top:6px"><table><tr><th>Объект · жилец</th><th class="n">€/м</th>${months.map(m=>`<th class="n">${esc(mShort(m))}</th>`).join('')}<th class="n">Долг</th><th title="Сверка">✓</th></tr>${rows}</table></div>
+  <div class="note" style="margin-top:4px">В колонке месяца: начислено / оплачено / разница / сверка. Комментарии — под названием в первой колонке.</div>
   ${(Pay.notes||[]).map(n=>`<div class="note" style="margin-top:4px">${esc(n)}</div>`).join('')}</details>`}
  const Pr=B.profit;if(Pr){const months=Pr.months||[],ML=Pr.month_labels||{};
   const yb=(y,lab)=>{if(!y)return `<div class="note">${lab}: —</div>`;const miss=(y.missing||[]).length?` <span class="note">· неполно</span>`:'';return `<div style="margin-top:6px"><b>${esc(lab)}</b>${y.through?' <span class="note">по '+(ML[y.through]||y.through)+'</span>':''}${miss}<div>доход ${eEUR(y.income)} · расходы ${eEUR(y.expenses)} · нетто ${eEUR(y.net)}${y.margin_pct!=null?' · маржа '+String(y.margin_pct).replace('.',',')+'%':''} · yield ${y.yield_pct!=null?String(y.yield_pct).replace('.',',')+'%':'—'}</div>${y.expenses_by?`<div class="note">${Object.entries(y.expenses_by).map(([k,v])=>esc(k)+' '+eEUR(v)).join(' · ')}</div>`:''}</div>`};
