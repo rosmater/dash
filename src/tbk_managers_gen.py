@@ -14,6 +14,7 @@
 """
 import datetime, glob, json, os, re, sys
 J = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'tbk_blocks.json')
+UPSELL = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'tbk_upsell_1c.json'))) if os.path.exists(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'tbk_upsell_1c.json')) else {}
 BIN = '/workspace/binotel'
 CC = '/home/box/contacts/knowledge/notion-brain/business/tabakevich/call-control'
 SHARE = '/workspace/tbk-1c/share-mgr'
@@ -210,7 +211,13 @@ def main():
     for p in M['calls']['people']:
         x = (S or {}).get(p['name']) or {}
         for k in ('to', 'orders', 'refused', 'returned', 'ref_pct', 'ret_pct'): p[k] = x.get(k)
-        p['upsell'] = None  # допродажи: в BAS нет признака — источника пока нет
+        p['upsell'] = p['upsell_sum'] = None
+        # Rost t6142u: допродажи из 1С «Отчет по доппродажам» (строки заказа с ДопЗаказ=да)
+        U = (UPSELL.get('weeks') or {}).get(f'W{n}') or {}
+        if p['name'] in (U.get('people') or {}):
+            x = U['people'][p['name']]
+            p['upsell'] = x.get('orders')
+            p['upsell_sum'] = x.get('sum')
         # Rost t6007u: итог = Binotel % × (1 − (отказы + возвраты) / заказы)
         p['score'] = round(p['pct'] * (1 - ((x.get('refused') or 0) + (x.get('returned') or 0)) / x['orders']), 1) if x.get('orders') and (x.get('ref_pct') is not None) else None
     known = {p['name'] for p in M['calls']['people']}
@@ -219,6 +226,7 @@ def main():
         + f' · {a:%d.%m}–{b:%d.%m} · только «Интернет продажи» · непроведённые заказы исключены'
         + ('; в реализациях пометка удаления не выгружена (ждёт выгрузку №2)' if any(u.startswith('⚠') for u in used) else '')) if S else '1С: выгрузки по менеджерам нет — ждёт выгрузку из BAS'
     M['score_formula'] = 'Итог = оценка звонков Binotel × (1 − (отказы + возвраты) ÷ заказы менеджера); отказ/возврат — по «Состояние» заказа и документам «Возврат от покупателя» из 1С'
+    M['upsell_src'] = (UPSELL.get('src') + f' · W{n} · {a:%d.%m}–{b:%d.%m}') if UPSELL.get('src') else None
     M['stale_note'] = '' if H else f'HelpCrunch W{n} не найден'
     json.dump(B, open(J, 'w'), ensure_ascii=False, indent=1)
     print('managers →', M['week'], '| missed', C['missed'], '| 1С', 'есть' if S else 'нет')

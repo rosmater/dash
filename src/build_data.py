@@ -1098,7 +1098,7 @@ data = dict(
                 cu=dict(id='86bcn44nh', label='Коучинг Алекса Херрера (Personal)', status='to do', url='https://rosmater.github.io/cu/?t=86bcn44nh')),
            dict(name='Мама', icon='👩‍🦳', role='Её бот', status='attention', goal='Цель 1 — Консультация 1 клиента в неделю (выйти на 5 визитов в неделю с таргета с ROI)', items=['Я: Помощь с общением с её ботом', 'Она: Начать считать доходы и расходы', 'Она: Вести страницу, вести диалоги', 'Она: Вести таргет, обработка лидов'], src='Rost, 24.10.2026 · сайт по ссылке done 03.11',
                 cu=dict(id='86bcqw802', label='Мама (как дела?) — ClickUp · Personal', status='to do', url='https://rosmater.github.io/cu/?t=86bcqw802')),
-           dict(name='Андрей Многотуров', icon='🧑', role='Бот · TripAdvisor', status='attention', items=['Я: Подключить к боту — чтобы сам мог править', 'Он: Найти 50 отзывов (TripAdvisor)', 'Я: Не забывать выводить деньги с Viator'], src='Rost, 24.10.2026',
+           dict(name='Андрей Многотуров', icon='🧑', role='Бот · TripAdvisor', status='attention', items=['Он: Найти 50 отзывов (TripAdvisor)', 'Я: Не забывать выводить деньги с Viator'], src='Rost, 24.10.2026',
                 cu=dict(id='86ba2y9ke', label='ТрипЭдвайсер (как дела?) — ClickUp · Personal', status='to do', url='https://rosmater.github.io/cu/?t=86ba2y9ke')),
            # Rost t5990u 11.11: «Андрей Партнер» перенесён в CU 86bd1xnvc → Табакевич «На решение»
            dict(name='Общее', icon='⚙️', role='Инфра / тест', status='attention',
