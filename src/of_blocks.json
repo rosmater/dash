@@ -544,18 +544,20 @@
       {
         "handle": "lolabig.lolapop",
         "status": "ok",
-        "status_at": "2026-11-09"
+        "status_at": "2026-11-12",
+        "src": "CU 86bcn2d1t, скрин Account Status от Мишель 12.11"
       },
       {
         "handle": "lolapopstarted",
         "status": "ok",
-        "status_at": "2026-11-09"
+        "status_at": "2026-11-12",
+        "src": "CU 86bcn2d1t, скрин Account Status от Мишель 12.11"
       },
       {
         "handle": "lolastartjourney",
-        "status": "attn",
-        "status_at": "2026-11-09",
-        "note": "Нет рекомендаций не-подписчикам (Account Status, 09.11). Открыть «Recommendation eligibility» → обжаловать/убрать посты."
+        "status": "ok",
+        "status_at": "2026-11-12",
+        "src": "CU 86bcn2d1t, скрин Account Status от Мишель 12.11"
       }
     ],
     "weeks": [
