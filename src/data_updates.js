@@ -1,7 +1,10 @@
-/* t6093u / t6095u: жёлтая строка «Есть новые данные» + чип ✓ у блока.
+/* t6093u / t6095u / t6165u: жёлтая строка «Есть новые данные» + чип ✓ у блока
+   + жёлтый кружок на кнопках направлений (число непросмотренных блоков).
+   На «Общий» — сумма по всем направлениям, серый бейдж другого оттенка (не tbadge).
    Жёлтый = ещё не смотрел; после клика чип остаётся серым («Данные просмотрены DD.MM»),
-   строка под «Требует внимания» пропадает. Новые данные снова желтят чип.
-   Первый заход: seen = current, сразу серый чип. Хранилище helper отдельное. */
+   строка под «Требует внимания» пропадает, бейдж на вкладке пересчитывается.
+   Новые данные снова желтят чип и бейдж. Первый заход: seen = current, сразу серый чип.
+   Хранилище helper отдельное. На helper не считаем блок баланса и скрытые вкладки. */
 const DataUpd = (() => {
   const LS = window.DASH_HELPER ? 'dash_data_seen_asst_v1' : 'dash_data_seen_v1';
   const extra = {};
@@ -51,11 +54,55 @@ const DataUpd = (() => {
     if (!s) return 'ok'; // ещё не boot — не жёлтим
     return s.ver === b.ver ? 'ok' : 'nu';
   }
+  function isVisible(b) {
+    if (!b || !b.id) return false;
+    // helper.html не содержит блок баланса — не считаем его и не светим
+    if (window.DASH_HELPER && (b.id === 'overview.balance' || b.dir === 'overview')) return false;
+    if (b.dir && b.dir !== 'overview') {
+      try {
+        const dirs = (typeof Dash !== 'undefined' && Dash.D && Dash.D.directions) || [];
+        if (dirs.length && !dirs.some(d => d.id === b.dir)) return false;
+      } catch (e) {}
+    }
+    return true;
+  }
   function unseen(dir) {
     boot();
     return catalog().filter(b => {
+      if (!isVisible(b)) return false;
       if (dir && b.dir !== dir) return false;
       return stateOf(b) === 'nu';
+    });
+  }
+  function tabCount(dir) {
+    if (!dir || dir === 'overview') return unseen(null).length;
+    return unseen(dir).length;
+  }
+  function paintTabBadges() {
+    const all = tabCount('overview');
+    document.querySelectorAll('#tabs button[data-t], #mabtn button[data-t]').forEach(btn => {
+      const id = btn.getAttribute('data-t');
+      const n = (id === 'overview') ? all : tabCount(id);
+      let el = btn.querySelector('.dubadge, .dubadge-ov');
+      if (!n) {
+        if (el) el.remove();
+        return;
+      }
+      const cls = id === 'overview' ? 'dubadge-ov' : 'dubadge';
+      const title = id === 'overview'
+        ? ('Новых данных по всем направлениям: ' + n)
+        : ('Есть новые данные: ' + n);
+      if (el) {
+        el.className = cls;
+        el.textContent = String(n);
+        el.title = title;
+      } else {
+        el = document.createElement('span');
+        el.className = cls;
+        el.textContent = String(n);
+        el.title = title;
+        btn.appendChild(el);
+      }
     });
   }
   function markSeen(id) {
@@ -163,6 +210,7 @@ const DataUpd = (() => {
     boot();
     placeLines();
     paintChips();
+    paintTabBadges();
     bind();
   }
   function jump(id) {
@@ -197,9 +245,11 @@ const DataUpd = (() => {
     extra[b.id] = b;
     booted = false;
     boot();
+    try { afterRender(); } catch (e) {}
   }
   function unregister(id) {
     delete extra[id];
+    try { afterRender(); } catch (e) {}
   }
-  return { afterRender, register, unregister, jump, unseen, boot, stateOf, catalog, LS };
+  return { afterRender, register, unregister, jump, unseen, boot, stateOf, catalog, tabCount, paintTabBadges, isVisible, LS };
 })();

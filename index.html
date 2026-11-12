@@ -235,6 +235,10 @@ details.mrow .mbody>.task{padding:5px 0}
 .du-chip.nu{background:#f5c84a;color:#6b4a00;box-shadow:0 0 0 1px #e0a82a}
 .du-chip.nu:hover{filter:brightness(.96)}
 .du-chip.ok{background:#e5e7eb;color:#6b7280;cursor:default}
+/* t6165u: жёлтый кружок новых данных рядом с красным бейджем направления; на «Общий» — серый другого оттенка, рядом с tbadge */
+.dubadge{display:inline-grid;place-items:center;min-width:16px;height:16px;padding:0 4px;margin-left:4px;border-radius:99px;background:#f5c84a;color:#6b4a00;font:700 10px Inter;vertical-align:1px;box-shadow:0 0 0 1px #e0a82a;box-sizing:border-box;line-height:1}
+.dubadge-ov{display:inline-grid;place-items:center;min-width:16px;height:16px;padding:0 4px;margin-left:4px;border-radius:99px;background:#a8b0bb;color:#fff;font:700 10px Inter;vertical-align:1px;box-sizing:border-box;line-height:1}
+@media(max-width:520px){.dubadge,.dubadge-ov{min-width:14px;height:14px;padding:0 3px;margin-left:3px;font-size:9px}}
 @keyframes duFlash{0%,100%{box-shadow:none}20%,70%{box-shadow:0 0 0 3px #f5c84a,0 0 16px #fde68a}}
 .du-flash{animation:duFlash 1.6s ease}
 </style><link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%2322c3a6%22/%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%237b5cff%22/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2216%22%20fill%3D%22url%28%23g%29%22/%3E%3Crect%20x%3D%2215%22%20y%3D%2234%22%20width%3D%228%22%20height%3D%2215%22%20rx%3D%223%22%20fill%3D%22%23fff%22/%3E%3Crect%20x%3D%2228%22%20y%3D%2224%22%20width%3D%228%22%20height%3D%2225%22%20rx%3D%223%22%20fill%3D%22%23fff%22/%3E%3Crect%20x%3D%2241%22%20y%3D%2215%22%20width%3D%228%22%20height%3D%2234%22%20rx%3D%223%22%20fill%3D%22%23fff%22%20opacity%3D%22.92%22/%3E%3C/svg%3E">
@@ -568,9 +572,10 @@ function controls(){ensureMode();const isCal=S.tab==='calendar',allow=tabModes(S
  if(!sel.hidden){sel.innerHTML=Dash.periods().map(p=>`<option value="${p.id}">${S.mode==='week'?(p.iso+' · '):''}${esc(p.label)}</option>`).join('');sel.value=Dash.pid();}
  sel.onchange=()=>{S.mode==='week'?S.week=sel.value:S.month=sel.value;render()};$('#cur').value=S.cur;$('#cur').onchange=e=>{S.cur=e.target.value;render()};
  // Rost 25.10: Календарь — не вкладка направления, а кнопка сверху рядом с Сегодня/Неделя/Месяц
- $('#tabs').innerHTML=[{id:'overview',name:'Общий',icon:'✦',color:'#7c5cff'},...D.directions.filter(d=>d.kind!=='calendar'&&!MA_KINDS.includes(d.kind))].map(d=>{const n=d.id==='overview'?attnAll().n:attn(d).length;return `<button data-t="${d.id}" style="--c:${d.color}" class="${S.tab===d.id?'on':''}" title="${n?'Требует внимания: '+n:''}">${d.stage?`<span class="sdot tdot ${d.stage}" title="${STAGE_T[d.stage]||''}"></span>`:''}${d.icon} ${esc(d.name)}${n&&d.id==='overview'?`<span class="tbadge" title="итого пунктов внимания — не уведомления">=${n}</span>`:n&&d.kind!=='msgs'?`<span class="abadge">${n}</span>`:''}${d.kind==='msgs'&&maCount(d)?`<span class="abadge" title="непрочитанных / наш ход диалогов итого">${maCount(d)}</span>`:''}${!n&&d.kind!=='msgs'&&MA_KINDS.includes(d.kind)&&maCount(d)?`<span class="nbadge" title="висит / открыто (не требует внимания)">${maCount(d)}</span>`:''}</button>`}).join('');
+  const duBadge=id=>{let n=0;try{if(typeof DataUpd!=='undefined')n=DataUpd.tabCount(id)}catch(e){}return n?`<span class="${id==='overview'?'dubadge-ov':'dubadge'}" title="${id==='overview'?'Новых данных по всем направлениям: '+n:'Есть новые данные: '+n}">${n}</span>`:''};
+ $('#tabs').innerHTML=[{id:'overview',name:'Общий',icon:'✦',color:'#7c5cff'},...D.directions.filter(d=>d.kind!=='calendar'&&!MA_KINDS.includes(d.kind))].map(d=>{const n=d.id==='overview'?attnAll().n:attn(d).length;return `<button data-t="${d.id}" style="--c:${d.color}" class="${S.tab===d.id?'on':''}" title="${n?'Требует внимания: '+n:''}">${d.stage?`<span class="sdot tdot ${d.stage}" title="${STAGE_T[d.stage]||''}"></span>`:''}${d.icon} ${esc(d.name)}${n&&d.id==='overview'?`<span class="tbadge" title="итого пунктов внимания — не уведомления">=${n}</span>`:n&&d.kind!=='msgs'?`<span class="abadge">${n}</span>`:''}${d.kind==='msgs'&&maCount(d)?`<span class="abadge" title="непрочитанных / наш ход диалогов итого">${maCount(d)}</span>`:''}${!n&&d.kind!=='msgs'&&MA_KINDS.includes(d.kind)&&maCount(d)?`<span class="nbadge" title="висит / открыто (не требует внимания)">${maCount(d)}</span>`:''}${duBadge(d.id)}</button>`}).join('');
  // Rost 26.10: Мессенджеры + Ассистенты·боты — в самом верху, рядом с Календарь/Сегодня/Неделя/Месяц (не в конце строки вкладок)
- $('#mabtn').innerHTML=D.directions.filter(d=>MA_KINDS.includes(d.kind)).map(d=>{const n=attn(d).length,c=maCount(d);return `<button data-t="${d.id}" class="${S.tab===d.id?'on':''}" title="${n?'Требует внимания: '+n:esc(d.subtitle||'')}">${d.icon} ${esc(d.name)}${d.kind==='msgs'?(c?`<span class="abadge" title="непрочитанных / наш ход диалогов итого">${c}</span>`:''):n?`<span class="abadge">${n}</span>`:c?`<span class="nbadge">${c}</span>`:''}</button>`}).join('');$('#mabtn').hidden=!$('#mabtn').innerHTML;
+ $('#mabtn').innerHTML=D.directions.filter(d=>MA_KINDS.includes(d.kind)).map(d=>{const n=attn(d).length,c=maCount(d);return `<button data-t="${d.id}" class="${S.tab===d.id?'on':''}" title="${n?'Требует внимания: '+n:esc(d.subtitle||'')}">${d.icon} ${esc(d.name)}${d.kind==='msgs'?(c?`<span class="abadge" title="непрочитанных / наш ход диалогов итого">${c}</span>`:''):n?`<span class="abadge">${n}</span>`:c?`<span class="nbadge">${c}</span>`:''}${duBadge(d.id)}</button>`}).join('');$('#mabtn').hidden=!$('#mabtn').innerHTML;
  document.querySelectorAll('#mabtn button').forEach(b=>b.onclick=()=>{S.tab=b.dataset.t;render();scrollTo({top:0,behavior:'smooth'})});
  document.querySelectorAll('#tabs button').forEach(b=>b.onclick=()=>{S.tab=b.dataset.t;render();scrollTo({top:0,behavior:'smooth'})});
  const TD=new Intl.DateTimeFormat('ru-RU',{timeZone:BOG,weekday:'short',day:'numeric',month:'short'}).format(new Date());
@@ -2135,10 +2140,13 @@ function bdHdr(){try{syncBogDay()}catch(e){}const el=$('#bdhdr');if(!el)return;l
 function bdDone(b){let L={};try{L=JSON.parse(localStorage.getItem('dash_bday_done')||'{}')}catch(e){}L[b.dataset.u]=b.dataset.due;try{localStorage.setItem('dash_bday_done',JSON.stringify(L))}catch(e){}
  tapPush({key:'bday|'+b.dataset.u,channel:'ClickUp',action:'cu_close',kind:'bday',title:b.dataset.t,url:b.dataset.u,due:b.dataset.due,sphere:'done'});bdHdr()}
 function render(){AT_REG=[];try{bdHdr()}catch(e){}setTimeout(()=>{try{tapResync()}catch(e){}},1500);try{maOqApply()}catch(e){}kill();ensureMode();Dash.save();controls();const d=Dash.D.directions.find(x=>x.id===S.tab),td=S.mode==='today';try{d?(d.kind==='msgs'?msgsTab(d):d.kind==='unsorted'?unsortedTab(d):d.kind==='assistants'?asstTab(d):d.kind==='bots'?botsTab(d):d.kind==='people'?people(d):d.kind==='calendar'?calendar(d):d.board?board(d):td?directionToday(d):direction(d)):td?overviewToday():overview()}catch(er){/* Rost t4316: ошибка отрисовки вкладки — не оставлять на экране контент прошлой вкладки */console.error(er);$('#main').innerHTML=`<div class="card"><h3>⚠️ ${esc((d&&d.name)||S.tab)}: ошибка отрисовки</h3><div class="note">${esc(String(er&&er.message||er))}</div></div>`}try{thMount()}catch(e){}try{pepLeadsStripMount()}catch(e){}try{DataUpd.afterRender()}catch(e){}$('#foot').textContent=Dash.fxFooter();}
-/* t6093u / t6095u: жёлтая строка «Есть новые данные» + чип ✓ у блока.
+/* t6093u / t6095u / t6165u: жёлтая строка «Есть новые данные» + чип ✓ у блока
+   + жёлтый кружок на кнопках направлений (число непросмотренных блоков).
+   На «Общий» — сумма по всем направлениям, серый бейдж другого оттенка (не tbadge).
    Жёлтый = ещё не смотрел; после клика чип остаётся серым («Данные просмотрены DD.MM»),
-   строка под «Требует внимания» пропадает. Новые данные снова желтят чип.
-   Первый заход: seen = current, сразу серый чип. Хранилище helper отдельное. */
+   строка под «Требует внимания» пропадает, бейдж на вкладке пересчитывается.
+   Новые данные снова желтят чип и бейдж. Первый заход: seen = current, сразу серый чип.
+   Хранилище helper отдельное. На helper не считаем блок баланса и скрытые вкладки. */
 const DataUpd = (() => {
   const LS = window.DASH_HELPER ? 'dash_data_seen_asst_v1' : 'dash_data_seen_v1';
   const extra = {};
@@ -2188,11 +2196,55 @@ const DataUpd = (() => {
     if (!s) return 'ok'; // ещё не boot — не жёлтим
     return s.ver === b.ver ? 'ok' : 'nu';
   }
+  function isVisible(b) {
+    if (!b || !b.id) return false;
+    // helper.html не содержит блок баланса — не считаем его и не светим
+    if (window.DASH_HELPER && (b.id === 'overview.balance' || b.dir === 'overview')) return false;
+    if (b.dir && b.dir !== 'overview') {
+      try {
+        const dirs = (typeof Dash !== 'undefined' && Dash.D && Dash.D.directions) || [];
+        if (dirs.length && !dirs.some(d => d.id === b.dir)) return false;
+      } catch (e) {}
+    }
+    return true;
+  }
   function unseen(dir) {
     boot();
     return catalog().filter(b => {
+      if (!isVisible(b)) return false;
       if (dir && b.dir !== dir) return false;
       return stateOf(b) === 'nu';
+    });
+  }
+  function tabCount(dir) {
+    if (!dir || dir === 'overview') return unseen(null).length;
+    return unseen(dir).length;
+  }
+  function paintTabBadges() {
+    const all = tabCount('overview');
+    document.querySelectorAll('#tabs button[data-t], #mabtn button[data-t]').forEach(btn => {
+      const id = btn.getAttribute('data-t');
+      const n = (id === 'overview') ? all : tabCount(id);
+      let el = btn.querySelector('.dubadge, .dubadge-ov');
+      if (!n) {
+        if (el) el.remove();
+        return;
+      }
+      const cls = id === 'overview' ? 'dubadge-ov' : 'dubadge';
+      const title = id === 'overview'
+        ? ('Новых данных по всем направлениям: ' + n)
+        : ('Есть новые данные: ' + n);
+      if (el) {
+        el.className = cls;
+        el.textContent = String(n);
+        el.title = title;
+      } else {
+        el = document.createElement('span');
+        el.className = cls;
+        el.textContent = String(n);
+        el.title = title;
+        btn.appendChild(el);
+      }
     });
   }
   function markSeen(id) {
@@ -2300,6 +2352,7 @@ const DataUpd = (() => {
     boot();
     placeLines();
     paintChips();
+    paintTabBadges();
     bind();
   }
   function jump(id) {
@@ -2334,11 +2387,13 @@ const DataUpd = (() => {
     extra[b.id] = b;
     booted = false;
     boot();
+    try { afterRender(); } catch (e) {}
   }
   function unregister(id) {
     delete extra[id];
+    try { afterRender(); } catch (e) {}
   }
-  return { afterRender, register, unregister, jump, unseen, boot, stateOf, catalog, LS };
+  return { afterRender, register, unregister, jump, unseen, boot, stateOf, catalog, tabCount, paintTabBadges, isVisible, LS };
 })();
 
 /* Rost t6090u / t6091u / t6092u: «Общий баланс» — только главный даш (не попадает в helper.html).
