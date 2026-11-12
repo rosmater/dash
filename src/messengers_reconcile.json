@@ -1,6 +1,6 @@
 {
- "at": "2026-11-07T09:16:20-05:00",
- "at_bogota": "2026-11-07T09:16:20-05:00",
+ "at": "2026-11-12T15:04:20-05:00",
+ "at_bogota": "2026-11-12T15:04:20-05:00",
  "rule": "t5154/t5156/t5198u live=list=monitor=spheres=tab_badge; drop wait-only+muted-unsorted+stale_unread(>14d); no cross-sphere dups; monitor n/u from live rows only",
  "channels": {
   "wa_ukr": {
@@ -26,12 +26,14 @@
    "ok": true,
    "removed": [
     "Lio New",
+    "Наталья Flyup Планирование",
     "Алла Агенство Недвижимости Аликанте",
     "Оксана Бухгалтер Торевьеха",
     "Ира Квартирантка Лос Пуэблос",
     "Анатолий От Ольги Ремонты",
     "Андрей Электричество Тарифы Аликанте",
     "Дима от Ольги Испания",
+    "Алексей Квартирант",
     "Мила - чат по квартире",
     "Светлана Чебыкина Рей Пастор Квартир…",
     "Антон Alegría Real Estate Аликанте",
@@ -41,8 +43,15 @@
     "ЧАТ ВЗАИМОПОМОЩИ ОТ ОКУПАС",
     "WhatsApp"
    ],
-   "added": [],
-   "count_fixed": [],
+   "added": [
+    "Мария Алегрия Управляющая Компания",
+    "Оля Испанская"
+   ],
+   "count_fixed": [
+    "Maks Sinar Адвокат Испания:3→1",
+    "Comunidad Calle Olivino 3:0→160",
+    "Ростислав - Анатолий ремонты:23→37"
+   ],
    "only_dash": [],
    "only_live": [],
    "count_diff": [],
@@ -54,7 +63,7 @@
     "Аукционы Испании"
    ],
    "stale_unread_days": 14,
-   "note": "2 chats dropped as stale unread, last older than 14d: Дезинфекция квартиры, Аукционы Испании; снято: Lio New, Алла Агенство Недвижимости Аликанте, Оксана Бухгалтер Торевьеха, Ира Квартирантка Лос Пуэблос, Анатолий От Ольги Ремонты, Андрей Электричество Тарифы Аликанте, Дима от Ольги Испания, Мила - чат по квартире, Светлана Чебыкина Рей Пастор Квартир…, Антон Alegría Real Estate Аликанте, Виктор - чат по квартире, Ярослав Феникс…; равно 3 чатов / 6 сообщ. (live=list=monitor; 1 в 📥 после ✕)",
+   "note": "2 chats dropped as stale unread, last older than 14d: Дезинфекция квартиры, Аукционы Испании; снято: Lio New, Наталья Flyup Планирование, Алла Агенство Недвижимости Аликанте, Оксана Бухгалтер Торевьеха, Ира Квартирантка Лос Пуэблос, Анатолий От Ольги Ремонты, Андрей Электричество Тарифы Аликанте, Дима от Ольги Испания, Алексей Квартирант, Мила - чат по квартире, Светлана Чебыкина Рей Пастор Квартир…, Антон Alegría Real Estate Аликанте…; добавлено: Мария Алегрия Управляющая Компания, Оля Испанская; равно 3 чатов / 6 сообщ. (live=list=monitor; 1 в 📥 после ✕)",
    "surfaces": {
     "tab_badge_ok": true,
     "unsorted_ok": true,
@@ -68,24 +77,24 @@
    }
   },
   "wa_esp": {
-   "at": "2026-11-06T13:23:50-05:00",
-   "at_label": "2026-11-06 13:23 Bogotá",
-   "live_chats": 4,
-   "live_sum": 6,
-   "dash_chats": 4,
-   "dash_sum": 6,
-   "monitor_chats": 4,
-   "monitor_sum": 6,
-   "list_chats": 4,
-   "list_sum": 6,
-   "sphere_chats": 4,
-   "sphere_sum": 6,
-   "unmuted_sum": 6,
-   "unmuted_chats": 4,
-   "dash_unmuted": 6,
-   "badge_chats": 7,
+   "at": "2026-11-07T20:25:00-05:00",
+   "at_label": "2026-11-07 20:25 Bogotá",
+   "live_chats": 3,
+   "live_sum": 3,
+   "dash_chats": 3,
+   "dash_sum": 3,
+   "monitor_chats": 3,
+   "monitor_sum": 3,
+   "list_chats": 3,
+   "list_sum": 3,
+   "sphere_chats": 3,
+   "sphere_sum": 3,
+   "unmuted_sum": 3,
+   "unmuted_chats": 3,
+   "dash_unmuted": 3,
+   "badge_chats": 6,
    "ignore_chats": 3,
-   "filter_count": 7,
+   "filter_count": 6,
    "match": true,
    "ok": true,
    "removed": [
@@ -103,8 +112,7 @@
     "CLÍNICA VISUAL",
     "Илья Деня ДЧ",
     "Стелла Киевстар",
-    "Maria MR Med",
-    "Andrea Feabie",
+    "Seider",
     "Karen",
     "+57 322 6456644",
     "Patricia Alvarado Mr Supr...",
@@ -122,7 +130,11 @@
     "seider munoz"
    ],
    "added": [],
-   "count_fixed": [],
+   "count_fixed": [
+    "Nutibara 1105:0→1",
+    "Maria MR Med:2→1",
+    "Andrea Feabie:0→1"
+   ],
    "only_dash": [],
    "only_live": [],
    "count_diff": [],
@@ -131,14 +143,14 @@
    "sphere_count_diff": [],
    "stale_unread_dropped": [],
    "stale_unread_days": 14,
-   "note": "снято: Miguel Calipso, Alnago, Albeiro Garcia Курьер Ce..., Многотуров Андрей, JOHANN RUIZ Box, Тигран Вотсап, Leidy Base Loft Собствен..., Сережа Кинозвезда Акт..., Баба, Коля Кобзов, +57 323 5391596, CLÍNICA VISUAL…; равно 4 чатов / 6 сообщ. (live=list=monitor=spheres)",
+   "note": "снято: Miguel Calipso, Alnago, Albeiro Garcia Курьер Ce..., Многотуров Андрей, JOHANN RUIZ Box, Тигран Вотсап, Leidy Base Loft Собствен..., Сережа Кинозвезда Акт..., Баба, Коля Кобзов, +57 323 5391596, CLÍNICA VISUAL…; равно 3 чатов / 3 сообщ. (live=list=monitor=spheres)",
    "surfaces": {
     "tab_badge_ok": true,
     "unsorted_ok": true,
     "dups_ok": true,
     "monitor_meta_ok": true,
-    "monitor_n": 4,
-    "monitor_u": 6,
+    "monitor_n": 3,
+    "monitor_u": 3,
     "unsorted_n": 0,
     "dups": [],
     "ok": true
@@ -172,6 +184,7 @@
     "Мама Киевстар",
     "Maksym",
     "Sara $$$",
+    "Должник Дима 1",
     "Alina Docs",
     "SEO Hooka",
     "Передача сайта Intim",
@@ -180,10 +193,11 @@
     "Valentina Hozka",
     "АЛИБИ ТАБАК ОДЕСА",
     "Алексей Касаткин",
+    "ОФТВ Леша админка + 4 Колумбийки",
+    "Nikita",
     "Seidor $$$",
     "Gastos $$$",
     "RA222 - MODEL CHAT",
-    "ОФТВ Леша админка + 4 Колумбийки",
     "RA221 - MODEL CHAT",
     "RA212 - MODEL CHAT",
     "Sara Pinedas",
@@ -208,9 +222,28 @@
     "Разработка Hooka"
    ],
    "added": [
-    "Kir0[4K]"
+    "Ирина Шекель от Юли",
+    "Secret Отрисовка и фотодропы",
+    "Andrei Grafeev",
+    "Серега Актер",
+    "Сергей Адвокат",
+    "Dmitri",
+    "Общение ботов",
+    "Model Support",
+    "Kir0[4K]",
+    "Стас Элвис"
    ],
-   "count_fixed": [],
+   "count_fixed": [
+    "Baba:0→7",
+    "Баба 2:0→12",
+    "Киви Саша Шейх:0→2",
+    "Яна Бух Наш:0→3",
+    "TABAKEVICH (разработка):0→5",
+    "M_November:0→1",
+    "Колумбия OFTV - Markiz Karabas 3 модели:0→4",
+    "Di di ситуация:0→7",
+    "Разработка Felix-shop:0→2"
+   ],
    "only_dash": [],
    "only_live": [],
    "count_diff": [],
@@ -219,7 +252,7 @@
    "sphere_count_diff": [],
    "stale_unread_dropped": [],
    "stale_unread_days": 14,
-   "note": "источник: папка «Новые»; снято: Ситуация налоговая Киев, Виталик КС, ПАРАГВАЙ, Мама Киевстар, Maksym, Sara $$$, Alina Docs, SEO Hooka, Передача сайта Intim, Palma (контекстная реклама), 448_tabakevich.com_DEV - SEO, Valentina Hozka…; добавлено: Kir0[4K]; равно 20 чатов / 68 сообщ. (live=list=monitor; 2 в 📥 после ✕)",
+   "note": "источник: папка «Новые»; снято: Ситуация налоговая Киев, Виталик КС, ПАРАГВАЙ, Мама Киевстар, Maksym, Sara $$$, Должник Дима 1, Alina Docs, SEO Hooka, Передача сайта Intim, Palma (контекстная реклама), 448_tabakevich.com_DEV - SEO…; добавлено: Ирина Шекель от Юли, Secret Отрисовка и фотодропы, Andrei Grafeev, Серега Актер, Сергей Адвокат, Dmitri, Общение ботов, Model Support, Kir0[4K], Стас Элвис; равно 20 чатов / 68 сообщ. (live=list=monitor; 2 в 📥 после ✕)",
    "surfaces": {
     "tab_badge_ok": true,
     "unsorted_ok": true,
@@ -331,10 +364,5 @@
  "ok": true,
  "lost": 0,
  "mismatch": 0,
- "note": "ок · все каналы: диалоги = live · perm-dm cut: +57 301 3647812 (Rost t5042–44: «не нашёл» (Daniela Angel); +57 320 8308814 (Rost t5042–44: «не нашёл» (Marcela) — но)",
- "published_ok": true,
- "published_at": "2026-11-12T09:44:12-05:00",
- "published_note": "Pages data.enc == local HEAD build",
- "published_sha": "0a084f4b24bebabd23148ec7e0c22d35b62305e69cf665f604a97eb3a1c7b5d7",
- "build_commit": "672995d57a6a4d37c19addc966d34cc050837ebe"
+ "note": "ок · все каналы: диалоги = live · perm-dm cut: +57 301 3647812 (Rost t5042–44: «не нашёл» (Daniela Angel); +57 320 8308814 (Rost t5042–44: «не нашёл» (Marcela) — но)"
 }

@@ -1,8 +1,8 @@
 {
  "_note": "HARD Rost t5351u: диалоги ClickUp на даше = Desktop Inbox Primary + Direct Messages только с красным бейджем. MCP-опрос за 48ч сюда не пишем.",
- "fetched": "2026-11-06 12:20 Bogotá",
- "since": "2026-11-06 12:20 Bogotá",
- "src": "desktop Inbox Primary + DM (red badge only) · 2026-11-06 12:20 Bogotá · primary=4 dm=0",
+ "fetched": "2026-11-12 09:38 Bogotá",
+ "since": "2026-11-12 09:38 Bogotá",
+ "src": "desktop Inbox Primary + DM (red badge only) · 2026-11-12 09:38 Bogotá · primary=2 dm=0",
  "tier": "desktop",
  "kinds": [
   [
@@ -31,10 +31,24 @@
   ]
  ],
  "counts": {
-  "comment": 1,
-  "mention": 3
+  "comment": 2
  },
  "items": [
+  {
+   "task_id": "86baqkyw4",
+   "task": "Алла: Страховой случай Лос Пуэблос - как продвигается?",
+   "list": "",
+   "list_id": "",
+   "status": "",
+   "task_url": "https://rosmater.github.io/cu/?t=86baqkyw4",
+   "task_app": "https://app.clickup.com/t/86baqkyw4",
+   "kind": "comment",
+   "at": "",
+   "who": "Алла",
+   "comment_id": "",
+   "comment_url": "https://app.clickup.com/t/86baqkyw4",
+   "n_new": 1
+  },
   {
    "task_id": "86bcn2d1t",
    "task": "Control de estado de cuentas + mandar apelaciones + eliminar publicaciones problematicas + mas mandar capturas de pantalla",
@@ -44,59 +58,35 @@
    "task_url": "https://rosmater.github.io/cu/?t=86bcn2d1t",
    "task_app": "https://app.clickup.com/t/86bcn2d1t",
    "kind": "comment",
-   "at": "2026-11-05",
-   "who": "Michelle Hernández",
+   "at": "",
+   "who": "@Rost Lolapop",
    "comment_id": "90140278110604",
    "comment_url": "https://app.clickup.com/t/86bcn2d1t?comment=90140278110604",
-   "n_new": 1
-  },
-  {
-   "task_id": "86bc3mx4v",
-   "task": "Hacer 2 etapa en oficina",
-   "list": "Models",
-   "list_id": "901412862040",
-   "status": "for check",
-   "task_url": "https://rosmater.github.io/cu/?t=86bc3mx4v",
-   "task_app": "https://app.clickup.com/t/86bc3mx4v",
-   "kind": "mention",
-   "at": "2026-11-05",
-   "who": "Sara Pineda Chanci",
-   "comment_id": "90140278510696",
-   "comment_url": "https://app.clickup.com/t/86bc3mx4v?comment=90140278510696",
-   "n_new": 1
-  },
-  {
-   "task_id": "86ba4ky8z",
-   "task": "Iniciar proyecto OFTV en Cali con Andrea + registrar pagos247",
-   "list": "Models",
-   "list_id": "901412862040",
-   "status": "to do",
-   "task_url": "https://rosmater.github.io/cu/?t=86ba4ky8z",
-   "task_app": "https://app.clickup.com/t/86ba4ky8z",
-   "kind": "mention",
-   "at": "2026-11-05",
-   "who": "Michelle Hernández",
-   "comment_id": "90140278123727",
-   "comment_url": "https://app.clickup.com/t/86ba4ky8z?comment=90140278123727",
-   "n_new": 1
-  },
-  {
-   "task_id": "86bcnvd8j",
-   "task": "Verificación sistemas de pagos (Valentina RA222)",
-   "list": "Models",
-   "list_id": "901412862040",
-   "status": "for check",
-   "task_url": "https://rosmater.github.io/cu/?t=86bcnvd8j",
-   "task_app": "https://app.clickup.com/t/86bcnvd8j",
-   "kind": "mention",
-   "at": "2026-11-04",
-   "who": "Sara Pineda Chanci",
-   "comment_id": "90140278123165",
-   "comment_url": "https://app.clickup.com/t/86bcnvd8j?comment=90140278123165",
    "n_new": 1
   }
  ],
  "threads": [
+  {
+   "task_id": "86baqkyw4",
+   "task": "Алла: Страховой случай Лос Пуэблос - как продвигается?",
+   "list": "",
+   "list_id": "",
+   "status": "",
+   "task_url": "https://rosmater.github.io/cu/?t=86baqkyw4",
+   "task_app": "https://app.clickup.com/t/86baqkyw4",
+   "kinds": [
+    "comment"
+   ],
+   "at": "",
+   "who": "Алла",
+   "comment_url": "https://app.clickup.com/t/86baqkyw4",
+   "comment_id": "",
+   "sub": "",
+   "n_new": 1,
+   "mention_at": "",
+   "author": "Алла",
+   "author_bot": false
+  },
   {
    "task_id": "86bcn2d1t",
    "task": "Control de estado de cuentas + mandar apelaciones + eliminar publicaciones problematicas + mas mandar capturas de pantalla",
@@ -108,82 +98,16 @@
    "kinds": [
     "comment"
    ],
-   "at": "2026-11-05",
-   "who": "Michelle Hernández",
+   "at": "",
+   "who": "@Rost Lolapop",
    "comment_url": "https://app.clickup.com/t/86bcn2d1t?comment=90140278110604",
    "comment_id": "90140278110604",
    "sub": "",
    "n_new": 1,
    "mention_at": "",
-   "author": "Michelle Hernández",
-   "author_bot": false
-  },
-  {
-   "task_id": "86bc3mx4v",
-   "task": "Hacer 2 etapa en oficina",
-   "list": "Models",
-   "list_id": "901412862040",
-   "status": "for check",
-   "task_url": "https://rosmater.github.io/cu/?t=86bc3mx4v",
-   "task_app": "https://app.clickup.com/t/86bc3mx4v",
-   "kinds": [
-    "mention",
-    "comment"
-   ],
-   "at": "2026-11-05",
-   "who": "Sara Pineda Chanci",
-   "comment_url": "https://app.clickup.com/t/86bc3mx4v?comment=90140278510696",
-   "comment_id": "90140278510696",
-   "sub": "",
-   "n_new": 1,
-   "mention_at": "2026-11-05",
-   "author": "Sara Pineda Chanci",
-   "author_bot": false
-  },
-  {
-   "task_id": "86ba4ky8z",
-   "task": "Iniciar proyecto OFTV en Cali con Andrea + registrar pagos247",
-   "list": "Models",
-   "list_id": "901412862040",
-   "status": "to do",
-   "task_url": "https://rosmater.github.io/cu/?t=86ba4ky8z",
-   "task_app": "https://app.clickup.com/t/86ba4ky8z",
-   "kinds": [
-    "mention",
-    "comment"
-   ],
-   "at": "2026-11-05",
-   "who": "Michelle Hernández",
-   "comment_url": "https://app.clickup.com/t/86ba4ky8z?comment=90140278123727",
-   "comment_id": "90140278123727",
-   "sub": "",
-   "n_new": 1,
-   "mention_at": "2026-11-05",
-   "author": "Michelle Hernández",
-   "author_bot": false
-  },
-  {
-   "task_id": "86bcnvd8j",
-   "task": "Verificación sistemas de pagos (Valentina RA222)",
-   "list": "Models",
-   "list_id": "901412862040",
-   "status": "for check",
-   "task_url": "https://rosmater.github.io/cu/?t=86bcnvd8j",
-   "task_app": "https://app.clickup.com/t/86bcnvd8j",
-   "kinds": [
-    "mention",
-    "comment"
-   ],
-   "at": "2026-11-04",
-   "who": "Sara Pineda Chanci",
-   "comment_url": "https://app.clickup.com/t/86bcnvd8j?comment=90140278123165",
-   "comment_id": "90140278123165",
-   "sub": "",
-   "n_new": 1,
-   "mention_at": "2026-11-04",
-   "author": "Sara Pineda Chanci",
+   "author": "@Rost Lolapop",
    "author_bot": false
   }
  ],
- "desktop_file": "/workspace/notify-watchers/clickup-pulse/inbox-raw/desktop-inbox-2026-11-06.json"
+ "desktop_file": "/workspace/notify-watchers/clickup-pulse/inbox-raw/desktop-inbox-2026-11-12.json"
 }
