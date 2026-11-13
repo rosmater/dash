@@ -1,6 +1,6 @@
 {
   "_doc": "t6215u/t6216u: открытые рабочие задачи пространства OF для доски вкладки ОФ (не of_cu_tasks.json). Снимок Секретаря. complete/main/models/ДР исключены.",
-  "fetched_at": "2026-11-12T21:46:00-05:00",
+  "fetched_at": "2026-11-12T22:20:00-05:00",
   "src": "ClickUp filter_tasks space 90144306285, include_closed=false",
   "tasks": [
     {
@@ -8,12 +8,14 @@
       "name": "Автоматизация iPhone — разобраться с Xcode и ботом",
       "status": "to do",
       "priority": "high",
-      "due": null,
+      "due": "2026-11-16",
       "hang_since": "2026-11-12",
       "assignees": [],
       "list": "General Tasks OF",
       "url": "https://rosmater.github.io/cu/?t=86bd2v24a",
-      "tags": [],
+      "tags": [
+        "🎯 фокус"
+      ],
       "freq": null
     },
     {
@@ -243,7 +245,7 @@
     },
     {
       "id": "86b6qp6rn",
-      "name": "💳 Pagar contrato desde Nequi … (44900) (celular de Ros)",
+      "name": "💳 Pagar contrato desde Nequi 3162754776 (44900) (celular de Ros)",
       "status": "to do",
       "priority": "high",
       "due": "2026-11-12",
@@ -408,7 +410,7 @@
     },
     {
       "id": "86b9axevh",
-      "name": "(тестим сбор) БОТ ЧАСТЬ: (ФБ рекомендации) 📊 Проверка статистики ЛолаПоп и принятие решений",
+      "name": "(тестим сбор) БОТ ЧАСТЬ: (ФБ рекомендации) 📊 Проверка статистики ЛолаПоп и принятие решений ",
       "status": "for check",
       "priority": "normal",
       "due": "2026-11-16",
@@ -984,7 +986,9 @@
       ],
       "list": "General Tasks OF",
       "url": "https://rosmater.github.io/cu/?t=86bcxumtu",
-      "tags": [],
+      "tags": [
+        "bot"
+      ],
       "freq": null
     },
     {
@@ -999,7 +1003,9 @@
       ],
       "list": "General Tasks OF",
       "url": "https://rosmater.github.io/cu/?t=86bcxunr8",
-      "tags": [],
+      "tags": [
+        "bot"
+      ],
       "freq": null
     },
     {
@@ -1499,7 +1505,7 @@
     },
     {
       "id": "86bbmabqh",
-      "name": "💳 Pagar celular desde Nequi … (35000) (celular de Ros) + marcar Ros despues pago",
+      "name": "💳 Pagar celular desde Nequi 3143287247 (35000) (celular de Ros) + marcar Ros despues pago",
       "status": "to do",
       "priority": "high",
       "due": "2026-11-10",
@@ -1663,21 +1669,6 @@
       "freq": "periódica"
     },
     {
-      "id": "86b6qzvkd",
-      "name": "обновление Ониматор комп (перенести дату)",
-      "status": "to do",
-      "priority": null,
-      "due": "2026-10-19",
-      "hang_since": "2026-09-30",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Projects OF",
-      "url": "https://rosmater.github.io/cu/?t=86b6qzvkd",
-      "tags": [],
-      "freq": null
-    },
-    {
       "id": "86ba1b7ek",
       "name": "💳 Linkscale - контроль оплаты (вписались в лимиты - карта?)",
       "status": "to do",
@@ -1766,6 +1757,57 @@
       "url": "https://rosmater.github.io/cu/?t=86b7rart0",
       "tags": [],
       "freq": "periódica"
+    },
+    {
+      "id": "86bd2vc4v",
+      "name": "Габриэла — переформат сотрудничества, запуск с Лёшей",
+      "status": "to do",
+      "priority": "normal",
+      "due": "2026-11-12",
+      "hang_since": "2026-11-12",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Models",
+      "url": "https://rosmater.github.io/cu/?t=86bd2vc4v",
+      "tags": [
+        "🎯 фокус"
+      ],
+      "freq": null
+    },
+    {
+      "id": "86bd2vc4n",
+      "name": "Audri — старт OFTV",
+      "status": "to do",
+      "priority": "normal",
+      "due": "2026-11-12",
+      "hang_since": "2026-11-12",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Models",
+      "url": "https://rosmater.github.io/cu/?t=86bd2vc4n",
+      "tags": [
+        "🎯 фокус"
+      ],
+      "freq": null
+    },
+    {
+      "id": "86bd2vc4g",
+      "name": "Iniciar OF TV start con Gabriela",
+      "status": "to do",
+      "priority": "normal",
+      "due": "2026-11-12",
+      "hang_since": "2026-11-12",
+      "assignees": [
+        "Michelle Hernández"
+      ],
+      "list": "Models",
+      "url": "https://rosmater.github.io/cu/?t=86bd2vc4g",
+      "tags": [
+        "🎯 фокус"
+      ],
+      "freq": null
     }
   ]
 }
