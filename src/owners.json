@@ -118,14 +118,18 @@
         "src/peptides_first_reply_leads.json",
         "src/peptides_sales.json",
         "src/peptides_tasks.json",
-        "src/repeat_tracking.json"
+        "src/repeat_tracking.json",
+        "src/peptides_payment_due.json"
       ],
       "html_markers": [
         "pepAdBalHdr",
-        "Пополнить BC"
+        "Пополнить BC",
+        "pepPayDueHdr",
+        "Пепт: решить оплату на .col"
       ],
       "data_markers": [
-        "ad_balance"
+        "ad_balance",
+        "payment_due"
       ]
     },
     {

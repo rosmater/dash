@@ -409,6 +409,24 @@ except Exception as _bal_err:
     pep_issues.append('Баланс рекламы: не собрался снимок (' + type(_bal_err).__name__ + ')')
 
 
+# Rost t1178u/t1179u: оплата .col не прошла — шапка + «Требует внимания», пока peptides_payment_due.json active
+_PD_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'peptides_payment_due.json')
+try:
+    _PD = json.load(open(_PD_PATH)) if os.path.isfile(_PD_PATH) else {}
+except Exception:
+    _PD = {}
+if isinstance(_PD, dict) and _PD.get('active'):
+    pep_ads['payment_due'] = dict(
+        active=True,
+        banner=_PD.get('banner') or 'Пепт: решить оплату на .col',
+        text=_PD.get('text') or _PD.get('banner') or 'Пепт: решить оплату на .col',
+        tip=_PD.get('tip') or _PD.get('note') or '',
+        account=_PD.get('account') or 'pesosaludable.col',
+        as_of=_PD.get('as_of'),
+        amount_shown=_PD.get('amount_shown'),
+    )
+
+
 # Rost t1101u / t1110u: лента дневных лидов WA с рекламы + расход и цена диалога
 def _pep_leads_strip():
     today = datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=-5))).date()

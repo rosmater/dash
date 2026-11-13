@@ -1,0 +1,12 @@
+{
+  "active": true,
+  "as_of": "2026-11-13T00:35:00-05:00",
+  "account": "pesosaludable.col",
+  "banner": "Пепт: решить оплату на .col",
+  "text": "Пепт: решить оплату на .col",
+  "tip": "Rost t1179u (13.11 ~00:35 America/Bogota): оплата на pesosaludable.col не прошла, разберём завтра. Pay Now и строка payment-issue — «An unexpected error occurred». Сумма к оплате в приложении не показана. Старый Medellín bus не доставляется (28K / 411 847 COP). Новые Boost на .col не запускаем, пока оплату не починим.",
+  "pay_now_result": "unexpected_error",
+  "amount_shown": null,
+  "campaign_id": "pscol-bus-reel-2026-11-01",
+  "src": "phone recheck 13.11 00:29–00:30 + Rost t1179u"
+}
