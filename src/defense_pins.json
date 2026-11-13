@@ -1,7 +1,7 @@
 {
-  "fetched_at": "2026-11-12T14:40:32-05:00",
+  "fetched_at": "2026-11-13T07:58:50-05:00",
   "src": "ClickUp Defense Systems space 90148618420",
-  "checked": "morning recon 12.11 07:55: urgent 86bctg47u + 86bczu31g still overdue (wait Дмитрий); no future calls (Dronamex 86bctgc67 past 28.10); clients/unanswered match inbox (no new live replies since Baird 11.11 18:50); DECSEF options+catalogue sent 10.11 14:20; no missing Dmitry tasks; upsert open Baird Service msg 1a1cd05339af3f58; upsert open LOM PRAHA s.p. msg 1a1cb0a62974da18; add scheduled_call 86bd2k3xk Набрать Александра (СТЕ) due 2026-11-13",
+  "checked": "morning recon 13.11 08:00: urgent 86bctg47u + 86bczu31g still overdue (wait Дмитрий); call 86bd2k3xk due 13.11 kept (priority was empty, set normal); Dronamex past; clients/unanswered unchanged (no new live replies per ste-1 03:00/05:00)",
   "urgent_tasks": [
     {
       "id": "86bctg47u",
