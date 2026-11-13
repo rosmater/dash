@@ -1179,7 +1179,7 @@ data = dict(
          gaps=['Личные доходы не сведены', 'Траты: только BTC-карта 24.09–13.10; остальные карты/счета/наличные нет', 'Бюджет/лимит трат на месяц не задан',
                'После 13.10 скринов BTC-карты нет']),
     calendar_dir,
-    # Коучинг: люди-подпроекты (без финансов). Источник — слова Rost в чате 24.10.2026; правки — здесь.
+    # Коучинг: люди-подпроекты. Источник — слова Rost в чате 24.10.2026; правки — здесь. Подписки: src/coaching_subs.json (t6229u/t6230u).
     dict(id='coaching', name='Коучинг', subtitle='Люди и их боты · подпроекты', kind='people', currency='USD', color='#fb7185', icon='🤝',
          periods={}, breakdowns=[], goals=[], tasks=[], gaps=[],
          people=[
@@ -1232,6 +1232,17 @@ try:
     for _d in data['directions']:
         if _CUD.get(_d['id']):
             _d['cu_dated'] = _CUD[_d['id']]
+except FileNotFoundError:
+    pass
+# Rost t6229u / t6230u: кто платит за подписки — внизу вкладки Коучинг; hide_from_helper (семейные платежи).
+try:
+    _CS = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'coaching_subs.json')))
+    if isinstance(_CS, dict):
+        _CS['hide_from_helper'] = True
+        for _d in data['directions']:
+            if _d.get('id') == 'coaching':
+                _d['coaching_blocks'] = {'subs': _CS}
+                break
 except FileNotFoundError:
     pass
 # Rost t3955u: тапы направления на CU «на сортировку» (sync_dash_taps → cu_dir_overrides.json) -> задача уходит из cu_sort и встаёт в cu_dated своего направления

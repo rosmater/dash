@@ -25,7 +25,14 @@
       "dir": "coaching",
       "owner": "Секретарь (COMMS)",
       "files": [
-        "src/build_data.py"
+        "src/build_data.py",
+        "src/coaching_subs.json"
+      ],
+      "html_markers": [
+        "Кто платит за подписки"
+      ],
+      "data_markers": [
+        "вычитаем из аренды"
       ]
     },
     {

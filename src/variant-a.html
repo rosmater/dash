@@ -303,6 +303,17 @@ details:not(.bqd):not(.ilg)>summary::before{content:"▸"!important;color:#94a3b
 details:not(.bqd):not(.ilg)[open]>summary::before{content:"▾"!important;color:#94a3b8!important;font-size:11px!important}
 .dacc>summary::after,.dacc[open]>summary::after{content:none!important;display:none!important}
 .attnd>summary>.note{display:none}
+/* Rost t6229u / t6230u: подписки коучинга — свёрнутая серая строка внизу вкладки */
+.coach-subs{margin:16px 0 0;padding:8px 0 0;border-top:1px solid var(--line,#eef0f5);color:#64748b;font-size:12.5px}
+.coach-subs>summary{cursor:pointer;color:#64748b;font-weight:500;font-size:12.5px;display:flex;align-items:center;flex-wrap:wrap;gap:6px}
+.coach-subs[open]>summary{margin-bottom:8px}
+.coach-subs table{width:100%;border-collapse:collapse;font-size:12.5px;color:#64748b}
+.coach-subs th,.coach-subs td{padding:4px 6px;border-top:1px dashed var(--line,#eef0f5);text-align:left;vertical-align:top}
+.coach-subs th{font-weight:600;font-size:11px;text-transform:none;letter-spacing:0;color:#94a3b8;border-top:0}
+.coach-subs td.n,.coach-subs th.n{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.coach-subs-me{color:#b42318;font-weight:600}
+.coach-subs tfoot td{border-top:1px solid var(--line,#eef0f5);color:#64748b;font-size:12.5px;padding-top:6px}
+.coach-subs-pill{display:inline-block;font-size:10.5px;font-weight:600;padding:1px 7px;border-radius:99px;border:1px solid #f1d29a;color:#9a5b07;background:#fff6d6;white-space:nowrap;vertical-align:middle}
 </style><link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%2322c3a6%22/%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%237b5cff%22/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2216%22%20fill%3D%22url%28%23g%29%22/%3E%3Crect%20x%3D%2215%22%20y%3D%2234%22%20width%3D%228%22%20height%3D%2215%22%20rx%3D%223%22%20fill%3D%22%23fff%22/%3E%3Crect%20x%3D%2228%22%20y%3D%2224%22%20width%3D%228%22%20height%3D%2225%22%20rx%3D%223%22%20fill%3D%22%23fff%22/%3E%3Crect%20x%3D%2241%22%20y%3D%2215%22%20width%3D%228%22%20height%3D%2234%22%20rx%3D%223%22%20fill%3D%22%23fff%22%20opacity%3D%22.92%22/%3E%3C/svg%3E">
 </head><body><div class="wrap">
 <header><div class="brand"><div class="logo">R</div><div><h1>Бизнес-дашборд</h1><small id="sub"></small></div></div><div id="bdhdr"></div>
@@ -631,6 +642,13 @@ function stageDot(d){return d.stage?`<span class="sdot ${d.stage}" title="${STAG
 function stageLegend(){return `<div class="slegend">${Object.keys(STAGE_T).map(k=>`<span><span class="sdot ${k}"></span>${STAGE_T[k]}</span>`).join('')}</div>`}
 // Я: всегда выше Он:/Она:; подпункты «— …» остаются под своим родителем
 function meFirst(items){const g=[];items.forEach(x=>{if(/^\s*—/.test(itemText(x))&&g.length)g[g.length-1].push(x);else g.push([x])});const me=x=>/^Я:/.test(itemText(x[0]));return g.filter(me).concat(g.filter(x=>!me(x))).flat()}
+function coachSubsHTML(d){if(window.DASH_HELPER)return '';const S=(d.coaching_blocks&&d.coaching_blocks.subs)||d.coach_subs;if(!S||!S.people||!S.people.length)return '';
+ const today=bDay(new Date().toISOString()),warnFrom=S.herrera_warn_from||'2027-01-15',showWarn=today>=warnFrom;
+ const pill=showWarn?'<span class="coach-subs-pill">эксперимент заканчивается 31.01</span>':'';
+ const me=S.people.filter(p=>p.payer==='me').reduce((a,p)=>a+(+p.usd||0),0),slf=S.people.filter(p=>p.payer==='self').reduce((a,p)=>a+(+p.usd||0),0);
+ const rows=S.people.map(p=>{const amt=p.payer==='me'?`<span class="coach-subs-me">$${esc(String(p.usd))}</span>`:`$${esc(String(p.usd))}`;const wp=(showWarn&&p.warn)?' '+pill:'';
+  return `<tr><td>${esc(p.name)}${wp}</td><td class="n">${amt}</td><td>${esc(p.payer_label||'')}</td><td>${esc(p.note||'')}</td></tr>`}).join('');
+ return `<details class="coach-subs"><summary>💳 Кто платит за подписки · я плачу $${me}/мес${showWarn?' '+pill:''}</summary><div class="tblwrap"><table><thead><tr><th>Кто</th><th class="n">$/мес</th><th>Платит</th><th>Условие</th></tr></thead><tbody>${rows}</tbody><tfoot><tr><td colspan="4">Суммарно плачу я: <span class="coach-subs-me">$${me}/мес</span> · платят сами: $${slf}/мес</td></tr></tfoot></table></div></details>`}
 function people(d){const ps=d.people||[];
  let h='';/* Rost t1054u 11.11: без серой строки «N чел. · требуют внимания: M» */
  const pc=p=>{const at=p.status==='attention';const duAlexa=/Алехандра|Алекса Херр/.test(p.name||'');return `<div class="card person ${at?'at':''}"${duAlexa?duAttr('coaching.alexa'):''}><div style="display:flex;justify-content:space-between;gap:8px;align-items:center"><div><div style="font-weight:700;font-size:16px"${duAlexa?' class="du-slot"':''}>${p.icon||'👤'} ${esc(p.name)}</div><div class="note">${esc(p.role||'')}</div></div><span class="chip ${at?'st-at':'st-ok'}">${at?'🔴 требует внимания':'🟢 ок'}</span></div>
@@ -638,6 +656,7 @@ function people(d){const ps=d.people||[];
  ps.forEach(p=>(p.items||[]).filter(x=>x&&typeof x==='object'&&x.highlight).forEach(x=>{const c=isChk(x);h+=`<label class="pin-hi ${c?'done':''}">${x.checkable?`<input type="checkbox" ${c?'checked':''} onchange="togChk('${x.id}',this.checked)">`:''}<span>📌 ${x.url?`<a href="${esc(cuAppUrl(x.url))}" target="_blank" rel="noopener">${esc(x.text)}</a>`:esc(x.text)}</span><span class="chip st-at" style="margin-left:auto">${esc(p.name)}</span></label>`}));
  h+=`<div class="grid g2e"><div class="pcol">${ps.slice(0,1).map(pc).join('')}</div><div class="pcol">${ps.slice(1).map(pc).join('')}</div></div>`;
  if((d.tasks||[]).length)h+=`<div style="height:14px"></div><div class="card"><h3>Задачи ClickUp</h3>${tasksHTML(d.tasks)}</div>`;
+ h+=coachSubsHTML(d);
  $('#main').innerHTML=h}
 const BOG='America/Bogota';const bDay=iso=>iso.length===10?iso:new Intl.DateTimeFormat('en-CA',{timeZone:BOG,year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date(iso));
 const bTime=iso=>new Date(iso).toLocaleTimeString('ru-RU',{timeZone:BOG,hour:'2-digit',minute:'2-digit'});

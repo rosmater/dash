@@ -1,0 +1,41 @@
+{
+  "_comment": "Rost t6229u / t6230u: кто платит за подписки коучинга. Править суммы и условия здесь. payer: me = платит Rost, self = платят сами (Андрей после 1-го месяца считается self).",
+  "src": "Rost t6229u / t6230u, 12.11.2026",
+  "herrera_experiment_ends": "2027-01-31",
+  "herrera_warn_from": "2027-01-15",
+  "people": [
+    {
+      "id": "herrera",
+      "name": "Александра Херера",
+      "usd": 36,
+      "payer": "me",
+      "payer_label": "я",
+      "note": "эксперимент 3 мес., до конца января 2027",
+      "warn": true
+    },
+    {
+      "id": "andrey",
+      "name": "Андрей Многотуров",
+      "usd": 30,
+      "payer": "self",
+      "payer_label": "сам (1-й месяц — я)",
+      "note": "вычитаем из аренды"
+    },
+    {
+      "id": "mom",
+      "name": "Мама",
+      "usd": 120,
+      "payer": "self",
+      "payer_label": "сама",
+      "note": "премиум"
+    },
+    {
+      "id": "grandma",
+      "name": "Бабушка",
+      "usd": 36,
+      "payer": "me",
+      "payer_label": "я",
+      "note": "на постоянке"
+    }
+  ]
+}
