@@ -965,6 +965,8 @@ def _tbk_inject_fin(board, fin_block):
         board['routine_overdue'] = sum(g['overdue'] for g in groups)
     return board
 TBK_BOARD = _tbk_inject_fin(_dir_board('tbk_open_tasks.json'), TBKB.get('fin') if isinstance(TBKB, dict) else None)
+# t6270u: доска вкладки Личное — как ОФ (Сегодня у меня / Приоритеты «🎯 фокус» / Рутина); снимок src/personal_open_tasks.json (CU Personal + 86ba3c1x4 Парагвай)
+PERSONAL_BOARD = _dir_board('personal_open_tasks.json')
 
 # Rost t5952u: «📅 Назначенные встречи» вверху Личного (src/personal_meetings.json; только Role=🚶GO, любой список; не CU Personal)
 _pmf = os.path.join(_HERE, 'personal_meetings.json')
@@ -1283,6 +1285,7 @@ data = dict(
          tasks=tasks(['86bcma7tp', '86b6qq509']),  # t5736u: Base Loft housing search = personal priority task
          personal_blocks=PERSB,  # Rost 25.10: Документы / Чеклист / БЖУ / Сон / Дейтинг🔒 / Мероприятия / Испанский / Шаги / Зал / Бокс / Употребление🔒 / Здоровье🔒
          scheduled_meetings=personal_meetings,  # Rost t5828u
+         personal_board=PERSONAL_BOARD,  # t6270u: доска как на ОФ
          meetings_list_url=personal_meetings_list_url,
          monitors=[
            dict(name='Питание / БЖУ', status='active', note='дневник ведётся (today-*.md + Google Sheet); в дашборд — только счёт дней', src='shared-health/nutrition-bju'),

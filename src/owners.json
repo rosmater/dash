@@ -11,7 +11,8 @@
         "src/timed_attn.json",
         "src/overall_balance.json",
         "src/prio_extra.json",
-        "src/ai_backlog.json"
+        "src/ai_backlog.json",
+        "src/personal_open_tasks.json"
       ],
       "html_markers": [
         "Быстрые команды",
