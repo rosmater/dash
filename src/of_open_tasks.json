@@ -1,7 +1,7 @@
 {
   "_doc": "t6215u/t6216u: открытые рабочие задачи пространства OF для доски вкладки ОФ (не of_cu_tasks.json). Снимок Секретаря. complete/main/models/ДР исключены.",
-  "fetched_at": "2026-11-12T22:39:00-05:00",
-  "src": "ClickUp filter_tasks space 90144306285, include_closed=false",
+  "fetched_at": "2026-11-13T17:56:25-05:00",
+  "src": "ClickUp filter_tasks space 90144306285, include_closed=false, statuses to do/for check (2 pages); Frecuencia periódica отдельным filter; hang_since с прошлого снимка",
   "tasks": [
     {
       "id": "86b6pbedx",
@@ -87,7 +87,7 @@
       "name": "Instagram (publicaciones cada dia laboral) + publicar solo si estado de perfil es bien",
       "status": "to do",
       "priority": "urgent",
-      "due": "2026-11-13",
+      "due": "2026-11-16",
       "hang_since": "2026-11-12",
       "assignees": [
         "Michelle Hernández"
@@ -147,7 +147,7 @@
       "name": "Control de estado de cuentas + mandar apelaciones + eliminar publicaciones problematicas + mas mandar capturas de pantalla",
       "status": "to do",
       "priority": "urgent",
-      "due": "2026-11-13",
+      "due": "2026-11-16",
       "hang_since": "2026-11-12",
       "assignees": [
         "Michelle Hernández"
@@ -162,7 +162,7 @@
       "name": "БОТ: МИШЕЛЬ: Bulk Messaging проверить статистику и ответы фанам в сообщениях (потом передать сбор статистики Фетишь)",
       "status": "for check",
       "priority": "normal",
-      "due": "2026-11-12",
+      "due": "2026-11-13",
       "hang_since": "2026-11-12",
       "assignees": [
         "Rost"
@@ -177,7 +177,7 @@
       "name": "БОТ: Andrea Cali - как дела по запуску ОФТВ? (напомнить за запуск)",
       "status": "to do",
       "priority": "normal",
-      "due": "2026-11-13",
+      "due": "2026-11-16",
       "hang_since": "2026-11-12",
       "assignees": [
         "Rost"
@@ -205,7 +205,7 @@
     {
       "id": "86bcnuxbj",
       "name": "БОТ-ЧАСТЬ: 💳 Оплата чаттерам Никиты (счёт в TG 5–13 числа) Яна получить отчеты",
-      "status": "to do",
+      "status": "for check",
       "priority": "normal",
       "due": "2026-11-13",
       "hang_since": "2026-11-12",
@@ -222,7 +222,7 @@
       "name": "Comprobar si la cámara está conectada a la toma de corriente (la mañana)",
       "status": "to do",
       "priority": "high",
-      "due": "2026-11-13",
+      "due": "2026-11-16",
       "hang_since": "2026-11-12",
       "assignees": [
         "Sara Pineda Chanci"
@@ -789,7 +789,7 @@
       "name": "Comprobar si la cámara está conectada a la toma de corriente (la noche)",
       "status": "to do",
       "priority": "normal",
-      "due": "2026-11-13",
+      "due": "2026-11-20",
       "hang_since": "2026-11-06",
       "assignees": [
         "Sara Pineda Chanci"
@@ -1796,7 +1796,7 @@
     },
     {
       "id": "86bd2vc4n",
-      "name": "Audri — старт OFTV",
+      "name": "Audri — старт OFTV + дата окончания?",
       "status": "to do",
       "priority": "normal",
       "due": "2026-11-12",
@@ -1816,13 +1816,30 @@
       "name": "Iniciar OF TV start con Gabriela",
       "status": "to do",
       "priority": "normal",
-      "due": "2026-11-12",
+      "due": "2026-11-13",
       "hang_since": "2026-11-12",
       "assignees": [
         "Michelle Hernández"
       ],
       "list": "Models",
       "url": "https://rosmater.github.io/cu/?t=86bd2vc4g",
+      "tags": [
+        "🎯 фокус"
+      ],
+      "freq": null
+    },
+    {
+      "id": "86bd3atpx",
+      "name": "Мишель — переформатировать работу (OnlyFans)",
+      "status": "to do",
+      "priority": "normal",
+      "due": null,
+      "hang_since": "2026-11-13",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "General Tasks OF",
+      "url": "https://rosmater.github.io/cu/?t=86bd3atpx",
       "tags": [
         "🎯 фокус"
       ],
