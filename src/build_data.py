@@ -828,7 +828,10 @@ def _ts_week(k):
 _ts_last, _ts_prev = (_wk_full[-1] if _wk_full else None), (_wk_full[-2] if len(_wk_full) > 1 else None)
 _ts_cur = _wk_part[-1] if _wk_part and (not _ts_last or _wk_part[-1] > _ts_last) else None
 _lb = next((x for x in of_break if x['period'] == (_ts_cur or _ts_last)), {'rows': []})
-_pb = {r[0]: r for r in next((x for x in of_break if x['period'] == _ts_last), {'rows': []})['rows']}
+# t6194u: prev_net = previous period, not the same week. When there is a current partial week,
+# models are that week vs last full; when there isn't, models are last full vs the week before it.
+_cmp_week = _ts_last if _ts_cur else _ts_prev
+_pb = {r[0]: r for r in next((x for x in of_break if x['period'] == _cmp_week), {'rows': []})['rows']}
 _ts_models = []
 for r in _lb['rows']:
     num = r[0][2:]
