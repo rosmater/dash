@@ -3,7 +3,7 @@
  "ttl_hours": 24,
  "items": {
   "86b7k7d75": {
-   "state": "pending",
+   "state": "closed",
    "title": "Полив цветов в квартире",
    "dir": "personal",
    "bot": "",
@@ -11,7 +11,9 @@
    "clicked_at": "2026-11-13T23:31:50Z",
    "received_at": "2026-11-13T23:46:02Z",
    "src": "dash",
-   "cycles": 1
+   "cycles": 1,
+   "verdict_at": "2026-11-13T23:46:21Z",
+   "note": ""
   }
  },
  "history": []
