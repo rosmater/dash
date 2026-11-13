@@ -1,188 +1,17 @@
 {
-  "fetched_at": "2026-11-11T22:47-05:00",
+  "fetched_at": "2026-11-13T10:49-05:00",
   "calendar": "zayavki.ua@gmail.com",
   "range": {
-    "start": "2026-11-11",
-    "end": "2026-11-25",
+    "start": "2026-11-13",
+    "end": "2026-11-27",
     "tz": "America/Bogota"
   },
   "events": [
     {
-      "id": "vh1rah1cb3dmpseh2vuefpblnk_20261111T040000Z",
-      "title": "Сон",
-      "start": "2026-11-10T23:00:00-05:00",
-      "end": "2026-11-11T07:00:00-05:00",
-      "all_day": false,
-      "url": "https://www.google.com/calendar/event?eid=dmgxcmFoMWNiM2RtcHNlaDJ2dWVmcGJsbmtfMjAyNjExMTFUMDQwMDAwWiB6YXlhdmtpLnVhQG0&ctz=America/Bogota",
-      "location": null
-    },
-    {
-      "id": "2n9rhvuic1er2bos6sallrkfrs",
-      "title": "🔄 Алла: Страховой случай Лос Пуэблос - как продвигается? :: Недвижимость > hidden > Покупка, Ремонт, Продажа-Сдача",
-      "start": "2026-11-11",
-      "end": "2026-11-12",
-      "all_day": true,
-      "url": "https://www.google.com/calendar/event?eid=Mm45cmh2dWljMWVyMmJvczZzYWxscmtmcnMgemF5YXZraS51YUBt&ctz=America/Bogota",
-      "location": null
-    },
-    {
-      "id": "7ib7i0pa1nomnj43fsjfqah8f8",
-      "title": "🔄 (проблема с картинками) БОТ: Пальма сайт + ускорить / Контекстная реклама :: Tabakevich > hidden > Задачи Tabakevich",
-      "start": "2026-11-11",
-      "end": "2026-11-12",
-      "all_day": true,
-      "url": "https://www.google.com/calendar/event?eid=N2liN2kwcGExbm9tbmo0M2ZzamZxYWg4ZjggemF5YXZraS51YUBt&ctz=America/Bogota",
-      "location": null
-    },
-    {
-      "id": "bknmed5s1mrv2arc6r59muv4r4",
-      "title": "🔄 БОТ: Хукашоп - замена хостинга и бэкапы - проверить состояние (чеклист) :: Tabakevich > hidden > Задачи Tabakevich",
-      "start": "2026-11-11",
-      "end": "2026-11-12",
-      "all_day": true,
-      "url": "https://www.google.com/calendar/event?eid=YmtubWVkNXMxbXJ2MmFyYzZyNTltdXY0cjQgemF5YXZraS51YUBt&ctz=America/Bogota",
-      "location": null
-    },
-    {
-      "id": "d91gokebph4aimdilbgvi50hm4",
-      "title": "🔄 Алла: помочь решить с тем что топят квартиранты сверху кооперасион :: Недвижимость > hidden > Сервисная доска Недвижимость",
-      "start": "2026-11-11",
-      "end": "2026-11-12",
-      "all_day": true,
-      "url": "https://www.google.com/calendar/event?eid=ZDkxZ29rZWJwaDRhaW1kaWxiZ3ZpNTBobTQgemF5YXZraS51YUBt&ctz=America/Bogota",
-      "location": null
-    },
-    {
-      "id": "ldtonolrkv2jn33lo365qjl5rs",
-      "title": "🔄 БОТ: Табакевич БЛОКИРОВКА ДОМЕНА: проверить скорость с укр/загран айпишников :: Tabakevich > hidden > Задачи Tabakevich",
-      "start": "2026-11-11",
-      "end": "2026-11-12",
-      "all_day": true,
-      "url": "https://www.google.com/calendar/event?eid=bGR0b25vbHJrdjJqbjMzbG8zNjVxamw1cnMgemF5YXZraS51YUBt&ctz=America/Bogota",
-      "location": null
-    },
-    {
-      "id": "t5gpobhju8tpvrc37pta5kbrts",
-      "title": "🔄 ЯНА (Мила в контроле?) 📊 Испания-фин-недвижка проверка отчета: должники + подтверждение оплат + коммунальные с 15-го :: Недвижимость > hidden > Покупка, Ремонт, Продажа-Сдача",
-      "start": "2026-11-11",
-      "end": "2026-11-12",
-      "all_day": true,
-      "url": "https://www.google.com/calendar/event?eid=dDVncG9iaGp1OHRwdnJjMzdwdGE1a2JydHMgemF5YXZraS51YUBt&ctz=America/Bogota",
-      "location": null
-    },
-    {
-      "id": "ur9d7ctdvs42nev5l512ccbnkc",
-      "title": "🔄 Контроль: подключение света Пуэрто Сагунто (Андрей, электричество) :: Недвижимость > hidden > Сервисная доска Недвижимость",
-      "start": "2026-11-11",
-      "end": "2026-11-12",
-      "all_day": true,
-      "url": "https://www.google.com/calendar/event?eid=dXI5ZDdjdGR2czQybmV2NWw1MTJjY2Jua2MgemF5YXZraS51YUBt&ctz=America/Bogota",
-      "location": null
-    },
-    {
-      "id": "uuslmrdnes413s44vgc6a060gs",
-      "title": "🔄 БОТ: Феликс Шоп - проверить сайт :: Tabakevich > hidden > Задачи Tabakevich",
-      "start": "2026-11-11",
-      "end": "2026-11-12",
-      "all_day": true,
-      "url": "https://www.google.com/calendar/event?eid=dXVzbG1yZG5lczQxM3M0NHZnYzZhMDYwZ3MgemF5YXZraS51YUBt&ctz=America/Bogota",
-      "location": null
-    },
-    {
-      "id": "cctqp5gddihi9qgcd7licok0ig_20261111T120000Z",
-      "title": "Проснуться / Завтрак",
-      "start": "2026-11-11T07:00:00-05:00",
-      "end": "2026-11-11T08:00:00-05:00",
-      "all_day": false,
-      "url": "https://www.google.com/calendar/event?eid=Y2N0cXA1Z2RkaWhpOXFnY2Q3bGljb2swaWdfMjAyNjExMTFUMTIwMDAwWiB6YXlhdmtpLnVhQG0&ctz=America/Bogota",
-      "location": null
-    },
-    {
-      "id": "ks2p6tji1a4o06g8q8hp0vqkk4_20261111T130000Z",
-      "title": "ClickUp",
-      "start": "2026-11-11T08:00:00-05:00",
-      "end": "2026-11-11T09:00:00-05:00",
-      "all_day": false,
-      "url": "https://www.google.com/calendar/event?eid=a3MycDZ0amkxYTRvMDZnOHE4aHAwdnFrazRfMjAyNjExMTFUMTMwMDAwWiB6YXlhdmtpLnVhQG0&ctz=America/Bogota",
-      "location": null
-    },
-    {
-      "id": "h99i4jq16bqtqd7794bath77to_20261111T140000Z",
-      "title": "Ирина Шекель созвон",
-      "start": "2026-11-11T09:00:00-05:00",
-      "end": "2026-11-11T13:50:00-05:00",
-      "all_day": false,
-      "url": "https://www.google.com/calendar/event?eid=aDk5aTRqcTE2YnF0cWQ3Nzk0YmF0aDc3dG9fMjAyNjExMTFUMTQwMDAwWiB6YXlhdmtpLnVhQG0&ctz=America/Bogota",
-      "location": null
-    },
-    {
-      "id": "niugnbunr43788s15mjl5vtgqg_20261111T185000Z",
-      "title": "ClickUp",
-      "start": "2026-11-11T13:50:00-05:00",
-      "end": "2026-11-11T15:00:00-05:00",
-      "all_day": false,
-      "url": "https://www.google.com/calendar/event?eid=bml1Z25idW5yNDM3ODhzMTVtamw1dnRncWdfMjAyNjExMTFUMTg1MDAwWiB6YXlhdmtpLnVhQG0&ctz=America/Bogota",
-      "location": null
-    },
-    {
-      "id": "esmhfkp09g0pq8149c4tr8voeo_20261111T200000Z",
-      "title": "Свободно",
-      "start": "2026-11-11T15:00:00-05:00",
-      "end": "2026-11-11T15:45:00-05:00",
-      "all_day": false,
-      "url": "https://www.google.com/calendar/event?eid=ZXNtaGZrcDA5ZzBwcTgxNDljNHRyOHZvZW9fMjAyNjExMTFUMjAwMDAwWiB6YXlhdmtpLnVhQG0&ctz=America/Bogota",
-      "location": null
-    },
-    {
-      "id": "2qdrt3cpqfravn9k5f1r4p7cek_20261111T230000Z",
-      "title": "Зал + турник на крыше",
-      "start": "2026-11-11T18:00:00-05:00",
-      "end": "2026-11-11T19:30:00-05:00",
-      "all_day": false,
-      "url": "https://www.google.com/calendar/event?eid=MnFkcnQzY3BxZnJhdm45azVmMXI0cDdjZWtfMjAyNjExMTFUMjMwMDAwWiB6YXlhdmtpLnVhQG0&ctz=America/Bogota",
-      "location": null
-    },
-    {
-      "id": "ajppqjql1b2sqpd16j53q0q48c_20261112T003000Z",
-      "title": "Свободно",
-      "start": "2026-11-11T19:30:00-05:00",
-      "end": "2026-11-11T20:00:00-05:00",
-      "all_day": false,
-      "url": "https://www.google.com/calendar/event?eid=YWpwcHFqcWwxYjJzcXBkMTZqNTNxMHE0OGNfMjAyNjExMTJUMDAzMDAwWiB6YXlhdmtpLnVhQG0&ctz=America/Bogota",
-      "location": null
-    },
-    {
-      "id": "4ilg3cm8jhibl540alp3s5rtg8_20261112T010000Z",
-      "title": "Ужин с девушкой",
-      "start": "2026-11-11T20:00:00-05:00",
-      "end": "2026-11-11T21:00:00-05:00",
-      "all_day": false,
-      "url": "https://www.google.com/calendar/event?eid=NGlsZzNjbThqaGlibDU0MGFscDNzNXJ0ZzhfMjAyNjExMTJUMDEwMDAwWiB6YXlhdmtpLnVhQG0&ctz=America/Bogota",
-      "location": null
-    },
-    {
-      "id": "02iieuu4cdp283ug5dpo49lui4_20261112T020000Z",
-      "title": "Время с девушкой",
-      "start": "2026-11-11T21:00:00-05:00",
-      "end": "2026-11-11T23:00:00-05:00",
-      "all_day": false,
-      "url": "https://www.google.com/calendar/event?eid=MDJpaWV1dTRjZHAyODN1ZzVkcG80OWx1aTRfMjAyNjExMTJUMDIwMDAwWiB6YXlhdmtpLnVhQG0&ctz=America/Bogota",
-      "location": null
-    },
-    {
-      "id": "8l2so6fh8bcgsu4cpaencckrqk_20261112T040000Z",
-      "title": "Подготовка ко сну",
-      "start": "2026-11-11T23:00:00-05:00",
-      "end": "2026-11-12T00:00:00-05:00",
-      "all_day": false,
-      "url": "https://www.google.com/calendar/event?eid=OGwyc282Zmg4YmNnc3U0Y3BhZW5jY2tycWtfMjAyNjExMTJUMDQwMDAwWiB6YXlhdmtpLnVhQG0&ctz=America/Bogota",
-      "location": null
-    },
-    {
       "id": "6n1i04v9edmmaalfupe03l8g3k",
       "title": "🔄 БОТ: Локаль ремонт (перевод в жилое) - Анатолий как дела? :: Недвижимость > hidden > Покупка, Ремонт, Продажа-Сдача",
-      "start": "2026-11-12",
-      "end": "2026-11-13",
+      "start": "2026-11-13",
+      "end": "2026-11-14",
       "all_day": true,
       "url": "https://www.google.com/calendar/event?eid=Nm4xaTA0djllZG1tYWFsZnVwZTAzbDhnM2sgemF5YXZraS51YUBt&ctz=America/Bogota",
       "location": null
@@ -190,127 +19,37 @@
     {
       "id": "89k3go8vu68g0lfrnod3iji204",
       "title": "🔄 БОТ-ЧАСТЬ: мониторинг СмокиДжин (проверка отчета) :: Tabakevich > hidden > Задачи Tabakevich",
-      "start": "2026-11-12",
-      "end": "2026-11-13",
+      "start": "2026-11-13",
+      "end": "2026-11-14",
       "all_day": true,
       "url": "https://www.google.com/calendar/event?eid=ODlrM2dvOHZ1NjhnMGxmcm5vZDNpamkyMDQgemF5YXZraS51YUBt&ctz=America/Bogota",
       "location": null
     },
     {
-      "id": "licml8171a9f12k44b7sipuq88",
-      "title": "🔄 БОТ: Окупас Хуан 23 Адвокаты выселение - узнать статус? :: Недвижимость > hidden > Сервисная доска Недвижимость",
-      "start": "2026-11-12",
-      "end": "2026-11-13",
+      "id": "dru6tsc0eq21fsj9cnd9g75s18",
+      "title": "🔄 БОТ-ЧАСТЬ: Таргет пептиды - контроль и увеличение :: Tabakevich > hidden > Задачи Tabakevich",
+      "start": "2026-11-13",
+      "end": "2026-11-14",
       "all_day": true,
-      "url": "https://www.google.com/calendar/event?eid=bGljbWw4MTcxYTlmMTJrNDRiN3NpcHVxODggemF5YXZraS51YUBt&ctz=America/Bogota",
+      "url": "https://www.google.com/calendar/event?eid=ZHJ1NnRzYzBlcTIxZnNqOWNuZDlnNzVzMTggemF5YXZraS51YUBt&ctz=America/Bogota",
+      "location": null
+    },
+    {
+      "id": "o3nki73grdtl6lf3145uhd49tc",
+      "title": "🔄 Серёжа — решить поднятие зарплаты (до 100к) :: Tabakevich > hidden > Задачи Tabakevich",
+      "start": "2026-11-13",
+      "end": "2026-11-14",
+      "all_day": true,
+      "url": "https://www.google.com/calendar/event?eid=bzNua2k3M2dyZHRsNmxmMzE0NXVoZDQ5dGMgemF5YXZraS51YUBt&ctz=America/Bogota",
       "location": null
     },
     {
       "id": "s89sj3b2i1b0diu0kfj9f7k868",
       "title": "🔄 ОЛЯ ПОХОД - БОТ: Оксана бухгалтер жду - Проверить возврат налога (Шейх) :: Недвижимость > hidden > Покупка, Ремонт, Продажа-Сдача",
-      "start": "2026-11-12",
-      "end": "2026-11-13",
+      "start": "2026-11-13",
+      "end": "2026-11-14",
       "all_day": true,
       "url": "https://www.google.com/calendar/event?eid=czg5c2ozYjJpMWIwZGl1MGtmajlmN2s4NjggemF5YXZraS51YUBt&ctz=America/Bogota",
-      "location": null
-    },
-    {
-      "id": "kil02eg5opnpstu3t8jr66j0n8_20261112T050000Z",
-      "title": "Сон",
-      "start": "2026-11-12T00:00:00-05:00",
-      "end": "2026-11-12T09:00:00-05:00",
-      "all_day": false,
-      "url": "https://www.google.com/calendar/event?eid=a2lsMDJlZzVvcG5wc3R1M3Q4anI2NmowbjhfMjAyNjExMTJUMDUwMDAwWiB6YXlhdmtpLnVhQG0&ctz=America/Bogota",
-      "location": null
-    },
-    {
-      "id": "g6uevlsr9nlafhk981vb69f4v4_20261112T140000Z",
-      "title": "Проснуться / Завтрак",
-      "start": "2026-11-12T09:00:00-05:00",
-      "end": "2026-11-12T10:00:00-05:00",
-      "all_day": false,
-      "url": "https://www.google.com/calendar/event?eid=ZzZ1ZXZsc3I5bmxhZmhrOTgxdmI2OWY0djRfMjAyNjExMTJUMTQwMDAwWiB6YXlhdmtpLnVhQG0&ctz=America/Bogota",
-      "location": null
-    },
-    {
-      "id": "unfntsk4bp9o0fd8i13gatprio_20261112T150000Z",
-      "title": "🥊 Бокс — Johann Ruiz",
-      "start": "2026-11-12T10:00:00-05:00",
-      "end": "2026-11-12T11:30:00-05:00",
-      "all_day": false,
-      "url": "https://www.google.com/calendar/event?eid=dW5mbnRzazRicDlvMGZkOGkxM2dhdHByaW9fMjAyNjExMTJUMTUwMDAwWiB6YXlhdmtpLnVhQG0&ctz=America/Bogota",
-      "location": "Ovon Boxing"
-    },
-    {
-      "id": "o2ncsjsq6e79c09mq70e7knqsc_20261112T163000Z",
-      "title": "Разгреб переписок (после бокса)",
-      "start": "2026-11-12T11:30:00-05:00",
-      "end": "2026-11-12T12:30:00-05:00",
-      "all_day": false,
-      "url": "https://www.google.com/calendar/event?eid=bzJuY3Nqc3E2ZTc5YzA5bXE3MGU3a25xc2NfMjAyNjExMTJUMTYzMDAwWiB6YXlhdmtpLnVhQG0&ctz=America/Bogota",
-      "location": null
-    },
-    {
-      "id": "8o8mugn3l67ntrplkgob4i1g6s_20261112T173000Z",
-      "title": "ClickUp",
-      "start": "2026-11-12T12:30:00-05:00",
-      "end": "2026-11-12T14:30:00-05:00",
-      "all_day": false,
-      "url": "https://www.google.com/calendar/event?eid=OG84bXVnbjNsNjdudHJwbGtnb2I0aTFnNnNfMjAyNjExMTJUMTczMDAwWiB6YXlhdmtpLnVhQG0&ctz=America/Bogota",
-      "location": null
-    },
-    {
-      "id": "lac6b0del5g56krfkak9p8i98c",
-      "title": "USAS & Banking Support (Rostyslav Yermakov)",
-      "start": "2026-11-12T12:30:00-05:00",
-      "end": "2026-11-12T13:00:00-05:00",
-      "all_day": false,
-      "url": "https://www.google.com/calendar/event?eid=bGFjNmIwZGVsNWc1NmtyZmthazlwOGk5OGMgemF5YXZraS51YUBt&ctz=America/Bogota",
-      "location": null
-    },
-    {
-      "id": "jcr9qhd4hgdai9qdpgjqo19jvg_20261112T193000Z",
-      "title": "Ирина Шекель созвон",
-      "start": "2026-11-12T14:30:00-05:00",
-      "end": "2026-11-12T16:00:00-05:00",
-      "all_day": false,
-      "url": "https://www.google.com/calendar/event?eid=amNyOXFoZDRoZ2RhaTlxZHBnanFvMTlqdmdfMjAyNjExMTJUMTkzMDAwWiB6YXlhdmtpLnVhQG0&ctz=America/Bogota",
-      "location": null
-    },
-    {
-      "id": "b7i8pe5cd6amjgflh5gj83n43k_20261112T210000Z",
-      "title": "Свободно · только важное",
-      "start": "2026-11-12T16:00:00-05:00",
-      "end": "2026-11-12T20:00:00-05:00",
-      "all_day": false,
-      "url": "https://www.google.com/calendar/event?eid=YjdpOHBlNWNkNmFtamdmbGg1Z2o4M240M2tfMjAyNjExMTJUMjEwMDAwWiB6YXlhdmtpLnVhQG0&ctz=America/Bogota",
-      "location": null
-    },
-    {
-      "id": "4ilg3cm8jhibl540alp3s5rtg8_20261113T010000Z",
-      "title": "Ужин с девушкой",
-      "start": "2026-11-12T20:00:00-05:00",
-      "end": "2026-11-12T21:00:00-05:00",
-      "all_day": false,
-      "url": "https://www.google.com/calendar/event?eid=NGlsZzNjbThqaGlibDU0MGFscDNzNXJ0ZzhfMjAyNjExMTNUMDEwMDAwWiB6YXlhdmtpLnVhQG0&ctz=America/Bogota",
-      "location": null
-    },
-    {
-      "id": "omp16tjlu0c7kpehrt0flb0kb4_20261113T020000Z",
-      "title": "Карен",
-      "start": "2026-11-12T21:00:00-05:00",
-      "end": "2026-11-12T23:00:00-05:00",
-      "all_day": false,
-      "url": "https://www.google.com/calendar/event?eid=b21wMTZ0amx1MGM3a3BlaHJ0MGZsYjBrYjRfMjAyNjExMTNUMDIwMDAwWiB6YXlhdmtpLnVhQG0&ctz=America/Bogota",
-      "location": null
-    },
-    {
-      "id": "8l2so6fh8bcgsu4cpaencckrqk_20261113T040000Z",
-      "title": "Подготовка ко сну",
-      "start": "2026-11-12T23:00:00-05:00",
-      "end": "2026-11-13T00:00:00-05:00",
-      "all_day": false,
-      "url": "https://www.google.com/calendar/event?eid=OGwyc282Zmg4YmNnc3U0Y3BhZW5jY2tycWtfMjAyNjExMTNUMDQwMDAwWiB6YXlhdmtpLnVhQG0&ctz=America/Bogota",
       "location": null
     },
     {
@@ -1589,6 +1328,186 @@
       "end": "2026-11-26T00:00:00-05:00",
       "all_day": false,
       "url": "https://www.google.com/calendar/event?eid=OGwyc282Zmg4YmNnc3U0Y3BhZW5jY2tycWtfMjAyNjExMjZUMDQwMDAwWiB6YXlhdmtpLnVhQG0&ctz=America/Bogota",
+      "location": null
+    },
+    {
+      "id": "kil02eg5opnpstu3t8jr66j0n8_20261126T050000Z",
+      "title": "Сон",
+      "start": "2026-11-26T00:00:00-05:00",
+      "end": "2026-11-26T09:00:00-05:00",
+      "all_day": false,
+      "url": "https://www.google.com/calendar/event?eid=a2lsMDJlZzVvcG5wc3R1M3Q4anI2NmowbjhfMjAyNjExMjZUMDUwMDAwWiB6YXlhdmtpLnVhQG0&ctz=America/Bogota",
+      "location": null
+    },
+    {
+      "id": "g6uevlsr9nlafhk981vb69f4v4_20261126T140000Z",
+      "title": "Проснуться / Завтрак",
+      "start": "2026-11-26T09:00:00-05:00",
+      "end": "2026-11-26T10:00:00-05:00",
+      "all_day": false,
+      "url": "https://www.google.com/calendar/event?eid=ZzZ1ZXZsc3I5bmxhZmhrOTgxdmI2OWY0djRfMjAyNjExMjZUMTQwMDAwWiB6YXlhdmtpLnVhQG0&ctz=America/Bogota",
+      "location": null
+    },
+    {
+      "id": "unfntsk4bp9o0fd8i13gatprio_20261126T150000Z",
+      "title": "🥊 Бокс — Johann Ruiz",
+      "start": "2026-11-26T10:00:00-05:00",
+      "end": "2026-11-26T11:30:00-05:00",
+      "all_day": false,
+      "url": "https://www.google.com/calendar/event?eid=dW5mbnRzazRicDlvMGZkOGkxM2dhdHByaW9fMjAyNjExMjZUMTUwMDAwWiB6YXlhdmtpLnVhQG0&ctz=America/Bogota",
+      "location": "Ovon Boxing"
+    },
+    {
+      "id": "o2ncsjsq6e79c09mq70e7knqsc_20261126T163000Z",
+      "title": "Разгреб переписок (после бокса)",
+      "start": "2026-11-26T11:30:00-05:00",
+      "end": "2026-11-26T12:30:00-05:00",
+      "all_day": false,
+      "url": "https://www.google.com/calendar/event?eid=bzJuY3Nqc3E2ZTc5YzA5bXE3MGU3a25xc2NfMjAyNjExMjZUMTYzMDAwWiB6YXlhdmtpLnVhQG0&ctz=America/Bogota",
+      "location": null
+    },
+    {
+      "id": "8o8mugn3l67ntrplkgob4i1g6s_20261126T173000Z",
+      "title": "ClickUp",
+      "start": "2026-11-26T12:30:00-05:00",
+      "end": "2026-11-26T14:30:00-05:00",
+      "all_day": false,
+      "url": "https://www.google.com/calendar/event?eid=OG84bXVnbjNsNjdudHJwbGtnb2I0aTFnNnNfMjAyNjExMjZUMTczMDAwWiB6YXlhdmtpLnVhQG0&ctz=America/Bogota",
+      "location": null
+    },
+    {
+      "id": "jcr9qhd4hgdai9qdpgjqo19jvg_20261126T193000Z",
+      "title": "Ирина Шекель созвон",
+      "start": "2026-11-26T14:30:00-05:00",
+      "end": "2026-11-26T16:00:00-05:00",
+      "all_day": false,
+      "url": "https://www.google.com/calendar/event?eid=amNyOXFoZDRoZ2RhaTlxZHBnanFvMTlqdmdfMjAyNjExMjZUMTkzMDAwWiB6YXlhdmtpLnVhQG0&ctz=America/Bogota",
+      "location": null
+    },
+    {
+      "id": "b7i8pe5cd6amjgflh5gj83n43k_20261126T210000Z",
+      "title": "Свободно · только важное",
+      "start": "2026-11-26T16:00:00-05:00",
+      "end": "2026-11-26T20:00:00-05:00",
+      "all_day": false,
+      "url": "https://www.google.com/calendar/event?eid=YjdpOHBlNWNkNmFtamdmbGg1Z2o4M240M2tfMjAyNjExMjZUMjEwMDAwWiB6YXlhdmtpLnVhQG0&ctz=America/Bogota",
+      "location": null
+    },
+    {
+      "id": "4ilg3cm8jhibl540alp3s5rtg8_20261127T010000Z",
+      "title": "Ужин с девушкой",
+      "start": "2026-11-26T20:00:00-05:00",
+      "end": "2026-11-26T21:00:00-05:00",
+      "all_day": false,
+      "url": "https://www.google.com/calendar/event?eid=NGlsZzNjbThqaGlibDU0MGFscDNzNXJ0ZzhfMjAyNjExMjdUMDEwMDAwWiB6YXlhdmtpLnVhQG0&ctz=America/Bogota",
+      "location": null
+    },
+    {
+      "id": "omp16tjlu0c7kpehrt0flb0kb4_20261127T020000Z",
+      "title": "Карен",
+      "start": "2026-11-26T21:00:00-05:00",
+      "end": "2026-11-26T23:00:00-05:00",
+      "all_day": false,
+      "url": "https://www.google.com/calendar/event?eid=b21wMTZ0amx1MGM3a3BlaHJ0MGZsYjBrYjRfMjAyNjExMjdUMDIwMDAwWiB6YXlhdmtpLnVhQG0&ctz=America/Bogota",
+      "location": null
+    },
+    {
+      "id": "8l2so6fh8bcgsu4cpaencckrqk_20261127T040000Z",
+      "title": "Подготовка ко сну",
+      "start": "2026-11-26T23:00:00-05:00",
+      "end": "2026-11-27T00:00:00-05:00",
+      "all_day": false,
+      "url": "https://www.google.com/calendar/event?eid=OGwyc282Zmg4YmNnc3U0Y3BhZW5jY2tycWtfMjAyNjExMjdUMDQwMDAwWiB6YXlhdmtpLnVhQG0&ctz=America/Bogota",
+      "location": null
+    },
+    {
+      "id": "kil02eg5opnpstu3t8jr66j0n8_20261127T050000Z",
+      "title": "Сон",
+      "start": "2026-11-27T00:00:00-05:00",
+      "end": "2026-11-27T09:00:00-05:00",
+      "all_day": false,
+      "url": "https://www.google.com/calendar/event?eid=a2lsMDJlZzVvcG5wc3R1M3Q4anI2NmowbjhfMjAyNjExMjdUMDUwMDAwWiB6YXlhdmtpLnVhQG0&ctz=America/Bogota",
+      "location": null
+    },
+    {
+      "id": "g6uevlsr9nlafhk981vb69f4v4_20261127T140000Z",
+      "title": "Проснуться / Завтрак",
+      "start": "2026-11-27T09:00:00-05:00",
+      "end": "2026-11-27T10:00:00-05:00",
+      "all_day": false,
+      "url": "https://www.google.com/calendar/event?eid=ZzZ1ZXZsc3I5bmxhZmhrOTgxdmI2OWY0djRfMjAyNjExMjdUMTQwMDAwWiB6YXlhdmtpLnVhQG0&ctz=America/Bogota",
+      "location": null
+    },
+    {
+      "id": "mr0d1hm7fqcjs3nkj1ijs3kb24_20261127T150000Z",
+      "title": "Свободно",
+      "start": "2026-11-27T10:00:00-05:00",
+      "end": "2026-11-27T11:00:00-05:00",
+      "all_day": false,
+      "url": "https://www.google.com/calendar/event?eid=bXIwZDFobTdmcWNqczNua2oxaWpzM2tiMjRfMjAyNjExMjdUMTUwMDAwWiB6YXlhdmtpLnVhQG0&ctz=America/Bogota",
+      "location": null
+    },
+    {
+      "id": "iiqm75jaq7281r57pfrhpp9ctc_20261127T160000Z",
+      "title": "ClickUp",
+      "start": "2026-11-27T11:00:00-05:00",
+      "end": "2026-11-27T13:00:00-05:00",
+      "all_day": false,
+      "url": "https://www.google.com/calendar/event?eid=aWlxbTc1amFxNzI4MXI1N3BmcmhwcDljdGNfMjAyNjExMjdUMTYwMDAwWiB6YXlhdmtpLnVhQG0&ctz=America/Bogota",
+      "location": null
+    },
+    {
+      "id": "pqohne9j23jb7t2i4k9se80asc_20261127T180000Z",
+      "title": "Испанский (разбор грамматики, поговорить, рассказ)",
+      "start": "2026-11-27T13:00:00-05:00",
+      "end": "2026-11-27T14:30:00-05:00",
+      "all_day": false,
+      "url": "https://www.google.com/calendar/event?eid=cHFvaG5lOWoyM2piN3QyaTRrOXNlODBhc2NfMjAyNjExMjdUMTgwMDAwWiB6YXlhdmtpLnVhQG0&ctz=America/Bogota",
+      "location": null
+    },
+    {
+      "id": "esmhfkp09g0pq8149c4tr8voeo_20261127T200000Z",
+      "title": "Свободно",
+      "start": "2026-11-27T15:00:00-05:00",
+      "end": "2026-11-27T15:45:00-05:00",
+      "all_day": false,
+      "url": "https://www.google.com/calendar/event?eid=ZXNtaGZrcDA5ZzBwcTgxNDljNHRyOHZvZW9fMjAyNjExMjdUMjAwMDAwWiB6YXlhdmtpLnVhQG0&ctz=America/Bogota",
+      "location": null
+    },
+    {
+      "id": "j2bvelibe767hn4qashev6t4a4_20261127T214500Z",
+      "title": "Свободно · подготовка",
+      "start": "2026-11-27T16:45:00-05:00",
+      "end": "2026-11-27T18:00:00-05:00",
+      "all_day": false,
+      "url": "https://www.google.com/calendar/event?eid=ajJidmVsaWJlNzY3aG40cWFzaGV2NnQ0YTRfMjAyNjExMjdUMjE0NTAwWiB6YXlhdmtpLnVhQG0&ctz=America/Bogota",
+      "location": null
+    },
+    {
+      "id": "2qdrt3cpqfravn9k5f1r4p7cek_20261127T230000Z",
+      "title": "Зал + турник на крыше",
+      "start": "2026-11-27T18:00:00-05:00",
+      "end": "2026-11-27T19:30:00-05:00",
+      "all_day": false,
+      "url": "https://www.google.com/calendar/event?eid=MnFkcnQzY3BxZnJhdm45azVmMXI0cDdjZWtfMjAyNjExMjdUMjMwMDAwWiB6YXlhdmtpLnVhQG0&ctz=America/Bogota",
+      "location": null
+    },
+    {
+      "id": "0qenrrohf0ltomv6bh28kv726c_20261128T003000Z",
+      "title": "Ужин без девушки",
+      "start": "2026-11-27T19:30:00-05:00",
+      "end": "2026-11-27T20:00:00-05:00",
+      "all_day": false,
+      "url": "https://www.google.com/calendar/event?eid=MHFlbnJyb2hmMGx0b212NmJoMjhrdjcyNmNfMjAyNjExMjhUMDAzMDAwWiB6YXlhdmtpLnVhQG0&ctz=America/Bogota",
+      "location": null
+    },
+    {
+      "id": "rmna83ll52lq71h7ifdqmosfbg_20261128T010000Z",
+      "title": "Тусовка",
+      "start": "2026-11-27T20:00:00-05:00",
+      "end": "2026-11-28T03:00:00-05:00",
+      "all_day": false,
+      "url": "https://www.google.com/calendar/event?eid=cm1uYTgzbGw1MmxxNzFoN2lmZHFtb3NmYmdfMjAyNjExMjhUMDEwMDAwWiB6YXlhdmtpLnVhQG0&ctz=America/Bogota",
       "location": null
     }
   ]
