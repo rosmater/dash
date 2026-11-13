@@ -58,6 +58,11 @@ key = PBKDF2HMAC(algorithm=hashes.SHA256(), length=32, salt=salt, iterations=ITE
 data = json.load(open(os.path.join(ROOT, 'data.json')))
 if HIDE:
     _strip_overall_balance(data)
+    # t6246u: баланс WanderWallet только в основном даше, не в helper
+    data.pop('wanderwallet_balance', None)
+    for _d in data.get('directions') or []:
+        if isinstance(_d, dict):
+            _d.pop('wanderwallet_balance', None)
 elif data.get('overall_balance') or data.get('overall_balance_enc'):
     _encrypt_overall_balance(data)
 if HIDE:

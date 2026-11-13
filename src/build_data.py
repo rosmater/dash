@@ -1397,6 +1397,34 @@ try:
     data['overall_balance'] = _OB
 except FileNotFoundError:
     pass
+# t6246u: баланс WanderWallet — плашка в #bdhdr (как ДР). Источник вне репо, копия публичных полей в src/ на сборке (gitignore).
+_WW_STATE = '/home/box/contacts/state/wanderwallet_balance.json'
+_WW_SRC = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'wanderwallet_balance.json')
+def _ww_load(path):
+    try:
+        b = json.load(open(path))
+    except Exception:
+        return None
+    if not isinstance(b, dict):
+        return None
+    try:
+        x = float(b.get('balance_usd'))
+    except (TypeError, ValueError):
+        return None
+    if x != x or x < 0:
+        return None
+    return dict(balance_usd=round(x, 2), read_at=str(b.get('read_at') or ''), source=str(b.get('source') or ''))
+_ww = _ww_load(_WW_STATE) or _ww_load(_WW_SRC)
+if _ww:
+    try:
+        json.dump(_ww, open(_WW_SRC, 'w'), ensure_ascii=False, indent=2)
+        open(_WW_SRC, 'a').write('\n')
+    except Exception:
+        pass
+data['wanderwallet_balance'] = _ww
+for _d in data.get('directions') or []:
+    if _d.get('id') == 'personal':
+        _d['wanderwallet_balance'] = _ww
 # t6093u / t6095u: версии блоков еженедельного/ежемесячного сбора + data_ver внутри plaintext баланса (уйдёт в шифртекст)
 import data_updates_gen as _dug
 _dug.apply(data)

@@ -11,3 +11,6 @@ __pycache__/
 *.bak-*
 *.bak
 sync/*.csv
+
+# t6246u: снимок баланса WW копируется на сборке из /home/box/contacts/state/, в git не кладём
+src/wanderwallet_balance.json
