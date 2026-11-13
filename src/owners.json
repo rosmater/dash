@@ -9,7 +9,8 @@
         "src/personal_meetings.json",
         "src/meetings_exclude.json",
         "src/timed_attn.json",
-        "src/overall_balance.json"
+        "src/overall_balance.json",
+        "src/prio_extra.json"
       ]
     },
     {
@@ -26,13 +27,16 @@
       "owner": "Секретарь (COMMS)",
       "files": [
         "src/build_data.py",
-        "src/coaching_subs.json"
+        "src/coaching_subs.json",
+        "src/herrera_weeks.json"
       ],
       "html_markers": [
-        "Кто платит за подписки"
+        "Кто платит за подписки",
+        "сравнение 3 недель"
       ],
       "data_markers": [
-        "вычитаем из аренды"
+        "вычитаем из аренды",
+        "herrera_weeks"
       ]
     },
     {
@@ -45,7 +49,8 @@
         "src/tbk_seo_inputs.json",
         "src/tbk_upsell_1c.json",
         "src/tbk_managers_gen.py",
-        "src/tbk_franchise_1c.json", "src/tbk_upsell_verify.json"
+        "src/tbk_franchise_1c.json",
+        "src/tbk_upsell_verify.json"
       ],
       "html_markers": [
         "Пропущенные"

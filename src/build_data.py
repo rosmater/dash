@@ -783,7 +783,15 @@ _ocu_open = [t for t in _OCU['tasks'] if _cu_open(t)]
 _ocf = os.path.join(_HERE, 'of_calls.json')
 _oc = json.load(open(_ocf)) if os.path.exists(_ocf) else {}
 _today_bo = datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=-5))).strftime('%Y-%m-%d')
-of_calls = sorted([t for t in (_oc.get('scheduled_calls') or []) if isinstance(t, dict) and str(t.get('due') or t.get('start') or '9999')[:10] >= _today_bo], key=lambda t: (str(t.get('due') or t.get('start') or ''), str(t.get('start') or ''), str(t.get('due_t') or '')))
+def _call_open_today(t):
+    if not isinstance(t, dict) or t.get('done'):
+        return False
+    st = str(t.get('status') or '').strip().lower()
+    if st.startswith('complete') or st in ('closed', 'done', 'models', 'main'):
+        return False
+    day = str(t.get('due') or t.get('start') or '')[:10]
+    return day == _today_bo
+of_calls = sorted([t for t in (_oc.get('scheduled_calls') or []) if _call_open_today(t)], key=lambda t: (str(t.get('start') or ''), str(t.get('due_t') or '')))
 
 # t6215u/t6216u/t6219u: доска вкладки ОФ — Сегодня / Приоритеты (только тег «🎯 фокус») / Рутина (снимок src/of_open_tasks.json)
 def _of_is_rost(t):
@@ -812,15 +820,27 @@ def _of_board():
     if not os.path.exists(path):
         return dict(today=[], prio_mine=[], prio_staff=[], routine=[], fetched_at='', src='')
     raw = json.load(open(path))
+    tasks = list(raw.get('tasks') or [])
+    _px = os.path.join(_HERE, 'prio_extra.json')
+    if os.path.exists(_px):
+        try:
+            _ex = json.load(open(_px))
+        except Exception:
+            _ex = {}
+        have = {t.get('id') for t in tasks}
+        for t in (_ex.get('tasks') or []):
+            if isinstance(t, dict) and t.get('id') and t['id'] not in have:
+                tasks.append(t)
+                have.add(t['id'])
     today, mine, staff, routine = [], [], [], []
-    for t0 in raw.get('tasks') or []:
+    for t0 in tasks:
         tt = dict(t0)
         asg = [a for a in (tt.get('assignees') or []) if a]
         tt['who'] = ', '.join(asg) if asg else None
         due = tt.get('due')
         rost = _of_is_rost(tt)
-        # t6219u/t6220u: Приоритеты — только тег «🎯 фокус»; периодические (Frecuencia periódica) и нетегированные high/urgent — в Рутину
-        if _of_is_focus(tt) and not _of_is_periodic(tt):
+        # t6219u/t6234u: тег «🎯 фокус» только в Приоритетах (не в «Сегодня» и не в Рутине), даже если periodic
+        if _of_is_focus(tt):
             (mine if rost else staff).append(tt)
         elif _of_is_periodic(tt):
             routine.append(tt)
@@ -828,9 +848,19 @@ def _of_board():
             today.append(tt)
         else:
             routine.append(tt)
+    def _prio_sort_key(x):
+        d = x.get('due')
+        name = x.get('name') or ''
+        if not d:
+            return (3, '9999', name)
+        if d < _today_bo:
+            return (0, d, name)
+        if d == _today_bo:
+            return (1, d, name)
+        return (2, d, name)
     today.sort(key=lambda x: (x.get('due') or '9999', x.get('name') or ''))
-    mine.sort(key=lambda x: ({'urgent': 0, 'high': 1}.get((x.get('priority') or ''), 9), x.get('due') or '9999'))
-    staff.sort(key=lambda x: ({'urgent': 0, 'high': 1}.get((x.get('priority') or ''), 9), x.get('due') or '9999'))
+    mine.sort(key=_prio_sort_key)
+    staff.sort(key=_prio_sort_key)
     def _person(x):
         if _of_is_rost(x):
             return 'Rost'
@@ -1243,6 +1273,22 @@ try:
             if _d.get('id') == 'coaching':
                 _d['coaching_blocks'] = {'subs': _CS}
                 break
+except FileNotFoundError:
+    pass
+# Rost t6232u: 3 недели Хереры — src/herrera_weeks.json (снимки пн + weekly-stats).
+try:
+    _HW = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'herrera_weeks.json')))
+    if isinstance(_HW, dict):
+        for _d in data['directions']:
+            if _d.get('id') != 'coaching':
+                continue
+            _cb = _d.setdefault('coaching_blocks', {})
+            _cb['herrera_weeks'] = _HW
+            for _p in _d.get('people') or []:
+                _nm = _p.get('name') or ''
+                if 'Херерр' in _nm or 'Херрер' in _nm or 'Herrera' in _nm:
+                    _p['herrera_weeks'] = _HW
+            break
 except FileNotFoundError:
     pass
 # Rost t3955u: тапы направления на CU «на сортировку» (sync_dash_taps → cu_dir_overrides.json) -> задача уходит из cu_sort и встаёт в cu_dated своего направления
