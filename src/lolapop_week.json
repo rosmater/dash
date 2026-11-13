@@ -23,16 +23,119 @@
   "ig": {
     "lolabig.lolapop": {
       "fans": 26511,
-      "delta": 32
+      "delta": 32,
+      "of_link": "In2",
+      "of_subs": 244,
+      "of_clicks": 23049,
+      "of_subs_week": 0,
+      "of_clicks_week": 2
     },
     "lolapopstarted": {
       "fans": 26011,
-      "delta": 95
+      "delta": 95,
+      "of_link": "In 5",
+      "of_subs": 69,
+      "of_clicks": 8840,
+      "of_subs_week": 0,
+      "of_clicks_week": 6
     },
     "lolastartjourney": {
       "fans": 9771,
-      "delta": 3
+      "delta": 3,
+      "of_link": "In 6",
+      "of_subs": 18,
+      "of_clicks": 5354,
+      "of_subs_week": 0,
+      "of_clicks_week": 29
     }
   },
-  "c4s_gross": 13.99
+  "c4s_gross": 13.99,
+  "audience": {
+    "viewers_total": 1094,
+    "viewers_guests": 374,
+    "viewers_users": 720,
+    "viewers_usa": 804,
+    "usa_guests": 196,
+    "usa_users": 608,
+    "earn_chats": 35.97,
+    "src": "OF k1h26w3l Statistics → Reach (Profile visitors, Guests/Users, Top countries) 02–08.11, снято 09.11; = Stats!HL6:HL15; chats = msgs+tips+posts net",
+    "subs": 3
+  },
+  "tracking": {
+    "snap_at": "2026-11-09T14:40-05:00",
+    "prev_snap_at": "2026-11-02T09:20-05:00",
+    "src": "OF k1h26w3l → Statistics → Reach → Tracking links; /workspace/informe_wow/2026-11-09/tracking-all-links-2026-11-09.json vs 2026-11-02/tracking-all-links-baseline-2026-11-02.json",
+    "map": {
+      "lolabig.lolapop": "In2",
+      "lolapopstarted": "In 5",
+      "lolastartjourney": "In 6"
+    }
+  },
+  "history": {
+    "W:2026-10-26": {
+      "audience": {
+        "viewers_total": 1038,
+        "viewers_guests": null,
+        "viewers_users": null,
+        "viewers_usa": null,
+        "usa_guests": null,
+        "usa_users": null,
+        "earn_chats": 92.53,
+        "src": "Stats!HE (миграция 13.11): разбивки guests/users/USA в таблице нет",
+        "subs": 1
+      },
+      "ig_of_note": "нет понедельничного снимка 26.10 (есть 28.10 → 02.11: In2 +0, In 5 +0, In 6 +0)"
+    },
+    "W:2026-10-19": {
+      "audience": {
+        "viewers_total": 877,
+        "viewers_guests": null,
+        "viewers_users": null,
+        "viewers_usa": null,
+        "usa_guests": null,
+        "usa_users": null,
+        "earn_chats": 43.99,
+        "src": "Stats!GX (миграция 13.11): разбивки guests/users/USA в таблице нет",
+        "subs": 5
+      }
+    },
+    "W:2026-10-12": {
+      "audience": {
+        "viewers_total": 1617,
+        "earn_chats": 44.78,
+        "src": "Stats!GQ (миграция 13.11)",
+        "subs": 4
+      }
+    },
+    "W:2026-10-05": {
+      "audience": {
+        "viewers_total": 1315,
+        "earn_chats": 6.4,
+        "src": "Stats!GJ (миграция 13.11)",
+        "subs": 5
+      }
+    },
+    "W:2026-09-28": {
+      "audience": {
+        "viewers_total": 1688,
+        "earn_chats": 11.99,
+        "src": "Stats!GC (миграция 13.11)",
+        "subs": 9
+      }
+    },
+    "W:2026-09-14": {
+      "audience": {
+        "viewers_total": 3536,
+        "viewers_guests": 2243,
+        "viewers_users": 1293,
+        "viewers_usa": 2088,
+        "usa_guests": 1128,
+        "usa_users": 960,
+        "earn_chats": 6.4,
+        "src": "Stats!FO (миграция 13.11)",
+        "subs": 11
+      }
+    }
+  },
+  "id": "W:2026-11-02"
 }

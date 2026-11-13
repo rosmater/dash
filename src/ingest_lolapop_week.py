@@ -90,6 +90,7 @@ def preserve_ig_accounts(existing, incoming=None):
                     "status": a.get("status"),
                     "note": a.get("note"),
                     "status_at": a.get("status_at"),
+                    "src": a.get("src"),
                 })
             elif isinstance(a, str) and a.strip():
                 out.append({"handle": a.strip().lstrip("@"), "status": None, "note": None, "status_at": None})
@@ -109,7 +110,7 @@ def preserve_ig_accounts(existing, incoming=None):
             by[h] = dict(a)
         else:
             cur = by[h]
-            for k in ("status", "note", "status_at"):
+            for k in ("status", "note", "status_at", "src"):
                 if a.get(k) not in (None, ""):
                     cur[k] = a[k]
                 # else keep existing
@@ -123,8 +124,29 @@ def preserve_ig_accounts(existing, incoming=None):
             row["status_at"] = by[h]["status_at"]
         if by[h].get("note"):
             row["note"] = by[h]["note"]
+        if by[h].get("src"):
+            row["src"] = by[h]["src"]
         out.append(row)
     return out
+
+OF_IG_KEYS = ("of_link", "of_subs", "of_clicks", "of_subs_week", "of_clicks_week")
+AUD_KEYS = ("viewers_total", "viewers_guests", "viewers_users", "viewers_usa", "usa_guests", "usa_users", "earn_chats", "subs")
+
+
+def merge_audience(existing, incoming):
+    """t6274u: OF audience (Reach). Never overwrite a known number with null."""
+    out = dict(existing) if isinstance(existing, dict) else {}
+    if isinstance(incoming, dict):
+        for k in AUD_KEYS:
+            v = _num(incoming.get(k))
+            if v is not None:
+                out[k] = v
+            else:
+                out.setdefault(k, None)
+        if incoming.get("src"):
+            out["src"] = incoming["src"]
+    return out or None
+
 
 def normalize_ig(raw, existing=None):
     out = {}
@@ -133,6 +155,9 @@ def normalize_ig(raw, existing=None):
             h = str(handle).lstrip("@")
             if isinstance(val, dict):
                 out[h] = {"fans": _num(val.get("fans")), "delta": _num(val.get("delta"))}
+                for k in OF_IG_KEYS:  # t6275u: OF tracking-link per IG
+                    if val.get(k) is not None:
+                        out[h][k] = val[k]
             else:
                 out[h] = {"fans": None, "delta": _num(val)}
     if not isinstance(raw, dict):
@@ -147,6 +172,12 @@ def normalize_ig(raw, existing=None):
                 "fans": fans if fans is not None else prev.get("fans"),
                 "delta": delta if delta is not None else prev.get("delta"),
             }
+            for k in OF_IG_KEYS:  # t6275u: OF +N per IG (tracking link, Monday snapshots)
+                v2 = val.get(k) if k == "of_link" else _num(val.get(k))
+                if v2 is not None:
+                    out[h][k] = v2
+                elif prev.get(k) is not None:
+                    out[h][k] = prev[k]
         else:
             delta = _num(val)
             out[h] = {
@@ -172,8 +203,12 @@ def merge_week(existing, incoming):
     for k, v in incoming.items():
         if k == "ig":
             out["ig"] = normalize_ig(v, existing.get("ig"))
+        elif k == "audience":
+            out["audience"] = merge_audience(existing.get("audience"), v)
         elif k == "pornstocks":
             continue
+        elif k == "label" and existing.get("label"):
+            continue  # keep short column label (e.g. «02–08.11»)
         elif v is not None:
             out[k] = v
     return out
@@ -282,8 +317,21 @@ def main() -> int:
         "rebills": rebills,
         "ig": normalize_ig(week.get("ig")),
     }
+    if isinstance(week.get("audience"), dict):
+        new_week["audience"] = merge_audience(None, week["audience"])
     P["cur"] = new_week
     P["weeks"] = upsert_weeks(list(P.get("weeks") or []), new_week)
+    # t6274u: one-time/backfill history by week id (only existing weeks; no invented weeks)
+    for wid, hv in (week.get("history") or {}).items():
+        tgt = next((w for w in P["weeks"] if isinstance(w, dict) and w.get("id") == wid), None)
+        if tgt is None or not isinstance(hv, dict):
+            continue
+        if isinstance(hv.get("audience"), dict):
+            tgt["audience"] = merge_audience(tgt.get("audience"), hv["audience"])
+        if hv.get("ig_of_note"):
+            tgt["ig_of_note"] = hv["ig_of_note"]
+    if isinstance(week.get("tracking"), dict):
+        P["tracking"] = week["tracking"]
 
     rows = [
         ["OF · подписки", _num(earn.get("subs_gross")), _num(earn.get("subs_net"))],
