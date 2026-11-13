@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-12T08:54:51-05:00",
+  "updated_at": "2026-11-13T11:33:24-05:00",
   "note": "Rost 06.11 t453: «Клиенты в процессе» = все живые диалоги с этапом intro/catalog/deal/call, не только «ждут каталог». Закрытые не держим.",
   "clients_in_progress": [
     {
@@ -23,6 +23,17 @@
       "note": "Созвон прошёл 10.11 12:00 Bogotá (Meet odi-oqbo-eaq). Попросили варианты сотрудничества + каталог; отправили 10.11 14:20 оба. Ждём формат и приоритетные модели/заказчиков.",
       "url": "https://rosmater.github.io/cu/?t=86bcu0caf",
       "ctx": "QUEUE.md decsef-call/reply"
+    },
+    {
+      "id": "servicios-aereos-montre-sa-de-cv",
+      "company": "Servicios Aereos Montre SA de CV (México)",
+      "contact": "Alejandro Treviño <alejandro@aeromontre.com>",
+      "status": "need_reply",
+      "pipeline": "intro",
+      "status_label": "Нужен наш ответ",
+      "note": "Alejandro Treviño просит презентацию возможностей STE: где расположены, какие контракты представляли, какие компетенции по ТО; чтобы понять компанию и рамки возможного сотрудничества.",
+      "url": "https://rosmater.github.io/cu/?t=86bbzxnvx",
+      "ctx": "dash_reply_upsert 1a1d5b4a38c8abfc"
     },
     {
       "id": "baird-service-sas",

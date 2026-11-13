@@ -1,6 +1,6 @@
 {
   "_note": "Живые ответы компаний (STE). Красный «разобрать» = open (мы не ответили). Жёлтый «ждём ответа» = waiting / awaiting_their_reply (наш ответ ушёл). answered/scheduled — снять с внимания. Пишет ste / Оборонка.",
-  "updated_at": "2026-11-12T08:54:51-05:00",
+  "updated_at": "2026-11-13T11:33:24-05:00",
   "unanswered_replies": [
     {
       "company": "TEREM-Letets / TEREM Holding (Bulgaria)",
@@ -19,6 +19,22 @@
       "msg_id": "1a1bf2b0926f76b7",
       "thread_id": "1a1a5ebf6b23a1f8",
       "last_inbound_msg_id": "1a1bf2b0926f76b7"
+    },
+    {
+      "company": "Servicios Aereos Montre SA de CV (México)",
+      "from": "Alejandro Treviño <alejandro@aeromontre.com>",
+      "subject": "Re: Overhaul y repuestos Mi-8/17 — SpetsTechnoExport",
+      "received_at": "2026-11-13T11:18:56-05:00",
+      "note": "Alejandro Treviño просит презентацию возможностей STE: где расположены, какие контракты представляли, какие компетенции по ТО; чтобы понять компанию и рамки возможного сотрудничества.",
+      "url": "https://mail.google.com/mail/u/0/#inbox/1a160636d12f3c22",
+      "status": "open",
+      "priority": true,
+      "pipeline": "intro",
+      "status_label": "Нужен наш ответ",
+      "msg_id": "1a1d5b4a38c8abfc",
+      "thread_id": "1a160636d12f3c22",
+      "last_inbound_at": "2026-11-13T11:18:56-05:00",
+      "last_inbound_msg_id": "1a1d5b4a38c8abfc"
     },
     {
       "company": "Baird Service",
