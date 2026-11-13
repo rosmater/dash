@@ -1,3 +1,8 @@
+## 2026-11-12 t6250u WanderWallet: баланс ≈$230, плашка скрыта
+
+- Rost сегодня пополнил WanderWallet на $250 и немного потратил. В `/home/box/contacts/state/wanderwallet_balance.json` стоит ≈$230, `approx: true`, `as_of` 12.11.2026, пометка «примерно, актуализировать при следующей оплате».
+- Плашки в шапке нет: $230 ≥ $60. Следующая оплата должна снять реальный баланс с экрана и перезаписать файл с `approx: false` (`ww_write_balance.py` так и пишет).
+
 ## 2026-11-12 t6246u WanderWallet: Repeat + плашка баланса в шапке
 
 - Сценарий оплаты: для уже известного получателя открывать предыдущий платёж и жать «Repeat», не вводить реквизиты заново. Новый получатель — как раньше, вручную. До и после каждой оплаты читать CURRENT BALANCE (USD) с экрана и писать `/home/box/contacts/state/wanderwallet_balance.json`. Предложенный SKILL.md: `/workspace/ww-skill-update/SKILL.md`. Правила: `wanderwallet-balance-alert.md`, обновлён `ww-balance-before-confirm.md`.

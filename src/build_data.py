@@ -1413,7 +1413,13 @@ def _ww_load(path):
         return None
     if x != x or x < 0:
         return None
-    return dict(balance_usd=round(x, 2), read_at=str(b.get('read_at') or ''), source=str(b.get('source') or ''))
+    at = str(b.get('read_at') or b.get('as_of') or '')
+    rec = dict(balance_usd=round(x, 2), read_at=at, source=str(b.get('source') or ''))
+    if 'as_of' in b and b.get('as_of'):
+        rec['as_of'] = str(b.get('as_of'))
+    if 'approx' in b:
+        rec['approx'] = bool(b.get('approx'))
+    return rec
 _ww = _ww_load(_WW_STATE) or _ww_load(_WW_SRC)
 if _ww:
     try:
