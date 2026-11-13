@@ -130,7 +130,10 @@ const DataUpd = (() => {
     const rows = items.map(b =>
       `<div class="du-ln alert-ln" data-du-go="${esc(b.id)}" role="link" tabindex="0" title="${esc(b.title || b.id)}">${esc(b.title || b.id)}</div>`
     ).join('');
-    return `<div class="du-lines du-attn"><details class="attnd"${open ? ' open' : ''}><summary style="cursor:pointer"><h4 style="display:inline">🟡 Есть новые данные · ${n}</h4> <span class="note">▾</span></summary>${rows}</details></div>`;
+    const title = (typeof topChipH === 'function')
+      ? topChipH('🟡 Есть новые данные · ' + n, 'Новое · ' + n)
+      : `<h4 style="display:inline">🟡 Есть новые данные · ${n}</h4>`;
+    return `<details class="top-chip du-lines du-attn"${open ? ' open' : ''}><summary style="cursor:pointer">${title}</summary><div class="top-chip-body">${rows}</div></details>`;
   }
   function currentDir() {
     try { return (typeof S !== 'undefined' && S.tab) || 'overview'; } catch (e) { return 'overview'; }
@@ -152,13 +155,25 @@ const DataUpd = (() => {
     const wrap = document.createElement('div');
     wrap.innerHTML = html;
     const node = wrap.firstElementChild;
-    const attn = main.querySelector('.attn:not(.du-attn)');
+    let row = main.querySelector('.top-row');
+    const attn = main.querySelector('details.top-chip.attn, .attn:not(.card):not(.du-attn)');
     const ovsub = document.getElementById('ovsub');
     const head = main.querySelector('.tab-head');
-    if (attn) attn.insertAdjacentElement('afterend', node);
-    else if (ovsub) ovsub.insertAdjacentElement('afterend', node);
-    else if (head) head.insertAdjacentElement('afterend', node);
-    else main.insertAdjacentElement('afterbegin', node);
+    if (!row) {
+      row = document.createElement('div');
+      row.className = 'top-row';
+      if (attn && attn.parentElement && attn.parentElement.classList.contains('top-row')) {
+        row = attn.parentElement;
+      } else if (attn) {
+        attn.insertAdjacentElement('beforebegin', row);
+        row.appendChild(attn);
+      } else if (ovsub) ovsub.insertAdjacentElement('afterend', row);
+      else if (head) head.insertAdjacentElement('afterend', row);
+      else main.insertAdjacentElement('afterbegin', row);
+    }
+    if (attn && row.contains(attn)) attn.insertAdjacentElement('afterend', node);
+    else row.insertAdjacentElement('afterbegin', node);
+    try { if (typeof topRowBind === 'function') topRowBind(row); } catch (e) {}
     try { if (typeof alertFit === 'function') alertFit(node); } catch (e) {}
   }
   function slotFor(root) {

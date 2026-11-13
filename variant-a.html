@@ -331,6 +331,19 @@ details:not(.bqd):not(.ilg)[open]>summary::before{content:"▾"!important;color:
 #main .attn:not(.card) h4,#main .du-attn h4,#main .qc-attn h4{font-size:12px;line-height:1.2;margin:0}
 #main .attn:not(.card) .attnd>summary,#main .du-attn .attnd>summary,#main .qc-attn .attnd>summary{padding:0;gap:4px;line-height:1.2;font-size:inherit}
 .pill.p-mute{background:#f1f5f9;color:#64748b;border:1px solid #e2e8f0;font-size:10px;padding:1px 6px;font-weight:700}
+/* Rost t6261u ряд: свёрнутые верхние полоски — чипы в одну строку (flex-wrap); раскрытие на всю ширину под рядом, по одному */
+.top-row{display:flex;flex-wrap:wrap;align-items:flex-start;gap:4px;margin:0 0 4px}
+#main .top-row{margin-bottom:4px}
+.top-row>.top-chip{flex:0 1 auto;margin:0!important;min-width:0;max-width:100%;padding:3px 8px;border-radius:8px;box-sizing:border-box}
+.top-row>.top-chip:not([open]){order:0}
+.top-row>.top-chip[open]{flex:1 1 100%;order:2;padding:4px 10px}
+.top-row>.top-chip>summary{display:flex;align-items:center;gap:4px;margin:0;padding:0;cursor:pointer;list-style:none;line-height:1.2}
+.top-row>.top-chip>summary::-webkit-details-marker,.top-row>.top-chip>summary::marker{display:none;content:none}
+.top-row>.top-chip[open]>summary{margin-bottom:6px}
+.top-row>.top-chip h4{font-size:12px;line-height:1.2;margin:0;font-weight:700;display:inline}
+.top-row .chip-short{display:none}
+.top-row .chip-full{display:inline}
+@media(max-width:520px){.top-row .chip-full{display:none}.top-row .chip-short{display:inline}}
 
 .card.attn .okin .bq>summary,.card.attn .okin .bq,.attn.card .okin .bq>summary{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
 .card.attn .okin .bq>summary>span,.attn.card .okin .bq>summary>span{display:inline-block;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;vertical-align:bottom}
@@ -793,7 +806,7 @@ function cuSortHTML(D){const L=cuTodo(D).filter(t=>!thHidden(t));if(!L.length)re
 function cuSphRow(D,t){const md=(D.directions||[]).find(x=>x.kind==='msgs'),S0=(md&&md.spheres)||[];if(!S0.length)return '';const k='cu|'+(t.id||t.url),cur=maSph(k);return `<div style="flex-basis:100%;display:flex;gap:4px;flex-wrap:wrap"><span class="note">направление${cur?': <b>'+esc(cur)+'</b>':' не выбрано'}:</span>${S0.map(v=>`<button class="pill ${cur===v?'st-ans':'p-normal'}" style="cursor:pointer;border:0" data-k="${esc(k)}" data-v="${esc(v)}" data-t="${esc(t.name)}" data-u="${esc(t.url)}" data-c="ClickUp" onclick="maSetSph(this)">${esc(v)}</button>`).join('')}</div>`} /* Rost t3914u 27.10: направление на каждую CU-задачу (как у мессенджеров, dash_sph_cu|id) */
 function overview(){const D=Dash.D,o=Dash.overview(),cur=o.cur;const m=S.mode;
  const covered=o.rows.filter(r=>r.s.income!=null).map(r=>r.dir.name);
- let h=attnOverviewHTML()+`<div class="grid g2"><div class="card hero"><h3 style="color:#5b4bc4">Общая прибыль · ${esc(Dash.periodLabel())}</h3><div class="big ${o.tot.profit>=0?'':'neg'}">${fmt(o.tot.profit,cur)}</div>
+ let h=topRowHTML(attnOverviewHTML())+`<div class="grid g2"><div class="card hero"><h3 style="color:#5b4bc4">Общая прибыль · ${esc(Dash.periodLabel())}</h3><div class="big ${o.tot.profit>=0?'':'neg'}">${fmt(o.tot.profit,cur)}</div>
  <div class="note" style="color:#4a4f6a">Доход ${fmt(o.tot.income,cur)} · Расходы ${fmt(o.tot.expenses,cur)} · в сумме: ${covered.join(', ')||'нет данных'}</div>
  <div class="note" style="color:#7a72a8;margin-top:6px">${D.directions.filter(d=>d.overview_note).map(d=>esc(d.overview_note)).join(' ')}</div><div style="margin-top:10px">${o.rows.map(r=>`<span class="chip ${r.s.has?(r.s.status||''):''}">${r.dir.icon} ${esc(r.dir.name)}: ${r.s.has?(r.s.status==='partial'?'частично':'полные данные'):'нет данных'}</span>`).join('')}</div></div>
  <div class="card"><h3>Структура прибыли</h3><div class="chartbox" style="height:200px"><canvas id="donut"></canvas></div></div></div><div style="height:14px"></div><div class="grid g4">`;
@@ -836,11 +849,11 @@ function tbkFinLayout(d,s,cur,m){const co=Dash.breakdowns(d).find(b=>/^Комп�
  return finChartGoals(d,cur,m)+factColsHTML(d,cur)+'<div style="height:14px"></div>'+(co?bdTableHTML(co)+'<div style="height:14px"></div>':'')+(m==='month'&&!d.monthly_only?`<div class="card"><h3>Недели → месяц (${cur})</h3>${rollupHTML(d,cur)}</div><div style="height:14px"></div>`:'')}
 function reFinLayout(d,s,cur,m){/* Rost t5985u: график | Цели (компактно) → Из чего сложилось (Доход | Расход); Приоритеты — под «По месяцам 2026» */
  return finChartGoals(d,cur,m)+factColsHTML(d,cur)}
-function direction(d){if(window.DASH_HELPER&&d.id==='personal'){const h=attnHTML(d)+persBlocksHTML(d);$('#main').innerHTML=h;return;}/* Rost t6061u: у ассистентки в Личном только На решение + Документы */
+function direction(d){if(window.DASH_HELPER&&d.id==='personal'){const h=topRowHTML(attnHTML(d))+persBlocksHTML(d);$('#main').innerHTML=h;return;}/* Rost t6061u: у ассистентки в Личном только На решение + Документы */
  const cur=d.id==='realestate'?'EUR':Dash.curOf(d),s=Dash.summary(d,S.mode,Dash.pid(),cur),m=S.mode,ser=Dash.series(d,m,cur,{onlyData:true,last:10});/* Rost t6089u: цифры аренды в EUR, не конвертировать в $ */
  const kp=(l,v,sub,data,color,cls='')=>`<div class="card kpi" style="--glow:${color}"><div class="l">${l}</div><div class="v ${cls}">${v}</div><div class="s">${sub}</div><canvas class="sp" width="160" height="46" data-c="${color}" data-d='${JSON.stringify(data)}'></canvas></div>`;
  /* Rost t5976u/t5977u: ряд статус-плашек под табами («неделя/месяц не закрыт», «свёртка», «итог месяца из источника») убран на всех вкладках */
- let h=attnHTML(d)+persQuickCmdsHTML(d)+scCallsHTML(d.scheduled_calls||(d.board&&d.board.scheduled_calls),d)+ofTodayHTML(d)+ofPriorityHTML(d)+scMeetingsHTML(d.scheduled_meetings,d)+ofBlocksHTML(d)+reBlocksHTML(d)+tbkBlocksHTML(d)+persBlocksHTML(d)+pepPlanHTML(d)+pepMonHTML(d,'ads')+pepDlgRepRow(d)+ledgerHTML(d)+pepLeadsStripHTML(d)+pepMonHTML(d,'repeat');/* Rost t6227u: «Требует внимания» + «Есть новые данные» сверху; задачи сразу под ними; потом показатели; Рутина внизу. Мониторы Пептидов под продажами */
+ let h=topRowHTML(attnHTML(d),persQuickCmdsHTML(d))+scCallsHTML(d.scheduled_calls||(d.board&&d.board.scheduled_calls),d)+ofTodayHTML(d)+ofPriorityHTML(d)+scMeetingsHTML(d.scheduled_meetings,d)+ofBlocksHTML(d)+reBlocksHTML(d)+tbkBlocksHTML(d)+persBlocksHTML(d)+pepPlanHTML(d)+pepMonHTML(d,'ads')+pepDlgRepRow(d)+ledgerHTML(d)+pepLeadsStripHTML(d)+pepMonHTML(d,'repeat');/* Rost t6227u: «Требует внимания» + «Есть новые данные» сверху; задачи сразу под ними; потом показатели; Рутина внизу. Мониторы Пептидов под продажами */
  if(!d.ledger)h+=`<div class="grid g4">${kp('Доход',fmt(s.income,cur),s.unknownInc?'есть продажи без суммы':'за период',ser.income,'#22d3a6')}${d.payout_col?(()=>{const p=payInfo(s.rec);return kp('Выплата',p?fmt(Dash.conv(p.usdt,'USD',cur),cur):'—',p?((p.label||'USDT моделям')+(p.unpaid?' · без USDT: '+p.unpaid:'')):'выплат с USDT нет',ser.expenses,'#ff5d7a')})():kp('Расходы',s.expensesKnown?fmt(s.expenses,cur):'—',s.expensesKnown?'учтённые':'нет данных о расходах',ser.expenses,'#ff5d7a')}
  ${d.payout_col?kp('Прибыль ±',profitNum(s.profit,cur,d.profit_tip),s.expensesKnown?'доход − выплата':'выплат с USDT нет',ser.profit,d.color,s.profit<0?'neg':''):kp('Прибыль',fmt(s.profit,cur),s.expensesKnown?'доход − расходы':'расходы не учтены',ser.profit,d.color,s.profit<0?'neg':'')}${kp('ROI',s.roi==null?'—':Dash.pct(s.roi),'прибыль / расходы',[],'#38bdf8',s.roi<0?'neg':'pos')}</div><div style="height:14px"></div>`;
  const mt=s.rec&&s.rec.metrics||{};
@@ -938,16 +951,20 @@ function linesHTML(it,max=5,d){const grp={};it.forEach(x=>(grp[x.grp]=grp[x.grp]
  return vis.join('')+(hid.length?`<details><summary>ещё ${hid.length}</summary>${hid.join('')}</details>`:'')}
 /* Rost 27.10 t3921u: «Рутина упала/встала» — отдельный красный блок сверху, не в общем «Требует внимания» */
 const isFell=x=>/Рутина (упала|встала)/i.test((x.why||'')+' '+(x.text||'')+' '+(x.grp||''));
-function attnHTML(d){const it=d.kind==='bots'?attn(d).filter(x=>!isFell(x)):attn(d);if(!it.length)return atChk(d)?`<div class="attn">${atChk(d)}</div>`:'';
+function topChipH(full,short){return `<h4 style="display:inline"><span class="chip-full">${full}</span><span class="chip-short">${short}</span></h4>`}
+function topRowHTML(){const body=[...arguments].filter(Boolean).join('');return body?`<div class="top-row">${body}</div>`:''}
+function topRowBind(root){(root||document).querySelectorAll('.top-row').forEach(box=>{box.querySelectorAll('details.top-chip').forEach(d=>{if(d.dataset.trBound)return;d.dataset.trBound='1';d.addEventListener('toggle',()=>{if(!d.open)return;box.querySelectorAll('details.top-chip[open]').forEach(x=>{if(x!==d)x.open=false})})})})}
+function attnHTML(d){const it=d.kind==='bots'?attn(d).filter(x=>!isFell(x)):attn(d);if(!it.length)return atChk(d)?`<details class="top-chip attn"><summary style="cursor:pointer">${topChipH('🔴 Требует внимания','Внимание')}</summary><div class="top-chip-body">${atChk(d)}</div></details>`:'';
+ const title=topChipH('🔴 Требует внимания · '+it.length,'Внимание · '+it.length);
  if(MA_KINDS.includes(d.kind)){const G={};it.forEach(x=>(G[x.grp]=G[x.grp]||[]).push(x));/* Rost 26.10: у ассистентов/мессенджеров — свёрнутый ▼ на каждого с количеством, чтобы блок не был огромным */
-  return `<div class="attn"><details class="attnd"><summary style="cursor:pointer"><h4 style="display:inline">🔴 Требует внимания · ${it.length}</h4> <span class="note">▾</span></summary>${Object.entries(G).map(([g,xs])=>`<details class="okfold"><summary><b>${esc(g)}</b> <span class="abadge">${xs.reduce((a,x)=>a+(x.cnt||1),0)}</span></summary>${xs.map(x=>atLn(d,x)).join('')}</details>`).join('')}</details>${atChk(d)}</div>`}
+  return `<details class="top-chip attn"><summary style="cursor:pointer">${title}</summary><div class="top-chip-body">${Object.entries(G).map(([g,xs])=>`<details class="okfold"><summary><b>${esc(g)}</b> <span class="abadge">${xs.reduce((a,x)=>a+(x.cnt||1),0)}</span></summary>${xs.map(x=>atLn(d,x)).join('')}</details>`).join('')}${atChk(d)}</div></details>`}
  const nt=it.filter(x=>x.cls!=='gap').length;
- return `<div class="attn"><details class="attnd"><summary style="cursor:pointer"><h4 style="display:inline">🔴 Требует внимания · ${it.length}</h4> <span class="note">▾</span></summary>${linesHTML(it.filter(x=>x.cls!=='gap').concat(it.filter(x=>x.cls==='gap')),nt>5?nt:5,d)}</details>${atChk(d)}</div>`}
+ return `<details class="top-chip attn"><summary style="cursor:pointer">${title}</summary><div class="top-chip-body">${linesHTML(it.filter(x=>x.cls!=='gap').concat(it.filter(x=>x.cls==='gap')),nt>5?nt:5,d)}${atChk(d)}</div></details>`}
 function attnOverviewHTML(){const a=attnAll();if(!a.n)return '';
  const rows=a.per.filter(x=>x.it.length).map(({d,it})=>{const t=it.filter(x=>x.cls!=='gap').length,g=it.length-t;
   const body=[t?t+' задач/вопросов':'',g?g+' пробел(ов)/частично':''].filter(Boolean).join(', ');const tip=d.icon+' '+d.name+' — '+body+' ('+it.length+')';
   return `<div class="ln go alert-ln" data-t="${d.id}" title="${esc(tip)}"><span class="why">${it.length}</span><span class="alert-txt"><b>${d.icon} ${esc(d.name)}</b> — ${body} →</span></div>`}).join('');
- return `<div class="attn"><details class="attnd"><summary style="cursor:pointer"><h4 style="display:inline">🔴 Требует внимания · ${a.n}</h4> <span class="note">▾</span></summary>${rows}${a.own.length?linesHTML(a.own,5,{id:'overview',name:'Общий'}):''}</details></div>`}
+ return `<details class="top-chip attn"><summary style="cursor:pointer">${topChipH('🔴 Требует внимания · '+a.n,'Внимание · '+a.n)}</summary><div class="top-chip-body">${rows}${a.own.length?linesHTML(a.own,5,{id:'overview',name:'Общий'}):''}</div></details>`}
 function herreraDoneWeeks(p){const W=p.herrera_weeks||p.weeks;if(!W||!W.weeks||!W.weeks.length)return null;
  const today=(typeof dueTodayStr==='function')?dueTodayStr():((typeof TODAY!=='undefined'&&TODAY)?TODAY:(typeof bDay==='function'?bDay(new Date().toISOString()):new Date().toISOString().slice(0,10)));
  const done=(W.weeks||[]).filter(w=>w&&w.end&&w.end<today).sort((a,b)=>String(a.start||'').localeCompare(String(b.start||''))).slice(-3);
@@ -991,7 +1008,7 @@ function board(d){const b=d.board,st=boardSt(b),fd=x=>x?new Intl.DateTimeFormat(
  const urBody=r=>`${r.company||'компания'}${r.from?' · '+r.from:''}\nТема: ${r.subject||'живой ответ'}${r.url?'\nПисьмо: '+r.url:''}${r.received_at?'\nПолучено: '+r.received_at:''}${r.note?'\n'+r.note:''}\nРазбери этот ответ и предложи, что писать / что нужно от меня.`;
  const urCtx=r=>`[Из дашборда · Оборонка · ответить компании] ${urBody(r)}`;
  const urPill=r=>{const b=urBot(),c=urCtx(r);return `<a class="pill p-urgent" style="background:#c22f3a;color:#fff;text-decoration:none" href="${esc(maPL(b,c))}" data-o="${esc(b.name||'Оборонка')}" data-w="Оборонка · ответить компании" data-ctx="${esc(urBody(r).replace(/\n/g,' '))}" data-t="${esc(c)}" data-l="${esc(b.link||'')}" data-b="${esc(b.name||'Оборонка')}" onclick="event.stopPropagation();return maGo(this)" title="Открыть чат «${esc(b.name||'Оборонка')}» и разобрать ответ">разобрать</a>`};
- let h=attnHTML(d);/* t5966u: без плашки названия вкладки */
+ let h=topRowHTML(attnHTML(d));/* t5966u: без плашки названия вкладки */
  /* Rost 27.10 defpins: условные пины наверху — пусто = блока нет в DOM */
  const UT=b.urgent_tasks||[],SC=b.scheduled_calls||[],pdt=t=>{const _st=t.start&&String(t.start).length>=16?String(t.start).slice(11,16):'',_dt=t.due_t&&t.due_t!=='00:00'&&t.due_t!=='04:00'?t.due_t:'',_tm=_st&&_dt&&_st!==_dt?_st+'–'+_dt:(_st||_dt);return t.due?esc(String(t.due).slice(8,10)+'.'+String(t.due).slice(5,7)+(_tm?' '+_tm:'')):(t.start?esc(String(t.start).slice(0,16).replace('T',' ')):'')},prow=(t,ic)=>`<div style="display:flex;gap:8px;align-items:center;font-size:14.5px;font-weight:600;padding:3px 0;flex-wrap:wrap"><span>${ic}</span>${t.url?`<a href="${esc(cuAppUrl(t.url))}" target="_blank" rel="noopener">${esc(t.name||'задача')}</a>`:esc(t.name||'задача')}${pdt(t)?`<span class="note">· ${pdt(t)} (Богота)</span>`:''}${t.status?`<span class="chip st-at" style="margin-left:auto">${esc(t.status)}</span>`:''}</div>`;
  /* Rost 27.10: pins почти белые (Rost: «сделай их более белыми») */
@@ -1185,7 +1202,7 @@ function overviewToday(){if(window.GL)GL.apply(calDir());const D=Dash.D,dirs=D.d
  // Rost 25.10: главный вид «Общий · Сегодня» = таймлайн дня (слева Google, справа ClickUp со временем)
  const WD=new Intl.DateTimeFormat('ru-RU',{timeZone:'UTC',weekday:'long',day:'numeric',month:'long'});
  const t=c?tlHTML((c.events||[]).filter(e=>!e.all_day),today,{cuOnly:c.cu_only,h:'64vh',empty:'На сегодня событий со временем нет в снимке.'}):null;
- let h=attnOverviewHTML()+`<div class="card" style="margin-bottom:14px;background:linear-gradient(135deg,#e8f0fe,var(--panel));border-color:#c6dafc"><div class="today-h"><div><div style="font-size:20px;font-weight:800;text-transform:capitalize">📅 ${esc(WD.format(new Date(today+'T12:00:00Z')))}</div><div class="note">${c?(c.cu_only?'Задачи ClickUp со временем':'Слева Google Календарь · справа задачи ClickUp со временем на тех же часах')+(c.cu_only?'':' · '+esc(window.GL?GL.note(c):'снимок GCal '+(c.gcal_fetched_at||'—'))+(window.GL?' '+GL.btn():''))+' · ClickUp '+esc(c.cu_fetched_at||'—'):'Календарь скрыт'}</div></div>${c?'<button class="tolink" data-calgo="1">другой день →</button>':''}</div></div>`;
+ let h=topRowHTML(attnOverviewHTML())+`<div class="card" style="margin-bottom:14px;background:linear-gradient(135deg,#e8f0fe,var(--panel));border-color:#c6dafc"><div class="today-h"><div><div style="font-size:20px;font-weight:800;text-transform:capitalize">📅 ${esc(WD.format(new Date(today+'T12:00:00Z')))}</div><div class="note">${c?(c.cu_only?'Задачи ClickUp со временем':'Слева Google Календарь · справа задачи ClickUp со временем на тех же часах')+(c.cu_only?'':' · '+esc(window.GL?GL.note(c):'снимок GCal '+(c.gcal_fetched_at||'—'))+(window.GL?' '+GL.btn():''))+' · ClickUp '+esc(c.cu_fetched_at||'—'):'Календарь скрыт'}</div></div>${c?'<button class="tolink" data-calgo="1">другой день →</button>':''}</div></div>`;
  h+=t?t.h:'';
  h+=`<div class="card"><h3>Топ задач (ClickUp)</h3>${overviewTasksHTML(D)}</div><div style="height:14px"></div><div class="diracc">`;/* Rost t5978u/t6227u: внимание сверху; задачи на Сегодня = тот же живой набор, что на Неделе/Месяце */
  dirs.forEach(d=>{const a=attn(d).filter(x=>x.cls!=='gap').length,dt=dueToday(d.tasks).length,ov=overdue(d.tasks).length,ev=c?todayEvents(d.id).length:0,me=(d.people||[]).flatMap(p=>(p.items||[]).filter(x=>isYa(x)&&!isChk(x))).length;let mc=0;try{mc=MA_KINDS.includes(d.kind)?maCount(d):0}catch(e){}
@@ -1473,7 +1490,7 @@ function persQuickCmdsHTML(d){if(!d||window.DASH_HELPER)return '';
  const conf=sets[d.id];if(!conf)return '';
  const items=conf.cmds.map(c=>{const sent=qcIsSent(c.id),tip=(c.title||'')+(c.hint?' — '+c.hint:''),idle=c.idle||QC_BTN_IDLE;
   return `<div class="qc-item alert-ln${sent?' sent':''}" title="${esc(tip)}"><button type="button" class="qc-btn${sent?' ok':''}" data-id="${esc(c.id)}" data-cmd="${esc(c.id)}" data-act="quick_cmd" data-n="${esc(c.title)}" data-dir="${esc(conf.dir)}" data-sphere="${esc(conf.sphere)}" data-bot="Секретарь" data-idle="${esc(idle)}"${c.confirm?' data-confirm="1"':''} title="${esc(tip)}" ${sent?'disabled ':''}onclick="return qcTap(this)">${sent?'✓ отправлено':esc(idle)}</button><span class="qc-label alert-txt" title="${esc(tip)}">${esc(c.title)}</span></div>`}).join('');
- return `<div class="qc-attn"><details class="attnd"><summary style="cursor:pointer"><h4 style="display:inline">⚡ Быстрые команды</h4> <span class="note">▾</span></summary>${items}</details></div>`}
+ return `<details class="top-chip qc-attn"><summary style="cursor:pointer">${topChipH('⚡ Быстрые команды','⚡ Команды')}</summary><div class="top-chip-body">${items}</div></details>`}
 /* Rost 25.10 ~23:55: блоки «Личное». hide_from_helper → в helper.html не показываем (плюс вырезаются из data-asst при шифровании) */
 function persAttn(d){const B=d.personal_blocks;if(!B)return [];const out=[];/* плановые поездки/НГ — не attn */
  ((B.decisions&&B.decisions.items)||[]).forEach(x=>{if(x.placeholder||!x.cu||DONE.test(String(x.status||'')))return;if(x.due&&x.due<TODAY)out.push({grp:'🧭 На решение',text:(x.slot?x.slot+' — ':'')+x.name,url:x.url,why:'просрочено',cls:''})});
@@ -1868,9 +1885,9 @@ hAds+=`<div class="card adsmon" style="margin-bottom:14px"><h3>📣 Монито
  <p class="note" style="margin:8px 0 0">${esc(String(SP.definition||'').replace(/\s*\([^()]*\.(json|md|csv)[^()]*\)/g,''))}<br>обновлено ${dd(Q.as_of)}${Q.stale?' · ⚠️ '+esc(Q.stale_label||''):''}</p></div>`;
  /* Rost 25.10 ~10:25: порядок План работ → Монитор рекламы → Монитор ответов → Итого → Повторные */
  return part==='ads'?pepAdBalHTML()+hAds:part==='replies'?hQ:part==='repeat'?hRep:pepAdBalHTML()+hAds+hQ+hRep}
-function directionToday(d){if(window.DASH_HELPER&&d.id==='personal'){const h=attnHTML(d)+persBlocksHTML(d);$('#main').innerHTML=h;return;}/* t6061u */
+function directionToday(d){if(window.DASH_HELPER&&d.id==='personal'){const h=topRowHTML(attnHTML(d))+persBlocksHTML(d);$('#main').innerHTML=h;return;}/* t6061u */
  const c=calDir(),ev=c?todayEvents(d.id):[],dt=dueToday(d.tasks),ov=overdue(d.tasks),rest=openT(d.tasks).filter(t=>!dt.includes(t)&&!ov.includes(t));
- let h=tabHead(d.id==='peptides'?'':toWeek())+attnHTML(d)+persQuickCmdsHTML(d)+scCallsHTML(d.scheduled_calls||(d.board&&d.board.scheduled_calls),d)+ofTodayHTML(d)+ofPriorityHTML(d)+scMeetingsHTML(d.scheduled_meetings,d)+ofBlocksHTML(d)+reBlocksHTML(d)+tbkBlocksHTML(d)+persBlocksHTML(d)+pepPlanHTML(d)+pepMonHTML(d,'ads')+pepDlgRepRow(d)+ledgerHTML(d)+pepLeadsStripHTML(d)+pepMonHTML(d,'repeat');/* Rost t6227u: «Требует внимания» + «Есть новые данные» сверху; задачи сразу под ними; потом показатели; Рутина внизу. Мониторы Пептидов под продажами */
+ let h=tabHead(d.id==='peptides'?'':toWeek())+topRowHTML(attnHTML(d),persQuickCmdsHTML(d))+scCallsHTML(d.scheduled_calls||(d.board&&d.board.scheduled_calls),d)+ofTodayHTML(d)+ofPriorityHTML(d)+scMeetingsHTML(d.scheduled_meetings,d)+ofBlocksHTML(d)+reBlocksHTML(d)+tbkBlocksHTML(d)+persBlocksHTML(d)+pepPlanHTML(d)+pepMonHTML(d,'ads')+pepDlgRepRow(d)+ledgerHTML(d)+pepLeadsStripHTML(d)+pepMonHTML(d,'repeat');/* Rost t6227u: «Требует внимания» + «Есть новые данные» сверху; задачи сразу под ними; потом показатели; Рутина внизу. Мониторы Пептидов под продажами */
  h+=`<div class="grid ${c?'g2e':''}">${c?`<div class="card"><div class="today-h"><h3 style="margin:0">📅 Сегодня в календаре</h3>${c?'<button class="tolink" data-calgo="1">таймлайн дня →</button>':''}</div><div style="margin-top:8px">${c?agendaHTML(ev,'Событий этого направления со временем на сегодня нет.'):'<div class="empty">Календарь скрыт</div>'}</div></div>`:''}
  ${(d.id==='of'||d.id==='tabakevich')?'':`<div class="card"><h3>Приоритеты · задачи ClickUp</h3>${tasksHTML(d.tasks)}</div>`}</div>`;/* Rost t5978u: задачи направления всегда текущий открытый набор, период не фильтрует */
   if((d.monitors||[]).length){const mt=d.monitors_title||'Мониторы',ms=d.monitors_sub||'';h+=`<div style="height:14px"></div><div class="card"><h3>${esc(mt)}${ms?` <span class="st">${esc(ms)}</span>`:''}</h3>${d.monitors.map(x=>{const st=x.status||'planned',pill=st==='active'?'p-normal':'p-high',lab=st==='active'?'работает':st==='attention'?'внимание':'план';return `<div class="task"><span class="pill ${pill}">${lab}</span><div style="flex:1"><b style="font-size:13.5px">${esc(x.name)}</b><div class="note">${esc(x.note||'')}${x.src?' · '+esc(x.src):''}</div></div></div>`}).join('')}</div>`}
@@ -2173,7 +2190,7 @@ function msgsTab(d){try{/* Rost t4004u: Leidy Base Loft (собственниц�
  const zli=(r,sp)=>{if(r.cu_msg){const x=r.cu_msg;return `<li>${mLBL('ClickUp')} <b class="mnm" title="${esc(x.task)}">${esc(x.task)}</b> ${maWho(r)}${maCUAttn(r)} <span class="note">· ${esc(x.list||'')} · ${(r.kl||[]).map(esc).join(', ')} · ${+r.unread_chat?'новых комм. '+(+r.unread_chat):'новых комм. нет'} · последн. ${esc((x.at||'').slice(5))}</span> ${maCULinks(x)}</li>`}const wi=r.watcher_st==='red'?'🔴':r.watcher_st==='warn'?'🟡':r.watcher?'🟢':'';return `<li${rDone(r)?' class="rdone"':''}>${mLBL(r.channel)} <b class="mnm" title="${esc(r.is_group?r.chat:r.sender)}">${esc(r.is_group?chT(r.chat,1):r.sender)}</b> <span class="note">· непрочитано: ${r.unread_chat??'нет данных'}${r.last?' · последн. '+esc(r.last.slice(5)):''}${r.watcher?` · ${wi} вочер: ${esc(r.watcher)}`:''}</span> ${hangD(r)}${maLink(r.owner,r.owner_link,'Мессенджеры · без сообщений',r.channel+' · '+r.sender)}${rowCtl(d,r,sp)}${rowAns(r)}${mxBtn(r)}</li>`};
  /* Rost t3938–40: helper = тот же даш, блоки скрываются флагами HH(...) — без отдельного UI */
  const HH=k=>window.DASH_HELPER&&(window.DASH_HIDE||['msg_attn','msg_grid','msg_cov','msg_unsorted','msg_rec','msg_cuinbox']).includes(k);
- let h=maHead(d,'',true)+maMonitor(d,G0)+(HH('msg_attn')?'':attnHTML(d))+(HH('msg_grid')?'':(G.some(g=>g.rows.length)?'':'<div class="empty">Висящих сообщений нет</div>')+maGrid(G,g=>
+ let h=maHead(d,'',true)+maMonitor(d,G0)+(HH('msg_attn')?'':topRowHTML(attnHTML(d)))+(HH('msg_grid')?'':(G.some(g=>g.rows.length)?'':'<div class="empty">Висящих сообщений нет</div>')+maGrid(G,g=>
   `<div class="card"><h3>${maSphT(g.sphere)}<span class="st">${g.rows.length} с сообщ.${g.wt.length?' · ⏳ '+g.wt.length+' ждём':''}${g.rp.length?' · 📄 '+g.rp.length+' отч.':''}${(g.zero.length+g.zc.length)?' · '+(g.zero.length+g.zc.length)+' без':''}</span></h3>`+/* Rost t4323–25: сначала чаты, ПОД ними «отчеты», потом «⏳ Ждём ответа», потом «Без сообщений» */g.rows.map(r=>r.cu_msg?maCUMsgHTML(r):maRowHTML(d,r,g.sphere)).join('')+rfold(g)+wfold(g)+((g.zero.length+g.zc.length)?`<details class="okfold" style="font-size:11px"><summary style="color:#9ca3af;font-weight:400">▸ Без сообщений (${g.zero.length+g.zc.length})</summary><ul style="font-size:11px">${g.zero.map(r=>zli(r,g.sphere)).join('')}${g.zc.map(z=>`<li>${mLBL(zch(z.channel))} ${esc(z.title)}${z.status&&z.status!=='active'?` <span class="note">· ${esc(z.status)}</span>`:''}</li>`).join('')}</ul><div class="note" style="font-size:10px">контакты/чаты этой ниши из contacts (chats.csv), сейчас без висящих</div></details>`:'')+`</div>`))+/* t5346u: служебный блок «Покрытие снимка» скрыт */(HH('msg_unsorted')?'':unsortedHTML(d))+(HH('msg_rec')?'':maRecH(d));
  $('#main').innerHTML=h}
 function asstTab(d){const B=d.bots||[];
@@ -2309,7 +2326,7 @@ function botsTab(d){const B=d.bots||[];const open=B.reduce((a,b)=>a+(b.qs||[]).f
  /* Rost t3988u: «🔴 Рутина упала» пуст (всё упавшее уже чинят → в «очереди») — строкой в сером «Скрыто», как пустые боты */
  const FX=B.reduce((a,b)=>a+(b.routines||[]).filter(r=>r.st==='fixing').length,0),fell0=!FL.length?`<div class="note" style="padding:6px 4px;color:#71717a">🔴 Рутина упала · 0${FX?` — ${FX} уже чинят (в «📋 Задачи в очереди»)`:''}</div>`:'';
  /* Rost t4021: «🙈 Скрытые» всегда видно: скрытые тапом упавшие рутины + пустые боты + пустой «Рутина упала» */const RHL=[];B.forEach(b=>(b.routines||[]).filter(r=>r.st==='fail'&&rtHide(b,r)).forEach(r=>RHL.push(`<li>🔴 ${esc(b.name)} — ${esc(r.name||'рутина')} <span class="note">скрыта тапом</span></li>`)));const hidN=HID.length+(fell0?1:0)+RHL.length,hidH=`<details class="card" style="margin-bottom:10px;opacity:.7;background:#f4f4f5;border-color:#e4e4e7"><summary style="cursor:pointer;color:#71717a">🙈 Скрытые (${hidN})</summary>${RHL.length?`<div class="note" style="padding:4px">Скрытые упавшие рутины (${RHL.length}):</div><ul style="margin:2px 0 6px 18px">${RHL.join('')}</ul>`:''}${fell0}${HID.map(([b,bi])=>one(b,bi)).join('')}${hidN?'':'<div class="note" style="padding:6px 4px">сейчас ничего не скрыто</div>'}</details>`;
- $('#main').innerHTML=botHead(d,open,tot)+attnHTML(d)+VIS.map(([b,bi])=>one(b,bi)).join('')+coH+HID.map(([b,bi])=>`<div class="bempty">${one(b,bi)}</div>`).join('')}/* t4062: общего «🙈 Скрытые» больше нет — пустые боты внизу серым, скрытое у каждого бота своё */
+ $('#main').innerHTML=botHead(d,open,tot)+topRowHTML(attnHTML(d))+VIS.map(([b,bi])=>one(b,bi)).join('')+coH+HID.map(([b,bi])=>`<div class="bempty">${one(b,bi)}</div>`).join('')}/* t4062: общего «🙈 Скрытые» больше нет — пустые боты внизу серым, скрытое у каждого бота своё */
 /* Rost t3959u (+t3956–58): ДР в шапке под заголовком — ТОЛЬКО если есть ДР сегодня или просроченная открытая ДР-задача; иначе блока нет.
    Источник: t.bday из CU (d.cu_dated + overview.cu_sort). Сегодня: сегодня+просрочено; Неделя: + остальные ДР до конца недели (только когда блок и так виден).
    Чеклист: t.checklist=[{name,done}] (src/cu_bday_extra.json → build_data). «🎉 поздравил» → сразу скрыто (localStorage dash_bday_done) + действие {action:'cu_close'} в очередь тапов → box sync/cu_actions_pending.json → закрывает рутина COMMS через ClickUp API (из GH Pages секретов нет). */
@@ -2355,7 +2372,7 @@ function bdHdr(){try{syncBogDay()}catch(e){}const el=$('#bdhdr');if(!el)return;l
 function bdDone(b){let L={};try{L=JSON.parse(localStorage.getItem('dash_bday_done')||'{}')}catch(e){}L[b.dataset.u]=b.dataset.due;try{localStorage.setItem('dash_bday_done',JSON.stringify(L))}catch(e){}
  tapPush({key:'bday|'+b.dataset.u,channel:'ClickUp',action:'cu_close',kind:'bday',title:b.dataset.t,url:b.dataset.u,due:b.dataset.due,sphere:'done'});bdHdr()}
 function alertFit(root){(root||document).querySelectorAll('.alert-ln,.attn .atit>summary,.du-attn .du-ln,.sc-alert .sc-ln,.qc-item,header .bdi,.pin-hi').forEach(el=>{if(el.title)return;const t=(el.getAttribute('data-tip')||el.textContent||'').replace(/\s+/g,' ').trim();if(t)el.title=t})}
-function render(){AT_REG=[];try{bdHdr()}catch(e){}setTimeout(()=>{try{tapResync()}catch(e){}},1500);try{maOqApply()}catch(e){}kill();ensureMode();Dash.save();controls();const d=Dash.D.directions.find(x=>x.id===S.tab),td=S.mode==='today';try{d?(d.kind==='msgs'?msgsTab(d):d.kind==='unsorted'?unsortedTab(d):d.kind==='assistants'?asstTab(d):d.kind==='bots'?botsTab(d):d.kind==='people'?people(d):d.kind==='calendar'?calendar(d):d.board?board(d):td?directionToday(d):direction(d)):td?overviewToday():overview()}catch(er){/* Rost t4316: ошибка отрисовки вкладки — не оставлять на экране контент прошлой вкладки */console.error(er);$('#main').innerHTML=`<div class="card"><h3>⚠️ ${esc((d&&d.name)||S.tab)}: ошибка отрисовки</h3><div class="note">${esc(String(er&&er.message||er))}</div></div>`}try{thMount()}catch(e){}try{qcMount()}catch(e){}try{pepLeadsStripMount()}catch(e){}try{DataUpd.afterRender()}catch(e){}try{alertFit()}catch(e){}$('#foot').textContent=Dash.fxFooter();}
+function render(){AT_REG=[];try{bdHdr()}catch(e){}setTimeout(()=>{try{tapResync()}catch(e){}},1500);try{maOqApply()}catch(e){}kill();ensureMode();Dash.save();controls();const d=Dash.D.directions.find(x=>x.id===S.tab),td=S.mode==='today';try{d?(d.kind==='msgs'?msgsTab(d):d.kind==='unsorted'?unsortedTab(d):d.kind==='assistants'?asstTab(d):d.kind==='bots'?botsTab(d):d.kind==='people'?people(d):d.kind==='calendar'?calendar(d):d.board?board(d):td?directionToday(d):direction(d)):td?overviewToday():overview()}catch(er){/* Rost t4316: ошибка отрисовки вкладки — не оставлять на экране контент прошлой вкладки */console.error(er);$('#main').innerHTML=`<div class="card"><h3>⚠️ ${esc((d&&d.name)||S.tab)}: ошибка отрисовки</h3><div class="note">${esc(String(er&&er.message||er))}</div></div>`}try{thMount()}catch(e){}try{qcMount()}catch(e){}try{pepLeadsStripMount()}catch(e){}try{DataUpd.afterRender()}catch(e){}try{topRowBind()}catch(e){}try{alertFit()}catch(e){}$('#foot').textContent=Dash.fxFooter();}
 /* t6093u / t6095u / t6165u / t6166u / t6167u:
    Один блок «🟡 Есть новые данные · N ▾» (как «🔴 Требует внимания · N ▾»):
    свёрнут по умолчанию, раскрывается в список блоков, клик по строке — переход к блоку.
@@ -2488,7 +2505,10 @@ const DataUpd = (() => {
     const rows = items.map(b =>
       `<div class="du-ln alert-ln" data-du-go="${esc(b.id)}" role="link" tabindex="0" title="${esc(b.title || b.id)}">${esc(b.title || b.id)}</div>`
     ).join('');
-    return `<div class="du-lines du-attn"><details class="attnd"${open ? ' open' : ''}><summary style="cursor:pointer"><h4 style="display:inline">🟡 Есть новые данные · ${n}</h4> <span class="note">▾</span></summary>${rows}</details></div>`;
+    const title = (typeof topChipH === 'function')
+      ? topChipH('🟡 Есть новые данные · ' + n, 'Новое · ' + n)
+      : `<h4 style="display:inline">🟡 Есть новые данные · ${n}</h4>`;
+    return `<details class="top-chip du-lines du-attn"${open ? ' open' : ''}><summary style="cursor:pointer">${title}</summary><div class="top-chip-body">${rows}</div></details>`;
   }
   function currentDir() {
     try { return (typeof S !== 'undefined' && S.tab) || 'overview'; } catch (e) { return 'overview'; }
@@ -2510,13 +2530,25 @@ const DataUpd = (() => {
     const wrap = document.createElement('div');
     wrap.innerHTML = html;
     const node = wrap.firstElementChild;
-    const attn = main.querySelector('.attn:not(.du-attn)');
+    let row = main.querySelector('.top-row');
+    const attn = main.querySelector('details.top-chip.attn, .attn:not(.card):not(.du-attn)');
     const ovsub = document.getElementById('ovsub');
     const head = main.querySelector('.tab-head');
-    if (attn) attn.insertAdjacentElement('afterend', node);
-    else if (ovsub) ovsub.insertAdjacentElement('afterend', node);
-    else if (head) head.insertAdjacentElement('afterend', node);
-    else main.insertAdjacentElement('afterbegin', node);
+    if (!row) {
+      row = document.createElement('div');
+      row.className = 'top-row';
+      if (attn && attn.parentElement && attn.parentElement.classList.contains('top-row')) {
+        row = attn.parentElement;
+      } else if (attn) {
+        attn.insertAdjacentElement('beforebegin', row);
+        row.appendChild(attn);
+      } else if (ovsub) ovsub.insertAdjacentElement('afterend', row);
+      else if (head) head.insertAdjacentElement('afterend', row);
+      else main.insertAdjacentElement('afterbegin', row);
+    }
+    if (attn && row.contains(attn)) attn.insertAdjacentElement('afterend', node);
+    else row.insertAdjacentElement('afterbegin', node);
+    try { if (typeof topRowBind === 'function') topRowBind(row); } catch (e) {}
     try { if (typeof alertFit === 'function') alertFit(node); } catch (e) {}
   }
   function slotFor(root) {
