@@ -1,9 +1,12 @@
 /* Rost t6090u / t6091u / t6092u: «Общий баланс» — только главный даш (не попадает в helper.html).
    Данные в Dash.D.overall_balance_enc (AES-GCM, PBKDF2-SHA256 от PIN). Расшифровка в браузере по PIN.
-   Сессия: sessionStorage. Неверный PIN — остаётся закрытым. 🔒 — закрыть снова. */
+   t2350u: PIN каждый раз. После ввода блок открыт, пока Рост на этой подвкладке.
+   Уход на другую вкладку/подвкладку, visibilitychange(hidden) и pagehide — сразу закрыть,
+   стереть расшифрованные данные из памяти и DOM. На загрузке всегда закрыт. sessionStorage не держим. */
 (function () {
   if (window.DASH_HELPER) return;
   const SS = 'dash_bal_sess_v1';
+  let opened = null;
   const b2u = s => Uint8Array.from(atob(s), c => c.charCodeAt(0));
   function enc() {
     try {
@@ -11,14 +14,28 @@
       return D.overall_balance_enc || null;
     } catch (e) { return null; }
   }
-  function loadSess() {
-    try { return JSON.parse(sessionStorage.getItem(SS) || 'null'); } catch (e) { return null; }
-  }
-  function saveSess(data) {
-    try { sessionStorage.setItem(SS, JSON.stringify(data)); } catch (e) {}
-  }
-  function clearSess() {
+  function wipeSessStore() {
     try { sessionStorage.removeItem(SS); } catch (e) {}
+  }
+  function scrubBox() {
+    const box = document.getElementById('bal-box');
+    if (!box) return;
+    box.classList.add('bal-locked');
+    box.removeAttribute('data-du');
+    box.innerHTML = '';
+  }
+  function lock() {
+    const had = !!opened;
+    opened = null;
+    wipeSessStore();
+    if (had) {
+      try { if (typeof DataUpd !== 'undefined') DataUpd.unregister('overview.balance'); } catch (e) {}
+    }
+    if (isOn()) {
+      try { renderBalance(); } catch (e) { scrubBox(); }
+    } else {
+      scrubBox();
+    }
   }
   async function derive(pin, pack) {
     const base = await crypto.subtle.importKey('raw', new TextEncoder().encode(pin), 'PBKDF2', false, ['deriveKey']);
@@ -109,7 +126,7 @@
   function bindLock(root) {
     const b = root && root.querySelector('.bal-lock');
     if (!b) return;
-    b.onclick = ev => { ev.preventDefault(); ev.stopPropagation(); clearSess(); render(); };
+    b.onclick = ev => { ev.preventDefault(); ev.stopPropagation(); lock(); };
   }
   function bindPin(root) {
     const f = root.querySelector('#bal-pin-form');
@@ -124,7 +141,7 @@
       try {
         const data = await decryptWithPin(pin);
         i.value = '';
-        saveSess(data);
+        opened = data;
         render();
       } catch (e) {
         err.textContent = 'Неверный PIN';
@@ -138,7 +155,6 @@
   function renderBalance() {
     css();
     const pack = enc();
-    const opened = loadSess();
     let inner;
     if (opened) {
       inner = `<div class="card bal-card" id="bal-box" data-du="overview.balance">${bodyHTML(opened)}</div>`;
@@ -184,7 +200,14 @@
     bindNav();
   }
   function isOn() { return S.tab === 'overview' && S.oview === 'balance'; }
-  function ready() { return !!(enc() || loadSess()); }
+  function ready() { return !!enc(); }
+  function hookLeave() {
+    if (hookLeave._on) return;
+    hookLeave._on = true;
+    document.addEventListener('visibilitychange', () => { if (document.hidden) lock(); });
+    window.addEventListener('pagehide', () => lock());
+    window.addEventListener('pageshow', ev => { if (ev.persisted) lock(); });
+  }
   function patch() {
     if (typeof overview !== 'function' || overview._balPatched) return;
     const _ov = overview, _ovt = overviewToday, _ctl = controls, _ren = render;
@@ -211,11 +234,14 @@
       if (bar && isOn()) bar.hidden = true;
     };
     render = function () {
-      if (S.tab !== 'overview' && S.oview === 'balance') { /* keep oview but don't hide other tabs' modes */ }
+      if (opened && !isOn()) lock();
       return _ren.apply(this, arguments);
     };
     overview._balPatched = true;
   }
+  wipeSessStore();
+  opened = null;
+  hookLeave();
   patch();
-  window.BalView = { render: renderBalance, isOn, ready };
+  window.BalView = { render: renderBalance, isOn, ready, lock };
 })();
