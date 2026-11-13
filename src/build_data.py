@@ -1232,9 +1232,7 @@ data = dict(
            dict(name='Андрей Многотуров', icon='🧑', role='Бот · TripAdvisor', status='attention', items=['Он: Найти 50 отзывов (TripAdvisor)', 'Я: Не забывать выводить деньги с Viator'], src='Rost, 24.10.2026',
                 cu=dict(id='86ba2y9ke', label='ТрипЭдвайсер (как дела?) — ClickUp · Personal', status='to do', url='https://rosmater.github.io/cu/?t=86ba2y9ke')),
            # Rost t5990u 11.11: «Андрей Партнер» перенесён в CU 86bd1xnvc → Табакевич «На решение»
-           dict(name='Общее', icon='⚙️', role='Инфра / тест', status='attention',
-                items=[dict(id='teams-tariff-1h', text='Я: Протестировать работу через тариф Тимс — 1 час', highlight=True, checkable=True, url='https://rosmater.github.io/cu/?t=86bcn66b7')], src='Rost, 25.10.2026',
-                cu=dict(id='86bcn66b7', label='Протестировать Teams (командный план Grok Bot)', status='to do', url='https://rosmater.github.io/cu/?t=86bcn66b7')),
+           # t6247u: блок «Общее» (тест Teams / тариф Тимс) убран — Teams уже в работе, задача 86bcn66b7 закрыта
            dict(name='Бабушка', icon='👵', role='Бот для добавления товаров', status='ok', note='Бот работает, участие Rost не нужно', items=[], src='Rost, 24.10.2026'),
          ]),
   ],
