@@ -1360,7 +1360,7 @@ data = dict(
                   dict(title='Прочее (не входит в цель и итог)', rows=[dict(id='other_cop', label='Другие доходы', unit='COP', excluded=True, kind='COP', hint='правило Rost: можно ставить 600 000 / нед. — не считается в итог')]),
                   dict(title='Итог', rows=[dict(label='Суммарный доход', unit='$', total='all', kind='$', hint='= Суммарно платформы; «Другие доходы» не входят')]),
                 ]),
-                items=['Я: Взять под контроль', 'Я: Сделать по ней план', '— Она: выкладка раз в неделю на Clips4Sale', '— Она: решить с PayPal — новый или чужой', 'Я: Настроить анализ её OnlyFans в таблицу через сервер (диалоги, трафик, доходы)', 'Она: ТикТок начать вести'], src='Rost, 24–25.10.2026',
+                items=['Я: Взять под контроль', 'Я: Сделать по ней план', '— Она: выкладка раз в неделю на Clips4Sale', '— Она: выкладка раз в неделю на Curvage — решить с PayPal — новый или чужой', 'Я: Настроить анализ её OnlyFans в таблицу через сервер (диалоги, трафик, доходы)', 'Она: ТикТок начать вести'], src='Rost, 24–25.10.2026',
                 cu=dict(id='86bcn44nh', label='Коучинг Алекса Херрера (Personal)', status='to do', url='https://rosmater.github.io/cu/?t=86bcn44nh')),
            dict(name='Мама', icon='👩‍🦳', role='Её бот', status='attention', goal='Цель 1 — Консультация 1 клиента в неделю (выйти на 5 визитов в неделю с таргета с ROI)', items=['Я: Помощь с общением с её ботом', 'Она: Начать считать доходы и расходы', 'Она: Вести страницу, вести диалоги', 'Она: Вести таргет, обработка лидов'], src='Rost, 24.10.2026 · сайт по ссылке done 03.11',
                 cu=dict(id='86bcqw802', label='Мама (как дела?) — ClickUp · Personal', status='to do', url='https://rosmater.github.io/cu/?t=86bcqw802')),
@@ -1413,10 +1413,25 @@ try:
                 break
 except FileNotFoundError:
     pass
-# Rost t6232u: 3 недели Хереры — src/herrera_weeks.json (снимки пн + weekly-stats).
+# Rost t6232u/t2347u: недели Хереры — src/herrera_weeks.json (снимки пн + weekly-stats + Reach).
 try:
     _HW = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'herrera_weeks.json')))
     if isinstance(_HW, dict):
+        _AUD_OF_TITLE = 'Аудитория OF (Statistics → Reach)'
+        _AUD_OF_ROWS = [
+            dict(id='viewers_total', label='Viewers total', unit='', kind='n', audience=True),
+            dict(id='viewers_guests', label='Viewers guests', unit='', kind='n', audience=True),
+            dict(id='viewers_users', label='Viewers users', unit='', kind='n', audience=True),
+            dict(id='conv_viewers_subs', label='Conversion Viewers → Subs', unit='', kind='pct', audience=True),
+            dict(id='conv_users_subs', label='Conversion Users → Subs', unit='', kind='pct', audience=True),
+            dict(id='viewers_usa', label='Viewers USA', unit='', kind='n', audience=True),
+            dict(id='usa_share', label='Viewers USA %', unit='', kind='pct', audience=True),
+            dict(id='usa_guests', label='Viewers guests USA', unit='', kind='n', audience=True),
+            dict(id='usa_users', label='Viewers users USA', unit='', kind='n', audience=True),
+            dict(id='usa_users_share', label='Viewers users USA %', unit='', kind='pct', audience=True),
+            dict(id='earn_chats', label='Earnings chats (сообщения + чаевые + посты)', unit='$', kind='$', audience=True),
+            dict(id='of_subs_new', label='Subscribers', unit='подп.', kind='n', audience=True),
+        ]
         for _d in data['directions']:
             if _d.get('id') != 'coaching':
                 continue
@@ -1426,6 +1441,10 @@ try:
                 _nm = _p.get('name') or ''
                 if 'Херерр' in _nm or 'Херрер' in _nm or 'Herrera' in _nm:
                     _p['herrera_weeks'] = _HW
+                    _groups = ((_p.get('metrics') or {}).get('groups')) or []
+                    if _groups and not any(g.get('title') == _AUD_OF_TITLE for g in _groups):
+                        _ix = next((i for i, g in enumerate(_groups) if g.get('title') == 'Доход с платформ'), None)
+                        _groups.insert((_ix + 1) if _ix is not None else len(_groups), dict(title=_AUD_OF_TITLE, rows=_AUD_OF_ROWS))
             break
 except FileNotFoundError:
     pass

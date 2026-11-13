@@ -376,7 +376,7 @@ header .bdi{white-space:nowrap}
 .herrera-weeks table,.mx .hw-tbl{width:100%;border-collapse:collapse;font-size:11.5px;table-layout:fixed}
 .herrera-weeks th,.herrera-weeks td{padding:3px 4px;border-top:1px dashed var(--line,#eef0f5);text-align:right;font-variant-numeric:tabular-nums;vertical-align:top;white-space:normal}
 .herrera-weeks th{font-weight:600;font-size:10.5px;color:#94a3b8;border-top:0;text-transform:none;letter-spacing:0}
-.herrera-weeks th:first-child,.herrera-weeks td:first-child{text-align:left;width:36%}
+.herrera-weeks th:first-child,.herrera-weeks td:first-child{text-align:left;width:28%}
 .herrera-weeks .hw-d{display:block;font-weight:700;color:#334155;font-variant-numeric:tabular-nums}
 .herrera-weeks .hw-up{color:#0b7a59;font-size:10px;font-weight:700}
 .herrera-weeks .hw-dn{color:#b42318;font-size:10px;font-weight:700}
@@ -978,17 +978,33 @@ function attnOverviewHTML(){const a=attnAll();if(!a.n)return '';
   const body=[t?t+' задач/вопросов':'',g?g+' пробел(ов)/частично':''].filter(Boolean).join(', ');const tip=d.icon+' '+d.name+' — '+body+' ('+it.length+')';
   return `<div class="ln go alert-ln" data-t="${d.id}" title="${esc(tip)}"><span class="why">${it.length}</span><span class="alert-txt"><b>${d.icon} ${esc(d.name)}</b> — ${body} →</span></div>`}).join('');
  return `<details class="top-chip attn"><summary style="cursor:pointer">${topChipH('🔴 Требует внимания · '+a.n,'Внимание · '+a.n)}</summary><div class="top-chip-body">${rows}${a.own.length?linesHTML(a.own,5,{id:'overview',name:'Общий'}):''}</div></details>`}
-function herreraDoneWeeks(p){const W=p.herrera_weeks||p.weeks;if(!W||!W.weeks||!W.weeks.length)return null;
+function herreraWeekLab(mon){const p=n=>String(n).padStart(2,'0'),sun=new Date(mon);sun.setUTCDate(mon.getUTCDate()+6);if(mon.getUTCMonth()===sun.getUTCMonth())return p(mon.getUTCDate())+'–'+p(sun.getUTCDate())+'.'+p(mon.getUTCMonth()+1);return p(mon.getUTCDate())+'.'+p(mon.getUTCMonth()+1)+'–'+p(sun.getUTCDate())+'.'+p(sun.getUTCMonth()+1)}
+function herreraDoneWeeks(p){const W=p.herrera_weeks||p.weeks;if(!W)return null;
  const today=(typeof dueTodayStr==='function')?dueTodayStr():((typeof TODAY!=='undefined'&&TODAY)?TODAY:(typeof bDay==='function'?bDay(new Date().toISOString()):new Date().toISOString().slice(0,10)));
- const done=(W.weeks||[]).filter(w=>w&&w.end&&w.end<today).sort((a,b)=>String(a.start||'').localeCompare(String(b.start||''))).slice(-3);
- return done.length?{W,done}:null}
-function herreraWeekVal(w,r,rows,allRows){if(r.total){const src=r.total==='all'?(allRows||rows||[]):(rows||[]);const vs=src.filter(x=>x.platform).map(x=>herreraWeekVal(w,x,rows,allRows)).filter(v=>v!=null);return vs.length?vs.reduce((a,v)=>a+v,0):null}const id=r.week_id||r.id;if(!id||!w)return null;const v=(w.values||{})[id];return v==null||v===''?null:+v}
-function herreraFmt(v,k){if(k==='$'||k==='USD')return '$'+Number(v).toLocaleString('ru-RU',{minimumFractionDigits:Number.isInteger(+v)?0:2,maximumFractionDigits:2});if(k==='COP')return Number(v).toLocaleString('ru-RU')+' COP';return Number(v).toLocaleString('ru-RU')}
+ const [yy,mm,dd]=String(today).slice(0,10).split('-').map(Number);if(!yy)return null;
+ const dt=new Date(Date.UTC(yy,mm-1,dd)),dow=(dt.getUTCDay()+6)%7,mon0=new Date(dt);mon0.setUTCDate(dt.getUTCDate()-dow);
+ const titles=['Текущая','Прошлая','Позапрошлая','Позапозапрошлая'],byId={};(W.weeks||[]).forEach(w=>{if(w&&w.id)byId[w.id]=w});
+ const ymd=x=>x.toISOString().slice(0,10);
+ const done=titles.map((title,i)=>{const mon=new Date(mon0);mon.setUTCDate(mon0.getUTCDate()-7*i);const sun=new Date(mon);sun.setUTCDate(mon.getUTCDate()+6);const id='W:'+ymd(mon),lab=herreraWeekLab(mon),hit=byId[id];return Object.assign({id,start:ymd(mon),end:ymd(sun),label:lab,values:{},audience:{}},hit||{},{title,id,label:(hit&&hit.label)||lab})});
+ return {W,done}}/* Rost t2348u: колонки Текущая + 3 закрытые, словами · даты мелко */
+function herreraPrevWeek(cols,w){const s=String(w&&w.start||'');const older=(cols||[]).filter(x=>x&&x.start&&String(x.start)<s).sort((a,b)=>String(b.start).localeCompare(String(a.start)));return older[0]||null}
+function herreraAud(w){return (w&&w.audience)||{}}
+function herreraAudSubs(w){const a=herreraAud(w),v=(w&&w.values)||{};const s=a.subs!=null?a.subs:v.of_subs_new;return s==null||s===''?null:+s}
+function herreraWeekVal(w,r,rows,allRows){if(r.total){const src=r.total==='all'?(allRows||rows||[]):(rows||[]);const vs=src.filter(x=>x.platform).map(x=>herreraWeekVal(w,x,rows,allRows)).filter(v=>v!=null);return vs.length?vs.reduce((a,v)=>a+v,0):null}const id=r.week_id||r.id;if(!id||!w)return null;const V=w.values||{},A=herreraAud(w),num=x=>x==null||x===''?null:+x;
+ if(id==='earn_chats'){if(num(A.earn_chats)!=null)return num(A.earn_chats);const xs=[V.of_messages,V.of_tips,V.of_posts];return xs.some(x=>num(x)!=null)?Math.round(xs.reduce((s,x)=>s+(num(x)||0),0)*100)/100:null}
+ if(id==='of_subs_new'||id==='subs')return herreraAudSubs(w);
+ if(id==='conv_viewers_subs'){const s=herreraAudSubs(w),v=num(A.viewers_total);return s!=null&&v?s/v:null}
+ if(id==='conv_users_subs'){const s=herreraAudSubs(w),v=num(A.viewers_users);return s!=null&&v?s/v:null}
+ if(id==='usa_share'){const u=num(A.viewers_usa),v=num(A.viewers_total);return u!=null&&v?u/v:null}
+ if(id==='usa_users_share'){const u=num(A.usa_users),v=num(A.viewers_users);return u!=null&&v?u/v:null}
+ if(id in A||r.audience)return num(A[id]);
+ const v=V[id];return num(v)}
+function herreraFmt(v,k){if(k==='pct')return (v*100).toFixed(v<0.1?2:1).replace('.',',')+'%';if(k==='$'||k==='USD')return '$'+Number(v).toLocaleString('ru-RU',{minimumFractionDigits:Number.isInteger(+v)?0:2,maximumFractionDigits:2});if(k==='COP')return Number(v).toLocaleString('ru-RU')+' COP';return Number(v).toLocaleString('ru-RU')}
 function herreraWeekCell(w,prev,r,rows,allRows){const k=r.kind||(r.unit==='$'||r.unit==='USD'?'$':r.unit==='COP'?'COP':'n');const v=herreraWeekVal(w,r,rows,allRows),pv=prev?herreraWeekVal(prev,r,rows,allRows):null;if(v==null)return '<span class="hw-miss">—</span>';let dlt='';if(pv!=null){const d=v-pv;if(Math.abs(d)<1e-9)dlt='<div class="hw-z">±0</div>';else{const sign=d>0?'+':'−',cls=d>0?'hw-up':'hw-dn',abs=herreraFmt(Math.abs(d),k);dlt=`<div class="${cls}">${sign}${abs}</div>`}}return `<span class="hw-d">${herreraFmt(v,k)}</span>${dlt}`}
 function herreraOfBreakdownGaps(weekly){const ids=['of_total','of_subs','of_messages','of_tips','of_posts'];return (weekly.done||[]).some(w=>ids.some(id=>{const v=(w.values||{})[id];return v==null||v==='';}))}
 function herreraGroupHTML(g,weekly,allRows){const done=weekly.done,rows=g.rows||[];
- const heads=done.map(w=>`<th class="n">${esc(w.label||w.id||'')}${w.as_of?`<div class="note">замер ${esc(String(w.as_of).slice(8,10)+'.'+String(w.as_of).slice(5,7))}</div>`:''}</th>`).join('');
- const body=rows.map(r=>{const lab=r.url?`<a href="${esc(cuAppUrl(r.url))}" target="_blank" rel="noopener" style="color:inherit">${esc(r.label)} ↗</a>`:esc(r.label);const cells=done.map((w,i)=>`<td class="n">${herreraWeekCell(w,i?done[i-1]:null,r,rows,allRows)}</td>`).join('');const cls=[r.total?'tot':'',r.excluded?'ex':'',r.bold?'hw-bold':'',r.indent?'hw-sub':''].filter(Boolean).join(' ');return `<tr class="${cls}"><td>${lab}</td>${cells}</tr>`}).join('');
+ const heads=done.map(w=>`<th class="n">${esc(w.title||w.label||w.id||'')}${w.label?` <span class="note" style="font-weight:400">· ${esc(w.label)}</span>`:''}${w.as_of?`<div class="note">замер ${esc(String(w.as_of).slice(8,10)+'.'+String(w.as_of).slice(5,7))}</div>`:''}</th>`).join('');
+ const body=rows.map(r=>{const lab=r.url?`<a href="${esc(cuAppUrl(r.url))}" target="_blank" rel="noopener" style="color:inherit">${esc(r.label)} ↗</a>`:esc(r.label);const cells=done.map(w=>`<td class="n">${herreraWeekCell(w,herreraPrevWeek(done,w),r,rows,allRows)}</td>`).join('');const cls=[r.total?'tot':'',r.excluded?'ex':'',r.bold?'hw-bold':'',r.indent?'hw-sub':''].filter(Boolean).join(' ');return `<tr class="${cls}"><td>${lab}</td>${cells}</tr>`}).join('');
  const gapNote=(g.title==='Доход с платформ'&&herreraOfBreakdownGaps(weekly))?'<div class="note hw-of-gap">разбивка OF доберётся на замере 16.11</div>':'';
  return `<h5>${esc(g.title)}</h5><div class="tblwrap herrera-weeks"><table class="hw-tbl"><thead><tr><th>Показатель</th>${heads}</tr></thead><tbody>${body}</tbody></table>${gapNote}</div>`}
 function metricsHTML(p){const m=p.metrics;if(!m&&!p.goal)return '';

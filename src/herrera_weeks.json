@@ -1,12 +1,12 @@
 {
-  "_doc": "t6232u/t6242u/t6248u: недельная история метрик Алехандры Херерры для таблиц в её карточке Коучинга. Неделя = пн–вс, America/Bogota. Сюда же дописывать снимок после понедельничного «Дашборд — статистики пн (Херера + сводка)». Доход OF — чистыми (net): of_total + разбивка of_subs / of_messages / of_tips / of_posts. Только реальные замеры; пустое поле = нет съёма, на даше «—». Не выдумывать. Замер 16.11: снять разбивку OF (подписки, продажи в личку, чаевые, посты, всего — gross и net) за закрытую неделю 09–15.11 и добрать пропуски custom range за 02–08.11 и, если кабинет отдаёт, за 19–25.10.",
+  "_doc": "t6232u/t6242u/t6248u/t2347u: недельная история метрик Алехандры Херерры для таблиц в её карточке Коучинга. Неделя = пн–вс, America/Bogota. Сюда же дописывать снимок после понедельничного «Дашборд — статистики пн (Херера + сводка)». Доход OF — чистыми (net): of_total + разбивка of_subs / of_messages / of_tips / of_posts. Аудитория OF (Statistics → Reach): audience.viewers_total / viewers_guests / viewers_users / viewers_usa / usa_guests / usa_users / subs (новые подписки за неделю); earn_chats на даше = msgs+tips+posts net, если в audience.earn_chats пусто. Только реальные замеры; пустое поле = нет съёма, на даше «—». Не выдумывать. Замер 16.11: снять разбивку OF (подписки, продажи в личку, чаевые, посты, всего — gross и net) и Reach (Viewers total/guests/users, USA и гости/пользователи США, новые подписки) за закрытую неделю 09–15.11 и добрать пропуски custom range за 02–08.11 и, если кабинет отдаёт, за 19–25.10.",
   "model": "Alexa Herrera",
   "dash_name": "Алехандра Херерра",
   "tz": "America/Bogota",
   "week_start": "monday",
   "updated": "2026-11-12",
   "next_collect": "2026-11-16",
-  "next_collect_note": "Пн 16.11 ~10:15 Богота: OF Statistics custom range UTC пн–вс. Обязательно записать of_subs, of_messages, of_tips, of_posts, of_total (net; gross — в notes). Дополнительно тем же кабинетом добрать разбивку за 02–08.11 (сейчас пусто) и при возможности за 19–25.10 (снимок 26.10 «últimos 7 días» не совпадает с неделей, в таблицу не ставили).",
+  "next_collect_note": "Пн 16.11 ~10:15 Богота: OF Statistics custom range UTC пн–вс. Обязательно записать of_subs, of_messages, of_tips, of_posts, of_total (net; gross — в notes). Тем же заходом Statistics → Reach: viewers_total, viewers_guests, viewers_users, viewers_usa, usa_guests, usa_users, subs (новые за неделю). Дополнительно добрать разбивку дохода и Reach за 02–08.11 (сейчас пусто) и при возможности за 19–25.10 (снимок 26.10 «últimos 7 días» не совпадает с неделей, в таблицу не ставили).",
   "metrics": [
     {
       "id": "ig1",
@@ -107,6 +107,16 @@
       },
       "notes": {
         "tiktok": "округл. 12.4K, как в даше; постов IG 266 / 64, видео TT 26; к предыдущей неделе в хинте было −24 / +1 / ±0, самого снимка 19.10 в репозитории нет"
+      },
+      "audience": {
+        "viewers_total": null,
+        "viewers_guests": null,
+        "viewers_users": null,
+        "viewers_usa": null,
+        "usa_guests": null,
+        "usa_users": null,
+        "earn_chats": null,
+        "subs": null
       }
     },
     {
@@ -141,6 +151,17 @@
         "of_messages": "cabinet residual: total − subscriptions − tips − posts; gross 171.87 / net 137.47 (три строки + посты сходятся в итог)",
         "of_tips": "cabinet: gross 59.00 / net 47.20",
         "of_posts": "cabinet Overview: $0.00 / $0.00 (явный ноль, не пропуск)"
+      },
+      "audience": {
+        "viewers_total": null,
+        "viewers_guests": null,
+        "viewers_users": null,
+        "viewers_usa": null,
+        "usa_guests": null,
+        "usa_users": null,
+        "earn_chats": null,
+        "subs": 11,
+        "src": "новые подписки 11 — из notes OF Statistics 26.10–01.11 (weekly-stats 08.11); Reach (viewers/USA) не снимали"
       }
     },
     {
@@ -170,7 +191,51 @@
         "ig2": "08.11 было 7484, 09.11 7481",
         "curvage": "08.11 вечером 12, 09.11 утром 13",
         "video_week": "окно 02.11–08.11, клип C4S 34924827 от 04.11; Curvage только GIF, не считаем"
+      },
+      "audience": {
+        "viewers_total": null,
+        "viewers_guests": null,
+        "viewers_users": null,
+        "viewers_usa": null,
+        "usa_guests": null,
+        "usa_users": null,
+        "earn_chats": null,
+        "subs": null
       }
+    },
+    {
+      "id": "W:2026-11-09",
+      "label": "09–15.11",
+      "start": "2026-11-09",
+      "end": "2026-11-15",
+      "as_of": null,
+      "status": "open",
+      "src": "текущая неделя; замер пн 16.11 закроет 09–15.11 (доход OF + Reach)",
+      "values": {
+        "ig1": null,
+        "ig2": null,
+        "tiktok": null,
+        "c4s": null,
+        "curvage": null,
+        "video_week": null,
+        "of_net": null,
+        "of_total": null,
+        "of_subs": null,
+        "of_messages": null,
+        "of_tips": null,
+        "of_posts": null
+      },
+      "audience": {
+        "viewers_total": null,
+        "viewers_guests": null,
+        "viewers_users": null,
+        "viewers_usa": null,
+        "usa_guests": null,
+        "usa_users": null,
+        "earn_chats": null,
+        "subs": null
+      },
+      "notes": {}
     }
   ],
   "gaps": [
