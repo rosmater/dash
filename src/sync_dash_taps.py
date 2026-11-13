@@ -26,7 +26,7 @@ OVF=f'{R}/src/cu_dir_overrides.json'; ACT=f'{R}/sync/cu_actions_pending.json'
 QC_JSON='/workspace/queues/dash-quick-cmds.json'
 QC_META={
     'order_salmon_shrimp':{'file':'knowledge/rules/dash-quick-commands.md','tag':'El Pulpo','tab':'Личное'},
-    'andrey_emergency_logout':{'file':'knowledge/rules/andrey-emergency-logout.md','tag':'Андрей logout','tab':'Табакевич'},
+    'andrey_emergency_logout':{'file':'knowledge/rules/andrey-emergency-logout.md','tag':'Андрей Grok Bot logout','tab':'Табакевич'},
 }
 QC_MD='/workspace/queue/QUEUE.md'
 QC_WEBHOOK_URL='/workspace/queue/bin/webhook-resume-15min.url'

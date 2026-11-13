@@ -1466,7 +1466,7 @@ const Dr=B.dropship;if(Dr){im+=card(`${H('📦 '+esc(Dr.title),'действую
 /* Rost t6245u / t6254u: серый блок «⚡ Быстрые команды» на вкладках Личное и Табакевич, как «Требует внимания» */
 function persQuickCmdsHTML(d){if(!d||window.DASH_HELPER)return '';
  const sets={personal:{dir:'personal',sphere:'Личное',cmds:[{id:'order_salmon_shrimp',title:'Заказать лосось с креветками и сразу оплатить',hint:'El Pulpo (Albeiro) · WanderWallet Bre-B ≤75k, без подтверждения Rost',idle:'▶ Заказать'}]},
-  tabakevich:{dir:'tabakevich',sphere:'Табакевич',cmds:[{id:'andrey_emergency_logout',title:'Андрей: выйти из всех сессий (Gmail + Cursor)',hint:'Второй тап за 5 с подтверждает. Выйти из всех сессий Gmail и Cursor',idle:'🚨 Разлогинить',confirm:1}]}};
+  tabakevich:{dir:'tabakevich',sphere:'Табакевич',cmds:[{id:'andrey_emergency_logout',title:'Андрей: выйти из Grok Bot',hint:'Второй тап за 5 с подтверждает. Выйти из всех сессий Cursor / Grok Bot (tbklitics@gmail.com). Google не трогать',idle:'🚨 Разлогинить',confirm:1}]}};
  const conf=sets[d.id];if(!conf)return '';
  const items=conf.cmds.map(c=>{const sent=qcIsSent(c.id),tip=(c.title||'')+(c.hint?' — '+c.hint:''),idle=c.idle||QC_BTN_IDLE;
   return `<div class="qc-item alert-ln${sent?' sent':''}" title="${esc(tip)}"><button type="button" class="qc-btn${sent?' ok':''}" data-id="${esc(c.id)}" data-cmd="${esc(c.id)}" data-act="quick_cmd" data-n="${esc(c.title)}" data-dir="${esc(conf.dir)}" data-sphere="${esc(conf.sphere)}" data-bot="Секретарь" data-idle="${esc(idle)}"${c.confirm?' data-confirm="1"':''} title="${esc(tip)}" ${sent?'disabled ':''}onclick="return qcTap(this)">${sent?'✓ отправлено':esc(idle)}</button><span class="qc-label alert-txt" title="${esc(tip)}">${esc(c.title)}</span></div>`}).join('');
