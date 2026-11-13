@@ -1,7 +1,7 @@
 {
-  "_doc": "t6244u: открытые рабочие задачи пространства Tabakevich (90144306286, списки «Задачи Tabakevich» / «Юля» / «SEO») для доски вкладки Табакевич, как of_open_tasks.json. complete/main/models исключены. Тег «🎯 фокус» создан в спейсе; на задачи не ставился. Снимок 12.11 23:20 Богота.",
-  "fetched_at": "2026-11-12T23:18:38-05:00",
-  "src": "ClickUp filter_tasks space 90144306286, include_closed=false",
+  "_doc": "t6244u/t6259u/t6260u: открытые рабочие задачи пространства Tabakevich (90144306286, списки «Задачи Tabakevich» / «Юля» / «SEO») для доски вкладки Табакевич, как of_open_tasks.json. complete/main/models исключены. Тег «🎯 фокус» на задачах прежнего блока «На решение» (86bbhwpa6, 86bagudj7, 86bd1xnvc) и на новой 86bd2xjaa (Серёжа, Role=CALL). Снимок обновлён 13.11 00:24 Богота.",
+  "fetched_at": "2026-11-13T00:24:11-05:00",
+  "src": "ClickUp filter_tasks space 90144306286, include_closed=false; t6259u tags + t6260u 86bd2xjaa patched",
   "tasks": [
     {
       "id": "86b7ype93",
@@ -527,8 +527,11 @@
       ],
       "list": "Задачи Tabakevich",
       "url": "https://rosmater.github.io/cu/?t=86bbhwpa6",
-      "tags": [],
-      "freq": null
+      "tags": [
+        "🎯 фокус"
+      ],
+      "freq": "única",
+      "role": "Control"
     },
     {
       "id": "86b89dj3z",
@@ -589,8 +592,11 @@
       ],
       "list": "Задачи Tabakevich",
       "url": "https://rosmater.github.io/cu/?t=86bagudj7",
-      "tags": [],
-      "freq": null
+      "tags": [
+        "🎯 фокус"
+      ],
+      "freq": "única",
+      "role": "Control"
     },
     {
       "id": "86b95nwka",
@@ -1329,8 +1335,11 @@
       ],
       "list": "Задачи Tabakevich",
       "url": "https://rosmater.github.io/cu/?t=86bd1xnvc",
-      "tags": [],
-      "freq": null
+      "tags": [
+        "🎯 фокус"
+      ],
+      "freq": "única",
+      "role": "TO DO"
     },
     {
       "id": "86bd1z5re",
@@ -1631,6 +1640,24 @@
       "url": "https://rosmater.github.io/cu/?t=86bd0fat8",
       "tags": [],
       "freq": null
+    },
+    {
+      "id": "86bd2xjaa",
+      "name": "Серёжа — решить поднятие зарплаты (до 100к)",
+      "status": "to do",
+      "priority": "normal",
+      "due": "2026-11-13",
+      "hang_since": "2026-11-13",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Задачи Tabakevich",
+      "url": "https://rosmater.github.io/cu/?t=86bd2xjaa",
+      "tags": [
+        "🎯 фокус"
+      ],
+      "freq": "única",
+      "role": "📞CALL"
     }
   ]
 }

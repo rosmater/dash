@@ -885,7 +885,64 @@ def _dir_board(snap_name, extra_name=None):
 def _of_board():
     return _dir_board('of_open_tasks.json', 'prio_extra.json')
 OF_BOARD = _of_board()
-TBK_BOARD = _dir_board('tbk_open_tasks.json')
+
+# t6259u: просроченные финсводки — в «Сегодня у меня» с флагом fin (не дублировать, если уже в Сегодня/Приоритетах); непросроченные наверх не ставим
+def _tbk_inject_fin(board, fin_block):
+    links = (fin_block or {}).get('links') or []
+    fin_ids = [x.get('cu') for x in links if x.get('cu')]
+    if not fin_ids:
+        return board
+    meta = {x['cu']: x for x in links if x.get('cu')}
+    def _walk():
+        for t in board.get('today') or []:
+            yield t
+        for t in (board.get('prio_mine') or []) + (board.get('prio_staff') or []):
+            yield t
+        for g in board.get('routine_groups') or []:
+            for t in g.get('tasks') or []:
+                yield t
+    by_id = {}
+    for t in _walk():
+        tid = t.get('id')
+        if not tid:
+            continue
+        by_id[tid] = t
+        if tid in meta:
+            t['fin'] = True
+            t['fin_sheets'] = meta[tid].get('sheets') or []
+            t['fin_label'] = meta[tid].get('label') or t.get('name')
+    today_ids = {t.get('id') for t in board.get('today') or []}
+    prio_ids = {t.get('id') for t in (board.get('prio_mine') or []) + (board.get('prio_staff') or [])}
+    extra = []
+    for fid in fin_ids:
+        t = by_id.get(fid)
+        if not t:
+            continue
+        due = t.get('due')
+        if not due or due >= _today_bo:
+            continue
+        if fid in today_ids or fid in prio_ids:
+            continue
+        tt = dict(t)
+        tt['fin'] = True
+        extra.append(tt)
+        today_ids.add(fid)
+    if extra:
+        board['today'] = list(board.get('today') or []) + extra
+        board['today'].sort(key=lambda x: (x.get('due') or '9999', x.get('name') or ''))
+        extra_ids = {t['id'] for t in extra}
+        groups = []
+        for g in board.get('routine_groups') or []:
+            items = [t for t in (g.get('tasks') or []) if t.get('id') not in extra_ids]
+            if not items:
+                continue
+            ov = sum(1 for x in items if x.get('due') and x['due'] < _today_bo)
+            groups.append(dict(name=g.get('name'), n=len(items), overdue=ov, tasks=items))
+        board['routine_groups'] = groups
+        board['routine_n'] = sum(g['n'] for g in groups)
+        board['routine_overdue'] = sum(g['overdue'] for g in groups)
+    return board
+TBK_BOARD = _tbk_inject_fin(_dir_board('tbk_open_tasks.json'), TBKB.get('fin') if isinstance(TBKB, dict) else None)
 
 # Rost t5952u: «📅 Назначенные встречи» вверху Личного (src/personal_meetings.json; только Role=🚶GO, любой список; не CU Personal)
 _pmf = os.path.join(_HERE, 'personal_meetings.json')

@@ -326,6 +326,12 @@ details:not(.bqd):not(.ilg)[open]>summary::before{content:"▾"!important;color:
 .attn .atit>summary .why,.attn .atit>summary .note,.alert-ln>.why,.alert-ln>.note,.alert-ln>.pill,.alert-ln>.chip,.alert-ln>.thb,.alert-ln>.bdbtn,.sc-alert .sc-ln>.note,.sc-alert .sc-ln>.pill,.sc-alert .sc-ln>.chip,.sc-alert .sc-ln>.thb,.qc-btn,.pin-hi>input,.pin-hi>.chip{flex:none}
 .attn .ln{min-width:0;max-width:100%}
 .attn .atit-more{display:flex;align-items:center;gap:6px;flex-wrap:wrap;padding:2px 0 6px}
+/* Rost t6261u: свёрнутые верхние полоски (~вдвое компактнее): шрифт 12px, вертикальный padding 4px, зазор 4px; цветная кромка слева и ▸/▾ на месте */
+#main .attn:not(.card),#main .du-lines.du-attn,#main .qc-attn{padding:4px 10px;margin:0 0 4px;border-radius:8px}
+#main .attn:not(.card) h4,#main .du-attn h4,#main .qc-attn h4{font-size:12px;line-height:1.2;margin:0}
+#main .attn:not(.card) .attnd>summary,#main .du-attn .attnd>summary,#main .qc-attn .attnd>summary{padding:0;gap:4px;line-height:1.2;font-size:inherit}
+.pill.p-mute{background:#f1f5f9;color:#64748b;border:1px solid #e2e8f0;font-size:10px;padding:1px 6px;font-weight:700}
+
 .card.attn .okin .bq>summary,.card.attn .okin .bq,.attn.card .okin .bq>summary{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
 .card.attn .okin .bq>summary>span,.attn.card .okin .bq>summary>span{display:inline-block;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;vertical-align:bottom}
 header .bdi{white-space:nowrap}
@@ -1067,10 +1073,7 @@ function tbkBlocksHTML(d){if(d.id!=='tabakevich'||!d.tbk_blocks)return '';const 
  const fold=(sum,body,k)=>body?`<details class="tbk-det" data-k="${esc(k||sum)}"><summary>${sum}</summary>${body}</details>`:'';
  const notes=(k,...xs)=>{const b=xs.filter(Boolean).join('');return fold('Пояснения',b,k||'notes');};
  let h='';
- /* t6244u: «На решение» заменено доской как на ОФ (Сегодня / Приоритеты / Рутина); фин-сводки сразу под «Приоритетами», на всю ширину */
- const F=B.fin;
- if(F)h+=card(`${H('📑 '+esc(F.title),'отчёты')}
-  ${F.links.map(x=>`<div class="task"><span class="pill p-normal">${x.cu?(x.sheets&&x.sheets.length?'CU+GSheet':'CU'):'GSheet'}</span><div style="flex:1">${cul(x.url,x.label)}${(x.sheets||[]).map(g=>` · <a class="note" href="${esc(g.url)}" target="_blank" rel="noopener">📊 ${esc(g.label)} ↗</a>`).join('')}${x.status||x.due||x.note?`<div class="note">${[x.status?esc(x.status):'',x.due?'срок '+dd(x.due):'',x.note?esc(x.note):''].filter(Boolean).join(' · ')}</div>`:''}</div></div>`).join('')}`,'tbk.fin');
+ /* t6244u: «На решение» заменено доской как на ОФ; t6259u: отдельный блок «Финсводки» убран — просроченные финсводки идут в «Сегодня у меня» с бейджем «фин» */
  /* 3–6) Отдел ИМ: Интернет-магазин → Монитор менеджеров — одна рамка-группа */
  let im='';
  const E=B.eshop;if(E){const PGN={home:'Главная',category:'Категория',product:'Товар',sale:'Акции'};
@@ -1281,7 +1284,8 @@ function persBlocksHTML(d){if(d.id!=='personal'||!d.personal_blocks)return '';co
 /* Rost t6194u/t6214u/t6215u: ОФ — Сегодня у меня, Приоритеты (два квадрата), Рутина снизу */
 function ofHangDays(t){const s=String(t&&t.hang_since||'').slice(0,10);if(!/^\d{4}-\d{2}-\d{2}$/.test(s))return null;const today=(typeof TODAY!=='undefined'?TODAY:null);if(!today)return null;const n=Math.round((Date.parse(today+'T12:00:00Z')-Date.parse(s+'T12:00:00Z'))/864e5);return isNaN(n)?null:Math.max(0,n)}
 function ofDueHangHTML(t){if(t&&t.due)return dueChipHTML(t);const n=ofHangDays(t);if(n==null)return '';const cls=n>14?'hang-red':n>7?'hang-yellow':'';return `<span class="st of-hang ${cls}">висит ${n} дн.</span>`}
-function ofBoardRow(t){if(!t||thHidden(t)||cuClosed(t))return '';const who=(cuWhoNames(t)||[]).join(', ');const tip=[t.name,t.status,t.due?('срок '+t.due): (ofHangDays(t)!=null?('висит '+ofHangDays(t)+' дн.'):''),who,t.parent?('↳ '+t.parent):''].filter(Boolean).join(' · ');const title=t.url?`<a href="${cuAppUrl(t.url)}" target="_blank" rel="noopener" title="${esc(tip)}">${esc(t.name)}</a>`:`<b title="${esc(tip)}">${esc(t.name)}</b>`;return `<div class="task trow">${priPill(t)}<span class="trow-title">${title}</span>${cuWhoHTML(t,{silent:true})}${ofDueHangHTML(t)}${thBtns(t)}</div>`}
+function ofRowBadge(t){if(!t)return '';const bits=[];const role=String(t.role||t.Role||'').replace(/\s+/g,'');if(/call|созвон/i.test(role)||t.call)bits.push('<span class="pill p-mute" title="созвон">📞 созвон</span>');if(t.fin)bits.push('<span class="pill p-mute" title="финсводка">фин</span>');return bits.join('')}
+function ofBoardRow(t){if(!t||thHidden(t)||cuClosed(t))return '';const who=(cuWhoNames(t)||[]).join(', ');const sheets=(t.fin_sheets||[]).map(s=>s.label||s.url).filter(Boolean).join(', ');const tip=[t.name,t.status,t.role||'',t.fin?'фин':'',sheets,t.due?('срок '+t.due): (ofHangDays(t)!=null?('висит '+ofHangDays(t)+' дн.'):''),who,t.parent?('↳ '+t.parent):''].filter(Boolean).join(' · ');const title=t.url?`<a href="${cuAppUrl(t.url)}" target="_blank" rel="noopener" title="${esc(tip)}">${esc(t.name)}</a>`:`<b title="${esc(tip)}">${esc(t.name)}</b>`;return `<div class="task trow">${priPill(t)}<span class="trow-title">${title}</span>${ofRowBadge(t)}${cuWhoHTML(t,{silent:true})}${ofDueHangHTML(t)}${thBtns(t)}</div>`}
 function ofTodayHTML(d){const B=boardOf(d);if(!B)return '';const L=(B.today||[]).filter(t=>!thHidden(t)&&!cuClosed(t)&&!isFocus(t));if(!L.length)return '';const nOv=L.filter(t=>t.due&&t.due<(typeof TODAY!=='undefined'?TODAY:'')).length;return `<div class="card of-today" style="margin-bottom:14px"><h3>Сегодня у меня <span class="st">${L.length}${nOv?` · просрочено ${nOv}`:''}</span></h3><div class="of-today-list">${L.map(ofBoardRow).join('')}</div></div>`}
 function ofPriorityHTML(d){const B=boardOf(d);if(!B)return '';
  const mine0=(B&&B.prio_mine)||[],staff0=(B&&B.prio_staff)||[];
