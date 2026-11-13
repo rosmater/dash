@@ -784,6 +784,58 @@ _ocf = os.path.join(_HERE, 'of_calls.json')
 _oc = json.load(open(_ocf)) if os.path.exists(_ocf) else {}
 _today_bo = datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=-5))).strftime('%Y-%m-%d')
 of_calls = sorted([t for t in (_oc.get('scheduled_calls') or []) if isinstance(t, dict) and str(t.get('due') or t.get('start') or '9999')[:10] >= _today_bo], key=lambda t: (str(t.get('due') or t.get('start') or ''), str(t.get('start') or ''), str(t.get('due_t') or '')))
+
+# t6215u/t6216u: доска вкладки ОФ — Сегодня / Приоритеты / Рутина (снимок src/of_open_tasks.json)
+def _of_is_rost(t):
+    for s in (t.get('assignees') or []):
+        s = str(s).strip()
+        if re.match(r'^(я|me)$', s, re.I) or re.match(r'^rost', s, re.I) or 'zayavki.ua@gmail.com' in s.lower():
+            return True
+    return False
+def _of_board():
+    path = os.path.join(_HERE, 'of_open_tasks.json')
+    if not os.path.exists(path):
+        return dict(today=[], prio_mine=[], prio_staff=[], routine=[], fetched_at='', src='')
+    raw = json.load(open(path))
+    today, mine, staff, routine = [], [], [], []
+    for t0 in raw.get('tasks') or []:
+        tt = dict(t0)
+        asg = [a for a in (tt.get('assignees') or []) if a]
+        tt['who'] = ', '.join(asg) if asg else None
+        due = tt.get('due')
+        pr = (tt.get('priority') or '').lower()
+        rost = _of_is_rost(tt)
+        if rost and due and due <= _today_bo:
+            today.append(tt)
+        elif pr in ('urgent', 'high'):
+            (mine if rost else staff).append(tt)
+        else:
+            routine.append(tt)
+    today.sort(key=lambda x: (x.get('due') or '9999', x.get('name') or ''))
+    mine.sort(key=lambda x: ({'urgent': 0, 'high': 1}.get((x.get('priority') or ''), 9), x.get('due') or '9999'))
+    staff.sort(key=lambda x: ({'urgent': 0, 'high': 1}.get((x.get('priority') or ''), 9), x.get('due') or '9999'))
+    def _person(x):
+        if _of_is_rost(x):
+            return 'Rost'
+        asg = [a for a in (x.get('assignees') or []) if a]
+        return asg[0] if asg else 'Без исполнителя'
+    groups = {}
+    for x in routine:
+        groups.setdefault(_person(x), []).append(x)
+    routine_groups = []
+    for name, items in groups.items():
+        items.sort(key=lambda x: (x.get('due') or '9999', x.get('name') or ''))
+        ov = sum(1 for x in items if x.get('due') and x['due'] < _today_bo)
+        routine_groups.append(dict(name=name, n=len(items), overdue=ov, tasks=items))
+    routine_groups.sort(key=lambda g: (0 if g['name'] == 'Rost' else 1, -g['overdue'], g['name'].lower()))
+    return dict(
+        today=today, prio_mine=mine, prio_staff=staff,
+        routine_n=len(routine), routine_overdue=sum(1 for x in routine if x.get('due') and x['due'] < _today_bo),
+        routine_groups=routine_groups,
+        fetched_at=raw.get('fetched_at') or '', src=raw.get('src') or '',
+    )
+OF_BOARD = _of_board()
+
 # Rost t5952u: «📅 Назначенные встречи» вверху Личного (src/personal_meetings.json; только Role=🚶GO, любой список; не CU Personal)
 _pmf = os.path.join(_HERE, 'personal_meetings.json')
 _pm = json.load(open(_pmf)) if os.path.exists(_pmf) else {}
@@ -1040,7 +1092,8 @@ data = dict(
            dict(label='Наш доход за неделю', unit='$', target=1500, example=True, by_period={k: v['income'][0]['amount'] for k, v in of_periods.items()}, src='цель — пример'),
            dict(label='Наш доход за месяц', unit='$', target=6000, example=True, period_type='month', by_period={}, auto_month='income', src='цель — пример; факт = сумма недель'),
          ],
-         tasks=tasks(['86bcn2d1t', '86b6z79t1', '86b7heru3', '86b9abep9', '86bcn2g2q', '86b9wh8cd']),  # 86bc1tdu5 IPRoyal → COMMS BOT R (Rost 08.11 t678–t680), not OF attn
+         tasks=tasks(['86bcn2d1t', '86b6z79t1', '86b7heru3', '86b9abep9', '86bcn2g2q', '86b9wh8cd', '86bd2v24a']),  # 86bd2v24a Сейдер iPhone/Xcode (t6216u); 86bc1tdu5 IPRoyal → COMMS BOT R
+         of_board=OF_BOARD,
          of_blocks=OFB,
          scheduled_calls=of_calls,  # Rost t5810u
          gaps=of_gaps_extra),  # t703u/t704u: known-rule notes (office/IPRoyal, RA185/RA222) removed — not attn
