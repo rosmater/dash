@@ -305,7 +305,7 @@ details:not(.bqd):not(.ilg)[open]>summary::before{content:"▾"!important;color:
 .dacc>summary::after,.dacc[open]>summary::after{content:none!important;display:none!important}
 .attnd>summary>.note{display:none}
 
-/* Rost t6245u: «⚡ Быстрые команды» на вкладке Личное — серый блок как «Требует внимания» */
+/* Rost t6245u / t6254u: «⚡ Быстрые команды» на вкладках Личное и Табакевич — серый блок как «Требует внимания» */
 .qc-attn{background:#f3f4f6;border:1px solid #d1d5db;border-left:4px solid #9ca3af;border-radius:10px;padding:5px 10px;margin:0 0 7px;box-shadow:var(--shadow)}
 .qc-attn h4{margin:0;line-height:1.25;font-size:13px;color:#4b5563;display:inline;font-weight:700}
 .qc-attn .attnd>summary{display:flex;align-items:center;gap:6px;margin:0;padding:1px 0;color:inherit;font-size:inherit;line-height:1.25;cursor:pointer;list-style:none}
@@ -318,6 +318,7 @@ details:not(.bqd):not(.ilg)[open]>summary::before{content:"▾"!important;color:
 .qc-btn:disabled{cursor:default;opacity:.95}
 .qc-btn.ok{background:#127a3e}
 .qc-btn.err{background:#b42318}
+.qc-btn.confirm{background:#b45309}
 .qc-label{font:600 13.5px Inter,system-ui;color:var(--txt)}
 /* Rost t6251u: пункты верхних оповещений на всех вкладках — ровно 1 строка, полный текст в title=; новые алерты берут .alert-ln / .alert-txt */
 .alert-ln,.attn .atit>summary,.attn .ln:not(details),.sc-alert .sc-ln,.qc-item,.pin-hi{display:flex;align-items:center;gap:6px;min-width:0;max-width:100%;white-space:nowrap}
@@ -720,18 +721,23 @@ function thBtns(t,opt){opt=opt||{};const id=thId(t);if(!id)return '';const name=
  const ctx=thChatTxt(botObj,t,id,url),agent=botObj.link||('grokbot://app/v1/agent?id='+(botObj.id||'d3a12cc9-cf8a-41e5-b34a-76d4ab9eb9fd'));
  const chat=opt.noChat?'':`<a class="th-ico" href="${esc(maPL(botObj,ctx))}" data-b="${esc(bot)}" data-t="${esc(ctx)}" data-l="${esc(agent)}" onclick="event.stopPropagation();return cuOpen(this)" title="Открыть чат «${esc(bot)}»">💬</a>`;
  return `<span class="thb" onclick="event.stopPropagation()">${chat}<button type="button" class="th-ico" ${D} data-act="done" onclick="return thAct(this)" title="Решено">✓</button></span>`}
-const QC_COOL=60e3,QC_BTN_IDLE='▶ Заказать',QC_BTN_OK='✓ отправлено',QC_BTN_ERR='ошибка, ещё раз';
+const QC_COOL=60e3,QC_CONFIRM=5e3,QC_BTN_IDLE='▶ Заказать',QC_BTN_OK='✓ отправлено',QC_BTN_ERR='ошибка, ещё раз',QC_BTN_CONFIRM='нажми ещё раз';
 function qcSentAt(cmd){try{return localStorage.getItem('dash_qc_sent_'+cmd)||''}catch(e){return ''}}
 function qcIsSent(cmd){const at=qcSentAt(cmd);if(!at)return false;const t=Date.parse(at);return isFinite(t)&&(Date.now()-t)<QC_COOL}
 function qcLeft(cmd){const at=qcSentAt(cmd);if(!at)return 0;const t=Date.parse(at);if(!isFinite(t))return 0;return Math.max(0,QC_COOL-(Date.now()-t))}
-function qcSetBtn(b,state){if(!b)return;b.disabled=state==='sending'||state==='ok';b.classList.toggle('ok',state==='ok');b.classList.toggle('err',state==='err');b.textContent=state==='ok'?QC_BTN_OK:state==='err'?QC_BTN_ERR:state==='sending'?'…':QC_BTN_IDLE}
+function qcIdle(b){return (b&&b.dataset.idle)||QC_BTN_IDLE}
+function qcArmClear(b){if(!b)return;if(b._qcArmT){clearTimeout(b._qcArmT);b._qcArmT=0}b.dataset.armed='';b.dataset.armedUntil='';b.classList.remove('confirm')}
+function qcSetBtn(b,state){if(!b)return;b.disabled=state==='sending'||state==='ok';b.classList.toggle('ok',state==='ok');b.classList.toggle('err',state==='err');b.classList.toggle('confirm',state==='confirm');b.textContent=state==='ok'?QC_BTN_OK:state==='err'?QC_BTN_ERR:state==='sending'?'…':state==='confirm'?QC_BTN_CONFIRM:qcIdle(b)}
 function qcTap(b){if(!b||b.disabled)return false;const cmd=b.dataset.cmd||b.dataset.id,name=b.dataset.n||'';if(!cmd)return false;
  if(qcIsSent(cmd)){qcSetBtn(b,'ok');setTimeout(()=>{if(document.contains(b))qcSetBtn(b,'idle')},qcLeft(cmd)||QC_COOL);return false}
+ if(b.dataset.confirm==='1'){const now=Date.now(),until=+b.dataset.armedUntil||0;
+  if(b.dataset.armed!=='1'||now>until){qcArmClear(b);b.dataset.armed='1';b.dataset.armedUntil=String(now+QC_CONFIRM);qcSetBtn(b,'confirm');b._qcArmT=setTimeout(()=>{if(document.contains(b)&&b.dataset.armed==='1'){qcArmClear(b);qcSetBtn(b,'idle')}},QC_CONFIRM);return false}
+  qcArmClear(b)}
  qcSetBtn(b,'sending');
- const payload={key:'quick_cmd|'+cmd+'|'+Date.now(),channel:'QuickCmd',action:'quick_cmd',cmd:cmd,title:name||cmd,dir:b.dataset.dir||'personal',bot:b.dataset.bot||'Секретарь',sphere:'Личное'};
+ const payload={key:'quick_cmd|'+cmd+'|'+Date.now(),channel:'QuickCmd',action:'quick_cmd',cmd:cmd,title:name||cmd,dir:b.dataset.dir||'personal',bot:b.dataset.bot||'Секретарь',sphere:b.dataset.sphere||'Личное'};
  (typeof tapPushWait==='function'?tapPushWait(payload):Promise.resolve(false)).then(ok=>{if(ok){try{localStorage.setItem('dash_qc_sent_'+cmd,new Date().toISOString())}catch(e){}qcSetBtn(b,'ok');setTimeout(()=>{if(document.contains(b))qcSetBtn(b,'idle')},QC_COOL)}else qcSetBtn(b,'err')}).catch(()=>qcSetBtn(b,'err'));
  return false}
-function qcMount(){document.querySelectorAll('.qc-btn[data-act="quick_cmd"]').forEach(b=>{if(qcIsSent(b.dataset.cmd||b.dataset.id)){qcSetBtn(b,'ok');const left=qcLeft(b.dataset.cmd||b.dataset.id);setTimeout(()=>{if(document.contains(b))qcSetBtn(b,'idle')},left||QC_COOL)}})}
+function qcMount(){document.querySelectorAll('.qc-btn[data-act="quick_cmd"]').forEach(b=>{qcArmClear(b);if(qcIsSent(b.dataset.cmd||b.dataset.id)){qcSetBtn(b,'ok');const left=qcLeft(b.dataset.cmd||b.dataset.id);setTimeout(()=>{if(document.contains(b))qcSetBtn(b,'idle')},left||QC_COOL)}else qcSetBtn(b,'idle')})}
 function thAct(b){const id=b.dataset.id,act=b.dataset.act,name=b.dataset.n||'',url=b.dataset.u||'',dir=b.dataset.dir||'',bot=b.dataset.bot||'',upd=b.dataset.upd||'',due=b.dataset.due||'',fc=b.dataset.fc==='1';if(!id)return false;
  const href=url||(thIsCu(id,url)?('https://app.clickup.com/t/'+id):'');
  if(act==='quick_cmd')return qcTap(b);
@@ -1458,10 +1464,13 @@ const Dr=B.dropship;if(Dr){im+=card(`${H('📦 '+esc(Dr.title),'действую
  if(B.data_at)h+=`<div class="note" style="margin:-6px 0 14px">${esc(B.data_at)}</div>`;
  return h}
 
-/* Rost t6245u: серый блок «⚡ Быстрые команды» на вкладке Личное, как «Требует внимания» */
-function persQuickCmdsHTML(d){if(!d||d.id!=='personal'||window.DASH_HELPER)return '';
- const cmds=[{id:'order_salmon_shrimp',title:'Заказать лосось с креветками и сразу оплатить',hint:'El Pulpo (Albeiro) · WanderWallet Bre-B ≤75k, без подтверждения Rost'}];
- const items=cmds.map(c=>{const sent=qcIsSent(c.id),tip=(c.title||'')+(c.hint?' — '+c.hint:'');return `<div class="qc-item alert-ln${sent?' sent':''}" title="${esc(tip)}"><button type="button" class="qc-btn${sent?' ok':''}" data-id="${esc(c.id)}" data-cmd="${esc(c.id)}" data-act="quick_cmd" data-n="${esc(c.title)}" data-dir="personal" data-bot="Секретарь" title="${esc(tip)}" ${sent?'disabled ':''}onclick="return qcTap(this)">${sent?'✓ отправлено':'▶ Заказать'}</button><span class="qc-label alert-txt" title="${esc(tip)}">${esc(c.title)}</span></div>`}).join('');
+/* Rost t6245u / t6254u: серый блок «⚡ Быстрые команды» на вкладках Личное и Табакевич, как «Требует внимания» */
+function persQuickCmdsHTML(d){if(!d||window.DASH_HELPER)return '';
+ const sets={personal:{dir:'personal',sphere:'Личное',cmds:[{id:'order_salmon_shrimp',title:'Заказать лосось с креветками и сразу оплатить',hint:'El Pulpo (Albeiro) · WanderWallet Bre-B ≤75k, без подтверждения Rost',idle:'▶ Заказать'}]},
+  tabakevich:{dir:'tabakevich',sphere:'Табакевич',cmds:[{id:'andrey_emergency_logout',title:'Андрей: выйти из всех сессий (Gmail + Cursor)',hint:'Второй тап за 5 с подтверждает. Выйти из всех сессий Gmail и Cursor',idle:'🚨 Разлогинить',confirm:1}]}};
+ const conf=sets[d.id];if(!conf)return '';
+ const items=conf.cmds.map(c=>{const sent=qcIsSent(c.id),tip=(c.title||'')+(c.hint?' — '+c.hint:''),idle=c.idle||QC_BTN_IDLE;
+  return `<div class="qc-item alert-ln${sent?' sent':''}" title="${esc(tip)}"><button type="button" class="qc-btn${sent?' ok':''}" data-id="${esc(c.id)}" data-cmd="${esc(c.id)}" data-act="quick_cmd" data-n="${esc(c.title)}" data-dir="${esc(conf.dir)}" data-sphere="${esc(conf.sphere)}" data-bot="Секретарь" data-idle="${esc(idle)}"${c.confirm?' data-confirm="1"':''} title="${esc(tip)}" ${sent?'disabled ':''}onclick="return qcTap(this)">${sent?'✓ отправлено':esc(idle)}</button><span class="qc-label alert-txt" title="${esc(tip)}">${esc(c.title)}</span></div>`}).join('');
  return `<div class="qc-attn"><details class="attnd"><summary style="cursor:pointer"><h4 style="display:inline">⚡ Быстрые команды</h4> <span class="note">▾</span></summary>${items}</details></div>`}
 /* Rost 25.10 ~23:55: блоки «Личное». hide_from_helper → в helper.html не показываем (плюс вырезаются из data-asst при шифровании) */
 function persAttn(d){const B=d.personal_blocks;if(!B)return [];const out=[];/* плановые поездки/НГ — не attn */

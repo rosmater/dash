@@ -70,7 +70,10 @@
         "src/tbk_open_tasks.json"
       ],
       "html_markers": [
-        "Пропущенные"
+        "Пропущенные",
+        "andrey_emergency_logout",
+        "🚨 Разлогинить",
+        "Андрей: выйти из всех сессий"
       ],
       "data_markers": [
         "Франшизные магазины",

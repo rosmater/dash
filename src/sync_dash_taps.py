@@ -22,8 +22,12 @@ ns=ni=nc=na=0
 # Rost t3955u: CU-направления и действия (ДР «поздравил») — не в chats.csv
 OVF=f'{R}/src/cu_dir_overrides.json'; ACT=f'{R}/sync/cu_actions_pending.json'
 
-# Rost t6245u: быстрые команды с даша → очередь Секретаря + webhook
+# Rost t6245u / t6254u: быстрые команды с даша → очередь Секретаря + webhook
 QC_JSON='/workspace/queues/dash-quick-cmds.json'
+QC_META={
+    'order_salmon_shrimp':{'file':'knowledge/rules/dash-quick-commands.md','tag':'El Pulpo','tab':'Личное'},
+    'andrey_emergency_logout':{'file':'knowledge/rules/andrey-emergency-logout.md','tag':'Андрей logout','tab':'Табакевич'},
+}
 QC_MD='/workspace/queue/QUEUE.md'
 QC_WEBHOOK_URL='/workspace/queue/bin/webhook-resume-15min.url'
 QC_WEBHOOK_AUTH='/workspace/queue/bin/webhook-resume-15min.auth'
@@ -90,7 +94,8 @@ def enqueue_quick_cmd(s):
     rec={'id':cmd,'action':'quick_cmd','kind':'quick_cmd','title':title,'bot':s.get('bot') or 'Секретарь','dir':s.get('dir') or 'personal','tapped_at':s.get('at') or now.isoformat(timespec='seconds')}
     # structured queue file for morning/QUEUE flow
     os.makedirs(os.path.dirname(QC_JSON), exist_ok=True)
-    qj=json.load(open(QC_JSON)) if os.path.exists(QC_JSON) else {'note':'Быстрые команды с даша (вкладка Личное). Читает Секретарь / queue-guard / утренний пакет по pending[] и по PRIORITY-строке в /workspace/queue/QUEUE.md.','pending':[],'done':[]}
+    qj=json.load(open(QC_JSON)) if os.path.exists(QC_JSON) else {'note':'','pending':[],'done':[]}
+    qj['note']='Быстрые команды с даша (вкладки Личное и Табакевич). Читает Секретарь / queue-guard / утренний пакет по pending[] и по PRIORITY-строке в /workspace/queue/QUEUE.md.'
     qj.setdefault('pending',[]); qj.setdefault('done',[])
     recent=_qc_recent(qj['pending']+act.get('pending',[]), cmd) or _qc_md_recent(cmd)
     if recent:
@@ -101,7 +106,8 @@ def enqueue_quick_cmd(s):
     if not any(a.get('action')=='quick_cmd' and a.get('id')==cmd and not a.get('done_at') for a in act['pending']):
         act['pending'].append(rec)
     slug=f"dash-quick-cmd-{cmd}-{now.strftime('%Y%m%d-%H%M')}"
-    line=f"- [pending] PRIORITY {slug} — {title} (El Pulpo). Сценарий: knowledge/rules/dash-quick-commands.md. Тап с даша «Личное». Исполняет Секретарь.\n"
+    meta=QC_META.get(cmd) or {'file':'knowledge/rules/dash-quick-commands.md','tag':cmd,'tab':s.get('dir') or 'даш'}
+    line=f"- [pending] PRIORITY {slug} — {title} ({meta['tag']}). Сценарий: {meta['file']}. Тап с даша «{meta['tab']}». Исполняет Секретарь.\n"
     prev=open(QC_MD,encoding='utf-8').read() if os.path.exists(QC_MD) else ''
     with open(QC_MD,'w',encoding='utf-8') as fh: fh.write(line+prev)
     print('quick_cmd queued', slug)
@@ -138,14 +144,20 @@ if SELF_TEST:
     before={p:_snap(p) for p in paths}
     wh='/tmp/dash-quick-cmd-webhook.out'
     wh_m=os.path.getmtime(wh) if os.path.exists(wh) else None
-    queued=enqueue_quick_cmd({'action':'quick_cmd','cmd':'order_salmon_shrimp','title':'TEST do not order','test':True,'flag':'TEST','at':_bog_now().isoformat(timespec='seconds')})
+    results=[]
+    for cmd,title,d in (
+        ('order_salmon_shrimp','TEST do not order','personal'),
+        ('andrey_emergency_logout','TEST do not logout','tabakevich'),
+    ):
+        queued=enqueue_quick_cmd({'action':'quick_cmd','cmd':cmd,'title':title,'test':True,'flag':'TEST','dir':d,'at':_bog_now().isoformat(timespec='seconds')})
+        results.append((cmd,queued))
     after={p:_snap(p) for p in paths}
     changed=[p for p in paths if before[p]!=after[p]]
     wh_new=os.path.exists(wh) and (wh_m is None or os.path.getmtime(wh)!=wh_m)
-    if queued or changed or wh_new:
-        print('SELF-TEST FAIL', 'returned', queued, 'changed', changed, 'webhook', wh_new)
+    if any(q for _,q in results) or changed or wh_new:
+        print('SELF-TEST FAIL', 'returned', results, 'changed', changed, 'webhook', wh_new)
         sys.exit(1)
-    print('SELF-TEST OK: TEST flag did not queue or webhook')
+    print('SELF-TEST OK: TEST flag did not queue or webhook', [c for c,_ in results])
     sys.exit(0)
 
 ov=json.load(open(OVF)) if os.path.exists(OVF) else {'tasks':{}}
@@ -194,7 +206,7 @@ for f in files:
             if i and not any(a.get('id')==i and a.get('action')=='call_done' and a.get('due')==s.get('due') for a in act['pending']+act['done']):
                 act['pending'].append({'id':i,'action':'call_done','kind':'call','title':s.get('title'),'url':s.get('url'),'due':s.get('due'),'dir':s.get('dir'),'on_done':s.get('on_done') or 'comment','tapped_at':s.get('at')}); na+=1
             continue
-        if s.get('action')=='quick_cmd':  # Rost t6245u: быстрая команда с вкладки Личное
+        if s.get('action')=='quick_cmd':  # Rost t6245u / t6254u: быстрая команда с вкладок Личное / Табакевич
             if enqueue_quick_cmd(s): na+=1
             continue
         if s.get('action')=='cu_close':
