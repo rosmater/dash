@@ -204,24 +204,9 @@ if SELF_TEST:
 
 PUSH_FILES=['src/done_pending.json','sync/cu_actions_pending.json','src/cu_dir_overrides.json','src/msg_row_overrides.json','src/msg_sphere_overrides.json','src/ignored_chats.json','sync/bot_attn.jsonl','sync/done',
             'index.html','helper.html','assistant.html','variant-a.html','variant-b.html','variant-c.html','data.enc.json','data-asst.enc.json','data-test-ma.enc.json','test-messengers-assistants.html']
-def _git(*a, check=False):
-    return subprocess.run(['git','-C',R,*a], capture_output=True, text=True, check=check)
-def push_with_retry(msg, tries=3):
-    """t6285u: R == /workspace/dash-gh (копировать некуда). Коммитим только свои файлы + сборку; push не прошёл → pull --rebase, пересборка, снова."""
-    for n in range(tries):
-        if _git('pull','-q','--rebase','--autostash','-X','theirs','origin','main').returncode:
-            _git('rebase','--abort'); print('pull fail, try', n+1); continue
-        if subprocess.run(['bash',f'{R}/src/build_test_ma.sh']).returncode or subprocess.run(['bash',f'{R}/src/build.sh']).returncode:
-            print('build fail, try', n+1); continue
-        _git('add','--',*[f for f in PUSH_FILES if os.path.exists(f'{R}/{f}')])
-        if _git('diff','--cached','--quiet').returncode:
-            _git('-c','user.name=rosmater','-c','user.email=rost@rosmater.local','commit','-qm',msg)
-        if not _git('rev-list','-1','origin/main..HEAD').stdout.strip():
-            print('nothing to push'); return True
-        r=_git('push','-q','origin','HEAD:main')
-        if r.returncode==0: print('pushed'); return True
-        print('push fail, try', n+1, r.stderr[-300:])
-    return False
+from dash_push import git as _dpgit, push_with_retry as _pwr
+def _git(*a, check=False): return _dpgit(*a)
+def push_with_retry(msg, tries=3): return _pwr([f for f in PUSH_FILES if f.startswith(('src/','sync/'))], msg, tries)
 if PUSH_ONLY:
     dirty=_git('status','--porcelain','--','src/done_pending.json','sync/cu_actions_pending.json').stdout.strip()
     ahead=_git('rev-list','-1','origin/main..HEAD').stdout.strip()

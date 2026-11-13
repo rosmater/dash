@@ -11,7 +11,7 @@ Sibling to cu_due_sync.py. Call from morning 10:42 / night 22:45 packs after ONE
          value:["95771463-42ea-45fc-8b87-ad4b48108cbf"]}]  # Role option «🚶GO»
        write_to_file=true
 
-  python3 /workspace/dashboard-mockup/src/personal_meetings_sync.py --go <go.json>
+  python3 /workspace/dash-gh/src/personal_meetings_sync.py --go <go.json>
   (multiple files OK; dedupe by id.)
 
 USAGE:
@@ -38,8 +38,16 @@ from cryptography.hazmat.primitives.ciphers.aead import AESGCM
 from cryptography.hazmat.primitives.kdf.pbkdf2 import PBKDF2HMAC
 
 BOG = datetime.timezone(datetime.timedelta(hours=-5))
-MOCK = Path('/workspace/dashboard-mockup')
+MOCK = Path(__file__).resolve().parents[1]  # t6285u: был /workspace/dashboard-mockup (устарел с 12.11, копировал старый build_data.py поверх dash-gh)
 GH = Path('/workspace/dash-gh')
+
+
+def _cp(a, b):
+    # t6285u: MOCK == GH → копировать в себя нельзя (SameFileError); скрипты/build_data.py не копируем вообще
+    a, b = Path(a), Path(b)
+    if a.resolve() == b.resolve() or a.suffix == '.py':
+        return
+    shutil.copy(a, b)
 OUT = MOCK / 'src' / 'personal_meetings.json'
 EXCL = MOCK / 'src' / 'meetings_exclude.json'
 VAULT_MAIN = Path('/home/box/contacts/knowledge/secrets/vault/dashboard-password.md')
@@ -242,13 +250,13 @@ def surgical_patch(meetings, updated_at, list_url=''):
         print('patched', enc_path.name)
     for f in ['data.enc.json', 'data-asst.enc.json']:
         if (MOCK / f).exists():
-            shutil.copy(MOCK / f, GH / f)
+            _cp(MOCK / f, GH / f)
     for rel in ['src/personal_meetings.json', 'src/personal_meetings_sync.py',
                 'src/meetings_exclude.json', 'src/build_data.py',
                 'src/cu_due_sync.py']:
         src = MOCK / rel
         if src.exists():
-            shutil.copy(src, GH / rel)
+            _cp(src, GH / rel)
 
 
 def git_push(note: str):
@@ -259,10 +267,8 @@ def git_push(note: str):
         raise SystemExit(f'git pull --rebase failed: {r.stderr or r.stdout}')
     files = [
         'data.enc.json', 'data-asst.enc.json',
-        'src/personal_meetings.json', 'src/personal_meetings_sync.py',
-        'src/meetings_exclude.json', 'src/build_data.py', 'src/cu_due_sync.py',
-        'index.html', 'helper.html', 'variant-a.html', 'src/variant-a.html',
-        'CHANGELOG.md', 'docs/CHANGELOG.md',
+        'src/personal_meetings.json', 'src/meetings_exclude.json',
+        'CHANGELOG.md', 'docs/CHANGELOG.md',  # t6285u: скрипты/build_data.py/html не автокоммитим
     ]
     subprocess.run(['git', 'add'] + [f for f in files if (GH / f).exists()], cwd=GH, check=True)
     if subprocess.run(['git', 'diff', '--cached', '--quiet'], cwd=GH).returncode == 0:

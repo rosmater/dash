@@ -7,7 +7,7 @@ morning/night bundles after clickup_filter_tasks — not a new frequent routine.
 USAGE (agent / routine):
   1) clickup_filter_tasks assignees=[me], due_date_from=<today Bogotá YYYY-MM-DD>,
      due_date_to=<today+2d>, write_to_file=true  (paginate if has_more)
-  2) python3 /workspace/dashboard-mockup/src/cu_due_sync.py <file1> [file2…]
+  2) python3 /workspace/dash-gh/src/cu_due_sync.py <file1> [file2…]
      Exit 10 = timed (in window) + cu_dated dues unchanged → stop (no build/push).
      Exit 0  = snapshot slice and/or cu_dated updated, surgical enc patch pushed.
      Exit ≠0/10 = error.
@@ -30,7 +30,7 @@ Also (same packs) personal meetings — ONE filter then sync (t5952u: Role=🚶G
   clickup_filter_tasks assignees=[me] include_closed=false due_date_from=<today Bogotá>
     custom_fields=[{field_id:1469c8d4-a3b4-4925-958a-7f442d9e002f,operator:ANY,value:["95771463-42ea-45fc-8b87-ad4b48108cbf"]}] write_to_file=true
     # Role option «🚶GO» — statuses=[go] returns 0 (not a list status)
-  python3 /workspace/dashboard-mockup/src/personal_meetings_sync.py --go <go.json>
+  python3 /workspace/dash-gh/src/personal_meetings_sync.py --go <go.json>
 """
 from __future__ import annotations
 
@@ -43,8 +43,16 @@ from cryptography.hazmat.primitives.ciphers.aead import AESGCM
 from cryptography.hazmat.primitives.kdf.pbkdf2 import PBKDF2HMAC
 
 BOG = datetime.timezone(datetime.timedelta(hours=-5))
-MOCK = Path('/workspace/dashboard-mockup')
+MOCK = Path(__file__).resolve().parents[1]  # t6285u: был /workspace/dashboard-mockup (устарел с 12.11, копировал старый build_data.py поверх dash-gh)
 GH = Path('/workspace/dash-gh')
+
+
+def _cp(a, b):
+    # t6285u: MOCK == GH → копировать в себя нельзя (SameFileError); скрипты/build_data.py не копируем вообще
+    a, b = Path(a), Path(b)
+    if a.resolve() == b.resolve() or a.suffix == '.py':
+        return
+    shutil.copy(a, b)
 CU_DATED = MOCK / 'src' / 'cu_dated.json'
 VAULT_MAIN = Path('/home/box/contacts/knowledge/secrets/vault/dashboard-password.md')
 VAULT_ASST = Path('/home/box/contacts/knowledge/secrets/vault/dashboard-password-assistant.md')
@@ -195,7 +203,7 @@ def apply_cu_dated(tasks):
         os.replace(tmp, CU_DATED)
         gh = GH / 'src' / 'cu_dated.json'
         if gh.exists():
-            shutil.copy(CU_DATED, gh)
+            _cp(CU_DATED, gh)
     return n
 
 
@@ -321,11 +329,11 @@ def surgical_patch(events, cu_at, gcal_at, by_dir):
         encrypt(data, meta, key, enc_path)
         print('patched', enc_path.name)
     for f in ['data.enc.json', 'data-asst.enc.json']:
-        shutil.copy(MOCK / f, GH / f)
+        _cp(MOCK / f, GH / f)
     if (GH / 'src' / 'cu_dated.json').exists():
-        shutil.copy(CU_DATED, GH / 'src' / 'cu_dated.json')
-    shutil.copy(MOCK / 'src' / 'build_data.py', GH / 'src' / 'build_data.py')
-    shutil.copy(MOCK / 'src' / 'cu_due_sync.py', GH / 'src' / 'cu_due_sync.py')
+        _cp(CU_DATED, GH / 'src' / 'cu_dated.json')
+    _cp(MOCK / 'src' / 'build_data.py', GH / 'src' / 'build_data.py')
+    _cp(MOCK / 'src' / 'cu_due_sync.py', GH / 'src' / 'cu_due_sync.py')
 
 
 def git_push(note: str):
@@ -346,7 +354,7 @@ def git_push(note: str):
                 p.write_text(entry + '\n' + p.read_text())
     files = [
         'data.enc.json', 'data-asst.enc.json', 'src/cu_dated.json',
-        'src/build_data.py', 'src/cu_due_sync.py', 'CHANGELOG.md', 'docs/CHANGELOG.md',
+        'CHANGELOG.md', 'docs/CHANGELOG.md',  # t6285u: скрипты/build_data.py не автокоммитим (чужие незакоммиченные правки)
     ]
     subprocess.run(['git', 'add'] + [f for f in files if (GH / f).exists()], cwd=GH, check=True)
     if subprocess.run(['git', 'diff', '--cached', '--quiet'], cwd=GH).returncode == 0:

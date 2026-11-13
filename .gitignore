@@ -14,3 +14,11 @@ sync/*.csv
 
 # t6246u: снимок баланса WW копируется на сборке из /home/box/contacts/state/, в git не кладём
 src/wanderwallet_balance.json
+
+# t6285u: рантайм-состояние relay/синков — локальное, не коммитим (висело modified и мешало git pull --rebase)
+sync/relay.log
+sync/relay_state.json
+sync/.queue_guard_last
+sync/queue_closed.json
+sync/.lock
+sync/inbox/
