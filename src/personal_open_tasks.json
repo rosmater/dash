@@ -1,5 +1,5 @@
 {
-  "_doc": "t6270u: открытые задачи ClickUp-пространства Personal (90144414983) для доски вкладки Личное (Сегодня у меня / Приоритеты: тег «🎯 фокус» / Рутина), как of_open_tasks.json. main/complete исключены. + 86ba3c1x4 Парагвай (пространство Недвижимость) с тегом «🎯 фокус» по слову Rost t6270u. 17 пустых приоритетов → normal (t6235u). Снимок через MCP filter_tasks; обновлять тем же способом.",
+  "_doc": "t6270u: открытые задачи ClickUp-пространства Personal (90144414983) для доски вкладки Личное (Сегодня у меня / Приоритеты: тег «🎯 фокус» / Рутина), как of_open_tasks.json. main/complete исключены. + 86ba3c1x4 Парагвай (пространство Недвижимость) с тегом «🎯 фокус» по слову Rost t6270u. 17 пустых приоритетов → normal (t6235u). Снимок через MCP filter_tasks; обновлять тем же способом. t6286u: 86bcgc3ze (USDT для Novax) перенесена в ClickUp в OF / General Tasks OF (под PARA EMPRESA) — убрана отсюда.",
   "fetched_at": "2026-11-13T17:55:40-05:00",
   "src": "ClickUp filter_tasks space 90144414983 include_closed=false (3 pages, 277 incl. main) + 86ba3c1x4",
   "tasks": [
@@ -279,22 +279,6 @@
       "list": "Personal",
       "url": "https://rosmater.github.io/cu/?t=86bcm9u4k",
       "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86bcgc3ze",
-      "name": "USDT для Novax — переслать выписку для подтверждения адреса",
-      "status": "to do",
-      "priority": "urgent",
-      "due": "2026-11-13",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86bcgc3ze",
-      "tags": [
-        "🎯 фокус"
-      ],
       "freq": null
     },
     {

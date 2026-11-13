@@ -1,5 +1,5 @@
 {
-  "_doc": "t6215u/t6216u: открытые рабочие задачи пространства OF для доски вкладки ОФ (не of_cu_tasks.json). Снимок Секретаря. complete/main/models/ДР исключены.",
+  "_doc": "t6215u/t6216u: открытые рабочие задачи пространства OF для доски вкладки ОФ (не of_cu_tasks.json). Снимок Секретаря. complete/main/models/ДР исключены. t6286u: + 86bcgc3ze (перенесена из Personal под PARA EMPRESA 13.11 18:4x).",
   "fetched_at": "2026-11-13T17:56:25-05:00",
   "src": "ClickUp filter_tasks space 90144306285, include_closed=false, statuses to do/for check (2 pages); Frecuencia periódica отдельным filter; hang_since с прошлого снимка",
   "tasks": [
@@ -1844,6 +1844,24 @@
         "🎯 фокус"
       ],
       "freq": null
+    },
+    {
+      "id": "86bcgc3ze",
+      "name": "USDT для Novax — переслать выписку для подтверждения адреса",
+      "status": "to do",
+      "priority": "urgent",
+      "due": "2026-11-13",
+      "hang_since": null,
+      "assignees": [
+        "Rost"
+      ],
+      "list": "General Tasks OF",
+      "url": "https://rosmater.github.io/cu/?t=86bcgc3ze",
+      "tags": [
+        "🎯 фокус"
+      ],
+      "freq": "única",
+      "parent": "PARA EMPRESA"
     }
   ]
 }

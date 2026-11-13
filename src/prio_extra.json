@@ -1,23 +1,5 @@
 {
-  "_doc": "t6234u: задачи с тегом «🎯 фокус» вне пространства OF. of_open_tasks.json их не забирает (только space OF). build_data._of_board подмешивает этот список в «Приоритеты».",
+  "_doc": "t6234u: задачи с тегом «🎯 фокус» вне пространства OF. of_open_tasks.json их не забирает (только space OF). build_data._of_board подмешивает этот список в «Приоритеты». t6286u: 86bcgc3ze перенесена в пространство OF → теперь в of_open_tasks.json, отсюда убрана (дубль в Личном).",
   "updated_at": "2026-11-12T22:35:00-05:00",
-  "tasks": [
-    {
-      "id": "86bcgc3ze",
-      "name": "USDT для Novax — переслать выписку для подтверждения адреса",
-      "status": "to do",
-      "priority": "urgent",
-      "due": "2026-11-13",
-      "hang_since": null,
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86bcgc3ze",
-      "tags": [
-        "🎯 фокус"
-      ],
-      "freq": "única"
-    }
-  ]
+  "tasks": []
 }
