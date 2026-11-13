@@ -13,7 +13,8 @@ INB, DONE = f'{R}/sync/inbox', f'{R}/sync/done'
 CSV='/home/box/contacts/chats.csv'; IGN=f'{R}/src/ignored_chats.json'
 CH={'telegram':'telegram','tg':'telegram','whatsapp esp':'whatsapp','whatsapp ukr':'whatsapp','whatsapp':'whatsapp','viber':'viber','instagram':'instagram'}
 files=sorted(glob.glob(f'{INB}/*.json'))
-if not files: print('inbox empty'); sys.exit(0)
+SELF_TEST='--self-test-qc' in sys.argv
+if not files and not SELF_TEST: print('inbox empty'); sys.exit(0)
 today=datetime.date.today().isoformat()
 rows=list(csv.DictReader(open(CSV))); fields=list(rows[0].keys()) if rows else None
 ign=json.load(open(IGN)); byid={c['id']:c for c in ign.get('chats',[])}
@@ -80,6 +81,10 @@ def enqueue_quick_cmd(s):
         parts=str(s.get('key')).split('|')
         cmd=parts[1] if len(parts)>1 else ''
     if not cmd: return False
+    test=bool(s.get('test') or s.get('dry_run') or str(s.get('flag') or '').upper()=='TEST')
+    if test:
+        print('quick_cmd TEST dry-run, not queued', cmd)
+        return False
     now=_bog_now()
     title=s.get('title') or cmd
     rec={'id':cmd,'action':'quick_cmd','kind':'quick_cmd','title':title,'bot':s.get('bot') or 'Секретарь','dir':s.get('dir') or 'personal','tapped_at':s.get('at') or now.isoformat(timespec='seconds')}
@@ -125,6 +130,23 @@ def enqueue_quick_cmd(s):
     except Exception as e:
         print('quick_cmd webhook ERR', type(e).__name__)
     return True
+
+if SELF_TEST:
+    def _snap(path):
+        return open(path,'rb').read() if os.path.exists(path) else None
+    paths=[QC_JSON, QC_MD, ACT]
+    before={p:_snap(p) for p in paths}
+    wh='/tmp/dash-quick-cmd-webhook.out'
+    wh_m=os.path.getmtime(wh) if os.path.exists(wh) else None
+    queued=enqueue_quick_cmd({'action':'quick_cmd','cmd':'order_salmon_shrimp','title':'TEST do not order','test':True,'flag':'TEST','at':_bog_now().isoformat(timespec='seconds')})
+    after={p:_snap(p) for p in paths}
+    changed=[p for p in paths if before[p]!=after[p]]
+    wh_new=os.path.exists(wh) and (wh_m is None or os.path.getmtime(wh)!=wh_m)
+    if queued or changed or wh_new:
+        print('SELF-TEST FAIL', 'returned', queued, 'changed', changed, 'webhook', wh_new)
+        sys.exit(1)
+    print('SELF-TEST OK: TEST flag did not queue or webhook')
+    sys.exit(0)
 
 ov=json.load(open(OVF)) if os.path.exists(OVF) else {'tasks':{}}
 act=json.load(open(ACT)) if os.path.exists(ACT) else {'note':'Действия с даша для ClickUp. Закрывает рутина COMMS/скрипт через ClickUp API (cu_close → status complete), затем переносит запись в done[].','pending':[],'done':[]}

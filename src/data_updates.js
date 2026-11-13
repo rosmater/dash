@@ -128,7 +128,7 @@ const DataUpd = (() => {
     if (!items.length) return '';
     const n = items.length;
     const rows = items.map(b =>
-      `<div class="du-ln" data-du-go="${esc(b.id)}" role="link" tabindex="0">${esc(b.title || b.id)}</div>`
+      `<div class="du-ln alert-ln" data-du-go="${esc(b.id)}" role="link" tabindex="0" title="${esc(b.title || b.id)}">${esc(b.title || b.id)}</div>`
     ).join('');
     return `<div class="du-lines du-attn"><details class="attnd"${open ? ' open' : ''}><summary style="cursor:pointer"><h4 style="display:inline">🟡 Есть новые данные · ${n}</h4> <span class="note">▾</span></summary>${rows}</details></div>`;
   }
@@ -156,6 +156,7 @@ const DataUpd = (() => {
     const ovsub = document.getElementById('ovsub');
     const head = main.querySelector('.tab-head');
     if (attn) attn.insertAdjacentElement('afterend', node);
+    try { if (typeof alertFit === 'function') alertFit(node); } catch (e) {}
     else if (ovsub) ovsub.insertAdjacentElement('afterend', node);
     else if (head) head.insertAdjacentElement('afterend', node);
     else main.insertAdjacentElement('afterbegin', node);
