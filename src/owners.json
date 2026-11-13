@@ -138,6 +138,20 @@
       ]
     },
     {
+      "dir": "peptides",
+      "owner": "Секретарь (COMMS)",
+      "files": [
+        "src/peptides_open_tasks.json"
+      ],
+      "html_markers": [
+        "peptides_board"
+      ],
+      "data_markers": [
+        "peptides_board"
+      ],
+      "note": "t6287u: доска задач вкладки Пептиды (Сегодня у меня / Приоритеты «🎯 фокус» / Рутина). Остальные файлы dir=peptides — у бота Пептид; этот снимок не трогать."
+    },
+    {
       "dir": "defense",
       "owner": "Оборонные системы",
       "files": [

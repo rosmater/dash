@@ -967,6 +967,9 @@ def _tbk_inject_fin(board, fin_block):
 TBK_BOARD = _tbk_inject_fin(_dir_board('tbk_open_tasks.json'), TBKB.get('fin') if isinstance(TBKB, dict) else None)
 # t6270u: доска вкладки Личное — как ОФ (Сегодня у меня / Приоритеты «🎯 фокус» / Рутина); снимок src/personal_open_tasks.json (CU Personal + 86ba3c1x4 Парагвай)
 PERSONAL_BOARD = _dir_board('personal_open_tasks.json')
+# t6287u: доска вкладки Пептиды — как ОФ/Личное; снимок src/peptides_open_tasks.json.
+# Отдельного ClickUp-пространства Пептиды нет: задачи в OF (parent Peptidos 86bcn2ew9) и Tabakevich (Peso Saludable / пептид).
+PEPTIDES_BOARD = _dir_board('peptides_open_tasks.json')
 
 # t6272u: «Встречи» на Личном — две колонки «Личное» | «Дейтинг», 14 дней. CU (src/personal_meetings_split.json: Personal, Role GO/CALL) + gcal_dash.json (только встречи с людьми)
 _PM_DATING_RE = re.compile(r'девушк|свидан|дейт|dating|tinder|тиндер|\bdate\b|алекс|alexa|карен|karen|jessica|джессик|valentina|валентин|carolina|каролин|manuela|мануэл|faby|фаби|marielis|alisson|tatiana|татьян|marcia|violetta', re.I)
@@ -1051,7 +1054,8 @@ PERSONAL_BOARD['calls'] = PERSONAL_CALLS
 # prio_extra / чужие подмешанные задачи с хозяином на другой вкладке из «Приоритетов» убираются.
 def _prio_owner_map():
     own = {}
-    for fn, tab, only_list in (('of_open_tasks.json', 'of', None), ('tbk_open_tasks.json', 'tabakevich', None), ('personal_open_tasks.json', 'personal', 'Personal')):
+    # t6287u: снимок Пептидов первый — эти id (лежат в пространствах OF/TBK) принадлежат вкладке Пептиды, не ОФ/Табакевич
+    for fn, tab, only_list in (('peptides_open_tasks.json', 'peptides', None), ('of_open_tasks.json', 'of', None), ('tbk_open_tasks.json', 'tabakevich', None), ('personal_open_tasks.json', 'personal', 'Personal')):
         try:
             for t in (json.load(open(os.path.join(_HERE, fn))).get('tasks') or []):
                 if t.get('id') and (only_list is None or t.get('list') == only_list):
@@ -1060,7 +1064,7 @@ def _prio_owner_map():
             pass
     return own
 _PRIO_OWN = _prio_owner_map()
-for _tab, _B in (('of', OF_BOARD), ('tabakevich', TBK_BOARD), ('personal', PERSONAL_BOARD)):
+for _tab, _B in (('of', OF_BOARD), ('tabakevich', TBK_BOARD), ('personal', PERSONAL_BOARD), ('peptides', PEPTIDES_BOARD)):
     for _k in ('prio_mine', 'prio_staff'):
         _keep = []
         for _t in _B.get(_k) or []:
@@ -1070,6 +1074,31 @@ for _tab, _B in (('of', OF_BOARD), ('tabakevich', TBK_BOARD), ('personal', PERSO
                 continue
             _keep.append(_t)
         _B[_k] = _keep
+# t6287u: id из снимка Пептидов не дублировать на досках ОФ/Табакевич/Личное (сегодня / приоритеты / рутина)
+def _board_drop_ids(board, ids):
+    if not board or not ids:
+        return
+    board['today'] = [t for t in (board.get('today') or []) if t.get('id') not in ids]
+    for _k in ('prio_mine', 'prio_staff'):
+        board[_k] = [t for t in (board.get(_k) or []) if t.get('id') not in ids]
+    _g2 = []
+    for g in board.get('routine_groups') or []:
+        items = [t for t in (g.get('tasks') or []) if t.get('id') not in ids]
+        if items:
+            _g2.append(dict(g, tasks=items, n=len(items), overdue=sum(1 for x in items if x.get('due') and x['due'] < _today_bo)))
+    board['routine_groups'] = _g2
+    board['routine_n'] = sum(g['n'] for g in _g2)
+    board['routine_overdue'] = sum(g['overdue'] for g in _g2)
+_PEP_IDS = set()
+try:
+    for _t in (json.load(open(os.path.join(_HERE, 'peptides_open_tasks.json'))).get('tasks') or []):
+        if _t.get('id'):
+            _PEP_IDS.add(_t['id'])
+except Exception:
+    pass
+if _PEP_IDS:
+    for _B in (OF_BOARD, TBK_BOARD, PERSONAL_BOARD):
+        _board_drop_ids(_B, _PEP_IDS)
 
 # Rost t5952u: «📅 Назначенные встречи» вверху Личного (src/personal_meetings.json; только Role=🚶GO, любой список; не CU Personal)
 _pmf = os.path.join(_HERE, 'personal_meetings.json')
@@ -1316,6 +1345,7 @@ data = dict(
            dict(label='Продажи китов за месяц', unit='шт', target=40, example=True, period_type='month', by_period={k: v['metrics']['Продажи, шт.'] for k, v in pep_periods.items() if k[0] == 'M'}, src='цель — пример; факт — GSheet PEPTIDOS VENTAS'),
          ],
          tasks=tasks(['86bb779rw']),  # Rost 25.10: на Пептидах только задачи Rost (assignee 60710247 / «Я:»); 86bc8rxd8 (Сара) убрана
+         peptides_board=PEPTIDES_BOARD,  # t6287u: доска как на ОФ/Личном
          gaps=[],  # Rost 25.10: ЗП Сары внесут позже — не attn; не-киты COGS 100k; TG Target gap убран
          ),
     dict(id='of', stage='money', name='ОФ', subtitle='OnlyFans · агентство моделей', currency='USD', color='#a78bfa', icon='🎬',
