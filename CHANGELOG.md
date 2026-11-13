@@ -1,3 +1,9 @@
+## 2026-11-12 t6235u/t6236u Пустой приоритет ClickUp → ordinary (normal/3)
+
+- HARD-правило: у открытой задачи без приоритета сразу ставить ordinary, без вопроса. Файл: `/home/box/contacts/knowledge/rules/clickup-empty-priority-normal.md`.
+- Сейчас в ClickUp выставлен `normal` у 8 открытых задач из снимков даша (6 в `of_open_tasks.json`, 3 в `cu_dated.json`, пересечение — 86bd0y140). `prio_extra.json` был уже заполнен.
+- Автоисправление до записи снимка: `src/cu_fix_empty_priority.py`. Его зовут `src/cu_due_sync.py` и утренний `/workspace/cu-refresh-YYYYMMDD-0900/refresh.py`. В логе — «set normal on N open tasks». Токен не печатает.
+
 ## 2026-11-12 t6242u Коучинг Херера: секции карточки сразу как таблица 3 недель
 
 - Убрана отдельная мини-таблица «сравнение 3 недель» и дублирующая одностолбцовая аудитория/доходы под ней.

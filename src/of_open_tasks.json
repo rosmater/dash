@@ -534,7 +534,7 @@
       "id": "86bd0y140",
       "name": "Проверить: пришли ли Саре деньги на OKX + пришли ли $10 на кошелёк",
       "status": "to do",
-      "priority": null,
+      "priority": "normal",
       "due": "2026-11-12",
       "hang_since": "2026-11-09",
       "assignees": [
@@ -818,7 +818,7 @@
       "id": "86bcy2451",
       "name": "БОТ: OF источники трафика — отчёт 04.11",
       "status": "to do",
-      "priority": null,
+      "priority": "normal",
       "due": "2026-11-06",
       "hang_since": "2026-11-05",
       "assignees": [],
@@ -1061,7 +1061,7 @@
       "id": "86bcje0a9",
       "name": "[Camila ходила 21.10 — ждём новости] Flames m02 — Camila, 24",
       "status": "to do",
-      "priority": null,
+      "priority": "normal",
       "due": null,
       "hang_since": "2026-10-14",
       "assignees": [
@@ -1136,7 +1136,7 @@
       "id": "86bcrcgrj",
       "name": "[ждем от Flames ответ по 2 этапу] Flames m19 — Valeria, 21",
       "status": "to do",
-      "priority": null,
+      "priority": "normal",
       "due": null,
       "hang_since": "2026-10-26",
       "assignees": [
@@ -1406,7 +1406,7 @@
       "id": "86bcpzbtt",
       "name": "[ждем от Flames ответ по 2 этапу] Flames m15 — Juliana, 27",
       "status": "to do",
-      "priority": null,
+      "priority": "normal",
       "due": null,
       "hang_since": "2026-10-22",
       "assignees": [
@@ -1766,7 +1766,7 @@
       "id": "86b7rart0",
       "name": "MDM обновить сертификат",
       "status": "to do",
-      "priority": null,
+      "priority": "normal",
       "due": "2026-11-23",
       "hang_since": "2026-01-01",
       "assignees": [

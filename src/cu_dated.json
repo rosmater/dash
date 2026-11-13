@@ -2254,7 +2254,7 @@
     "cat": "Личное",
     "lead": "manual",
     "bday": false,
-    "priority": null
+    "priority": "normal"
    },
    {
     "id": "86b6v8twt",
@@ -2398,7 +2398,7 @@
     "cat": "Личное",
     "lead": "manual",
     "bday": false,
-    "priority": null
+    "priority": "normal"
    }
   ],
   "realestate": [
@@ -3519,7 +3519,7 @@
     "cat": "ОФ",
     "lead": "manual",
     "bday": false,
-    "priority": null
+    "priority": "normal"
    },
    {
     "id": "86bamwnd3",

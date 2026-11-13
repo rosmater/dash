@@ -100,6 +100,14 @@ def parse_filter_tasks(files):
     raw = []
     for f in files:
         take_tasks(load_blob(Path(f).read_text()), raw)
+    # t6235u/t6236u: empty priority on open tasks → normal (3) before cu_dated snapshot
+    try:
+        import cu_fix_empty_priority as _cufix
+        _cufix.fix_and_mutate(raw)
+    except SystemExit as e:
+        if e.code == 2:
+            raise
+        raise
     seen, tasks = set(), []
     for t in raw:
         tid, due = t.get('id'), t.get('due_date')
