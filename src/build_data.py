@@ -971,7 +971,7 @@ PERSONAL_BOARD = _dir_board('personal_open_tasks.json')
 # t6272u: «Встречи» на Личном — две колонки «Личное» | «Дейтинг», 14 дней. CU (src/personal_meetings_split.json: Personal, Role GO/CALL) + gcal_dash.json (только встречи с людьми)
 _PM_DATING_RE = re.compile(r'девушк|свидан|дейт|dating|tinder|тиндер|\bdate\b|алекс|alexa|карен|karen|jessica|джессик|valentina|валентин|carolina|каролин|manuela|мануэл|faby|фаби|marielis|alisson|tatiana|татьян|marcia|violetta', re.I)
 _PM_GCAL_PERSONAL_RE = re.compile(r'друз|тусовк|встреч|день рожд|\bдр\b|врач|доктор|ортодонт|стоматол|клиник', re.I)
-_PM_SKIP_RE = re.compile(r'^тренировка\b|без девушки|^свободно', re.I)
+_PM_SKIP_RE = re.compile(r'без девушки|^свободно', re.I)  # t6282u: в «Встречи» из CU только Role GO (тренировки GO тоже)
 def _pers_meet_split():
     now = datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=-5)))
     d0 = now.strftime('%Y-%m-%d'); d1 = (now + datetime.timedelta(days=13)).strftime('%Y-%m-%d')
@@ -1019,6 +1019,33 @@ def _pers_meet_split():
     return dict(personal=[x for x in merged if not x['dating']], dating=[x for x in merged if x['dating']],
                 days=14, cu_fetched_at=raw.get('fetched_at') or '', gcal_fetched_at=g.get('fetched_at') or '')
 PERSONAL_MEET_SPLIT = _pers_meet_split()
+# t6282u: «Созвоны» — CU Personal Role 📞CALL; убрать их из «Сегодня у меня» и «Рутины» доски Личного
+def _pers_calls():
+    _f = os.path.join(_HERE, 'personal_meetings_split.json')
+    raw = json.load(open(_f)) if os.path.exists(_f) else {}
+    cs = [dict(c) for c in (raw.get('calls') or []) if isinstance(c, dict)]
+    for c in cs:
+        asg = [a for a in (c.get('assignees') or []) if a]
+        c['who'] = ', '.join(asg) if asg else None
+    def _k(x):
+        d = x.get('due')
+        if not d: return (3, '9999', '')
+        return ((0 if d < _today_bo else 1 if d == _today_bo else 2), d, x.get('due_t') or '')
+    cs.sort(key=lambda x: _k(x) + (x.get('name') or '',))
+    return cs
+PERSONAL_CALLS = _pers_calls()
+_pc_ids = {c.get('id') for c in PERSONAL_CALLS}
+if _pc_ids:
+    PERSONAL_BOARD['today'] = [t for t in PERSONAL_BOARD.get('today') or [] if t.get('id') not in _pc_ids]
+    _g2 = []
+    for g in PERSONAL_BOARD.get('routine_groups') or []:
+        items = [t for t in (g.get('tasks') or []) if t.get('id') not in _pc_ids]
+        if items:
+            _g2.append(dict(g, tasks=items, n=len(items), overdue=sum(1 for x in items if x.get('due') and x['due'] < _today_bo)))
+    PERSONAL_BOARD['routine_groups'] = _g2
+    PERSONAL_BOARD['routine_n'] = sum(g['n'] for g in _g2)
+    PERSONAL_BOARD['routine_overdue'] = sum(g['overdue'] for g in _g2)
+PERSONAL_BOARD['calls'] = PERSONAL_CALLS
 
 # Rost t5952u: «📅 Назначенные встречи» вверху Личного (src/personal_meetings.json; только Role=🚶GO, любой список; не CU Personal)
 _pmf = os.path.join(_HERE, 'personal_meetings.json')
