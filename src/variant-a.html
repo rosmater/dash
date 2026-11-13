@@ -303,6 +303,20 @@ details:not(.bqd):not(.ilg)>summary::before{content:"▸"!important;color:#94a3b
 details:not(.bqd):not(.ilg)[open]>summary::before{content:"▾"!important;color:#94a3b8!important;font-size:11px!important}
 .dacc>summary::after,.dacc[open]>summary::after{content:none!important;display:none!important}
 .attnd>summary>.note{display:none}
+
+/* Rost t6245u: «⚡ Быстрые команды» на вкладке Личное — серый блок как «Требует внимания» */
+.qc-attn{background:#f3f4f6;border:1px solid #d1d5db;border-left:4px solid #9ca3af;border-radius:10px;padding:5px 10px;margin:0 0 7px;box-shadow:var(--shadow)}
+.qc-attn h4{margin:0;line-height:1.25;font-size:13px;color:#4b5563;display:inline;font-weight:700}
+.qc-attn .attnd>summary{display:flex;align-items:center;gap:6px;margin:0;padding:1px 0;color:inherit;font-size:inherit;line-height:1.25;cursor:pointer;list-style:none}
+.qc-attn .attnd>summary::-webkit-details-marker{display:none}
+.qc-attn .attnd[open]>summary{margin-bottom:6px}
+.qc-item{padding:6px 2px 4px;border-top:1px solid #e5e7eb}
+.qc-item:first-of-type{border-top:0}
+.qc-btn{display:block;width:100%;text-align:left;border:0;background:none;padding:2px 0;margin:0;font:600 13.5px Inter,system-ui;color:var(--txt);cursor:pointer}
+.qc-btn:hover{color:#111827}
+.qc-item .note{margin:2px 0 0;font-size:11.5px;color:#6b7280;line-height:1.35}
+.qc-sent{margin-top:3px;font-size:11.5px;font-weight:600;color:#127a3e}
+.qc-item.sent .qc-btn{opacity:.75}
 /* Rost t6229u / t6230u: подписки коучинга — свёрнутая серая строка внизу вкладки */
 .coach-subs{margin:16px 0 0;padding:8px 0 0;border-top:1px solid var(--line,#eef0f5);color:#64748b;font-size:12.5px}
 .coach-subs>summary{cursor:pointer;color:#64748b;font-weight:500;font-size:12.5px;display:flex;align-items:center;flex-wrap:wrap;gap:6px}
@@ -409,8 +423,15 @@ function thBtns(t,opt){opt=opt||{};const id=thId(t);if(!id)return '';const name=
  const ctx=thChatTxt(botObj,t,id,url),agent=botObj.link||('grokbot://app/v1/agent?id='+(botObj.id||'d3a12cc9-cf8a-41e5-b34a-76d4ab9eb9fd'));
  const chat=opt.noChat?'':`<a class="th-ico" href="${esc(maPL(botObj,ctx))}" data-b="${esc(bot)}" data-t="${esc(ctx)}" data-l="${esc(agent)}" onclick="event.stopPropagation();return cuOpen(this)" title="Открыть чат «${esc(bot)}»">💬</a>`;
  return `<span class="thb" onclick="event.stopPropagation()">${chat}<button type="button" class="th-ico" ${D} data-act="done" onclick="return thAct(this)" title="Решено">✓</button></span>`}
+function qcSentAt(cmd){try{return localStorage.getItem('dash_qc_sent_'+cmd)||''}catch(e){return ''}}
+function qcIsSent(cmd){const at=qcSentAt(cmd);if(!at)return false;const t=Date.parse(at);return isFinite(t)&&(Date.now()-t)<4*3600e3}
 function thAct(b){const id=b.dataset.id,act=b.dataset.act,name=b.dataset.n||'',url=b.dataset.u||'',dir=b.dataset.dir||'',bot=b.dataset.bot||'',upd=b.dataset.upd||'',due=b.dataset.due||'',fc=b.dataset.fc==='1';if(!id)return false;
  const href=url||(thIsCu(id,url)?('https://app.clickup.com/t/'+id):'');
+ if(act==='quick_cmd'){const cmd=b.dataset.cmd||id;tapPush({key:'quick_cmd|'+cmd+'|'+Date.now(),channel:'QuickCmd',action:'quick_cmd',cmd:cmd,title:name||cmd,dir:dir||'personal',bot:bot||'Секретарь',sphere:'Личное'});
+  try{localStorage.setItem('dash_qc_sent_'+cmd,new Date().toISOString())}catch(e){}
+  const row=b.closest('.qc-item');if(row){row.classList.add('sent');const s=row.querySelector('.qc-sent');if(s){s.hidden=false;s.textContent='Запрос отправлен Секретарю'}}
+  try{maToast('Запрос отправлен Секретарю')}catch(e){}
+  return false}
  if(act==='done'){if(thIsCu(id,href)) tapPush({key:'cuclose|'+id+'|'+(due||''),channel:'ClickUp',action:'cu_close',kind:fc?'for_check':'task',title:name,url:href,cu:id,due,dir,sphere:'done'});
   try{maToast(thIsCu(id,href)?'В очередь: закрыть в ClickUp. Если зря — скажи боту отменить, если очередь уже ушла.':'Это не задача ClickUp, закрыть в CU нечего.')}catch(e){}}
  return false}
@@ -430,9 +451,10 @@ function isFocus(t){return (t&&t.tags||[]).some(x=>String(typeof x==='object'&&x
 function prioDueSort(a,b){const today=dueTodayStr(),rank=t=>{const d=t&&t.due;if(!d)return [3,'9999'];if(d<today)return [0,d];if(d===today)return [1,d];return [2,d]};const A=rank(a),B=rank(b);return A[0]-B[0]||String(A[1]).localeCompare(String(B[1]))||String(a.name||'').localeCompare(String(b.name||''))}
 function cuTaskId(t){if(!t)return '';if(t.id)return String(t.id);const u=String(t.url||'');const m=u.match(/\/(?:t|cu)\/(?:\d+\/)?([A-Za-z0-9]+)/i)||u.match(/[?&]t=([A-Za-z0-9]+)/);return m?m[1]:''}
 function normTaskName(s){return String(s||'').toLowerCase().normalize('NFKD').replace(/[\u0300-\u036f]/g,'').replace(/[«»"'""]/g,'').replace(/\s+/g,' ').trim()}
-function ofBoardDueTasks(d){if(!d||d.id!=='of')return [];const today=dueTodayStr(),B=d.of_board||{};return [].concat(B.today||[],B.prio_mine||[],B.prio_staff||[]).filter(t=>t&&!thHidden(t)&&!cuClosed(t)&&t.due&&String(t.due).slice(0,10)<=today)}
+function boardOf(d){return d&&d.id==='of'?d.of_board:(d&&d.id==='tabakevich'?d.tbk_board:null)}
+function ofBoardDueTasks(d){const B=boardOf(d);if(!B)return [];const today=dueTodayStr();return [].concat(B.today||[],B.prio_mine||[],B.prio_staff||[]).filter(t=>t&&!thHidden(t)&&!cuClosed(t)&&t.due&&String(t.due).slice(0,10)<=today)}
 function attnMatchesBoard(x,shown){const id=cuTaskId(x),url=String(x.url||''),name=normTaskName(x.text||x.name||'');return shown.some(t=>{const tid=cuTaskId(t),tu=String(t.url||'');if(id&&tid&&id===tid)return true;if(id&&tu&&tu.indexOf(id)>=0)return true;if(tid&&url&&url.indexOf(tid)>=0)return true;if(url&&tu&&cuAppUrl(url)===cuAppUrl(tu))return true;if(name&&normTaskName(t.name)===name)return true;return false})}
-function attnDedupOf(d,it){if(!d||d.id!=='of'||!it||!it.length)return it||[];const shown=ofBoardDueTasks(d);if(!shown.length)return it;return it.filter(x=>!attnMatchesBoard(x,shown))}
+function attnDedupOf(d,it){if(!d||!boardOf(d)||!it||!it.length)return it||[];const shown=ofBoardDueTasks(d);if(!shown.length)return it;return it.filter(x=>!attnMatchesBoard(x,shown))}
 function tasksHTML(ts){if(!ts||!ts.length)return '<div class="empty">Нет задач</div>';ts=cuRostFirst(ts).filter(t=>!thHidden(t)&&!cuClosed(t));if(!ts.length)return '<div class="empty">Нет задач</div>';/* Rost t5825u + t6080u/t6218u: одна строка, эллипсис, значки справа */return ts.map(t=>{const due=t.due?('срок '+t.due.slice(8,10)+'.'+t.due.slice(5,7)):'без срока';const over=t.due&&t.due<(typeof TODAY!=='undefined'?TODAY:'');const tip=[t.name,t.status,due,t.done?('выполнено '+t.done):'',t.parent?('↳ '+t.parent):'',(cuWhoNames(t)||[]).join(', ')].filter(Boolean).join(' · ');const dueChip=dueChipHTML(t);return `<div class="task trow">${priPill(t)}<span class="trow-title"><a href="${cuAppUrl(t.url)}" target="_blank" rel="noopener" title="${esc(tip)}">${esc(t.name)}</a></span>${cuWhoHTML(t,{silent:true})}${dueChip}${t.done?`<span class="st" style="color:#067647;border-color:#abefc6" title="${esc(tip)}">✓</span>`:''}${thBtns(t)}</div>`}).join('')}
 const prioRank={urgent:0,high:1,normal:2,low:3};
 function overviewTasksHTML(D){const all=[...D.directions.flatMap(d=>(d.tasks||[]).map(t=>({...t,name:d.icon+' '+t.name}))),...((D.overview&&D.overview.tasks)||[])].filter(t=>!thHidden(t)&&!cuClosed(t)).sort((a,b)=>(prioRank[a.priority]-prioRank[b.priority])||String(a.due).localeCompare(b.due)).slice(0,9);return tasksHTML(all)}/* Rost t5978u: один и тот же живой набор задач на Общем во всех периодах */
@@ -497,14 +519,14 @@ function factColsHTML(d,cur){const F=d.fact_1c;if(!F||!F.cols)return '';const $=
 function finChartGoals(d,cur,m){return `<div class="grid g2"><div class="card"><h3>Доходы и расходы · ${m==='week'?'по неделям':'по месяцам'} (${cur})</h3><div class="chartbox"><canvas id="main-ch"></canvas></div></div><div class="card goals-compact"><h3>Цели vs факт</h3>${goalsHTML(d)}</div></div><div style="height:14px"></div>`}
 function tbkFinLayout(d,s,cur,m){const co=Dash.breakdowns(d).find(b=>/^Компания TBK/.test(b.title||''));/* Rost t5982u/t5985u: график | Цели (компактно) → Компания TBK → Из чего сложилось (таблица на всю ширину) → Приоритеты */
  /* Rost t5987u: график | Цели → Из чего сложилось → Компания TBK → Недели → месяц → Приоритеты */
- return finChartGoals(d,cur,m)+factColsHTML(d,cur)+'<div style="height:14px"></div>'+(co?bdTableHTML(co)+'<div style="height:14px"></div>':'')+(m==='month'&&!d.monthly_only?`<div class="card"><h3>Недели → месяц (${cur})</h3>${rollupHTML(d,cur)}</div><div style="height:14px"></div>`:'')+`<div class="card"><h3>Приоритеты · задачи ClickUp</h3>${tasksHTML(d.tasks)}</div>`}
+ return finChartGoals(d,cur,m)+factColsHTML(d,cur)+'<div style="height:14px"></div>'+(co?bdTableHTML(co)+'<div style="height:14px"></div>':'')+(m==='month'&&!d.monthly_only?`<div class="card"><h3>Недели → месяц (${cur})</h3>${rollupHTML(d,cur)}</div><div style="height:14px"></div>`:'')}
 function reFinLayout(d,s,cur,m){/* Rost t5985u: график | Цели (компактно) → Из чего сложилось (Доход | Расход); Приоритеты — под «По месяцам 2026» */
  return finChartGoals(d,cur,m)+factColsHTML(d,cur)}
 function direction(d){if(window.DASH_HELPER&&d.id==='personal'){const h=attnHTML(d)+persBlocksHTML(d);$('#main').innerHTML=h;return;}/* Rost t6061u: у ассистентки в Личном только На решение + Документы */
  const cur=d.id==='realestate'?'EUR':Dash.curOf(d),s=Dash.summary(d,S.mode,Dash.pid(),cur),m=S.mode,ser=Dash.series(d,m,cur,{onlyData:true,last:10});/* Rost t6089u: цифры аренды в EUR, не конвертировать в $ */
  const kp=(l,v,sub,data,color,cls='')=>`<div class="card kpi" style="--glow:${color}"><div class="l">${l}</div><div class="v ${cls}">${v}</div><div class="s">${sub}</div><canvas class="sp" width="160" height="46" data-c="${color}" data-d='${JSON.stringify(data)}'></canvas></div>`;
  /* Rost t5976u/t5977u: ряд статус-плашек под табами («неделя/месяц не закрыт», «свёртка», «итог месяца из источника») убран на всех вкладках */
- let h=attnHTML(d)+scCallsHTML(d.scheduled_calls||(d.board&&d.board.scheduled_calls),d)+ofTodayHTML(d)+ofPriorityHTML(d)+scMeetingsHTML(d.scheduled_meetings,d)+ofBlocksHTML(d)+reBlocksHTML(d)+tbkBlocksHTML(d)+persBlocksHTML(d)+pepPlanHTML(d)+pepMonHTML(d,'ads')+pepDlgRepRow(d)+ledgerHTML(d)+pepLeadsStripHTML(d)+pepMonHTML(d,'repeat');/* Rost t6227u: «Требует внимания» + «Есть новые данные» сверху; задачи сразу под ними; потом показатели; Рутина внизу. Мониторы Пептидов под продажами */
+ let h=attnHTML(d)+persQuickCmdsHTML(d)+scCallsHTML(d.scheduled_calls||(d.board&&d.board.scheduled_calls),d)+ofTodayHTML(d)+ofPriorityHTML(d)+scMeetingsHTML(d.scheduled_meetings,d)+ofBlocksHTML(d)+reBlocksHTML(d)+tbkBlocksHTML(d)+persBlocksHTML(d)+pepPlanHTML(d)+pepMonHTML(d,'ads')+pepDlgRepRow(d)+ledgerHTML(d)+pepLeadsStripHTML(d)+pepMonHTML(d,'repeat');/* Rost t6227u: «Требует внимания» + «Есть новые данные» сверху; задачи сразу под ними; потом показатели; Рутина внизу. Мониторы Пептидов под продажами */
  if(!d.ledger)h+=`<div class="grid g4">${kp('Доход',fmt(s.income,cur),s.unknownInc?'есть продажи без суммы':'за период',ser.income,'#22d3a6')}${d.payout_col?(()=>{const p=payInfo(s.rec);return kp('Выплата',p?fmt(Dash.conv(p.usdt,'USD',cur),cur):'—',p?((p.label||'USDT моделям')+(p.unpaid?' · без USDT: '+p.unpaid:'')):'выплат с USDT нет',ser.expenses,'#ff5d7a')})():kp('Расходы',s.expensesKnown?fmt(s.expenses,cur):'—',s.expensesKnown?'учтённые':'нет данных о расходах',ser.expenses,'#ff5d7a')}
  ${d.payout_col?kp('Прибыль ±',profitNum(s.profit,cur,d.profit_tip),s.expensesKnown?'доход − выплата':'выплат с USDT нет',ser.profit,d.color,s.profit<0?'neg':''):kp('Прибыль',fmt(s.profit,cur),s.expensesKnown?'доход − расходы':'расходы не учтены',ser.profit,d.color,s.profit<0?'neg':'')}${kp('ROI',s.roi==null?'—':Dash.pct(s.roi),'прибыль / расходы',[],'#38bdf8',s.roi<0?'neg':'pos')}</div><div style="height:14px"></div>`;
  const mt=s.rec&&s.rec.metrics||{};
@@ -576,7 +598,7 @@ const atKey=(d,x)=>(d.id||'overview')+'|'+x.grp+'|'+x.text;
 function attn(d){const it0=attnRaw(d),O=atLS(),did=d.id||'overview',keys=new Set(it0.map(x=>atKey(d,x)));let ch=false;
  /* t4940: не удалять CU ✓ hides (.cu) — 📄 need=ok нет в attnRaw, иначе ✓ тост без скрытия (Мишель/Топасио) */
  for(const k in O){if(O[k].dir===did&&!keys.has(k)&&!O[k].cu){delete O[k];ch=true}else if(O[k].dir===did&&!O[k].ok&&chkAge(O[k].t)>CHK_TTL){O[k].ok=1;ch=true}}if(ch)atSave(O);
- /* Rost t6239u: на ОФ убрать из «Требует внимания» пункты, которые уже есть в «Сегодня у меня» / «Приоритеты» со сроком сегодня или просроченным */
+ /* Rost t6239u/t6244u: на ОФ и Табакевиче убрать из «Требует внимания» пункты, которые уже есть в «Сегодня у меня» / «Приоритеты» со сроком сегодня или просроченным */
  return attnDedupOf(d,it0.filter(x=>!O[atKey(d,x)]&&!thHidden(x)))}
 function atBot(d,x){const A=Dash.D&&Dash.D.directions.find(z=>z.kind==='bots'),B=(A&&A.bots)||[];let n=null;
  const m=/^🤖 (.+)$/.exec(x.grp||'');if(m)n=m[1];else if(d.id==='of'&&/ферм|farm/i.test(x.grp||''))n='Фермовод';else n=AT_OWN[d.id||'overview']||'Секретарь';
@@ -1014,12 +1036,10 @@ function tbkBlocksHTML(d){if(d.id!=='tabakevich'||!d.tbk_blocks)return '';const 
  const fold=(sum,body,k)=>body?`<details class="tbk-det" data-k="${esc(k||sum)}"><summary>${sum}</summary>${body}</details>`:'';
  const notes=(k,...xs)=>{const b=xs.filter(Boolean).join('');return fold('Пояснения',b,k||'notes');};
  let h='';
- /* 1–2) Фин-сводки (слева) + На решение (справа) в одном ряду — Rost t5962u */
- const Dc=B.decisions,F=B.fin;let fin='',dec='';
- if(F){fin=cardN(`${H('📑 '+esc(F.title),'отчёты')}
-  ${F.links.map(x=>`<div class="task"><span class="pill p-normal">${x.cu?(x.sheets&&x.sheets.length?'CU+GSheet':'CU'):'GSheet'}</span><div style="flex:1">${cul(x.url,x.label)}${(x.sheets||[]).map(g=>` · <a class="note" href="${esc(g.url)}" target="_blank" rel="noopener">📊 ${esc(g.label)} ↗</a>`).join('')}${x.status||x.due||x.note?`<div class="note">${[x.status?esc(x.status):'',x.due?'срок '+dd(x.due):'',x.note?esc(x.note):''].filter(Boolean).join(' · ')}</div>`:''}</div></div>`).join('')}`)}
- if(Dc)dec=decisionsBlockHTML(Dc,cardN);/* Rost t5990u/t6060u */
- if(fin||dec)h+=`<div class="tbk-row">${dec}${fin}</div>`;/* Rost t5981u: На решение слева, Фин-сводки справа */
+ /* t6244u: «На решение» заменено доской как на ОФ (Сегодня / Приоритеты / Рутина); фин-сводки сразу под «Приоритетами», на всю ширину */
+ const F=B.fin;
+ if(F)h+=card(`${H('📑 '+esc(F.title),'отчёты')}
+  ${F.links.map(x=>`<div class="task"><span class="pill p-normal">${x.cu?(x.sheets&&x.sheets.length?'CU+GSheet':'CU'):'GSheet'}</span><div style="flex:1">${cul(x.url,x.label)}${(x.sheets||[]).map(g=>` · <a class="note" href="${esc(g.url)}" target="_blank" rel="noopener">📊 ${esc(g.label)} ↗</a>`).join('')}${x.status||x.due||x.note?`<div class="note">${[x.status?esc(x.status):'',x.due?'срок '+dd(x.due):'',x.note?esc(x.note):''].filter(Boolean).join(' · ')}</div>`:''}</div></div>`).join('')}`,'tbk.fin');
  /* 3–6) Отдел ИМ: Интернет-магазин → Монитор менеджеров — одна рамка-группа */
  let im='';
  const E=B.eshop;if(E){const PGN={home:'Главная',category:'Категория',product:'Товар',sale:'Акции'};
@@ -1131,6 +1151,12 @@ const Dr=B.dropship;if(Dr){im+=card(`${H('📦 '+esc(Dr.title),'действую
   <div class="note" style="margin-top:6px">${[O.url?cul(O.url,'CU ↗'):'',O.next?esc(O.next):'',O.src?esc(O.src):''].filter(Boolean).join(' · ')}</div>`,'tbk.opt')}
  if(B.data_at)h+=`<div class="note" style="margin:-6px 0 14px">${esc(B.data_at)}</div>`;
  return h}
+
+/* Rost t6245u: серый блок «⚡ Быстрые команды» на вкладке Личное, как «Требует внимания» */
+function persQuickCmdsHTML(d){if(!d||d.id!=='personal'||window.DASH_HELPER)return '';
+ const cmds=[{id:'order_salmon_shrimp',title:'Заказать лосось с креветками и сразу оплатить',hint:'El Pulpo (Albeiro) · WanderWallet Bre-B ≤75k, без подтверждения Rost'}];
+ const items=cmds.map(c=>{const sent=qcIsSent(c.id);return `<div class="qc-item${sent?' sent':''}"><button type="button" class="qc-btn" data-id="${esc(c.id)}" data-cmd="${esc(c.id)}" data-act="quick_cmd" data-n="${esc(c.title)}" data-dir="personal" data-bot="Секретарь" onclick="return thAct(this)">${esc(c.title)}</button><div class="note">${esc(c.hint)}</div><div class="qc-sent"${sent?'':' hidden'}>Запрос отправлен Секретарю</div></div>`}).join('');
+ return `<div class="qc-attn"><details class="attnd"><summary style="cursor:pointer"><h4 style="display:inline">⚡ Быстрые команды</h4> <span class="note">▾</span></summary>${items}</details></div>`}
 /* Rost 25.10 ~23:55: блоки «Личное». hide_from_helper → в helper.html не показываем (плюс вырезаются из data-asst при шифровании) */
 function persAttn(d){const B=d.personal_blocks;if(!B)return [];const out=[];/* плановые поездки/НГ — не attn */
  ((B.decisions&&B.decisions.items)||[]).forEach(x=>{if(x.placeholder||!x.cu||DONE.test(String(x.status||'')))return;if(x.due&&x.due<TODAY)out.push({grp:'🧭 На решение',text:(x.slot?x.slot+' — ':'')+x.name,url:x.url,why:'просрочено',cls:''})});
@@ -1222,15 +1248,15 @@ function persBlocksHTML(d){if(d.id!=='personal'||!d.personal_blocks)return '';co
 function ofHangDays(t){const s=String(t&&t.hang_since||'').slice(0,10);if(!/^\d{4}-\d{2}-\d{2}$/.test(s))return null;const today=(typeof TODAY!=='undefined'?TODAY:null);if(!today)return null;const n=Math.round((Date.parse(today+'T12:00:00Z')-Date.parse(s+'T12:00:00Z'))/864e5);return isNaN(n)?null:Math.max(0,n)}
 function ofDueHangHTML(t){if(t&&t.due)return dueChipHTML(t);const n=ofHangDays(t);if(n==null)return '';const cls=n>14?'hang-red':n>7?'hang-yellow':'';return `<span class="st of-hang ${cls}">висит ${n} дн.</span>`}
 function ofBoardRow(t){if(!t||thHidden(t)||cuClosed(t))return '';const who=(cuWhoNames(t)||[]).join(', ');const tip=[t.name,t.status,t.due?('срок '+t.due): (ofHangDays(t)!=null?('висит '+ofHangDays(t)+' дн.'):''),who,t.parent?('↳ '+t.parent):''].filter(Boolean).join(' · ');const title=t.url?`<a href="${cuAppUrl(t.url)}" target="_blank" rel="noopener" title="${esc(tip)}">${esc(t.name)}</a>`:`<b title="${esc(tip)}">${esc(t.name)}</b>`;return `<div class="task trow">${priPill(t)}<span class="trow-title">${title}</span>${cuWhoHTML(t,{silent:true})}${ofDueHangHTML(t)}${thBtns(t)}</div>`}
-function ofTodayHTML(d){if(d.id!=='of')return '';const B=d.of_board||{},L=(B.today||[]).filter(t=>!thHidden(t)&&!cuClosed(t)&&!isFocus(t));if(!L.length)return '';const nOv=L.filter(t=>t.due&&t.due<(typeof TODAY!=='undefined'?TODAY:'')).length;return `<div class="card of-today" style="margin-bottom:14px"><h3>Сегодня у меня <span class="st">${L.length}${nOv?` · просрочено ${nOv}`:''}</span></h3><div class="of-today-list">${L.map(ofBoardRow).join('')}</div></div>`}
-function ofPriorityHTML(d){if(d.id!=='of')return '';
- const B=d.of_board,mine0=(B&&B.prio_mine)||[],staff0=(B&&B.prio_staff)||[];
+function ofTodayHTML(d){const B=boardOf(d);if(!B)return '';const L=(B.today||[]).filter(t=>!thHidden(t)&&!cuClosed(t)&&!isFocus(t));if(!L.length)return '';const nOv=L.filter(t=>t.due&&t.due<(typeof TODAY!=='undefined'?TODAY:'')).length;return `<div class="card of-today" style="margin-bottom:14px"><h3>Сегодня у меня <span class="st">${L.length}${nOv?` · просрочено ${nOv}`:''}</span></h3><div class="of-today-list">${L.map(ofBoardRow).join('')}</div></div>`}
+function ofPriorityHTML(d){const B=boardOf(d);if(!B)return '';
+ const mine0=(B&&B.prio_mine)||[],staff0=(B&&B.prio_staff)||[];
  const all=(d.tasks||[]).filter(t=>!thHidden(t)&&!cuClosed(t)&&isFocus(t));
  const mine=(mine0.length||staff0.length?mine0:all.filter(cuIsRost)).filter(t=>!thHidden(t)&&!cuClosed(t)).slice().sort(prioDueSort);
  const staff=(mine0.length||staff0.length?staff0:all.filter(t=>!cuIsRost)).filter(t=>!thHidden(t)&&!cuClosed(t)).slice().sort(prioDueSort);
  const block=(title,ts)=>`<div class="of-prio-sub"><h4>${esc(title)} <span class="st">${ts.length}</span></h4>${ts.length?ts.map(ofBoardRow).join(''):'<div class="empty of-prio-empty">Пока нет — скажи Секретарю, что главное</div>'}</div>`;
  return `<details class="card of-prio" style="margin-bottom:14px" open><summary>Приоритеты <span class="st">мне ${mine.length} · сотрудникам ${staff.length}</span></summary><div class="of-prio-grid">${block('На решение мне',mine)}${block('На решение у сотрудников',staff)}</div></details>`}
-function ofRoutineHTML(d){if(d.id!=='of'||!d.of_board)return '';const B=d.of_board,G=B.routine_groups||[],N=B.routine_n||0,M=B.routine_overdue||0;if(!N)return '';
+function ofRoutineHTML(d){const B=boardOf(d);if(!B)return '';const G=B.routine_groups||[],N=B.routine_n||0,M=B.routine_overdue||0;if(!N)return '';
  const body=G.map(g=>{const items=(g.tasks||[]).filter(t=>!thHidden(t)&&!cuClosed(t)&&!isFocus(t));if(!items.length)return '';const ovN=g.overdue||items.filter(t=>t.due&&t.due<(typeof TODAY!=='undefined'?TODAY:'')).length;return `<details class="of-routine-person"><summary>${esc(g.name)} <span class="st">${items.length}${ovN?` · просрочено ${ovN}`:''}</span></summary>${items.map(ofBoardRow).join('')}</details>`}).join('');
  return `<details class="card of-routine"><summary>Рутина и неприоритетное <span class="st">Рутина · ${N} задач${M?`, ${M} просрочены`:''}</span></summary>${body||'<div class="empty">нет задач</div>'}${B.fetched_at?`<div class="note" style="margin-top:8px">снимок ${esc(String(B.fetched_at).slice(0,16).replace('T',' '))} Богота</div>`:''}</details>`}
 function ofBlocksHTML(d){if(d.id!=='of'||!d.of_blocks)return '';const B=d.of_blocks,cur=Dash.curOf(d),$u=v=>v==null?'—':fmt(Dash.conv(v,'USD',cur),cur),n=v=>v==null?'—':esc(Dash.num(v)),m=S.mode;
@@ -1521,9 +1547,9 @@ hAds+=`<div class="card adsmon" style="margin-bottom:14px"><h3>📣 Монито
  return part==='ads'?pepAdBalHTML()+hAds:part==='replies'?hQ:part==='repeat'?hRep:pepAdBalHTML()+hAds+hQ+hRep}
 function directionToday(d){if(window.DASH_HELPER&&d.id==='personal'){const h=attnHTML(d)+persBlocksHTML(d);$('#main').innerHTML=h;return;}/* t6061u */
  const c=calDir(),ev=c?todayEvents(d.id):[],dt=dueToday(d.tasks),ov=overdue(d.tasks),rest=openT(d.tasks).filter(t=>!dt.includes(t)&&!ov.includes(t));
- let h=tabHead(d.id==='peptides'?'':toWeek())+attnHTML(d)+scCallsHTML(d.scheduled_calls||(d.board&&d.board.scheduled_calls),d)+ofTodayHTML(d)+ofPriorityHTML(d)+scMeetingsHTML(d.scheduled_meetings,d)+ofBlocksHTML(d)+reBlocksHTML(d)+tbkBlocksHTML(d)+persBlocksHTML(d)+pepPlanHTML(d)+pepMonHTML(d,'ads')+pepDlgRepRow(d)+ledgerHTML(d)+pepLeadsStripHTML(d)+pepMonHTML(d,'repeat');/* Rost t6227u: «Требует внимания» + «Есть новые данные» сверху; задачи сразу под ними; потом показатели; Рутина внизу. Мониторы Пептидов под продажами */
+ let h=tabHead(d.id==='peptides'?'':toWeek())+attnHTML(d)+persQuickCmdsHTML(d)+scCallsHTML(d.scheduled_calls||(d.board&&d.board.scheduled_calls),d)+ofTodayHTML(d)+ofPriorityHTML(d)+scMeetingsHTML(d.scheduled_meetings,d)+ofBlocksHTML(d)+reBlocksHTML(d)+tbkBlocksHTML(d)+persBlocksHTML(d)+pepPlanHTML(d)+pepMonHTML(d,'ads')+pepDlgRepRow(d)+ledgerHTML(d)+pepLeadsStripHTML(d)+pepMonHTML(d,'repeat');/* Rost t6227u: «Требует внимания» + «Есть новые данные» сверху; задачи сразу под ними; потом показатели; Рутина внизу. Мониторы Пептидов под продажами */
  h+=`<div class="grid ${c?'g2e':''}">${c?`<div class="card"><div class="today-h"><h3 style="margin:0">📅 Сегодня в календаре</h3>${c?'<button class="tolink" data-calgo="1">таймлайн дня →</button>':''}</div><div style="margin-top:8px">${c?agendaHTML(ev,'Событий этого направления со временем на сегодня нет.'):'<div class="empty">Календарь скрыт</div>'}</div></div>`:''}
- ${d.id==='of'?'':`<div class="card"><h3>Приоритеты · задачи ClickUp</h3>${tasksHTML(d.tasks)}</div>`}</div>`;/* Rost t5978u: задачи направления всегда текущий открытый набор, период не фильтрует */
+ ${(d.id==='of'||d.id==='tabakevich')?'':`<div class="card"><h3>Приоритеты · задачи ClickUp</h3>${tasksHTML(d.tasks)}</div>`}</div>`;/* Rost t5978u: задачи направления всегда текущий открытый набор, период не фильтрует */
   if((d.monitors||[]).length){const mt=d.monitors_title||'Мониторы',ms=d.monitors_sub||'';h+=`<div style="height:14px"></div><div class="card"><h3>${esc(mt)}${ms?` <span class="st">${esc(ms)}</span>`:''}</h3>${d.monitors.map(x=>{const st=x.status||'planned',pill=st==='active'?'p-normal':'p-high',lab=st==='active'?'работает':st==='attention'?'внимание':'план';return `<div class="task"><span class="pill ${pill}">${lab}</span><div style="flex:1"><b style="font-size:13.5px">${esc(x.name)}</b><div class="note">${esc(x.note||'')}${x.src?' · '+esc(x.src):''}</div></div></div>`}).join('')}</div>`}
  h+=cuDatedHTML(d)+ofRoutineHTML(d);$('#main').innerHTML=h;bindToday()}
 

@@ -5,7 +5,7 @@
   "ignores":[{"id","channel","title","kind","perm","ignored_at"|null}]}   (ignored_at=null → вернуть)
 Скрипт: chats.csv.direction (по title+channel, иначе новая строка), src/ignored_chats.json (дедуп по id),
 затем build_test_ma.sh + build.sh + push в /workspace/dash-gh, файлы → sync/done/.
-Также: key 'cu|…'/channel ClickUp → src/cu_dir_overrides.json (build_data убирает из «на сортировку»); action cu_close / cu_ok / call_done → sync/cu_actions_pending.json.
+Также: key 'cu|…'/channel ClickUp → src/cu_dir_overrides.json (build_data убирает из «на сортировку»); action cu_close / cu_ok / call_done / quick_cmd → sync/cu_actions_pending.json (quick_cmd ещё пишет /workspace/queues/dash-quick-cmds.json и PRIORITY-строку в /workspace/queue/QUEUE.md, затем будит Секретаря webhook'ом).
 Запуск: python3 src/sync_dash_taps.py [--no-push]. Запускает вочер/утренняя мега, если в inbox есть файлы."""
 import json, csv, os, sys, glob, shutil, subprocess, datetime, re
 R=os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -20,6 +20,112 @@ ign=json.load(open(IGN)); byid={c['id']:c for c in ign.get('chats',[])}
 ns=ni=nc=na=0
 # Rost t3955u: CU-направления и действия (ДР «поздравил») — не в chats.csv
 OVF=f'{R}/src/cu_dir_overrides.json'; ACT=f'{R}/sync/cu_actions_pending.json'
+
+# Rost t6245u: быстрые команды с даша → очередь Секретаря + webhook
+QC_JSON='/workspace/queues/dash-quick-cmds.json'
+QC_MD='/workspace/queue/QUEUE.md'
+QC_WEBHOOK_URL='/workspace/queue/bin/webhook-resume-15min.url'
+QC_WEBHOOK_AUTH='/workspace/queue/bin/webhook-resume-15min.auth'
+QC_HANDLER='/workspace/queue/comms-action-handler.json'
+
+def _bog_now():
+    return datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=-5)))
+
+def _comms_handler_ok():
+    try:
+        d=json.load(open(QC_HANDLER))
+        return d.get('enabled') is True and d.get('mode')=='action_only_no_resume' and d.get('routine')=='queue-resume-15-webhook' and bool(d.get('verified_by'))
+    except Exception:
+        return False
+
+def _parse_ts(s):
+    if not s: return None
+    try:
+        return datetime.datetime.fromisoformat(str(s).replace('Z','+00:00'))
+    except Exception:
+        return None
+
+def _qc_recent(pending, cmd, minutes=10):
+    now=_bog_now()
+    for a in pending:
+        if a.get('action')!='quick_cmd' or str(a.get('id') or a.get('cmd') or '')!=cmd:
+            continue
+        ts=_parse_ts(a.get('tapped_at') or a.get('at'))
+        if ts is None: return True
+        if ts.tzinfo is None: ts=ts.replace(tzinfo=datetime.timezone.utc)
+        if (now-ts).total_seconds() < minutes*60: return True
+    return False
+
+def _qc_md_recent(cmd, minutes=10):
+    if not os.path.exists(QC_MD): return False
+    text=open(QC_MD,encoding='utf-8',errors='replace').read()
+    now=_bog_now()
+    for line in text.splitlines()[:40]:
+        if '[pending]' not in line or 'dash-quick-cmd-'+cmd not in line: continue
+        m=re.search(r'dash-quick-cmd-'+re.escape(cmd)+r'-(\d{8})-(\d{4})', line)
+        if not m: return True
+        try:
+            ts=datetime.datetime.strptime(m.group(1)+m.group(2),'%Y%m%d%H%M').replace(tzinfo=datetime.timezone(datetime.timedelta(hours=-5)))
+        except Exception:
+            return True
+        if (now-ts).total_seconds() < minutes*60: return True
+    return False
+
+def enqueue_quick_cmd(s):
+    """Пишет cu_actions_pending + queues/dash-quick-cmds.json + PRIORITY в QUEUE.md Секретаря.
+    Если строка новая — будит Секретаря существующим COMMS webhook (action-only, без resume 15m LLM).
+    Возвращает True если очередь пополнилась."""
+    cmd=str(s.get('cmd') or s.get('id') or '').strip()
+    if not cmd and str(s.get('key') or '').startswith('quick_cmd|'):
+        parts=str(s.get('key')).split('|')
+        cmd=parts[1] if len(parts)>1 else ''
+    if not cmd: return False
+    now=_bog_now()
+    title=s.get('title') or cmd
+    rec={'id':cmd,'action':'quick_cmd','kind':'quick_cmd','title':title,'bot':s.get('bot') or 'Секретарь','dir':s.get('dir') or 'personal','tapped_at':s.get('at') or now.isoformat(timespec='seconds')}
+    # structured queue file for morning/QUEUE flow
+    os.makedirs(os.path.dirname(QC_JSON), exist_ok=True)
+    qj=json.load(open(QC_JSON)) if os.path.exists(QC_JSON) else {'note':'Быстрые команды с даша (вкладка Личное). Читает Секретарь / queue-guard / утренний пакет по pending[] и по PRIORITY-строке в /workspace/queue/QUEUE.md.','pending':[],'done':[]}
+    qj.setdefault('pending',[]); qj.setdefault('done',[])
+    recent=_qc_recent(qj['pending']+act.get('pending',[]), cmd) or _qc_md_recent(cmd)
+    if recent:
+        print('quick_cmd dedup', cmd)
+        return False
+    qj['pending'].insert(0, rec)
+    with open(QC_JSON,'w') as fh: json.dump(qj, fh, ensure_ascii=False, indent=2)
+    if not any(a.get('action')=='quick_cmd' and a.get('id')==cmd and not a.get('done_at') for a in act['pending']):
+        act['pending'].append(rec)
+    slug=f"dash-quick-cmd-{cmd}-{now.strftime('%Y%m%d-%H%M')}"
+    line=f"- [pending] PRIORITY {slug} — {title} (El Pulpo). Сценарий: knowledge/rules/dash-quick-commands.md. Тап с даша «Личное». Исполняет Секретарь.\n"
+    prev=open(QC_MD,encoding='utf-8').read() if os.path.exists(QC_MD) else ''
+    with open(QC_MD,'w',encoding='utf-8') as fh: fh.write(line+prev)
+    print('quick_cmd queued', slug)
+    # wake Секретарь immediately via existing action-only webhook
+    if not _comms_handler_ok():
+        print('quick_cmd webhook skipped: comms-action-handler not verified')
+        return True
+    if not os.path.exists(QC_WEBHOOK_URL):
+        print('quick_cmd webhook skipped: no url file')
+        return True
+    url=open(QC_WEBHOOK_URL).read().strip()
+    if not url:
+        print('quick_cmd webhook skipped: empty url')
+        return True
+    auth=''
+    if os.path.exists(QC_WEBHOOK_AUTH):
+        auth=open(QC_WEBHOOK_AUTH).read().strip()
+    payload=json.dumps({'reason':'dash quick_cmd '+cmd,'source':'sync_dash_taps.py','bot':'comms','cmd':cmd,'slug':slug}, ensure_ascii=False)
+    cmdl=['curl','--connect-timeout','5','--max-time','30','-sS','-o','/tmp/dash-quick-cmd-webhook.out','-w','%{http_code}','-X','POST',url,'-H','Content-Type: application/json','-d',payload]
+    if auth:
+        hdr=auth if auth.lower().startswith('authorization:') else 'Authorization: '+auth
+        cmdl[cmdl.index('Content-Type: application/json')+1:cmdl.index('Content-Type: application/json')+1]=['-H',hdr]
+    try:
+        code=subprocess.check_output(cmdl, text=True, timeout=35).strip()
+        print('quick_cmd webhook HTTP', code)
+    except Exception as e:
+        print('quick_cmd webhook ERR', type(e).__name__)
+    return True
+
 ov=json.load(open(OVF)) if os.path.exists(OVF) else {'tasks':{}}
 act=json.load(open(ACT)) if os.path.exists(ACT) else {'note':'Действия с даша для ClickUp. Закрывает рутина COMMS/скрипт через ClickUp API (cu_close → status complete), затем переносит запись в done[].','pending':[],'done':[]}
 MOF=f'{R}/src/msg_sphere_overrides.json'; mo=json.load(open(MOF)) if os.path.exists(MOF) else {'chats':{}}
@@ -65,6 +171,9 @@ for f in files:
             i=str(s.get('cu') or '').strip() or cuid(s.get('url'))
             if i and not any(a.get('id')==i and a.get('action')=='call_done' and a.get('due')==s.get('due') for a in act['pending']+act['done']):
                 act['pending'].append({'id':i,'action':'call_done','kind':'call','title':s.get('title'),'url':s.get('url'),'due':s.get('due'),'dir':s.get('dir'),'on_done':s.get('on_done') or 'comment','tapped_at':s.get('at')}); na+=1
+            continue
+        if s.get('action')=='quick_cmd':  # Rost t6245u: быстрая команда с вкладки Личное
+            if enqueue_quick_cmd(s): na+=1
             continue
         if s.get('action')=='cu_close':
             i=str(s.get('cu') or '').strip() or cuid(s.get('url')) or (s.get('key') or '').split('|')[-1]

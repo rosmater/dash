@@ -11,6 +11,10 @@
         "src/timed_attn.json",
         "src/overall_balance.json",
         "src/prio_extra.json"
+      ],
+      "html_markers": [
+        "Быстрые команды",
+        "Заказать лосось с креветками"
       ]
     },
     {
