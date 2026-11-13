@@ -415,15 +415,19 @@ try:
     _PD = json.load(open(_PD_PATH)) if os.path.isfile(_PD_PATH) else {}
 except Exception:
     _PD = {}
-if isinstance(_PD, dict) and _PD.get('active'):
+# Always emit payment_due so verify_live data_marker stays present;
+# UI (pepPayDueHdr / pepPayDueAttn) shows the alert only when active is true.
+if isinstance(_PD, dict) and _PD:
     pep_ads['payment_due'] = dict(
-        active=True,
+        active=bool(_PD.get('active')),
         banner=_PD.get('banner') or 'Пепт: решить оплату на .col',
         text=_PD.get('text') or _PD.get('banner') or 'Пепт: решить оплату на .col',
         tip=_PD.get('tip') or _PD.get('note') or '',
         account=_PD.get('account') or 'pesosaludable.col',
-        as_of=_PD.get('as_of'),
+        as_of=_PD.get('as_of') or _PD.get('cleared_at'),
         amount_shown=_PD.get('amount_shown'),
+        cleared_by=_PD.get('cleared_by'),
+        cleared_at=_PD.get('cleared_at'),
     )
 
 
