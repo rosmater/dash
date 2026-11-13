@@ -1,6 +1,6 @@
 {
   "_doc": "t6215u/t6216u: открытые рабочие задачи пространства OF для доски вкладки ОФ (не of_cu_tasks.json). Снимок Секретаря. complete/main/models/ДР исключены.",
-  "fetched_at": "2026-11-12T22:31:00-05:00",
+  "fetched_at": "2026-11-12T22:33:00-05:00",
   "src": "ClickUp filter_tasks space 90144306285, include_closed=false",
   "tasks": [
     {
@@ -10,9 +10,7 @@
       "priority": "high",
       "due": null,
       "hang_since": "2026-11-12",
-      "assignees": [
-        "Rost"
-      ],
+      "assignees": [],
       "list": "Projects OF",
       "url": "https://rosmater.github.io/cu/?t=86b6pbedx",
       "tags": [
