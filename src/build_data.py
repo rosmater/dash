@@ -1046,6 +1046,30 @@ if _pc_ids:
     PERSONAL_BOARD['routine_n'] = sum(g['n'] for g in _g2)
     PERSONAL_BOARD['routine_overdue'] = sum(g['overdue'] for g in _g2)
 PERSONAL_BOARD['calls'] = PERSONAL_CALLS
+# t6286u: одна задача — приоритеты только одной вкладки (по пространству ClickUp). Хозяин id = снимок пространства:
+# of_open_tasks.json → ОФ, tbk_open_tasks.json → Табакевич, personal_open_tasks.json (list «Personal») → Личное.
+# prio_extra / чужие подмешанные задачи с хозяином на другой вкладке из «Приоритетов» убираются.
+def _prio_owner_map():
+    own = {}
+    for fn, tab, only_list in (('of_open_tasks.json', 'of', None), ('tbk_open_tasks.json', 'tabakevich', None), ('personal_open_tasks.json', 'personal', 'Personal')):
+        try:
+            for t in (json.load(open(os.path.join(_HERE, fn))).get('tasks') or []):
+                if t.get('id') and (only_list is None or t.get('list') == only_list):
+                    own.setdefault(t['id'], tab)
+        except Exception:
+            pass
+    return own
+_PRIO_OWN = _prio_owner_map()
+for _tab, _B in (('of', OF_BOARD), ('tabakevich', TBK_BOARD), ('personal', PERSONAL_BOARD)):
+    for _k in ('prio_mine', 'prio_staff'):
+        _keep = []
+        for _t in _B.get(_k) or []:
+            _o = _PRIO_OWN.get(_t.get('id'))
+            if _o and _o != _tab:
+                print(f'prio dedupe: {_t.get("id")} убран из {_tab} (хозяин {_o})')
+                continue
+            _keep.append(_t)
+        _B[_k] = _keep
 
 # Rost t5952u: «📅 Назначенные встречи» вверху Личного (src/personal_meetings.json; только Role=🚶GO, любой список; не CU Personal)
 _pmf = os.path.join(_HERE, 'personal_meetings.json')
@@ -1619,6 +1643,13 @@ try:
 except Exception as _e:
     print('ai_backlog skip', type(_e).__name__)
     data['ai_backlog'] = []
+# Rost t6284u/t6285u: ✓ решено → на проверке. Единый источник src/done_pending.json, сверка со снимком CU (src/done_pending.py)
+try:
+    import done_pending as _dp
+    data['done_pending'] = _dp.reconcile(data)
+except Exception as _e:
+    print('done_pending skip', type(_e).__name__, _e)
+    data['done_pending'] = dict(ttl_hours=24, items={}, audit={}, error=str(_e)[:200])
 # t6093u / t6095u: версии блоков еженедельного/ежемесячного сбора + data_ver внутри plaintext баланса (уйдёт в шифртекст)
 import data_updates_gen as _dug
 _dug.apply(data)

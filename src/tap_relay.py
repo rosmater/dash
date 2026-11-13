@@ -12,6 +12,7 @@ from cryptography.hazmat.primitives import hashes
 R = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TOPIC = open(f'{R}/sync/topic.txt').read().strip()
 ST = f'{R}/sync/relay_state.json'; INB = f'{R}/sync/inbox'
+os.makedirs(INB, exist_ok=True)  # t6284u: без inbox все тапы с 11.11 падали FileNotFoundError
 V = '/home/box/contacts/knowledge/secrets/vault/'
 PAIRS = [(V + 'dashboard-password.md', 'data.enc.json'), (V + 'dashboard-password-assistant.md', 'data-asst.enc.json')]
 def log(*a): print(datetime.datetime.now().strftime('%m-%d %H:%M:%S'), *a, flush=True)
@@ -87,11 +88,19 @@ def once():
     json.dump(st, open(ST, 'w'))
     if n: log('got', n)
     if wa_n: log('wa-toast got', wa_n)
+    os.makedirs(INB, exist_ok=True)
     if any(f.endswith('.json') for f in os.listdir(INB)):
         with open(f'{R}/sync/.lock', 'w') as lk:
             fcntl.flock(lk, fcntl.LOCK_EX)
             r = subprocess.run([sys.executable, f'{R}/src/sync_dash_taps.py'], capture_output=True, text=True)
             log('sync rc', r.returncode, (r.stdout + r.stderr)[-600:].replace('\n', ' | '))
+    # Rost t6285u: ✓ решено не должен застрять незапушенным — ретрай пуша src/done_pending.json (no-op, если чисто)
+    try:
+        with open(f'{R}/sync/.lock', 'w') as lk:
+            fcntl.flock(lk, fcntl.LOCK_EX)
+            r = subprocess.run([sys.executable, f'{R}/src/sync_dash_taps.py', '--push-only'], capture_output=True, text=True, timeout=900)
+            if 'push-only: clean' not in r.stdout: log('done-pending push-only rc', r.returncode, (r.stdout + r.stderr)[-400:].replace('\n', ' | '))
+    except Exception as e: log('done-pending push err', type(e).__name__, str(e)[:200])
     # Rost t4074: закрытый пункт QUEUE → даш сам пересобирается (queue_autoclear.py; без изменений — no-op)
     try:
         with open(f'{R}/sync/.lock', 'w') as lk:

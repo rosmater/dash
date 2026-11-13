@@ -6,15 +6,19 @@
 Скрипт: chats.csv.direction (по title+channel, иначе новая строка), src/ignored_chats.json (дедуп по id),
 затем build_test_ma.sh + build.sh + push в /workspace/dash-gh, файлы → sync/done/.
 Также: key 'cu|…'/channel ClickUp → src/cu_dir_overrides.json (build_data убирает из «на сортировку»); action cu_close / cu_ok / call_done / quick_cmd → sync/cu_actions_pending.json (quick_cmd ещё пишет /workspace/queues/dash-quick-cmds.json и PRIORITY-строку в /workspace/queue/QUEUE.md, затем будит Секретаря webhook'ом).
-Запуск: python3 src/sync_dash_taps.py [--no-push]. Запускает вочер/утренняя мега, если в inbox есть файлы."""
+Rost t6284u/t6285u: action cu_done (и старый cu_close с ключом cuclose|) → src/done_pending.json + cu_review + QUEUE PRIORITY + webhook Секретарю.
+Запуск: python3 src/sync_dash_taps.py [--no-push | --push-only]. Запускает вочер/утренняя мега, если в inbox есть файлы."""
 import json, csv, os, sys, glob, shutil, subprocess, datetime, re
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 R=os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 INB, DONE = f'{R}/sync/inbox', f'{R}/sync/done'
 CSV='/home/box/contacts/chats.csv'; IGN=f'{R}/src/ignored_chats.json'
 CH={'telegram':'telegram','tg':'telegram','whatsapp esp':'whatsapp','whatsapp ukr':'whatsapp','whatsapp':'whatsapp','viber':'viber','instagram':'instagram'}
+os.makedirs(INB, exist_ok=True); os.makedirs(DONE, exist_ok=True)  # t6284u: inbox пропал при переезде в dash-gh → все тапы с 11.11 падали в relay
 files=sorted(glob.glob(f'{INB}/*.json'))
 SELF_TEST='--self-test-qc' in sys.argv
-if not files and not SELF_TEST: print('inbox empty'); sys.exit(0)
+PUSH_ONLY='--push-only' in sys.argv  # t6285u: ретрай незапушенного src/done_pending.json (зовёт tap_relay каждую минуту)
+if not files and not SELF_TEST and not PUSH_ONLY: print('inbox empty'); sys.exit(0)
 today=datetime.date.today().isoformat()
 rows=list(csv.DictReader(open(CSV))); fields=list(rows[0].keys()) if rows else None
 ign=json.load(open(IGN)); byid={c['id']:c for c in ign.get('chats',[])}
@@ -75,6 +79,44 @@ def _qc_md_recent(cmd, minutes=10):
             return True
         if (now-ts).total_seconds() < minutes*60: return True
     return False
+
+def _wake_comms(reason, extra=None):
+    """t6284u: разбудить Секретаря тем же action-only webhook, что быстрые команды."""
+    if not _comms_handler_ok() or not os.path.exists(QC_WEBHOOK_URL):
+        print('wake skipped', reason); return False
+    url=open(QC_WEBHOOK_URL).read().strip()
+    if not url: return False
+    auth=open(QC_WEBHOOK_AUTH).read().strip() if os.path.exists(QC_WEBHOOK_AUTH) else ''
+    payload=json.dumps(dict({'reason':reason,'source':'sync_dash_taps.py','bot':'comms'},**(extra or {})), ensure_ascii=False)
+    cmdl=['curl','--connect-timeout','5','--max-time','30','-sS','-o','/tmp/dash-done-review-webhook.out','-w','%{http_code}','-X','POST',url,'-H','Content-Type: application/json','-d',payload]
+    if auth: cmdl[-2:-2]=['-H', auth if auth.lower().startswith('authorization:') else 'Authorization: '+auth]
+    try:
+        print('wake HTTP', subprocess.check_output(cmdl, text=True, timeout=35).strip()); return True
+    except Exception as e:
+        print('wake ERR', type(e).__name__); return False
+
+DP_NEW=[]
+def enqueue_done_review(s):
+    """Rost t6284u/t6285u: ✓ решено на задаче CU → src/done_pending.json (единый источник правды, идемпотентно)
+    + cu_actions_pending (cu_review) + PRIORITY-строка в QUEUE.md Секретаря. Вердикт: src/done_pending.py verdict."""
+    import done_pending as DP
+    i=str(s.get('cu') or '').strip() or cuid(s.get('url')) or ''
+    if not i: return False
+    st=DP.load()
+    if not DP.add(st, i, s.get('title'), s.get('dir'), s.get('bot'), s.get('url'), s.get('at')):
+        print('done_review dedup', i); return False
+    DP.save(st)
+    if not any(a.get('id')==i and a.get('action')=='cu_review' for a in act['pending']):
+        act['pending'].append({'id':i,'action':'cu_review','kind':s.get('kind') or 'task','title':s.get('title'),'url':s.get('url'),'bot':s.get('bot'),'dir':s.get('dir'),'tapped_at':s.get('at')})
+    slug=f"dash-done-review-{i}"
+    line=(f"- [pending] PRIORITY {slug} — Rost нажал ✓ решено на даше: «{(s.get('title') or i)[:90]}» https://app.clickup.com/t/{i} . "
+          f"Проверь в ClickUp: закрыта → python3 /workspace/dash-gh/src/done_pending.py verdict {i} closed; сделано, но открыта → закрой (complete) и verdict closed; "
+          f"не сделано → verdict {i} returned --note \"что не так\". Потом src/build.sh + push. Без вердикта за 24 ч вернётся на даш «не проверена». Правило: docs/DECISIONS.md t6284u.\n")
+    prev=open(QC_MD,encoding='utf-8').read() if os.path.exists(QC_MD) else ''
+    if '[pending] PRIORITY '+slug+' ' not in prev:
+        with open(QC_MD,'w',encoding='utf-8') as fh: fh.write(line+prev)
+    DP_NEW.append(i)
+    return True
 
 def enqueue_quick_cmd(s):
     """Пишет cu_actions_pending + queues/dash-quick-cmds.json + PRIORITY в QUEUE.md Секретаря.
@@ -160,6 +202,31 @@ if SELF_TEST:
     print('SELF-TEST OK: TEST flag did not queue or webhook', [c for c,_ in results])
     sys.exit(0)
 
+PUSH_FILES=['src/done_pending.json','sync/cu_actions_pending.json','src/cu_dir_overrides.json','src/msg_row_overrides.json','src/msg_sphere_overrides.json','src/ignored_chats.json','sync/bot_attn.jsonl','sync/done',
+            'index.html','helper.html','assistant.html','variant-a.html','variant-b.html','variant-c.html','data.enc.json','data-asst.enc.json','data-test-ma.enc.json','test-messengers-assistants.html']
+def _git(*a, check=False):
+    return subprocess.run(['git','-C',R,*a], capture_output=True, text=True, check=check)
+def push_with_retry(msg, tries=3):
+    """t6285u: R == /workspace/dash-gh (копировать некуда). Коммитим только свои файлы + сборку; push не прошёл → pull --rebase, пересборка, снова."""
+    for n in range(tries):
+        if _git('pull','-q','--rebase','--autostash','-X','theirs','origin','main').returncode:
+            _git('rebase','--abort'); print('pull fail, try', n+1); continue
+        if subprocess.run(['bash',f'{R}/src/build_test_ma.sh']).returncode or subprocess.run(['bash',f'{R}/src/build.sh']).returncode:
+            print('build fail, try', n+1); continue
+        _git('add','--',*[f for f in PUSH_FILES if os.path.exists(f'{R}/{f}')])
+        if _git('diff','--cached','--quiet').returncode:
+            _git('-c','user.name=rosmater','-c','user.email=rost@rosmater.local','commit','-qm',msg)
+        if not _git('rev-list','-1','origin/main..HEAD').stdout.strip():
+            print('nothing to push'); return True
+        r=_git('push','-q','origin','HEAD:main')
+        if r.returncode==0: print('pushed'); return True
+        print('push fail, try', n+1, r.stderr[-300:])
+    return False
+if PUSH_ONLY:
+    dirty=_git('status','--porcelain','--','src/done_pending.json','sync/cu_actions_pending.json').stdout.strip()
+    ahead=_git('rev-list','-1','origin/main..HEAD').stdout.strip()
+    if not dirty: print('push-only: clean'); sys.exit(0)
+    sys.exit(0 if push_with_retry('sync: ✓ решено → на проверке (ретрай пуша, t6285u)') else 1)
 ov=json.load(open(OVF)) if os.path.exists(OVF) else {'tasks':{}}
 act=json.load(open(ACT)) if os.path.exists(ACT) else {'note':'Действия с даша для ClickUp. Закрывает рутина COMMS/скрипт через ClickUp API (cu_close → status complete), затем переносит запись в done[].','pending':[],'done':[]}
 MOF=f'{R}/src/msg_sphere_overrides.json'; mo=json.load(open(MOF)) if os.path.exists(MOF) else {'chats':{}}
@@ -209,6 +276,9 @@ for f in files:
         if s.get('action')=='quick_cmd':  # Rost t6245u / t6254u: быстрая команда с вкладок Личное / Табакевич
             if enqueue_quick_cmd(s): na+=1
             continue
+        if s.get('action')=='cu_done' or (s.get('action')=='cu_close' and str(s.get('key') or '').startswith('cuclose|')):  # Rost t6284u: ✓ решено → на проверку (старые вкладки шлют cu_close/cuclose|)
+            if enqueue_done_review(s): na+=1
+            continue
         if s.get('action')=='cu_close':
             i=str(s.get('cu') or '').strip() or cuid(s.get('url')) or (s.get('key') or '').split('|')[-1]
             if i and not any(a['id']==i and a.get('due')==s.get('due') for a in act['pending']+act['done']):
@@ -253,12 +323,6 @@ for _o,_p in ((ro,ROF),(mo,MOF),(ov,OVF),(act,ACT)):
 for f in files: shutil.move(f, f'{DONE}/{os.path.basename(f)}')
 print(f'spheres {ns}, ignores {ni}, cu_dir {nc}, cu_actions {na}, rows {nr}, bot_attn {nb}')
 if '--no-push' in sys.argv: sys.exit(0)
-subprocess.run(['bash',f'{R}/src/build_test_ma.sh'],check=True); subprocess.run(['bash',f'{R}/src/build.sh'],check=True)
-G='/workspace/dash-gh'
-subprocess.run(['git','-C',G,'pull','-q','--ff-only'],check=True)
-for f in ['index.html','helper.html','variant-a.html','data.enc.json','data-asst.enc.json','data-test-ma.enc.json','test-messengers-assistants.html','docs/CHANGELOG.md','docs/DECISIONS.md']: shutil.copy(f'{R}/{f}', f'{G}/{f}')
-subprocess.run(['git','-C',G,'add','-A'])
-if subprocess.run(['git','-C',G,'diff','--cached','--quiet']).returncode:
-    subprocess.run(['git','-C',G,'-c','user.name=rosmater','-c','user.email=rost@rosmater.local','commit','-qm',f'sync: тапы даша → contacts ({ns} сфер, {ni} игнор, {nc} CU-направл., {na} CU-действ., {nr} строк ✓/✕/CU/теги, {nb} нужен/отчёт)'],check=True)
-    subprocess.run(['git','-C',G,'push','-q'],check=True)
-print('pushed')
+if DP_NEW: _wake_comms('dash done_review '+','.join(DP_NEW), {'ids':DP_NEW})
+ok=push_with_retry(f'sync: тапы даша → contacts ({ns} сфер, {ni} игнор, {nc} CU-направл., {na} CU-действ., {nr} строк ✓/✕/CU/теги, {nb} нужен/отчёт)')
+sys.exit(0 if ok else 1)

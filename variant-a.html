@@ -170,6 +170,7 @@ footer{margin-top:22px;color:var(--mut);font-size:11.5px;line-height:1.6;border-
 .cupl{display:inline-flex;align-items:center;gap:0;flex:none;background:#7b68ee;border-radius:5px;overflow:hidden;line-height:1.2;vertical-align:middle}.cupl a,.cupl span{color:#fff!important;text-decoration:none;padding:1px 4px}.cupl a.cut{font-size:9.5px;font-weight:800;letter-spacing:.2px}.cupl .cuc{font-size:11px}.cupl a.cut{border-left:1px solid rgba(255,255,255,.35)}summary .rctl.rans.cur{margin-right:4px}.cupl a:hover{background:#6a56e0}.cupl .cuc.off{opacity:.45}/* t4172 */
 .qchat{flex:none;font-size:11px;padding:2px 8px;border-radius:999px;background:#e0f2fe;color:#075985;text-decoration:none;white-space:nowrap}.qchat:hover{background:#bae6fd}
 .qchat.qok{background:#dcfce7;color:#166534}.qchat.qok:hover{background:#bbf7d0}
+.dp-mk{font-size:10px;font-weight:700;padding:0 5px;border-radius:8px;margin-right:3px;white-space:nowrap;background:#eef4fb;color:#4b6b8f}.dp-mk.dp-err,.dp-mk.dp-lost{background:#fee2e2;color:#b91c1c}.dp-mk.dp-ttl{background:#fef3c7;color:#92400e}
 /* Rost t6080u/t6218u/t6223u: на задачах — серые значки 💬 открыть чат / ✓ решено; без «Закрыть в даше» и без «На проверку боту» */
 .thb{display:inline-flex;gap:0;flex:none;flex-wrap:nowrap;align-items:center;margin-left:auto;vertical-align:middle}
 .thb .th-ico,.thb a.th-ico,.thb button.th-ico{font-size:14px;line-height:1;padding:2px 5px;margin:0;border:0;background:transparent!important;color:#6b7280!important;text-decoration:none;cursor:pointer;font-family:inherit;border-radius:4px;flex:none;box-shadow:none;font-weight:600}
@@ -737,20 +738,47 @@ const cuWhoHTML=(t,opt)=>{opt=opt||{};let names=cuWhoNames(t);if(!names.length&&
 const cuRostFirst=ts=>{const a=[...(ts||[])];return a.filter(cuIsRost).concat(a.filter(t=>!cuIsRost(t)));};
 
 /* Rost t6080u/t6218u/t6223u/t6225u: на каждой задаче даша — 💬 открыть чат / ✓ решено (серые значки).
-   «Закрыть в даше», «На проверку боту» и блок «🙈 Скрытые в даше» убраны — даш всегда показывает правду ClickUp.
-   «Решено» уходит в очередь тапов (ntfy → sync_dash_taps → cu_actions_pending), строка остаётся, пока задача жива в CU. */
-const THK='dash_task_hide_v1';
+   Rost t6284u/t6285u: ✓ решено → задача СРАЗУ скрыта и уходит на проверку боту. Скрытие временное и честное:
+   единый источник правды — src/done_pending.json (D.done_pending, пишет relay → sync_dash_taps; вердикт бота — src/done_pending.py),
+   localStorage dash_done_pending_v2 — только мгновенный слой до подтверждения сервером. Вердикт closed → не показываем;
+   returned → снова видна с «↩ вернулась»; без вердикта 24 ч → видна с «⏳ не проверена»; тап не ушёл → видна с «⚠ не отправлено». */
+const THK='dash_task_hide_v1',DPK='dash_done_pending_v2',DP_H=3600e3;
 function thId(t){if(t==null)return '';if(typeof t==='string')return t;if(t.id)return String(t.id);const u=String(t.url||t.href||'');const m=u.match(/[?&]t=([A-Za-z0-9]+)/)||u.match(/\/t\/(?:\d+\/)?([A-Za-z0-9]+)/)||u.match(/clickup:\/\/t\/([A-Za-z0-9]+)/i);if(m)return m[1];const n=String(t.name||t.title||t.text||t.label||'').trim();return n?('nm:'+n.slice(0,80)):''}
 function thLS(){try{return JSON.parse(localStorage.getItem(THK)||'{}')}catch(e){return {}}}
 function thSave(o){try{localStorage.setItem(THK,JSON.stringify(o))}catch(e){}}
-function thHidden(t){return false}/* Rost t6225u: без локального скрытия — даш = правда ClickUp */
+function dpLS(){try{return JSON.parse(localStorage.getItem(DPK)||'{}')}catch(e){return {}}}
+function dpSave(o){try{localStorage.setItem(DPK,JSON.stringify(o))}catch(e){}}
+function dpSrv(){return (Dash.D&&Dash.D.done_pending)||{}}
+function dpGen(){const g=Dash.D&&Dash.D.meta&&Dash.D.meta.generated_at;const x=g?Date.parse(g):NaN;return isFinite(x)?x:0}
+/* → {hide, mark:'returned'|'ttl'|'err'|'lost'|'', note} */
+function dpState(id,now){now=now||Date.now();const P=dpSrv(),S=(P.items||{})[id],ttl=(+P.ttl_hours||24)*DP_H,RS=(+P.ret_show_hours||48)*DP_H;let srv={};
+ if(S){const c=Date.parse(S.t)||0,v=Date.parse(S.v)||c;
+  if(S.st==='pending')srv=now-c<ttl?{hide:1}:(now-c<ttl+RS?{mark:'ttl'}:{});
+  else if(S.st==='returned')srv=now-v<RS?{mark:'returned',note:S.note||''}:{};
+  else if(S.st==='closed')srv=now-v<ttl?{hide:1}:{};}
+ const L=dpLS()[id];if(!L)return srv;
+ if(S&&(Date.parse(S.t)||0)>=L.t-10*60e3)return srv; /* сервер уже знает этот клик → правда сервера */
+ if(L.st==='err')return {mark:'err'};
+ if(L.st==='lost')return now-L.t<ttl?{mark:'lost'}:srv;
+ if(L.st==='sending')return now-L.t<3*60e3?{hide:1}:{mark:'err'};
+ if(L.st==='sent'){const g=dpGen();if(g&&g>L.t+30*60e3)return {mark:'lost'};return now-L.t<ttl?{hide:1}:{mark:'ttl'}}
+ return srv}
+function dpTick(){const O=dpLS(),P=(dpSrv().items)||{},now=Date.now(),g=dpGen();let ch=0;for(const id in O){const L=O[id],S=P[id];
+  if(S&&(Date.parse(S.t)||0)>=L.t-10*60e3){delete O[id];ch=1;continue}
+  if(L.st==='sending'&&now-L.t>3*60e3){L.st='err';ch=1}
+  if(L.st==='sent'&&g&&g>L.t+30*60e3){L.st='lost';ch=1}
+  if(now-L.t>48*DP_H){delete O[id];ch=1}}
+ if(ch)dpSave(O)}
+function thHidden(t){const id=thId(t);if(!id||!thIsCu(id,t&&t.url))return false;return !!dpState(id).hide}
 function thIsCu(id,url){return /^[0-9][0-9a-z]+$/i.test(id||'')||/clickup|\/t\/|\?t=/i.test(String(url||''))}
+const DP_MK={returned:['↩ вернулась','Бот проверил: в ClickUp задача не закрыта — вернулась на даш'],ttl:['⏳ не проверена','Прошло 24 ч после ✓, а вердикта бота нет — вернулась на даш, нажми ✓ ещё раз или спроси бота'],err:['⚠ не отправлено','✓ не дошёл до бокса (сеть) — задача осталась, нажми ✓ ещё раз'],lost:['⚠ не дошло','✓ отправлен, но бокс его не получил — нажми ✓ ещё раз']};
+function dpMark(id){const st=dpState(id);if(!st.mark)return '';const m=DP_MK[st.mark];return `<span class="dp-mk dp-${st.mark}" title="${esc(m[1]+(st.note?' · '+st.note:''))}">${m[0]}</span>`}
 function thBot(t,opt){opt=opt||{};const A=Dash.D&&Dash.D.directions.find(z=>z.kind==='bots'),B=(A&&A.bots)||[];const pick=n=>{if(!n)return null;return B.find(b=>b.name===n)||B.find(b=>(b.name||'').includes(n)||n.includes(b.name))};let n=String(opt.bot||t.bot||'').trim();let b=pick(n);if(b&&(b.id||b.link))return b;const dir=opt.dir||(typeof S!=='undefined'&&S.tab)||'';if(dir==='of'&&/ферм|farm/i.test(String(t.name||t.list||t.title||'')))n='Фермовод';else n=(typeof AT_OWN!=='undefined'&&AT_OWN[dir])||'Секретарь';return pick(n)||B.find(x=>x.name==='Секретарь')||{name:'Секретарь',id:'d3a12cc9-cf8a-41e5-b34a-76d4ab9eb9fd',link:''}}
 function thChatTxt(b,t,id,url){return `[Из дашборда · задача · бот «${(b&&b.name)||'Секретарь'}»]\nЗадача ${id} «${t.name||t.title||t.text||''}»${url?'\n'+url:''}\nСтатус: ${t.status||'—'} — разбери и скажи, что делать.`}
 function thBtns(t,opt){opt=opt||{};const id=thId(t);if(!id)return '';const name=t.name||t.title||t.text||t.label||t.slot||'';const url=t.url||((/^[0-9][0-9a-z]+$/i.test(id))?('https://app.clickup.com/t/'+id):'');const dir=opt.dir||(typeof S!=='undefined'&&S.tab)||'';const fc=opt.fc||/for\s*check/i.test(String(t.status||t.need||''))?'1':'';const due=t.due||t.start||'';const botObj=thBot(t,Object.assign({},opt,{dir}));const bot=botObj.name||opt.bot||t.bot||'Секретарь';const D=`data-id="${esc(id)}" data-n="${esc(name)}" data-u="${esc(url||'')}" data-dir="${esc(dir)}" data-bot="${esc(bot)}" data-upd="${esc(t.updated||'')}" data-due="${esc(String(due).slice(0,10))}" data-fc="${fc}"`;
  const ctx=thChatTxt(botObj,t,id,url),agent=botObj.link||('grokbot://app/v1/agent?id='+(botObj.id||'d3a12cc9-cf8a-41e5-b34a-76d4ab9eb9fd'));
  const chat=opt.noChat?'':`<a class="th-ico" href="${esc(maPL(botObj,ctx))}" data-b="${esc(bot)}" data-t="${esc(ctx)}" data-l="${esc(agent)}" onclick="event.stopPropagation();return cuOpen(this)" title="Открыть чат «${esc(bot)}»">💬</a>`;
- return `<span class="thb" onclick="event.stopPropagation()">${chat}<button type="button" class="th-ico" ${D} data-act="done" onclick="return thAct(this)" title="Решено">✓</button></span>`}
+ return `<span class="thb" data-dpid="${esc(id)}" onclick="event.stopPropagation()">${thIsCu(id,url)?dpMark(id):''}${chat}<button type="button" class="th-ico" ${D} data-act="done" onclick="return thAct(this)" title="Решено → скрыть и на проверку боту">✓</button></span>`}
 const QC_COOL=60e3,QC_CONFIRM=5e3,QC_BTN_IDLE='▶ Заказать',QC_BTN_OK='✓ отправлено',QC_BTN_ERR='ошибка, ещё раз',QC_BTN_CONFIRM='нажми ещё раз';
 function qcSentAt(cmd){try{return localStorage.getItem('dash_qc_sent_'+cmd)||''}catch(e){return ''}}
 function qcIsSent(cmd){const at=qcSentAt(cmd);if(!at)return false;const t=Date.parse(at);return isFinite(t)&&(Date.now()-t)<QC_COOL}
@@ -771,12 +799,19 @@ function qcMount(){document.querySelectorAll('.qc-btn[data-act="quick_cmd"]').fo
 function thAct(b){const id=b.dataset.id,act=b.dataset.act,name=b.dataset.n||'',url=b.dataset.u||'',dir=b.dataset.dir||'',bot=b.dataset.bot||'',upd=b.dataset.upd||'',due=b.dataset.due||'',fc=b.dataset.fc==='1';if(!id)return false;
  const href=url||(thIsCu(id,url)?('https://app.clickup.com/t/'+id):'');
  if(act==='quick_cmd')return qcTap(b);
- if(act==='done'){if(thIsCu(id,href)) tapPush({key:'cuclose|'+id+'|'+(due||''),channel:'ClickUp',action:'cu_close',kind:fc?'for_check':'task',title:name,url:href,cu:id,due,dir,sphere:'done'});
-  try{maToast(thIsCu(id,href)?'В очередь: закрыть в ClickUp. Если зря — скажи боту отменить, если очередь уже ушла.':'Это не задача ClickUp, закрыть в CU нечего.')}catch(e){}}
+ if(act==='done'){if(!thIsCu(id,href)){try{maToast('Это не задача ClickUp, проверять в CU нечего.')}catch(e){}return false}
+  const t0=Date.now(),key='cudone|'+id+'|'+t0,O=dpLS();O[id]={t:t0,st:'sending',n:name,dir};dpSave(O);dpSweep();
+  const payload={key,channel:'ClickUp',action:'cu_done',kind:fc?'for_check':'task',title:name,url:href,cu:id,due,dir,bot,sphere:'done'};
+  const fin=ok=>{const P=dpLS();if(!P[id]||P[id].t!==t0)return;if(ok){P[id].st='sent';dpSave(P);try{maToast('✓ скрыто → на проверке у бота. Вернётся, если в ClickUp не закрыта (или через 24 ч без проверки).')}catch(e){}}
+   else{try{localStorage.setItem(TQK,JSON.stringify(tapQ().filter(y=>y.key!==key)))}catch(e){}P[id].st='err';dpSave(P);try{maToast('⚠ ✓ не отправился (сеть) — задача осталась на даше, нажми ✓ ещё раз.')}catch(e){}}
+   try{keepOpen(render)}catch(e){try{render()}catch(e2){}}};
+  (typeof tapPushWait==='function'?tapPushWait(payload):Promise.resolve(false)).then(fin).catch(()=>fin(false))}
  return false}
+/* t6284u: скрыть строку сразу и в блоках, которые сами не фильтруют thHidden (чужие рендеры: внимание, оборонка, календарь, подзадачи…) */
+function dpSweep(){document.querySelectorAll('#main .thb[data-dpid]').forEach(el=>{const id=el.dataset.dpid;if(!thIsCu(id,''))return;const row=el.closest('.trow,.task,details.atit,.ag,.ln,li,.bq,tr');if(row)row.style.display=dpState(id).hide?'none':''})}
 function thUndo(b){const O=thLS();delete O[b.dataset.id];thSave(O);try{keepOpen(render)}catch(e){try{render()}catch(e2){}}try{maToast('↩ вернул задачу на даш (у тебя в браузере)')}catch(e){}return false}
 function thFoldHTML(){return ''}/* Rost t6225u: блока «Скрытые в даше» больше нет */
-function thMount(){}
+function thMount(){try{dpTick()}catch(e){}try{dpSweep()}catch(e){}}
 function thCalDayList(evs,day){const d0=new Date(day+'T00:00:00-05:00').getTime(),d1=d0+864e5,seen=new Set(),L=[];
  (evs||[]).forEach(e=>{const add=c=>{const id=thId(c);if(!id||thHidden(c)||seen.has(id))return;const s=new Date(c.start||c.due||e.start||0).getTime();if(!(s>=d0&&s<d1)&&!(e.src==='clickup'&&e===c))return;seen.add(id);L.push({id,name:c.title||c.name,url:c.url,list:c.list,start:c.start||c.due||e.start})};
   if(e.src==='clickup')add(e);(e.cu||[]).forEach(add)});
@@ -1531,11 +1566,17 @@ function aibBlockHTML(tab){if(window.DASH_HELPER||tab===AIB_TAB)return '';const 
  return `<details class="top-chip aib-attn"><summary style="cursor:pointer" title="Даш и AI внедрение">${topChipH('🤖 Даш и AI внедрение · '+it.length,'🤖 '+it.length)}</summary><div class="top-chip-body">${body}</div></details>`}
 function aibMount(){const m=$('#main');if(!m||S.tab===AIB_TAB)return;const h=aibBlockHTML(S.tab);if(!h)return;const r=m.querySelector(':scope>.top-row');if(r){r.insertAdjacentHTML('beforeend',h);return}
  const row=`<div class="top-row">${h}</div>`,th=m.querySelector(':scope>.tab-head');if(th)th.insertAdjacentHTML('afterend',row);else m.insertAdjacentHTML('afterbegin',row)}
+/* Rost t6285u: аудит «✓ решено → на проверке» на вкладке 🤖 */
+function dpAuditHTML(){const P=dpSrv(),I=P.items||{},L=dpLS(),now=Date.now(),c={hide:0,returned:0,ttl:0,closed:0,err:0,lost:0},rows=[];
+ for(const id in I){const S=I[id],st=dpState(id,now);const k=S.st==='closed'?'closed':st.hide?'hide':st.mark||'';if(k&&c[k]!=null)c[k]++;if(k&&k!=='closed')rows.push([id,S.title||id,k,S.t])}
+ for(const id in L){if(I[id]&&(Date.parse(I[id].t)||0)>=L[id].t-10*60e3)continue;const st=dpState(id,now);const k=st.hide?'hide':st.mark||'';if(k&&c[k]!=null)c[k]++;if(k)rows.push([id,L[id].n||id,k+' (браузер)',new Date(L[id].t).toISOString()])}
+ const lab={hide:'на проверке',returned:'↩ вернулась',ttl:'⏳ не проверена',err:'⚠ не отправлено',lost:'⚠ не дошло'};
+ return `<div class="card aib-tab dp-audit"><h3 style="margin:0 0 4px">✓ Решено → на проверке</h3><div class="note">на проверке ${c.hide} · вернулись ${c.returned} · не проверены за ${+P.ttl_hours||24} ч ${c.ttl} · подтверждено закрытых ${c.closed}${c.err+c.lost?` · не дошли ${c.err+c.lost}`:''}</div>${rows.map(([id,n,k,t])=>`<div class="ln" style="font-size:12.5px">${esc(lab[k.split(' ')[0]]||k)}${/браузер/.test(k)?' · только в этом браузере':''} — <a href="https://app.clickup.com/t/${esc(id)}" target="_blank" rel="noopener">${esc(n)}</a> <span class="note">✓ ${esc(String(t||'').slice(0,16).replace('T',' '))} UTC</span></div>`).join('')}<div class="note" style="margin-top:4px">Источник: src/done_pending.json (сборка ${esc(String(P.built_at||'').slice(0,16).replace('T',' '))} UTC). Скрытие временное: без вердикта бота задача сама вернётся через ${+P.ttl_hours||24} ч.</div></div>`}
 function aibTab(){const D=Dash.D,A=aibItems(),dirs=[{id:'general',name:'Общее (вне направлений)',icon:'📌'},{id:'overview',name:'Общий',icon:'✦'},...(D.directions||[])];/* Rost t6271u: «Общее» — только на вкладке 🤖, первым */
- if(!A.length){$('#main').innerHTML=`<div class="card aib-tab"><h3 style="margin:0 0 4px">🤖 Даш и AI внедрение</h3><div class="note">Пока пусто: доработок дашборда и внедрений AI в плане нет. Пункты появятся здесь и на своих вкладках, как только Rost их надиктует.</div></div>`;return}
+ if(!A.length){$('#main').innerHTML=`<div class="card aib-tab"><h3 style="margin:0 0 4px">🤖 Даш и AI внедрение</h3><div class="note">Пока пусто: доработок дашборда и внедрений AI в плане нет. Пункты появятся здесь и на своих вкладках, как только Rost их надиктует.</div></div>`+dpAuditHTML();return}
  const known=new Set(dirs.map(d=>d.id)),other=[...new Set(A.map(x=>x.tab).filter(t=>!known.has(t)))].map(t=>({id:t,name:t,icon:'❓'}));
  const grp=(g,n)=>{const xs=aibGrp(A,g);if(!xs.length)return '';return `<div class="card aib-tab"><h3 style="margin:0 0 4px">${n} · ${xs.length}</h3>${dirs.concat(other).map(d=>{const ys=xs.filter(x=>x.tab===d.id);return ys.length?`<div class="aib-dir">${d.icon||''} ${esc(d.name)} · ${ys.length}</div>${ys.map(aibLn).join('')}`:''}).join('')}</div>`};
- $('#main').innerHTML=AIB_G.map(([g,n])=>grp(g,n)).join('')}
+ $('#main').innerHTML=AIB_G.map(([g,n])=>grp(g,n)).join('')+dpAuditHTML()}
 /* Rost 25.10 ~23:55: блоки «Личное». hide_from_helper → в helper.html не показываем (плюс вырезаются из data-asst при шифровании) */
 function persAttn(d){const B=d.personal_blocks;if(!B)return [];const out=[];/* плановые поездки/НГ — не attn */
  ((B.decisions&&B.decisions.items)||[]).forEach(x=>{if(x.placeholder||!x.cu||DONE.test(String(x.status||'')))return;if(x.due&&x.due<TODAY)out.push({grp:'🧭 На решение',text:(x.slot?x.slot+' — ':'')+x.name,url:x.url,why:'просрочено',cls:''})});
