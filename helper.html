@@ -46,6 +46,7 @@ nav.tabs button.on{color:color-mix(in srgb,var(--c,#7c5cff) 55%,#000);border-col
 .dlgc h3{margin-bottom:6px}.dlgsts{display:flex;flex-wrap:wrap;gap:4px;margin:0 0 8px}.dlgst{font-size:10.5px;font-weight:700;padding:2px 7px;border-radius:99px;border:1px solid #f1d29a;color:#a5620a;background:#fffaf0;white-space:nowrap}.dlgst.ok{border-color:#a6e3c4;color:#127a4a;background:#f0fbf5}.dlgt{display:grid;grid-template-columns:auto 1fr 1fr;gap:4px 6px;align-items:center}.dlgt .dh{font-size:11px;font-weight:700;color:var(--mut);text-align:center;letter-spacing:.04em}.dlgt .dl{font-size:12px;color:var(--mut);white-space:nowrap;padding-right:4px}.dlgt .dc{background:linear-gradient(135deg,#f6f4ff,#fbfbfe);border:1px solid #ecebf7;border-radius:10px;padding:6px 8px;text-align:center;line-height:1.15}.dlgt .dc b{display:block;font-size:22px;font-weight:800;letter-spacing:-.02em}.dlgt .dc i{display:block;font-style:normal;font-size:10.5px;color:var(--mut);margin-top:1px}.dlgf{margin:8px 0 0;font-size:11.5px;line-height:1.35}
 .dlgrow{display:grid;grid-template-columns:minmax(240px,1fr) 2.6fr;gap:14px;align-items:stretch;margin-bottom:14px}.dlgrow>.card{margin-bottom:0!important}.dlgrow>.card:first-child .grid.g4{grid-template-columns:1fr}@media(max-width:900px){.dlgrow{grid-template-columns:1fr}}
 @media(max-width:980px){.g4{grid-template-columns:repeat(2,1fr)}.g2,.g2e{grid-template-columns:1fr}}
+.of-prio-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px;align-items:stretch;margin-top:2px}.of-prio-sub{border:1px solid var(--line);border-radius:14px;padding:12px 14px;background:#fafbff;box-sizing:border-box;min-width:0;min-height:200px;height:100%}.of-prio-sub h4{margin:0 0 8px;font-size:14px;font-weight:800;display:flex;align-items:center;justify-content:space-between;gap:8px}@media(max-width:700px){.of-prio-grid{grid-template-columns:1fr}.of-prio-sub{min-height:0}}
 @media(max-width:520px){.g4{grid-template-columns:1fr 1fr;gap:10px}.wrap{padding:14px 12px}.kpi .v{font-size:20px!important}}
 .card{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:16px;position:relative;overflow:hidden;box-shadow:var(--shadow)}
 .card h3{margin:0 0 12px;font-size:13px;color:var(--mut);font-weight:600;text-transform:uppercase;letter-spacing:.06em;display:flex;justify-content:space-between;align-items:center;gap:8px}
@@ -1438,15 +1439,15 @@ function persBlocksHTML(d){if(d.id!=='personal'||!d.personal_blocks)return '';co
   <div class="note">${Hh.url?cul(Hh.url,'CU '+Hh.cu)+' · ':''}${esc(Hh.src||'')}</div>`)}
  h+=`<div class="note" style="margin:-6px 0 14px">Блоки «Личное» — снимок ${esc((B.fetched_at||'').slice(0,16).replace('T',' '))} Богота (UTC−5). ${esc(B._note||'')}</div>`;
  return h}
-/* Rost t6194u: ОФ — «Приоритетные задачи» двумя блоками в самом верху, над статистикой */
+/* Rost t6194u/t6214u: ОФ — «Приоритетные задачи» сверху; два квадрата в ряд: мне слева, сотрудники справа */
 function ofPriorityHTML(d){if(d.id!=='of')return '';
  const extra=[{id:'of-seider-iphone',name:'Сейдер — автоматизация iPhone / разобраться с Xcode и ботом',status:'на контроле',priority:'high',assignees:['Rost'],who:'Rost',manual:true}];
  const all=extra.concat(d.tasks||[]).filter(t=>!thHidden(t)&&!cuClosed(t));
  const mine=all.filter(t=>t.manual||cuIsRost(t)),staff=all.filter(t=>!(t.manual||cuIsRost(t)));
  const row=t=>{const title=t.url?`<a href="${cuAppUrl(t.url)}" target="_blank" rel="noopener">${esc(t.name)}</a>`:`<b>${esc(t.name)}</b>`;
   return `<div class="task"><span class="pill p-${t.priority||'normal'}">${Dash.PRI[t.priority]||t.priority||''}</span><div style="flex:1"><div style="display:flex;flex-wrap:wrap;gap:6px;align-items:center">${title}${cuWhoHTML(t)}</div><div style="margin-top:4px;display:flex;flex-wrap:wrap;gap:4px;align-items:center"><span class="st">${esc(t.status||'')}</span>${t.due?` <span class="st">срок ${esc(t.due.slice(8,10)+'.'+t.due.slice(5,7))}</span>`:''}${t.parent?` <span class="note">↳ ${esc(t.parent)}</span>`:''}${t.manual?'':thBtns(t)}</div></div></div>`};
- const block=(title,ts)=>`<div class="of-prio-sub" style="margin-top:12px"><h4 style="margin:0 0 6px;font-size:14px;font-weight:800">${esc(title)} <span class="st">${ts.length}</span></h4>${ts.length?ts.map(row).join(''):'<div class="empty">нет задач</div>'}</div>`;
- return `<div class="card of-prio" style="margin-bottom:14px"><h3>Приоритетные задачи</h3>${block('На решение мне',mine)}${block('На решение у сотрудников',staff)}</div>`}
+ const block=(title,ts)=>`<div class="of-prio-sub"><h4>${esc(title)} <span class="st">${ts.length}</span></h4>${ts.length?ts.map(row).join(''):'<div class="empty">нет задач</div>'}</div>`;
+ return `<div class="card of-prio" style="margin-bottom:14px"><h3>Приоритетные задачи</h3><div class="of-prio-grid">${block('На решение мне',mine)}${block('На решение у сотрудников',staff)}</div></div>`}
 function ofBlocksHTML(d){if(d.id!=='of'||!d.of_blocks)return '';const B=d.of_blocks,cur=Dash.curOf(d),$u=v=>v==null?'—':fmt(Dash.conv(v,'USD',cur),cur),n=v=>v==null?'—':esc(Dash.num(v)),m=S.mode;
  /* Rost t6088u: Current / Pending balances on анкеты (OFTV + своя модель) */
  const ddBal=s=>{const m=String(s||'').match(/(\d{4})-(\d{2})-(\d{2})/);return m?m[3]+'.'+m[2]:''};
