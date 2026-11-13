@@ -5,8 +5,9 @@ Optional farm_status.days (list[{date,...}] or dict) is merged into farm.days;
 days not present in the snapshot are kept. Current as_of still wins for that day.
 
 Also computes farm.health = {ok, reasons[], checked_at} for capture problems
-(Rost t5821u). Operational Seider/Onimator issues stay with Фермовод — we only
-flag problems with the dash capture/snapshot itself.
+(Rost t5821u) and operational attention (Rost t315u): stale/missing daily
+snapshot after 11:30 Bogotá, farm stopped (Running 0/N), 0 actions today,
+0 live accounts. Does not invent metric numbers.
 """
 from __future__ import annotations
 import json, sys, re
@@ -65,8 +66,27 @@ def _period_all_null(obj) -> bool:
     return all(v is None for v in vals)
 
 
+def _metric_today(st: dict, key: str):
+    """Return <metric>.today when present; None if missing (do not invent 0)."""
+    obj = st.get(key)
+    if isinstance(obj, dict) and "today" in obj:
+        return obj.get("today")
+    return None
+
+
+def _as_of_date(st: dict):
+    as_of = st.get("as_of")
+    if as_of:
+        try:
+            return datetime.strptime(str(as_of)[:10], "%Y-%m-%d").date()
+        except Exception:
+            pass
+    dt = _parse_as_of_dt(st)
+    return dt.date() if dt else None
+
+
 def compute_health(st: dict | None, *, missing: bool = False, unreadable: str | None = None) -> dict:
-    """Capture-health only. Does not invent metric numbers."""
+    """Capture-health plus operational attention. Does not invent metric numbers."""
     checked = _now_bog().isoformat(timespec="minutes")
     reasons: list[str] = []
     if missing:
@@ -90,7 +110,9 @@ def compute_health(st: dict | None, *, missing: bool = False, unreadable: str | 
     if str(st.get("status") or "").lower() in ("error", "failed", "fail"):
         reasons.append("status=failed в снимке")
 
+    now = _now_bog()
     as_of = st.get("as_of")
+    snap_date = _as_of_date(st) if as_of or st.get("collected_at") else None
     if not as_of:
         reasons.append("нет as_of")
     else:
@@ -98,12 +120,19 @@ def compute_health(st: dict | None, *, missing: bool = False, unreadable: str | 
         if dt is None:
             reasons.append("as_of не разобрать")
         else:
-            age_h = (_now_bog() - dt).total_seconds() / 3600.0
+            age_h = (now - dt).total_seconds() / 3600.0
             if age_h > STALE_HOURS:
                 label = str(as_of)[:10]
                 if dt.hour or dt.minute:
                     label = f"{label} {dt.hour:02d}:{dt.minute:02d}"
                 reasons.append(f"снимок устарел ({label}, >{STALE_HOURS}ч)")
+
+    # Daily-report staleness (Rost t315u): no today's snapshot after 11:30 Bogotá.
+    # Keep the >36h rule above; both may fire together.
+    if snap_date is not None and snap_date != now.date() and (now.hour, now.minute) >= (11, 30):
+        reasons.append(
+            f"нет снимка за сегодня (последний {snap_date.day:02d}.{snap_date.month:02d})"
+        )
 
     accounts = st.get("accounts")
     if accounts is None and isinstance(st.get("phones"), list):
@@ -128,6 +157,24 @@ def compute_health(st: dict | None, *, missing: bool = False, unreadable: str | 
     # live_ok / idle are part of the normal capture; both null with accounts>0 = incomplete snap
     if (accounts or 0) > 0 and st.get("live_ok") is None and st.get("idle") is None:
         reasons.append("live_ok/idle не сняты")
+
+    # Operational attention (Rost t315u) — only from values actually present.
+    running = st.get("running")
+    if running is not None:
+        run_s = str(running).strip()
+        m = re.fullmatch(r"0/(\d+)", run_s)
+        if m and int(m.group(1)) > 0:
+            reasons.append(f"ферма стоит: Running {run_s}")
+
+    if (accounts or 0) > 0 and snap_date == now.date():
+        total_today = _metric_today(st, "total")
+        follows_today = _metric_today(st, "follows")
+        story_today = _metric_today(st, "story_views")
+        if total_today == 0 or (follows_today == 0 and story_today == 0):
+            reasons.append("0 действий за день")
+
+    if (accounts or 0) > 0 and st.get("live_ok") == 0:
+        reasons.append("0 живых акков отработали")
 
     # Deduplicate while preserving order
     seen = set()
