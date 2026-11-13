@@ -315,18 +315,18 @@ details:not(.bqd):not(.ilg)[open]>summary::before{content:"▾"!important;color:
 .coach-subs tfoot td{border-top:1px solid var(--line,#eef0f5);color:#64748b;font-size:12.5px;padding-top:6px}
 .coach-subs-pill{display:inline-block;font-size:10.5px;font-weight:600;padding:1px 7px;border-radius:99px;border:1px solid #f1d29a;color:#9a5b07;background:#fff6d6;white-space:nowrap;vertical-align:middle}
 /* Rost t6232u: мини-таблица 3 недель в карточке Хереры */
-.herrera-weeks{margin:8px 0 10px;padding:0;color:#334155}
-.herrera-weeks .hw-cap{font-weight:700;font-size:12px;color:#64748b;margin:0 0 4px}
-.herrera-weeks table{width:100%;border-collapse:collapse;font-size:11.5px;table-layout:fixed}
-.herrera-weeks th,.herrera-weeks td{padding:3px 4px;border-top:1px dashed var(--line,#eef0f5);text-align:right;font-variant-numeric:tabular-nums;vertical-align:top}
+.herrera-weeks{margin:0 0 8px;padding:0;color:#334155}
+.herrera-weeks table,.mx .hw-tbl{width:100%;border-collapse:collapse;font-size:11.5px;table-layout:fixed}
+.herrera-weeks th,.herrera-weeks td{padding:3px 4px;border-top:1px dashed var(--line,#eef0f5);text-align:right;font-variant-numeric:tabular-nums;vertical-align:top;white-space:normal}
 .herrera-weeks th{font-weight:600;font-size:10.5px;color:#94a3b8;border-top:0;text-transform:none;letter-spacing:0}
-.herrera-weeks th:first-child,.herrera-weeks td:first-child{text-align:left;width:28%}
+.herrera-weeks th:first-child,.herrera-weeks td:first-child{text-align:left;width:36%}
 .herrera-weeks .hw-d{display:block;font-weight:700;color:#334155;font-variant-numeric:tabular-nums}
 .herrera-weeks .hw-up{color:#0b7a59;font-size:10px;font-weight:700}
 .herrera-weeks .hw-dn{color:#b42318;font-size:10px;font-weight:700}
 .herrera-weeks .hw-z{color:#94a3b8;font-size:10px;font-weight:600}
 .herrera-weeks .hw-miss{color:#94a3b8}
-.herrera-weeks .note{margin-top:4px;font-size:10.5px}
+.herrera-weeks .note,.mx-weeks>.note{margin-top:4px;font-size:10.5px}
+.mx-weeks .herrera-weeks{margin-top:0}
 
 </style><link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%2322c3a6%22/%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%237b5cff%22/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2216%22%20fill%3D%22url%28%23g%29%22/%3E%3Crect%20x%3D%2215%22%20y%3D%2234%22%20width%3D%228%22%20height%3D%2215%22%20rx%3D%223%22%20fill%3D%22%23fff%22/%3E%3Crect%20x%3D%2228%22%20y%3D%2224%22%20width%3D%228%22%20height%3D%2225%22%20rx%3D%223%22%20fill%3D%22%23fff%22/%3E%3Crect%20x%3D%2241%22%20y%3D%2215%22%20width%3D%228%22%20height%3D%2234%22%20rx%3D%223%22%20fill%3D%22%23fff%22%20opacity%3D%22.92%22/%3E%3C/svg%3E">
 </head><body><div class="wrap">
@@ -891,27 +891,26 @@ function attnOverviewHTML(){const a=attnAll();if(!a.n)return '';
  const rows=a.per.filter(x=>x.it.length).map(({d,it})=>{const t=it.filter(x=>x.cls!=='gap').length,g=it.length-t;
   return `<div class="ln go" data-t="${d.id}"><span class="why">${it.length}</span><span><b>${d.icon} ${esc(d.name)}</b> — ${[t?t+' задач/вопросов':'',g?g+' пробел(ов)/частично':''].filter(Boolean).join(', ')} →</span></div>`}).join('');
  return `<div class="attn"><details class="attnd"><summary style="cursor:pointer"><h4 style="display:inline">🔴 Требует внимания · ${a.n}</h4> <span class="note">▾</span></summary>${rows}${a.own.length?linesHTML(a.own,5,{id:'overview',name:'Общий'}):''}</details></div>`}
-function herreraWeeksHTML(p){const W=p.herrera_weeks||p.weeks;if(!W||!W.weeks||!W.weeks.length)return '';
- const today=typeof TODAY!=='undefined'&&TODAY?TODAY:(typeof bDay==='function'?bDay(new Date().toISOString()):new Date().toISOString().slice(0,10));
+function herreraDoneWeeks(p){const W=p.herrera_weeks||p.weeks;if(!W||!W.weeks||!W.weeks.length)return null;
+ const today=(typeof dueTodayStr==='function')?dueTodayStr():((typeof TODAY!=='undefined'&&TODAY)?TODAY:(typeof bDay==='function'?bDay(new Date().toISOString()):new Date().toISOString().slice(0,10)));
  const done=(W.weeks||[]).filter(w=>w&&w.end&&w.end<today).sort((a,b)=>String(a.start||'').localeCompare(String(b.start||''))).slice(-3);
- if(!done.length)return '';
- const mets=W.metrics||[{id:'ig1',label:'IG @alexaherrera.oficial',kind:'n'},{id:'ig2',label:'IG @alexa.herrera.oficial',kind:'n'},{id:'tiktok',label:'TikTok @alexaherrera37',kind:'n'},{id:'c4s',label:'Clips4Sale подп.',kind:'n'},{id:'curvage',label:'Curvage подп.',kind:'n'},{id:'video_week',label:'Новое видео за неделю',kind:'n'},{id:'of_net',label:'Доход OF (чистыми)',kind:'$'}];
- const val=(w,id)=>{const v=(w.values||{})[id];return v==null||v===''?null:+v};
- const fmtN=(v,k)=>k==='$'?('$'+Number(v).toLocaleString('ru-RU',{minimumFractionDigits:Number.isInteger(+v)?0:2,maximumFractionDigits:2})):(Number(v).toLocaleString('ru-RU'));
- const dlt=(cur,prev,k)=>{if(cur==null||prev==null)return '';const d=cur-prev;if(Math.abs(d)<1e-9)return '<div class="hw-z">±0</div>';const sign=d>0?'+':'−';const cls=d>0?'hw-up':'hw-dn';const abs=k==='$'?fmtN(Math.abs(d),k):Math.abs(d).toLocaleString('ru-RU');return `<div class="${cls}">${sign}${abs}</div>`};
- const cell=(w,prev,id,k)=>{const v=val(w,id);if(v==null)return '<span class="hw-miss">—</span>';return `<span class="hw-d">${fmtN(v,k)}</span>${dlt(v,prev==null?null:val(prev,id),k)}`};
+ return done.length?{W,done}:null}
+function herreraWeekVal(w,r,rows){if(r.total){const vs=(rows||[]).filter(x=>x.platform).map(x=>herreraWeekVal(w,x,rows)).filter(v=>v!=null);return vs.length?vs.reduce((a,v)=>a+v,0):null}const id=r.week_id||r.id;if(!id||!w)return null;const v=(w.values||{})[id];return v==null||v===''?null:+v}
+function herreraFmt(v,k){if(k==='$'||k==='USD')return '$'+Number(v).toLocaleString('ru-RU',{minimumFractionDigits:Number.isInteger(+v)?0:2,maximumFractionDigits:2});if(k==='COP')return Number(v).toLocaleString('ru-RU')+' COP';return Number(v).toLocaleString('ru-RU')}
+function herreraWeekCell(w,prev,r,rows){const k=r.kind||(r.unit==='$'||r.unit==='USD'?'$':r.unit==='COP'?'COP':'n');const v=herreraWeekVal(w,r,rows),pv=prev?herreraWeekVal(prev,r,rows):null;if(v==null)return '<span class="hw-miss">—</span>';let dlt='';if(pv!=null){const d=v-pv;if(Math.abs(d)<1e-9)dlt='<div class="hw-z">±0</div>';else{const sign=d>0?'+':'−',cls=d>0?'hw-up':'hw-dn',abs=herreraFmt(Math.abs(d),k);dlt=`<div class="${cls}">${sign}${abs}</div>`}}return `<span class="hw-d">${herreraFmt(v,k)}</span>${dlt}`}
+function herreraGroupHTML(g,weekly){const done=weekly.done,rows=g.rows||[];
  const heads=done.map(w=>`<th class="n">${esc(w.label||w.id||'')}${w.as_of?`<div class="note">замер ${esc(String(w.as_of).slice(8,10)+'.'+String(w.as_of).slice(5,7))}</div>`:''}</th>`).join('');
- const body=mets.map(m=>{const cells=done.map((w,i)=>`<td class="n">${cell(w,i?done[i-1]:null,m.id,m.kind||m.unit)}</td>`).join('');return `<tr><td>${esc(m.label)}</td>${cells}</tr>`}).join('');
- const gap=(W.gaps&&W.gaps.length)?`<div class="note">прочерк — за эту неделю замера не было</div>`:'';
- return `<div class="herrera-weeks"><div class="hw-cap">сравнение 3 недель</div><div class="tblwrap"><table><thead><tr><th>Показатель</th>${heads}</tr></thead><tbody>${body}</tbody></table></div>${gap}</div>`}
+ const body=rows.map(r=>{const lab=r.url?`<a href="${esc(cuAppUrl(r.url))}" target="_blank" rel="noopener" style="color:inherit">${esc(r.label)} ↗</a>`:esc(r.label);const cells=done.map((w,i)=>`<td class="n">${herreraWeekCell(w,i?done[i-1]:null,r,rows)}</td>`).join('');return `<tr class="${r.total?'tot':''} ${r.excluded?'ex':''}"><td>${lab}</td>${cells}</tr>`}).join('');
+ return `<h5>${esc(g.title)}</h5><div class="tblwrap herrera-weeks"><table class="hw-tbl"><thead><tr><th>Показатель</th>${heads}</tr></thead><tbody>${body}</tbody></table></div>`}
 function metricsHTML(p){const m=p.metrics;if(!m&&!p.goal)return '';
  const num=v=>v==null||v===''?null:+v,fmt=(v,u)=>v==null?'—':(u==='$'?'$':'')+v.toLocaleString('ru-RU')+(u&&u!=='$'?' '+u:'');
  const rows=(m&&m.groups||[]).flatMap(g=>g.rows),plat=rows.filter(r=>r.platform).map(r=>num(r.value)),platSum=plat.some(v=>v!=null)?plat.reduce((a,v)=>a+(v||0),0):null;
  const tv=r=>r.total?platSum:num(r.value),pct=m&&m.target&&platSum!=null?Math.min(100,platSum/m.target*100):0;
- let h=`<div class="mx">${p.goal?`<div class="goal">🎯 ${esc(p.goal)}</div>`:''}`;
+ const weekly=herreraDoneWeeks(p);
+ let h=`<div class="mx${weekly?' mx-weeks':''}">${p.goal?`<div class="goal">🎯 ${esc(p.goal)}</div>`:''}`;
  if(m){if(m.target)h+=`<div class="note" style="display:flex;justify-content:space-between"><span>${esc(m.target_label||'Цель')}</span><b>${fmt(platSum,'$')} / $${m.target.toLocaleString('ru-RU')}</b></div><div class="bar"><i style="width:${pct}%"></i></div>`;
-  h+=herreraWeeksHTML(p);
-  h+=m.groups.map(g=>`<h5>${esc(g.title)}</h5><table>${g.rows.map(r=>`<tr class="${r.total?'tot':''} ${r.excluded?'ex':''}"><td>${r.url?`<a href="${esc(cuAppUrl(r.url))}" target="_blank" rel="noopener" style="color:inherit">${esc(r.label)} ↗</a>`:esc(r.label)}${r.hint||r.measured?`<span class="hint">${esc([r.hint,r.measured?'замер '+r.measured:''].filter(Boolean).join(' · '))}</span>`:''}</td><td class="v">${fmt(tv(r),r.unit)}</td></tr>`).join('')}</table>`).join('');
+  if(weekly){h+=m.groups.map(g=>herreraGroupHTML(g,weekly)).join('');h+='<div class="note">прочерк — за эту неделю замера не было</div>'}
+  else h+=m.groups.map(g=>`<h5>${esc(g.title)}</h5><table>${g.rows.map(r=>`<tr class="${r.total?'tot':''} ${r.excluded?'ex':''}"><td>${r.url?`<a href="${esc(cuAppUrl(r.url))}" target="_blank" rel="noopener" style="color:inherit">${esc(r.label)} ↗</a>`:esc(r.label)}${r.hint||r.measured?`<span class="hint">${esc([r.hint,r.measured?'замер '+r.measured:''].filter(Boolean).join(' · '))}</span>`:''}</td><td class="v">${fmt(tv(r),r.unit)}</td></tr>`).join('')}</table>`).join('');
   if(m.note)h+=`<div class="note" style="font-size:11px;margin-top:6px">${esc(m.note)}</div>`}
  return h+'</div>'}
 
