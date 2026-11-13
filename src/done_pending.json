@@ -1,6 +1,18 @@
 {
  "_note": "Rost t6284u/t6285u: ✓ решено на даше → на проверке. Пишет только src/done_pending.py / sync_dash_taps.py. Руками не править.",
  "ttl_hours": 24,
- "items": {},
+ "items": {
+  "86b7k7d75": {
+   "state": "pending",
+   "title": "Полив цветов в квартире",
+   "dir": "personal",
+   "bot": "",
+   "url": "https://rosmater.github.io/cu/?t=86b7k7d75",
+   "clicked_at": "2026-11-13T23:31:50Z",
+   "received_at": "2026-11-13T23:46:02Z",
+   "src": "dash",
+   "cycles": 1
+  }
+ },
  "history": []
 }

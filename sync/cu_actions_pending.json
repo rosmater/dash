@@ -1,6 +1,17 @@
 {
  "note": "Действия с даша для ClickUp. Закрывает рутина COMMS/скрипт через ClickUp API (cu_close → status complete), затем переносит запись в done[].",
- "pending": [],
+ "pending": [
+  {
+   "id": "86b7k7d75",
+   "action": "cu_review",
+   "kind": "task",
+   "title": "Полив цветов в квартире",
+   "url": "https://rosmater.github.io/cu/?t=86b7k7d75",
+   "bot": null,
+   "dir": "personal",
+   "tapped_at": "2026-11-13T23:31:50.520Z"
+  }
+ ],
  "done": [
   {
    "id": "86b791cuk",
