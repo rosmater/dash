@@ -156,10 +156,10 @@ const DataUpd = (() => {
     const ovsub = document.getElementById('ovsub');
     const head = main.querySelector('.tab-head');
     if (attn) attn.insertAdjacentElement('afterend', node);
-    try { if (typeof alertFit === 'function') alertFit(node); } catch (e) {}
     else if (ovsub) ovsub.insertAdjacentElement('afterend', node);
     else if (head) head.insertAdjacentElement('afterend', node);
     else main.insertAdjacentElement('afterbegin', node);
+    try { if (typeof alertFit === 'function') alertFit(node); } catch (e) {}
   }
   function slotFor(root) {
     return root.querySelector('.du-slot') || root.querySelector(':scope > h3') || root.querySelector('summary h3') || root.querySelector('h3');
