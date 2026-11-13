@@ -1373,3 +1373,4 @@
 {"ts": "2026-11-12T22:39:21-05:00", "bot": "Секретарь", "action": "build", "note": "night hygiene 12.11 gcal 169 ev fetched 22:39", "files": ["gcal_dash.json"]}
 {"ts": "2026-11-12T22:40:00-05:00", "bot": "Секретарь", "action": "edit-json", "note": "t6240u: Seider assignee on 86bd2v24a and 86b6pbedx", "files": ["src/of_open_tasks.json"]}
 {"ts": "2026-11-12T22:40:30-05:00", "bot": "Секретарь", "action": "build", "note": "night hygiene 12.11 rebuild after OF of_open_tasks t6240u on disk, gcal 169", "files": ["gcal_dash.json"]}
+{"ts": "2026-11-12T22:42:12-05:00", "bot": "Секретарь", "action": "build", "note": "night hygiene 12.11 due-sync dated=9 + CU WIDE mcp 2 @Rost (Sara Katherine, Michelle Lolapop) + meetings 0", "files": ["cu_dated.json", "ma_cu_inbox_mcp.json", "ma_clickup.json", "gcal_dash.json", "personal_meetings.json"]}
