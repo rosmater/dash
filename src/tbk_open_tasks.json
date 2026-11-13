@@ -1,0 +1,1636 @@
+{
+  "_doc": "t6244u: открытые рабочие задачи пространства Tabakevich (90144306286, списки «Задачи Tabakevich» / «Юля» / «SEO») для доски вкладки Табакевич, как of_open_tasks.json. complete/main/models исключены. Тег «🎯 фокус» создан в спейсе; на задачи не ставился. Снимок 12.11 23:20 Богота.",
+  "fetched_at": "2026-11-12T23:18:38-05:00",
+  "src": "ClickUp filter_tasks space 90144306286, include_closed=false",
+  "tasks": [
+    {
+      "id": "86b7ype93",
+      "name": "Закупка ссылок",
+      "status": "to do",
+      "priority": "normal",
+      "due": null,
+      "hang_since": "2025-12-28",
+      "assignees": [],
+      "list": "SEO",
+      "url": "https://rosmater.github.io/cu/?t=86b7ype93",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b7ype60",
+      "name": "Настройка Гугл аналитикс",
+      "status": "to do",
+      "priority": "normal",
+      "due": null,
+      "hang_since": "2025-12-28",
+      "assignees": [],
+      "list": "SEO",
+      "url": "https://rosmater.github.io/cu/?t=86b7ype60",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b7ype6y",
+      "name": "Настройка Серч Консоль Гугл",
+      "status": "to do",
+      "priority": "normal",
+      "due": null,
+      "hang_since": "2025-12-28",
+      "assignees": [],
+      "list": "SEO",
+      "url": "https://rosmater.github.io/cu/?t=86b7ype6y",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b7ypf37",
+      "name": "Оптовый каталог",
+      "status": "to do",
+      "priority": "normal",
+      "due": null,
+      "hang_since": "2025-12-28",
+      "assignees": [],
+      "list": "SEO",
+      "url": "https://rosmater.github.io/cu/?t=86b7ypf37",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b7ypf3k",
+      "name": "Ошибки",
+      "status": "to do",
+      "priority": "normal",
+      "due": null,
+      "hang_since": "2025-12-28",
+      "assignees": [],
+      "list": "SEO",
+      "url": "https://rosmater.github.io/cu/?t=86b7ypf3k",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b7ype9h",
+      "name": "Проверка выполненных ТЗ",
+      "status": "to do",
+      "priority": "normal",
+      "due": null,
+      "hang_since": "2025-12-28",
+      "assignees": [],
+      "list": "SEO",
+      "url": "https://rosmater.github.io/cu/?t=86b7ype9h",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b7ype9y",
+      "name": "Проверка и размещение контента",
+      "status": "to do",
+      "priority": "normal",
+      "due": null,
+      "hang_since": "2025-12-28",
+      "assignees": [],
+      "list": "SEO",
+      "url": "https://rosmater.github.io/cu/?t=86b7ype9y",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b7ypebn",
+      "name": "Проверка ошибок в Серч Консоль Гугл",
+      "status": "to do",
+      "priority": "normal",
+      "due": null,
+      "hang_since": "2025-12-28",
+      "assignees": [],
+      "list": "SEO",
+      "url": "https://rosmater.github.io/cu/?t=86b7ypebn",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b7ype4n",
+      "name": "Проверка позиций (отчет)",
+      "status": "to do",
+      "priority": "normal",
+      "due": null,
+      "hang_since": "2025-12-28",
+      "assignees": [],
+      "list": "SEO",
+      "url": "https://rosmater.github.io/cu/?t=86b7ype4n",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b7ype81",
+      "name": "Прогон сайта на ошибки через сканнер (тех аудит)",
+      "status": "to do",
+      "priority": "normal",
+      "due": null,
+      "hang_since": "2025-12-28",
+      "assignees": [],
+      "list": "SEO",
+      "url": "https://rosmater.github.io/cu/?t=86b7ype81",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b7ypf3c",
+      "name": "Работа с отзывами",
+      "status": "to do",
+      "priority": "normal",
+      "due": null,
+      "hang_since": "2025-12-28",
+      "assignees": [],
+      "list": "SEO",
+      "url": "https://rosmater.github.io/cu/?t=86b7ypf3c",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b7ypf3r",
+      "name": "Разметка Схема орг",
+      "status": "to do",
+      "priority": "normal",
+      "due": null,
+      "hang_since": "2025-12-28",
+      "assignees": [],
+      "list": "SEO",
+      "url": "https://rosmater.github.io/cu/?t=86b7ypf3r",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b7ypdy9",
+      "name": "Семантическое ядро",
+      "status": "to do",
+      "priority": "normal",
+      "due": null,
+      "hang_since": "2025-12-28",
+      "assignees": [],
+      "list": "SEO",
+      "url": "https://rosmater.github.io/cu/?t=86b7ypdy9",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b7ypdy0",
+      "name": "Технический аудит полный",
+      "status": "to do",
+      "priority": "normal",
+      "due": null,
+      "hang_since": "2025-12-28",
+      "assignees": [],
+      "list": "SEO",
+      "url": "https://rosmater.github.io/cu/?t=86b7ypdy0",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b7ypeu7",
+      "name": "Формирование отчета",
+      "status": "to do",
+      "priority": "normal",
+      "due": null,
+      "hang_since": "2025-12-28",
+      "assignees": [],
+      "list": "SEO",
+      "url": "https://rosmater.github.io/cu/?t=86b7ypeu7",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b786vx3",
+      "name": "Тарас решить вопрос с ускорением процесса закрытия касс",
+      "status": "to do",
+      "priority": "normal",
+      "due": "2025-11-03",
+      "hang_since": "2026-01-27",
+      "assignees": [
+        "TG"
+      ],
+      "list": "Задачи Tabakevich",
+      "url": "https://rosmater.github.io/cu/?t=86b786vx3",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b719j06",
+      "name": "Запущен ли Таргет - выяснить статус",
+      "status": "in progress",
+      "priority": "normal",
+      "due": "2026-02-14",
+      "hang_since": "2026-02-11",
+      "assignees": [
+        "Алексей"
+      ],
+      "list": "Задачи Tabakevich",
+      "url": "https://rosmater.github.io/cu/?t=86b719j06",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b719hwv",
+      "name": "Раздать 20000/10000 флаеров и замерять результат ПосКот",
+      "status": "in progress",
+      "priority": "normal",
+      "due": "2026-02-14",
+      "hang_since": "2026-02-11",
+      "assignees": [
+        "Алексей"
+      ],
+      "list": "Задачи Tabakevich",
+      "url": "https://rosmater.github.io/cu/?t=86b719hwv",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b719hv8",
+      "name": "Телеграм каналы публикации - выяснить публиковались ли хоть где то и есть ли план дальше по этой задаче",
+      "status": "to do",
+      "priority": "normal",
+      "due": "2026-02-14",
+      "hang_since": "2026-02-11",
+      "assignees": [
+        "Алексей"
+      ],
+      "list": "Задачи Tabakevich",
+      "url": "https://rosmater.github.io/cu/?t=86b719hv8",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b80mtaq",
+      "name": "Начать искать мессто в самом центре Дерибасовская и округа + Черемушки",
+      "status": "to do",
+      "priority": "normal",
+      "due": "2026-03-01",
+      "hang_since": "2026-02-11",
+      "assignees": [
+        "Алексей"
+      ],
+      "list": "Задачи Tabakevich",
+      "url": "https://rosmater.github.io/cu/?t=86b80mtaq",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b80mrw8",
+      "name": "Придумать надпись для просмотра сверху с эскалатора",
+      "status": "to do",
+      "priority": "normal",
+      "due": "2026-03-01",
+      "hang_since": "2026-02-11",
+      "assignees": [
+        "Алексей"
+      ],
+      "list": "Задачи Tabakevich",
+      "url": "https://rosmater.github.io/cu/?t=86b80mrw8",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b7mec0k",
+      "name": "Уточнить у Юли почему грузит долго 1С и чтоб связала с Иваном",
+      "status": "to do",
+      "priority": "normal",
+      "due": "2026-07-14",
+      "hang_since": "2026-07-12",
+      "assignees": [
+        "Ірина Шекель"
+      ],
+      "list": "Задачи Tabakevich",
+      "url": "https://rosmater.github.io/cu/?t=86b7mec0k",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b6qqc2e",
+      "name": "Скидочный бокс сбор отчетов",
+      "status": "to do",
+      "priority": "normal",
+      "due": "2026-09-29",
+      "hang_since": "2026-09-30",
+      "assignees": [
+        "Ірина Шекель"
+      ],
+      "list": "Задачи Tabakevich",
+      "url": "https://rosmater.github.io/cu/?t=86b6qqc2e",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86bbdx9ue",
+      "name": "Заполнить Направления отчет по движению к целям",
+      "status": "to do",
+      "priority": "normal",
+      "due": "2026-10-16",
+      "hang_since": "2026-09-19",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Задачи Tabakevich",
+      "url": "https://rosmater.github.io/cu/?t=86bbdx9ue",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86bcjkww3",
+      "name": "Автоматизация контроля офиса",
+      "status": "to do",
+      "priority": "normal",
+      "due": "2026-10-18",
+      "hang_since": "2026-10-15",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Задачи Tabakevich",
+      "url": "https://rosmater.github.io/cu/?t=86bcjkww3",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86bbufwk0",
+      "name": "(ждем инфу) Киев аналитика - какой план дальше?",
+      "status": "to do",
+      "priority": "normal",
+      "due": "2026-10-25",
+      "hang_since": "2026-10-14",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Задачи Tabakevich",
+      "url": "https://rosmater.github.io/cu/?t=86bbufwk0",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b6qphq3",
+      "name": "Конкурентов проверить (стать конкурентнее - вопрос Артема - Андрей поговорить)",
+      "status": "to do",
+      "priority": "normal",
+      "due": "2026-10-25",
+      "hang_since": "2026-08-31",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Задачи Tabakevich",
+      "url": "https://rosmater.github.io/cu/?t=86b6qphq3",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86bbjcbez",
+      "name": "Покрутить как изьять деньги из оборота с учетом магазинов",
+      "status": "to do",
+      "priority": "normal",
+      "due": "2026-10-25",
+      "hang_since": "2026-10-14",
+      "assignees": [
+        "Rost",
+        "Ірина Шекель"
+      ],
+      "list": "Задачи Tabakevich",
+      "url": "https://rosmater.github.io/cu/?t=86bbjcbez",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86bbhwnye",
+      "name": "Синхронизация всех складов что нам даст в интернет магазине - есть человек у него нет работы - процесс не совершенен",
+      "status": "to do",
+      "priority": "normal",
+      "due": "2026-10-25",
+      "hang_since": "2026-10-14",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Задачи Tabakevich",
+      "url": "https://rosmater.github.io/cu/?t=86bbhwnye",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86bcmacku",
+      "name": "БОТ-ЧАСТЬ: ИМ контроль работы и менеджеров",
+      "status": "to do",
+      "priority": "normal",
+      "due": "2026-10-26",
+      "hang_since": "2026-11-11",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Задачи Tabakevich",
+      "url": "https://rosmater.github.io/cu/?t=86bcmacku",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86bbzx5uq",
+      "name": "Интим - прогулять балансы (спросить за перестановку балансов)",
+      "status": "to do",
+      "priority": "normal",
+      "due": "2026-10-26",
+      "hang_since": "2026-10-25",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Задачи Tabakevich",
+      "url": "https://rosmater.github.io/cu/?t=86bbzx5uq",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b7n8kwx",
+      "name": "(ОБСУДИТЬ КОМПРОМИСС) ВЫВОД С ОБОРОТА 300к📞 АНДРЕЙ - планерка (Ю420 + ЗП Саши+8% + Традиции) + Черновцы-как так вышло?",
+      "status": "to do",
+      "priority": "high",
+      "due": "2026-10-27",
+      "hang_since": "2026-10-25",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Задачи Tabakevich",
+      "url": "https://rosmater.github.io/cu/?t=86b7n8kwx",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86bcptcp4",
+      "name": "АНДРЕЙ (колл): Серёжа — решить поднятие зарплаты до 100к, реально ли (жена инвалид)",
+      "status": "to do",
+      "priority": "normal",
+      "due": "2026-10-27",
+      "hang_since": "2026-10-22",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Задачи Tabakevich",
+      "url": "https://rosmater.github.io/cu/?t=86bcptcp4",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86bcpt3yj",
+      "name": "БОТ-ЧАСТЬ: АНДРЕЙ: Посчитать % оплат налом и безналом в магазинах (общий + по магазинам) → перевод на нал со скидкой",
+      "status": "to do",
+      "priority": "normal",
+      "due": "2026-10-27",
+      "hang_since": "2026-10-25",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Задачи Tabakevich",
+      "url": "https://rosmater.github.io/cu/?t=86bcpt3yj",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b82evkw",
+      "name": "Интим - передача прав собственности (инстаграм и клауд)",
+      "status": "to do",
+      "priority": "normal",
+      "due": "2026-10-27",
+      "hang_since": "2026-10-25",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Задачи Tabakevich",
+      "url": "https://rosmater.github.io/cu/?t=86b82evkw",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b9tdd1h",
+      "name": "(ПЕРЕФОРМАТ НА СИГАРЕТЫ) Проект вендинг-автомат - Сережа как дела? (жду отписку по этому вопросу)",
+      "status": "to do",
+      "priority": "normal",
+      "due": "2026-10-28",
+      "hang_since": "2026-11-03",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Задачи Tabakevich",
+      "url": "https://rosmater.github.io/cu/?t=86b9tdd1h",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86bbhwpa6",
+      "name": "(поговорить с Юлей как решить этот вопрос или считать процент меньше) Проверить общий кошелек Наташа для денег на безопасность",
+      "status": "to do",
+      "priority": "normal",
+      "due": "2026-10-28",
+      "hang_since": "2026-10-25",
+      "assignees": [
+        "Rost",
+        "Ірина Шекель"
+      ],
+      "list": "Задачи Tabakevich",
+      "url": "https://rosmater.github.io/cu/?t=86bbhwpa6",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b89dj3z",
+      "name": "(пока с Ладо) С ИРИНОЙ: Просмотр итогов по отзывам ИМ: (реже смотреть, после стабилизации)",
+      "status": "to do",
+      "priority": "normal",
+      "due": "2026-10-28",
+      "hang_since": "2026-11-04",
+      "assignees": [
+        "Rost",
+        "Ірина Шекель"
+      ],
+      "list": "Задачи Tabakevich",
+      "url": "https://rosmater.github.io/cu/?t=86b89dj3z",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b83wzje",
+      "name": "Андрей МАРКЕТПЛЕЙСЫ - как дела? над чем работают? (что продалось больше всего?)",
+      "status": "to do",
+      "priority": "normal",
+      "due": "2026-10-28",
+      "hang_since": "2026-10-25",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Задачи Tabakevich",
+      "url": "https://rosmater.github.io/cu/?t=86b83wzje",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b859rt5",
+      "name": "ВОСТАНОВИТЬ ДОСТУПЫ: СММ, Инесса, отчет по постам проверка (посты в инстаграм)",
+      "status": "to do",
+      "priority": "normal",
+      "due": "2026-10-28",
+      "hang_since": "2026-10-14",
+      "assignees": [
+        "Ірина Шекель",
+        "Rost"
+      ],
+      "list": "Задачи Tabakevich",
+      "url": "https://rosmater.github.io/cu/?t=86b859rt5",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86bagudj7",
+      "name": "ПРОБЛЕМА ЗАКРЫТИЕ СМЕН: Юля тестирования с программистами",
+      "status": "to do",
+      "priority": "normal",
+      "due": "2026-10-28",
+      "hang_since": "2026-10-25",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Задачи Tabakevich",
+      "url": "https://rosmater.github.io/cu/?t=86bagudj7",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b95nwka",
+      "name": "🕵🏻 вендинг-закон? (КОНТРОЛЬ ЗАДАЧ - И среда созвон) Cережа поговорить - Продажа бизнеса (Лена/В/Адвокат) - ЖДУ ИНФО В О ШТРАФЕ и суде",
+      "status": "to do",
+      "priority": "normal",
+      "due": "2026-10-28",
+      "hang_since": "2026-10-25",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Задачи Tabakevich",
+      "url": "https://rosmater.github.io/cu/?t=86b95nwka",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b8aj8e5",
+      "name": "Табакевич УТМ с неактуальных категорий проверить",
+      "status": "to do",
+      "priority": "normal",
+      "due": "2026-11-01",
+      "hang_since": "2026-10-04",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Задачи Tabakevich",
+      "url": "https://rosmater.github.io/cu/?t=86b8aj8e5",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b7k7q8w",
+      "name": "[слито в 86bcj512x] БОТ-ЧАСТЬ: Смокиджин устранить нюансы в работе",
+      "status": "to do",
+      "priority": "normal",
+      "due": "2026-11-02",
+      "hang_since": "2026-10-25",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Задачи Tabakevich",
+      "url": "https://rosmater.github.io/cu/?t=86b7k7q8w",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86bbay300",
+      "name": "ЖДУ ПРАЙС Украина ПЕПТИДЫ от Андрея (жду прайс и отписку)",
+      "status": "to do",
+      "priority": "normal",
+      "due": "2026-11-02",
+      "hang_since": "2026-10-14",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Задачи Tabakevich",
+      "url": "https://rosmater.github.io/cu/?t=86bbay300",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b8b332f",
+      "name": "Обыск (проверка чеклиста как двигается)",
+      "status": "to do",
+      "priority": "normal",
+      "due": "2026-11-02",
+      "hang_since": "2026-10-25",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Задачи Tabakevich",
+      "url": "https://rosmater.github.io/cu/?t=86b8b332f",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b6zwn9j",
+      "name": "АНДРЕЙ - обсудить идею по Одесским Традициям (подумать про Пиво и Креветки)",
+      "status": "to do",
+      "priority": "high",
+      "due": "2026-11-03",
+      "hang_since": "2026-10-25",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Задачи Tabakevich",
+      "url": "https://rosmater.github.io/cu/?t=86b6zwn9j",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b6u7p2v",
+      "name": "Анализ процесса обработки заказа",
+      "status": "to do",
+      "priority": "urgent",
+      "due": "2026-11-03",
+      "hang_since": "2026-10-28",
+      "assignees": [
+        "Ірина Шекель"
+      ],
+      "list": "Задачи Tabakevich",
+      "url": "https://rosmater.github.io/cu/?t=86b6u7p2v",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b84yxd4",
+      "name": "Отзывы интернет-направление - контроль работы Ладо",
+      "status": "to do",
+      "priority": "high",
+      "due": "2026-11-03",
+      "hang_since": "2026-10-28",
+      "assignees": [
+        "Ірина Шекель"
+      ],
+      "list": "Задачи Tabakevich",
+      "url": "https://rosmater.github.io/cu/?t=86b84yxd4",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b6n8vn9",
+      "name": "Сформировать загрузку менеджеров ИМ",
+      "status": "to do",
+      "priority": "high",
+      "due": "2026-11-03",
+      "hang_since": "2026-10-28",
+      "assignees": [
+        "Ірина Шекель"
+      ],
+      "list": "Задачи Tabakevich",
+      "url": "https://rosmater.github.io/cu/?t=86b6n8vn9",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86bcjaayq",
+      "name": "БОТ-подумать: выгрузка запись с камер есть ли возможность анализа АИ движений и цена анализа всех аудио",
+      "status": "to do",
+      "priority": "normal",
+      "due": "2026-11-04",
+      "hang_since": "2026-10-14",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Задачи Tabakevich",
+      "url": "https://rosmater.github.io/cu/?t=86bcjaayq",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b6qqbah",
+      "name": "Согласование ЗП 5-10го (20)",
+      "status": "to do",
+      "priority": "normal",
+      "due": "2026-11-04",
+      "hang_since": "2026-10-05",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Задачи Tabakevich",
+      "url": "https://rosmater.github.io/cu/?t=86b6qqbah",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86bcxx9bj",
+      "name": "БОТ: 1С «Проект улучшений» — чек-лист 53 пункта + монитор Греческая (отчёт 04.11)",
+      "status": "to do",
+      "priority": "normal",
+      "due": "2026-11-05",
+      "hang_since": "2026-11-04",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Задачи Tabakevich",
+      "url": "https://rosmater.github.io/cu/?t=86bcxx9bj",
+      "tags": [
+        "bot"
+      ],
+      "freq": null
+    },
+    {
+      "id": "86bb779rw",
+      "name": "БОТ: Пептиды - запуск продаж (Ричард)",
+      "status": "for check",
+      "priority": "normal",
+      "due": "2026-11-05",
+      "hang_since": "2026-11-12",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Задачи Tabakevich",
+      "url": "https://rosmater.github.io/cu/?t=86bb779rw",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b7n8jga",
+      "name": "📞 ЮЛЯ -  планерка",
+      "status": "to do",
+      "priority": "normal",
+      "due": "2026-11-05",
+      "hang_since": "2026-10-25",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Задачи Tabakevich",
+      "url": "https://rosmater.github.io/cu/?t=86b7n8jga",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86bcgbhg0",
+      "name": "БОТ: Бот в 1С - дать ему больше задач",
+      "status": "for check",
+      "priority": "normal",
+      "due": "2026-11-07",
+      "hang_since": "2026-11-07",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Задачи Tabakevich",
+      "url": "https://rosmater.github.io/cu/?t=86bcgbhg0",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86bcgckxu",
+      "name": "Проверка кронов задач 1С поиск сбоев",
+      "status": "for check",
+      "priority": "normal",
+      "due": "2026-11-07",
+      "hang_since": "2026-11-07",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Задачи Tabakevich",
+      "url": "https://rosmater.github.io/cu/?t=86bcgckxu",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b7gku15",
+      "name": "📞 Денис планерка",
+      "status": "to do",
+      "priority": "normal",
+      "due": "2026-11-07",
+      "hang_since": "2026-10-25",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Задачи Tabakevich",
+      "url": "https://rosmater.github.io/cu/?t=86b7gku15",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86bcty0q3",
+      "name": "📞 Созвон Ярослав Феникс",
+      "status": "to do",
+      "priority": "normal",
+      "due": "2026-11-07",
+      "hang_since": "2026-10-28",
+      "assignees": [],
+      "list": "Задачи Tabakevich",
+      "url": "https://rosmater.github.io/cu/?t=86bcty0q3",
+      "tags": [
+        "созвон",
+        "bot"
+      ],
+      "freq": null
+    },
+    {
+      "id": "86bcnp3rg",
+      "name": "БОТ-ЧАСТЬ: Таргет пептиды - контроль и увеличение",
+      "status": "to do",
+      "priority": "normal",
+      "due": "2026-11-09",
+      "hang_since": "2026-11-12",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Задачи Tabakevich",
+      "url": "https://rosmater.github.io/cu/?t=86bcnp3rg",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b897mmr",
+      "name": "БОТ: запуск Хукашоп сайта в рекламу - как успехи?",
+      "status": "for check",
+      "priority": "high",
+      "due": "2026-11-09",
+      "hang_since": "2026-11-11",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Задачи Tabakevich",
+      "url": "https://rosmater.github.io/cu/?t=86b897mmr",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b6qqajb",
+      "name": "БОТ-ЧАСТЬ: С ИРИНОЙ: Проверка фин отчетов и переучетов 10-го (10)",
+      "status": "for check",
+      "priority": "normal",
+      "due": "2026-11-10",
+      "hang_since": "2026-11-10",
+      "assignees": [
+        "Rost",
+        "Ірина Шекель"
+      ],
+      "list": "Задачи Tabakevich",
+      "url": "https://rosmater.github.io/cu/?t=86b6qqajb",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b92hrcp",
+      "name": "(проблема с картинками) БОТ: Пальма сайт + ускорить / Контекстная реклама",
+      "status": "for check",
+      "priority": "normal",
+      "due": "2026-11-11",
+      "hang_since": "2026-11-11",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Задачи Tabakevich",
+      "url": "https://rosmater.github.io/cu/?t=86b92hrcp",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b8r59kx",
+      "name": "БОТ: Феликс Шоп - проверить сайт",
+      "status": "for check",
+      "priority": "normal",
+      "due": "2026-11-11",
+      "hang_since": "2026-11-11",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Задачи Tabakevich",
+      "url": "https://rosmater.github.io/cu/?t=86b8r59kx",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b934b1v",
+      "name": "БОТ: Хукашоп - замена хостинга и бэкапы - проверить состояние (чеклист)",
+      "status": "for check",
+      "priority": "urgent",
+      "due": "2026-11-11",
+      "hang_since": "2026-11-11",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Задачи Tabakevich",
+      "url": "https://rosmater.github.io/cu/?t=86b934b1v",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b6zaw72",
+      "name": "Андрей маркетплейсы, подведение итого ",
+      "status": "to do",
+      "priority": "normal",
+      "due": "2026-11-12",
+      "hang_since": "2026-10-28",
+      "assignees": [
+        "Ірина Шекель"
+      ],
+      "list": "Задачи Tabakevich",
+      "url": "https://rosmater.github.io/cu/?t=86b6zaw72",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b8gv8kj",
+      "name": "БОТ: Табакевич БЛОКИРОВКА ДОМЕНА: проверить скорость с укр/загран айпишников",
+      "status": "for check",
+      "priority": "normal",
+      "due": "2026-11-12",
+      "hang_since": "2026-11-12",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Задачи Tabakevich",
+      "url": "https://rosmater.github.io/cu/?t=86b8gv8kj",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86bcj512x",
+      "name": "БОТ-ЧАСТЬ: мониторинг СмокиДжин (проверка отчета)",
+      "status": "to do",
+      "priority": "normal",
+      "due": "2026-11-13",
+      "hang_since": "2026-11-12",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Задачи Tabakevich",
+      "url": "https://rosmater.github.io/cu/?t=86bcj512x",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b7n8kk2",
+      "name": "📞 Тарас планерка ВЕЧЕР",
+      "status": "to do",
+      "priority": "normal",
+      "due": "2026-11-14",
+      "hang_since": "2026-10-25",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Задачи Tabakevich",
+      "url": "https://rosmater.github.io/cu/?t=86b7n8kk2",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b7k7v1n",
+      "name": "БОТ: Tabakevich SEO месячный отчет (Andrii)",
+      "status": "to do",
+      "priority": "normal",
+      "due": "2026-11-17",
+      "hang_since": "2026-11-08",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Задачи Tabakevich",
+      "url": "https://rosmater.github.io/cu/?t=86b7k7v1n",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86bacy8cr",
+      "name": "БОТ: С ИРИНОЙ: Просмотр отчета по дебиторке (комменты)",
+      "status": "for check",
+      "priority": "normal",
+      "due": "2026-11-18",
+      "hang_since": "2026-11-12",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Задачи Tabakevich",
+      "url": "https://rosmater.github.io/cu/?t=86bacy8cr",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b7vq1tx",
+      "name": "Проверка план/факта работ Ладо",
+      "status": "to do",
+      "priority": "normal",
+      "due": "2026-11-24",
+      "hang_since": "2026-10-28",
+      "assignees": [
+        "Ірина Шекель"
+      ],
+      "list": "Задачи Tabakevich",
+      "url": "https://rosmater.github.io/cu/?t=86b7vq1tx",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b8he4tc",
+      "name": "(Игорь укр вотсап чат) Запросить телефоны мамы и бабушки у адвокатов",
+      "status": "to do",
+      "priority": "normal",
+      "due": "2026-11-30",
+      "hang_since": "2026-10-14",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Задачи Tabakevich",
+      "url": "https://rosmater.github.io/cu/?t=86b8he4tc",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b7n8pfv",
+      "name": "Явар Тарас, активные просматривать",
+      "status": "to do",
+      "priority": "normal",
+      "due": "2026-12-02",
+      "hang_since": "2026-11-04",
+      "assignees": [
+        "Ірина Шекель"
+      ],
+      "list": "Задачи Tabakevich",
+      "url": "https://rosmater.github.io/cu/?t=86b7n8pfv",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b8xptuf",
+      "name": "Проверка план/факта работ Ладо",
+      "status": "to do",
+      "priority": "normal",
+      "due": "2026-12-03",
+      "hang_since": "2026-11-04",
+      "assignees": [
+        "Ірина Шекель"
+      ],
+      "list": "Задачи Tabakevich",
+      "url": "https://rosmater.github.io/cu/?t=86b8xptuf",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b9zkaua",
+      "name": "БОТ-ЧАСТЬ: Отчет по SEO-показателям (трафик, заказы) - готов? (покупка Серпстат)",
+      "status": "to do",
+      "priority": "normal",
+      "due": "2026-12-04",
+      "hang_since": "2026-11-08",
+      "assignees": [
+        "Ірина Шекель",
+        "Rost"
+      ],
+      "list": "Задачи Tabakevich",
+      "url": "https://rosmater.github.io/cu/?t=86b9zkaua",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b6qpjgu",
+      "name": "trava.com домен проверить",
+      "status": "to do",
+      "priority": "normal",
+      "due": "2026-12-22",
+      "hang_since": "2025-09-16",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Задачи Tabakevich",
+      "url": "https://rosmater.github.io/cu/?t=86b6qpjgu",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b83z2gb",
+      "name": "Hookashop.me - продлить имена-юа",
+      "status": "to do",
+      "priority": "normal",
+      "due": "2027-01-04",
+      "hang_since": "2026-01-11",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Задачи Tabakevich",
+      "url": "https://rosmater.github.io/cu/?t=86b83z2gb",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b83z2tg",
+      "name": "kalyano.com.ua - продлить имена-юа",
+      "status": "to do",
+      "priority": "normal",
+      "due": "2027-01-04",
+      "hang_since": "2026-01-11",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Задачи Tabakevich",
+      "url": "https://rosmater.github.io/cu/?t=86b83z2tg",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b6qpj1c",
+      "name": "travka.net - продлить?",
+      "status": "to do",
+      "priority": "normal",
+      "due": "2027-01-15",
+      "hang_since": "2026-01-18",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Задачи Tabakevich",
+      "url": "https://rosmater.github.io/cu/?t=86b6qpj1c",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b6qpj92",
+      "name": "домены продлить укр и нч пальма",
+      "status": "to do",
+      "priority": "normal",
+      "due": "2027-05-01",
+      "hang_since": "2026-05-04",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Задачи Tabakevich",
+      "url": "https://rosmater.github.io/cu/?t=86b6qpj92",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b6qpja5",
+      "name": "travka.com домен проверить",
+      "status": "to do",
+      "priority": "normal",
+      "due": "2027-05-06",
+      "hang_since": "2026-05-06",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Задачи Tabakevich",
+      "url": "https://rosmater.github.io/cu/?t=86b6qpja5",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b6qpjc8",
+      "name": "инфосвязь продлить домен вайбер Феликс и Кальян",
+      "status": "to do",
+      "priority": "normal",
+      "due": "2027-06-01",
+      "hang_since": "2026-06-14",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Задачи Tabakevich",
+      "url": "https://rosmater.github.io/cu/?t=86b6qpjc8",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b7bwm59",
+      "name": "Домен инфосвязь продлить кальян (утончить не продлили ли с феликсом вместе)",
+      "status": "to do",
+      "priority": "normal",
+      "due": "2027-10-11",
+      "hang_since": "2026-10-12",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Задачи Tabakevich",
+      "url": "https://rosmater.github.io/cu/?t=86b7bwm59",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b6qpj5y",
+      "name": "travka.com.ua домен проверить",
+      "status": "to do",
+      "priority": "normal",
+      "due": "2028-04-13",
+      "hang_since": "2026-04-13",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Задачи Tabakevich",
+      "url": "https://rosmater.github.io/cu/?t=86b6qpj5y",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b6qpjjc",
+      "name": "trava.com.ua домен проверить",
+      "status": "to do",
+      "priority": "normal",
+      "due": "2028-08-25",
+      "hang_since": "2025-09-16",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Задачи Tabakevich",
+      "url": "https://rosmater.github.io/cu/?t=86b6qpjjc",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b8fhujk",
+      "name": "Вайс Тм (напомнить продлить)",
+      "status": "to do",
+      "priority": "normal",
+      "due": "2034-02-01",
+      "hang_since": "2026-03-09",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Задачи Tabakevich",
+      "url": "https://rosmater.github.io/cu/?t=86b8fhujk",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b6qp7gh",
+      "name": "ТМ Табакевич - продлить торговую марку Wise Group",
+      "status": "to do",
+      "priority": "high",
+      "due": "2034-02-01",
+      "hang_since": "2026-03-09",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Задачи Tabakevich",
+      "url": "https://rosmater.github.io/cu/?t=86b6qp7gh",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86bd1z5v2",
+      "name": "Анализ чатов Viber, Telegram, WhatsApp — интернет-магазин",
+      "status": "to do",
+      "priority": "normal",
+      "due": null,
+      "hang_since": "2026-11-11",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Задачи Tabakevich",
+      "url": "https://rosmater.github.io/cu/?t=86bd1z5v2",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86bd1xnvc",
+      "name": "Андрей Партнер: подключить к боту + доступ в 1С",
+      "status": "to do",
+      "priority": "normal",
+      "due": null,
+      "hang_since": "2026-11-11",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Задачи Tabakevich",
+      "url": "https://rosmater.github.io/cu/?t=86bd1xnvc",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86bd1z5re",
+      "name": "Внедрить авто-SMS для возврата старых покупателей",
+      "status": "to do",
+      "priority": "normal",
+      "due": null,
+      "hang_since": "2026-11-11",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Задачи Tabakevich",
+      "url": "https://rosmater.github.io/cu/?t=86bd1z5re",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b8004kw",
+      "name": "Оплата аренды Глушко 12",
+      "status": "to do",
+      "priority": "normal",
+      "due": "2026-10-31",
+      "hang_since": "2026-11-02",
+      "assignees": [
+        "Юлия Вепренцева"
+      ],
+      "list": "Юля",
+      "url": "https://rosmater.github.io/cu/?t=86b8004kw",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b8005cm",
+      "name": "Оплата аренды Рынок Левитана 23",
+      "status": "to do",
+      "priority": "normal",
+      "due": "2026-10-31",
+      "hang_since": "2026-11-02",
+      "assignees": [
+        "Юлия Вепренцева"
+      ],
+      "list": "Юля",
+      "url": "https://rosmater.github.io/cu/?t=86b8005cm",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b8004pc",
+      "name": "Оплата аренды Среднефонтанская 8",
+      "status": "to do",
+      "priority": "normal",
+      "due": "2026-10-31",
+      "hang_since": "2026-11-02",
+      "assignees": [
+        "Юлия Вепренцева"
+      ],
+      "list": "Юля",
+      "url": "https://rosmater.github.io/cu/?t=86b8004pc",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b8004mx",
+      "name": "Оплата аренды Тираспольская 17 + Данченко 10",
+      "status": "to do",
+      "priority": "normal",
+      "due": "2026-10-31",
+      "hang_since": "2026-11-02",
+      "assignees": [
+        "Юлия Вепренцева"
+      ],
+      "list": "Юля",
+      "url": "https://rosmater.github.io/cu/?t=86b8004mx",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86bd13nwj",
+      "name": "Ваня, акция розница",
+      "status": "to do",
+      "priority": "normal",
+      "due": "2026-11-09",
+      "hang_since": "2026-11-10",
+      "assignees": [
+        "Юлия Вепренцева"
+      ],
+      "list": "Юля",
+      "url": "https://rosmater.github.io/cu/?t=86bd13nwj",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86bcr758u",
+      "name": "Договора Южный - переподписать",
+      "status": "in progress",
+      "priority": "normal",
+      "due": "2026-11-09",
+      "hang_since": "2026-11-09",
+      "assignees": [
+        "Юлия Вепренцева"
+      ],
+      "list": "Юля",
+      "url": "https://rosmater.github.io/cu/?t=86bcr758u",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86bcph8pv",
+      "name": "Кнопка печатать убрать",
+      "status": "in progress",
+      "priority": "normal",
+      "due": "2026-11-09",
+      "hang_since": "2026-11-09",
+      "assignees": [
+        "Юлия Вепренцева"
+      ],
+      "list": "Юля",
+      "url": "https://rosmater.github.io/cu/?t=86bcph8pv",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86bcr76r7",
+      "name": "Пальма, добавить товар",
+      "status": "in progress",
+      "priority": "normal",
+      "due": "2026-11-09",
+      "hang_since": "2026-11-09",
+      "assignees": [
+        "Юлия Вепренцева"
+      ],
+      "list": "Юля",
+      "url": "https://rosmater.github.io/cu/?t=86bcr76r7",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86bcpgv7v",
+      "name": "Поднять акционные цены Хука",
+      "status": "in progress",
+      "priority": "normal",
+      "due": "2026-11-09",
+      "hang_since": "2026-11-09",
+      "assignees": [
+        "Юлия Вепренцева"
+      ],
+      "list": "Юля",
+      "url": "https://rosmater.github.io/cu/?t=86bcpgv7v",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86bcjmrh8",
+      "name": "Пром добавить комментарий в 1С + галка не звонить + галка был прозвон",
+      "status": "in progress",
+      "priority": "normal",
+      "due": "2026-11-09",
+      "hang_since": "2026-11-09",
+      "assignees": [
+        "Юлия Вепренцева"
+      ],
+      "list": "Юля",
+      "url": "https://rosmater.github.io/cu/?t=86bcjmrh8",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86bcpgud1",
+      "name": "Радужный договор",
+      "status": "in progress",
+      "priority": "normal",
+      "due": "2026-11-09",
+      "hang_since": "2026-11-09",
+      "assignees": [
+        "Юлия Вепренцева"
+      ],
+      "list": "Юля",
+      "url": "https://rosmater.github.io/cu/?t=86bcpgud1",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86bcnatb0",
+      "name": "план по пиканью акцизников",
+      "status": "to do",
+      "priority": "normal",
+      "due": "2026-11-09",
+      "hang_since": "2026-11-09",
+      "assignees": [
+        "Юлия Вепренцева"
+      ],
+      "list": "Юля",
+      "url": "https://rosmater.github.io/cu/?t=86bcnatb0",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86bcf6kcc",
+      "name": "Заключить еще один договор Розетка Пей",
+      "status": "to do",
+      "priority": "normal",
+      "due": "2026-11-11",
+      "hang_since": "2026-11-02",
+      "assignees": [
+        "Юлия Вепренцева"
+      ],
+      "list": "Юля",
+      "url": "https://rosmater.github.io/cu/?t=86bcf6kcc",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86bawtcxg",
+      "name": "Тест автозакрытия смены",
+      "status": "to do",
+      "priority": "normal",
+      "due": "2026-11-11",
+      "hang_since": "2026-11-09",
+      "assignees": [
+        "Юлия Вепренцева"
+      ],
+      "list": "Юля",
+      "url": "https://rosmater.github.io/cu/?t=86bawtcxg",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86bcaxmb1",
+      "name": "Каптюх - забрать деньги ощад, закрыть счет",
+      "status": "to do",
+      "priority": "normal",
+      "due": "2026-11-12",
+      "hang_since": "2026-11-09",
+      "assignees": [
+        "Юлия Вепренцева"
+      ],
+      "list": "Юля",
+      "url": "https://rosmater.github.io/cu/?t=86bcaxmb1",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b7yp91x",
+      "name": "Сверка дропперов, свернуть заказы",
+      "status": "to do",
+      "priority": "normal",
+      "due": "2026-11-15",
+      "hang_since": "2026-11-09",
+      "assignees": [
+        "Юлия Вепренцева"
+      ],
+      "list": "Юля",
+      "url": "https://rosmater.github.io/cu/?t=86b7yp91x",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86bcmeq16",
+      "name": "Договор НП Людочка",
+      "status": "to do",
+      "priority": "normal",
+      "due": "2026-11-19",
+      "hang_since": "2026-11-02",
+      "assignees": [
+        "Юлия Вепренцева"
+      ],
+      "list": "Юля",
+      "url": "https://rosmater.github.io/cu/?t=86bcmeq16",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b87x1np",
+      "name": "Аренда Подольск",
+      "status": "to do",
+      "priority": "normal",
+      "due": "2026-11-29",
+      "hang_since": "2026-11-02",
+      "assignees": [
+        "Юлия Вепренцева"
+      ],
+      "list": "Юля",
+      "url": "https://rosmater.github.io/cu/?t=86b87x1np",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86bd0fat8",
+      "name": "Поссчитать дроппов, свернуть",
+      "status": "to do",
+      "priority": "normal",
+      "due": null,
+      "hang_since": "2026-11-09",
+      "assignees": [
+        "Юлия Вепренцева"
+      ],
+      "list": "Юля",
+      "url": "https://rosmater.github.io/cu/?t=86bd0fat8",
+      "tags": [],
+      "freq": null
+    }
+  ]
+}

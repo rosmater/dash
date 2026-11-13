@@ -2,7 +2,7 @@
 """t6235u/t6236u: open ClickUp tasks with empty priority → normal (3).
 
 Run on a live filter_tasks pull BEFORE writing dash snapshots
-(of_open_tasks.json, cu_dated.json, prio_extra.json, …).
+(of_open_tasks.json, tbk_open_tasks.json, cu_dated.json, prio_extra.json, …).
 
 Auth (never printed): env CLICKUP_TOKEN / CLICKUP_API_TOKEN / CLICKUP_API_KEY,
 or path in CLICKUP_TOKEN_FILE, or vault file clickup-api-token.md if present.
@@ -29,6 +29,7 @@ CLOSED = frozenset({
 SRC = Path(__file__).resolve().parent
 DEFAULT_SNAPS = (
     SRC / 'of_open_tasks.json',
+    SRC / 'tbk_open_tasks.json',
     SRC / 'cu_dated.json',
     SRC / 'prio_extra.json',
 )

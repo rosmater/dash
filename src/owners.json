@@ -54,13 +54,15 @@
         "src/tbk_upsell_1c.json",
         "src/tbk_managers_gen.py",
         "src/tbk_franchise_1c.json",
-        "src/tbk_upsell_verify.json"
+        "src/tbk_upsell_verify.json",
+        "src/tbk_open_tasks.json"
       ],
       "html_markers": [
         "Пропущенные"
       ],
       "data_markers": [
-        "Франшизные магазины"
+        "Франшизные магазины",
+        "90144306286"
       ]
     },
     {

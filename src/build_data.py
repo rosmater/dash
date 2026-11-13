@@ -793,7 +793,7 @@ def _call_open_today(t):
     return day == _today_bo
 of_calls = sorted([t for t in (_oc.get('scheduled_calls') or []) if _call_open_today(t)], key=lambda t: (str(t.get('start') or ''), str(t.get('due_t') or '')))
 
-# t6215u/t6216u/t6219u: доска вкладки ОФ — Сегодня / Приоритеты (только тег «🎯 фокус») / Рутина (снимок src/of_open_tasks.json)
+# t6215u/t6216u/t6219u/t6244u: доска вкладки ОФ / Табакевич — Сегодня / Приоритеты (только тег «🎯 фокус») / Рутина
 def _of_is_rost(t):
     for s in (t.get('assignees') or []):
         s = str(s).strip()
@@ -815,23 +815,24 @@ def _of_is_focus(t):
 def _of_is_periodic(t):
     f = str(t.get('freq') or t.get('frecuencia') or '').strip().lower().replace('ó','o').replace('é','e')
     return f.startswith('periodica') or f == 'aa3d836e-b0e7-4fbb-b3d2-dc0d79bca754'
-def _of_board():
-    path = os.path.join(_HERE, 'of_open_tasks.json')
+def _dir_board(snap_name, extra_name=None):
+    path = os.path.join(_HERE, snap_name)
     if not os.path.exists(path):
         return dict(today=[], prio_mine=[], prio_staff=[], routine=[], fetched_at='', src='')
     raw = json.load(open(path))
     tasks = list(raw.get('tasks') or [])
-    _px = os.path.join(_HERE, 'prio_extra.json')
-    if os.path.exists(_px):
-        try:
-            _ex = json.load(open(_px))
-        except Exception:
-            _ex = {}
-        have = {t.get('id') for t in tasks}
-        for t in (_ex.get('tasks') or []):
-            if isinstance(t, dict) and t.get('id') and t['id'] not in have:
-                tasks.append(t)
-                have.add(t['id'])
+    if extra_name:
+        _px = os.path.join(_HERE, extra_name)
+        if os.path.exists(_px):
+            try:
+                _ex = json.load(open(_px))
+            except Exception:
+                _ex = {}
+            have = {t.get('id') for t in tasks}
+            for t in (_ex.get('tasks') or []):
+                if isinstance(t, dict) and t.get('id') and t['id'] not in have:
+                    tasks.append(t)
+                    have.add(t['id'])
     today, mine, staff, routine = [], [], [], []
     for t0 in tasks:
         tt = dict(t0)
@@ -881,7 +882,10 @@ def _of_board():
         routine_groups=routine_groups,
         fetched_at=raw.get('fetched_at') or '', src=raw.get('src') or '',
     )
+def _of_board():
+    return _dir_board('of_open_tasks.json', 'prio_extra.json')
 OF_BOARD = _of_board()
+TBK_BOARD = _dir_board('tbk_open_tasks.json')
 
 # Rost t5952u: «📅 Назначенные встречи» вверху Личного (src/personal_meetings.json; только Role=🚶GO, любой список; не CU Personal)
 _pmf = os.path.join(_HERE, 'personal_meetings.json')
@@ -1163,6 +1167,7 @@ data = dict(
            dict(label='ФОТ ≤ 10% от прибыли', unit='%', target=10, lower_is_better=True, by_period={}, src='правило из задачи 86b6qqajb; факт не считан'),
          ],
          tasks=tasks(['86b6u7p2v', '86b7n8kwx', '86bcj512x', '86bcgckxu', '86b92hrcp', '86b8gv8kj']),
+         tbk_board=TBK_BOARD,  # t6244u: доска как на ОФ
          tbk_blocks=TBKB, fact_1c=TBK_FACT,  # Rost 25.10: блоки Табакевича (над мониторами/показателями)
          monitors_title='Из «Перемен к лучшему»', monitors_sub='Кальян · Направления · статус сен',
          # Rost 25.10: по очереди из листа «Направления» таблицы ПЕРЕМЕНЫ К ЛУЧШЕМУ → мониторы на вкладке
