@@ -1,6 +1,6 @@
 {
   "_doc": "t6272u: «Встречи» на Личном (Личное | Дейтинг). ClickUp: пространство Personal, Role 🚶GO/📞CALL, открытые, срок в ближайшие 14 дней (04:00 = весь день). Google Calendar берётся при сборке из gcal_dash.json (только встречи-люди, см. build_data.py _pers_meet_split). Обновлять тем же filter_tasks.",
-  "fetched_at": "2026-11-13T18:01:10-05:00",
+  "fetched_at": "2026-11-13T18:20:27-05:00",
   "src": "ClickUp filter_tasks space 90144414983 Role ANY [GO, CALL] due 13.11–27.11",
   "tasks": [
     {
@@ -12,14 +12,6 @@
       "src": "clickup"
     },
     {
-      "id": "86bcnrmt7",
-      "name": "🥊 Бокс 10:00–11:30 (Johann Ruiz)",
-      "start": "2026-11-17T11:30:00-05:00",
-      "all_day": false,
-      "url": "https://rosmater.github.io/cu/?t=86bcnrmt7",
-      "src": "clickup"
-    },
-    {
       "id": "86bbt0v0n",
       "name": "(после теста ЭирДроид) Дима - созвониться насчет Т и автоматизации",
       "start": "2026-11-14",
@@ -28,11 +20,11 @@
       "src": "clickup"
     },
     {
-      "id": "86b89dz9q",
-      "name": "Ирина Шекель созвон ВТ",
-      "start": "2026-11-17T16:00:00-05:00",
+      "id": "86b6z2gn4",
+      "name": "Ирина Шекель созвон ВС",
+      "start": "2026-11-15T14:00:00-05:00",
       "all_day": false,
-      "url": "https://rosmater.github.io/cu/?t=86b89dz9q",
+      "url": "https://rosmater.github.io/cu/?t=86b6z2gn4",
       "src": "clickup"
     },
     {
@@ -44,12 +36,77 @@
       "src": "clickup"
     },
     {
+      "id": "86b7gjjg1",
+      "name": "Тренировка пн",
+      "start": "2026-11-16T16:00:00-05:00",
+      "all_day": false,
+      "url": "https://rosmater.github.io/cu/?t=86b7gjjg1",
+      "src": "clickup"
+    },
+    {
+      "id": "86bcnrmt7",
+      "name": "🥊 Бокс 10:00–11:30 (Johann Ruiz)",
+      "start": "2026-11-17T11:30:00-05:00",
+      "all_day": false,
+      "url": "https://rosmater.github.io/cu/?t=86bcnrmt7",
+      "src": "clickup"
+    },
+    {
+      "id": "86b89dz9q",
+      "name": "Ирина Шекель созвон ВТ",
+      "start": "2026-11-17T16:00:00-05:00",
+      "all_day": false,
+      "url": "https://rosmater.github.io/cu/?t=86b89dz9q",
+      "src": "clickup"
+    },
+    {
+      "id": "86b6z2gn2",
+      "name": "Ирина Шекель созвон СР",
+      "start": "2026-11-18T15:00:00-05:00",
+      "all_day": false,
+      "url": "https://rosmater.github.io/cu/?t=86b6z2gn2",
+      "src": "clickup"
+    },
+    {
+      "id": "86b7j38pw",
+      "name": "Тренировка ср",
+      "start": "2026-11-18T16:00:00-05:00",
+      "all_day": false,
+      "url": "https://rosmater.github.io/cu/?t=86b7j38pw",
+      "src": "clickup"
+    },
+    {
+      "id": "86bd3b4vu",
+      "name": "Записаться на профчистку зубов (на 27–30.11)",
+      "start": "2026-11-19",
+      "all_day": true,
+      "url": "https://rosmater.github.io/cu/?t=86bd3b4vu",
+      "src": "clickup"
+    },
+    {
       "id": "86b7zvb9u",
       "name": "Ирина Шекель созвон ЧТ",
       "start": "2026-11-19T16:00:00-05:00",
       "all_day": false,
       "url": "https://rosmater.github.io/cu/?t=86b7zvb9u",
       "src": "clickup"
+    },
+    {
+      "id": "86b7gjjgb",
+      "name": "Тренировка пт",
+      "start": "2026-11-20",
+      "all_day": true,
+      "url": "https://rosmater.github.io/cu/?t=86b7gjjgb",
+      "src": "clickup"
+    },
+    {
+      "id": "86bd3b4vd",
+      "name": "Контроль у Очоа (челюстно-лицевой) — 9:30",
+      "start": "2026-11-20T09:00:00-05:00",
+      "all_day": false,
+      "url": "https://rosmater.github.io/cu/?t=86bd3b4vd",
+      "src": "clickup",
+      "end": "2026-11-20T10:30:00-05:00"
     },
     {
       "id": "86b7k868z",
@@ -65,46 +122,6 @@
       "start": "2026-11-21",
       "all_day": true,
       "url": "https://rosmater.github.io/cu/?t=86b7k85bw",
-      "src": "clickup"
-    },
-    {
-      "id": "86b7j38pw",
-      "name": "Тренировка ср",
-      "start": "2026-11-18T16:00:00-05:00",
-      "all_day": false,
-      "url": "https://rosmater.github.io/cu/?t=86b7j38pw",
-      "src": "clickup"
-    },
-    {
-      "id": "86b7gjjgb",
-      "name": "Тренировка пт",
-      "start": "2026-11-20",
-      "all_day": true,
-      "url": "https://rosmater.github.io/cu/?t=86b7gjjgb",
-      "src": "clickup"
-    },
-    {
-      "id": "86b7gjjg1",
-      "name": "Тренировка пн",
-      "start": "2026-11-16T16:00:00-05:00",
-      "all_day": false,
-      "url": "https://rosmater.github.io/cu/?t=86b7gjjg1",
-      "src": "clickup"
-    },
-    {
-      "id": "86b6z2gn4",
-      "name": "Ирина Шекель созвон ВС",
-      "start": "2026-11-15T14:00:00-05:00",
-      "all_day": false,
-      "url": "https://rosmater.github.io/cu/?t=86b6z2gn4",
-      "src": "clickup"
-    },
-    {
-      "id": "86b6z2gn2",
-      "name": "Ирина Шекель созвон СР",
-      "start": "2026-11-18T15:00:00-05:00",
-      "all_day": false,
-      "url": "https://rosmater.github.io/cu/?t=86b6z2gn2",
       "src": "clickup"
     }
   ]
