@@ -1506,6 +1506,13 @@ data['wanderwallet_balance'] = _ww
 for _d in data.get('directions') or []:
     if _d.get('id') == 'personal':
         _d['wanderwallet_balance'] = _ww
+# Rost t6267u: «🤖 Даш и AI внедрение» — бэклог доработок даша / внедрения AI по вкладкам (src/ai_backlog.json, владелец Секретарь)
+try:
+    _aib = json.load(open(os.path.join(os.path.dirname(__file__), 'ai_backlog.json')))
+    data['ai_backlog'] = [x for x in (_aib.get('items') or []) if isinstance(x, dict) and x.get('text') and x.get('tab') and str(x.get('status') or 'plan') != 'done' and not x.get('hidden')]
+except Exception as _e:
+    print('ai_backlog skip', type(_e).__name__)
+    data['ai_backlog'] = []
 # t6093u / t6095u: версии блоков еженедельного/ежемесячного сбора + data_ver внутри plaintext баланса (уйдёт в шифртекст)
 import data_updates_gen as _dug
 _dug.apply(data)

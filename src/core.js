@@ -160,7 +160,7 @@ const Dash = (() => {
     S.tab = qs.get('tab') || 'overview';
     // Из localStorage восстанавливаем только вкладку и валюту; период всегда открывается текущий.
     try { const saved = JSON.parse(localStorage.getItem('dash_state') || '{}'); if (!qs.get('tab') && saved.tab) S.tab = saved.tab; if (!qs.get('mode') && saved.mv === 2 && ['today','week','month'].includes(saved.mode)) S.mode = saved.mode; } catch (e) {}
-    if (S.tab !== 'overview' && !D.directions.some(d => d.id === S.tab)) S.tab = 'overview';
+    if (S.tab !== 'overview' && S.tab !== 'aiback' && !D.directions.some(d => d.id === S.tab)) S.tab = 'overview'; // Rost t6267u: 🤖 «Даш и AI внедрение» — не направление, но своя вкладка
     return D;
   }
   const save = () => { try { localStorage.setItem('dash_state', JSON.stringify(S)); } catch (e) {} };
