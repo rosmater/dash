@@ -23,80 +23,80 @@
       }
     ],
     "current": {
-      "as_of": "2026-11-12",
+      "as_of": "2026-11-13",
       "follows": {
-        "today": 0,
+        "today": null,
         "week": null,
         "month": null
       },
       "likes": {
-        "today": 0,
+        "today": null,
         "week": null,
         "month": null
       },
       "story_views": {
-        "today": 0,
+        "today": null,
         "week": null,
         "month": null
       },
       "total": {
-        "today": 0,
+        "today": null,
         "week": null,
         "month": null
       },
-      "live_ok": 0,
-      "idle": 35,
+      "live_ok": null,
+      "idle": null,
       "connected": "3/3",
-      "running": "0/3",
+      "running": "3/3",
       "accounts": 36,
       "src": "Onimator UI · Devices/Accounts/Reports 12.11 ~10:36–11:00 Bogotá (Фермовод)",
       "note": "Connected 3/3, Running 0/3, 36 акка, 3 телефона онлайн. Сегодня follows/likes/story 0, ферма не запущена (везде Start). celular 12 онлайн, 6 акков (вчера 2 офлайн). 11.11 полный день: follows 40 (ap 20, ar 20), growth −12, сторис ≥219 (первый экран), Reports 8/16/12. Лицензия: Manage на телефонах 2–3 блокируется («valid license / do not exceed allowed number of devices»); лицензия ранее была до 12.11. Логи сегодня ~1 KB с полуночи на всех трёх.",
-      "replace": 0,
+      "replace": null,
       "phones": [
         {
           "name": "22126RN91Y",
           "id": "a6hew49dpfdq6d6l",
-          "status": "stopped",
+          "status": "running",
           "accounts": 10,
-          "follows": 0,
-          "likes": 0,
-          "story_views": 0,
-          "total": 0,
+          "follows": null,
+          "likes": null,
+          "story_views": null,
+          "total": null,
           "live_ok": null,
           "idle": null,
           "replace": null,
-          "src": "Onimator Accounts Today 12.11 ~10:43 Bogotá: 10 акков Follow+Story, все счётчики 0; Start на Devices; 5 warning (al, ap, ar, kennethwilliams7852923, ninjadolphin517)"
+          "src": "Onimator 17.8.1 Devices 13.11 ~10:33 Bogotá: зелёный 100%, Stop (работает); счётчики не сняты (RustDesk лагал)"
         },
         {
           "name": "Celular 11",
           "id": "DU8XOVINQKE66PFU",
-          "status": "stopped",
+          "status": "running",
           "accounts": 20,
-          "follows": 0,
-          "likes": 0,
-          "story_views": 0,
-          "total": 0,
+          "follows": null,
+          "likes": null,
+          "story_views": null,
+          "total": null,
           "live_ok": null,
           "idle": null,
           "replace": null,
-          "src": "Accounts Today 12.11: 20 акков только Story, счётчики 0; Start; warning camilamartin926, briellerios21"
+          "src": "Onimator 17.8.1 Devices 13.11 ~10:33 Bogotá: зелёный 100%, Stop (работает); счётчики не сняты (RustDesk лагал)"
         },
         {
           "name": "celular 12",
           "id": "LV8XLZJJUYT8PIR",
-          "status": "stopped",
+          "status": "running",
           "accounts": 6,
-          "follows": 0,
-          "likes": 0,
-          "story_views": 0,
-          "total": 0,
+          "follows": null,
+          "likes": null,
+          "story_views": null,
+          "total": null,
           "live_ok": null,
           "idle": null,
           "replace": null,
-          "src": "Devices: зелёный 100%, Start, онлайн (вчера офлайн). 6 акков только Story, счётчики 0; warning bernicej.gandy. Новые: bharvadpujakha868, bhmareddy567, billyee.fedler, bukkamallareddy57."
+          "src": "Onimator 17.8.1 Devices 13.11 ~10:33 Bogotá: зелёный 100%, Stop (работает); счётчики не сняты (RustDesk лагал)"
         }
       ],
-      "collected_at": "2026-11-12T11:00:40-05:00"
+      "collected_at": "2026-11-13T10:33:00-05:00"
     },
     "last_snapshot": {
       "as_of": "2026-10-13",
@@ -116,7 +116,7 @@
       "name": "Seider — ферма mass following (отчёт)",
       "url": "https://app.clickup.com/t/86b9ycbby"
     },
-    "idle": 35,
+    "idle": null,
     "days": {
       "2026-11-07": {
         "follows": 0,
@@ -174,12 +174,9 @@
         "total": 0,
         "live_ok": 0,
         "idle": 35,
-        "src": "Onimator UI · Devices/Accounts/Reports 12.11 ~10:36–11:00 Bogotá (Фермовод)",
-        "note": "Connected 3/3, Running 0/3, 36 акка, 3 телефона онлайн. Сегодня follows/likes/story 0, ферма не запущена (везде Start). celular 12 онлайн, 6 акков (вчера 2 офлайн). 11.11 полный день: follows 40 (ap 20, ar 20), growth −12, сторис ≥219 (первый экран), Reports 8/16/12. Лицензия: Manage на телефонах 2–3 блокируется («valid license / do not exceed allowed number of devices»); лицензия ранее была до 12.11. Логи сегодня ~1 KB с полуночи на всех трёх.",
-        "connected": "3/3",
-        "running": "0/3",
-        "accounts": 36,
         "replace": 0,
+        "src": "Onimator Accounts+Reports+Devices 12.11 ~10:36–11:00 Bogotá",
+        "note": "Неполный день. Connected 3/3 Running 0/3, 36 акка. Сегодня follows/likes/story 0. Reports 0/35/0 (36 акков, 1 не в трёх корзинах). На Accounts ещё 8 треугольников — те же problem с 11.11. Логи сегодня по 1 KB после полуночи. License dialog на Manage телефонов 2 и 3.",
         "phones": [
           {
             "name": "22126RN91Y",
@@ -223,8 +220,7 @@
             "replace": null,
             "src": "Devices: зелёный 100%, Start, онлайн (вчера офлайн). 6 акков только Story, счётчики 0; warning bernicej.gandy. Новые: bharvadpujakha868, bhmareddy567, billyee.fedler, bukkamallareddy57."
           }
-        ],
-        "collected_at": "2026-11-12T11:00:40-05:00"
+        ]
       },
       "2026-11-09": {
         "follows": 0,
@@ -303,16 +299,74 @@
             "src": "11.11: bernicej.gandy в Reports Problem (2). Accounts date picker ниже brau.n780 не листал, сторис/follows phone 3 за полный день неизвестны. Лог 11-11 71 KB до 23:23."
           }
         ]
+      },
+      "2026-11-13": {
+        "follows": null,
+        "likes": null,
+        "story_views": null,
+        "total": null,
+        "live_ok": null,
+        "idle": null,
+        "src": "Onimator UI · Devices/Accounts/Reports 12.11 ~10:36–11:00 Bogotá (Фермовод)",
+        "note": "Connected 3/3, Running 0/3, 36 акка, 3 телефона онлайн. Сегодня follows/likes/story 0, ферма не запущена (везде Start). celular 12 онлайн, 6 акков (вчера 2 офлайн). 11.11 полный день: follows 40 (ap 20, ar 20), growth −12, сторис ≥219 (первый экран), Reports 8/16/12. Лицензия: Manage на телефонах 2–3 блокируется («valid license / do not exceed allowed number of devices»); лицензия ранее была до 12.11. Логи сегодня ~1 KB с полуночи на всех трёх.",
+        "connected": "3/3",
+        "running": "3/3",
+        "accounts": 36,
+        "replace": null,
+        "phones": [
+          {
+            "name": "22126RN91Y",
+            "id": "a6hew49dpfdq6d6l",
+            "status": "running",
+            "accounts": 10,
+            "follows": null,
+            "likes": null,
+            "story_views": null,
+            "total": null,
+            "live_ok": null,
+            "idle": null,
+            "replace": null,
+            "src": "Onimator 17.8.1 Devices 13.11 ~10:33 Bogotá: зелёный 100%, Stop (работает); счётчики не сняты (RustDesk лагал)"
+          },
+          {
+            "name": "Celular 11",
+            "id": "DU8XOVINQKE66PFU",
+            "status": "running",
+            "accounts": 20,
+            "follows": null,
+            "likes": null,
+            "story_views": null,
+            "total": null,
+            "live_ok": null,
+            "idle": null,
+            "replace": null,
+            "src": "Onimator 17.8.1 Devices 13.11 ~10:33 Bogotá: зелёный 100%, Stop (работает); счётчики не сняты (RustDesk лагал)"
+          },
+          {
+            "name": "celular 12",
+            "id": "LV8XLZJJUYT8PIR",
+            "status": "running",
+            "accounts": 6,
+            "follows": null,
+            "likes": null,
+            "story_views": null,
+            "total": null,
+            "live_ok": null,
+            "idle": null,
+            "replace": null,
+            "src": "Onimator 17.8.1 Devices 13.11 ~10:33 Bogotá: зелёный 100%, Stop (работает); счётчики не сняты (RustDesk лагал)"
+          }
+        ],
+        "collected_at": "2026-11-13T10:33:00-05:00"
       }
     },
     "health": {
       "ok": false,
       "reasons": [
-        "ферма стоит: Running 0/3",
-        "0 действий за день",
-        "0 живых акков отработали"
+        "все метрики null",
+        "live_ok/idle не сняты"
       ],
-      "checked_at": "2026-11-12T19:39-05:00"
+      "checked_at": "2026-11-13T10:35-05:00"
     }
   },
   "ts": {
