@@ -1,51 +1,72 @@
 {
- "at": "2026-11-06 13:21 Bogotá",
- "at_bogota": "2026-11-06T13:21:41-05:00",
+ "at": "2026-11-13 09:30 Bogotá",
+ "at_bogota": "2026-11-13T09:30:00-05:00",
  "channel": "WhatsApp UKR",
  "filter": "Unread",
- "filter_count": 8,
+ "filter_count": 11,
  "chats": [
   {
-   "title": "Maks Sinar Адвокат Испания",
-   "name": "Maks Sinar Адвокат Испания",
-   "unread": 1,
+   "title": "Дмитрий STE",
+   "name": "Дмитрий STE",
+   "unread": 5,
    "muted": false,
-   "last": "09:42"
+   "last": "07:22"
   },
   {
-   "title": "Мария Алегрия Управляющая Компания",
-   "name": "Мария Алегрия Управляющая Компания",
-   "unread": 4,
+   "title": "Алла Агенство Недвижимости Аликанте",
+   "name": "Алла Агенство Недвижимости Аликанте",
+   "unread": 14,
    "muted": false,
-   "last": "07:43"
+   "last": "08:45"
+  },
+  {
+   "title": "Наталья Flyup Планирование",
+   "name": "Наталья Flyup Планирование",
+   "unread": 1,
+   "muted": false,
+   "last": "07:42"
+  },
+  {
+   "title": "Юля Вепренцева Учет Андрей",
+   "name": "Юля Вепренцева Учет Андрей",
+   "unread": 3,
+   "muted": false,
+   "last": "06:00"
+  },
+  {
+   "title": "Lio New",
+   "name": "Lio New",
+   "unread": 1,
+   "muted": false,
+   "last": "Yesterday"
+  },
+  {
+   "title": "Андрей Электричество Тарифы Аликанте",
+   "name": "Андрей Электричество Тарифы Аликанте",
+   "unread": 2,
+   "muted": false,
+   "last": "Yesterday"
   },
   {
    "title": "Ростислав - Анатолий ремонты",
    "name": "Ростислав - Анатолий ремонты",
-   "unread": 37,
+   "unread": 137,
    "muted": true,
-   "last": "03:25"
-  },
-  {
-   "title": "Оля Испанская",
-   "name": "Оля Испанская",
-   "unread": 1,
-   "muted": false,
-   "last": "03:08"
-  },
-  {
-   "title": "ЧАТ  ВЗАИМОПОМОЩИ ОТ ОКУПАС",
-   "name": "ЧАТ  ВЗАИМОПОМОЩИ ОТ ОКУПАС",
-   "unread": 380,
-   "muted": true,
-   "last": "Sunday"
+   "last": "Yesterday"
   },
   {
    "title": "Comunidad Calle Olivino 3",
    "name": "Comunidad Calle Olivino 3",
-   "unread": 160,
+   "unread": 1,
    "muted": true,
-   "last": "10/29/2026"
+   "last": "Wednesday"
+  },
+  {
+   "title": "ЧАТ ВЗАИМОПОМОЩИ ОТ ОКУПАС",
+   "name": "ЧАТ ВЗАИМОПОМОЩИ ОТ ОКУПАС",
+   "unread": 408,
+   "muted": true,
+   "last": "Wednesday"
   },
   {
    "title": "Дезинфекция квартиры",
@@ -65,15 +86,16 @@
    "stale_unread": true
   }
  ],
- "sum": 584,
- "unmuted_sum": 7,
- "muted_sum": 577,
+ "sum": 573,
+ "unmuted_sum": 27,
+ "muted_sum": 546,
  "ok": true,
  "quit_reopen": true,
  "accidental_open": null,
  "proof": [
-  "/workspace/unread-census/2026-11-06-pm/wa-ukr-unread-01.png",
-  "/workspace/unread-census/2026-11-06-pm/wa-ukr-unread-02.png"
+  "/workspace/ax42-share/wa-ukr-12promax-p/sverka-20261113/wa-ukr-unread-top.png",
+  "/workspace/ax42-share/wa-ukr-12promax-p/sverka-20261113/wa-ukr-unread-mid.png",
+  "/workspace/ax42-share/wa-ukr-12promax-p/sverka-20261113/wa-ukr-unread-bottom.png"
  ],
- "note": "Full quit tray Exit + reopen whatsapp:; Unread chip 8; wheel-only; RDP window not maximized. NEW vs AM: +Maks Sinar 1; Алла gone (was 1)."
+ "note": "chip 11 = 11 rows (10 with counts + Аукционы Испания marked unread dot). Maks Sinar was already open at connect; quit via tray Exit without sending, no chat opened after relaunch."
 }

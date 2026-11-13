@@ -1,8 +1,8 @@
 {
  "_note": "HARD Rost t5351u: диалоги ClickUp на даше = Desktop Inbox Primary + Direct Messages только с красным бейджем. MCP-опрос за 48ч сюда не пишем.",
- "fetched": "2026-11-12 09:38 Bogotá",
- "since": "2026-11-12 09:38 Bogotá",
- "src": "desktop Inbox Primary + DM (red badge only) · 2026-11-12 09:38 Bogotá · primary=2 dm=0",
+ "fetched": "2026-11-13 09:38 Bogotá",
+ "since": "2026-11-13 09:38 Bogotá",
+ "src": "desktop Inbox Primary + DM (red badge only) · 2026-11-13 09:38 Bogotá · primary=0 dm=0",
  "tier": "desktop",
  "kinds": [
   [
@@ -30,84 +30,8 @@
    "Прочее"
   ]
  ],
- "counts": {
-  "comment": 2
- },
- "items": [
-  {
-   "task_id": "86baqkyw4",
-   "task": "Алла: Страховой случай Лос Пуэблос - как продвигается?",
-   "list": "",
-   "list_id": "",
-   "status": "",
-   "task_url": "https://rosmater.github.io/cu/?t=86baqkyw4",
-   "task_app": "https://app.clickup.com/t/86baqkyw4",
-   "kind": "comment",
-   "at": "",
-   "who": "Алла",
-   "comment_id": "",
-   "comment_url": "https://app.clickup.com/t/86baqkyw4",
-   "n_new": 1
-  },
-  {
-   "task_id": "86bcn2d1t",
-   "task": "Control de estado de cuentas + mandar apelaciones + eliminar publicaciones problematicas + mas mandar capturas de pantalla",
-   "list": "Models",
-   "list_id": "901412862040",
-   "status": "to do",
-   "task_url": "https://rosmater.github.io/cu/?t=86bcn2d1t",
-   "task_app": "https://app.clickup.com/t/86bcn2d1t",
-   "kind": "comment",
-   "at": "",
-   "who": "@Rost Lolapop",
-   "comment_id": "90140278110604",
-   "comment_url": "https://app.clickup.com/t/86bcn2d1t?comment=90140278110604",
-   "n_new": 1
-  }
- ],
- "threads": [
-  {
-   "task_id": "86baqkyw4",
-   "task": "Алла: Страховой случай Лос Пуэблос - как продвигается?",
-   "list": "",
-   "list_id": "",
-   "status": "",
-   "task_url": "https://rosmater.github.io/cu/?t=86baqkyw4",
-   "task_app": "https://app.clickup.com/t/86baqkyw4",
-   "kinds": [
-    "comment"
-   ],
-   "at": "",
-   "who": "Алла",
-   "comment_url": "https://app.clickup.com/t/86baqkyw4",
-   "comment_id": "",
-   "sub": "",
-   "n_new": 1,
-   "mention_at": "",
-   "author": "Алла",
-   "author_bot": false
-  },
-  {
-   "task_id": "86bcn2d1t",
-   "task": "Control de estado de cuentas + mandar apelaciones + eliminar publicaciones problematicas + mas mandar capturas de pantalla",
-   "list": "Models",
-   "list_id": "901412862040",
-   "status": "to do",
-   "task_url": "https://rosmater.github.io/cu/?t=86bcn2d1t",
-   "task_app": "https://app.clickup.com/t/86bcn2d1t",
-   "kinds": [
-    "comment"
-   ],
-   "at": "",
-   "who": "@Rost Lolapop",
-   "comment_url": "https://app.clickup.com/t/86bcn2d1t?comment=90140278110604",
-   "comment_id": "90140278110604",
-   "sub": "",
-   "n_new": 1,
-   "mention_at": "",
-   "author": "@Rost Lolapop",
-   "author_bot": false
-  }
- ],
- "desktop_file": "/workspace/notify-watchers/clickup-pulse/inbox-raw/desktop-inbox-2026-11-12.json"
+ "counts": {},
+ "items": [],
+ "threads": [],
+ "desktop_file": "/workspace/notify-watchers/clickup-pulse/inbox-raw/desktop-inbox-2026-11-13.json"
 }

@@ -1,96 +1,30 @@
 {
- "fetched_at": "2026-10-25T23:45:00-05:00",
- "src": "ClickUp search (RA / OFTV / LolaPop, open)",
+ "fetched_at": "2026-11-13T09:30:28-05:00",
+ "src": "ClickUp search (RA / OFTV / LolaPop, open) + refresh of previously listed ids; whole-list dump of Models/GTO/Projects OF narrowed 396→144",
  "tasks": [
   {
-   "id": "86b8de8ru",
-   "name": "Заявки RA чат проверить (флеймс)",
+   "id": "86bd2vc4n",
+   "name": "Audri — старт OFTV",
    "status": "to do",
-   "list": "General Tasks OF",
-   "parent": "BUSQUEDA DE NUEVAS MODELOS",
-   "parent_id": "86b84fxzq",
-   "assignees": [
-    "Rost"
-   ],
-   "updated": "1792683929796"
-  },
-  {
-   "id": "86ba3b2gp",
-   "name": "RA 222 Valentina TRANS popayan - R",
-   "status": "models",
    "list": "Models",
    "parent": null,
    "parent_id": null,
-   "assignees": [],
-   "updated": "1792564051936"
-  },
-  {
-   "id": "86b9wh8cd",
-   "name": "БОТ: RA180 / RA185 - курировать процесс (скрины/новая платежка)",
-   "status": "for check",
-   "list": "Models",
-   "parent": "RA 180 RB - R",
-   "parent_id": "86b9wh8ca",
    "assignees": [
     "Rost"
    ],
-   "updated": "1792934369472"
+   "updated": "1794539883313"
   },
   {
-   "id": "86bakztpd",
-   "name": "DMCA - RA207",
+   "id": "86bc8zzeu",
+   "name": "(диалог с Аудри) Переформат ЛолаПоп - Мишель оформить каталог страницу - как успехи?",
    "status": "to do",
-   "list": "Models",
-   "parent": "RA 207/212 Katerine + ТС",
-   "parent_id": "86b6pbez0",
-   "assignees": [
-    "Michelle Hernández"
-   ],
-   "updated": "1792534036902"
-  },
-  {
-   "id": "86b6q77gv",
-   "name": "RA 213 Laura, 22 - R",
-   "status": "models",
-   "list": "Models",
+   "list": "General Tasks OF",
    "parent": null,
    "parent_id": null,
-   "assignees": [],
-   "updated": "1792004316621"
-  },
-  {
-   "id": "86b8p9k56",
-   "name": "RA 207 Katherine OF.TV (estar pendiente del proyecto, editar y subir videos, escenarios, grabaciones)",
-   "status": "main",
-   "list": "Models",
-   "parent": "RA 207/212 Katerine + ТС",
-   "parent_id": "86b6pbez0",
-   "assignees": [],
-   "updated": "1791989328335"
-  },
-  {
-   "id": "86b9abep9",
-   "name": "С ИРИНОЙ: Проверка статистики / сумм выплат / где плохо? по моделям",
-   "status": "to do",
-   "list": "General Tasks OF",
-   "parent": "PAGOS / SERVICIOS",
-   "parent_id": "86b7m631j",
    "assignees": [
     "Rost"
    ],
-   "updated": "1792962617352"
-  },
-  {
-   "id": "86b8fkqg2",
-   "name": "БОТ-ЧАСТЬ: Flames - жду моделей (отработали новые?)",
-   "status": "to do",
-   "list": "General Tasks OF",
-   "parent": "BUSQUEDA DE NUEVAS MODELOS",
-   "parent_id": "86b84fxzq",
-   "assignees": [
-    "Rost"
-   ],
-   "updated": "1792955229602"
+   "updated": "1792962337145"
   },
   {
    "id": "86bcpa3xk",
@@ -105,14 +39,973 @@
    "updated": "1792946174736"
   },
   {
-   "id": "86b9crt9q",
-   "name": "RA 217 Juliana Agudelo (Valentin)",
+   "id": "86bbcefk3",
+   "name": "(сбор данных) ОФТВ расчет с партнерами",
+   "status": "to do",
+   "list": "General Tasks OF",
+   "parent": null,
+   "parent_id": null,
+   "assignees": [
+    "Rost",
+    "Ірина Шекель"
+   ],
+   "updated": "1793905441866"
+  },
+  {
+   "id": "86b9axevh",
+   "name": "(тестим сбор) БОТ ЧАСТЬ: (ФБ рекомендации) 📊 Проверка статистики ЛолаПоп и принятие решений ",
+   "status": "for check",
+   "list": "General Tasks OF",
+   "parent": "MARKETING",
+   "parent_id": "86b84fykg",
+   "assignees": [
+    "Rost"
+   ],
+   "updated": "1794321076437"
+  },
+  {
+   "id": "86bcje0a9",
+   "name": "[Camila ходила 21.10 — ждём новости] Flames m02 — Camila, 24",
+   "status": "to do",
+   "list": "General Tasks OF",
+   "parent": "BUSQUEDA DE NUEVAS MODELOS",
+   "parent_id": "86b84fxzq",
+   "assignees": [
+    "Rost"
+   ],
+   "updated": "1794541852741"
+  },
+  {
+   "id": "86bcpzbtt",
+   "name": "[ждем от Flames ответ по 2 этапу] Flames m15 — Juliana, 27",
+   "status": "to do",
+   "list": "General Tasks OF",
+   "parent": "BUSQUEDA DE NUEVAS MODELOS",
+   "parent_id": "86b84fxzq",
+   "assignees": [
+    "Rost"
+   ],
+   "updated": "1794541853006"
+  },
+  {
+   "id": "86bbay9tw",
+   "name": "Alejandra, 29",
    "status": "models",
    "list": "Models",
    "parent": null,
    "parent_id": null,
    "assignees": [],
-   "updated": "1791576078738"
+   "updated": "1786281823032"
+  },
+  {
+   "id": "86b8yc0gk",
+   "name": "Alejandra,28 años (закрыли ОФТВ)",
+   "status": "models",
+   "list": "Models",
+   "parent": null,
+   "parent_id": null,
+   "assignees": [],
+   "updated": "1791133172447"
+  },
+  {
+   "id": "86ba0c7g0",
+   "name": "Alice TRANS 20 - Flames",
+   "status": "models",
+   "list": "Models",
+   "parent": null,
+   "parent_id": null,
+   "assignees": [],
+   "updated": "1791133067582"
+  },
+  {
+   "id": "86b9uqgq7",
+   "name": "Andrea Cali",
+   "status": "models",
+   "list": "Models",
+   "parent": null,
+   "parent_id": null,
+   "assignees": [],
+   "updated": "1789521943758"
+  },
+  {
+   "id": "86b9gfu46",
+   "name": "Annie Marin PH 30",
+   "status": "models",
+   "list": "Models",
+   "parent": null,
+   "parent_id": null,
+   "assignees": [],
+   "updated": "1776654628576"
+  },
+  {
+   "id": "86b80hmbw",
+   "name": "app0 / bbwlolapop_bc",
+   "status": "to do",
+   "list": "Accs",
+   "parent": "Phone 10",
+   "parent_id": "86b806hvy",
+   "assignees": [],
+   "updated": "1767480998254"
+  },
+  {
+   "id": "86b96n7u8",
+   "name": "app0 / bbwlolapop_bc",
+   "status": "for posting",
+   "list": "Accs",
+   "parent": "Phone 12",
+   "parent_id": "86b96n7u3",
+   "assignees": [],
+   "updated": "1775183572270"
+  },
+  {
+   "id": "86b805fbk",
+   "name": "app10 / bbwlolapop_az",
+   "status": "for posting",
+   "list": "Accs",
+   "parent": "Phone 5 (lento)",
+   "parent_id": "86b7x99b7",
+   "assignees": [],
+   "updated": "1767385642983"
+  },
+  {
+   "id": "86b83g7v1",
+   "name": "app13 / bbwlolapop_al",
+   "status": "to do",
+   "list": "Accs",
+   "parent": "Phone 3 (lento)",
+   "parent_id": "86b83g7tt",
+   "assignees": [],
+   "updated": "1769563786158"
+  },
+  {
+   "id": "86b805kf5",
+   "name": "app13 / bbwlolapop_ba",
+   "status": "for posting",
+   "list": "Accs",
+   "parent": "Phone 5 (lento)",
+   "parent_id": "86b7x99b7",
+   "assignees": [],
+   "updated": "1767385784394"
+  },
+  {
+   "id": "86b83de4f",
+   "name": "app18 / bbwlolapop_ac",
+   "status": "video selfie",
+   "list": "Accs",
+   "parent": "Phone 6 (lento)",
+   "parent_id": "86b83de35",
+   "assignees": [],
+   "updated": "1767978209462"
+  },
+  {
+   "id": "86b804m3c",
+   "name": "app2 / bbwlolapop_ax",
+   "status": "video selfie",
+   "list": "Accs",
+   "parent": "Phone 5 (lento)",
+   "parent_id": "86b7x99b7",
+   "assignees": [],
+   "updated": "1767381684727"
+  },
+  {
+   "id": "86b83de3c",
+   "name": "app2 /bbwlolapop_aa",
+   "status": "apeal",
+   "list": "Accs",
+   "parent": "Phone 6 (lento)",
+   "parent_id": "86b83de35",
+   "assignees": [],
+   "updated": "1767976694270"
+  },
+  {
+   "id": "86b80hm9f",
+   "name": "app20 / bbwlolapop_bd",
+   "status": "to do",
+   "list": "Accs",
+   "parent": "Phone 10",
+   "parent_id": "86b806hvy",
+   "assignees": [],
+   "updated": "1767481009441"
+  },
+  {
+   "id": "86b96n7ug",
+   "name": "app20 / bbwlolapop_bd",
+   "status": "to do",
+   "list": "Accs",
+   "parent": "Phone 12",
+   "parent_id": "86b96n7u3",
+   "assignees": [],
+   "updated": "1775183574482"
+  },
+  {
+   "id": "86b83de53",
+   "name": "app22 / bbwlolapop_ad",
+   "status": "apeal",
+   "list": "Accs",
+   "parent": "Phone 6 (lento)",
+   "parent_id": "86b83de35",
+   "assignees": [],
+   "updated": "1767979293515"
+  },
+  {
+   "id": "86b83de54",
+   "name": "app23 / bbwlolapop_ae",
+   "status": "video selfie",
+   "list": "Accs",
+   "parent": "Phone 6 (lento)",
+   "parent_id": "86b83de35",
+   "assignees": [],
+   "updated": "1767979576254"
+  },
+  {
+   "id": "86b83de5e",
+   "name": "app24 / bbwlolapop_af",
+   "status": "to do",
+   "list": "Accs",
+   "parent": "Phone 6 (lento)",
+   "parent_id": "86b83de35",
+   "assignees": [],
+   "updated": "1767979600587"
+  },
+  {
+   "id": "86b83g7vx",
+   "name": "app24 /bbwlolapop_am",
+   "status": "video selfie",
+   "list": "Accs",
+   "parent": "Phone 3 (lento)",
+   "parent_id": "86b83g7tt",
+   "assignees": [],
+   "updated": "1769564007328"
+  },
+  {
+   "id": "86b83de5h",
+   "name": "app25 / bbwlolapop_ag",
+   "status": "for posting",
+   "list": "Accs",
+   "parent": "Phone 6 (lento)",
+   "parent_id": "86b83de35",
+   "assignees": [],
+   "updated": "1767981405642"
+  },
+  {
+   "id": "86b83g7vy",
+   "name": "app25 /bbwlolapop_an",
+   "status": "video selfie",
+   "list": "Accs",
+   "parent": "Phone 3 (lento)",
+   "parent_id": "86b83g7tt",
+   "assignees": [],
+   "updated": "1769565012419"
+  },
+  {
+   "id": "86b83de5j",
+   "name": "app26 / bbwlolapop_ah",
+   "status": "video selfie",
+   "list": "Accs",
+   "parent": "Phone 6 (lento)",
+   "parent_id": "86b83de35",
+   "assignees": [],
+   "updated": "1767981606124"
+  },
+  {
+   "id": "86b83g7wq",
+   "name": "app26 / bbwlolapop_ao",
+   "status": "video selfie",
+   "list": "Accs",
+   "parent": "Phone 3 (lento)",
+   "parent_id": "86b83g7tt",
+   "assignees": [],
+   "updated": "1769565676296"
+  },
+  {
+   "id": "86b83de5k",
+   "name": "app27 / bbwlolapop_ai",
+   "status": "to do",
+   "list": "Accs",
+   "parent": "Phone 6 (lento)",
+   "parent_id": "86b83de35",
+   "assignees": [],
+   "updated": "1767981655472"
+  },
+  {
+   "id": "86b80hm9u",
+   "name": "app27 / bbwlolapop_be",
+   "status": "to do",
+   "list": "Accs",
+   "parent": "Phone 10",
+   "parent_id": "86b806hvy",
+   "assignees": [],
+   "updated": "1767481038854"
+  },
+  {
+   "id": "86b96n7uq",
+   "name": "app27 / bbwlolapop_be",
+   "status": "to do",
+   "list": "Accs",
+   "parent": "Phone 12",
+   "parent_id": "86b96n7u3",
+   "assignees": [],
+   "updated": "1775183575775"
+  },
+  {
+   "id": "86b83de5m",
+   "name": "app29 / bbwlolapop_aj",
+   "status": "to do",
+   "list": "Accs",
+   "parent": "Phone 6 (lento)",
+   "parent_id": "86b83de35",
+   "assignees": [],
+   "updated": "1767983369683"
+  },
+  {
+   "id": "86b80h3cn",
+   "name": "app31 / bbwlolapop_bb",
+   "status": "for posting",
+   "list": "Accs",
+   "parent": "Phone 5 (lento)",
+   "parent_id": "86b7x99b7",
+   "assignees": [],
+   "updated": "1767484614106"
+  },
+  {
+   "id": "86b83g7u6",
+   "name": "app5 /bbwlolapop_ak",
+   "status": "video selfie",
+   "list": "Accs",
+   "parent": "Phone 3 (lento)",
+   "parent_id": "86b83g7tt",
+   "assignees": [],
+   "updated": "1769563743744"
+  },
+  {
+   "id": "86b83de42",
+   "name": "app6 / bblolapop_ab",
+   "status": "video selfie",
+   "list": "Accs",
+   "parent": "Phone 6 (lento)",
+   "parent_id": "86b83de35",
+   "assignees": [],
+   "updated": "1767977394337"
+  },
+  {
+   "id": "86b805f4z",
+   "name": "app8 / bbwlolapop_ay",
+   "status": "video selfie",
+   "list": "Accs",
+   "parent": "Phone 5 (lento)",
+   "parent_id": "86b7x99b7",
+   "assignees": [],
+   "updated": "1767385116052"
+  },
+  {
+   "id": "86b6pbfvk",
+   "name": "Audri (Inst,TikTok) + ОФТВ (редактируем видео)",
+   "status": "models",
+   "list": "Models",
+   "parent": null,
+   "parent_id": null,
+   "assignees": [],
+   "updated": "1785801201727"
+  },
+  {
+   "id": "86bcmpfve",
+   "name": "BBW Katerine, 20 años - Isa (159 строка)",
+   "status": "models",
+   "list": "Models",
+   "parent": null,
+   "parent_id": null,
+   "assignees": [
+    "Rost"
+   ],
+   "updated": "1793126322873"
+  },
+  {
+   "id": "86ba699vu",
+   "name": "Camilla cali 18 - Valeria",
+   "status": "models",
+   "list": "Models",
+   "parent": null,
+   "parent_id": null,
+   "assignees": [],
+   "updated": "1782499880468"
+  },
+  {
+   "id": "86baxttdf",
+   "name": "Canel muñoz mejia, 22 años - Valentina",
+   "status": "models",
+   "list": "Models",
+   "parent": null,
+   "parent_id": null,
+   "assignees": [],
+   "updated": "1786282426399"
+  },
+  {
+   "id": "86b9rzatc",
+   "name": "Carolina 24- mava",
+   "status": "models",
+   "list": "Models",
+   "parent": null,
+   "parent_id": null,
+   "assignees": [],
+   "updated": "1778610539122"
+  },
+  {
+   "id": "86b8ea9r5",
+   "name": "Chica 2 :  24  Medellin XXX - Sara",
+   "status": "models",
+   "list": "Models",
+   "parent": null,
+   "parent_id": null,
+   "assignees": [],
+   "updated": "1775975613258"
+  },
+  {
+   "id": "86bcn2d1t",
+   "name": "Control de estado de cuentas + mandar apelaciones + eliminar publicaciones problematicas + mas mandar capturas de pantalla",
+   "status": "to do",
+   "list": "Models",
+   "parent": "Audri (Inst,TikTok) + ОФТВ (редактируем видео)",
+   "parent_id": "86b6pbfvk",
+   "assignees": [
+    "Michelle Hernández "
+   ],
+   "updated": "1794501144572"
+  },
+  {
+   "id": "86b9cp9ry",
+   "name": "Control proyecto OF.TV (cada lunes reporte sobre todos) COLUMNAS D E G H I",
+   "status": "to do",
+   "list": "General Tasks OF",
+   "parent": "MARKETING",
+   "parent_id": "86b84fykg",
+   "assignees": [
+    "Michelle Hernández "
+   ],
+   "updated": "1794264514542"
+  },
+  {
+   "id": "86ba699p1",
+   "name": "Daniela 20 - Valeria",
+   "status": "models",
+   "list": "Models",
+   "parent": null,
+   "parent_id": null,
+   "assignees": [],
+   "updated": "1782359427746"
+  },
+  {
+   "id": "86bakztpd",
+   "name": "DMCA - RA207",
+   "status": "to do",
+   "list": "Models",
+   "parent": "RA 207/212 Katerine + ТС",
+   "parent_id": "86b6pbez0",
+   "assignees": [
+    "Michelle Hernández "
+   ],
+   "updated": "1794341048685"
+  },
+  {
+   "id": "86b7t9h6p",
+   "name": "DMCA busqueda de contenido de LolaPop",
+   "status": "to do",
+   "list": "Models",
+   "parent": "Audri (Inst,TikTok) + ОФТВ (редактируем видео)",
+   "parent_id": "86b6pbfvk",
+   "assignees": [
+    "Michelle Hernández "
+   ],
+   "updated": "1794340609301"
+  },
+  {
+   "id": "86b8tx434",
+   "name": "Editar Highlight OF LolaPop",
+   "status": "to do",
+   "list": "Models",
+   "parent": "Audri (Inst,TikTok) + ОФТВ (редактируем видео)",
+   "parent_id": "86b6pbfvk",
+   "assignees": [
+    "Michelle Hernández "
+   ],
+   "updated": "1793724346053"
+  },
+  {
+   "id": "86bcq1dkk",
+   "name": "ELIANA 24 - Flames",
+   "status": "models",
+   "list": "Models",
+   "parent": null,
+   "parent_id": null,
+   "assignees": [],
+   "updated": "1793126380084"
+  },
+  {
+   "id": "86bc8dz7c",
+   "name": "ELIZABETH 19 años IA",
+   "status": "models",
+   "list": "Models",
+   "parent": null,
+   "parent_id": null,
+   "assignees": [],
+   "updated": "1790880310674"
+  },
+  {
+   "id": "86bc3mvmh",
+   "name": "Evely Cordoba, 20 años - Laura Garcia (150 строка)",
+   "status": "models",
+   "list": "Models",
+   "parent": null,
+   "parent_id": null,
+   "assignees": [
+    "Rost"
+   ],
+   "updated": "1790660861426"
+  },
+  {
+   "id": "86bbhw648",
+   "name": "Gabi, 18 años (promo)",
+   "status": "models",
+   "list": "Models",
+   "parent": null,
+   "parent_id": null,
+   "assignees": [],
+   "updated": "1787685687345"
+  },
+  {
+   "id": "86b9e0nd6",
+   "name": "GRABACIONES (poner nuevos consejos)",
+   "status": "to do",
+   "list": "General Tasks OF",
+   "parent": "TAREAS OFICINA",
+   "parent_id": "86b84fy42",
+   "assignees": [
+    "Sara Pineda Chanci"
+   ],
+   "updated": "1792600223214"
+  },
+  {
+   "id": "86bbayb2y",
+   "name": "Helen, 23",
+   "status": "models",
+   "list": "Models",
+   "parent": null,
+   "parent_id": null,
+   "assignees": [],
+   "updated": "1786282362031"
+  },
+  {
+   "id": "86b8kc8qe",
+   "name": "Hija de Audri - Sara",
+   "status": "models",
+   "list": "Models",
+   "parent": null,
+   "parent_id": null,
+   "assignees": [],
+   "updated": "1785264142449"
+  },
+  {
+   "id": "86ba4ky8z",
+   "name": "Iniciar proyecto OFTV en Cali con Andrea + registrar pagos247",
+   "status": "to do",
+   "list": "Models",
+   "parent": "Andrea Cali",
+   "parent_id": "86b9uqgq7",
+   "assignees": [
+    "Michelle Hernández "
+   ],
+   "updated": "1793837812236"
+  },
+  {
+   "id": "86bbfudj2",
+   "name": "Instagram - responder a comentarios",
+   "status": "to do",
+   "list": "Models",
+   "parent": "Audri (Inst,TikTok) + ОФТВ (редактируем видео)",
+   "parent_id": "86b6pbfvk",
+   "assignees": [
+    "Sara Pineda Chanci"
+   ],
+   "updated": "1794497710167"
+  },
+  {
+   "id": "86bc3mqfg",
+   "name": "ISABELA 21 años - target",
+   "status": "models",
+   "list": "Models",
+   "parent": null,
+   "parent_id": null,
+   "assignees": [],
+   "updated": "1790659365410"
+  },
+  {
+   "id": "86b9dt8ah",
+   "name": "Isabela manco",
+   "status": "models",
+   "list": "Models",
+   "parent": null,
+   "parent_id": null,
+   "assignees": [],
+   "updated": "1776795561952"
+  },
+  {
+   "id": "86bc3mvmm",
+   "name": "Isabela y tengo 24 años - En Facebook (153 строка)",
+   "status": "models",
+   "list": "Models",
+   "parent": null,
+   "parent_id": null,
+   "assignees": [
+    "Rost"
+   ],
+   "updated": "1790660789560"
+  },
+  {
+   "id": "86bapdxq9",
+   "name": "Issabel rendon - Valentinara218 (operada tetos)",
+   "status": "models",
+   "list": "Models",
+   "parent": null,
+   "parent_id": null,
+   "assignees": [],
+   "updated": "1782917852137"
+  },
+  {
+   "id": "86bb6ajpn",
+   "name": "Jessica BBW y amigas enanitas",
+   "status": "models",
+   "list": "Models",
+   "parent": null,
+   "parent_id": null,
+   "assignees": [],
+   "updated": "1791245956695"
+  },
+  {
+   "id": "86bb6a9f2",
+   "name": "JHOANA amiga de Valentina bajita - Ros",
+   "status": "models",
+   "list": "Models",
+   "parent": null,
+   "parent_id": null,
+   "assignees": [],
+   "updated": "1789834994800"
+  },
+  {
+   "id": "86bc3muyp",
+   "name": "Laura ballesteros, 29. - Paloma (149 строка)",
+   "status": "models",
+   "list": "Models",
+   "parent": null,
+   "parent_id": null,
+   "assignees": [
+    "Rost"
+   ],
+   "updated": "1790660354918"
+  },
+  {
+   "id": "86bc3mvmk",
+   "name": "Laura, 23 años - Sara (151 строка) - неформалка",
+   "status": "models",
+   "list": "Models",
+   "parent": null,
+   "parent_id": null,
+   "assignees": [
+    "Rost"
+   ],
+   "updated": "1790660715210"
+  },
+  {
+   "id": "86b8mwnpv",
+   "name": "Lorena - Sara (блокнули)",
+   "status": "models",
+   "list": "Models",
+   "parent": null,
+   "parent_id": null,
+   "assignees": [],
+   "updated": "1791133217209"
+  },
+  {
+   "id": "86bbaybjg",
+   "name": "Luisiana, 24",
+   "status": "models",
+   "list": "Models",
+   "parent": null,
+   "parent_id": null,
+   "assignees": [],
+   "updated": "1786282556873"
+  },
+  {
+   "id": "86bbr52ut",
+   "name": "Luna Ospina 18 años (147 formulario)",
+   "status": "models",
+   "list": "Models",
+   "parent": null,
+   "parent_id": null,
+   "assignees": [],
+   "updated": "1789835550568"
+  },
+  {
+   "id": "86b9k6kn0",
+   "name": "Mai - KOT (отказ ТС)",
+   "status": "models",
+   "list": "Models",
+   "parent": null,
+   "parent_id": null,
+   "assignees": [],
+   "updated": "1791132995699"
+  },
+  {
+   "id": "86bake9m2",
+   "name": "Manuela Torres - Fetish",
+   "status": "models",
+   "list": "Models",
+   "parent": null,
+   "parent_id": null,
+   "assignees": [],
+   "updated": "1782348580378"
+  },
+  {
+   "id": "86bccqpd9",
+   "name": "ManyVids LolaPop- проверить выплату с платформы",
+   "status": "to do",
+   "list": "Models",
+   "parent": "Audri (Inst,TikTok) + ОФТВ (редактируем видео)",
+   "parent_id": "86b6pbfvk",
+   "assignees": [
+    "Rost"
+   ],
+   "updated": "1791130521550"
+  },
+  {
+   "id": "86bc4ux9g",
+   "name": "Natalia 20 años - La encontré en Google (155 строка)",
+   "status": "models",
+   "list": "Models",
+   "parent": null,
+   "parent_id": null,
+   "assignees": [],
+   "updated": "1791247208364"
+  },
+  {
+   "id": "86bcd7qkb",
+   "name": "NATALIA 20 años AI (слабая внешность)",
+   "status": "models",
+   "list": "Models",
+   "parent": null,
+   "parent_id": null,
+   "assignees": [],
+   "updated": "1791231210600"
+  },
+  {
+   "id": "86bbaya2f",
+   "name": "Nicole 24 años (144 formulario)",
+   "status": "models",
+   "list": "Models",
+   "parent": null,
+   "parent_id": null,
+   "assignees": [],
+   "updated": "1786477109080"
+  },
+  {
+   "id": "86bbayaut",
+   "name": "Nikol, 23",
+   "status": "models",
+   "list": "Models",
+   "parent": null,
+   "parent_id": null,
+   "assignees": [],
+   "updated": "1786282307139"
+  },
+  {
+   "id": "86bbp092j",
+   "name": "Nuevo Youtube LolaPop",
+   "status": "main",
+   "list": "Models",
+   "parent": "Audri (Inst,TikTok) + ОФТВ (редактируем видео)",
+   "parent_id": "86b6pbfvk",
+   "assignees": [],
+   "updated": "1787872159788"
+  },
+  {
+   "id": "86b970n0k",
+   "name": "OF.TV",
+   "status": "main",
+   "list": "Models",
+   "parent": null,
+   "parent_id": null,
+   "assignees": [],
+   "updated": "1775255505971"
+  },
+  {
+   "id": "86b9rjuy3",
+   "name": "OF.TV general",
+   "status": "main",
+   "list": "General Tasks OF",
+   "parent": null,
+   "parent_id": null,
+   "assignees": [],
+   "updated": "1793905441866"
+  },
+  {
+   "id": "86b6pbecg",
+   "name": "OF.TV Леша - Мишель куратор",
+   "status": "main",
+   "list": "Projects OF",
+   "parent": "МАРКЕТИНГОВЫЕ ЭКСПЕРИМЕНТЫ (фишки описание) - просмотр результатов - новые эксперименты?",
+   "parent_id": "86b6ywdjp",
+   "assignees": [
+    "Rost"
+   ],
+   "updated": "1776019859114"
+  },
+  {
+   "id": "86b6z79da",
+   "name": "OFTV - RA 207 Katherine (Medellin) (Цель 12 публикаций наперед)",
+   "status": "main",
+   "list": "Models",
+   "parent": "RA 207/212 Katerine + ТС",
+   "parent_id": "86b6pbez0",
+   "assignees": [],
+   "updated": "1776023040050"
+  },
+  {
+   "id": "86b7xmedz",
+   "name": "OFTV Lola",
+   "status": "main",
+   "list": "Models",
+   "parent": "Audri (Inst,TikTok) + ОФТВ (редактируем видео)",
+   "parent_id": "86b6pbfvk",
+   "assignees": [],
+   "updated": "1785193051505"
+  },
+  {
+   "id": "86bb4d162",
+   "name": "OFTV Paginas de modelos organizar publicaciones (mira descripcion)!!!!!!!!!!!!!!",
+   "status": "to do",
+   "list": "Models",
+   "parent": "Audri (Inst,TikTok) + ОФТВ (редактируем видео)",
+   "parent_id": "86b6pbfvk",
+   "assignees": [
+    "Michelle Hernández "
+   ],
+   "updated": "1792794374334"
+  },
+  {
+   "id": "86b8nhtam",
+   "name": "OFTV Scarlet - Sara",
+   "status": "models",
+   "list": "Models",
+   "parent": null,
+   "parent_id": null,
+   "assignees": [],
+   "updated": "1791133240929"
+  },
+  {
+   "id": "86bc3muve",
+   "name": "PAULA 20 años - IA",
+   "status": "models",
+   "list": "Models",
+   "parent": null,
+   "parent_id": null,
+   "assignees": [],
+   "updated": "1794086277906"
+  },
+  {
+   "id": "86bajv3th",
+   "name": "Planear grabaciones de videos Explícitos",
+   "status": "to do",
+   "list": "Models",
+   "parent": "Audri (Inst,TikTok) + ОФТВ (редактируем видео)",
+   "parent_id": "86b6pbfvk",
+   "assignees": [
+    "Michelle Hernández "
+   ],
+   "updated": "1792455052575"
+  },
+  {
+   "id": "86b7x60wj",
+   "name": "Project S/XXX - fetish videos",
+   "status": "main",
+   "list": "General Tasks OF",
+   "parent": null,
+   "parent_id": null,
+   "assignees": [],
+   "updated": "1775983654015"
+  },
+  {
+   "id": "86b9fceb4",
+   "name": "PROYECTO: Fetish Rooms + Lolapop",
+   "status": "to do",
+   "list": "General Tasks OF",
+   "parent": "Project S/XXX - fetish videos",
+   "parent_id": "86b7x60wj",
+   "assignees": [
+    "Michelle Hernández "
+   ],
+   "updated": "1792421173333"
+  },
+  {
+   "id": "86b8c2fc1",
+   "name": "PROYECTO: Fetish Rooms + LolaPop (контроль: как идут дела? план?)",
+   "status": "to do",
+   "list": "General Tasks OF",
+   "parent": "Project S/XXX - fetish videos",
+   "parent_id": "86b7x60wj",
+   "assignees": [
+    "Rost"
+   ],
+   "updated": "1792955085102"
+  },
+  {
+   "id": "86b8q7t28",
+   "name": "Publicaciones OF LolaPop - 1 por semana",
+   "status": "to do",
+   "list": "Models",
+   "parent": "Audri (Inst,TikTok) + ОФТВ (редактируем видео)",
+   "parent_id": "86b6pbfvk",
+   "assignees": [
+    "Michelle Hernández "
+   ],
+   "updated": "1793057844406"
+  },
+  {
+   "id": "86b9wh8ca",
+   "name": "RA 180 RB - R",
+   "status": "models",
+   "list": "Models",
+   "parent": null,
+   "parent_id": null,
+   "assignees": [],
+   "updated": "1781119260524"
+  },
+  {
+   "id": "86b8p9k56",
+   "name": "RA 207 Katherine OF.TV (estar pendiente del proyecto, editar y subir videos, escenarios, grabaciones)",
+   "status": "main",
+   "list": "Models",
+   "parent": "RA 207/212 Katerine + ТС",
+   "parent_id": "86b6pbez0",
+   "assignees": [],
+   "updated": "1791989328335"
+  },
+  {
+   "id": "86b6pbez0",
+   "name": "RA 207/212 Katerine + ТС",
+   "status": "models",
+   "list": "Models",
+   "parent": null,
+   "parent_id": null,
+   "assignees": [],
+   "updated": "1791128003953"
+  },
+  {
+   "id": "86b6pbf11",
+   "name": "RA 208/216 Juliana Manco",
+   "status": "models",
+   "list": "Models",
+   "parent": null,
+   "parent_id": null,
+   "assignees": [],
+   "updated": "1785780751752"
   },
   {
    "id": "86b6pbf32",
@@ -125,14 +1018,34 @@
    "updated": "1791128591468"
   },
   {
-   "id": "86b6pbez0",
-   "name": "RA 207/212 Katerine + ТС",
+   "id": "86b719nrd",
+   "name": "RA 210 Tati Kare 22 (Valentin)",
    "status": "models",
    "list": "Models",
    "parent": null,
    "parent_id": null,
    "assignees": [],
-   "updated": "1791128003953"
+   "updated": "1791125846884"
+  },
+  {
+   "id": "86b6q77gv",
+   "name": "RA 213 Laura, 22 - R",
+   "status": "models",
+   "list": "Models",
+   "parent": null,
+   "parent_id": null,
+   "assignees": [],
+   "updated": "1792004316621"
+  },
+  {
+   "id": "86b9crt9q",
+   "name": "RA 217 Juliana Agudelo (Valentin)",
+   "status": "models",
+   "list": "Models",
+   "parent": null,
+   "parent_id": null,
+   "assignees": [],
+   "updated": "1794498955180"
   },
   {
    "id": "86b9ctpnc",
@@ -155,668 +1068,48 @@
    "updated": "1791133023031"
   },
   {
-   "id": "86bcqyvwk",
-   "name": "Restaurar acceso de Gabriela a la 3ª página (OF)",
-   "status": "to do",
-   "list": "Models",
-   "parent": "RA 221 Gabriela enana de Marcia",
-   "parent_id": "86baymk9w",
-   "assignees": [
-    "Michelle Hernández"
-   ],
-   "updated": "1792943569721"
-  },
-  {
-   "id": "86b719nrd",
-   "name": "RA 210 Tati Kare 22 (Valentin)",
+   "id": "86ba3b2gp",
+   "name": "RA 222 Valentina TRANS popayan - R",
    "status": "models",
    "list": "Models",
    "parent": null,
    "parent_id": null,
    "assignees": [],
-   "updated": "1791125846884"
+   "updated": "1792564051936"
   },
   {
-   "id": "86bcquhu2",
-   "name": "[ждем ответ 1 этап] Flames m18 — Laura, 23",
-   "status": "to do",
-   "list": "General Tasks OF",
-   "parent": "BUSQUEDA DE NUEVAS MODELOS",
-   "parent_id": "86b84fxzq",
-   "assignees": [
-    "Rost"
-   ],
-   "updated": "1792876341145"
-  },
-  {
-   "id": "86bcqbke3",
-   "name": "[отказ] Flames m16 — Ximena, 25",
-   "status": "complete (solo ros)",
-   "list": "General Tasks OF",
-   "parent": "BUSQUEDA DE NUEVAS MODELOS",
-   "parent_id": "86b84fxzq",
-   "assignees": [
-    "Rost"
-   ],
-   "updated": "1792876710831"
-  },
-  {
-   "id": "86b8c9bhm",
-   "name": "💳 Pago a Katherine RA 207/212 - la cantidad exacta en la tabla (adjuntar captura de pantalla a comentarios)",
-   "status": "to do",
-   "list": "Models",
-   "parent": "RA 207/212 Katerine + ТС",
-   "parent_id": "86b6pbez0",
-   "assignees": [
-    "Sara Pineda Chanci"
-   ],
-   "updated": "1792459147884"
-  },
-  {
-   "id": "86bcpzbtt",
-   "name": "[ждем от Flames ответ по 2 этапу] Flames m15 — Juliana, 27",
-   "status": "to do",
-   "list": "General Tasks OF",
-   "parent": "BUSQUEDA DE NUEVAS MODELOS",
-   "parent_id": "86b84fxzq",
-   "assignees": [
-    "Rost"
-   ],
-   "updated": "1792772047837"
-  },
-  {
-   "id": "86bb4zv3p",
-   "name": "Стримы ОФ-ТС - Джулиана/Катерина + Шейх стримы (жду Буллет/Шейх-RA)",
-   "status": "to do",
-   "list": "General Tasks OF",
-   "parent": "OTRAS TAREAS",
-   "parent_id": "86b84fyhb",
-   "assignees": [
-    "Rost"
-   ],
-   "updated": "1791997484361"
-  },
-  {
-   "id": "86bcp28f1",
-   "name": "[отказ] Flames m13 — Alejandra, 20",
-   "status": "complete (solo ros)",
-   "list": "General Tasks OF",
-   "parent": "BUSQUEDA DE NUEVAS MODELOS",
-   "parent_id": "86b84fxzq",
-   "assignees": [
-    "Rost"
-   ],
-   "updated": "1792684779752"
-  },
-  {
-   "id": "86bcnnpwc",
-   "name": "[отказ] Flames m12 — Paula, 22",
-   "status": "complete (solo ros)",
-   "list": "General Tasks OF",
-   "parent": "BUSQUEDA DE NUEVAS MODELOS",
-   "parent_id": "86b84fxzq",
-   "assignees": [
-    "Rost"
-   ],
-   "updated": "1792598343289"
-  },
-  {
-   "id": "86bbyv9ex",
-   "name": "Verificación sistemas de pagos (Gabriela RA221)",
-   "status": "complete (solo ros)",
-   "list": "Models",
-   "parent": "RA 221 Gabriela enana de Marcia",
-   "parent_id": "86baymk9w",
-   "assignees": [
-    "Sara Pineda Chanci"
-   ],
-   "updated": "1792563961301"
-  },
-  {
-   "id": "86bcnvd8j",
-   "name": "Verificación sistemas de pagos (Valentina RA222)",
-   "status": "to do",
-   "list": "Models",
-   "parent": "RA 222 Valentina TRANS popayan - R",
-   "parent_id": "86ba3b2gp",
-   "assignees": [
-    "Sara Pineda Chanci"
-   ],
-   "updated": "1792564033484"
-  },
-  {
-   "id": "86bcneqk5",
-   "name": "[отказ] Flames m11 — Carolina, 24",
-   "status": "complete (solo ros)",
-   "list": "General Tasks OF",
-   "parent": "BUSQUEDA DE NUEVAS MODELOS",
-   "parent_id": "86b84fxzq",
-   "assignees": [
-    "Rost"
-   ],
-   "updated": "1792531325543"
-  },
-  {
-   "id": "86bcn05eg",
-   "name": "[отказ] Flames m10 — Natalia, 22",
-   "status": "complete (solo ros)",
-   "list": "General Tasks OF",
-   "parent": "BUSQUEDA DE NUEVAS MODELOS",
-   "parent_id": "86b84fxzq",
-   "assignees": [
-    "Rost"
-   ],
-   "updated": "1792512123617"
-  },
-  {
-   "id": "86bcmqjh3",
-   "name": "[отказ] Flames m09 — Valentina, 21",
-   "status": "complete (solo ros)",
-   "list": "General Tasks OF",
-   "parent": "BUSQUEDA DE NUEVAS MODELOS",
-   "parent_id": "86b84fxzq",
-   "assignees": [
-    "Rost"
-   ],
-   "updated": "1792443951192"
-  },
-  {
-   "id": "86bcm2f8k",
-   "name": "[отказ] Flames m08 — Luciana, 35",
-   "status": "complete (solo ros)",
-   "list": "General Tasks OF",
-   "parent": "BUSQUEDA DE NUEVAS MODELOS",
-   "parent_id": "86b84fxzq",
-   "assignees": [
-    "Rost"
-   ],
-   "updated": "1792427198961"
-  },
-  {
-   "id": "86bcm1c4y",
-   "name": "[отказ] Flames m07 — Sofia, 22",
-   "status": "complete (solo ros)",
-   "list": "General Tasks OF",
-   "parent": "BUSQUEDA DE NUEVAS MODELOS",
-   "parent_id": "86b84fxzq",
-   "assignees": [
-    "Rost"
-   ],
-   "updated": "1792427197137"
-  },
-  {
-   "id": "86bcju6jr",
-   "name": "[отказ] Flames m03 — Mariana, 28",
-   "status": "complete (solo ros)",
-   "list": "General Tasks OF",
-   "parent": "BUSQUEDA DE NUEVAS MODELOS",
-   "parent_id": "86b84fxzq",
-   "assignees": [
-    "Rost"
-   ],
-   "updated": "1792168494714"
-  },
-  {
-   "id": "86bcje0a9",
-   "name": "[ждем от Flames ответ по 2 этапу] Flames m02 — Camila, 24",
-   "status": "to do",
-   "list": "General Tasks OF",
-   "parent": "BUSQUEDA DE NUEVAS MODELOS",
-   "parent_id": "86b84fxzq",
-   "assignees": [
-    "Rost"
-   ],
-   "updated": "1792080279063"
-  },
-  {
-   "id": "86bcjd2z9",
-   "name": "[отказ] Flames m01 — Valeria, 29",
-   "status": "complete (solo ros)",
-   "list": "General Tasks OF",
-   "parent": "BUSQUEDA DE NUEVAS MODELOS",
-   "parent_id": "86b84fxzq",
-   "assignees": [
-    "Rost"
-   ],
-   "updated": "1792079965603"
-  },
-  {
-   "id": "86bcgbuqn",
-   "name": "Verificación sistemas de pagos (Valentina RA222)",
-   "status": "complete (solo ros)",
-   "list": "Models",
-   "parent": "RA 222 Valentina TRANS popayan - R",
-   "parent_id": "86ba3b2gp",
-   "assignees": [
-    "Sara Pineda Chanci"
-   ],
-   "updated": "1792100894292"
-  },
-  {
-   "id": "86b8ax316",
-   "name": "RA 210 ТикТок/Инста - Сара как результаты?",
-   "status": "complete (solo ros)",
-   "list": "Models",
-   "parent": "RA 210 Tati Kare 22 (Valentin)",
-   "parent_id": "86b719nrd",
-   "assignees": [
-    "Rost"
-   ],
-   "updated": "1777941593308"
-  },
-  {
-   "id": "86ba5ywen",
-   "name": "💳 Pago a Juliana Agudelo RA 217 - la cantidad exacta en la tabla (adjuntar captura de pantalla a comentarios)",
-   "status": "to do",
-   "list": "Models",
-   "parent": "RA 217 Juliana Agudelo (Valentin)",
-   "parent_id": "86b9crt9q",
-   "assignees": [
-    "Sara Pineda Chanci"
-   ],
-   "updated": "1792459678577"
-  },
-  {
-   "id": "86bbznmnd",
-   "name": "Жду доступы от November (RA218) - жду ответ Исла передали ли модели",
-   "status": "complete (solo ros)",
-   "list": "Models",
-   "parent": "RA 218 Valentina - Flames (проект закрыт ОФТВ и Хиджаб)",
-   "parent_id": "86b9ctpnc",
-   "assignees": [
-    "Rost"
-   ],
-   "updated": "1789499179316"
-  },
-  {
-   "id": "86b6z79da",
-   "name": "OFTV - RA 207 Katherine (Medellin) (Цель 12 публикаций наперед)",
-   "status": "main",
-   "list": "Models",
-   "parent": "RA 207/212 Katerine + ТС",
-   "parent_id": "86b6pbez0",
-   "assignees": [],
-   "updated": "1776023040050"
-  },
-  {
-   "id": "86b6pbf11",
-   "name": "RA 208/216 Juliana Manco",
+   "id": "86baezxre",
+   "name": "RA220 Kenny - sara (сложная модель)",
    "status": "models",
    "list": "Models",
    "parent": null,
    "parent_id": null,
    "assignees": [],
-   "updated": "1785780751752"
+   "updated": "1787102483346"
   },
   {
-   "id": "86b7h12h7",
-   "name": "💳 Pago a Tatiana RA 210/214 - la cantidad exacta en la tabla (adjuntar captura de pantalla a comentarios)",
+   "id": "86bcxunr8",
+   "name": "REMIND: LolaPop — как работаем, если передадим страницы",
    "status": "to do",
-   "list": "Models",
-   "parent": "RA 210 Tati Kare 22 (Valentin)",
-   "parent_id": "86b719nrd",
-   "assignees": [
-    "Sara Pineda Chanci"
-   ],
-   "updated": "1792453590079"
-  },
-  {
-   "id": "86b9ctpng",
-   "name": "RA218 Валентина Флеймс - контроль запуска ТС?",
-   "status": "complete (solo ros)",
-   "list": "Models",
-   "parent": "RA 218 Valentina - Flames (проект закрыт ОФТВ и Хиджаб)",
-   "parent_id": "86b9ctpnc",
-   "assignees": [
-    "Rost"
-   ],
-   "updated": "1781440232046"
-  },
-  {
-   "id": "86baf4a2h",
-   "name": "TATIANA RA210 - Threads Publicar Diario",
-   "status": "complete (solo ros)",
-   "list": "Models",
-   "parent": "RA 210 Tati Kare 22 (Valentin)",
-   "parent_id": "86b719nrd",
-   "assignees": [
-    "Karli"
-   ],
-   "updated": "1791242901593"
-  },
-  {
-   "id": "86ba04ed4",
-   "name": "TATIANA RA210  - Tiktok estadisticas (colocar de apelaciones diarias)",
-   "status": "complete (solo ros)",
-   "list": "Models",
-   "parent": "RA 210 Tati Kare 22 (Valentin)",
-   "parent_id": "86b719nrd",
-   "assignees": [
-    "Karli"
-   ],
-   "updated": "1791242901593"
-  },
-  {
-   "id": "86b9wh8ca",
-   "name": "RA 180 RB - R",
-   "status": "models",
-   "list": "Models",
-   "parent": null,
-   "parent_id": null,
-   "assignees": [],
-   "updated": "1781119260524"
-  },
-  {
-   "id": "86bam1b23",
-   "name": "🔥 SPECIAL: Isabella, 20 años  - Valentina ra218",
-   "status": "models",
-   "list": "Models",
-   "parent": null,
-   "parent_id": null,
-   "assignees": [],
-   "updated": "1784569457324"
-  },
-  {
-   "id": "86bbzx9bm",
-   "name": "OFTV Передача анкет от Батона к Маркизу (чат с Лешей)",
-   "status": "complete (solo ros)",
    "list": "General Tasks OF",
-   "parent": "MARKETING",
-   "parent_id": "86b84fykg",
+   "parent": null,
+   "parent_id": null,
    "assignees": [
     "Rost"
    ],
-   "updated": "1792955411641"
+   "updated": "1793760073362"
   },
   {
-   "id": "86b9crta7",
-   "name": "БОТ: Пройти 1 видео OFTV Aurora Jul Agud (ждем перемонтаж)",
-   "status": "for check",
-   "list": "Models",
-   "parent": "RA 217 Juliana Agudelo (Valentin)",
-   "parent_id": "86b9crt9q",
-   "assignees": [
-    "Rost"
-   ],
-   "updated": "1792685577669"
-  },
-  {
-   "id": "86b7ypqbb",
-   "name": "Нет трафика OFTV LolaPop - ждем Кира",
+   "id": "86bbkrfmj",
+   "name": "Responder a mensajes Clips4Sale / Manyvids",
    "status": "to do",
    "list": "Models",
    "parent": "Audri (Inst,TikTok) + ОФТВ (редактируем видео)",
    "parent_id": "86b6pbfvk",
    "assignees": [
-    "Rost"
+    "Michelle Hernández "
    ],
-   "updated": "1792955901098"
-  },
-  {
-   "id": "86bbzx9x4",
-   "name": "БОТ: Срочно контент снять OFTV Sofia Lunara - Laura (жду реакцию в чате Маркиза)",
-   "status": "for check",
-   "list": "Models",
-   "parent": "RA 213 Laura, 22 - R",
-   "parent_id": "86b6q77gv",
-   "assignees": [
-    "Rost"
-   ],
-   "updated": "1792687662128"
-  },
-  {
-   "id": "86bb3qh0k",
-   "name": "БОТ: Мишель: OFTV Наладить постинг - все под контролем?",
-   "status": "for check",
-   "list": "General Tasks OF",
-   "parent": "MARKETING",
-   "parent_id": "86b84fykg",
-   "assignees": [
-    "Rost"
-   ],
-   "updated": "1792685583384"
-  },
-  {
-   "id": "86bayg7mw",
-   "name": "hacer primer video de oftv",
-   "status": "complete (solo ros)",
-   "list": "Models",
-   "parent": "Andrea Cali",
-   "parent_id": "86b9uqgq7",
-   "assignees": [
-    "Sara Pineda Chanci",
-    "Michelle Hernández"
-   ],
-   "updated": "1792452710949"
-  },
-  {
-   "id": "86bcmpfve",
-   "name": "Katerine, 20 años - Isa (159 строка)",
-   "status": "models",
-   "list": "Models",
-   "parent": null,
-   "parent_id": null,
-   "assignees": [
-    "Rost"
-   ],
-   "updated": "1792528507705"
-  },
-  {
-   "id": "86bcnuxbj",
-   "name": "БОТ-ЧАСТЬ: 💳 Оплата чаттерам Никиты (счёт в TG 5–13 числа) Яна получить отчеты",
-   "status": "to do",
-   "list": "General Tasks OF",
-   "parent": null,
-   "parent_id": null,
-   "assignees": [
-    "Rost"
-   ],
-   "updated": "1792560586226"
-  },
-  {
-   "id": "86baf7h1k",
-   "name": "💳 Pago a Scarlet - la cantidad exacta en la tabla (adjuntar captura de pantalla a comentarios)",
-   "status": "to do",
-   "list": "Models",
-   "parent": "OFTV Scarlet - Sara",
-   "parent_id": "86b8nhtam",
-   "assignees": [
-    "Sara Pineda Chanci"
-   ],
-   "updated": "1792446368149"
-  },
-  {
-   "id": "86bb4d162",
-   "name": "OFTV Paginas de modelos organizar publicaciones (mira descripcion)!!!!!!!!!!!!!!",
-   "status": "to do",
-   "list": "Models",
-   "parent": "Audri (Inst,TikTok) + ОФТВ (редактируем видео)",
-   "parent_id": "86b6pbfvk",
-   "assignees": [
-    "Michelle Hernández"
-   ],
-   "updated": "1792794374334"
-  },
-  {
-   "id": "86ba4ky8z",
-   "name": "Iniciar proyecto OFTV en Cali con Andrea + registrar pagos247",
-   "status": "to do",
-   "list": "Models",
-   "parent": "Andrea Cali",
-   "parent_id": "86b9uqgq7",
-   "assignees": [
-    "Michelle Hernández"
-   ],
-   "updated": "1792794468126"
-  },
-  {
-   "id": "86b8nhtam",
-   "name": "OFTV Scarlet - Sara",
-   "status": "models",
-   "list": "Models",
-   "parent": null,
-   "parent_id": null,
-   "assignees": [],
-   "updated": "1791133240929"
-  },
-  {
-   "id": "86bcp1m4z",
-   "name": "Tatiana tengo 30 años - Una amiga (160 строка)",
-   "status": "models",
-   "list": "Models",
-   "parent": null,
-   "parent_id": null,
-   "assignees": [],
-   "updated": "1792977507318"
-  },
-  {
-   "id": "86bcq1dkk",
-   "name": "ELIANA 24 - Flames",
-   "status": "models",
-   "list": "Models",
-   "parent": null,
-   "parent_id": null,
-   "assignees": [],
-   "updated": "1792977369186"
-  },
-  {
-   "id": "86b9uqgq7",
-   "name": "Andrea Cali",
-   "status": "models",
-   "list": "Models",
-   "parent": null,
-   "parent_id": null,
-   "assignees": [],
-   "updated": "1789521943758"
-  },
-  {
-   "id": "86bcnuxbv",
-   "name": "БОТ-ЧАСТЬ: 💳 Оплата чаттерам Sofia Lunara (счёт от Лёши в TG 15–20 числа) - Яна",
-   "status": "to do",
-   "list": "General Tasks OF",
-   "parent": null,
-   "parent_id": null,
-   "assignees": [
-    "Rost"
-   ],
-   "updated": "1792560650409"
-  },
-  {
-   "id": "86bc3muyp",
-   "name": "Laura ballesteros, 29. - Paloma (149 строка)",
-   "status": "models",
-   "list": "Models",
-   "parent": null,
-   "parent_id": null,
-   "assignees": [
-    "Rost"
-   ],
-   "updated": "1790660354918"
-  },
-  {
-   "id": "86b9e0nd6",
-   "name": "GRABACIONES (poner nuevos consejos)",
-   "status": "to do",
-   "list": "General Tasks OF",
-   "parent": "TAREAS OFICINA",
-   "parent_id": "86b84fy42",
-   "assignees": [
-    "Sara Pineda Chanci"
-   ],
-   "updated": "1792600223214"
-  },
-  {
-   "id": "86b9qwu10",
-   "name": "💳 Pago a Juliana manco - la cantidad exacta en la tabla (adjuntar captura de pantalla a comentarios)",
-   "status": "to do",
-   "list": "Models",
-   "parent": "RA 208/216 Juliana Manco",
-   "parent_id": "86b6pbf11",
-   "assignees": [
-    "Sara Pineda Chanci"
-   ],
-   "updated": "1792448889071"
-  },
-  {
-   "id": "86bbam23b",
-   "name": "жду Леша (проверить трафик) Sofia Lunara y Lolapop OFTV - больше публикаций и историй",
-   "status": "complete (solo ros)",
-   "list": "Models",
-   "parent": "Audri (Inst,TikTok) + ОФТВ (редактируем видео)",
-   "parent_id": "86b6pbfvk",
-   "assignees": [
-    "Rost"
-   ],
-   "updated": "1789319458862"
-  },
-  {
-   "id": "86bc4ux9g",
-   "name": "Natalia 20 años - La encontré en Google (155 строка)",
-   "status": "models",
-   "list": "Models",
-   "parent": null,
-   "parent_id": null,
-   "assignees": [],
-   "updated": "1791247208364"
-  },
-  {
-   "id": "86bc3mvmm",
-   "name": "Isabela y tengo 24 años - En Facebook (153 строка)",
-   "status": "models",
-   "list": "Models",
-   "parent": null,
-   "parent_id": null,
-   "assignees": [
-    "Rost"
-   ],
-   "updated": "1790660789560"
-  },
-  {
-   "id": "86bc3mvmh",
-   "name": "Evely Cordoba, 20 años - Laura Garcia (150 строка)",
-   "status": "models",
-   "list": "Models",
-   "parent": null,
-   "parent_id": null,
-   "assignees": [
-    "Rost"
-   ],
-   "updated": "1790660861426"
-  },
-  {
-   "id": "86bc3mvmk",
-   "name": "Laura, 23 años - Sara (151 строка) - неформалка",
-   "status": "models",
-   "list": "Models",
-   "parent": null,
-   "parent_id": null,
-   "assignees": [
-    "Rost"
-   ],
-   "updated": "1790660715210"
-  },
-  {
-   "id": "86ba3vwjb",
-   "name": "GRABACION OFTV Katerine",
-   "status": "complete (solo ros)",
-   "list": "Models",
-   "parent": "RA 207/212 Katerine + ТС",
-   "parent_id": "86b6pbez0",
-   "assignees": [
-    "Valentina López",
-    "Michelle Hernández"
-   ],
-   "updated": "1782952556402"
-  },
-  {
-   "id": "86b7xmedz",
-   "name": "OFTV Lola",
-   "status": "main",
-   "list": "Models",
-   "parent": "Audri (Inst,TikTok) + ОФТВ (редактируем видео)",
-   "parent_id": "86b6pbfvk",
-   "assignees": [],
-   "updated": "1785193051505"
+   "updated": "1794524413346"
   },
   {
    "id": "86b6pbf9r",
@@ -829,464 +1122,14 @@
    "updated": "1769641931685"
   },
   {
-   "id": "86b6xpanp",
-   "name": "Старт OFTV",
-   "status": "complete (solo ros)",
-   "list": "Projects OF",
-   "parent": "МАРКЕТИНГОВЫЕ ЭКСПЕРИМЕНТЫ (фишки описание) - просмотр результатов - новые эксперименты?",
-   "parent_id": "86b6ywdjp",
-   "assignees": [
-    "Rost"
-   ],
-   "updated": "1769628816708"
-  },
-  {
-   "id": "86bacymn7",
-   "name": "GRABACION OFTV Alejandra",
-   "status": "complete (solo ros)",
-   "list": "Models",
-   "parent": "Alejandra,28 años (закрыли ОФТВ)",
-   "parent_id": "86b8yc0gk",
-   "assignees": [
-    "Michelle Hernández"
-   ],
-   "updated": "1786047241988"
-  },
-  {
-   "id": "86bacytwt",
-   "name": "GRABACION OFTV Lorena",
-   "status": "complete (solo ros)",
-   "list": "Models",
-   "parent": "Lorena - Sara (блокнули)",
-   "parent_id": "86b8mwnpv",
-   "assignees": [
-    "Michelle Hernández"
-   ],
-   "updated": "1784590963524"
-  },
-  {
-   "id": "86bacyk82",
-   "name": "GRABACION OFTV Scarlet",
-   "status": "complete (solo ros)",
-   "list": "Models",
-   "parent": "OFTV Scarlet - Sara",
-   "parent_id": "86b8nhtam",
-   "assignees": [
-    "Michelle Hernández",
-    "Valentina López"
-   ],
-   "updated": "1783739615349"
-  },
-  {
-   "id": "86bacy9nt",
-   "name": "GRABACION  OFTV Valentina",
-   "status": "complete (solo ros)",
-   "list": "Models",
-   "parent": "RA 218 Valentina - Flames (проект закрыт ОФТВ и Хиджаб)",
-   "parent_id": "86b9ctpnc",
-   "assignees": [
-    "Michelle Hernández"
-   ],
-   "updated": "1784341360739"
-  },
-  {
-   "id": "86b819wgr",
-   "name": "grabacion oftv salome",
-   "status": "complete (solo ros)",
-   "list": "Models",
-   "parent": "Salome (OFTV)",
-   "parent_id": "86b6pbf9r",
-   "assignees": [
-    "Sara Pineda Chanci"
-   ],
-   "updated": "1769641910942"
-  },
-  {
-   "id": "86bacyfm1",
-   "name": "GRABACION VIDEOS OFTV Audris",
-   "status": "complete (solo ros)",
-   "list": "Models",
-   "parent": "Audri (Inst,TikTok) + ОФТВ (редактируем видео)",
-   "parent_id": "86b6pbfvk",
-   "assignees": [
-    "Michelle Hernández"
-   ],
-   "updated": "1784244322669"
-  },
-  {
-   "id": "86b9jeubd",
-   "name": "Organizar  grabacion oftv juliana",
-   "status": "complete (solo ros)",
-   "list": "Models",
-   "parent": "RA 208/216 Juliana Manco",
-   "parent_id": "86b6pbf11",
-   "assignees": [
-    "Michelle Hernández",
-    "Valentina López"
-   ],
-   "updated": "1778623119312"
-  },
-  {
-   "id": "86b6q79he",
-   "name": "Pagar Grabacion OFTV. 200.000cop",
-   "status": "complete (solo ros)",
-   "list": "Models",
-   "parent": "Salome (OFTV)",
-   "parent_id": "86b6pbf9r",
-   "assignees": [
-    "Rost"
-   ],
-   "updated": "1766952543547"
-  },
-  {
-   "id": "86b77wufu",
-   "name": "Empezar OFTV - Salome Medellin",
-   "status": "complete (solo ros)",
-   "list": "Models",
-   "parent": "Salome (OFTV)",
-   "parent_id": "86b6pbf9r",
-   "assignees": [
-    "Rost"
-   ],
-   "updated": "1769641923536"
-  },
-  {
-   "id": "86bajpkyq",
-   "name": "GRABACION PRIMER VIDEO OFTV LAURA",
-   "status": "complete (solo ros)",
-   "list": "Models",
-   "parent": "RA 213 Laura, 22 - R",
-   "parent_id": "86b6q77gv",
-   "assignees": [
-    "Valentina López",
-    "Michelle Hernández"
-   ],
-   "updated": "1782854964717"
-  },
-  {
-   "id": "86ba3v19p",
-   "name": "Agendar grabaciones para oftv audris",
-   "status": "complete (solo ros)",
-   "list": "Models",
-   "parent": "Audri (Inst,TikTok) + ОФТВ (редактируем видео)",
-   "parent_id": "86b6pbfvk",
-   "assignees": [
-    "Michelle Hernández",
-    "Valentina López"
-   ],
-   "updated": "1782185277782"
-  },
-  {
-   "id": "86ba4k78f",
-   "name": "Agendar grabacion para oftv Chuchi",
-   "status": "complete (solo ros)",
-   "list": "Models",
-   "parent": "Susana Herrera 18 anos amiga de Sara",
-   "parent_id": "86b8ybx67",
-   "assignees": [
-    "Michelle Hernández",
-    "Valentina López"
-   ],
-   "updated": "1781309996450"
-  },
-  {
-   "id": "86ba04p9p",
-   "name": "planear grabación para oftv Laura",
-   "status": "complete (solo ros)",
-   "list": "Models",
-   "parent": "RA 213 Laura, 22 - R",
-   "parent_id": "86b6q77gv",
-   "assignees": [
-    "Valentina López",
-    "Michelle Hernández"
-   ],
-   "updated": "1779406294546"
-  },
-  {
-   "id": "86b7xgvkx",
-   "name": "Organizar llamada con OFTV (IMPORTANTE)",
-   "status": "complete (solo ros)",
-   "list": "Models",
-   "parent": "RA 207/212 Katerine + ТС",
-   "parent_id": "86b6pbez0",
-   "assignees": [
-    "Sara Pineda Chanci"
-   ],
-   "updated": "1769134537997"
-  },
-  {
-   "id": "86b9ckxxk",
-   "name": "ПЛАНЕРКА ОФ (сверка задач ДЕТСКИЙ САД / цели) / ОФТВ когда завершат нужны даты?",
-   "status": "to do",
-   "list": "Projects OF",
-   "parent": "МОДЕЛИ КОЛУМБИЯ - план (архив-подсказка)",
-   "parent_id": "86b6r0f2c",
-   "assignees": [
-    "Rost"
-   ],
-   "updated": "1792947200891"
-  },
-  {
-   "id": "86b8gv8kj",
-   "name": "БОТ: Табакевич БЛОКИРОВКА ДОМЕНА: проверить скорость с укр/загран айпишников",
-   "status": "for check",
-   "list": "Задачи Tabakevich",
-   "parent": "БЕЗОПАСНОСТЬ:",
-   "parent_id": "86b92hpzq",
-   "assignees": [
-    "Rost"
-   ],
-   "updated": "1792934429791"
-  },
-  {
-   "id": "86bbcya69",
-   "name": "БОТ: Карлица запуск - как дела?",
-   "status": "complete (solo ros)",
-   "list": "Models",
-   "parent": "RA 221 Gabriela enana de Marcia",
-   "parent_id": "86baymk9w",
-   "assignees": [
-    "Rost"
-   ],
-   "updated": "1791646909504"
-  },
-  {
-   "id": "86bcqjqk8",
-   "name": "[отказ] Flames m17 — Andrea, 20",
-   "status": "complete (solo ros)",
-   "list": "General Tasks OF",
-   "parent": "BUSQUEDA DE NUEVAS MODELOS",
-   "parent_id": "86b84fxzq",
-   "assignees": [
-    "Rost"
-   ],
-   "updated": "1792876714629"
-  },
-  {
-   "id": "86bcp9k5q",
-   "name": "[отказ] Flames m14 — Manuela, 22",
-   "status": "complete (solo ros)",
-   "list": "General Tasks OF",
-   "parent": "BUSQUEDA DE NUEVAS MODELOS",
-   "parent_id": "86b84fxzq",
-   "assignees": [
-    "Rost"
-   ],
-   "updated": "1792684781424"
-  },
-  {
-   "id": "86bckuhe7",
-   "name": "[отказ] Flames m06 — Gabriela, 30",
-   "status": "complete (solo ros)",
-   "list": "General Tasks OF",
-   "parent": "BUSQUEDA DE NUEVAS MODELOS",
-   "parent_id": "86b84fxzq",
-   "assignees": [
-    "Rost"
-   ],
-   "updated": "1792253103420"
-  },
-  {
-   "id": "86bckkdxu",
-   "name": "[отказ] Flames m05 — Isabella, 27",
-   "status": "complete (solo ros)",
-   "list": "General Tasks OF",
-   "parent": "BUSQUEDA DE NUEVAS MODELOS",
-   "parent_id": "86b84fxzq",
-   "assignees": [
-    "Rost"
-   ],
-   "updated": "1792253101351"
-  },
-  {
-   "id": "86bck2fp4",
-   "name": "[отказ] Flames m04 — Daniela, 22",
-   "status": "complete (solo ros)",
-   "list": "General Tasks OF",
-   "parent": "BUSQUEDA DE NUEVAS MODELOS",
-   "parent_id": "86b84fxzq",
-   "assignees": [
-    "Rost"
-   ],
-   "updated": "1792168497141"
-  },
-  {
-   "id": "86bbbq9d4",
-   "name": "RA210 - бонус за кастом с парнем (жду буллет цену)",
-   "status": "complete (solo ros)",
-   "list": "Models",
-   "parent": "RA 210 Tati Kare 22 (Valentin)",
-   "parent_id": "86b719nrd",
-   "assignees": [
-    "Rost"
-   ],
-   "updated": "1786468465618"
-  },
-  {
-   "id": "86b8c2fc1",
-   "name": "PROYECTO: Fetish Rooms + LolaPop (контроль: как идут дела? план?)",
-   "status": "to do",
-   "list": "General Tasks OF",
-   "parent": "Project S/XXX - fetish videos",
-   "parent_id": "86b7x60wj",
-   "assignees": [
-    "Rost"
-   ],
-   "updated": "1792955085102"
-  },
-  {
-   "id": "86b8q7t28",
-   "name": "Publicaciones OF LolaPop - 1 por semana",
-   "status": "to do",
-   "list": "Models",
-   "parent": "Audri (Inst,TikTok) + ОФТВ (редактируем видео)",
-   "parent_id": "86b6pbfvk",
-   "assignees": [
-    "Michelle Hernández"
-   ],
-   "updated": "1792953617709"
-  },
-  {
-   "id": "86b7t9h6p",
-   "name": "DMCA busqueda de contenido de LolaPop",
-   "status": "to do",
-   "list": "Models",
-   "parent": "Audri (Inst,TikTok) + ОФТВ (редактируем видео)",
-   "parent_id": "86b6pbfvk",
-   "assignees": [
-    "Michelle Hernández"
-   ],
-   "updated": "1792531588802"
-  },
-  {
-   "id": "86bbfubt3",
-   "name": "Referencias para Instagram LolaPop",
-   "status": "complete (solo ros)",
-   "list": "Models",
-   "parent": "Audri (Inst,TikTok) + ОФТВ (редактируем видео)",
-   "parent_id": "86b6pbfvk",
-   "assignees": [
-    "Sara Pineda Chanci"
-   ],
-   "updated": "1792452937722"
-  },
-  {
-   "id": "86b86q7k7",
-   "name": "С ИРИНОЙ: Сьемки LolaPop: что снимаем на этой неделе?",
-   "status": "complete (solo ros)",
-   "list": "Models",
-   "parent": "Audri (Inst,TikTok) + ОФТВ (редактируем видео)",
-   "parent_id": "86b6pbfvk",
-   "assignees": [
-    "Rost"
-   ],
-   "updated": "1791119185849"
-  },
-  {
-   "id": "86bajv3th",
-   "name": "Planear grabaciones de videos Explícitos",
-   "status": "to do",
-   "list": "Models",
-   "parent": "Audri (Inst,TikTok) + ОФТВ (редактируем видео)",
-   "parent_id": "86b6pbfvk",
-   "assignees": [
-    "Michelle Hernández"
-   ],
-   "updated": "1792455052575"
-  },
-  {
-   "id": "86bcn2d1t",
-   "name": "Control de estado de cuentas + mandar apelaciones + eliminar publicaciones problematicas + mas mandar capturas de pantalla",
-   "status": "to do",
-   "list": "Models",
-   "parent": "Audri (Inst,TikTok) + ОФТВ (редактируем видео)",
-   "parent_id": "86b6pbfvk",
-   "assignees": [
-    "Michelle Hernández"
-   ],
-   "updated": "1792792638924"
-  },
-  {
-   "id": "86b9axevh",
-   "name": "(тестим сбор) БОТ ЧАСТЬ: (ФБ рекомендации) 📊 Проверка статистики ЛолаПоп и Амира и принятие решений - Карла заполнила? Новембер - доступ?",
-   "status": "to do",
-   "list": "General Tasks OF",
-   "parent": "MARKETING",
-   "parent_id": "86b84fykg",
-   "assignees": [
-    "Rost"
-   ],
-   "updated": "1792454549293"
-  },
-  {
-   "id": "86b6pbfvk",
-   "name": "Audri (Inst,TikTok) + ОФТВ (редактируем видео)",
+   "id": "86bbayae7",
+   "name": "Sofía 20 años (145 formulario)",
    "status": "models",
    "list": "Models",
    "parent": null,
    "parent_id": null,
    "assignees": [],
-   "updated": "1785801201727"
-  },
-  {
-   "id": "86bcr1a1r",
-   "name": "БОТ-ЧАСТЬ: Ежемесячный замер подписчиков Referencias (кто растёт)",
-   "status": "to do",
-   "list": "General Tasks OF",
-   "parent": "MARKETING",
-   "parent_id": "86b84fykg",
-   "assignees": [
-    "Rost"
-   ],
-   "updated": "1792975224636"
-  },
-  {
-   "id": "86bccqpd9",
-   "name": "ManyVids LolaPop- проверить выплату с платформы",
-   "status": "to do",
-   "list": "Models",
-   "parent": "Audri (Inst,TikTok) + ОФТВ (редактируем видео)",
-   "parent_id": "86b6pbfvk",
-   "assignees": [
-    "Rost"
-   ],
-   "updated": "1791130521550"
-  },
-  {
-   "id": "86b9fceb4",
-   "name": "PROYECTO: Fetish Rooms + Lolapop",
-   "status": "to do",
-   "list": "General Tasks OF",
-   "parent": "Project S/XXX - fetish videos",
-   "parent_id": "86b7x60wj",
-   "assignees": [
-    "Michelle Hernández"
-   ],
-   "updated": "1792421173333"
-  },
-  {
-   "id": "86bcn2ek8",
-   "name": "БОТ: контроль Мишель по проверке состояния профилей LolaPop",
-   "status": "for check",
-   "list": "Models",
-   "parent": "Audri (Inst,TikTok) + ОФТВ (редактируем видео)",
-   "parent_id": "86b6pbfvk",
-   "assignees": [
-    "Rost"
-   ],
-   "updated": "1792684957284"
-  },
-  {
-   "id": "86b8366dj",
-   "name": "Subir nuevo contenido a pagina LolaPopOF para chateros",
-   "status": "complete (solo ros)",
-   "list": "Models",
-   "parent": "Audri (Inst,TikTok) + ОФТВ (редактируем видео)",
-   "parent_id": "86b6pbfvk",
-   "assignees": [
-    "Michelle Hernández"
-   ],
-   "updated": "1791244166674"
+   "updated": "1788289703805"
   },
   {
    "id": "86b7a7nq2",
@@ -1299,6 +1142,26 @@
    "updated": "1776728756329"
   },
   {
+   "id": "86b8ybx67",
+   "name": "Susana Herrera 18 anos amiga de Sara",
+   "status": "models",
+   "list": "Models",
+   "parent": null,
+   "parent_id": null,
+   "assignees": [],
+   "updated": "1785687905077"
+  },
+  {
+   "id": "86bcp1m4z",
+   "name": "Tatiana tengo 30 años - Una amiga (160 строка)",
+   "status": "models",
+   "list": "Models",
+   "parent": null,
+   "parent_id": null,
+   "assignees": [],
+   "updated": "1792977507318"
+  },
+  {
    "id": "86b764axf",
    "name": "Test AI para LolaPop Reels/TikTok pruebas con Grok / onlyreels.ai",
    "status": "main",
@@ -1309,176 +1172,14 @@
    "updated": "1785366603831"
   },
   {
-   "id": "86b7rca1r",
-   "name": "Facebook проверить статистику Lolapop",
-   "status": "complete (solo ros)",
+   "id": "86b8rkagf",
+   "name": "Vanessa rivera 22 años medellin - Sara (игнорирует)",
+   "status": "models",
    "list": "Models",
-   "parent": "Audri (Inst,TikTok) + ОФТВ (редактируем видео)",
-   "parent_id": "86b6pbfvk",
-   "assignees": [
-    "Rost"
-   ],
-   "updated": "1775674697457"
-  },
-  {
-   "id": "86b96zqxu",
-   "name": "💳 Оплата Чаттерам LolaPop",
-   "status": "complete (solo ros)",
-   "list": "Models",
-   "parent": "Audri (Inst,TikTok) + ОФТВ (редактируем видео)",
-   "parent_id": "86b6pbfvk",
-   "assignees": [
-    "Rost"
-   ],
-   "updated": "1790879500510"
-  },
-  {
-   "id": "86b8tx2vg",
-   "name": "Hacer historias a pagina OF LolaPop (dias laborales)",
-   "status": "complete (solo ros)",
-   "list": "Models",
-   "parent": "Audri (Inst,TikTok) + ОФТВ (редактируем видео)",
-   "parent_id": "86b6pbfvk",
-   "assignees": [
-    "Michelle Hernández"
-   ],
-   "updated": "1791244057101"
-  },
-  {
-   "id": "86b9d6dch",
-   "name": "LolaPop - изменения на странице + контроль задач (задачи передать Сейдеру)",
-   "status": "complete (solo ros)",
-   "list": "General Tasks OF",
-   "parent": "OTRAS TAREAS",
-   "parent_id": "86b84fyhb",
-   "assignees": [
-    "Rost"
-   ],
-   "updated": "1783875422169"
-  },
-  {
-   "id": "86b8tx434",
-   "name": "Editar Highlight OF LolaPop",
-   "status": "to do",
-   "list": "Models",
-   "parent": "Audri (Inst,TikTok) + ОФТВ (редактируем видео)",
-   "parent_id": "86b6pbfvk",
-   "assignees": [
-    "Michelle Hernández"
-   ],
-   "updated": "1791244041522"
-  },
-  {
-   "id": "86b9u2fke",
-   "name": "(решил тормознуть эту задачу) С ИРИНОЙ: Рассылка подарков LolaPop",
-   "status": "complete (solo ros)",
-   "list": "Models",
-   "parent": "Audri (Inst,TikTok) + ОФТВ (редактируем видео)",
-   "parent_id": "86b6pbfvk",
-   "assignees": [
-    "Rost"
-   ],
-   "updated": "1785874908845"
-  },
-  {
-   "id": "86b96mypn",
-   "name": "Cambios en perfil",
-   "status": "to do",
-   "list": "Tareas",
    "parent": null,
    "parent_id": null,
    "assignees": [],
-   "updated": "1785349558263"
-  },
-  {
-   "id": "86bbhx9cx",
-   "name": "Mirrar estado de perfiles Facebook (cada semana) + marcar Ros con capturas de Pantallas de todos los Facebook (3 total)",
-   "status": "complete (solo ros)",
-   "list": "Models",
-   "parent": "Audri (Inst,TikTok) + ОФТВ (редактируем видео)",
-   "parent_id": "86b6pbfvk",
-   "assignees": [
-    "Karli"
-   ],
-   "updated": "1791242877720"
-  },
-  {
-   "id": "86b7ypqtf",
-   "name": "🛑OF.TV LolaPop - что с выпиской?? жду ребят",
-   "status": "complete (solo ros)",
-   "list": "Models",
-   "parent": "Audri (Inst,TikTok) + ОФТВ (редактируем видео)",
-   "parent_id": "86b6pbfvk",
-   "assignees": [
-    "Rost"
-   ],
-   "updated": "1785193051506"
-  },
-  {
-   "id": "86b788frz",
-   "name": "Youtube: LolaPop - tareas + grabaciones (planificar, hacer, estar pendiente con mensajes en grupo)",
-   "status": "main",
-   "list": "Models",
-   "parent": "Audri (Inst,TikTok) + ОФТВ (редактируем видео)",
-   "parent_id": "86b6pbfvk",
-   "assignees": [],
-   "updated": "1764282604618"
-  },
-  {
-   "id": "86b9u25at",
-   "name": "АУДРИ: Crear avatar de modelo LolaPop https://www.heygen.com",
-   "status": "complete (solo ros)",
-   "list": "Models",
-   "parent": "Audri (Inst,TikTok) + ОФТВ (редактируем видео)",
-   "parent_id": "86b6pbfvk",
-   "assignees": [
-    "Rost"
-   ],
-   "updated": "1783875352561"
-  },
-  {
-   "id": "86b94djqc",
-   "name": "Офер ферма",
-   "status": "main",
-   "list": "Projects OF",
-   "parent": "МАРКЕТИНГОВЫЕ ЭКСПЕРИМЕНТЫ (фишки описание) - просмотр результатов - новые эксперименты?",
-   "parent_id": "86b6ywdjp",
-   "assignees": [],
-   "updated": "1786808337793"
-  },
-  {
-   "id": "86b8tx4nu",
-   "name": "Nueve banner para OF LolaPop",
-   "status": "complete (solo ros)",
-   "list": "Models",
-   "parent": "Audri (Inst,TikTok) + ОФТВ (редактируем видео)",
-   "parent_id": "86b6pbfvk",
-   "assignees": [
-    "Karli"
-   ],
-   "updated": "1776283297935"
-  },
-  {
-   "id": "86b9u24br",
-   "name": "АУДРИ: Crear VOZ de modelo LolaPop https://elevenlabs.io",
-   "status": "complete (solo ros)",
-   "list": "Models",
-   "parent": "Audri (Inst,TikTok) + ОФТВ (редактируем видео)",
-   "parent_id": "86b6pbfvk",
-   "assignees": [
-    "Rost"
-   ],
-   "updated": "1783875350037"
-  },
-  {
-   "id": "86bbp092j",
-   "name": "Nuevo Youtube LolaPop",
-   "status": "main",
-   "list": "Models",
-   "parent": "Audri (Inst,TikTok) + ОФТВ (редактируем видео)",
-   "parent_id": "86b6pbfvk",
-   "assignees": [],
-   "updated": "1787872159788"
+   "updated": "1773426083647"
   },
   {
    "id": "86b833b0p",
@@ -1489,460 +1190,6 @@
    "parent_id": "86b6pbfvk",
    "assignees": [],
    "updated": "1781654131091"
-  },
-  {
-   "id": "86b89dw45",
-   "name": "hacer 20 publicaciones en Onlyfans LolaPop",
-   "status": "complete (solo ros)",
-   "list": "Models",
-   "parent": "Audri (Inst,TikTok) + ОФТВ (редактируем видео)",
-   "parent_id": "86b6pbfvk",
-   "assignees": [
-    "Sara Pineda Chanci"
-   ],
-   "updated": "1785193051506"
-  },
-  {
-   "id": "86b8r75r7",
-   "name": "OF LolaPop - hacer lista de REBILL (cada mes)",
-   "status": "complete (solo ros)",
-   "list": "Models",
-   "parent": "Audri (Inst,TikTok) + ОФТВ (редактируем видео)",
-   "parent_id": "86b6pbfvk",
-   "assignees": [],
-   "updated": "1785823544850"
-  },
-  {
-   "id": "86b8r73y1",
-   "name": "Оформление страницы OF LolaPop (жду Мишель баннер)",
-   "status": "complete (solo ros)",
-   "list": "Models",
-   "parent": "Audri (Inst,TikTok) + ОФТВ (редактируем видео)",
-   "parent_id": "86b6pbfvk",
-   "assignees": [
-    "Rost"
-   ],
-   "updated": "1776365588387"
-  },
-  {
-   "id": "86bae6v4h",
-   "name": "БОТ: САРА: отвечать на комментарии - как успехи Сара?",
-   "status": "for check",
-   "list": "Models",
-   "parent": "Audri (Inst,TikTok) + ОФТВ (редактируем видео)",
-   "parent_id": "86b6pbfvk",
-   "assignees": [
-    "Rost"
-   ],
-   "updated": "1792682966649"
-  },
-  {
-   "id": "86b78xc9b",
-   "name": "Замена имен в Тик Токе (4имени + новые акки?) (замерять показы)",
-   "status": "complete (solo ros)",
-   "list": "Models",
-   "parent": "Audri (Inst,TikTok) + ОФТВ (редактируем видео)",
-   "parent_id": "86b6pbfvk",
-   "assignees": [
-    "Rost"
-   ],
-   "updated": "1791995642687"
-  },
-  {
-   "id": "86bbfudj2",
-   "name": "Instagram - responder a comentarios",
-   "status": "to do",
-   "list": "Models",
-   "parent": "Audri (Inst,TikTok) + ОФТВ (редактируем видео)",
-   "parent_id": "86b6pbfvk",
-   "assignees": [
-    "Sara Pineda Chanci"
-   ],
-   "updated": "1792797425455"
-  },
-  {
-   "id": "86bbkrfmj",
-   "name": "Responder a mensajes Clips4Sale / Manyvids",
-   "status": "to do",
-   "list": "Models",
-   "parent": "Audri (Inst,TikTok) + ОФТВ (редактируем видео)",
-   "parent_id": "86b6pbfvk",
-   "assignees": [
-    "Michelle Hernández"
-   ],
-   "updated": "1792793867458"
-  },
-  {
-   "id": "86b7m5x2j",
-   "name": "Реддит - клики ссылка + просмотр публикаций-тайтлы / биография / чистка не конверт контента / удаленное модерами (Сара начала использовать новые паблики?)",
-   "status": "complete (solo ros)",
-   "list": "Models",
-   "parent": "Audri (Inst,TikTok) + ОФТВ (редактируем видео)",
-   "parent_id": "86b6pbfvk",
-   "assignees": [
-    "Rost"
-   ],
-   "updated": "1775675305095"
-  },
-  {
-   "id": "86b9u0hnd",
-   "name": "Сambiar @usario (mira descripcion) - Instagram",
-   "status": "complete (solo ros)",
-   "list": "Models",
-   "parent": "Audri (Inst,TikTok) + ОФТВ (редактируем видео)",
-   "parent_id": "86b6pbfvk",
-   "assignees": [
-    "Karli"
-   ],
-   "updated": "1779149644023"
-  },
-  {
-   "id": "86bacm2mk",
-   "name": "(ПРОВЕРИТЬ ПРОСМОТРЫ / проверить 1 публикацию) lolapearvibes как поживает? уведомления все пропали? (описание)",
-   "status": "complete (solo ros)",
-   "list": "Models",
-   "parent": "Audri (Inst,TikTok) + ОФТВ (редактируем видео)",
-   "parent_id": "86b6pbfvk",
-   "assignees": [
-    "Rost"
-   ],
-   "updated": "1783882933914"
-  },
-  {
-   "id": "86b80hm9f",
-   "name": "app20 / bbwlolapop_bd",
-   "status": "to do",
-   "list": "Accs",
-   "parent": "Phone 10",
-   "parent_id": "86b806hvy",
-   "assignees": [],
-   "updated": "1767481009441"
-  },
-  {
-   "id": "86b805f4z",
-   "name": "app8 / bbwlolapop_ay",
-   "status": "video selfie",
-   "list": "Accs",
-   "parent": "Phone 5 (lento)",
-   "parent_id": "86b7x99b7",
-   "assignees": [],
-   "updated": "1767385116052"
-  },
-  {
-   "id": "86b83de42",
-   "name": "app6 / bblolapop_ab",
-   "status": "video selfie",
-   "list": "Accs",
-   "parent": "Phone 6 (lento)",
-   "parent_id": "86b83de35",
-   "assignees": [],
-   "updated": "1767977394337"
-  },
-  {
-   "id": "86b83de54",
-   "name": "app23 / bbwlolapop_ae",
-   "status": "video selfie",
-   "list": "Accs",
-   "parent": "Phone 6 (lento)",
-   "parent_id": "86b83de35",
-   "assignees": [],
-   "updated": "1767979576254"
-  },
-  {
-   "id": "86b83de5j",
-   "name": "app26 / bbwlolapop_ah",
-   "status": "video selfie",
-   "list": "Accs",
-   "parent": "Phone 6 (lento)",
-   "parent_id": "86b83de35",
-   "assignees": [],
-   "updated": "1767981606124"
-  },
-  {
-   "id": "86b83de3c",
-   "name": "app2 /bbwlolapop_aa",
-   "status": "apeal",
-   "list": "Accs",
-   "parent": "Phone 6 (lento)",
-   "parent_id": "86b83de35",
-   "assignees": [],
-   "updated": "1767976694270"
-  },
-  {
-   "id": "86b96n7uq",
-   "name": "app27 / bbwlolapop_be",
-   "status": "to do",
-   "list": "Accs",
-   "parent": "Phone 12",
-   "parent_id": "86b96n7u3",
-   "assignees": [],
-   "updated": "1775183575775"
-  },
-  {
-   "id": "86b83g7vy",
-   "name": "app25 /bbwlolapop_an",
-   "status": "video selfie",
-   "list": "Accs",
-   "parent": "Phone 3 (lento)",
-   "parent_id": "86b83g7tt",
-   "assignees": [],
-   "updated": "1769565012419"
-  },
-  {
-   "id": "86b83g7u6",
-   "name": "app5 /bbwlolapop_ak",
-   "status": "video selfie",
-   "list": "Accs",
-   "parent": "Phone 3 (lento)",
-   "parent_id": "86b83g7tt",
-   "assignees": [],
-   "updated": "1769563743744"
-  },
-  {
-   "id": "86b83g7v1",
-   "name": "app13 / bbwlolapop_al",
-   "status": "to do",
-   "list": "Accs",
-   "parent": "Phone 3 (lento)",
-   "parent_id": "86b83g7tt",
-   "assignees": [],
-   "updated": "1769563786158"
-  },
-  {
-   "id": "86b83g7wq",
-   "name": "app26 / bbwlolapop_ao",
-   "status": "video selfie",
-   "list": "Accs",
-   "parent": "Phone 3 (lento)",
-   "parent_id": "86b83g7tt",
-   "assignees": [],
-   "updated": "1769565676296"
-  },
-  {
-   "id": "86b83de5e",
-   "name": "app24 / bbwlolapop_af",
-   "status": "to do",
-   "list": "Accs",
-   "parent": "Phone 6 (lento)",
-   "parent_id": "86b83de35",
-   "assignees": [],
-   "updated": "1767979600587"
-  },
-  {
-   "id": "86b83de5k",
-   "name": "app27 / bbwlolapop_ai",
-   "status": "to do",
-   "list": "Accs",
-   "parent": "Phone 6 (lento)",
-   "parent_id": "86b83de35",
-   "assignees": [],
-   "updated": "1767981655472"
-  },
-  {
-   "id": "86b83de53",
-   "name": "app22 / bbwlolapop_ad",
-   "status": "apeal",
-   "list": "Accs",
-   "parent": "Phone 6 (lento)",
-   "parent_id": "86b83de35",
-   "assignees": [],
-   "updated": "1767979293515"
-  },
-  {
-   "id": "86b83g7vx",
-   "name": "app24 /bbwlolapop_am",
-   "status": "video selfie",
-   "list": "Accs",
-   "parent": "Phone 3 (lento)",
-   "parent_id": "86b83g7tt",
-   "assignees": [],
-   "updated": "1769564007328"
-  },
-  {
-   "id": "86b804m3c",
-   "name": "app2 / bbwlolapop_ax",
-   "status": "video selfie",
-   "list": "Accs",
-   "parent": "Phone 5 (lento)",
-   "parent_id": "86b7x99b7",
-   "assignees": [],
-   "updated": "1767381684727"
-  },
-  {
-   "id": "86b80hmbw",
-   "name": "app0 / bbwlolapop_bc",
-   "status": "to do",
-   "list": "Accs",
-   "parent": "Phone 10",
-   "parent_id": "86b806hvy",
-   "assignees": [],
-   "updated": "1767480998254"
-  },
-  {
-   "id": "86b80hm9u",
-   "name": "app27 / bbwlolapop_be",
-   "status": "to do",
-   "list": "Accs",
-   "parent": "Phone 10",
-   "parent_id": "86b806hvy",
-   "assignees": [],
-   "updated": "1767481038854"
-  },
-  {
-   "id": "86b83de4f",
-   "name": "app18 / bbwlolapop_ac",
-   "status": "video selfie",
-   "list": "Accs",
-   "parent": "Phone 6 (lento)",
-   "parent_id": "86b83de35",
-   "assignees": [],
-   "updated": "1767978209462"
-  },
-  {
-   "id": "86b83de5m",
-   "name": "app29 / bbwlolapop_aj",
-   "status": "to do",
-   "list": "Accs",
-   "parent": "Phone 6 (lento)",
-   "parent_id": "86b83de35",
-   "assignees": [],
-   "updated": "1767983369683"
-  },
-  {
-   "id": "86bb6ajpn",
-   "name": "Jessica BBW y amigas enanitas",
-   "status": "models",
-   "list": "Models",
-   "parent": null,
-   "parent_id": null,
-   "assignees": [],
-   "updated": "1791245956695"
-  },
-  {
-   "id": "86b8mwnpv",
-   "name": "Lorena - Sara (блокнули)",
-   "status": "models",
-   "list": "Models",
-   "parent": null,
-   "parent_id": null,
-   "assignees": [],
-   "updated": "1791133217209"
-  },
-  {
-   "id": "86b9k6kn0",
-   "name": "Mai - KOT (отказ ТС)",
-   "status": "models",
-   "list": "Models",
-   "parent": null,
-   "parent_id": null,
-   "assignees": [],
-   "updated": "1791132995699"
-  },
-  {
-   "id": "86ba0c7g0",
-   "name": "Alice TRANS 20 - Flames",
-   "status": "models",
-   "list": "Models",
-   "parent": null,
-   "parent_id": null,
-   "assignees": [],
-   "updated": "1791133067582"
-  },
-  {
-   "id": "86ba9h786",
-   "name": "💳 Pago a Lorena - la cantidad exacta en la tabla (adjuntar captura de pantalla a comentarios)",
-   "status": "complete (solo ros)",
-   "list": "Models",
-   "parent": "Lorena - Sara (блокнули)",
-   "parent_id": "86b8mwnpv",
-   "assignees": [
-    "Sara Pineda Chanci"
-   ],
-   "updated": "1791133191723"
-  },
-  {
-   "id": "86bc3mqfg",
-   "name": "ISABELA 21 años - target",
-   "status": "models",
-   "list": "Models",
-   "parent": null,
-   "parent_id": null,
-   "assignees": [],
-   "updated": "1790659365410"
-  },
-  {
-   "id": "86b6z79ee",
-   "name": "как дела RA209 ОФТВ? (запуск чаттинга - контроль)",
-   "status": "complete (solo ros)",
-   "list": "Models",
-   "parent": "RA 209/215 Tatiana Cali",
-   "parent_id": "86b6pbf32",
-   "assignees": [
-    "Rost"
-   ],
-   "updated": "1776022835616"
-  },
-  {
-   "id": "86bbr52ut",
-   "name": "Luna Ospina 18 años (147 formulario)",
-   "status": "models",
-   "list": "Models",
-   "parent": null,
-   "parent_id": null,
-   "assignees": [],
-   "updated": "1789835550568"
-  },
-  {
-   "id": "86bb6a9f2",
-   "name": "JHOANA amiga de Valentina bajita - Ros",
-   "status": "models",
-   "list": "Models",
-   "parent": null,
-   "parent_id": null,
-   "assignees": [],
-   "updated": "1789834994800"
-  },
-  {
-   "id": "86bc3muve",
-   "name": "PAULA 20 años - IA",
-   "status": "models",
-   "list": "Models",
-   "parent": null,
-   "parent_id": null,
-   "assignees": [],
-   "updated": "1789837159376"
-  },
-  {
-   "id": "86bcd7qkb",
-   "name": "NATALIA 20 años AI (слабая внешность)",
-   "status": "models",
-   "list": "Models",
-   "parent": null,
-   "parent_id": null,
-   "assignees": [],
-   "updated": "1791231210600"
-  },
-  {
-   "id": "86baf7j1n",
-   "name": "💳 Pago a Alejandra- la cantidad exacta en la tabla (adjuntar captura de pantalla a comentarios)",
-   "status": "complete (solo ros)",
-   "list": "Models",
-   "parent": "Alejandra,28 años (закрыли ОФТВ)",
-   "parent_id": "86b8yc0gk",
-   "assignees": [
-    "Sara Pineda Chanci"
-   ],
-   "updated": "1791246187842"
-  },
-  {
-   "id": "86bc8dz7c",
-   "name": "ELIZABETH 19 años IA",
-   "status": "models",
-   "list": "Models",
-   "parent": null,
-   "parent_id": null,
-   "assignees": [],
-   "updated": "1790880310674"
   },
   {
    "id": "86bc9evxz",
@@ -1957,205 +1204,6 @@
    "updated": "1790704316305"
   },
   {
-   "id": "86bbayae7",
-   "name": "Sofía 20 años (145 formulario)",
-   "status": "models",
-   "list": "Models",
-   "parent": null,
-   "parent_id": null,
-   "assignees": [],
-   "updated": "1788289703805"
-  },
-  {
-   "id": "86bb1d2pg",
-   "name": "Crear onlyfans oftv con enlace de Valentin",
-   "status": "complete (solo ros)",
-   "list": "Models",
-   "parent": "Dahiana - Valentin",
-   "parent_id": "86b9v98rx",
-   "assignees": [
-    "Michelle Hernández"
-   ],
-   "updated": "1785365964884"
-  },
-  {
-   "id": "86bb18ewu",
-   "name": "Crear onlyfans oftv con enlace de referidos ros",
-   "status": "complete (solo ros)",
-   "list": "Models",
-   "parent": "Valentina Pabon, 24",
-   "parent_id": "86bam2jpa",
-   "assignees": [
-    "Michelle Hernández"
-   ],
-   "updated": "1785365943879"
-  },
-  {
-   "id": "86bb17cgy",
-   "name": "Crear perfil onlyfans oftv con enlace de referidos ros",
-   "status": "complete (solo ros)",
-   "list": "Models",
-   "parent": "Melisa - hermana juli agudelo",
-   "parent_id": "86b9wggyq",
-   "assignees": [
-    "Michelle Hernández"
-   ],
-   "updated": "1785365915891"
-  },
-  {
-   "id": "86b9mfke2",
-   "name": "Organizar primera grabacion de oftv lorena",
-   "status": "complete (solo ros)",
-   "list": "Models",
-   "parent": "Lorena - Sara (блокнули)",
-   "parent_id": "86b8mwnpv",
-   "assignees": [
-    "Valentina López",
-    "Michelle Hernández"
-   ],
-   "updated": "1781842521416"
-  },
-  {
-   "id": "86b7gj1ma",
-   "name": "Averigua cuál es la situación con el nuevo video para Salome OFTV. ¿Estamos esperando la grabación o estamos esperando algo de Alexey? (Pon la respuesta en el comentario y etiqueta a Ros)",
-   "status": "complete (solo ros)",
-   "list": "Models",
-   "parent": "Salome (OFTV)",
-   "parent_id": "86b6pbf9r",
-   "assignees": [
-    "Sara Pineda Chanci"
-   ],
-   "updated": "1767647668923"
-  },
-  {
-   "id": "86b9k3g1f",
-   "name": "Organizar Grabacion oftv con alejandra (leer descripcion )",
-   "status": "complete (solo ros)",
-   "list": "Models",
-   "parent": "Alejandra,28 años (закрыли ОФТВ)",
-   "parent_id": "86b8yc0gk",
-   "assignees": [
-    "Michelle Hernández",
-    "Valentina López"
-   ],
-   "updated": "1777945109489"
-  },
-  {
-   "id": "86b832fve",
-   "name": "Agendar cita con Katherine para hacer OFTV escenarios nuevos",
-   "status": "complete (solo ros)",
-   "list": "Models",
-   "parent": "RA 207/212 Katerine + ТС",
-   "parent_id": "86b6pbez0",
-   "assignees": [
-    "Sara Pineda Chanci"
-   ],
-   "updated": "1772654312939"
-  },
-  {
-   "id": "86b7ypqnq",
-   "name": "Edición de video OFTV (luego pasar la entrevista)",
-   "status": "complete (solo ros)",
-   "list": "Models",
-   "parent": "Audri (Inst,TikTok) + ОФТВ (редактируем видео)",
-   "parent_id": "86b6pbfvk",
-   "assignees": [
-    "Michelle Hernández"
-   ],
-   "updated": "1785193051506"
-  },
-  {
-   "id": "86b8m0gn2",
-   "name": "Planear hacer primer video OFTV - Laura (escenario de Salome)",
-   "status": "complete (solo ros)",
-   "list": "Models",
-   "parent": "RA 213 Laura, 22 - R",
-   "parent_id": "86b6q77gv",
-   "assignees": [
-    "Sara Pineda Chanci"
-   ],
-   "updated": "1773085718658"
-  },
-  {
-   "id": "86ba4k8y4",
-   "name": "agendar grabacion para oftv Juliana Agudelo ",
-   "status": "complete (solo ros)",
-   "list": "Models",
-   "parent": "RA 217 Juliana Agudelo (Valentin)",
-   "parent_id": "86b9crt9q",
-   "assignees": [
-    "Valentina López",
-    "Michelle Hernández"
-   ],
-   "updated": "1781309976284"
-  },
-  {
-   "id": "86b7ypqkv",
-   "name": "Запланировать снять первое видео OFTV Lola",
-   "status": "complete (solo ros)",
-   "list": "Models",
-   "parent": "Audri (Inst,TikTok) + ОФТВ (редактируем видео)",
-   "parent_id": "86b6pbfvk",
-   "assignees": [
-    "Rost"
-   ],
-   "updated": "1785193051506"
-  },
-  {
-   "id": "86b9jej2z",
-   "name": "Audios de oftv katerine.  ( no cerrar hasta enviar todos los audios de todos los guiones)",
-   "status": "complete (solo ros)",
-   "list": "Models",
-   "parent": "RA 207/212 Katerine + ТС",
-   "parent_id": "86b6pbez0",
-   "assignees": [
-    "Valentina López"
-   ],
-   "updated": "1777913362712"
-  },
-  {
-   "id": "86bbq4f55",
-   "name": "(жду ответ насчет линкдин) ОФТВ звонок + написать линкдин",
-   "status": "complete (solo ros)",
-   "list": "General Tasks OF",
-   "parent": "OTRAS TAREAS",
-   "parent_id": "86b84fyhb",
-   "assignees": [
-    "Rost"
-   ],
-   "updated": "1789413016568"
-  },
-  {
-   "id": "86b8ea9r5",
-   "name": "Chica 2 :  24  Medellin XXX - Sara",
-   "status": "models",
-   "list": "Models",
-   "parent": null,
-   "parent_id": null,
-   "assignees": [],
-   "updated": "1775975613258"
-  },
-  {
-   "id": "86b9rzatc",
-   "name": "Carolina 24- mava",
-   "status": "models",
-   "list": "Models",
-   "parent": null,
-   "parent_id": null,
-   "assignees": [],
-   "updated": "1778610539122"
-  },
-  {
-   "id": "86b9dt8ah",
-   "name": "Isabela manco",
-   "status": "models",
-   "list": "Models",
-   "parent": null,
-   "parent_id": null,
-   "assignees": [],
-   "updated": "1776795561952"
-  },
-  {
    "id": "86b9gfqeq",
    "name": "Viviana, 30 años (respuestas)",
    "status": "models",
@@ -2164,26 +1212,6 @@
    "parent_id": null,
    "assignees": [],
    "updated": "1778000256410"
-  },
-  {
-   "id": "86bbaya2f",
-   "name": "Nicole 24 años (144 formulario)",
-   "status": "models",
-   "list": "Models",
-   "parent": null,
-   "parent_id": null,
-   "assignees": [],
-   "updated": "1786477109080"
-  },
-  {
-   "id": "86baxttdf",
-   "name": "Canel muñoz mejia, 22 años - Valentina",
-   "status": "models",
-   "list": "Models",
-   "parent": null,
-   "parent_id": null,
-   "assignees": [],
-   "updated": "1786282426399"
   },
   {
    "id": "86ba0c6x0",
@@ -2196,106 +1224,6 @@
    "updated": "1779214269153"
   },
   {
-   "id": "86b8kc8qe",
-   "name": "Hija de Audri - Sara",
-   "status": "models",
-   "list": "Models",
-   "parent": null,
-   "parent_id": null,
-   "assignees": [],
-   "updated": "1785264142449"
-  },
-  {
-   "id": "86ba699p1",
-   "name": "Daniela 20 - Valeria",
-   "status": "models",
-   "list": "Models",
-   "parent": null,
-   "parent_id": null,
-   "assignees": [],
-   "updated": "1782359427746"
-  },
-  {
-   "id": "86ba699vu",
-   "name": "Camilla cali 18 - Valeria",
-   "status": "models",
-   "list": "Models",
-   "parent": null,
-   "parent_id": null,
-   "assignees": [],
-   "updated": "1782499880468"
-  },
-  {
-   "id": "86bbhw648",
-   "name": "Gabi, 18 años (promo)",
-   "status": "models",
-   "list": "Models",
-   "parent": null,
-   "parent_id": null,
-   "assignees": [],
-   "updated": "1787685687345"
-  },
-  {
-   "id": "86bbay9tw",
-   "name": "Alejandra, 29",
-   "status": "models",
-   "list": "Models",
-   "parent": null,
-   "parent_id": null,
-   "assignees": [],
-   "updated": "1786281823032"
-  },
-  {
-   "id": "86bbaybjg",
-   "name": "Luisiana, 24",
-   "status": "models",
-   "list": "Models",
-   "parent": null,
-   "parent_id": null,
-   "assignees": [],
-   "updated": "1786282556873"
-  },
-  {
-   "id": "86bbayb2y",
-   "name": "Helen, 23",
-   "status": "models",
-   "list": "Models",
-   "parent": null,
-   "parent_id": null,
-   "assignees": [],
-   "updated": "1786282362031"
-  },
-  {
-   "id": "86bbayaut",
-   "name": "Nikol, 23",
-   "status": "models",
-   "list": "Models",
-   "parent": null,
-   "parent_id": null,
-   "assignees": [],
-   "updated": "1786282307139"
-  },
-  {
-   "id": "86bapdxq9",
-   "name": "Issabel rendon - Valentinara218 (operada tetos)",
-   "status": "models",
-   "list": "Models",
-   "parent": null,
-   "parent_id": null,
-   "assignees": [],
-   "updated": "1782917852137"
-  },
-  {
-   "id": "86b9gfu46",
-   "name": "Annie Marin PH 30",
-   "status": "models",
-   "list": "Models",
-   "parent": null,
-   "parent_id": null,
-   "assignees": [],
-   "updated": "1776654628576"
-  },
-  {
    "id": "86baj37zm",
    "name": "Yolanda 48 - sara",
    "status": "models",
@@ -2304,6 +1232,325 @@
    "parent_id": null,
    "assignees": [],
    "updated": "1782359396715"
+  },
+  {
+   "id": "86b788frz",
+   "name": "Youtube: LolaPop - tareas + grabaciones (planificar, hacer, estar pendiente con mensajes en grupo)",
+   "status": "main",
+   "list": "Models",
+   "parent": "Audri (Inst,TikTok) + ОФТВ (редактируем видео)",
+   "parent_id": "86b6pbfvk",
+   "assignees": [],
+   "updated": "1764282604618"
+  },
+  {
+   "id": "86b8fkqg2",
+   "name": "БОТ-ЧАСТЬ: Flames - жду моделей (отработали новые?)",
+   "status": "to do",
+   "list": "General Tasks OF",
+   "parent": "BUSQUEDA DE NUEVAS MODELOS",
+   "parent_id": "86b84fxzq",
+   "assignees": [
+    "Rost"
+   ],
+   "updated": "1792955229602"
+  },
+  {
+   "id": "86bcr1a1r",
+   "name": "БОТ-ЧАСТЬ: Ежемесячный замер подписчиков Referencias (кто растёт)",
+   "status": "to do",
+   "list": "General Tasks OF",
+   "parent": "MARKETING",
+   "parent_id": "86b84fykg",
+   "assignees": [
+    "Rost"
+   ],
+   "updated": "1794085100922"
+  },
+  {
+   "id": "86b6z79t1",
+   "name": "БОТ-ЧАСТЬ: Контроль OF.TV - отчет / запуски / ПЛАН СВЕРКА ЛЕШЕ + отчет ферма",
+   "status": "for check",
+   "list": "General Tasks OF",
+   "parent": "MARKETING",
+   "parent_id": "86b84fykg",
+   "assignees": [
+    "Rost"
+   ],
+   "updated": "1794253817563"
+  },
+  {
+   "id": "86bcnuxbv",
+   "name": "БОТ-ЧАСТЬ: 💳 Оплата чаттерам Sofia Lunara (счёт от Лёши в TG 15–20 числа) - Яна",
+   "status": "to do",
+   "list": "General Tasks OF",
+   "parent": null,
+   "parent_id": null,
+   "assignees": [
+    "Rost"
+   ],
+   "updated": "1792560650409"
+  },
+  {
+   "id": "86bcnuxbj",
+   "name": "БОТ-ЧАСТЬ: 💳 Оплата чаттерам Никиты (счёт в TG 5–13 числа) Яна получить отчеты",
+   "status": "to do",
+   "list": "General Tasks OF",
+   "parent": null,
+   "parent_id": null,
+   "assignees": [
+    "Rost"
+   ],
+   "updated": "1794498963795"
+  },
+  {
+   "id": "86b9uqgqq",
+   "name": "БОТ: Andrea Cali - как дела по запуску ОФТВ? (напомнить за запуск)",
+   "status": "to do",
+   "list": "Models",
+   "parent": "Andrea Cali",
+   "parent_id": "86b9uqgq7",
+   "assignees": [
+    "Rost"
+   ],
+   "updated": "1794498964998"
+  },
+  {
+   "id": "86b9wh8cd",
+   "name": "БОТ: RA180 / RA185 - курировать процесс (скрины/новая платежка)",
+   "status": "to do",
+   "list": "Models",
+   "parent": "RA 180 RB - R",
+   "parent_id": "86b9wh8ca",
+   "assignees": [
+    "Rost"
+   ],
+   "updated": "1794152352610"
+  },
+  {
+   "id": "86b9crta7",
+   "name": "БОТ: Агудело-Аврора сделать секстинг паки + запустить траф",
+   "status": "to do",
+   "list": "Models",
+   "parent": "RA 217 Juliana Agudelo (Valentin)",
+   "parent_id": "86b9crt9q",
+   "assignees": [
+    "Rost"
+   ],
+   "updated": "1793905638320"
+  },
+  {
+   "id": "86bcn2ek8",
+   "name": "БОТ: контроль Мишель по проверке состояния профилей LolaPop",
+   "status": "to do",
+   "list": "Models",
+   "parent": "Audri (Inst,TikTok) + ОФТВ (редактируем видео)",
+   "parent_id": "86b6pbfvk",
+   "assignees": [
+    "Rost"
+   ],
+   "updated": "1794498964217"
+  },
+  {
+   "id": "86bb3qh0k",
+   "name": "БОТ: Мишель: OFTV Наладить постинг - все под контролем?",
+   "status": "to do",
+   "list": "General Tasks OF",
+   "parent": "MARKETING",
+   "parent_id": "86b84fykg",
+   "assignees": [
+    "Rost"
+   ],
+   "updated": "1793905441866"
+  },
+  {
+   "id": "86bae6v4h",
+   "name": "БОТ: САРА: отвечать на комментарии - как успехи Сара?",
+   "status": "for check",
+   "list": "Models",
+   "parent": "Audri (Inst,TikTok) + ОФТВ (редактируем видео)",
+   "parent_id": "86b6pbfvk",
+   "assignees": [
+    "Rost"
+   ],
+   "updated": "1794497718350"
+  },
+  {
+   "id": "86bbzx9x4",
+   "name": "БОТ: Срочно контент снять OFTV Sofia Lunara - Laura (жду реакцию в чате Маркиза)",
+   "status": "to do",
+   "list": "Models",
+   "parent": "RA 213 Laura, 22 - R",
+   "parent_id": "86b6q77gv",
+   "assignees": [
+    "Rost"
+   ],
+   "updated": "1793840555781"
+  },
+  {
+   "id": "86bawjbgj",
+   "name": "БОТ: Транс модель (платежка, конец октября ОФТВ узнать)",
+   "status": "to do",
+   "list": "Models",
+   "parent": null,
+   "parent_id": null,
+   "assignees": [
+    "Rost"
+   ],
+   "updated": "1792685580045"
+  },
+  {
+   "id": "86bba24gq",
+   "name": "Запуск ОФТВ модели (запускаем или нет?)",
+   "status": "to do",
+   "list": "Models",
+   "parent": null,
+   "parent_id": null,
+   "assignees": [
+    "Rost"
+   ],
+   "updated": "1791997577193"
+  },
+  {
+   "id": "86b8de8ru",
+   "name": "Заявки RA чат проверить (флеймс)",
+   "status": "to do",
+   "list": "General Tasks OF",
+   "parent": "BUSQUEDA DE NUEVAS MODELOS",
+   "parent_id": "86b84fxzq",
+   "assignees": [
+    "Rost"
+   ],
+   "updated": "1793893534013"
+  },
+  {
+   "id": "86b7ypqbb",
+   "name": "Нет трафика OFTV LolaPop - ждем Кира",
+   "status": "to do",
+   "list": "Models",
+   "parent": "Audri (Inst,TikTok) + ОФТВ (редактируем видео)",
+   "parent_id": "86b6pbfvk",
+   "assignees": [
+    "Rost"
+   ],
+   "updated": "1792955901098"
+  },
+  {
+   "id": "86b94djqc",
+   "name": "Офер ферма",
+   "status": "main",
+   "list": "Projects OF",
+   "parent": "МАРКЕТИНГОВЫЕ ЭКСПЕРИМЕНТЫ (фишки описание) - просмотр результатов - новые эксперименты?",
+   "parent_id": "86b6ywdjp",
+   "assignees": [],
+   "updated": "1786808337793"
+  },
+  {
+   "id": "86b9ckxxk",
+   "name": "ПЛАНЕРКА ОФ (сверка задач ДЕТСКИЙ САД / цели) / ОФТВ когда завершат нужны даты?",
+   "status": "to do",
+   "list": "Projects OF",
+   "parent": "МОДЕЛИ КОЛУМБИЯ - план (архив-подсказка)",
+   "parent_id": "86b6r0f2c",
+   "assignees": [
+    "Rost"
+   ],
+   "updated": "1792947200891"
+  },
+  {
+   "id": "86b9abep9",
+   "name": "С ИРИНОЙ: Проверка статистики / сумм выплат / где плохо? по моделям",
+   "status": "for check",
+   "list": "General Tasks OF",
+   "parent": "PAGOS / SERVICIOS",
+   "parent_id": "86b7m631j",
+   "assignees": [
+    "Rost"
+   ],
+   "updated": "1794516368512"
+  },
+  {
+   "id": "86bb4zv3p",
+   "name": "Стримы ОФ-ТС - Джулиана/Катерина + Шейх стримы (жду Буллет/Шейх-RA)",
+   "status": "to do",
+   "list": "General Tasks OF",
+   "parent": "OTRAS TAREAS",
+   "parent_id": "86b84fyhb",
+   "assignees": [
+    "Rost"
+   ],
+   "updated": "1791997484361"
+  },
+  {
+   "id": "86ba5ywen",
+   "name": "💳 Pago a Juliana Agudelo RA 217 - la cantidad exacta en la tabla (adjuntar captura de pantalla a comentarios)",
+   "status": "to do",
+   "list": "Models",
+   "parent": "RA 217 Juliana Agudelo (Valentin)",
+   "parent_id": "86b9crt9q",
+   "assignees": [
+    "Sara Pineda Chanci"
+   ],
+   "updated": "1794282609514"
+  },
+  {
+   "id": "86b9qwu10",
+   "name": "💳 Pago a Juliana manco - la cantidad exacta en la tabla (adjuntar captura de pantalla a comentarios)",
+   "status": "to do",
+   "list": "Models",
+   "parent": "RA 208/216 Juliana Manco",
+   "parent_id": "86b6pbf11",
+   "assignees": [
+    "Sara Pineda Chanci"
+   ],
+   "updated": "1794263930313"
+  },
+  {
+   "id": "86b8c9bhm",
+   "name": "💳 Pago a Katherine RA 207/212 - la cantidad exacta en la tabla (adjuntar captura de pantalla a comentarios)",
+   "status": "to do",
+   "list": "Models",
+   "parent": "RA 207/212 Katerine + ТС",
+   "parent_id": "86b6pbez0",
+   "assignees": [
+    "Sara Pineda Chanci"
+   ],
+   "updated": "1794511489978"
+  },
+  {
+   "id": "86baf7h1k",
+   "name": "💳 Pago a Scarlet - la cantidad exacta en la tabla (adjuntar captura de pantalla a comentarios)",
+   "status": "to do",
+   "list": "Models",
+   "parent": "OFTV Scarlet - Sara",
+   "parent_id": "86b8nhtam",
+   "assignees": [
+    "Sara Pineda Chanci"
+   ],
+   "updated": "1794281931409"
+  },
+  {
+   "id": "86b7h12h7",
+   "name": "💳 Pago a Tatiana RA 210/214 - la cantidad exacta en la tabla (adjuntar captura de pantalla a comentarios)",
+   "status": "to do",
+   "list": "Models",
+   "parent": "RA 210 Tati Kare 22 (Valentin)",
+   "parent_id": "86b719nrd",
+   "assignees": [
+    "Sara Pineda Chanci"
+   ],
+   "updated": "1794285001617"
+  },
+  {
+   "id": "86bam1b23",
+   "name": "🔥 SPECIAL: Isabella, 20 años  - Valentina ra218",
+   "status": "models",
+   "list": "Models",
+   "parent": null,
+   "parent_id": null,
+   "assignees": [],
+   "updated": "1784569457324"
   }
- ]
+ ],
+ "note": "unread-dash-daily 2026-11-13: executor pulled OF lists (396 open). Narrowed to previous ids union precise name-match (RA+digits / OFTV / LolaPop) so dash OF board does not jump from ~71 to all-list visible tasks. fetched_at kept as live refetch time."
 }

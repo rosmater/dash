@@ -1,165 +1,142 @@
 {
-  "at": "2026-11-06 13:16 Bogotá",
-  "at_bogota": "2026-11-06T13:16:24-05:00",
-  "channel": "Telegram",
-  "filter": "Новые",
-  "folder_badge": 20,
-  "chats": [
-    {
-      "title": "Ирина Шекель от Юли",
-      "unread": 1,
-      "muted": false,
-      "last": "11:41",
-      "name": "Ирина Шекель от Юли"
-    },
-    {
-      "title": "Киви Саша Шейх",
-      "unread": 2,
-      "muted": false,
-      "last": "11:04",
-      "name": "Киви Саша Шейх"
-    },
-    {
-      "title": "Разработка Felix-shop",
-      "unread": 2,
-      "muted": false,
-      "last": "10:17",
-      "is_group": true,
-      "name": "Разработка Felix-shop"
-    },
-    {
-      "title": "Secret Отрисовка и фотодропы",
-      "unread": 5,
-      "muted": false,
-      "last": "09:10",
-      "name": "Secret Отрисовка и фотодропы"
-    },
-    {
-      "title": "Andrei Grafeev",
-      "unread": 3,
-      "muted": false,
-      "last": "09:05",
-      "name": "Andrei Grafeev"
-    },
-    {
-      "title": "Di di ситуация",
-      "unread": 7,
-      "muted": false,
-      "last": "07:41",
-      "is_group": true,
-      "name": "Di di ситуация"
-    },
-    {
-      "title": "Баба 2",
-      "unread": 12,
-      "muted": false,
-      "last": "07:14",
-      "name": "Баба 2"
-    },
-    {
-      "title": "TABAKEVICH (разработка)",
-      "unread": 5,
-      "muted": false,
-      "last": "05:52",
-      "is_group": true,
-      "name": "TABAKEVICH (разработка)"
-    },
-    {
-      "title": "Серега Актер",
-      "unread": 2,
-      "muted": false,
-      "last": "05:19",
-      "name": "Серега Актер"
-    },
-    {
-      "title": "Сергей Адвокат",
-      "unread": 5,
-      "muted": false,
-      "last": "04:53",
-      "name": "Сергей Адвокат"
-    },
-    {
-      "title": "Dmitri",
-      "unread": 3,
-      "muted": false,
-      "last": "03:50",
-      "name": "Dmitri"
-    },
-    {
-      "title": "Колумбия OFTV - Markiz Karabas 3 модели",
-      "unread": 4,
-      "muted": false,
-      "last": "18:53",
-      "is_group": true,
-      "name": "Колумбия OFTV - Markiz Karabas 3 модели"
-    },
-    {
-      "title": "Общение ботов",
-      "unread": 4,
-      "muted": false,
-      "last": "Thursday",
-      "is_group": true,
-      "name": "Общение ботов"
-    },
-    {
-      "title": "Model Support",
-      "unread": 1,
-      "muted": false,
-      "last": "Thursday",
-      "name": "Model Support"
-    },
-    {
-      "title": "Isla del Contenido",
-      "unread": 0,
-      "muted": false,
-      "last": "Wednesday",
-      "marked_unread": true,
-      "name": "Isla del Contenido"
-    },
-    {
-      "title": "Kir0[4K]",
-      "unread": 0,
-      "muted": false,
-      "last": "Wednesday",
-      "marked_unread": true,
-      "name": "Kir0[4K]"
-    },
-    {
-      "title": "Яна Бух Наш",
-      "unread": 3,
-      "muted": false,
-      "last": "Wednesday",
-      "name": "Яна Бух Наш"
-    },
-    {
-      "title": "Baba",
-      "unread": 7,
-      "muted": false,
-      "last": "Wednesday",
-      "name": "Baba"
-    },
-    {
-      "title": "Стас Элвис",
-      "unread": 1,
-      "muted": false,
-      "last": "Wednesday",
-      "name": "Стас Элвис"
-    },
-    {
-      "title": "M_November",
-      "unread": 1,
-      "muted": false,
-      "last": "Tuesday",
-      "name": "M_November"
-    }
-  ],
-  "sum": 68,
-  "unmuted_sum": 68,
-  "muted_sum": 0,
-  "ok": true,
-  "accidental_open": null,
-  "proof": "/workspace/unread-census/2026-11-06-pm/tg-novye/proof.png",
-  "meta": "/workspace/dashboard-mockup/src/tg_novye_snap_meta.json",
-  "note": "tg-novye-list-snap.sh ok badges 11→11 (list-region count; folder icon=20 chats); wheel-only full scroll; pane empty; accidental_open=null. Isla+Kir0 = blue dot marked_unread 0. NEW vs AM: Ирина Шекель от Юли +1; Киви 1→2; Felix 1→2; M_November 0→1.",
-  "rule": "t5123–27/t5149–50"
+ "at": "2026-11-13 09:23 Bogotá",
+ "at_bogota": "2026-11-13T09:23:00-05:00",
+ "channel": "Telegram",
+ "filter": "Новые",
+ "folder_badge": 16,
+ "chats": [
+  {
+   "title": "Разработка Hooka",
+   "name": "Разработка Hooka",
+   "unread": 69,
+   "muted": false,
+   "last": "08:43",
+   "is_group": true
+  },
+  {
+   "title": "Ирина Шекель от Юли",
+   "name": "Ирина Шекель от Юли",
+   "unread": 1,
+   "muted": false,
+   "last": "07:48"
+  },
+  {
+   "title": "Алексей Касаткин",
+   "name": "Алексей Касаткин",
+   "unread": 9,
+   "muted": false,
+   "last": "06:51"
+  },
+  {
+   "title": "Фин Р",
+   "name": "Фин Р",
+   "unread": 7,
+   "muted": false,
+   "last": "06:40",
+   "is_group": true
+  },
+  {
+   "title": "Alina Docs",
+   "name": "Alina Docs",
+   "unread": 1,
+   "muted": false,
+   "last": "05:17"
+  },
+  {
+   "title": "Secret Отрисовка и фотодропы",
+   "name": "Secret Отрисовка и фотодропы",
+   "unread": 1,
+   "muted": false,
+   "last": "03:40"
+  },
+  {
+   "title": "Баба 2",
+   "name": "Баба 2",
+   "unread": 4,
+   "muted": false,
+   "last": "02:50"
+  },
+  {
+   "title": "Виталик КС",
+   "name": "Виталик КС",
+   "unread": 2,
+   "muted": false,
+   "last": "01:56"
+  },
+  {
+   "title": "Сережа Амазон Андрей Познакомил",
+   "name": "Сережа Амазон Андрей Познакомил",
+   "unread": 1,
+   "muted": false,
+   "last": "20:00"
+  },
+  {
+   "title": "Seider:$$",
+   "name": "Seider:$$",
+   "unread": 4,
+   "muted": false,
+   "last": "17:40",
+   "is_group": true
+  },
+  {
+   "title": "Яна Бух Наш",
+   "name": "Яна Бух Наш",
+   "unread": 0,
+   "muted": false,
+   "last": "15:11",
+   "marked_unread": true
+  },
+  {
+   "title": "Інвестор Черняхівського 19, кв.206 і кв.409",
+   "name": "Інвестор Черняхівського 19, кв.206 і кв.409",
+   "unread": 4,
+   "muted": false,
+   "last": "Thu",
+   "is_group": true
+  },
+  {
+   "title": "Walt (ранее Кошелёк)",
+   "name": "Walt (ранее Кошелёк)",
+   "unread": 1,
+   "muted": false,
+   "last": "Thu"
+  },
+  {
+   "title": "Заявки Таргет - Стоматолог",
+   "name": "Заявки Таргет - Стоматолог",
+   "unread": 5,
+   "muted": false,
+   "last": "Wed",
+   "is_group": true
+  },
+  {
+   "title": "Оплаты пополнения",
+   "name": "Оплаты пополнения",
+   "unread": 1,
+   "muted": false,
+   "last": "Wed",
+   "is_group": true
+  },
+  {
+   "title": "Model Support",
+   "name": "Model Support",
+   "unread": 0,
+   "muted": false,
+   "last": "Tue",
+   "marked_unread": true
+  }
+ ],
+ "sum": 110,
+ "unmuted_sum": 110,
+ "muted_sum": 0,
+ "ok": true,
+ "quit_reopen": false,
+ "accidental_open": null,
+ "proof": [
+  "/workspace/shots/tg-novye-listonly-proof-20261113-092359.png",
+  "/workspace/shots/tg-novye-mid-20261113.png",
+  "/workspace/shots/tg-novye-bottom-20261113.png"
+ ],
+ "meta": "/workspace/dash-gh/src/tg_novye_snap_meta.json",
+ "note": "t5149/t5150 list-only: tg-novye-list-snap.sh ok=true, badges 11=11, accidental_open=null, pane empty. Mid-scroll captured 5 more rows below the Update Telegram banner (folder badge 16 = 16 chats). Two manual-unread dots (Яна Бух Наш, Model Support) count 0. All Новые = unmuted unread."
 }

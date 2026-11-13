@@ -1380,3 +1380,5 @@
 {"ts": "2026-11-13T00:59:59-05:00", "bot": "Пептид", "action": "wa-svodka-nightly-push", "note": "WA сводка чт 12.11: replies/dialogs/reply_speed + ads nightly_note; sales 11/3865000, expenses 9 rows", "files": ["data.enc.json", "data-asst.enc.json"]}
 {"ts": "2026-11-13T01:40:26-05:00", "bot": "Пептид", "action": "build", "note": "t1179u laureles box 01–05 Boost in review; ads.json as_of 13.11 01:37; payment_due banner unchanged", "files": ["peptides-dash-monitors/ads.json", "index.html", "variant-a.html", "data.enc.json"]}
 {"bot": "Пептид", "action": "ads-daily-2026-11-13", "note": "утренний live-отчёт рекламы 13.11; combat paused removed from burn; TikTok v3 Active; .col Payment Due alert kept", "ts": "2026-11-13T08:34:30-05:00"}
+{"ts": "2026-11-13T09:39:00-05:00", "bot": "Секретарь", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}
+{"ts": "2026-11-13T09:40:06-05:00", "bot": "unknown", "action": "build", "note": "build_test_ma.sh", "files": ["data-test-ma.json", "data-test-ma.enc.json"]}

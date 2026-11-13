@@ -1,54 +1,51 @@
 {
-  "at": "2026-11-06 13:21 Bogotá",
-  "at_bogota": "2026-11-06T13:21:41-05:00",
-  "channel": "Viber",
-  "filter": "Unread",
-  "filter_count": 5,
-  "chats": [
-    {
-      "title": "Фонтанська об'єднана…",
-      "name": "Фонтанська об'єднана…",
-      "unread": 753,
-      "muted": true,
-      "last": "1:13 PM"
-    },
-    {
-      "title": "USA🇺🇸& Europe🇪🇺🌍",
-      "name": "USA🇺🇸& Europe🇪🇺🌍",
-      "unread": 1500,
-      "muted": true,
-      "last": "1:05 PM"
-    },
-    {
-      "title": "БЕЗПЕЧНИЙ РЕГІОН",
-      "name": "БЕЗПЕЧНИЙ РЕГІОН",
-      "unread": 353,
-      "muted": true,
-      "last": "10:54 AM"
-    },
-    {
-      "title": "Света",
-      "name": "Света",
-      "unread": 9,
-      "muted": false,
-      "last": "1:22 AM"
-    },
-    {
-      "title": "ОСМД Акапулько 2",
-      "name": "ОСМД Акапулько 2",
-      "unread": 21,
-      "muted": true,
-      "last": "Yesterday"
-    }
-  ],
-  "sum": 2636,
-  "unmuted_sum": 9,
-  "muted_sum": 2627,
-  "ok": true,
-  "quit_reopen": true,
-  "accidental_open": null,
-  "proof": [
-    "/workspace/unread-census/2026-11-06-pm/viber-unread-01.png"
-  ],
-  "note": "Full quit+reopen Viber.exe; Unread chip 5; USA badge 1.5k→1500 approx; birthday banner above list."
+ "at": "2026-11-13 09:31 Bogotá",
+ "at_bogota": "2026-11-13T09:31:00-05:00",
+ "channel": "Viber",
+ "filter": "Unread",
+ "filter_count": 4,
+ "chats": [
+  {
+   "title": "USA🇺🇸& Europe🇪🇺🌍",
+   "name": "USA🇺🇸& Europe🇪🇺🌍",
+   "unread": 2200,
+   "unread_display": "2.2k",
+   "muted": true,
+   "last": "9:18 AM"
+  },
+  {
+   "title": "Фонтанська об'єдна…",
+   "name": "Фонтанська об'єдна…",
+   "unread": 1100,
+   "unread_display": "1.1k",
+   "muted": true,
+   "last": "9:07 AM"
+  },
+  {
+   "title": "БЕЗПЕЧНИЙ РЕГІОН",
+   "name": "БЕЗПЕЧНИЙ РЕГІОН",
+   "unread": 582,
+   "unread_display": "582",
+   "muted": true,
+   "last": "8:56 AM"
+  },
+  {
+   "title": "ОСМД Акапулько 2",
+   "name": "ОСМД Акапулько 2",
+   "unread": 43,
+   "unread_display": "43",
+   "muted": true,
+   "last": "5:15 AM"
+  }
+ ],
+ "sum": 3925,
+ "unmuted_sum": 0,
+ "muted_sum": 3925,
+ "ok": true,
+ "quit_reopen": true,
+ "accidental_open": null,
+ "proof": [
+  "/workspace/ax42-share/wa-ukr-12promax-p/sverka-20261113/viber-unread-top.png"
+ ],
+ "note": "chip 4 = 4 rows, all muted, list fits one screen (top=bottom shot). Counts for 1.1k/2.2k are approximate. Viber quit via tray Exit and relaunched via Start-Process; birthday banner shown."
 }

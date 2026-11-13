@@ -1,67 +1,124 @@
 {
-  "at": "2026-11-07 20:25 Bogotá",
-  "at_bogota": "2026-11-07T20:25:00-05:00",
-  "channel": "WhatsApp ESP",
-  "filter": "Unread",
-  "filter_count": 6,
-  "chip_count": 6,
-  "chats": [
-    {
-      "title": "Maria MR Med",
-      "name": "Maria MR Med",
-      "unread": 1,
-      "muted": false,
-      "last": "17:23",
-      "pinned": true,
-      "note": "green dot, no numeral"
-    },
-    {
-      "title": "Andrea Feabie",
-      "name": "Andrea Feabie",
-      "unread": 1,
-      "muted": false,
-      "last": "20:04"
-    },
-    {
-      "title": "RA221 Gabriela",
-      "name": "RA221 Gabriela",
-      "unread": 114,
-      "muted": true,
-      "last": "Yesterday"
-    },
-    {
-      "title": "Nutibara 1105",
-      "name": "Nutibara 1105",
-      "unread": 1,
-      "muted": false,
-      "last": "Thursday"
-    },
-    {
-      "title": "Samy Med",
-      "name": "Samy Med",
-      "unread": 1,
-      "muted": true,
-      "last": "Thursday"
-    },
-    {
-      "title": "Аукционы для клиентов",
-      "name": "Аукционы для клиентов",
-      "unread": 150,
-      "muted": true,
-      "last": "Monday"
-    }
-  ],
-  "sum": 268,
-  "unmuted_sum": 3,
-  "muted_sum": 265,
-  "ok": true,
-  "quit_reopen": true,
-  "accidental_open": "Sara Pinedas (already open when WhatsApp/session appeared; Escape immediately, no send)",
-  "proof": [
-    "/workspace/unread-census/2026-11-07-pm/wa-esp-all-20261107-restart.png",
-    "/workspace/unread-census/2026-11-07-pm/wa-esp-unread-20261107-restart.png",
-    "/workspace/unread-census/2026-11-07-pm/wa-esp-all-20261107.png",
-    "/workspace/unread-census/2026-11-07-pm/wa-esp-unread-20261107.png"
-  ],
-  "note": "Manual t5447u remediating missed 09:00 snap. Unread chip 6 after quit+reopen (unchanged). Unmuted 3/sum 3: Maria MR Med (pinned, green dot=1, 17:23), Andrea Feabie 1 at 20:04, Nutibara 1105 1 Thursday. Muted 3/sum 265: RA221 Gabriela 114, Samy Med 1, Аукционы 150. Sara Pinedas was leftover-open at session start (not in Unread; All showed no badge). RDP wa-esp-xsmax-b, disconnected without Windows logoff."
+ "at": "2026-11-13 09:36 Bogotá",
+ "at_bogota": "2026-11-13T09:36:00-05:00",
+ "channel": "WhatsApp ESP",
+ "filter": "Unread",
+ "filter_count": 14,
+ "chip_count": 14,
+ "chats": [
+  {
+   "title": "Maria MR Med 🍑🍑🍑",
+   "name": "Maria MR Med 🍑🍑🍑",
+   "unread": 4,
+   "muted": false,
+   "last": "Wednesday",
+   "pinned": true
+  },
+  {
+   "title": "+57 324 5894707",
+   "name": "+57 324 5894707",
+   "unread": 4,
+   "muted": false,
+   "last": "09:34"
+  },
+  {
+   "title": "Modelo Medellin Paisa",
+   "name": "Modelo Medellin Paisa",
+   "unread": 3,
+   "muted": false,
+   "last": "09:21"
+  },
+  {
+   "title": "Серый Джокер",
+   "name": "Серый Джокер",
+   "unread": 2,
+   "muted": false,
+   "last": "09:05"
+  },
+  {
+   "title": "WhatsApp Business",
+   "name": "WhatsApp Business",
+   "unread": 1,
+   "muted": false,
+   "last": "08:47"
+  },
+  {
+   "title": "Keiner Entrenador",
+   "name": "Keiner Entrenador",
+   "unread": 2,
+   "muted": false,
+   "last": "08:40"
+  },
+  {
+   "title": "Сидела Сзади Marcela",
+   "name": "Сидела Сзади Marcela",
+   "unread": 6,
+   "muted": false,
+   "last": "07:51"
+  },
+  {
+   "title": "Peptidos",
+   "name": "Peptidos",
+   "unread": 1,
+   "muted": false,
+   "last": "07:42"
+  },
+  {
+   "title": "Leidy Medellin T",
+   "name": "Leidy Medellin T",
+   "unread": 1,
+   "muted": false,
+   "last": "00:08"
+  },
+  {
+   "title": "Виктор Добыча Колумбия",
+   "name": "Виктор Добыча Колумбия",
+   "unread": 2,
+   "muted": false,
+   "last": "Yesterday"
+  },
+  {
+   "title": "Andrea Feabie",
+   "name": "Andrea Feabie",
+   "unread": 1,
+   "muted": false,
+   "last": "Yesterday"
+  },
+  {
+   "title": "Многотуров Андрей",
+   "name": "Многотуров Андрей",
+   "unread": 2,
+   "muted": false,
+   "last": "Yesterday"
+  },
+  {
+   "title": "Аукционы для клиентов",
+   "name": "Аукционы для клиентов",
+   "unread": 184,
+   "muted": true,
+   "last": "Wednesday"
+  },
+  {
+   "title": "Samy Med",
+   "name": "Samy Med",
+   "unread": 1,
+   "muted": true,
+   "last": "11/5/2026",
+   "stale_unread": true
+  }
+ ],
+ "sum": 214,
+ "unmuted_sum": 29,
+ "muted_sum": 185,
+ "ok": true,
+ "quit_reopen": true,
+ "accidental_open": null,
+ "all_top_badges_missing_from_unread": [],
+ "proof": [
+  "/workspace/ax42-share/wa-esp-xsmax-b/sverka-20261113/wa-esp-all-top.png",
+  "/workspace/ax42-share/wa-esp-xsmax-b/sverka-20261113/wa-esp-unread-top.png",
+  "/workspace/ax42-share/wa-esp-xsmax-b/sverka-20261113/wa-esp-unread-mid.png",
+  "/workspace/ax42-share/wa-esp-xsmax-b/sverka-20261113/wa-esp-unread-bottom.png"
+ ],
+ "note": "Chip Unread 14 = 14 rows. Chip was 13 before relaunch. Counts moved live during scan (+57 324 5894707 3->4, Сидела 4->6; last values used). Sara Pinedas was already open at connect, quit via tray Exit without sending; no chat open after relaunch. Muted: Аукционы для клиентов 184, Samy Med 1. Maria MR Med pinned. Extra screenshot wa-esp-unread-mid.png."
 }

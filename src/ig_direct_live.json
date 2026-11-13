@@ -1,44 +1,114 @@
 {
- "at": "2026-11-06 13:14 Bogotá",
+ "at": "2026-11-13 09:24 Bogotá",
  "account": "rosscompass",
  "src": "instagram.com/direct/inbox (браузер бота, только список)",
- "unread_chats": 2,
+ "unread_chats": 3,
  "chats": [
   {
    "title": "Василий Башмаков",
    "unread": true,
-   "n": 1,
-   "age": "1d"
-  },
-  {
-   "title": ".. ♡𝓐𝓵𝓲♡..",
-   "unread": true,
-   "n": 1,
-   "age": "2d"
+   "n": 2,
+   "age": "17h",
+   "last": "17h"
   },
   {
    "title": "DENIS SIMOCHOV",
-   "unread": false,
-   "n": 0,
-   "age": "2d"
-  },
-  {
-   "title": "Станислав Захаров",
-   "unread": false,
-   "n": 0,
-   "age": "2d"
-  },
-  {
-   "title": "Ольга Рыбченко",
-   "unread": false,
-   "n": 0,
-   "age": "3d"
+   "unread": true,
+   "n": 2,
+   "age": "19h",
+   "last": "19h"
   },
   {
    "title": "Александр",
    "unread": false,
    "n": 0,
-   "age": "3d"
+   "age": "1d",
+   "last": "1d"
+  },
+  {
+   "title": "Лучше спросить у Новинского",
+   "unread": false,
+   "n": 0,
+   "age": "1d",
+   "last": "1d"
+  },
+  {
+   "title": "👁️Sauron II",
+   "unread": false,
+   "n": 0,
+   "age": "1d",
+   "last": "1d"
+  },
+  {
+   "title": "Ruslan Iskhakov",
+   "unread": true,
+   "n": 1,
+   "age": "1d",
+   "last": "1d"
+  },
+  {
+   "title": "Кот",
+   "unread": false,
+   "n": 0,
+   "age": "1d",
+   "last": "1d"
+  },
+  {
+   "title": "Karen Liceth",
+   "unread": false,
+   "n": 0,
+   "age": "3d",
+   "last": "3d"
+  },
+  {
+   "title": "Андрей Сенько",
+   "unread": false,
+   "n": 0,
+   "age": "4d",
+   "last": "4d"
+  },
+  {
+   "title": "Ольга Рыбченко",
+   "unread": false,
+   "n": 0,
+   "age": "5d",
+   "last": "5d"
+  },
+  {
+   "title": ".. ♡𝓐𝓵𝓲♡..",
+   "unread": false,
+   "n": 0,
+   "age": "1w",
+   "last": "1w"
+  },
+  {
+   "title": "Станислав Захаров",
+   "unread": false,
+   "n": 0,
+   "age": "1w",
+   "last": "1w"
+  },
+  {
+   "title": "Juliana Cuero",
+   "unread": false,
+   "n": 0,
+   "age": "1w",
+   "last": "1w"
+  },
+  {
+   "title": "Єрмакова | Стоматолог Одеса",
+   "unread": false,
+   "n": 0,
+   "age": "2w",
+   "last": "2w"
+  },
+  {
+   "title": "🇺🇦Violetta 🇺🇦",
+   "unread": false,
+   "n": 0,
+   "age": "3w",
+   "last": "3w",
+   "stale_unread": true
   }
  ],
  "ok": true,
