@@ -968,6 +968,58 @@ TBK_BOARD = _tbk_inject_fin(_dir_board('tbk_open_tasks.json'), TBKB.get('fin') i
 # t6270u: доска вкладки Личное — как ОФ (Сегодня у меня / Приоритеты «🎯 фокус» / Рутина); снимок src/personal_open_tasks.json (CU Personal + 86ba3c1x4 Парагвай)
 PERSONAL_BOARD = _dir_board('personal_open_tasks.json')
 
+# t6272u: «Встречи» на Личном — две колонки «Личное» | «Дейтинг», 14 дней. CU (src/personal_meetings_split.json: Personal, Role GO/CALL) + gcal_dash.json (только встречи с людьми)
+_PM_DATING_RE = re.compile(r'девушк|свидан|дейт|dating|tinder|тиндер|\bdate\b|алекс|alexa|карен|karen|jessica|джессик|valentina|валентин|carolina|каролин|manuela|мануэл|faby|фаби|marielis|alisson|tatiana|татьян|marcia|violetta', re.I)
+_PM_GCAL_PERSONAL_RE = re.compile(r'друз|тусовк|встреч|день рожд|\bдр\b|врач|доктор|ортодонт|стоматол|клиник', re.I)
+_PM_SKIP_RE = re.compile(r'^тренировка\b|без девушки|^свободно', re.I)
+def _pers_meet_split():
+    now = datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=-5)))
+    d0 = now.strftime('%Y-%m-%d'); d1 = (now + datetime.timedelta(days=13)).strftime('%Y-%m-%d')
+    items = []
+    _f = os.path.join(_HERE, 'personal_meetings_split.json')
+    raw = json.load(open(_f)) if os.path.exists(_f) else {}
+    for t in raw.get('tasks') or []:
+        if _PM_SKIP_RE.search(t.get('name') or ''):
+            continue
+        items.append(dict(t))
+    try:
+        g = json.load(open(os.path.join(os.path.dirname(_HERE), 'gcal_dash.json')))
+    except Exception:
+        g = {}
+    for e in g.get('events') or []:
+        title = str(e.get('title') or '')
+        if '::' in title or _PM_SKIP_RE.search(title):
+            continue  # :: = задача ClickUp, синхронизированная в календарь (уже в CU-части)
+        if not (_PM_DATING_RE.search(title) or _PM_GCAL_PERSONAL_RE.search(title)):
+            continue  # шаблонные блоки дня (Сон, Свободно, ClickUp, Работа…) — не встречи
+        items.append(dict(id=e.get('id'), name=title, start=e.get('start'), end=e.get('end'), all_day=bool(e.get('all_day')), url=e.get('url'), src='gcal'))
+    out = []
+    for x in items:
+        st = str(x.get('start') or '')
+        day = st[:10]
+        if not day or day < d0 or day > d1:
+            continue
+        en = str(x.get('end') or '')
+        if len(en) > 10 and en < now.isoformat()[:19]:
+            continue  # уже прошла сегодня
+        x['day'] = day
+        x['time'] = '' if x.get('all_day') or len(st) <= 10 else st[11:16]
+        x['end_time'] = en[11:16] if len(en) > 10 else ''
+        x['dating'] = bool(_PM_DATING_RE.search(x.get('name') or ''))
+        out.append(x)
+    out.sort(key=lambda x: (x['day'], x['time'] or '00:00', x.get('name') or ''))
+    # подряд идущие дейтинг-слоты одного дня (Ужин с девушкой → Время с девушкой) — одной строкой
+    merged = []
+    for x in out:
+        p = merged[-1] if merged else None
+        if p and x['dating'] and p['dating'] and p['day'] == x['day'] and p.get('src') == x.get('src') == 'gcal' and p.get('end_time') and p['end_time'] == x['time']:
+            p['name'] = p['name'] + ' → ' + x['name']; p['end_time'] = x['end_time']
+            continue
+        merged.append(x)
+    return dict(personal=[x for x in merged if not x['dating']], dating=[x for x in merged if x['dating']],
+                days=14, cu_fetched_at=raw.get('fetched_at') or '', gcal_fetched_at=g.get('fetched_at') or '')
+PERSONAL_MEET_SPLIT = _pers_meet_split()
+
 # Rost t5952u: «📅 Назначенные встречи» вверху Личного (src/personal_meetings.json; только Role=🚶GO, любой список; не CU Personal)
 _pmf = os.path.join(_HERE, 'personal_meetings.json')
 _pm = json.load(open(_pmf)) if os.path.exists(_pmf) else {}
@@ -1286,6 +1338,7 @@ data = dict(
          personal_blocks=PERSB,  # Rost 25.10: Документы / Чеклист / БЖУ / Сон / Дейтинг🔒 / Мероприятия / Испанский / Шаги / Зал / Бокс / Употребление🔒 / Здоровье🔒
          scheduled_meetings=personal_meetings,  # Rost t5828u
          personal_board=PERSONAL_BOARD,  # t6270u: доска как на ОФ
+         meet_split=PERSONAL_MEET_SPLIT,  # t6272u: Встречи Личное | Дейтинг
          meetings_list_url=personal_meetings_list_url,
          monitors=[
            dict(name='Питание / БЖУ', status='active', note='дневник ведётся (today-*.md + Google Sheet); в дашборд — только счёт дней', src='shared-health/nutrition-bju'),

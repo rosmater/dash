@@ -99,6 +99,7 @@ if HIDE:
         if d.get('id') == 'personal':
             d['scheduled_meetings'] = []
             d.pop('personal_board', None)  # t6270u: личные задачи CU — не в helper
+            d.pop('meet_split', None)  # t6272u: встречи/дейтинг — не в helper
     if hj.get('messengers_monitor_only'):  # Rost 27.10 t3927: монитор оставить, контент-блоки мессенджеров убрать
         for d in data['directions']:
             if d.get('id') == 'messengers':

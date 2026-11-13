@@ -12,7 +12,8 @@
         "src/overall_balance.json",
         "src/prio_extra.json",
         "src/ai_backlog.json",
-        "src/personal_open_tasks.json"
+        "src/personal_open_tasks.json",
+        "src/personal_meetings_split.json"
       ],
       "html_markers": [
         "Быстрые команды",
