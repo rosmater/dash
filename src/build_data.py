@@ -785,13 +785,28 @@ _oc = json.load(open(_ocf)) if os.path.exists(_ocf) else {}
 _today_bo = datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=-5))).strftime('%Y-%m-%d')
 of_calls = sorted([t for t in (_oc.get('scheduled_calls') or []) if isinstance(t, dict) and str(t.get('due') or t.get('start') or '9999')[:10] >= _today_bo], key=lambda t: (str(t.get('due') or t.get('start') or ''), str(t.get('start') or ''), str(t.get('due_t') or '')))
 
-# t6215u/t6216u: доска вкладки ОФ — Сегодня / Приоритеты / Рутина (снимок src/of_open_tasks.json)
+# t6215u/t6216u/t6219u: доска вкладки ОФ — Сегодня / Приоритеты (только тег «🎯 фокус») / Рутина (снимок src/of_open_tasks.json)
 def _of_is_rost(t):
     for s in (t.get('assignees') or []):
         s = str(s).strip()
         if re.match(r'^(я|me)$', s, re.I) or re.match(r'^rost', s, re.I) or 'zayavki.ua@gmail.com' in s.lower():
             return True
     return False
+def _of_tag_names(t):
+    out = []
+    for x in (t.get('tags') or []):
+        if isinstance(x, dict):
+            s = str(x.get('name') or '').strip()
+        else:
+            s = str(x).strip()
+        if s:
+            out.append(s)
+    return out
+def _of_is_focus(t):
+    return any('фокус' in s.lower() for s in _of_tag_names(t))
+def _of_is_periodic(t):
+    f = str(t.get('freq') or t.get('frecuencia') or '').strip().lower().replace('ó','o').replace('é','e')
+    return f.startswith('periodica') or f == 'aa3d836e-b0e7-4fbb-b3d2-dc0d79bca754'
 def _of_board():
     path = os.path.join(_HERE, 'of_open_tasks.json')
     if not os.path.exists(path):
@@ -803,12 +818,14 @@ def _of_board():
         asg = [a for a in (tt.get('assignees') or []) if a]
         tt['who'] = ', '.join(asg) if asg else None
         due = tt.get('due')
-        pr = (tt.get('priority') or '').lower()
         rost = _of_is_rost(tt)
-        if rost and due and due <= _today_bo:
-            today.append(tt)
-        elif pr in ('urgent', 'high'):
+        # t6219u/t6220u: Приоритеты — только тег «🎯 фокус»; периодические (Frecuencia periódica) и нетегированные high/urgent — в Рутину
+        if _of_is_focus(tt) and not _of_is_periodic(tt):
             (mine if rost else staff).append(tt)
+        elif _of_is_periodic(tt):
+            routine.append(tt)
+        elif rost and due and due <= _today_bo:
+            today.append(tt)
         else:
             routine.append(tt)
     today.sort(key=lambda x: (x.get('due') or '9999', x.get('name') or ''))
