@@ -1370,3 +1370,5 @@
 {"ts": "2026-11-12T15:30:20-05:00", "bot": "ОФ Маркетинг", "action": "edit-json", "note": "LolaPop IG status all green from CU 86bcn2d1t 12.11 (t742u)", "files": []}
 {"ts": "2026-11-12T15:46:49-05:00", "bot": "ОФ Маркетинг", "action": "build", "note": "OF: 02–08.11 closed full from 05services re-pull (t744u)", "files": []}
 {"ts": "2026-11-12T15:49:57-05:00", "bot": "ОФ Маркетинг", "action": "edit-html", "note": "OF ТС: 3 closed weeks tiles (t747u)", "files": []}
+{"ts": "2026-11-12T22:39:21-05:00", "bot": "Секретарь", "action": "build", "note": "night hygiene 12.11 gcal 169 ev fetched 22:39", "files": ["gcal_dash.json"]}
+{"ts": "2026-11-12T22:40:00-05:00", "bot": "Секретарь", "action": "edit-json", "note": "t6240u: Seider assignee on 86bd2v24a and 86b6pbedx", "files": ["src/of_open_tasks.json"]}
