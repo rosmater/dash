@@ -522,6 +522,20 @@ header .bdi{white-space:nowrap}
 #main .def-board .bgoal-n{flex:none;font-variant-numeric:tabular-nums;font-weight:700}
 #main .def-board .bgoal-bar{flex:1 1 auto;min-width:48px;height:8px;margin:0}
 #main .def-board .bgoal-bar i{background:#94a3b8}
+/* t6382u: ещё вдвое меньше вертикальный зазор между блоками Оборонки (после 14→7 — теперь 7→3) */
+#main .def-board > .card,
+#main .def-board > details.card,
+#main .def-board > .grid,
+#main .def-board > .g2b,
+#main .def-board > .top-row,
+#main .def-board > .attn,
+#main .def-board > .pin-hi,
+#main .def-board > .def-ste{
+  margin-top:0!important;
+  margin-bottom:3px!important;
+}
+#main .def-board > :last-child{margin-bottom:0!important}
+
 @media(max-width:720px){
   #main .def-board .bgoal-r1{grid-template-columns:minmax(0,1fr) auto;gap:4px 10px}
   #main .def-board .bgoal-title{grid-column:1;font-size:15px}
