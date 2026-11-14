@@ -123,7 +123,7 @@ footer{margin-top:22px;color:var(--mut);font-size:11.5px;line-height:1.6;border-
 .cal-ev a{color:var(--txt);text-decoration:none}.cal-ev a:hover{color:var(--acc)}.cal-ev.past{opacity:.45}.cal-ev.now{background:#eef4ff;border-radius:8px;padding-left:6px}.cal-ev .ls{color:var(--mut);font-size:11.5px}
 .src{flex:0 0 auto;font-size:10px;font-weight:700;padding:1px 7px;border-radius:99px}.src.gcal{background:#e8f0fe;color:#1a56c4}.src.clickup{background:#f1eaff;color:#6d28d9}
 .calf button{font-size:12px}
-.calnav{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:12px}.calnav input[type=date]{font:inherit;font-size:13px;padding:5px 8px;border:1px solid var(--line);border-radius:8px;background:var(--panel);color:var(--txt)}
+.calnav{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:12px}.calnav input[type=date],.calnav input[type=month]{font:inherit;font-size:13px;padding:5px 8px;border:1px solid var(--line);border-radius:8px;background:var(--panel);color:var(--txt)}
 .tl-wrap{max-height:72vh;overflow-y:auto;padding:8px 10px 8px 4px;margin-bottom:14px}.tl{position:relative}
 .tl-h{position:absolute;left:0;right:0;border-top:1px solid var(--line);height:0}.tl-h span{position:absolute;left:4px;top:-8px;font-size:11px;color:var(--mut);background:var(--panel);padding-right:4px;font-variant-numeric:tabular-nums}
 .tl-ev{position:absolute;box-sizing:border-box;border-radius:8px;padding:3px 8px;font-size:12.5px;overflow:hidden;display:flex;gap:8px;justify-content:space-between;align-items:flex-start;border-left:4px solid #4285f4;background:#e8f0fe}
@@ -478,7 +478,7 @@ function controls(){ensureMode();const isCal=S.tab==='calendar',allow=tabModes(S
  document.querySelectorAll('#mabtn button').forEach(b=>b.onclick=()=>{S.tab=b.dataset.t;render();scrollTo({top:0,behavior:'smooth'})});
  document.querySelectorAll('#tabs button').forEach(b=>b.onclick=()=>{S.tab=b.dataset.t;render();scrollTo({top:0,behavior:'smooth'})});
  const TD=new Intl.DateTimeFormat('ru-RU',{timeZone:BOG,weekday:'short',day:'numeric',month:'short'}).format(new Date());
- $('#sub').textContent=S.tab==='calendar'?(calView==='week'?'Календарь · неделя':'Календарь · день'):S.mode==='today'?`Сегодня · ${TD}`:`${S.mode==='week'?'Неделя':'Месяц'}: ${Dash.periodLabel()}`;}
+ $('#sub').textContent=S.tab==='calendar'?(calView==='month'?'Календарь · месяц':calView==='week'?'Календарь · неделя':'Календарь · день'):S.mode==='today'?`Сегодня · ${TD}`:`${S.mode==='week'?'Неделя':'Месяц'}: ${Dash.periodLabel()}`;}
 /* Rost t5825u: плашки исполнителя CU (как в «Своя модель») + мои задачи сверху в списках */
 const cuWhoNames=t=>{if(!t)return[];if(Array.isArray(t.assignees)&&t.assignees.length)return t.assignees.map(a=>typeof a==='string'?a:(a&&(a.username||a.name||'')||'')).map(s=>String(s).trim()).filter(Boolean);if(t.who&&t.who!=='—')return String(t.who).split(/,\s*/).map(s=>s.trim()).filter(Boolean);if(t.owner==='me')return['Rost'];if(t.owner)return[String(t.owner)];return[];};
 const cuIsRost=t=>!!(t&&(t.owner==='me'||cuWhoNames(t).some(nm=>{const s=String(nm).trim();return /^(я|me)$/i.test(s)||/^rost(yslav)?\b/i.test(s)||/zayavki\.ua@gmail\.com/i.test(s);})));
@@ -996,15 +996,13 @@ function calMonthBlockHTML(evs,k){
   return `<button type="button" class="${cls}" data-cmonth-day="${d}" title="${esc(tip)}">${Number(d.slice(8,10))}${has.has(d)?'<span class="cm-dot"></span>':''}</button>`;
  }).join('')}</div>`;
  const sum=snap.length?calBreakHTML(evs,snap,'month',note):`<div class="note calbreak">${note||'В этом месяце в снимке нет событий со временем.'}</div>`;
- const thisM=today.slice(0,7)===ym;
  return `<div class="calmonth-row" id="calmonth">
-  <div class="card"><div class="calmonth-hd"><h3>Месяц <span class="st">${esc(calMonthTitle(ym))}</span>${thisM?'<span class="chip" style="background:#4285f4;color:#fff;border-color:#4285f4;font-size:11px;font-weight:700">этот месяц</span>':''}</h3>
-   <div class="calmonth-nav"><button type="button" data-cmonth-nav="-1" title="предыдущий месяц">‹</button><button type="button" data-cmonth-nav="0" title="текущий месяц" ${thisM?'hidden':''}>сегодня</button><button type="button" data-cmonth-nav="1" title="следующий месяц">›</button></div></div>
-   <div class="note" style="margin:0 0 6px">Нажми день — откроется его таймлайн ниже.</div>${grid}</div>
+  <div class="card"><div class="note" style="margin:0 0 6px">Нажми день — откроется его таймлайн.</div>${grid}</div>
   <div class="card"><h3>Сводка за месяц</h3>${sum}</div>
  </div>`}
+function calSetMonth(ym){calMonthCursor=ym;const today=bDay(new Date().toISOString()),days=calMonthDays(ym);if(today.slice(0,7)===ym){calDay=today;return}const keep=(calDay||today).slice(8,10),cand=ym+'-'+keep;calDay=days.includes(cand)?cand:(days[0]||ym+'-01')}
 function calendar(d){const ev=(d.events||[]).filter(e=>!e.all_day),today=bDay(new Date().toISOString()),tmr=calAdd(today,1);
- if(!calDay)calDay=today;const k=calDay,week=calView==='week',days=week?calWeekDays(k):[k],mon=calMon(k);
+ if(!calDay)calDay=today;const k=calDay,week=calView==='week',month=calView==='month',ym=calMonthCursor||k.slice(0,7),days=week?calWeekDays(k):[k],mon=calMon(k),thisM=today.slice(0,7)===ym;
  const nG=ev.filter(e=>e.src==='gcal').length,nC=ev.filter(e=>e.src==='clickup').length+ev.reduce((a,e)=>a+(e.cu||[]).length,0);
  const WD=new Intl.DateTimeFormat('ru-RU',{timeZone:'UTC',weekday:'long',day:'numeric',month:'long'});
  const WDr=new Intl.DateTimeFormat('ru-RU',{timeZone:'UTC',day:'numeric',month:'long'});
@@ -1013,27 +1011,28 @@ function calendar(d){const ev=(d.events||[]).filter(e=>!e.all_day),today=bDay(ne
  const past=k<today,marked=calReconHas(k);
  let h=`<div class="card" style="margin-bottom:14px;background:linear-gradient(135deg,#e8f0fe,var(--panel));border-color:#c6dafc"><div class="tab-head"><span class="note">${[d.cu_only?'':'снимок GCal '+(d.gcal_fetched_at||'—'),'ClickUp '+esc(d.cu_fetched_at||'—')].filter(Boolean).join(' · ')} · без входа в Google</span>
  <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap"><div class="seg calf" ${d.cu_only?'hidden':''}>${[['all','Все'],['gcal','Google ('+nG+')'],['clickup','ClickUp ('+nC+')']].map(([s,l])=>`<button data-s="${s}" class="${calSrc===s?'on':''}">${l}</button>`).join('')}</div></div></div>
- <div class="calnav"><div class="seg calview">${bt(0,'prev','‹')}${bt(!week,'day','День')}${bt(week,'week','Неделя')}${bt(0,'next','›')}</div>
- <input type="date" id="calpick" value="${k}" title="${week?'неделя, в которой этот день':'день'}">
- <b style="font-size:15px;text-transform:capitalize">${esc(week?weekLab:WD.format(new Date(k+'T12:00:00Z')))}</b>
- ${week?(mon===calMon(today)?'<span class="chip" style="background:#4285f4;color:#fff;border-color:#4285f4">Эта неделя</span>':bt(0,'today','Эта неделя')):(k===today?'<span class="chip" style="background:#4285f4;color:#fff;border-color:#4285f4">Сегодня</span>':bt(0,'today','Сегодня'))}
- ${!week&&past?`<button type="button" class="calmark${marked?' on':''}" data-cmark="${k}">${marked?'✓ День сверен':'Сверить этот день'}</button>`:''}</div>
- ${calBreakHTML(ev,days)}
- <div class="slegend">${d.cu_only?'':'<span><span class="src gcal">Google</span> слева — события</span>'}<span><span class="src clickup">ClickUp</span> ${d.cu_only?'':'справа — '}задачи со временем, на своём часе</span><span><span class="tl-cumark lg"></span> метка у шкалы = есть задача ClickUp на это время</span>
- ${CAL_CATS.slice(0,9).map(c=>`<span><span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:${c.color};margin-right:4px"></span>${esc(c.name)}</span>`).join('')}</div></div>`;
+ <div class="calnav"><div class="seg calview">${bt(0,'prev','‹')}${bt(!week&&!month,'day','День')}${bt(week,'week','Неделя')}${bt(month,'month','Месяц')}${bt(0,'next','›')}</div>
+ ${month?`<input type="month" id="calpickm" value="${ym}" title="месяц">`:`<input type="date" id="calpick" value="${k}" title="${week?'неделя, в которой этот день':'день'}">`}
+ <b style="font-size:15px;text-transform:capitalize">${esc(month?calMonthTitle(ym):week?weekLab:WD.format(new Date(k+'T12:00:00Z')))}</b>
+ ${month?(thisM?'<span class="chip" style="background:#4285f4;color:#fff;border-color:#4285f4">Этот месяц</span>':bt(0,'today','Этот месяц')):week?(mon===calMon(today)?'<span class="chip" style="background:#4285f4;color:#fff;border-color:#4285f4">Эта неделя</span>':bt(0,'today','Эта неделя')):(k===today?'<span class="chip" style="background:#4285f4;color:#fff;border-color:#4285f4">Сегодня</span>':bt(0,'today','Сегодня'))}
+ ${!week&&!month&&past?`<button type="button" class="calmark${marked?' on':''}" data-cmark="${k}">${marked?'✓ День сверен':'Сверить этот день'}</button>`:''}</div>
+ ${month?'':calBreakHTML(ev,days)}
+ ${month?'':`<div class="slegend">${d.cu_only?'':'<span><span class="src gcal">Google</span> слева — события</span>'}<span><span class="src clickup">ClickUp</span> ${d.cu_only?'':'справа — '}задачи со временем, на своём часе</span><span><span class="tl-cumark lg"></span> метка у шкалы = есть задача ClickUp на это время</span>
+ ${CAL_CATS.slice(0,9).map(c=>`<span><span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:${c.color};margin-right:4px"></span>${esc(c.name)}</span>`).join('')}</div>`}</div>`;
  let sc=0;
- if(week){h+=tlWeekHTML(ev,k,{cuOnly:d.cu_only,src:calSrc})}
+ if(month){h+=calMonthBlockHTML(ev,k)}
+ else if(week){h+=tlWeekHTML(ev,k,{cuOnly:d.cu_only,src:calSrc})}
  else{const t=tlHTML(ev,k,{cuOnly:d.cu_only,src:calSrc});h+=t.h+thCalDayList(ev,k);sc=t.sc}
-  h=calMonthBlockHTML(ev,k)+h;
+ const sub=$('#sub');if(sub)sub.textContent=month?'Календарь · месяц':week?'Календарь · неделя':'Календарь · день';
  $('#main').innerHTML=h;
  document.querySelectorAll('[data-cmonth-day]').forEach(b=>b.onclick=()=>{calMonthCursor=b.dataset.cmonthDay.slice(0,7);calGoDay(b.dataset.cmonthDay,'day')});
- document.querySelectorAll('[data-cmonth-nav]').forEach(b=>b.onclick=()=>{const n=+b.dataset.cmonthNav,cur=calMonthCursor||(calDay||bDay(new Date().toISOString())).slice(0,7);calMonthCursor=n===0?bDay(new Date().toISOString()).slice(0,7):calMonthShift(cur,n);calendar(d)});
  document.querySelectorAll('.calf button').forEach(b=>b.onclick=()=>{calSrc=b.dataset.s;calendar(d)});
- document.querySelectorAll('[data-nav]').forEach(b=>b.onclick=()=>{const a=b.dataset.nav;if(a==='day'||a==='week'){calView=a;calendar(d);return}if(a==='prev')calDay=calAdd(week?mon:k,week?-7:-1);else if(a==='next')calDay=calAdd(week?mon:k,week?7:1);else if(a==='today')calDay=today;calMonthCursor=(calDay||today).slice(0,7);calendar(d)});
+ document.querySelectorAll('[data-nav]').forEach(b=>b.onclick=()=>{const a=b.dataset.nav;if(a==='day'||a==='week'||a==='month'){calView=a;if(a==='month')calMonthCursor=(calDay||today).slice(0,7);calendar(d);return}if(a==='prev'||a==='next'){const dir=a==='next'?1:-1;if(month)calSetMonth(calMonthShift(ym,dir));else{calDay=calAdd(week?mon:k,week?7*dir:dir);calMonthCursor=(calDay||today).slice(0,7)}}else if(a==='today'){if(month)calSetMonth(today.slice(0,7));else{calDay=today;calMonthCursor=today.slice(0,7)}}calendar(d)});
  const pk=$('#calpick');if(pk)pk.onchange=()=>{if(pk.value){calDay=pk.value;calMonthCursor=pk.value.slice(0,7);calendar(d)}};
+ const pkm=$('#calpickm');if(pkm)pkm.onchange=()=>{if(pkm.value){calSetMonth(pkm.value);calendar(d)}};
  document.querySelectorAll('[data-cday]').forEach(b=>b.onclick=()=>{calDay=b.dataset.cday;calView='day';calendar(d)});
  document.querySelectorAll('[data-cmark]').forEach(b=>b.onclick=()=>{calMarkRecon(b.dataset.cmark);calendar(d)});
- if(!week)tlScroll(sc)}
+ if(!week&&!month)tlScroll(sc)}
 /* ===== Режим «Сегодня» (Rost 25.10): рабочий экран; неделя/месяц — только сводка ===== */
 const calDir=()=>Dash.D.directions.find(x=>x.kind==='calendar');
 const tIdOf=u=>{const m=/[?&]t=([^&#]+)/.exec(u||'');return m?m[1]:null};
