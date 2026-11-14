@@ -15,7 +15,9 @@
     "list": "Personal",
     "cat": "Личное",
     "lead": "bot",
-    "bday": false
+    "bday": false,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b7k8525",
@@ -28,7 +30,9 @@
     "list": "Personal",
     "cat": "Личное",
     "lead": "unknown",
-    "bday": false
+    "bday": false,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86bb79fmt",
@@ -56,7 +60,9 @@
     "cat": "Личное",
     "lead": "manual",
     "bday": false,
-    "priority": "normal"
+    "priority": "normal",
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b8nwj7t",
@@ -82,7 +88,9 @@
     "list": "Personal",
     "cat": "Личное",
     "lead": "unknown",
-    "bday": false
+    "bday": false,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b7688n9",
@@ -95,7 +103,9 @@
     "list": "Personal",
     "cat": "Личное",
     "lead": "unknown",
-    "bday": false
+    "bday": false,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b7gkttx",
@@ -108,7 +118,9 @@
     "list": "Personal",
     "cat": "Личное",
     "lead": "unknown",
-    "bday": false
+    "bday": false,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86bcm9u4k",
@@ -136,7 +148,9 @@
     "cat": "Личное",
     "lead": "manual",
     "bday": false,
-    "priority": "urgent"
+    "priority": "urgent",
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b7k85ke",
@@ -149,7 +163,9 @@
     "list": "Personal",
     "cat": "Личное",
     "lead": "unknown",
-    "bday": false
+    "bday": false,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b70dhaq",
@@ -162,7 +178,9 @@
     "list": "Personal",
     "cat": "Личное",
     "lead": "unknown",
-    "bday": false
+    "bday": false,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86bcrqtyk",
@@ -204,7 +222,9 @@
     "cat": "Личное",
     "lead": "manual",
     "bday": false,
-    "priority": "urgent"
+    "priority": "urgent",
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b7ub08j",
@@ -218,7 +238,9 @@
     "cat": "Личное",
     "lead": "manual",
     "bday": false,
-    "priority": "urgent"
+    "priority": "urgent",
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86bbbw2fq",
@@ -244,7 +266,9 @@
     "list": "Personal",
     "cat": "Личное",
     "lead": "unknown",
-    "bday": false
+    "bday": false,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86bayeyr8",
@@ -366,7 +390,9 @@
     "list": "Personal",
     "cat": "Личное",
     "lead": "unknown",
-    "bday": false
+    "bday": false,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86bcxum51",
@@ -408,7 +434,9 @@
     "cat": "Личное",
     "lead": "manual",
     "bday": false,
-    "priority": "normal"
+    "priority": "normal",
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86bbjq18f",
@@ -421,7 +449,9 @@
     "list": "Personal",
     "cat": "Личное",
     "lead": "unknown",
-    "bday": false
+    "bday": false,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b7k81d6",
@@ -434,7 +464,9 @@
     "list": "Personal",
     "cat": "Личное",
     "lead": "manual",
-    "bday": false
+    "bday": false,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b7k81cj",
@@ -447,7 +479,9 @@
     "list": "Personal",
     "cat": "Личное",
     "lead": "unknown",
-    "bday": false
+    "bday": false,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b7k81e5",
@@ -460,7 +494,9 @@
     "list": "Personal",
     "cat": "Личное",
     "lead": "unknown",
-    "bday": false
+    "bday": false,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b7k85rt",
@@ -473,7 +509,9 @@
     "list": "Personal",
     "cat": "Личное",
     "lead": "unknown",
-    "bday": false
+    "bday": false,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b7k85dn",
@@ -486,7 +524,9 @@
     "list": "Personal",
     "cat": "Личное",
     "lead": "unknown",
-    "bday": false
+    "bday": false,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b7k81bu",
@@ -499,7 +539,9 @@
     "list": "Personal",
     "cat": "Личное",
     "lead": "unknown",
-    "bday": false
+    "bday": false,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86bbq6etm",
@@ -539,7 +581,9 @@
     "list": "Personal",
     "cat": "Личное",
     "lead": "unknown",
-    "bday": false
+    "bday": false,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b7gj8kv",
@@ -552,7 +596,9 @@
     "list": "Personal",
     "cat": "Личное",
     "lead": "unknown",
-    "bday": false
+    "bday": false,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86bd0vyb9",
@@ -605,7 +651,9 @@
     "list": "Personal",
     "cat": "Личное",
     "lead": "bot",
-    "bday": false
+    "bday": false,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86bcgc3ze",
@@ -633,7 +681,9 @@
     "cat": "Личное",
     "lead": "manual",
     "bday": false,
-    "priority": "urgent"
+    "priority": "urgent",
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b7k95k6",
@@ -647,7 +697,9 @@
     "cat": "Личное",
     "lead": "manual",
     "bday": false,
-    "priority": "normal"
+    "priority": "normal",
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86bbt0v0n",
@@ -700,7 +752,9 @@
     "list": "Personal",
     "cat": "Личное",
     "lead": "manual",
-    "bday": true
+    "bday": true,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86bbnb0jv",
@@ -727,7 +781,9 @@
     "cat": "Личное",
     "lead": "manual",
     "bday": false,
-    "priority": "urgent"
+    "priority": "urgent",
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86bcnrmt7",
@@ -741,7 +797,9 @@
     "cat": "Личное",
     "lead": "manual",
     "bday": false,
-    "priority": "normal"
+    "priority": "normal",
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b7j38pw",
@@ -755,7 +813,9 @@
     "cat": "Личное",
     "lead": "manual",
     "bday": false,
-    "priority": "urgent"
+    "priority": "urgent",
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b6vcfu9",
@@ -768,7 +828,9 @@
     "list": "Personal",
     "cat": "Личное",
     "lead": "manual",
-    "bday": true
+    "bday": true,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b7rcd9t",
@@ -795,7 +857,9 @@
     "list": "Personal",
     "cat": "Личное",
     "lead": "unknown",
-    "bday": false
+    "bday": false,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b7k868z",
@@ -808,7 +872,9 @@
     "list": "Personal",
     "cat": "Личное",
     "lead": "unknown",
-    "bday": false
+    "bday": false,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b6xp2ca",
@@ -834,7 +900,9 @@
     "list": "Personal",
     "cat": "Личное",
     "lead": "manual",
-    "bday": true
+    "bday": true,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b6qp74w",
@@ -847,7 +915,9 @@
     "list": "Personal",
     "cat": "Личное",
     "lead": "unknown",
-    "bday": false
+    "bday": false,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b6qphcd",
@@ -861,7 +931,9 @@
     "cat": "Личное",
     "lead": "manual",
     "bday": false,
-    "priority": "normal"
+    "priority": "normal",
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b6qphhd",
@@ -874,7 +946,9 @@
     "list": "Personal",
     "cat": "Личное",
     "lead": "unknown",
-    "bday": false
+    "bday": false,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b8q4y3m",
@@ -900,7 +974,9 @@
     "list": "Personal",
     "cat": "Личное",
     "lead": "unknown",
-    "bday": false
+    "bday": false,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86bcxunbw",
@@ -914,7 +990,9 @@
     "cat": "Личное",
     "lead": "manual",
     "bday": false,
-    "priority": "normal"
+    "priority": "normal",
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b7q2p9a",
@@ -927,7 +1005,9 @@
     "list": "Personal",
     "cat": "Личное",
     "lead": "manual",
-    "bday": true
+    "bday": true,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b73hvkm",
@@ -953,7 +1033,9 @@
     "list": "Personal",
     "cat": "Личное",
     "lead": "manual",
-    "bday": true
+    "bday": true,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b7k8bz1",
@@ -966,7 +1048,9 @@
     "list": "Personal",
     "cat": "Личное",
     "lead": "manual",
-    "bday": true
+    "bday": true,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b7k8bzp",
@@ -979,7 +1063,9 @@
     "list": "Personal",
     "cat": "Личное",
     "lead": "manual",
-    "bday": true
+    "bday": true,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86bappcce",
@@ -992,7 +1078,9 @@
     "list": "Personal",
     "cat": "Личное",
     "lead": "manual",
-    "bday": true
+    "bday": true,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b7vk264",
@@ -1005,7 +1093,9 @@
     "list": "Personal",
     "cat": "Личное",
     "lead": "manual",
-    "bday": true
+    "bday": true,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b7wnf25",
@@ -1031,7 +1121,9 @@
     "list": "Personal",
     "cat": "Личное",
     "lead": "manual",
-    "bday": true
+    "bday": true,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86bayeenr",
@@ -1044,7 +1136,9 @@
     "list": "Personal",
     "cat": "Личное",
     "lead": "unknown",
-    "bday": false
+    "bday": false,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b7k8byy",
@@ -1057,7 +1151,9 @@
     "list": "Personal",
     "cat": "Личное",
     "lead": "manual",
-    "bday": true
+    "bday": true,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b6qpktf",
@@ -1083,7 +1179,9 @@
     "list": "Personal",
     "cat": "Личное",
     "lead": "manual",
-    "bday": true
+    "bday": true,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b6q7qkz",
@@ -1122,7 +1220,9 @@
     "list": "Personal",
     "cat": "Личное",
     "lead": "manual",
-    "bday": true
+    "bday": true,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b7k87wp",
@@ -1135,7 +1235,9 @@
     "list": "Personal",
     "cat": "Личное",
     "lead": "unknown",
-    "bday": false
+    "bday": false,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b7gkper",
@@ -1148,7 +1250,9 @@
     "list": "Personal",
     "cat": "Личное",
     "lead": "manual",
-    "bday": true
+    "bday": true,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b7k7qph",
@@ -1161,7 +1265,9 @@
     "list": "Personal",
     "cat": "Личное",
     "lead": "unknown",
-    "bday": false
+    "bday": false,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86bappd36",
@@ -1174,7 +1280,9 @@
     "list": "Personal",
     "cat": "Личное",
     "lead": "manual",
-    "bday": true
+    "bday": true,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b7heg8d",
@@ -1187,7 +1295,9 @@
     "list": "Personal",
     "cat": "Личное",
     "lead": "manual",
-    "bday": true
+    "bday": true,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b7k8c2j",
@@ -1200,7 +1310,9 @@
     "list": "Personal",
     "cat": "Личное",
     "lead": "manual",
-    "bday": true
+    "bday": true,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b8fhf5g",
@@ -1226,7 +1338,9 @@
     "list": "Personal",
     "cat": "Личное",
     "lead": "unknown",
-    "bday": true
+    "bday": true,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b7k8bzm",
@@ -1239,7 +1353,9 @@
     "list": "Personal",
     "cat": "Личное",
     "lead": "manual",
-    "bday": true
+    "bday": true,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b7k8bz7",
@@ -1252,7 +1368,9 @@
     "list": "Personal",
     "cat": "Личное",
     "lead": "manual",
-    "bday": true
+    "bday": true,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b7k8c2c",
@@ -1265,7 +1383,9 @@
     "list": "Personal",
     "cat": "Личное",
     "lead": "manual",
-    "bday": true
+    "bday": true,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b7k8c2m",
@@ -1278,7 +1398,9 @@
     "list": "Personal",
     "cat": "Личное",
     "lead": "manual",
-    "bday": true
+    "bday": true,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b7k8c0z",
@@ -1291,7 +1413,9 @@
     "list": "Personal",
     "cat": "Личное",
     "lead": "manual",
-    "bday": true
+    "bday": true,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b80qm7f",
@@ -1304,7 +1428,9 @@
     "list": "Personal",
     "cat": "Личное",
     "lead": "manual",
-    "bday": true
+    "bday": true,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b7k8c2r",
@@ -1317,7 +1443,9 @@
     "list": "Personal",
     "cat": "Личное",
     "lead": "manual",
-    "bday": true
+    "bday": true,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b80qm61",
@@ -1330,7 +1458,9 @@
     "list": "Personal",
     "cat": "Личное",
     "lead": "manual",
-    "bday": true
+    "bday": true,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b7k8c1a",
@@ -1343,7 +1473,9 @@
     "list": "Personal",
     "cat": "Личное",
     "lead": "manual",
-    "bday": true
+    "bday": true,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b7k8c1w",
@@ -1356,7 +1488,9 @@
     "list": "Personal",
     "cat": "Личное",
     "lead": "manual",
-    "bday": true
+    "bday": true,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b7gkq21",
@@ -1369,7 +1503,9 @@
     "list": "Personal",
     "cat": "Личное",
     "lead": "manual",
-    "bday": true
+    "bday": true,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86bbjgn6a",
@@ -1382,7 +1518,9 @@
     "list": "Personal",
     "cat": "Личное",
     "lead": "manual",
-    "bday": true
+    "bday": true,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b80qm6h",
@@ -1395,7 +1533,9 @@
     "list": "Personal",
     "cat": "Личное",
     "lead": "manual",
-    "bday": true
+    "bday": true,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b7k8c1y",
@@ -1408,7 +1548,9 @@
     "list": "Personal",
     "cat": "Личное",
     "lead": "manual",
-    "bday": true
+    "bday": true,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86ban084e",
@@ -1421,7 +1563,9 @@
     "list": "Personal",
     "cat": "Личное",
     "lead": "unknown",
-    "bday": false
+    "bday": false,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b7k8c13",
@@ -1434,7 +1578,9 @@
     "list": "Personal",
     "cat": "Личное",
     "lead": "manual",
-    "bday": true
+    "bday": true,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b7k8c0v",
@@ -1447,7 +1593,9 @@
     "list": "Personal",
     "cat": "Личное",
     "lead": "manual",
-    "bday": true
+    "bday": true,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b7k8c15",
@@ -1460,7 +1608,9 @@
     "list": "Personal",
     "cat": "Личное",
     "lead": "manual",
-    "bday": true
+    "bday": true,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b9ct4dh",
@@ -1486,7 +1636,9 @@
     "list": "Personal",
     "cat": "Личное",
     "lead": "manual",
-    "bday": true
+    "bday": true,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b9rnqc2",
@@ -1512,7 +1664,9 @@
     "list": "Personal",
     "cat": "Личное",
     "lead": "manual",
-    "bday": true
+    "bday": true,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b7k8c0f",
@@ -1525,7 +1679,9 @@
     "list": "Personal",
     "cat": "Личное",
     "lead": "manual",
-    "bday": true
+    "bday": true,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b7k8c1r",
@@ -1538,7 +1694,9 @@
     "list": "Personal",
     "cat": "Личное",
     "lead": "manual",
-    "bday": true
+    "bday": true,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b7gkpq9",
@@ -1551,7 +1709,9 @@
     "list": "Personal",
     "cat": "Личное",
     "lead": "manual",
-    "bday": true
+    "bday": true,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b7k8c1p",
@@ -1564,7 +1724,9 @@
     "list": "Personal",
     "cat": "Личное",
     "lead": "manual",
-    "bday": true
+    "bday": true,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b7k8c05",
@@ -1577,7 +1739,9 @@
     "list": "Personal",
     "cat": "Личное",
     "lead": "manual",
-    "bday": true
+    "bday": true,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b7gkphe",
@@ -1590,7 +1754,9 @@
     "list": "Personal",
     "cat": "Личное",
     "lead": "manual",
-    "bday": true
+    "bday": true,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b6qnxn8",
@@ -1629,7 +1795,9 @@
     "list": "Personal",
     "cat": "Личное",
     "lead": "manual",
-    "bday": true
+    "bday": true,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b7k8bz9",
@@ -1642,7 +1810,9 @@
     "list": "Personal",
     "cat": "Личное",
     "lead": "manual",
-    "bday": true
+    "bday": true,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b7k8c28",
@@ -1655,7 +1825,9 @@
     "list": "Personal",
     "cat": "Личное",
     "lead": "manual",
-    "bday": true
+    "bday": true,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b7k8c0b",
@@ -1668,7 +1840,9 @@
     "list": "Personal",
     "cat": "Личное",
     "lead": "manual",
-    "bday": true
+    "bday": true,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b7k8c0m",
@@ -1681,7 +1855,9 @@
     "list": "Personal",
     "cat": "Личное",
     "lead": "manual",
-    "bday": true
+    "bday": true,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b6qpkvd",
@@ -1707,7 +1883,9 @@
     "list": "Personal",
     "cat": "Личное",
     "lead": "manual",
-    "bday": true
+    "bday": true,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b7k8bzx",
@@ -1720,7 +1898,9 @@
     "list": "Personal",
     "cat": "Личное",
     "lead": "manual",
-    "bday": true
+    "bday": true,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b7k8c0r",
@@ -1733,7 +1913,9 @@
     "list": "Personal",
     "cat": "Личное",
     "lead": "manual",
-    "bday": true
+    "bday": true,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b7k8c2a",
@@ -1746,7 +1928,9 @@
     "list": "Personal",
     "cat": "Личное",
     "lead": "manual",
-    "bday": true
+    "bday": true,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b80qmb9",
@@ -1759,7 +1943,9 @@
     "list": "Personal",
     "cat": "Личное",
     "lead": "manual",
-    "bday": true
+    "bday": true,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b7k8c2u",
@@ -1772,7 +1958,9 @@
     "list": "Personal",
     "cat": "Личное",
     "lead": "manual",
-    "bday": true
+    "bday": true,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b8nwj9p",
@@ -1798,7 +1986,9 @@
     "list": "Personal",
     "cat": "Личное",
     "lead": "manual",
-    "bday": true
+    "bday": true,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b6qphww",
@@ -1811,7 +2001,9 @@
     "list": "Personal",
     "cat": "Личное",
     "lead": "unknown",
-    "bday": true
+    "bday": true,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b80qmd7",
@@ -1824,7 +2016,9 @@
     "list": "Personal",
     "cat": "Личное",
     "lead": "manual",
-    "bday": true
+    "bday": true,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b7k8c21",
@@ -1837,7 +2031,9 @@
     "list": "Personal",
     "cat": "Личное",
     "lead": "manual",
-    "bday": true
+    "bday": true,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b7k8c09",
@@ -1850,7 +2046,9 @@
     "list": "Personal",
     "cat": "Личное",
     "lead": "manual",
-    "bday": true
+    "bday": true,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b7gknv3",
@@ -1863,7 +2061,9 @@
     "list": "Personal",
     "cat": "Личное",
     "lead": "manual",
-    "bday": true
+    "bday": true,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b7k8bz3",
@@ -1876,7 +2076,9 @@
     "list": "Personal",
     "cat": "Личное",
     "lead": "manual",
-    "bday": true
+    "bday": true,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b8nwjam",
@@ -1902,7 +2104,9 @@
     "list": "Personal",
     "cat": "Личное",
     "lead": "manual",
-    "bday": true
+    "bday": true,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86baebuhx",
@@ -1915,7 +2119,9 @@
     "list": "Personal",
     "cat": "Личное",
     "lead": "manual",
-    "bday": true
+    "bday": true,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b7gkpwg",
@@ -1928,7 +2134,9 @@
     "list": "Personal",
     "cat": "Личное",
     "lead": "manual",
-    "bday": true
+    "bday": true,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b7k8c07",
@@ -1941,7 +2149,9 @@
     "list": "Personal",
     "cat": "Личное",
     "lead": "manual",
-    "bday": true
+    "bday": true,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b7k8c1u",
@@ -1954,7 +2164,9 @@
     "list": "Personal",
     "cat": "Личное",
     "lead": "manual",
-    "bday": true
+    "bday": true,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b7k8c2p",
@@ -1967,7 +2179,9 @@
     "list": "Personal",
     "cat": "Личное",
     "lead": "manual",
-    "bday": true
+    "bday": true,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b6qph33",
@@ -1993,7 +2207,9 @@
     "list": "Personal",
     "cat": "Личное",
     "lead": "manual",
-    "bday": true
+    "bday": true,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b7gkp9c",
@@ -2006,7 +2222,9 @@
     "list": "Personal",
     "cat": "Личное",
     "lead": "manual",
-    "bday": true
+    "bday": true,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b7k8bzz",
@@ -2019,7 +2237,9 @@
     "list": "Personal",
     "cat": "Личное",
     "lead": "manual",
-    "bday": true
+    "bday": true,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b7k8c2x",
@@ -2032,7 +2252,9 @@
     "list": "Personal",
     "cat": "Личное",
     "lead": "manual",
-    "bday": true
+    "bday": true,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b7k8bzd",
@@ -2045,7 +2267,9 @@
     "list": "Personal",
     "cat": "Личное",
     "lead": "unknown",
-    "bday": true
+    "bday": true,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b7k8byr",
@@ -2058,7 +2282,9 @@
     "list": "Personal",
     "cat": "Личное",
     "lead": "manual",
-    "bday": true
+    "bday": true,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b7gkp4m",
@@ -2071,7 +2297,9 @@
     "list": "Personal",
     "cat": "Личное",
     "lead": "manual",
-    "bday": true
+    "bday": true,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b7k8c1g",
@@ -2084,7 +2312,9 @@
     "list": "Personal",
     "cat": "Личное",
     "lead": "manual",
-    "bday": true
+    "bday": true,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b7k8c0d",
@@ -2097,7 +2327,9 @@
     "list": "Personal",
     "cat": "Личное",
     "lead": "manual",
-    "bday": true
+    "bday": true,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b7gkp1b",
@@ -2110,7 +2342,9 @@
     "list": "Personal",
     "cat": "Личное",
     "lead": "manual",
-    "bday": true
+    "bday": true,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b7k8bzk",
@@ -2123,7 +2357,9 @@
     "list": "Personal",
     "cat": "Личное",
     "lead": "manual",
-    "bday": true
+    "bday": true,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b7k8byw",
@@ -2136,7 +2372,9 @@
     "list": "Personal",
     "cat": "Личное",
     "lead": "manual",
-    "bday": true
+    "bday": true,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b7k8c1j",
@@ -2149,7 +2387,9 @@
     "list": "Personal",
     "cat": "Личное",
     "lead": "manual",
-    "bday": true
+    "bday": true,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b7k8c22",
@@ -2162,7 +2402,9 @@
     "list": "Personal",
     "cat": "Личное",
     "lead": "manual",
-    "bday": true
+    "bday": true,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b7k8c34",
@@ -2175,7 +2417,9 @@
     "list": "Personal",
     "cat": "Личное",
     "lead": "manual",
-    "bday": true
+    "bday": true,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b7gkpmk",
@@ -2188,7 +2432,9 @@
     "list": "Personal",
     "cat": "Личное",
     "lead": "manual",
-    "bday": true
+    "bday": true,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b7k8c0h",
@@ -2201,7 +2447,9 @@
     "list": "Personal",
     "cat": "Личное",
     "lead": "manual",
-    "bday": true
+    "bday": true,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b7k8c2z",
@@ -2214,7 +2462,9 @@
     "list": "Personal",
     "cat": "Личное",
     "lead": "manual",
-    "bday": true
+    "bday": true,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86bb6a2yb",
@@ -2227,7 +2477,9 @@
     "list": "Personal",
     "cat": "Личное",
     "lead": "manual",
-    "bday": true
+    "bday": true,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b6qp6nd",
@@ -2240,7 +2492,9 @@
     "list": "Personal",
     "cat": "Личное",
     "lead": "manual",
-    "bday": true
+    "bday": true,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b6q92zn",
@@ -2267,7 +2521,9 @@
     "list": "Personal",
     "cat": "Личное",
     "lead": "manual",
-    "bday": true
+    "bday": true,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b80qm8a",
@@ -2280,7 +2536,9 @@
     "list": "Personal",
     "cat": "Личное",
     "lead": "manual",
-    "bday": true
+    "bday": true,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b791a9x",
@@ -2293,7 +2551,9 @@
     "list": "Personal",
     "cat": "Личное",
     "lead": "manual",
-    "bday": true
+    "bday": true,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b791cnh",
@@ -2306,7 +2566,9 @@
     "list": "Personal",
     "cat": "Личное",
     "lead": "manual",
-    "bday": true
+    "bday": true,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b73v133",
@@ -2319,7 +2581,9 @@
     "list": "Personal",
     "cat": "Личное",
     "lead": "manual",
-    "bday": true
+    "bday": true,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b791cuk",
@@ -2332,7 +2596,9 @@
     "list": "Personal",
     "cat": "Личное",
     "lead": "manual",
-    "bday": true
+    "bday": true,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b7919z9",
@@ -2345,7 +2611,9 @@
     "list": "Personal",
     "cat": "Личное",
     "lead": "manual",
-    "bday": true
+    "bday": true,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b791bp7",
@@ -2358,7 +2626,9 @@
     "list": "Personal",
     "cat": "Личное",
     "lead": "manual",
-    "bday": true
+    "bday": true,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b791c31",
@@ -2371,7 +2641,9 @@
     "list": "Personal",
     "cat": "Личное",
     "lead": "manual",
-    "bday": true
+    "bday": true,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b791c7w",
@@ -2384,7 +2656,9 @@
     "list": "Personal",
     "cat": "Личное",
     "lead": "manual",
-    "bday": true
+    "bday": true,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b6q93gw",
@@ -2470,7 +2744,9 @@
     "cat": "Недвижимость",
     "lead": "bot",
     "bday": false,
-    "priority": "normal"
+    "priority": "normal",
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86bawjfqf",
@@ -2566,7 +2842,9 @@
     "list": "Сервисная доска Недвижимость",
     "cat": "Недвижимость",
     "lead": "unknown",
-    "bday": false
+    "bday": false,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86bctn6z8",
@@ -2603,7 +2881,9 @@
     "list": "Сервисная доска Недвижимость",
     "cat": "Недвижимость",
     "lead": "unknown",
-    "bday": false
+    "bday": false,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b7th4zc",
@@ -2631,7 +2911,9 @@
     "cat": "Недвижимость",
     "lead": "manual",
     "bday": false,
-    "priority": "normal"
+    "priority": "normal",
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86bahp0w9",
@@ -2684,7 +2966,9 @@
     "list": "Сервисная доска Недвижимость",
     "cat": "Недвижимость",
     "lead": "unknown",
-    "bday": false
+    "bday": false,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b7k7vf7",
@@ -2697,7 +2981,9 @@
     "list": "Сервисная доска Недвижимость",
     "cat": "Недвижимость",
     "lead": "unknown",
-    "bday": false
+    "bday": false,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86bb7zwwf",
@@ -2764,7 +3050,9 @@
     "cat": "Недвижимость",
     "lead": "bot",
     "bday": false,
-    "priority": "normal"
+    "priority": "normal",
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86bcxke2t",
@@ -2832,7 +3120,9 @@
     "list": "Покупка, Ремонт, Продажа-Сдача",
     "cat": "Недвижимость",
     "lead": "bot",
-    "bday": false
+    "bday": false,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b6k34a6",
@@ -2846,7 +3136,9 @@
     "cat": "Недвижимость",
     "lead": "bot",
     "bday": false,
-    "priority": "normal"
+    "priority": "normal",
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b6k2zug",
@@ -2898,7 +3190,9 @@
     "list": "Сервисная доска Недвижимость",
     "cat": "Недвижимость",
     "lead": "unknown",
-    "bday": false
+    "bday": false,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b82hgxt",
@@ -2924,7 +3218,9 @@
     "list": "Сервисная доска Недвижимость",
     "cat": "Недвижимость",
     "lead": "unknown",
-    "bday": false
+    "bday": false,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b7k7vzq",
@@ -2937,7 +3233,9 @@
     "list": "Сервисная доска Недвижимость",
     "cat": "Недвижимость",
     "lead": "unknown",
-    "bday": false
+    "bday": false,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86bcntq1p",
@@ -2951,7 +3249,9 @@
     "cat": "Недвижимость",
     "lead": "manual",
     "bday": false,
-    "priority": "normal"
+    "priority": "normal",
+    "freq": "periódica",
+    "recurring": true
    }
   ],
   "of": [
@@ -3031,7 +3331,9 @@
     "list": "General Tasks OF",
     "cat": "ОФ",
     "lead": "bot",
-    "bday": false
+    "bday": false,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86bawjbgj",
@@ -3057,7 +3359,9 @@
     "list": "General Tasks OF",
     "cat": "ОФ",
     "lead": "unknown",
-    "bday": false
+    "bday": false,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86bcrc6qz",
@@ -3097,7 +3401,9 @@
     "cat": "ОФ",
     "lead": "manual",
     "bday": false,
-    "priority": "normal"
+    "priority": "normal",
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b8c2fc1",
@@ -3110,7 +3416,9 @@
     "list": "General Tasks OF",
     "cat": "ОФ",
     "lead": "unknown",
-    "bday": false
+    "bday": false,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86bcpa3xk",
@@ -3165,7 +3473,9 @@
     "cat": "ОФ",
     "lead": "manual",
     "bday": false,
-    "priority": "normal"
+    "priority": "normal",
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86bagvg08",
@@ -3192,7 +3502,9 @@
     "cat": "ОФ",
     "lead": "bot",
     "bday": false,
-    "priority": "normal"
+    "priority": "normal",
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86bb4zv3p",
@@ -3232,7 +3544,9 @@
     "list": "General Tasks OF",
     "cat": "ОФ",
     "lead": "unknown",
-    "bday": false
+    "bday": false,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86bccqpd9",
@@ -3287,7 +3601,9 @@
     "cat": "ОФ",
     "lead": "manual",
     "bday": false,
-    "priority": "normal"
+    "priority": "normal",
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86bbzx9x4",
@@ -3328,7 +3644,9 @@
     "list": "General Tasks OF",
     "cat": "ОФ",
     "lead": "bot",
-    "bday": false
+    "bday": false,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b9crta7",
@@ -3342,7 +3660,9 @@
     "cat": "ОФ",
     "lead": "bot",
     "bday": false,
-    "priority": "normal"
+    "priority": "normal",
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86bba24gq",
@@ -3382,7 +3702,9 @@
     "cat": "ОФ",
     "lead": "bot",
     "bday": false,
-    "priority": "urgent"
+    "priority": "urgent",
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b9dw8uu",
@@ -3409,7 +3731,9 @@
     "list": "General Tasks OF",
     "cat": "ОФ",
     "lead": "unknown",
-    "bday": false
+    "bday": false,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b84etw8",
@@ -3422,7 +3746,9 @@
     "list": "General Tasks OF",
     "cat": "ОФ",
     "lead": "unknown",
-    "bday": false
+    "bday": false,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86bae6v4h",
@@ -3506,7 +3832,9 @@
     "cat": "ОФ",
     "lead": "bot",
     "bday": false,
-    "priority": "normal"
+    "priority": "normal",
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86bcnuxbj",
@@ -3520,7 +3848,9 @@
     "cat": "ОФ",
     "lead": "bot",
     "bday": false,
-    "priority": "normal"
+    "priority": "normal",
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b9uqgqq",
@@ -3547,7 +3877,9 @@
     "list": "General Tasks OF",
     "cat": "ОФ",
     "lead": "unknown",
-    "bday": false
+    "bday": false,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b7m53ew",
@@ -3560,7 +3892,9 @@
     "list": "General Tasks OF",
     "cat": "ОФ",
     "lead": "unknown",
-    "bday": false
+    "bday": false,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86bcnuxbv",
@@ -3574,7 +3908,9 @@
     "cat": "ОФ",
     "lead": "bot",
     "bday": false,
-    "priority": "normal"
+    "priority": "normal",
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b9axevh",
@@ -3588,7 +3924,9 @@
     "cat": "ОФ",
     "lead": "bot",
     "bday": false,
-    "priority": "normal"
+    "priority": "normal",
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b7rart0",
@@ -3601,7 +3939,9 @@
     "list": "General Tasks OF",
     "cat": "ОФ",
     "lead": "unknown",
-    "bday": false
+    "bday": false,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b7m6301",
@@ -3614,7 +3954,9 @@
     "list": "General Tasks OF",
     "cat": "ОФ",
     "lead": "unknown",
-    "bday": false
+    "bday": false,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86bbcefk3",
@@ -3642,7 +3984,9 @@
     "cat": "ОФ",
     "lead": "bot",
     "bday": false,
-    "priority": "normal"
+    "priority": "normal",
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b9wxthz",
@@ -3681,7 +4025,9 @@
     "list": "General Tasks OF",
     "cat": "ОФ",
     "lead": "manual",
-    "bday": true
+    "bday": true,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b8r70bt",
@@ -3694,7 +4040,9 @@
     "list": "Models",
     "cat": "ОФ",
     "lead": "unknown",
-    "bday": false
+    "bday": false,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b9fw1gu",
@@ -3707,7 +4055,9 @@
     "list": "General Tasks OF",
     "cat": "ОФ",
     "lead": "manual",
-    "bday": true
+    "bday": true,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b8b0h5e",
@@ -3720,7 +4070,9 @@
     "list": "Models",
     "cat": "ОФ",
     "lead": "manual",
-    "bday": true
+    "bday": true,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b8vwfzp",
@@ -3733,7 +4085,9 @@
     "list": "Models",
     "cat": "ОФ",
     "lead": "manual",
-    "bday": true
+    "bday": true,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b9q8wba",
@@ -3759,7 +4113,9 @@
     "list": "General Tasks OF",
     "cat": "ОФ",
     "lead": "manual",
-    "bday": true
+    "bday": true,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b9gbxmd",
@@ -3772,7 +4128,9 @@
     "list": "Models",
     "cat": "ОФ",
     "lead": "manual",
-    "bday": true
+    "bday": true,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b9fxd6e",
@@ -3785,7 +4143,9 @@
     "list": "General Tasks OF",
     "cat": "ОФ",
     "lead": "manual",
-    "bday": true
+    "bday": true,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b70da8g",
@@ -3798,7 +4158,9 @@
     "list": "Models",
     "cat": "ОФ",
     "lead": "manual",
-    "bday": true
+    "bday": true,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b9gbx89",
@@ -3811,7 +4173,9 @@
     "list": "Models",
     "cat": "ОФ",
     "lead": "manual",
-    "bday": true
+    "bday": true,
+    "freq": "periódica",
+    "recurring": true
    }
   ],
   "defense": [
@@ -3895,7 +4259,9 @@
     "list": "Задачи Tabakevich",
     "cat": "Табакевич",
     "lead": "unknown",
-    "bday": false
+    "bday": false,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86bbufwk0",
@@ -3921,7 +4287,9 @@
     "list": "Задачи Tabakevich",
     "cat": "Табакевич",
     "lead": "unknown",
-    "bday": false
+    "bday": false,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86bbjcbez",
@@ -3974,7 +4342,9 @@
     "cat": "Табакевич",
     "lead": "bot",
     "bday": false,
-    "priority": "normal"
+    "priority": "normal",
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86bcpt3yj",
@@ -4013,7 +4383,9 @@
     "list": "Задачи Tabakevich",
     "cat": "Табакевич",
     "lead": "unknown",
-    "bday": false
+    "bday": false,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b89dj3z",
@@ -4026,7 +4398,9 @@
     "list": "Задачи Tabakevich",
     "cat": "Табакевич",
     "lead": "unknown",
-    "bday": false
+    "bday": false,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b83wzje",
@@ -4120,7 +4494,9 @@
     "cat": "Табакевич",
     "lead": "manual",
     "bday": false,
-    "priority": "normal"
+    "priority": "normal",
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b7k7q8w",
@@ -4133,7 +4509,9 @@
     "list": "Задачи Tabakevich",
     "cat": "Табакевич",
     "lead": "unknown",
-    "bday": false
+    "bday": false,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b8b332f",
@@ -4146,7 +4524,9 @@
     "list": "Задачи Tabakevich",
     "cat": "Табакевич",
     "lead": "unknown",
-    "bday": false
+    "bday": false,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b6zwn9j",
@@ -4185,7 +4565,9 @@
     "list": "Задачи Tabakevich",
     "cat": "Табакевич",
     "lead": "unknown",
-    "bday": false
+    "bday": false,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b7n8jga",
@@ -4198,7 +4580,9 @@
     "list": "Задачи Tabakevich",
     "cat": "Табакевич",
     "lead": "unknown",
-    "bday": false
+    "bday": false,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86bcxx9bj",
@@ -4225,7 +4609,9 @@
     "list": "Задачи Tabakevich",
     "cat": "Табакевич",
     "lead": "unknown",
-    "bday": false
+    "bday": false,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b6qqajb",
@@ -4239,7 +4625,9 @@
     "cat": "Табакевич",
     "lead": "bot",
     "bday": false,
-    "priority": "normal"
+    "priority": "normal",
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b8r59kx",
@@ -4280,7 +4668,9 @@
     "list": "Задачи Tabakevich",
     "cat": "Табакевич",
     "lead": "unknown",
-    "bday": false
+    "bday": false,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b7k7v1n",
@@ -4293,7 +4683,9 @@
     "list": "Задачи Tabakevich",
     "cat": "Табакевич",
     "lead": "bot",
-    "bday": false
+    "bday": false,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86bacy8cr",
@@ -4307,7 +4699,9 @@
     "cat": "Табакевич",
     "lead": "bot",
     "bday": false,
-    "priority": "normal"
+    "priority": "normal",
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b8he4tc",
@@ -4333,7 +4727,9 @@
     "list": "Задачи Tabakevich",
     "cat": "Табакевич",
     "lead": "unknown",
-    "bday": false
+    "bday": false,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b6qpjgu",
@@ -4385,7 +4781,9 @@
     "list": "Задачи Tabakevich",
     "cat": "Табакевич",
     "lead": "unknown",
-    "bday": false
+    "bday": false,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b6qqdba",
@@ -4411,7 +4809,9 @@
     "list": "Задачи Tabakevich",
     "cat": "Табакевич",
     "lead": "unknown",
-    "bday": false
+    "bday": false,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b6qpja5",
@@ -4450,7 +4850,9 @@
     "list": "Задачи Tabakevich",
     "cat": "Табакевич",
     "lead": "unknown",
-    "bday": false
+    "bday": false,
+    "freq": "periódica",
+    "recurring": true
    },
    {
     "id": "86b6qpj5y",

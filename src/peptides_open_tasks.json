@@ -1,74 +1,86 @@
 {
-  "_doc": "t6287u: открытые рабочие задачи направления Пептиды (Peso Saludable) для доски вкладки Пептиды (Сегодня у меня / Приоритеты: тег «🎯 фокус» / Рутина), как of_open_tasks.json и personal_open_tasks.json. Отдельного ClickUp-пространства Пептиды нет: задачи живут в OF (parent Peptidos 86bcn2ew9, список General Tasks OF) и Tabakevich (список «Задачи Tabakevich», ветка ПРОЕКТИКИ / БОТ: Пептиды 86bb779rw). complete/main исключены. Пустой приоритет → normal. Снимок Секретаря через MCP get_task/search; не файл бота Пептид (peptides_tasks.json не трогаем).",
-  "fetched_at": "2026-11-13T18:49-05:00",
-  "src": "ClickUp search «пептид»/«peptidos»/«Peso Saludable» + subtasks 86bcn2ew9 и 86bb779rw; include_closed=false. Тег «🎯 фокус» уже есть в пространствах OF (90144306285) и Tabakevich (90144306286), где лежат эти задачи.",
-  "tasks": [
-    {
-      "id": "86bbay300",
-      "name": "ЖДУ ПРАЙС Украина ПЕПТИДЫ от Андрея (жду прайс и отписку)",
-      "status": "to do",
-      "priority": "normal",
-      "due": "2026-11-02",
-      "hang_since": "2026-10-14",
-      "assignees": ["Rost"],
-      "list": "Задачи Tabakevich",
-      "url": "https://rosmater.github.io/cu/?t=86bbay300",
-      "tags": [],
-      "freq": "única",
-      "parent": "БОТ: Пептиды - запуск продаж (Ричард)"
-    },
-    {
-      "id": "86bb779rw",
-      "name": "БОТ: Пептиды - запуск продаж (Ричард)",
-      "status": "for check",
-      "priority": "normal",
-      "due": "2026-11-05",
-      "hang_since": "2026-11-12",
-      "assignees": ["Rost"],
-      "list": "Задачи Tabakevich",
-      "url": "https://rosmater.github.io/cu/?t=86bb779rw",
-      "tags": [],
-      "freq": "única"
-    },
-    {
-      "id": "86bcnp3rg",
-      "name": "БОТ-ЧАСТЬ: Таргет пептиды - контроль и увеличение",
-      "status": "for check",
-      "priority": "normal",
-      "due": "2026-11-13",
-      "hang_since": "2026-11-12",
-      "assignees": ["Rost"],
-      "list": "Задачи Tabakevich",
-      "url": "https://rosmater.github.io/cu/?t=86bcnp3rg",
-      "tags": [],
-      "freq": "periódica"
-    },
-    {
-      "id": "86bcfert7",
-      "name": "Enviar historia y foto peptidos todos los dias 15 chats",
-      "status": "to do",
-      "priority": "normal",
-      "due": "2026-11-13",
-      "hang_since": "2026-11-12",
-      "assignees": ["Sara Pineda Chanci"],
-      "list": "General Tasks OF",
-      "url": "https://rosmater.github.io/cu/?t=86bcfert7",
-      "tags": [],
-      "freq": "periódica",
-      "parent": "Peptidos"
-    },
-    {
-      "id": "86bcp2pca",
-      "name": "responder chats de peptidos",
-      "status": "to do",
-      "priority": "urgent",
-      "due": "2026-11-13",
-      "hang_since": "2026-11-12",
-      "assignees": ["Sara Pineda Chanci"],
-      "list": "General Tasks OF",
-      "url": "https://rosmater.github.io/cu/?t=86bcp2pca",
-      "tags": [],
-      "freq": null
-    }
-  ]
+ "_doc": "t6287u: открытые рабочие задачи направления Пептиды (Peso Saludable) для доски вкладки Пептиды (Сегодня у меня / Приоритеты: тег «🎯 фокус» / Рутина), как of_open_tasks.json и personal_open_tasks.json. Отдельного ClickUp-пространства Пептиды нет: задачи живут в OF (parent Peptidos 86bcn2ew9, список General Tasks OF) и Tabakevich (список «Задачи Tabakevich», ветка ПРОЕКТИКИ / БОТ: Пептиды 86bb779rw). complete/main исключены. Пустой приоритет → normal. Снимок Секретаря через MCP get_task/search; не файл бота Пептид (peptides_tasks.json не трогаем).",
+ "fetched_at": "2026-11-13T18:49-05:00",
+ "src": "ClickUp search «пептид»/«peptidos»/«Peso Saludable» + subtasks 86bcn2ew9 и 86bb779rw; include_closed=false. Тег «🎯 фокус» уже есть в пространствах OF (90144306285) и Tabakevich (90144306286), где лежат эти задачи. freq/recurring: Frecuencia periódica (filter custom field f069396a-…, t6300u).",
+ "tasks": [
+  {
+   "id": "86bbay300",
+   "name": "ЖДУ ПРАЙС Украина ПЕПТИДЫ от Андрея (жду прайс и отписку)",
+   "status": "to do",
+   "priority": "normal",
+   "due": "2026-11-02",
+   "hang_since": "2026-10-14",
+   "assignees": [
+    "Rost"
+   ],
+   "list": "Задачи Tabakevich",
+   "url": "https://rosmater.github.io/cu/?t=86bbay300",
+   "tags": [],
+   "freq": "única",
+   "parent": "БОТ: Пептиды - запуск продаж (Ричард)"
+  },
+  {
+   "id": "86bb779rw",
+   "name": "БОТ: Пептиды - запуск продаж (Ричард)",
+   "status": "for check",
+   "priority": "normal",
+   "due": "2026-11-05",
+   "hang_since": "2026-11-12",
+   "assignees": [
+    "Rost"
+   ],
+   "list": "Задачи Tabakevich",
+   "url": "https://rosmater.github.io/cu/?t=86bb779rw",
+   "tags": [],
+   "freq": "única"
+  },
+  {
+   "id": "86bcnp3rg",
+   "name": "БОТ-ЧАСТЬ: Таргет пептиды - контроль и увеличение",
+   "status": "for check",
+   "priority": "normal",
+   "due": "2026-11-13",
+   "hang_since": "2026-11-12",
+   "assignees": [
+    "Rost"
+   ],
+   "list": "Задачи Tabakevich",
+   "url": "https://rosmater.github.io/cu/?t=86bcnp3rg",
+   "tags": [],
+   "freq": "periódica",
+   "recurring": true
+  },
+  {
+   "id": "86bcfert7",
+   "name": "Enviar historia y foto peptidos todos los dias 15 chats",
+   "status": "to do",
+   "priority": "normal",
+   "due": "2026-11-13",
+   "hang_since": "2026-11-12",
+   "assignees": [
+    "Sara Pineda Chanci"
+   ],
+   "list": "General Tasks OF",
+   "url": "https://rosmater.github.io/cu/?t=86bcfert7",
+   "tags": [],
+   "freq": "periódica",
+   "parent": "Peptidos",
+   "recurring": true
+  },
+  {
+   "id": "86bcp2pca",
+   "name": "responder chats de peptidos",
+   "status": "to do",
+   "priority": "urgent",
+   "due": "2026-11-13",
+   "hang_since": "2026-11-12",
+   "assignees": [
+    "Sara Pineda Chanci"
+   ],
+   "list": "General Tasks OF",
+   "url": "https://rosmater.github.io/cu/?t=86bcp2pca",
+   "tags": [],
+   "freq": null
+  }
+ ]
 }

@@ -6,7 +6,7 @@
 Скрипт: chats.csv.direction (по title+channel, иначе новая строка), src/ignored_chats.json (дедуп по id),
 затем build_test_ma.sh + build.sh + push в /workspace/dash-gh, файлы → sync/done/.
 Также: key 'cu|…'/channel ClickUp → src/cu_dir_overrides.json (build_data убирает из «на сортировку»); action cu_close / cu_ok / call_done / quick_cmd → sync/cu_actions_pending.json (quick_cmd ещё пишет /workspace/queues/dash-quick-cmds.json и PRIORITY-строку в /workspace/queue/QUEUE.md, затем будит Секретаря webhook'ом).
-Rost t6284u/t6285u: action cu_done (и старый cu_close с ключом cuclose|) → src/done_pending.json + cu_review + QUEUE PRIORITY + webhook Секретарю.
+Rost t6300u (overrides t6284u): action cu_done (и старый cu_close с ключом cuclose|) → сразу закрыть в ClickUp (API, если есть токен; иначе QUEUE AUTO-CLOSE без ревью + webhook). t6302u: action cu_done_stop — сначала снять повторение (Frecuencia → única), потом закрыть.
 Запуск: python3 src/sync_dash_taps.py [--no-push | --push-only]. Запускает вочер/утренняя мега, если в inbox есть файлы."""
 import json, csv, os, sys, glob, shutil, subprocess, datetime, re
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -96,23 +96,51 @@ def _wake_comms(reason, extra=None):
         print('wake ERR', type(e).__name__); return False
 
 DP_NEW=[]
-def enqueue_done_review(s):
-    """Rost t6284u/t6285u: ✓ решено на задаче CU → src/done_pending.json (единый источник правды, идемпотентно)
-    + cu_actions_pending (cu_review) + PRIORITY-строка в QUEUE.md Секретаря. Вердикт: src/done_pending.py verdict."""
+def enqueue_done_close(s, stop_recur=False):
+    """t6300u/t6302u: ✓ решено → сразу закрыть в ClickUp. done_pending.json — единый источник, идемпотентно.
+    Если есть API-токен — закрываем здесь (stop_recur: сначала Frecuencia=única). Иначе QUEUE AUTO-CLOSE без ревью + webhook Секретарю."""
     import done_pending as DP
+    import cu_close as CC
     i=str(s.get('cu') or '').strip() or cuid(s.get('url')) or ''
     if not i: return False
+    stop=bool(stop_recur or s.get('action')=='cu_done_stop' or s.get('stop_recur'))
     st=DP.load()
-    if not DP.add(st, i, s.get('title'), s.get('dir'), s.get('bot'), s.get('url'), s.get('at')):
-        print('done_review dedup', i); return False
+    added=DP.add(st, i, s.get('title'), s.get('dir'), s.get('bot'), s.get('url'), s.get('at'), due=s.get('due') or '', stop_recur=stop)
+    if not added and not (stop and st['items'].get(i,{}).get('state')=='pending'):
+        print('done_close dedup', i); return False
     DP.save(st)
-    if not any(a.get('id')==i and a.get('action')=='cu_review' for a in act['pending']):
-        act['pending'].append({'id':i,'action':'cu_review','kind':s.get('kind') or 'task','title':s.get('title'),'url':s.get('url'),'bot':s.get('bot'),'dir':s.get('dir'),'tapped_at':s.get('at')})
-    slug=f"dash-done-review-{i}"
-    line=(f"- [pending] PRIORITY {slug} — Rost нажал ✓ решено на даше: «{(s.get('title') or i)[:90]}» https://app.clickup.com/t/{i} . "
-          f"Проверь в ClickUp: закрыта → python3 /workspace/dash-gh/src/done_pending.py verdict {i} closed; сделано, но открыта → закрой (complete) и verdict closed; "
-          f"не сделано → verdict {i} returned --note \"что не так\". Потом src/build.sh + push. Без вердикта за 24 ч вернётся на даш «не проверена». Правило: docs/DECISIONS.md t6284u.\n")
+    action='cu_done_stop' if stop else 'cu_done_close'
+    if not any(a.get('id')==i and a.get('action')==action and not a.get('done_at') for a in act['pending']):
+        act['pending'].append({'id':i,'action':action,'kind':s.get('kind') or 'task','title':s.get('title'),'url':s.get('url'),'bot':s.get('bot'),'dir':s.get('dir'),'due':s.get('due'),'tapped_at':s.get('at'),'stop_recur':stop})
+    # Try headless API close first.
+    res=CC.close_task(i, stop_recur=stop, dry_run=False)
+    print('cu_close', i, res.reason, 'rolled' if res.rolled else '', 'stop' if stop else '')
+    if res.ok and res.reason!='no_token':
+        if res.rolled and not stop:
+            DP.verdict(st, i, 'rolled', res.reason)
+        else:
+            DP.verdict(st, i, 'closed', res.reason)
+        DP.save(st)
+        return True
+    if res.reason not in ('no_token',) and not res.ok:
+        # hard failure still queued so Секретарь может закрыть через MCP; маркер поставим, если и это не выйдет (TTL / verdict failed)
+        pass
+    slug=f"dash-done-{'stop' if stop else 'close'}-{i}"
+    title=(s.get('title') or i)[:90]
+    if stop:
+        line=(f"- [pending] PRIORITY {slug} — AUTO-CLOSE-STOP-RECUR, без ревью. Rost нажал «Решено и убрать повторение» на даше: «{title}» https://app.clickup.com/t/{i} . "
+              f"СНАЧАЛА сними повторение: clickup_update_task custom_fields Frecuencia id=f069396a-529e-48db-a9f3-928bd1ef1639 value=única 3ac220d0-b00f-42c5-b688-dc0c0efe59b6. "
+              f"Встроенный Recurring через API/MCP снять нельзя — если он есть, сними как получится. ПОТОМ закрой задачу (status complete / closed-статус списка). "
+              f"Проверь, что новой открытой итерации нет (тот же id с новым due или новый id с тем же названием). Если ClickUp всё равно откатил — закрой и эту копию (после única). "
+              f"Успех → python3 /workspace/dash-gh/src/done_pending.py verdict {i} closed; не вышло → verdict {i} failed --note «причина». Потом src/build.sh + push. "
+              f"Без подтверждения за 24 ч вернётся на даш «⏳ не закрылась». Правило: docs/DECISIONS.md t6300u/t6302u.\n")
+    else:
+        line=(f"- [pending] PRIORITY {slug} — AUTO-CLOSE, без ревью. Rost нажал ✓ решено на даше: «{title}» https://app.clickup.com/t/{i} . "
+              f"СРАЗУ закрой задачу в ClickUp (status = complete / closed-статус списка). Не проверяй, сделана ли она — просто закрой. Для повторяющихся закрытие может уйти в следующую итерацию — это нормально. "
+              f"Успех → python3 /workspace/dash-gh/src/done_pending.py verdict {i} closed; не вышло → verdict {i} failed --note «причина». Потом src/build.sh + push. "
+              f"Без подтверждения за 24 ч вернётся на даш «⏳ не закрылась». Правило: docs/DECISIONS.md t6300u.\n")
     prev=open(QC_MD,encoding='utf-8').read() if os.path.exists(QC_MD) else ''
+    # do not leave old review slugs for the same id
     if '[pending] PRIORITY '+slug+' ' not in prev:
         with open(QC_MD,'w',encoding='utf-8') as fh: fh.write(line+prev)
     DP_NEW.append(i)
@@ -211,7 +239,7 @@ if PUSH_ONLY:
     dirty=_git('status','--porcelain','--','src/done_pending.json','sync/cu_actions_pending.json').stdout.strip()
     ahead=_git('rev-list','-1','origin/main..HEAD').stdout.strip()
     if not dirty: print('push-only: clean'); sys.exit(0)
-    sys.exit(0 if push_with_retry('sync: ✓ решено → на проверке (ретрай пуша, t6285u)') else 1)
+    sys.exit(0 if push_with_retry('sync: ✓ решено → закрытие в ClickUp (ретрай пуша, t6300u)') else 1)
 ov=json.load(open(OVF)) if os.path.exists(OVF) else {'tasks':{}}
 act=json.load(open(ACT)) if os.path.exists(ACT) else {'note':'Действия с даша для ClickUp. Закрывает рутина COMMS/скрипт через ClickUp API (cu_close → status complete), затем переносит запись в done[].','pending':[],'done':[]}
 MOF=f'{R}/src/msg_sphere_overrides.json'; mo=json.load(open(MOF)) if os.path.exists(MOF) else {'chats':{}}
@@ -261,8 +289,8 @@ for f in files:
         if s.get('action')=='quick_cmd':  # Rost t6245u / t6254u: быстрая команда с вкладок Личное / Табакевич
             if enqueue_quick_cmd(s): na+=1
             continue
-        if s.get('action')=='cu_done' or (s.get('action')=='cu_close' and str(s.get('key') or '').startswith('cuclose|')):  # Rost t6284u: ✓ решено → на проверку (старые вкладки шлют cu_close/cuclose|)
-            if enqueue_done_review(s): na+=1
+        if s.get('action') in ('cu_done','cu_done_stop') or (s.get('action')=='cu_close' and str(s.get('key') or '').startswith('cuclose|')):  # t6300u/t6302u: ✓ решено → сразу закрыть (cu_done_stop ещё снимает повторение)
+            if enqueue_done_close(s, stop_recur=s.get('action')=='cu_done_stop'): na+=1
             continue
         if s.get('action')=='cu_close':
             i=str(s.get('cu') or '').strip() or cuid(s.get('url')) or (s.get('key') or '').split('|')[-1]
@@ -308,6 +336,6 @@ for _o,_p in ((ro,ROF),(mo,MOF),(ov,OVF),(act,ACT)):
 for f in files: shutil.move(f, f'{DONE}/{os.path.basename(f)}')
 print(f'spheres {ns}, ignores {ni}, cu_dir {nc}, cu_actions {na}, rows {nr}, bot_attn {nb}')
 if '--no-push' in sys.argv: sys.exit(0)
-if DP_NEW: _wake_comms('dash done_review '+','.join(DP_NEW), {'ids':DP_NEW})
+if DP_NEW: _wake_comms('dash done_close '+','.join(DP_NEW), {'ids':DP_NEW,'mode':'auto-close-no-review'})
 ok=push_with_retry(f'sync: тапы даша → contacts ({ns} сфер, {ni} игнор, {nc} CU-направл., {na} CU-действ., {nr} строк ✓/✕/CU/теги, {nb} нужен/отчёт)')
 sys.exit(0 if ok else 1)

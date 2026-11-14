@@ -1,1867 +1,1937 @@
 {
-  "_doc": "t6215u/t6216u: открытые рабочие задачи пространства OF для доски вкладки ОФ (не of_cu_tasks.json). Снимок Секретаря. complete/main/models/ДР исключены. t6286u: + 86bcgc3ze (перенесена из Personal под PARA EMPRESA 13.11 18:4x).",
-  "fetched_at": "2026-11-13T17:56:25-05:00",
-  "src": "ClickUp filter_tasks space 90144306285, include_closed=false, statuses to do/for check (2 pages); Frecuencia periódica отдельным filter; hang_since с прошлого снимка",
-  "tasks": [
-    {
-      "id": "86b6pbedx",
-      "name": "Start Mass Following — Ферма (план) - Seider",
-      "status": "to do",
-      "priority": "high",
-      "due": null,
-      "hang_since": "2026-11-12",
-      "assignees": [
-        "seider muñoz"
-      ],
-      "list": "Projects OF",
-      "url": "https://rosmater.github.io/cu/?t=86b6pbedx",
-      "tags": [
-        "🎯 фокус"
-      ],
-      "freq": null
-    },
-    {
-      "id": "86bd2v24a",
-      "name": "Автоматизация iPhone — разобраться с Xcode и ботом",
-      "status": "to do",
-      "priority": "high",
-      "due": "2026-11-16",
-      "hang_since": "2026-11-12",
-      "assignees": [
-        "seider muñoz"
-      ],
-      "list": "General Tasks OF",
-      "url": "https://rosmater.github.io/cu/?t=86bd2v24a",
-      "tags": [
-        "🎯 фокус"
-      ],
-      "freq": null
-    },
-    {
-      "id": "86bbkrfmj",
-      "name": "Responder a mensajes Clips4Sale / Manyvids",
-      "status": "to do",
-      "priority": "normal",
-      "due": "2026-11-13",
-      "hang_since": "2026-11-12",
-      "assignees": [
-        "Michelle Hernández"
-      ],
-      "list": "Models",
-      "url": "https://rosmater.github.io/cu/?t=86bbkrfmj",
-      "tags": [],
-      "freq": "periódica"
-    },
-    {
-      "id": "86b9abep9",
-      "name": "С ИРИНОЙ: Проверка статистики / сумм выплат / где плохо? по моделям",
-      "status": "for check",
-      "priority": "normal",
-      "due": "2026-11-12",
-      "hang_since": "2026-11-12",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "General Tasks OF",
-      "url": "https://rosmater.github.io/cu/?t=86b9abep9",
-      "tags": [],
-      "freq": "periódica"
-    },
-    {
-      "id": "86b8c9bhm",
-      "name": "💳 Pago a Katherine RA 207/212 - la cantidad exacta en la tabla (adjuntar captura de pantalla a comentarios)",
-      "status": "to do",
-      "priority": "normal",
-      "due": "2026-11-18",
-      "hang_since": "2026-11-12",
-      "assignees": [
-        "Sara Pineda Chanci"
-      ],
-      "list": "Models",
-      "url": "https://rosmater.github.io/cu/?t=86b8c9bhm",
-      "tags": [],
-      "freq": "periódica"
-    },
-    {
-      "id": "86b7gzmce",
-      "name": "Instagram (publicaciones cada dia laboral) + publicar solo si estado de perfil es bien",
-      "status": "to do",
-      "priority": "urgent",
-      "due": "2026-11-16",
-      "hang_since": "2026-11-12",
-      "assignees": [
-        "Michelle Hernández"
-      ],
-      "list": "Models",
-      "url": "https://rosmater.github.io/cu/?t=86b7gzmce",
-      "tags": [],
-      "freq": "periódica"
-    },
-    {
-      "id": "86b9u21mf",
-      "name": "Enviar videos a fans que ya no se han suscrito (cada semana)",
-      "status": "to do",
-      "priority": "low",
-      "due": "2026-11-18",
-      "hang_since": "2026-11-12",
-      "assignees": [
-        "Michelle Hernández"
-      ],
-      "list": "Models",
-      "url": "https://rosmater.github.io/cu/?t=86b9u21mf",
-      "tags": [],
-      "freq": "periódica"
-    },
-    {
-      "id": "86bcfert7",
-      "name": "Enviar historia y foto peptidos todos los dias 15 chats",
-      "status": "to do",
-      "priority": "normal",
-      "due": "2026-11-13",
-      "hang_since": "2026-11-12",
-      "assignees": [
-        "Sara Pineda Chanci"
-      ],
-      "list": "General Tasks OF",
-      "url": "https://rosmater.github.io/cu/?t=86bcfert7",
-      "tags": [],
-      "freq": "periódica"
-    },
-    {
-      "id": "86bcp2pca",
-      "name": "responder chats de peptidos",
-      "status": "to do",
-      "priority": "urgent",
-      "due": "2026-11-13",
-      "hang_since": "2026-11-12",
-      "assignees": [
-        "Sara Pineda Chanci"
-      ],
-      "list": "General Tasks OF",
-      "url": "https://rosmater.github.io/cu/?t=86bcp2pca",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86bcn2d1t",
-      "name": "Control de estado de cuentas + mandar apelaciones + eliminar publicaciones problematicas + mas mandar capturas de pantalla",
-      "status": "to do",
-      "priority": "urgent",
-      "due": "2026-11-16",
-      "hang_since": "2026-11-12",
-      "assignees": [
-        "Michelle Hernández"
-      ],
-      "list": "Models",
-      "url": "https://rosmater.github.io/cu/?t=86bcn2d1t",
-      "tags": [],
-      "freq": "periódica"
-    },
-    {
-      "id": "86bbjyrf5",
-      "name": "БОТ: МИШЕЛЬ: Bulk Messaging проверить статистику и ответы фанам в сообщениях (потом передать сбор статистики Фетишь)",
-      "status": "for check",
-      "priority": "normal",
-      "due": "2026-11-13",
-      "hang_since": "2026-11-12",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Models",
-      "url": "https://rosmater.github.io/cu/?t=86bbjyrf5",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b9uqgqq",
-      "name": "БОТ: Andrea Cali - как дела по запуску ОФТВ? (напомнить за запуск)",
-      "status": "to do",
-      "priority": "normal",
-      "due": "2026-11-16",
-      "hang_since": "2026-11-12",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Models",
-      "url": "https://rosmater.github.io/cu/?t=86b9uqgqq",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86bcn2ek8",
-      "name": "БОТ: контроль Мишель по проверке состояния профилей LolaPop",
-      "status": "to do",
-      "priority": "normal",
-      "due": "2026-11-13",
-      "hang_since": "2026-11-12",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Models",
-      "url": "https://rosmater.github.io/cu/?t=86bcn2ek8",
-      "tags": [],
-      "freq": "periódica"
-    },
-    {
-      "id": "86bcnuxbj",
-      "name": "БОТ-ЧАСТЬ: 💳 Оплата чаттерам Никиты (счёт в TG 5–13 числа) Яна получить отчеты",
-      "status": "for check",
-      "priority": "normal",
-      "due": "2026-11-13",
-      "hang_since": "2026-11-12",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "General Tasks OF",
-      "url": "https://rosmater.github.io/cu/?t=86bcnuxbj",
-      "tags": [],
-      "freq": "periódica"
-    },
-    {
-      "id": "86b7pzvxx",
-      "name": "Comprobar si la cámara está conectada a la toma de corriente (la mañana)",
-      "status": "to do",
-      "priority": "high",
-      "due": "2026-11-16",
-      "hang_since": "2026-11-12",
-      "assignees": [
-        "Sara Pineda Chanci"
-      ],
-      "list": "General Tasks OF",
-      "url": "https://rosmater.github.io/cu/?t=86b7pzvxx",
-      "tags": [],
-      "freq": "periódica"
-    },
-    {
-      "id": "86bae6v4h",
-      "name": "БОТ: САРА: отвечать на комментарии - как успехи Сара?",
-      "status": "for check",
-      "priority": "normal",
-      "due": "2026-11-12",
-      "hang_since": "2026-11-12",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Models",
-      "url": "https://rosmater.github.io/cu/?t=86bae6v4h",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86bbfudj2",
-      "name": "Instagram - responder a comentarios",
-      "status": "to do",
-      "priority": "normal",
-      "due": "2026-11-11",
-      "hang_since": "2026-11-12",
-      "assignees": [
-        "Sara Pineda Chanci"
-      ],
-      "list": "Models",
-      "url": "https://rosmater.github.io/cu/?t=86bbfudj2",
-      "tags": [],
-      "freq": "periódica"
-    },
-    {
-      "id": "86b6qp6rn",
-      "name": "💳 Pagar contrato desde Nequi 3162754776 (44900) (celular de Ros)",
-      "status": "to do",
-      "priority": "high",
-      "due": "2026-11-12",
-      "hang_since": "2026-11-11",
-      "assignees": [
-        "Sara Pineda Chanci"
-      ],
-      "list": "General Tasks OF",
-      "url": "https://rosmater.github.io/cu/?t=86b6qp6rn",
-      "tags": [],
-      "freq": "periódica"
-    },
-    {
-      "id": "86b7ax3rk",
-      "name": "💳  PAGO DATOS CELULAR OFICINA",
-      "status": "to do",
-      "priority": "normal",
-      "due": "2026-11-12",
-      "hang_since": "2026-11-11",
-      "assignees": [
-        "Sara Pineda Chanci"
-      ],
-      "list": "General Tasks OF",
-      "url": "https://rosmater.github.io/cu/?t=86b7ax3rk",
-      "tags": [],
-      "freq": "periódica"
-    },
-    {
-      "id": "86b7m6301",
-      "name": "Заплатить Саре и Мишель, Карла, аванс 1милл - когда платим стажерке? аванс на дорогу?",
-      "status": "to do",
-      "priority": "normal",
-      "due": "2026-11-24",
-      "hang_since": "2026-11-11",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "General Tasks OF",
-      "url": "https://rosmater.github.io/cu/?t=86b7m6301",
-      "tags": [],
-      "freq": "periódica"
-    },
-    {
-      "id": "86bd1h6x1",
-      "name": "Sara, 18 años (@jsmb0): contactar, conocerse y grabar contenido de la 1ª etapa",
-      "status": "to do",
-      "priority": "normal",
-      "due": "2026-11-12",
-      "hang_since": "2026-11-10",
-      "assignees": [
-        "Sara Pineda Chanci"
-      ],
-      "list": "Models",
-      "url": "https://rosmater.github.io/cu/?t=86bd1h6x1",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b7y8n8m",
-      "name": "БОТ-ЧАСТЬ: Расчет с Аудри 30 процентов (скрины, подсчеты)",
-      "status": "to do",
-      "priority": "normal",
-      "due": "2026-11-01",
-      "hang_since": "2026-11-10",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Models",
-      "url": "https://rosmater.github.io/cu/?t=86b7y8n8m",
-      "tags": [],
-      "freq": "periódica"
-    },
-    {
-      "id": "86b84etw8",
-      "name": "ЗАРПЛАТА сотрудницам/моделям подсчет и выплатить",
-      "status": "to do",
-      "priority": "normal",
-      "due": "2026-11-10",
-      "hang_since": "2026-11-10",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "General Tasks OF",
-      "url": "https://rosmater.github.io/cu/?t=86b84etw8",
-      "tags": [],
-      "freq": "periódica"
-    },
-    {
-      "id": "86b7k7d3w",
-      "name": "Regar flores /// Water the flowers.",
-      "status": "to do",
-      "priority": "normal",
-      "due": "2026-11-17",
-      "hang_since": "2026-11-10",
-      "assignees": [
-        "Michelle Hernández"
-      ],
-      "list": "General Tasks OF",
-      "url": "https://rosmater.github.io/cu/?t=86b7k7d3w",
-      "tags": [],
-      "freq": "periódica"
-    },
-    {
-      "id": "86bc1vj3u",
-      "name": "Publicar en Eporner",
-      "status": "to do",
-      "priority": "normal",
-      "due": "2026-11-13",
-      "hang_since": "2026-11-10",
-      "assignees": [
-        "Michelle Hernández"
-      ],
-      "list": "Models",
-      "url": "https://rosmater.github.io/cu/?t=86bc1vj3u",
-      "tags": [],
-      "freq": "periódica"
-    },
-    {
-      "id": "86bakztpd",
-      "name": "DMCA - RA207",
-      "status": "to do",
-      "priority": "normal",
-      "due": "2026-11-17",
-      "hang_since": "2026-11-10",
-      "assignees": [
-        "Michelle Hernández"
-      ],
-      "list": "Models",
-      "url": "https://rosmater.github.io/cu/?t=86bakztpd",
-      "tags": [],
-      "freq": "periódica"
-    },
-    {
-      "id": "86b7t9h6p",
-      "name": "DMCA busqueda de contenido de LolaPop",
-      "status": "to do",
-      "priority": "normal",
-      "due": "2026-11-17",
-      "hang_since": "2026-11-10",
-      "assignees": [
-        "Michelle Hernández"
-      ],
-      "list": "Models",
-      "url": "https://rosmater.github.io/cu/?t=86b7t9h6p",
-      "tags": [],
-      "freq": "periódica"
-    },
-    {
-      "id": "86bcderhz",
-      "name": "💳 Pago a Valentina trans - la cantidad exacta en la tabla (adjuntar captura de pantalla a comentarios)",
-      "status": "to do",
-      "priority": "normal",
-      "due": "2026-11-16",
-      "hang_since": "2026-11-10",
-      "assignees": [
-        "Sara Pineda Chanci"
-      ],
-      "list": "Models",
-      "url": "https://rosmater.github.io/cu/?t=86bcderhz",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b9axevh",
-      "name": "(тестим сбор) БОТ ЧАСТЬ: (ФБ рекомендации) 📊 Проверка статистики ЛолаПоп и принятие решений ",
-      "status": "for check",
-      "priority": "normal",
-      "due": "2026-11-16",
-      "hang_since": "2026-11-10",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "General Tasks OF",
-      "url": "https://rosmater.github.io/cu/?t=86b9axevh",
-      "tags": [],
-      "freq": "periódica"
-    },
-    {
-      "id": "86b7h12h7",
-      "name": "💳 Pago a Tatiana RA 210/214 - la cantidad exacta en la tabla (adjuntar captura de pantalla a comentarios)",
-      "status": "to do",
-      "priority": "normal",
-      "due": "2026-11-15",
-      "hang_since": "2026-11-09",
-      "assignees": [
-        "Sara Pineda Chanci"
-      ],
-      "list": "Models",
-      "url": "https://rosmater.github.io/cu/?t=86b7h12h7",
-      "tags": [],
-      "freq": "periódica"
-    },
-    {
-      "id": "86bc5gtpd",
-      "name": "💳 Pago a Gabriela - la cantidad exacta en la tabla (adjuntar captura de pantalla a comentarios)",
-      "status": "to do",
-      "priority": "normal",
-      "due": "2026-11-16",
-      "hang_since": "2026-11-09",
-      "assignees": [
-        "Sara Pineda Chanci"
-      ],
-      "list": "Models",
-      "url": "https://rosmater.github.io/cu/?t=86bc5gtpd",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b913wz2",
-      "name": "💳 Pago a Laura - la cantidad exacta en la tabla (adjuntar captura de pantalla a comentarios)",
-      "status": "to do",
-      "priority": "normal",
-      "due": "2026-11-15",
-      "hang_since": "2026-11-09",
-      "assignees": [
-        "Sara Pineda Chanci"
-      ],
-      "list": "Models",
-      "url": "https://rosmater.github.io/cu/?t=86b913wz2",
-      "tags": [],
-      "freq": "periódica"
-    },
-    {
-      "id": "86ba5ywen",
-      "name": "💳 Pago a Juliana Agudelo RA 217 - la cantidad exacta en la tabla (adjuntar captura de pantalla a comentarios)",
-      "status": "to do",
-      "priority": "normal",
-      "due": "2026-11-15",
-      "hang_since": "2026-11-09",
-      "assignees": [
-        "Sara Pineda Chanci"
-      ],
-      "list": "Models",
-      "url": "https://rosmater.github.io/cu/?t=86ba5ywen",
-      "tags": [],
-      "freq": "periódica"
-    },
-    {
-      "id": "86baf7h1k",
-      "name": "💳 Pago a Scarlet - la cantidad exacta en la tabla (adjuntar captura de pantalla a comentarios)",
-      "status": "to do",
-      "priority": "normal",
-      "due": "2026-11-15",
-      "hang_since": "2026-11-09",
-      "assignees": [
-        "Sara Pineda Chanci"
-      ],
-      "list": "Models",
-      "url": "https://rosmater.github.io/cu/?t=86baf7h1k",
-      "tags": [],
-      "freq": "periódica"
-    },
-    {
-      "id": "86bd0y6y8",
-      "name": "Продление RNT — Isla del Contenido (Колумбия)",
-      "status": "to do",
-      "priority": "normal",
-      "due": "2027-01-20",
-      "hang_since": "2026-11-09",
-      "assignees": [],
-      "list": "General Tasks OF",
-      "url": "https://rosmater.github.io/cu/?t=86bd0y6y8",
-      "tags": [],
-      "freq": "periódica"
-    },
-    {
-      "id": "86bd0y140",
-      "name": "Проверить: пришли ли Саре деньги на OKX + пришли ли $10 на кошелёк",
-      "status": "to do",
-      "priority": "normal",
-      "due": "2026-11-12",
-      "hang_since": "2026-11-09",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "General Tasks OF",
-      "url": "https://rosmater.github.io/cu/?t=86bd0y140",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b9cp9ry",
-      "name": "Control proyecto OF.TV (cada lunes reporte sobre todos) COLUMNAS D E G H I",
-      "status": "to do",
-      "priority": "normal",
-      "due": "2026-11-16",
-      "hang_since": "2026-11-09",
-      "assignees": [
-        "Michelle Hernández"
-      ],
-      "list": "General Tasks OF",
-      "url": "https://rosmater.github.io/cu/?t=86b9cp9ry",
-      "tags": [],
-      "freq": "periódica"
-    },
-    {
-      "id": "86b7heru3",
-      "name": "(solo poner estado de cuenta) 📊 Estadística semanal de las redes sociales en la tabla",
-      "status": "to do",
-      "priority": "urgent",
-      "due": "2026-11-16",
-      "hang_since": "2026-11-09",
-      "assignees": [
-        "Michelle Hernández"
-      ],
-      "list": "General Tasks OF",
-      "url": "https://rosmater.github.io/cu/?t=86b7heru3",
-      "tags": [],
-      "freq": "periódica"
-    },
-    {
-      "id": "86b9qwu10",
-      "name": "💳 Pago a Juliana manco - la cantidad exacta en la tabla (adjuntar captura de pantalla a comentarios)",
-      "status": "to do",
-      "priority": "normal",
-      "due": "2026-11-15",
-      "hang_since": "2026-11-09",
-      "assignees": [
-        "Sara Pineda Chanci"
-      ],
-      "list": "Models",
-      "url": "https://rosmater.github.io/cu/?t=86b9qwu10",
-      "tags": [],
-      "freq": "periódica"
-    },
-    {
-      "id": "86b8rn9wf",
-      "name": "С ИРИНОЙ: Подсчеты ОФ (внести данные) + выплатить комиссию за новых моделей",
-      "status": "to do",
-      "priority": "normal",
-      "due": "2026-11-10",
-      "hang_since": "2026-11-09",
-      "assignees": [
-        "Rost",
-        "Ірина Шекель"
-      ],
-      "list": "General Tasks OF",
-      "url": "https://rosmater.github.io/cu/?t=86b8rn9wf",
-      "tags": [],
-      "freq": "periódica"
-    },
-    {
-      "id": "86b6z79t1",
-      "name": "БОТ-ЧАСТЬ: Контроль OF.TV - отчет / запуски / ПЛАН СВЕРКА ЛЕШЕ + отчет ферма",
-      "status": "for check",
-      "priority": "urgent",
-      "due": "2026-11-09",
-      "hang_since": "2026-11-09",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "General Tasks OF",
-      "url": "https://rosmater.github.io/cu/?t=86b6z79t1",
-      "tags": [],
-      "freq": "periódica"
-    },
-    {
-      "id": "86bcr1f96",
-      "name": "Hacer primera etapa en oficina",
-      "status": "to do",
-      "priority": "normal",
-      "due": "2026-11-12",
-      "hang_since": "2026-11-09",
-      "assignees": [
-        "Sara Pineda Chanci"
-      ],
-      "list": "Models",
-      "url": "https://rosmater.github.io/cu/?t=86bcr1f96",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86bcm8ybt",
-      "name": "БОТ: Контроль офиса ОФ",
-      "status": "for check",
-      "priority": "normal",
-      "due": "2026-11-08",
-      "hang_since": "2026-11-08",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "General Tasks OF",
-      "url": "https://rosmater.github.io/cu/?t=86bcm8ybt",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86bc1tdu5",
-      "name": "БОТ: IP Royal - пополнить баланс/проверка",
-      "status": "to do",
-      "priority": "urgent",
-      "due": "2026-11-09",
-      "hang_since": "2026-11-08",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "General Tasks OF",
-      "url": "https://rosmater.github.io/cu/?t=86bc1tdu5",
-      "tags": [],
-      "freq": "periódica"
-    },
-    {
-      "id": "86b9dw8uu",
-      "name": "Яна - 🛑🛑🛑 вывести Паксум ТС (жду саппорт куда отправить)",
-      "status": "to do",
-      "priority": "normal",
-      "due": "2026-11-09",
-      "hang_since": "2026-11-08",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "General Tasks OF",
-      "url": "https://rosmater.github.io/cu/?t=86b9dw8uu",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b9wh8cd",
-      "name": "БОТ: RA180 / RA185 - курировать процесс (скрины/новая платежка)",
-      "status": "to do",
-      "priority": "normal",
-      "due": "2026-11-15",
-      "hang_since": "2026-11-08",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Models",
-      "url": "https://rosmater.github.io/cu/?t=86b9wh8cd",
-      "tags": [],
-      "freq": "periódica"
-    },
-    {
-      "id": "86bbzxf5n",
-      "name": "Control 05services weekly stats (активные / vs 5 недель / баланс 1220)",
-      "status": "to do",
-      "priority": "normal",
-      "due": "2026-11-15",
-      "hang_since": "2026-11-08",
-      "assignees": [],
-      "list": "General Tasks OF",
-      "url": "https://rosmater.github.io/cu/?t=86bbzxf5n",
-      "tags": [],
-      "freq": "periódica"
-    },
-    {
-      "id": "86ba7an25",
-      "name": "БОТ: Проверка трекера рабочего времени девочек OF",
-      "status": "for check",
-      "priority": "normal",
-      "due": "2026-11-08",
-      "hang_since": "2026-11-08",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "General Tasks OF",
-      "url": "https://rosmater.github.io/cu/?t=86ba7an25",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86bbzxuxj",
-      "name": "Control 05services monthly доход → Шекель TG (2-е число)",
-      "status": "for check",
-      "priority": "normal",
-      "due": "2026-12-02",
-      "hang_since": "2026-11-08",
-      "assignees": [],
-      "list": "General Tasks OF",
-      "url": "https://rosmater.github.io/cu/?t=86bbzxuxj",
-      "tags": [],
-      "freq": "periódica"
-    },
-    {
-      "id": "86bamxnh9",
-      "name": "БОТ: Статистика миле проверять + новые города Кали / Чоко и т д",
-      "status": "for check",
-      "priority": "normal",
-      "due": "2026-11-15",
-      "hang_since": "2026-11-08",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "General Tasks OF",
-      "url": "https://rosmater.github.io/cu/?t=86bamxnh9",
-      "tags": [],
-      "freq": "periódica"
-    },
-    {
-      "id": "86bcr1a1r",
-      "name": "БОТ-ЧАСТЬ: Ежемесячный замер подписчиков Referencias (кто растёт)",
-      "status": "to do",
-      "priority": "normal",
-      "due": "2026-11-06",
-      "hang_since": "2026-11-07",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "General Tasks OF",
-      "url": "https://rosmater.github.io/cu/?t=86bcr1a1r",
-      "tags": [
-        "bot"
-      ],
-      "freq": "periódica"
-    },
-    {
-      "id": "86b9ycbby",
-      "name": "БОТ: ПОДКЛЮЧИТЬСЯ К КОМПУ - СЕЙДЕР (как дела?) Запуск 1 телефона с 25 аккаунтами",
-      "status": "for check",
-      "priority": "normal",
-      "due": "2026-11-06",
-      "hang_since": "2026-11-06",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Projects OF",
-      "url": "https://rosmater.github.io/cu/?t=86b9ycbby",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b7ypu0b",
-      "name": "Comprobar si la cámara está conectada a la toma de corriente (la noche)",
-      "status": "to do",
-      "priority": "normal",
-      "due": "2026-11-20",
-      "hang_since": "2026-11-06",
-      "assignees": [
-        "Sara Pineda Chanci"
-      ],
-      "list": "General Tasks OF",
-      "url": "https://rosmater.github.io/cu/?t=86b7ypu0b",
-      "tags": [],
-      "freq": "periódica"
-    },
-    {
-      "id": "86baefzxw",
-      "name": "Escribir a nuestro recomendadores potenciales anadir nuevos en la lista",
-      "status": "to do",
-      "priority": "normal",
-      "due": "2026-11-11",
-      "hang_since": "2026-11-05",
-      "assignees": [
-        "Sara Pineda Chanci"
-      ],
-      "list": "General Tasks OF",
-      "url": "https://rosmater.github.io/cu/?t=86baefzxw",
-      "tags": [],
-      "freq": "periódica"
-    },
-    {
-      "id": "86bcy2451",
-      "name": "БОТ: OF источники трафика — отчёт 04.11",
-      "status": "to do",
-      "priority": "normal",
-      "due": "2026-11-06",
-      "hang_since": "2026-11-05",
-      "assignees": [],
-      "list": "General Tasks OF",
-      "url": "https://rosmater.github.io/cu/?t=86bcy2451",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b9crta7",
-      "name": "БОТ: Агудело-Аврора сделать секстинг паки + запустить траф",
-      "status": "to do",
-      "priority": "normal",
-      "due": "2026-11-06",
-      "hang_since": "2026-11-05",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Models",
-      "url": "https://rosmater.github.io/cu/?t=86b9crta7",
-      "tags": [],
-      "freq": "periódica"
-    },
-    {
-      "id": "86bbcefk3",
-      "name": "(сбор данных) ОФТВ расчет с партнерами",
-      "status": "to do",
-      "priority": "normal",
-      "due": "2026-12-01",
-      "hang_since": "2026-11-05",
-      "assignees": [
-        "Rost",
-        "Ірина Шекель"
-      ],
-      "list": "General Tasks OF",
-      "url": "https://rosmater.github.io/cu/?t=86bbcefk3",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86bb3qh0k",
-      "name": "БОТ: Мишель: OFTV Наладить постинг - все под контролем?",
-      "status": "to do",
-      "priority": "normal",
-      "due": "2027-01-04",
-      "hang_since": "2026-11-05",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "General Tasks OF",
-      "url": "https://rosmater.github.io/cu/?t=86bb3qh0k",
-      "tags": [],
-      "freq": "periódica"
-    },
-    {
-      "id": "86bb3qgvy",
-      "name": "Кому делаем? Переделать паки контента у всех моделей (завершить ТЗ - жду Леша/Никита)",
-      "status": "to do",
-      "priority": "normal",
-      "due": "2026-11-09",
-      "hang_since": "2026-11-05",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "General Tasks OF",
-      "url": "https://rosmater.github.io/cu/?t=86bb3qgvy",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b8de8ru",
-      "name": "Заявки RA чат проверить (флеймс)",
-      "status": "to do",
-      "priority": "normal",
-      "due": "2026-10-19",
-      "hang_since": "2026-11-05",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "General Tasks OF",
-      "url": "https://rosmater.github.io/cu/?t=86b8de8ru",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86bbzx9x4",
-      "name": "БОТ: Срочно контент снять OFTV Sofia Lunara - Laura (жду реакцию в чате Маркиза)",
-      "status": "to do",
-      "priority": "normal",
-      "due": "2026-11-05",
-      "hang_since": "2026-11-04",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Models",
-      "url": "https://rosmater.github.io/cu/?t=86bbzx9x4",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86ba80e10",
-      "name": "ORGANIZAR GRABACIONES DEL MES",
-      "status": "to do",
-      "priority": "high",
-      "due": "2026-11-30",
-      "hang_since": "2026-11-04",
-      "assignees": [
-        "Sara Pineda Chanci"
-      ],
-      "list": "General Tasks OF",
-      "url": "https://rosmater.github.io/cu/?t=86ba80e10",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86ba4ky8z",
-      "name": "Iniciar proyecto OFTV en Cali con Andrea + registrar pagos247",
-      "status": "to do",
-      "priority": "normal",
-      "due": "2026-11-04",
-      "hang_since": "2026-11-04",
-      "assignees": [
-        "Michelle Hernández"
-      ],
-      "list": "Models",
-      "url": "https://rosmater.github.io/cu/?t=86ba4ky8z",
-      "tags": [],
-      "freq": "periódica"
-    },
-    {
-      "id": "86bahn67h",
-      "name": "Enviar propina 1$ a todas nuevas paginas creadas",
-      "status": "to do",
-      "priority": "normal",
-      "due": "2026-11-18",
-      "hang_since": "2026-11-04",
-      "assignees": [
-        "Michelle Hernández"
-      ],
-      "list": "General Tasks OF",
-      "url": "https://rosmater.github.io/cu/?t=86bahn67h",
-      "tags": [],
-      "freq": "periódica"
-    },
-    {
-      "id": "86b7k75ap",
-      "name": "Проверка авансовых Сары+ карта okx",
-      "status": "to do",
-      "priority": "normal",
-      "due": "2026-11-10",
-      "hang_since": "2026-11-04",
-      "assignees": [
-        "Ірина Шекель"
-      ],
-      "list": "General Tasks OF",
-      "url": "https://rosmater.github.io/cu/?t=86b7k75ap",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86bcy49kz",
-      "name": "Разобрать заявку и отправить на 1 этап если норм",
-      "status": "to do",
-      "priority": "normal",
-      "due": "2026-11-04",
-      "hang_since": "2026-11-04",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Models",
-      "url": "https://rosmater.github.io/cu/?t=86bcy49kz",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86bcxumtu",
-      "name": "Control: Новембер-Шейх — сколько готовы платить за удаление контента с интернета / мес",
-      "status": "to do",
-      "priority": "normal",
-      "due": "2026-11-03",
-      "hang_since": "2026-11-03",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "General Tasks OF",
-      "url": "https://rosmater.github.io/cu/?t=86bcxumtu",
-      "tags": [
-        "bot"
-      ],
-      "freq": null
-    },
-    {
-      "id": "86bcxunr8",
-      "name": "REMIND: LolaPop — как работаем, если передадим страницы",
-      "status": "to do",
-      "priority": "normal",
-      "due": "2026-11-04",
-      "hang_since": "2026-11-03",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "General Tasks OF",
-      "url": "https://rosmater.github.io/cu/?t=86bcxunr8",
-      "tags": [
-        "bot"
-      ],
-      "freq": null
-    },
-    {
-      "id": "86b8tx434",
-      "name": "Editar Highlight OF LolaPop",
-      "status": "to do",
-      "priority": "low",
-      "due": "2026-12-01",
-      "hang_since": "2026-11-03",
-      "assignees": [
-        "Michelle Hernández"
-      ],
-      "list": "Models",
-      "url": "https://rosmater.github.io/cu/?t=86b8tx434",
-      "tags": [],
-      "freq": "periódica"
-    },
-    {
-      "id": "86b9dzj56",
-      "name": "Contactar Calipto (preguntar sobre apartamentos en Base Loft)",
-      "status": "to do",
-      "priority": "normal",
-      "due": "2026-11-15",
-      "hang_since": "2026-11-03",
-      "assignees": [
-        "Sara Pineda Chanci"
-      ],
-      "list": "General Tasks OF",
-      "url": "https://rosmater.github.io/cu/?t=86b9dzj56",
-      "tags": [],
-      "freq": "periódica"
-    },
-    {
-      "id": "86bcje0a9",
-      "name": "[Camila ходила 21.10 — ждём новости] Flames m02 — Camila, 24",
-      "status": "to do",
-      "priority": "normal",
-      "due": null,
-      "hang_since": "2026-10-14",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "General Tasks OF",
-      "url": "https://rosmater.github.io/cu/?t=86bcje0a9",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86bbkrf8v",
-      "name": "Enviar mensajes a todos en Clips4Sale",
-      "status": "to do",
-      "priority": "normal",
-      "due": "2026-12-07",
-      "hang_since": "2026-10-27",
-      "assignees": [
-        "Michelle Hernández"
-      ],
-      "list": "Models",
-      "url": "https://rosmater.github.io/cu/?t=86bbkrf8v",
-      "tags": [],
-      "freq": "periódica"
-    },
-    {
-      "id": "86bbfu0cu",
-      "name": "Nuevos plataformas - empezar publicar",
-      "status": "to do",
-      "priority": "normal",
-      "due": "2026-11-16",
-      "hang_since": "2026-10-26",
-      "assignees": [
-        "Michelle Hernández"
-      ],
-      "list": "Models",
-      "url": "https://rosmater.github.io/cu/?t=86bbfu0cu",
-      "tags": [],
-      "freq": "periódica"
-    },
-    {
-      "id": "86b8q7t28",
-      "name": "Publicaciones OF LolaPop - 1 por semana",
-      "status": "to do",
-      "priority": "urgent",
-      "due": "2026-11-30",
-      "hang_since": "2026-10-26",
-      "assignees": [
-        "Michelle Hernández"
-      ],
-      "list": "Models",
-      "url": "https://rosmater.github.io/cu/?t=86b8q7t28",
-      "tags": [],
-      "freq": "periódica"
-    },
-    {
-      "id": "86bb774ca",
-      "name": "Verificar si hay fotos etiquetadas Audri (cada 2 semanas)",
-      "status": "to do",
-      "priority": "normal",
-      "due": "2026-11-16",
-      "hang_since": "2026-10-26",
-      "assignees": [
-        "Michelle Hernández"
-      ],
-      "list": "Models",
-      "url": "https://rosmater.github.io/cu/?t=86bb774ca",
-      "tags": [],
-      "freq": "periódica"
-    },
-    {
-      "id": "86bcrcgrj",
-      "name": "[ждем от Flames ответ по 2 этапу] Flames m19 — Valeria, 21",
-      "status": "to do",
-      "priority": "normal",
-      "due": null,
-      "hang_since": "2026-10-26",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "General Tasks OF",
-      "url": "https://rosmater.github.io/cu/?t=86bcrcgrj",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86bcrc6qz",
-      "name": "Разобрать заявку и отправить на 1 этап если норм",
-      "status": "to do",
-      "priority": "normal",
-      "due": "2026-10-26",
-      "hang_since": "2026-10-26",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Models",
-      "url": "https://rosmater.github.io/cu/?t=86bcrc6qz",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b7m53ew",
-      "name": "MA продлить 1 проксю до 22 числа и прислать скрин Элли",
-      "status": "to do",
-      "priority": "high",
-      "due": "2026-11-15",
-      "hang_since": "2026-10-25",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "General Tasks OF",
-      "url": "https://rosmater.github.io/cu/?t=86b7m53ew",
-      "tags": [],
-      "freq": "periódica"
-    },
-    {
-      "id": "86b92hyc3",
-      "name": "Проверка баланса ОКХ рабочей карты ОФ (отправить Саре деньги)",
-      "status": "to do",
-      "priority": "normal",
-      "due": "2026-10-26",
-      "hang_since": "2026-10-25",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "General Tasks OF",
-      "url": "https://rosmater.github.io/cu/?t=86b92hyc3",
-      "tags": [],
-      "freq": "periódica"
-    },
-    {
-      "id": "86bc8zzeu",
-      "name": "(диалог с Аудри) Переформат ЛолаПоп - Мишель оформить каталог страницу - как успехи?",
-      "status": "to do",
-      "priority": "normal",
-      "due": "2026-10-26",
-      "hang_since": "2026-10-25",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "General Tasks OF",
-      "url": "https://rosmater.github.io/cu/?t=86bc8zzeu",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b7ypqbb",
-      "name": "Нет трафика OFTV LolaPop - ждем Кира",
-      "status": "to do",
-      "priority": "normal",
-      "due": "2026-10-28",
-      "hang_since": "2026-10-25",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Models",
-      "url": "https://rosmater.github.io/cu/?t=86b7ypqbb",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b8fkqg2",
-      "name": "БОТ-ЧАСТЬ: Flames - жду моделей (отработали новые?)",
-      "status": "to do",
-      "priority": "normal",
-      "due": "2026-10-26",
-      "hang_since": "2026-10-25",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "General Tasks OF",
-      "url": "https://rosmater.github.io/cu/?t=86b8fkqg2",
-      "tags": [],
-      "freq": "periódica"
-    },
-    {
-      "id": "86b8c2fc1",
-      "name": "PROYECTO: Fetish Rooms + LolaPop (контроль: как идут дела? план?)",
-      "status": "to do",
-      "priority": "normal",
-      "due": "2026-10-28",
-      "hang_since": "2026-10-25",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "General Tasks OF",
-      "url": "https://rosmater.github.io/cu/?t=86b8c2fc1",
-      "tags": [],
-      "freq": "periódica"
-    },
-    {
-      "id": "86b8r70bt",
-      "name": "Просмотр ПОСТОВ и ИСТОРИЙ Мишель и чистка старых публикаций (есть новые запланированные?)",
-      "status": "to do",
-      "priority": "normal",
-      "due": "2027-01-31",
-      "hang_since": "2026-10-25",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Models",
-      "url": "https://rosmater.github.io/cu/?t=86b8r70bt",
-      "tags": [],
-      "freq": "periódica"
-    },
-    {
-      "id": "86bamwnd3",
-      "name": "Ревизия пользователей кликап",
-      "status": "to do",
-      "priority": "normal",
-      "due": "2026-11-14",
-      "hang_since": "2026-10-25",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "General Tasks OF",
-      "url": "https://rosmater.github.io/cu/?t=86bamwnd3",
-      "tags": [],
-      "freq": "periódica"
-    },
-    {
-      "id": "86bad13qd",
-      "name": "Cеть поиска новых моделей (чеклист в описании)",
-      "status": "to do",
-      "priority": "normal",
-      "due": "2026-11-04",
-      "hang_since": "2026-10-25",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "General Tasks OF",
-      "url": "https://rosmater.github.io/cu/?t=86bad13qd",
-      "tags": [],
-      "freq": "periódica"
-    },
-    {
-      "id": "86bbznkyv",
-      "name": "ТС: фикс - как продвигается?",
-      "status": "to do",
-      "priority": "normal",
-      "due": "2026-10-26",
-      "hang_since": "2026-10-25",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "General Tasks OF",
-      "url": "https://rosmater.github.io/cu/?t=86bbznkyv",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b9ckxxk",
-      "name": "ПЛАНЕРКА ОФ (сверка задач ДЕТСКИЙ САД / цели) / ОФТВ когда завершат нужны даты?",
-      "status": "to do",
-      "priority": "normal",
-      "due": "2026-11-04",
-      "hang_since": "2026-10-25",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Projects OF",
-      "url": "https://rosmater.github.io/cu/?t=86b9ckxxk",
-      "tags": [],
-      "freq": "periódica"
-    },
-    {
-      "id": "86bcpa3xk",
-      "name": "(Решено?) Разобраться с Габриэлой — придумать стратегию (потом - переделать задачу в отчет с 10-15)",
-      "status": "to do",
-      "priority": "normal",
-      "due": "2026-10-28",
-      "hang_since": "2026-10-25",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Models",
-      "url": "https://rosmater.github.io/cu/?t=86bcpa3xk",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86bcqufqn",
-      "name": "Control: утром проверять GitHub на новые полезные skills (+ блок-схема)",
-      "status": "to do",
-      "priority": "normal",
-      "due": "2026-10-27",
-      "hang_since": "2026-10-25",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "General Tasks OF",
-      "url": "https://rosmater.github.io/cu/?t=86bcqufqn",
-      "tags": [],
-      "freq": "periódica"
-    },
-    {
-      "id": "86bcqufak",
-      "name": "Hermes Agent — пилот на AX42/VPS (экономия токенов)",
-      "status": "to do",
-      "priority": "normal",
-      "due": "2026-10-27",
-      "hang_since": "2026-10-25",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "General Tasks OF",
-      "url": "https://rosmater.github.io/cu/?t=86bcqufak",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86bb4d162",
-      "name": "OFTV Paginas de modelos organizar publicaciones (mira descripcion)!!!!!!!!!!!!!!",
-      "status": "to do",
-      "priority": "urgent",
-      "due": "2026-11-25",
-      "hang_since": "2026-10-23",
-      "assignees": [
-        "Michelle Hernández"
-      ],
-      "list": "Models",
-      "url": "https://rosmater.github.io/cu/?t=86bb4d162",
-      "tags": [],
-      "freq": "periódica"
-    },
-    {
-      "id": "86bcdf5ga",
-      "name": "ROS: Diseno de pagina nueva de Lola - 30 videos hasta el fin de mes",
-      "status": "for check",
-      "priority": "normal",
-      "due": "2026-10-23",
-      "hang_since": "2026-10-23",
-      "assignees": [
-        "Michelle Hernández"
-      ],
-      "list": "Models",
-      "url": "https://rosmater.github.io/cu/?t=86bcdf5ga",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86bcpzbtt",
-      "name": "[ждем от Flames ответ по 2 этапу] Flames m15 — Juliana, 27",
-      "status": "to do",
-      "priority": "normal",
-      "due": null,
-      "hang_since": "2026-10-22",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "General Tasks OF",
-      "url": "https://rosmater.github.io/cu/?t=86bcpzbtt",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86bawjbgj",
-      "name": "БОТ: Транс модель (платежка, конец октября ОФТВ узнать)",
-      "status": "to do",
-      "priority": "normal",
-      "due": "2026-10-26",
-      "hang_since": "2026-10-22",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Models",
-      "url": "https://rosmater.github.io/cu/?t=86bawjbgj",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b9e0nd6",
-      "name": "GRABACIONES (poner nuevos consejos)",
-      "status": "to do",
-      "priority": "normal",
-      "due": "2026-12-06",
-      "hang_since": "2026-10-21",
-      "assignees": [
-        "Sara Pineda Chanci"
-      ],
-      "list": "General Tasks OF",
-      "url": "https://rosmater.github.io/cu/?t=86b9e0nd6",
-      "tags": [],
-      "freq": "periódica"
-    },
-    {
-      "id": "86bcnuxbv",
-      "name": "БОТ-ЧАСТЬ: 💳 Оплата чаттерам Sofia Lunara (счёт от Лёши в TG 15–20 числа) - Яна",
-      "status": "to do",
-      "priority": "normal",
-      "due": "2026-11-15",
-      "hang_since": "2026-10-21",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "General Tasks OF",
-      "url": "https://rosmater.github.io/cu/?t=86bcnuxbv",
-      "tags": [],
-      "freq": "periódica"
-    },
-    {
-      "id": "86bcjheva",
-      "name": "Pago: комиссия Марсии за Габриэлу",
-      "status": "to do",
-      "priority": "normal",
-      "due": "2026-10-30",
-      "hang_since": "2026-10-19",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "General Tasks OF",
-      "url": "https://rosmater.github.io/cu/?t=86bcjheva",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86bajv3th",
-      "name": "Planear grabaciones de videos Explícitos",
-      "status": "to do",
-      "priority": "normal",
-      "due": "2026-12-03",
-      "hang_since": "2026-10-19",
-      "assignees": [
-        "Michelle Hernández"
-      ],
-      "list": "Models",
-      "url": "https://rosmater.github.io/cu/?t=86bajv3th",
-      "tags": [],
-      "freq": "periódica"
-    },
-    {
-      "id": "86bb3qyk9",
-      "name": "Mirar si iCloud esta pagado de tarjeta 6619-usdt",
-      "status": "to do",
-      "priority": "normal",
-      "due": "2026-11-18",
-      "hang_since": "2026-10-19",
-      "assignees": [
-        "Sara Pineda Chanci"
-      ],
-      "list": "General Tasks OF",
-      "url": "https://rosmater.github.io/cu/?t=86bb3qyk9",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b9fceb4",
-      "name": "PROYECTO: Fetish Rooms + Lolapop",
-      "status": "to do",
-      "priority": "normal",
-      "due": "2026-12-22",
-      "hang_since": "2026-10-19",
-      "assignees": [
-        "Michelle Hernández"
-      ],
-      "list": "General Tasks OF",
-      "url": "https://rosmater.github.io/cu/?t=86b9fceb4",
-      "tags": [],
-      "freq": "periódica"
-    },
-    {
-      "id": "86bbmabqh",
-      "name": "💳 Pagar celular desde Nequi 3143287247 (35000) (celular de Ros) + marcar Ros despues pago",
-      "status": "to do",
-      "priority": "high",
-      "due": "2026-11-10",
-      "hang_since": "2026-10-14",
-      "assignees": [
-        "Sara Pineda Chanci"
-      ],
-      "list": "General Tasks OF",
-      "url": "https://rosmater.github.io/cu/?t=86bbmabqh",
-      "tags": [],
-      "freq": "periódica"
-    },
-    {
-      "id": "86b9kaaw5",
-      "name": "Контракты с сотрудницами - есть новые? / (модели-после ИНН платежки)",
-      "status": "to do",
-      "priority": "normal",
-      "due": "2026-10-25",
-      "hang_since": "2026-10-14",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "General Tasks OF",
-      "url": "https://rosmater.github.io/cu/?t=86b9kaaw5",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86bbcecg4",
-      "name": "С ИРИНОЙ: ОБСУДИТЬ СПИСОК ДОКУМЕНТОВ / ОТЧЕТЫ + добавить мои личные сроки в напоминалки‼️‼️‼️‼️ 10:30 - Бух Колумбия ответы на вопросы по необходимым документам (новые вопросы)",
-      "status": "to do",
-      "priority": "normal",
-      "due": "2026-10-25",
-      "hang_since": "2026-10-14",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "General Tasks OF",
-      "url": "https://rosmater.github.io/cu/?t=86bbcecg4",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86bba24gq",
-      "name": "Запуск ОФТВ модели (запускаем или нет?)",
-      "status": "to do",
-      "priority": "normal",
-      "due": "2026-11-09",
-      "hang_since": "2026-10-14",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Models",
-      "url": "https://rosmater.github.io/cu/?t=86bba24gq",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86bb4zv3p",
-      "name": "Стримы ОФ-ТС - Джулиана/Катерина + Шейх стримы (жду Буллет/Шейх-RA)",
-      "status": "to do",
-      "priority": "normal",
-      "due": "2026-11-02",
-      "hang_since": "2026-10-14",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "General Tasks OF",
-      "url": "https://rosmater.github.io/cu/?t=86bb4zv3p",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b9kgp8y",
-      "name": "Estar pendiente de TikTok y Instagram (Alejandra IA)",
-      "status": "to do",
-      "priority": "normal",
-      "due": null,
-      "hang_since": "2026-10-09",
-      "assignees": [
-        "Sara Pineda Chanci"
-      ],
-      "list": "General Tasks OF",
-      "url": "https://rosmater.github.io/cu/?t=86b9kgp8y",
-      "tags": [],
-      "freq": "periódica"
-    },
-    {
-      "id": "86bbr22g6",
-      "name": "(тормозим?) Мишель: проверить публикацию новых видео (контент закончился?)",
-      "status": "to do",
-      "priority": "normal",
-      "due": "2026-10-26",
-      "hang_since": "2026-10-10",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Models",
-      "url": "https://rosmater.github.io/cu/?t=86bbr22g6",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86bagvg08",
-      "name": "Aura проверить кредиты СРОЧНО - тесттим новый сервис",
-      "status": "to do",
-      "priority": "normal",
-      "due": "2026-11-01",
-      "hang_since": "2026-10-05",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "General Tasks OF",
-      "url": "https://rosmater.github.io/cu/?t=86bagvg08",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86bccqpd9",
-      "name": "ManyVids LolaPop- проверить выплату с платформы",
-      "status": "to do",
-      "priority": "normal",
-      "due": "2026-11-04",
-      "hang_since": "2026-10-04",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Models",
-      "url": "https://rosmater.github.io/cu/?t=86bccqpd9",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b9wxthz",
-      "name": "Заказать кепку и мерч онлифанс - при условии выхода в прибыль 5000 - на 200 долларов (купон)",
-      "status": "to do",
-      "priority": "normal",
-      "due": "2027-01-11",
-      "hang_since": "2026-10-04",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "General Tasks OF",
-      "url": "https://rosmater.github.io/cu/?t=86b9wxthz",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b7h082q",
-      "name": "(арабские, франция., германия, резервная) Пароли от всех аккаунтов: (проверить все ли доступы есть + чеклист)",
-      "status": "to do",
-      "priority": "normal",
-      "due": "2026-10-31",
-      "hang_since": "2026-10-01",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "General Tasks OF",
-      "url": "https://rosmater.github.io/cu/?t=86b7h082q",
-      "tags": [],
-      "freq": "periódica"
-    },
-    {
-      "id": "86ba1b7ek",
-      "name": "💳 Linkscale - контроль оплаты (вписались в лимиты - карта?)",
-      "status": "to do",
-      "priority": "normal",
-      "due": "2026-10-27",
-      "hang_since": "2026-09-28",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "General Tasks OF",
-      "url": "https://rosmater.github.io/cu/?t=86ba1b7ek",
-      "tags": [],
-      "freq": "periódica"
-    },
-    {
-      "id": "86b8wnffh",
-      "name": "Manyvids/IWantMyClips - subir videos",
-      "status": "to do",
-      "priority": "normal",
-      "due": "2026-11-26",
-      "hang_since": "2026-09-10",
-      "assignees": [
-        "Michelle Hernández"
-      ],
-      "list": "Models",
-      "url": "https://rosmater.github.io/cu/?t=86b8wnffh",
-      "tags": [],
-      "freq": "periódica"
-    },
-    {
-      "id": "86b9fdw51",
-      "name": "Subir Videos a clip4sale 1 Cada semana",
-      "status": "to do",
-      "priority": "normal",
-      "due": "2026-12-22",
-      "hang_since": "2026-09-07",
-      "assignees": [
-        "Michelle Hernández"
-      ],
-      "list": "Models",
-      "url": "https://rosmater.github.io/cu/?t=86b9fdw51",
-      "tags": [],
-      "freq": "periódica"
-    },
-    {
-      "id": "86bb4zqwy",
-      "name": "Оплата Эдс Павер на 6 месяцев укр картой",
-      "status": "to do",
-      "priority": "normal",
-      "due": "2027-01-17",
-      "hang_since": "2026-08-02",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "General Tasks OF",
-      "url": "https://rosmater.github.io/cu/?t=86bb4zqwy",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b9q8wba",
-      "name": "Лил Хост продлить - нужно ли? попросить Кота?",
-      "status": "to do",
-      "priority": "normal",
-      "due": "2027-05-01",
-      "hang_since": "2026-05-06",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "General Tasks OF",
-      "url": "https://rosmater.github.io/cu/?t=86b9q8wba",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b7rart0",
-      "name": "MDM обновить сертификат",
-      "status": "to do",
-      "priority": "normal",
-      "due": "2026-11-23",
-      "hang_since": "2026-01-01",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "General Tasks OF",
-      "url": "https://rosmater.github.io/cu/?t=86b7rart0",
-      "tags": [],
-      "freq": "periódica"
-    },
-    {
-      "id": "86bd2vc4v",
-      "name": "Габриэла — переформат сотрудничества, запуск с Лёшей",
-      "status": "to do",
-      "priority": "normal",
-      "due": "2026-11-12",
-      "hang_since": "2026-11-12",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Models",
-      "url": "https://rosmater.github.io/cu/?t=86bd2vc4v",
-      "tags": [
-        "🎯 фокус"
-      ],
-      "freq": null
-    },
-    {
-      "id": "86bd2vc4n",
-      "name": "Audri — старт OFTV + дата окончания?",
-      "status": "to do",
-      "priority": "normal",
-      "due": "2026-11-12",
-      "hang_since": "2026-11-12",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Models",
-      "url": "https://rosmater.github.io/cu/?t=86bd2vc4n",
-      "tags": [
-        "🎯 фокус"
-      ],
-      "freq": null
-    },
-    {
-      "id": "86bd2vc4g",
-      "name": "Iniciar OF TV start con Gabriela",
-      "status": "to do",
-      "priority": "normal",
-      "due": "2026-11-13",
-      "hang_since": "2026-11-12",
-      "assignees": [
-        "Michelle Hernández"
-      ],
-      "list": "Models",
-      "url": "https://rosmater.github.io/cu/?t=86bd2vc4g",
-      "tags": [
-        "🎯 фокус"
-      ],
-      "freq": null
-    },
-    {
-      "id": "86bd3atpx",
-      "name": "Мишель — переформатировать работу (OnlyFans)",
-      "status": "to do",
-      "priority": "normal",
-      "due": null,
-      "hang_since": "2026-11-13",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "General Tasks OF",
-      "url": "https://rosmater.github.io/cu/?t=86bd3atpx",
-      "tags": [
-        "🎯 фокус"
-      ],
-      "freq": null
-    },
-    {
-      "id": "86bcgc3ze",
-      "name": "USDT для Novax — переслать выписку для подтверждения адреса",
-      "status": "to do",
-      "priority": "urgent",
-      "due": "2026-11-13",
-      "hang_since": null,
-      "assignees": [
-        "Rost"
-      ],
-      "list": "General Tasks OF",
-      "url": "https://rosmater.github.io/cu/?t=86bcgc3ze",
-      "tags": [
-        "🎯 фокус"
-      ],
-      "freq": "única",
-      "parent": "PARA EMPRESA"
-    }
-  ]
+ "_doc": "t6215u/t6216u: открытые рабочие задачи пространства OF для доски вкладки ОФ (не of_cu_tasks.json). Снимок Секретаря. complete/main/models/ДР исключены. t6286u: + 86bcgc3ze (перенесена из Personal под PARA EMPRESA 13.11 18:4x).",
+ "fetched_at": "2026-11-13T17:56:25-05:00",
+ "src": "ClickUp filter_tasks space 90144306285, include_closed=false, statuses to do/for check (2 pages); Frecuencia periódica отдельным filter; hang_since с прошлого снимка freq/recurring: Frecuencia periódica (filter custom field f069396a-…, t6300u).",
+ "tasks": [
+  {
+   "id": "86b6pbedx",
+   "name": "Start Mass Following — Ферма (план) - Seider",
+   "status": "to do",
+   "priority": "high",
+   "due": null,
+   "hang_since": "2026-11-12",
+   "assignees": [
+    "seider muñoz"
+   ],
+   "list": "Projects OF",
+   "url": "https://rosmater.github.io/cu/?t=86b6pbedx",
+   "tags": [
+    "🎯 фокус"
+   ],
+   "freq": null
+  },
+  {
+   "id": "86bd2v24a",
+   "name": "Автоматизация iPhone — разобраться с Xcode и ботом",
+   "status": "to do",
+   "priority": "high",
+   "due": "2026-11-16",
+   "hang_since": "2026-11-12",
+   "assignees": [
+    "seider muñoz"
+   ],
+   "list": "General Tasks OF",
+   "url": "https://rosmater.github.io/cu/?t=86bd2v24a",
+   "tags": [
+    "🎯 фокус"
+   ],
+   "freq": null
+  },
+  {
+   "id": "86bbkrfmj",
+   "name": "Responder a mensajes Clips4Sale / Manyvids",
+   "status": "to do",
+   "priority": "normal",
+   "due": "2026-11-13",
+   "hang_since": "2026-11-12",
+   "assignees": [
+    "Michelle Hernández"
+   ],
+   "list": "Models",
+   "url": "https://rosmater.github.io/cu/?t=86bbkrfmj",
+   "tags": [],
+   "freq": "periódica",
+   "recurring": true
+  },
+  {
+   "id": "86b9abep9",
+   "name": "С ИРИНОЙ: Проверка статистики / сумм выплат / где плохо? по моделям",
+   "status": "for check",
+   "priority": "normal",
+   "due": "2026-11-12",
+   "hang_since": "2026-11-12",
+   "assignees": [
+    "Rost"
+   ],
+   "list": "General Tasks OF",
+   "url": "https://rosmater.github.io/cu/?t=86b9abep9",
+   "tags": [],
+   "freq": "periódica",
+   "recurring": true
+  },
+  {
+   "id": "86b8c9bhm",
+   "name": "💳 Pago a Katherine RA 207/212 - la cantidad exacta en la tabla (adjuntar captura de pantalla a comentarios)",
+   "status": "to do",
+   "priority": "normal",
+   "due": "2026-11-18",
+   "hang_since": "2026-11-12",
+   "assignees": [
+    "Sara Pineda Chanci"
+   ],
+   "list": "Models",
+   "url": "https://rosmater.github.io/cu/?t=86b8c9bhm",
+   "tags": [],
+   "freq": "periódica",
+   "recurring": true
+  },
+  {
+   "id": "86b7gzmce",
+   "name": "Instagram (publicaciones cada dia laboral) + publicar solo si estado de perfil es bien",
+   "status": "to do",
+   "priority": "urgent",
+   "due": "2026-11-16",
+   "hang_since": "2026-11-12",
+   "assignees": [
+    "Michelle Hernández"
+   ],
+   "list": "Models",
+   "url": "https://rosmater.github.io/cu/?t=86b7gzmce",
+   "tags": [],
+   "freq": "periódica",
+   "recurring": true
+  },
+  {
+   "id": "86b9u21mf",
+   "name": "Enviar videos a fans que ya no se han suscrito (cada semana)",
+   "status": "to do",
+   "priority": "low",
+   "due": "2026-11-18",
+   "hang_since": "2026-11-12",
+   "assignees": [
+    "Michelle Hernández"
+   ],
+   "list": "Models",
+   "url": "https://rosmater.github.io/cu/?t=86b9u21mf",
+   "tags": [],
+   "freq": "periódica",
+   "recurring": true
+  },
+  {
+   "id": "86bcfert7",
+   "name": "Enviar historia y foto peptidos todos los dias 15 chats",
+   "status": "to do",
+   "priority": "normal",
+   "due": "2026-11-13",
+   "hang_since": "2026-11-12",
+   "assignees": [
+    "Sara Pineda Chanci"
+   ],
+   "list": "General Tasks OF",
+   "url": "https://rosmater.github.io/cu/?t=86bcfert7",
+   "tags": [],
+   "freq": "periódica",
+   "recurring": true
+  },
+  {
+   "id": "86bcp2pca",
+   "name": "responder chats de peptidos",
+   "status": "to do",
+   "priority": "urgent",
+   "due": "2026-11-13",
+   "hang_since": "2026-11-12",
+   "assignees": [
+    "Sara Pineda Chanci"
+   ],
+   "list": "General Tasks OF",
+   "url": "https://rosmater.github.io/cu/?t=86bcp2pca",
+   "tags": [],
+   "freq": null
+  },
+  {
+   "id": "86bcn2d1t",
+   "name": "Control de estado de cuentas + mandar apelaciones + eliminar publicaciones problematicas + mas mandar capturas de pantalla",
+   "status": "to do",
+   "priority": "urgent",
+   "due": "2026-11-16",
+   "hang_since": "2026-11-12",
+   "assignees": [
+    "Michelle Hernández"
+   ],
+   "list": "Models",
+   "url": "https://rosmater.github.io/cu/?t=86bcn2d1t",
+   "tags": [],
+   "freq": "periódica",
+   "recurring": true
+  },
+  {
+   "id": "86bbjyrf5",
+   "name": "БОТ: МИШЕЛЬ: Bulk Messaging проверить статистику и ответы фанам в сообщениях (потом передать сбор статистики Фетишь)",
+   "status": "for check",
+   "priority": "normal",
+   "due": "2026-11-13",
+   "hang_since": "2026-11-12",
+   "assignees": [
+    "Rost"
+   ],
+   "list": "Models",
+   "url": "https://rosmater.github.io/cu/?t=86bbjyrf5",
+   "tags": [],
+   "freq": null
+  },
+  {
+   "id": "86b9uqgqq",
+   "name": "БОТ: Andrea Cali - как дела по запуску ОФТВ? (напомнить за запуск)",
+   "status": "to do",
+   "priority": "normal",
+   "due": "2026-11-16",
+   "hang_since": "2026-11-12",
+   "assignees": [
+    "Rost"
+   ],
+   "list": "Models",
+   "url": "https://rosmater.github.io/cu/?t=86b9uqgqq",
+   "tags": [],
+   "freq": null
+  },
+  {
+   "id": "86bcn2ek8",
+   "name": "БОТ: контроль Мишель по проверке состояния профилей LolaPop",
+   "status": "to do",
+   "priority": "normal",
+   "due": "2026-11-13",
+   "hang_since": "2026-11-12",
+   "assignees": [
+    "Rost"
+   ],
+   "list": "Models",
+   "url": "https://rosmater.github.io/cu/?t=86bcn2ek8",
+   "tags": [],
+   "freq": "periódica",
+   "recurring": true
+  },
+  {
+   "id": "86bcnuxbj",
+   "name": "БОТ-ЧАСТЬ: 💳 Оплата чаттерам Никиты (счёт в TG 5–13 числа) Яна получить отчеты",
+   "status": "for check",
+   "priority": "normal",
+   "due": "2026-11-13",
+   "hang_since": "2026-11-12",
+   "assignees": [
+    "Rost"
+   ],
+   "list": "General Tasks OF",
+   "url": "https://rosmater.github.io/cu/?t=86bcnuxbj",
+   "tags": [],
+   "freq": "periódica",
+   "recurring": true
+  },
+  {
+   "id": "86b7pzvxx",
+   "name": "Comprobar si la cámara está conectada a la toma de corriente (la mañana)",
+   "status": "to do",
+   "priority": "high",
+   "due": "2026-11-16",
+   "hang_since": "2026-11-12",
+   "assignees": [
+    "Sara Pineda Chanci"
+   ],
+   "list": "General Tasks OF",
+   "url": "https://rosmater.github.io/cu/?t=86b7pzvxx",
+   "tags": [],
+   "freq": "periódica",
+   "recurring": true
+  },
+  {
+   "id": "86bae6v4h",
+   "name": "БОТ: САРА: отвечать на комментарии - как успехи Сара?",
+   "status": "for check",
+   "priority": "normal",
+   "due": "2026-11-12",
+   "hang_since": "2026-11-12",
+   "assignees": [
+    "Rost"
+   ],
+   "list": "Models",
+   "url": "https://rosmater.github.io/cu/?t=86bae6v4h",
+   "tags": [],
+   "freq": null
+  },
+  {
+   "id": "86bbfudj2",
+   "name": "Instagram - responder a comentarios",
+   "status": "to do",
+   "priority": "normal",
+   "due": "2026-11-11",
+   "hang_since": "2026-11-12",
+   "assignees": [
+    "Sara Pineda Chanci"
+   ],
+   "list": "Models",
+   "url": "https://rosmater.github.io/cu/?t=86bbfudj2",
+   "tags": [],
+   "freq": "periódica",
+   "recurring": true
+  },
+  {
+   "id": "86b6qp6rn",
+   "name": "💳 Pagar contrato desde Nequi 3162754776 (44900) (celular de Ros)",
+   "status": "to do",
+   "priority": "high",
+   "due": "2026-11-12",
+   "hang_since": "2026-11-11",
+   "assignees": [
+    "Sara Pineda Chanci"
+   ],
+   "list": "General Tasks OF",
+   "url": "https://rosmater.github.io/cu/?t=86b6qp6rn",
+   "tags": [],
+   "freq": "periódica",
+   "recurring": true
+  },
+  {
+   "id": "86b7ax3rk",
+   "name": "💳  PAGO DATOS CELULAR OFICINA",
+   "status": "to do",
+   "priority": "normal",
+   "due": "2026-11-12",
+   "hang_since": "2026-11-11",
+   "assignees": [
+    "Sara Pineda Chanci"
+   ],
+   "list": "General Tasks OF",
+   "url": "https://rosmater.github.io/cu/?t=86b7ax3rk",
+   "tags": [],
+   "freq": "periódica",
+   "recurring": true
+  },
+  {
+   "id": "86b7m6301",
+   "name": "Заплатить Саре и Мишель, Карла, аванс 1милл - когда платим стажерке? аванс на дорогу?",
+   "status": "to do",
+   "priority": "normal",
+   "due": "2026-11-24",
+   "hang_since": "2026-11-11",
+   "assignees": [
+    "Rost"
+   ],
+   "list": "General Tasks OF",
+   "url": "https://rosmater.github.io/cu/?t=86b7m6301",
+   "tags": [],
+   "freq": "periódica",
+   "recurring": true
+  },
+  {
+   "id": "86bd1h6x1",
+   "name": "Sara, 18 años (@jsmb0): contactar, conocerse y grabar contenido de la 1ª etapa",
+   "status": "to do",
+   "priority": "normal",
+   "due": "2026-11-12",
+   "hang_since": "2026-11-10",
+   "assignees": [
+    "Sara Pineda Chanci"
+   ],
+   "list": "Models",
+   "url": "https://rosmater.github.io/cu/?t=86bd1h6x1",
+   "tags": [],
+   "freq": null
+  },
+  {
+   "id": "86b7y8n8m",
+   "name": "БОТ-ЧАСТЬ: Расчет с Аудри 30 процентов (скрины, подсчеты)",
+   "status": "to do",
+   "priority": "normal",
+   "due": "2026-11-01",
+   "hang_since": "2026-11-10",
+   "assignees": [
+    "Rost"
+   ],
+   "list": "Models",
+   "url": "https://rosmater.github.io/cu/?t=86b7y8n8m",
+   "tags": [],
+   "freq": "periódica",
+   "recurring": true
+  },
+  {
+   "id": "86b84etw8",
+   "name": "ЗАРПЛАТА сотрудницам/моделям подсчет и выплатить",
+   "status": "to do",
+   "priority": "normal",
+   "due": "2026-11-10",
+   "hang_since": "2026-11-10",
+   "assignees": [
+    "Rost"
+   ],
+   "list": "General Tasks OF",
+   "url": "https://rosmater.github.io/cu/?t=86b84etw8",
+   "tags": [],
+   "freq": "periódica",
+   "recurring": true
+  },
+  {
+   "id": "86b7k7d3w",
+   "name": "Regar flores /// Water the flowers.",
+   "status": "to do",
+   "priority": "normal",
+   "due": "2026-11-17",
+   "hang_since": "2026-11-10",
+   "assignees": [
+    "Michelle Hernández"
+   ],
+   "list": "General Tasks OF",
+   "url": "https://rosmater.github.io/cu/?t=86b7k7d3w",
+   "tags": [],
+   "freq": "periódica",
+   "recurring": true
+  },
+  {
+   "id": "86bc1vj3u",
+   "name": "Publicar en Eporner",
+   "status": "to do",
+   "priority": "normal",
+   "due": "2026-11-13",
+   "hang_since": "2026-11-10",
+   "assignees": [
+    "Michelle Hernández"
+   ],
+   "list": "Models",
+   "url": "https://rosmater.github.io/cu/?t=86bc1vj3u",
+   "tags": [],
+   "freq": "periódica",
+   "recurring": true
+  },
+  {
+   "id": "86bakztpd",
+   "name": "DMCA - RA207",
+   "status": "to do",
+   "priority": "normal",
+   "due": "2026-11-17",
+   "hang_since": "2026-11-10",
+   "assignees": [
+    "Michelle Hernández"
+   ],
+   "list": "Models",
+   "url": "https://rosmater.github.io/cu/?t=86bakztpd",
+   "tags": [],
+   "freq": "periódica",
+   "recurring": true
+  },
+  {
+   "id": "86b7t9h6p",
+   "name": "DMCA busqueda de contenido de LolaPop",
+   "status": "to do",
+   "priority": "normal",
+   "due": "2026-11-17",
+   "hang_since": "2026-11-10",
+   "assignees": [
+    "Michelle Hernández"
+   ],
+   "list": "Models",
+   "url": "https://rosmater.github.io/cu/?t=86b7t9h6p",
+   "tags": [],
+   "freq": "periódica",
+   "recurring": true
+  },
+  {
+   "id": "86bcderhz",
+   "name": "💳 Pago a Valentina trans - la cantidad exacta en la tabla (adjuntar captura de pantalla a comentarios)",
+   "status": "to do",
+   "priority": "normal",
+   "due": "2026-11-16",
+   "hang_since": "2026-11-10",
+   "assignees": [
+    "Sara Pineda Chanci"
+   ],
+   "list": "Models",
+   "url": "https://rosmater.github.io/cu/?t=86bcderhz",
+   "tags": [],
+   "freq": null
+  },
+  {
+   "id": "86b9axevh",
+   "name": "(тестим сбор) БОТ ЧАСТЬ: (ФБ рекомендации) 📊 Проверка статистики ЛолаПоп и принятие решений ",
+   "status": "for check",
+   "priority": "normal",
+   "due": "2026-11-16",
+   "hang_since": "2026-11-10",
+   "assignees": [
+    "Rost"
+   ],
+   "list": "General Tasks OF",
+   "url": "https://rosmater.github.io/cu/?t=86b9axevh",
+   "tags": [],
+   "freq": "periódica",
+   "recurring": true
+  },
+  {
+   "id": "86b7h12h7",
+   "name": "💳 Pago a Tatiana RA 210/214 - la cantidad exacta en la tabla (adjuntar captura de pantalla a comentarios)",
+   "status": "to do",
+   "priority": "normal",
+   "due": "2026-11-15",
+   "hang_since": "2026-11-09",
+   "assignees": [
+    "Sara Pineda Chanci"
+   ],
+   "list": "Models",
+   "url": "https://rosmater.github.io/cu/?t=86b7h12h7",
+   "tags": [],
+   "freq": "periódica",
+   "recurring": true
+  },
+  {
+   "id": "86bc5gtpd",
+   "name": "💳 Pago a Gabriela - la cantidad exacta en la tabla (adjuntar captura de pantalla a comentarios)",
+   "status": "to do",
+   "priority": "normal",
+   "due": "2026-11-16",
+   "hang_since": "2026-11-09",
+   "assignees": [
+    "Sara Pineda Chanci"
+   ],
+   "list": "Models",
+   "url": "https://rosmater.github.io/cu/?t=86bc5gtpd",
+   "tags": [],
+   "freq": null
+  },
+  {
+   "id": "86b913wz2",
+   "name": "💳 Pago a Laura - la cantidad exacta en la tabla (adjuntar captura de pantalla a comentarios)",
+   "status": "to do",
+   "priority": "normal",
+   "due": "2026-11-15",
+   "hang_since": "2026-11-09",
+   "assignees": [
+    "Sara Pineda Chanci"
+   ],
+   "list": "Models",
+   "url": "https://rosmater.github.io/cu/?t=86b913wz2",
+   "tags": [],
+   "freq": "periódica",
+   "recurring": true
+  },
+  {
+   "id": "86ba5ywen",
+   "name": "💳 Pago a Juliana Agudelo RA 217 - la cantidad exacta en la tabla (adjuntar captura de pantalla a comentarios)",
+   "status": "to do",
+   "priority": "normal",
+   "due": "2026-11-15",
+   "hang_since": "2026-11-09",
+   "assignees": [
+    "Sara Pineda Chanci"
+   ],
+   "list": "Models",
+   "url": "https://rosmater.github.io/cu/?t=86ba5ywen",
+   "tags": [],
+   "freq": "periódica",
+   "recurring": true
+  },
+  {
+   "id": "86baf7h1k",
+   "name": "💳 Pago a Scarlet - la cantidad exacta en la tabla (adjuntar captura de pantalla a comentarios)",
+   "status": "to do",
+   "priority": "normal",
+   "due": "2026-11-15",
+   "hang_since": "2026-11-09",
+   "assignees": [
+    "Sara Pineda Chanci"
+   ],
+   "list": "Models",
+   "url": "https://rosmater.github.io/cu/?t=86baf7h1k",
+   "tags": [],
+   "freq": "periódica",
+   "recurring": true
+  },
+  {
+   "id": "86bd0y6y8",
+   "name": "Продление RNT — Isla del Contenido (Колумбия)",
+   "status": "to do",
+   "priority": "normal",
+   "due": "2027-01-20",
+   "hang_since": "2026-11-09",
+   "assignees": [],
+   "list": "General Tasks OF",
+   "url": "https://rosmater.github.io/cu/?t=86bd0y6y8",
+   "tags": [],
+   "freq": "periódica",
+   "recurring": true
+  },
+  {
+   "id": "86bd0y140",
+   "name": "Проверить: пришли ли Саре деньги на OKX + пришли ли $10 на кошелёк",
+   "status": "to do",
+   "priority": "normal",
+   "due": "2026-11-12",
+   "hang_since": "2026-11-09",
+   "assignees": [
+    "Rost"
+   ],
+   "list": "General Tasks OF",
+   "url": "https://rosmater.github.io/cu/?t=86bd0y140",
+   "tags": [],
+   "freq": null
+  },
+  {
+   "id": "86b9cp9ry",
+   "name": "Control proyecto OF.TV (cada lunes reporte sobre todos) COLUMNAS D E G H I",
+   "status": "to do",
+   "priority": "normal",
+   "due": "2026-11-16",
+   "hang_since": "2026-11-09",
+   "assignees": [
+    "Michelle Hernández"
+   ],
+   "list": "General Tasks OF",
+   "url": "https://rosmater.github.io/cu/?t=86b9cp9ry",
+   "tags": [],
+   "freq": "periódica",
+   "recurring": true
+  },
+  {
+   "id": "86b7heru3",
+   "name": "(solo poner estado de cuenta) 📊 Estadística semanal de las redes sociales en la tabla",
+   "status": "to do",
+   "priority": "urgent",
+   "due": "2026-11-16",
+   "hang_since": "2026-11-09",
+   "assignees": [
+    "Michelle Hernández"
+   ],
+   "list": "General Tasks OF",
+   "url": "https://rosmater.github.io/cu/?t=86b7heru3",
+   "tags": [],
+   "freq": "periódica",
+   "recurring": true
+  },
+  {
+   "id": "86b9qwu10",
+   "name": "💳 Pago a Juliana manco - la cantidad exacta en la tabla (adjuntar captura de pantalla a comentarios)",
+   "status": "to do",
+   "priority": "normal",
+   "due": "2026-11-15",
+   "hang_since": "2026-11-09",
+   "assignees": [
+    "Sara Pineda Chanci"
+   ],
+   "list": "Models",
+   "url": "https://rosmater.github.io/cu/?t=86b9qwu10",
+   "tags": [],
+   "freq": "periódica",
+   "recurring": true
+  },
+  {
+   "id": "86b8rn9wf",
+   "name": "С ИРИНОЙ: Подсчеты ОФ (внести данные) + выплатить комиссию за новых моделей",
+   "status": "to do",
+   "priority": "normal",
+   "due": "2026-11-10",
+   "hang_since": "2026-11-09",
+   "assignees": [
+    "Rost",
+    "Ірина Шекель"
+   ],
+   "list": "General Tasks OF",
+   "url": "https://rosmater.github.io/cu/?t=86b8rn9wf",
+   "tags": [],
+   "freq": "periódica",
+   "recurring": true
+  },
+  {
+   "id": "86b6z79t1",
+   "name": "БОТ-ЧАСТЬ: Контроль OF.TV - отчет / запуски / ПЛАН СВЕРКА ЛЕШЕ + отчет ферма",
+   "status": "for check",
+   "priority": "urgent",
+   "due": "2026-11-09",
+   "hang_since": "2026-11-09",
+   "assignees": [
+    "Rost"
+   ],
+   "list": "General Tasks OF",
+   "url": "https://rosmater.github.io/cu/?t=86b6z79t1",
+   "tags": [],
+   "freq": "periódica",
+   "recurring": true
+  },
+  {
+   "id": "86bcr1f96",
+   "name": "Hacer primera etapa en oficina",
+   "status": "to do",
+   "priority": "normal",
+   "due": "2026-11-12",
+   "hang_since": "2026-11-09",
+   "assignees": [
+    "Sara Pineda Chanci"
+   ],
+   "list": "Models",
+   "url": "https://rosmater.github.io/cu/?t=86bcr1f96",
+   "tags": [],
+   "freq": null
+  },
+  {
+   "id": "86bcm8ybt",
+   "name": "БОТ: Контроль офиса ОФ",
+   "status": "for check",
+   "priority": "normal",
+   "due": "2026-11-08",
+   "hang_since": "2026-11-08",
+   "assignees": [
+    "Rost"
+   ],
+   "list": "General Tasks OF",
+   "url": "https://rosmater.github.io/cu/?t=86bcm8ybt",
+   "tags": [],
+   "freq": null
+  },
+  {
+   "id": "86bc1tdu5",
+   "name": "БОТ: IP Royal - пополнить баланс/проверка",
+   "status": "to do",
+   "priority": "urgent",
+   "due": "2026-11-09",
+   "hang_since": "2026-11-08",
+   "assignees": [
+    "Rost"
+   ],
+   "list": "General Tasks OF",
+   "url": "https://rosmater.github.io/cu/?t=86bc1tdu5",
+   "tags": [],
+   "freq": "periódica",
+   "recurring": true
+  },
+  {
+   "id": "86b9dw8uu",
+   "name": "Яна - 🛑🛑🛑 вывести Паксум ТС (жду саппорт куда отправить)",
+   "status": "to do",
+   "priority": "normal",
+   "due": "2026-11-09",
+   "hang_since": "2026-11-08",
+   "assignees": [
+    "Rost"
+   ],
+   "list": "General Tasks OF",
+   "url": "https://rosmater.github.io/cu/?t=86b9dw8uu",
+   "tags": [],
+   "freq": null
+  },
+  {
+   "id": "86b9wh8cd",
+   "name": "БОТ: RA180 / RA185 - курировать процесс (скрины/новая платежка)",
+   "status": "to do",
+   "priority": "normal",
+   "due": "2026-11-15",
+   "hang_since": "2026-11-08",
+   "assignees": [
+    "Rost"
+   ],
+   "list": "Models",
+   "url": "https://rosmater.github.io/cu/?t=86b9wh8cd",
+   "tags": [],
+   "freq": "periódica",
+   "recurring": true
+  },
+  {
+   "id": "86bbzxf5n",
+   "name": "Control 05services weekly stats (активные / vs 5 недель / баланс 1220)",
+   "status": "to do",
+   "priority": "normal",
+   "due": "2026-11-15",
+   "hang_since": "2026-11-08",
+   "assignees": [],
+   "list": "General Tasks OF",
+   "url": "https://rosmater.github.io/cu/?t=86bbzxf5n",
+   "tags": [],
+   "freq": "periódica",
+   "recurring": true
+  },
+  {
+   "id": "86ba7an25",
+   "name": "БОТ: Проверка трекера рабочего времени девочек OF",
+   "status": "for check",
+   "priority": "normal",
+   "due": "2026-11-08",
+   "hang_since": "2026-11-08",
+   "assignees": [
+    "Rost"
+   ],
+   "list": "General Tasks OF",
+   "url": "https://rosmater.github.io/cu/?t=86ba7an25",
+   "tags": [],
+   "freq": null
+  },
+  {
+   "id": "86bbzxuxj",
+   "name": "Control 05services monthly доход → Шекель TG (2-е число)",
+   "status": "for check",
+   "priority": "normal",
+   "due": "2026-12-02",
+   "hang_since": "2026-11-08",
+   "assignees": [],
+   "list": "General Tasks OF",
+   "url": "https://rosmater.github.io/cu/?t=86bbzxuxj",
+   "tags": [],
+   "freq": "periódica",
+   "recurring": true
+  },
+  {
+   "id": "86bamxnh9",
+   "name": "БОТ: Статистика миле проверять + новые города Кали / Чоко и т д",
+   "status": "for check",
+   "priority": "normal",
+   "due": "2026-11-15",
+   "hang_since": "2026-11-08",
+   "assignees": [
+    "Rost"
+   ],
+   "list": "General Tasks OF",
+   "url": "https://rosmater.github.io/cu/?t=86bamxnh9",
+   "tags": [],
+   "freq": "periódica",
+   "recurring": true
+  },
+  {
+   "id": "86bcr1a1r",
+   "name": "БОТ-ЧАСТЬ: Ежемесячный замер подписчиков Referencias (кто растёт)",
+   "status": "to do",
+   "priority": "normal",
+   "due": "2026-11-06",
+   "hang_since": "2026-11-07",
+   "assignees": [
+    "Rost"
+   ],
+   "list": "General Tasks OF",
+   "url": "https://rosmater.github.io/cu/?t=86bcr1a1r",
+   "tags": [
+    "bot"
+   ],
+   "freq": "periódica",
+   "recurring": true
+  },
+  {
+   "id": "86b9ycbby",
+   "name": "БОТ: ПОДКЛЮЧИТЬСЯ К КОМПУ - СЕЙДЕР (как дела?) Запуск 1 телефона с 25 аккаунтами",
+   "status": "for check",
+   "priority": "normal",
+   "due": "2026-11-06",
+   "hang_since": "2026-11-06",
+   "assignees": [
+    "Rost"
+   ],
+   "list": "Projects OF",
+   "url": "https://rosmater.github.io/cu/?t=86b9ycbby",
+   "tags": [],
+   "freq": null
+  },
+  {
+   "id": "86b7ypu0b",
+   "name": "Comprobar si la cámara está conectada a la toma de corriente (la noche)",
+   "status": "to do",
+   "priority": "normal",
+   "due": "2026-11-20",
+   "hang_since": "2026-11-06",
+   "assignees": [
+    "Sara Pineda Chanci"
+   ],
+   "list": "General Tasks OF",
+   "url": "https://rosmater.github.io/cu/?t=86b7ypu0b",
+   "tags": [],
+   "freq": "periódica",
+   "recurring": true
+  },
+  {
+   "id": "86baefzxw",
+   "name": "Escribir a nuestro recomendadores potenciales anadir nuevos en la lista",
+   "status": "to do",
+   "priority": "normal",
+   "due": "2026-11-11",
+   "hang_since": "2026-11-05",
+   "assignees": [
+    "Sara Pineda Chanci"
+   ],
+   "list": "General Tasks OF",
+   "url": "https://rosmater.github.io/cu/?t=86baefzxw",
+   "tags": [],
+   "freq": "periódica",
+   "recurring": true
+  },
+  {
+   "id": "86bcy2451",
+   "name": "БОТ: OF источники трафика — отчёт 04.11",
+   "status": "to do",
+   "priority": "normal",
+   "due": "2026-11-06",
+   "hang_since": "2026-11-05",
+   "assignees": [],
+   "list": "General Tasks OF",
+   "url": "https://rosmater.github.io/cu/?t=86bcy2451",
+   "tags": [],
+   "freq": null
+  },
+  {
+   "id": "86b9crta7",
+   "name": "БОТ: Агудело-Аврора сделать секстинг паки + запустить траф",
+   "status": "to do",
+   "priority": "normal",
+   "due": "2026-11-06",
+   "hang_since": "2026-11-05",
+   "assignees": [
+    "Rost"
+   ],
+   "list": "Models",
+   "url": "https://rosmater.github.io/cu/?t=86b9crta7",
+   "tags": [],
+   "freq": "periódica",
+   "recurring": true
+  },
+  {
+   "id": "86bbcefk3",
+   "name": "(сбор данных) ОФТВ расчет с партнерами",
+   "status": "to do",
+   "priority": "normal",
+   "due": "2026-12-01",
+   "hang_since": "2026-11-05",
+   "assignees": [
+    "Rost",
+    "Ірина Шекель"
+   ],
+   "list": "General Tasks OF",
+   "url": "https://rosmater.github.io/cu/?t=86bbcefk3",
+   "tags": [],
+   "freq": null
+  },
+  {
+   "id": "86bb3qh0k",
+   "name": "БОТ: Мишель: OFTV Наладить постинг - все под контролем?",
+   "status": "to do",
+   "priority": "normal",
+   "due": "2027-01-04",
+   "hang_since": "2026-11-05",
+   "assignees": [
+    "Rost"
+   ],
+   "list": "General Tasks OF",
+   "url": "https://rosmater.github.io/cu/?t=86bb3qh0k",
+   "tags": [],
+   "freq": "periódica",
+   "recurring": true
+  },
+  {
+   "id": "86bb3qgvy",
+   "name": "Кому делаем? Переделать паки контента у всех моделей (завершить ТЗ - жду Леша/Никита)",
+   "status": "to do",
+   "priority": "normal",
+   "due": "2026-11-09",
+   "hang_since": "2026-11-05",
+   "assignees": [
+    "Rost"
+   ],
+   "list": "General Tasks OF",
+   "url": "https://rosmater.github.io/cu/?t=86bb3qgvy",
+   "tags": [],
+   "freq": null
+  },
+  {
+   "id": "86b8de8ru",
+   "name": "Заявки RA чат проверить (флеймс)",
+   "status": "to do",
+   "priority": "normal",
+   "due": "2026-10-19",
+   "hang_since": "2026-11-05",
+   "assignees": [
+    "Rost"
+   ],
+   "list": "General Tasks OF",
+   "url": "https://rosmater.github.io/cu/?t=86b8de8ru",
+   "tags": [],
+   "freq": null
+  },
+  {
+   "id": "86bbzx9x4",
+   "name": "БОТ: Срочно контент снять OFTV Sofia Lunara - Laura (жду реакцию в чате Маркиза)",
+   "status": "to do",
+   "priority": "normal",
+   "due": "2026-11-05",
+   "hang_since": "2026-11-04",
+   "assignees": [
+    "Rost"
+   ],
+   "list": "Models",
+   "url": "https://rosmater.github.io/cu/?t=86bbzx9x4",
+   "tags": [],
+   "freq": null
+  },
+  {
+   "id": "86ba80e10",
+   "name": "ORGANIZAR GRABACIONES DEL MES",
+   "status": "to do",
+   "priority": "high",
+   "due": "2026-11-30",
+   "hang_since": "2026-11-04",
+   "assignees": [
+    "Sara Pineda Chanci"
+   ],
+   "list": "General Tasks OF",
+   "url": "https://rosmater.github.io/cu/?t=86ba80e10",
+   "tags": [],
+   "freq": null
+  },
+  {
+   "id": "86ba4ky8z",
+   "name": "Iniciar proyecto OFTV en Cali con Andrea + registrar pagos247",
+   "status": "to do",
+   "priority": "normal",
+   "due": "2026-11-04",
+   "hang_since": "2026-11-04",
+   "assignees": [
+    "Michelle Hernández"
+   ],
+   "list": "Models",
+   "url": "https://rosmater.github.io/cu/?t=86ba4ky8z",
+   "tags": [],
+   "freq": "periódica",
+   "recurring": true
+  },
+  {
+   "id": "86bahn67h",
+   "name": "Enviar propina 1$ a todas nuevas paginas creadas",
+   "status": "to do",
+   "priority": "normal",
+   "due": "2026-11-18",
+   "hang_since": "2026-11-04",
+   "assignees": [
+    "Michelle Hernández"
+   ],
+   "list": "General Tasks OF",
+   "url": "https://rosmater.github.io/cu/?t=86bahn67h",
+   "tags": [],
+   "freq": "periódica",
+   "recurring": true
+  },
+  {
+   "id": "86b7k75ap",
+   "name": "Проверка авансовых Сары+ карта okx",
+   "status": "to do",
+   "priority": "normal",
+   "due": "2026-11-10",
+   "hang_since": "2026-11-04",
+   "assignees": [
+    "Ірина Шекель"
+   ],
+   "list": "General Tasks OF",
+   "url": "https://rosmater.github.io/cu/?t=86b7k75ap",
+   "tags": [],
+   "freq": null
+  },
+  {
+   "id": "86bcy49kz",
+   "name": "Разобрать заявку и отправить на 1 этап если норм",
+   "status": "to do",
+   "priority": "normal",
+   "due": "2026-11-04",
+   "hang_since": "2026-11-04",
+   "assignees": [
+    "Rost"
+   ],
+   "list": "Models",
+   "url": "https://rosmater.github.io/cu/?t=86bcy49kz",
+   "tags": [],
+   "freq": null
+  },
+  {
+   "id": "86bcxumtu",
+   "name": "Control: Новембер-Шейх — сколько готовы платить за удаление контента с интернета / мес",
+   "status": "to do",
+   "priority": "normal",
+   "due": "2026-11-03",
+   "hang_since": "2026-11-03",
+   "assignees": [
+    "Rost"
+   ],
+   "list": "General Tasks OF",
+   "url": "https://rosmater.github.io/cu/?t=86bcxumtu",
+   "tags": [
+    "bot"
+   ],
+   "freq": null
+  },
+  {
+   "id": "86bcxunr8",
+   "name": "REMIND: LolaPop — как работаем, если передадим страницы",
+   "status": "to do",
+   "priority": "normal",
+   "due": "2026-11-04",
+   "hang_since": "2026-11-03",
+   "assignees": [
+    "Rost"
+   ],
+   "list": "General Tasks OF",
+   "url": "https://rosmater.github.io/cu/?t=86bcxunr8",
+   "tags": [
+    "bot"
+   ],
+   "freq": null
+  },
+  {
+   "id": "86b8tx434",
+   "name": "Editar Highlight OF LolaPop",
+   "status": "to do",
+   "priority": "low",
+   "due": "2026-12-01",
+   "hang_since": "2026-11-03",
+   "assignees": [
+    "Michelle Hernández"
+   ],
+   "list": "Models",
+   "url": "https://rosmater.github.io/cu/?t=86b8tx434",
+   "tags": [],
+   "freq": "periódica",
+   "recurring": true
+  },
+  {
+   "id": "86b9dzj56",
+   "name": "Contactar Calipto (preguntar sobre apartamentos en Base Loft)",
+   "status": "to do",
+   "priority": "normal",
+   "due": "2026-11-15",
+   "hang_since": "2026-11-03",
+   "assignees": [
+    "Sara Pineda Chanci"
+   ],
+   "list": "General Tasks OF",
+   "url": "https://rosmater.github.io/cu/?t=86b9dzj56",
+   "tags": [],
+   "freq": "periódica",
+   "recurring": true
+  },
+  {
+   "id": "86bcje0a9",
+   "name": "[Camila ходила 21.10 — ждём новости] Flames m02 — Camila, 24",
+   "status": "to do",
+   "priority": "normal",
+   "due": null,
+   "hang_since": "2026-10-14",
+   "assignees": [
+    "Rost"
+   ],
+   "list": "General Tasks OF",
+   "url": "https://rosmater.github.io/cu/?t=86bcje0a9",
+   "tags": [],
+   "freq": null
+  },
+  {
+   "id": "86bbkrf8v",
+   "name": "Enviar mensajes a todos en Clips4Sale",
+   "status": "to do",
+   "priority": "normal",
+   "due": "2026-12-07",
+   "hang_since": "2026-10-27",
+   "assignees": [
+    "Michelle Hernández"
+   ],
+   "list": "Models",
+   "url": "https://rosmater.github.io/cu/?t=86bbkrf8v",
+   "tags": [],
+   "freq": "periódica",
+   "recurring": true
+  },
+  {
+   "id": "86bbfu0cu",
+   "name": "Nuevos plataformas - empezar publicar",
+   "status": "to do",
+   "priority": "normal",
+   "due": "2026-11-16",
+   "hang_since": "2026-10-26",
+   "assignees": [
+    "Michelle Hernández"
+   ],
+   "list": "Models",
+   "url": "https://rosmater.github.io/cu/?t=86bbfu0cu",
+   "tags": [],
+   "freq": "periódica",
+   "recurring": true
+  },
+  {
+   "id": "86b8q7t28",
+   "name": "Publicaciones OF LolaPop - 1 por semana",
+   "status": "to do",
+   "priority": "urgent",
+   "due": "2026-11-30",
+   "hang_since": "2026-10-26",
+   "assignees": [
+    "Michelle Hernández"
+   ],
+   "list": "Models",
+   "url": "https://rosmater.github.io/cu/?t=86b8q7t28",
+   "tags": [],
+   "freq": "periódica",
+   "recurring": true
+  },
+  {
+   "id": "86bb774ca",
+   "name": "Verificar si hay fotos etiquetadas Audri (cada 2 semanas)",
+   "status": "to do",
+   "priority": "normal",
+   "due": "2026-11-16",
+   "hang_since": "2026-10-26",
+   "assignees": [
+    "Michelle Hernández"
+   ],
+   "list": "Models",
+   "url": "https://rosmater.github.io/cu/?t=86bb774ca",
+   "tags": [],
+   "freq": "periódica",
+   "recurring": true
+  },
+  {
+   "id": "86bcrcgrj",
+   "name": "[ждем от Flames ответ по 2 этапу] Flames m19 — Valeria, 21",
+   "status": "to do",
+   "priority": "normal",
+   "due": null,
+   "hang_since": "2026-10-26",
+   "assignees": [
+    "Rost"
+   ],
+   "list": "General Tasks OF",
+   "url": "https://rosmater.github.io/cu/?t=86bcrcgrj",
+   "tags": [],
+   "freq": null
+  },
+  {
+   "id": "86bcrc6qz",
+   "name": "Разобрать заявку и отправить на 1 этап если норм",
+   "status": "to do",
+   "priority": "normal",
+   "due": "2026-10-26",
+   "hang_since": "2026-10-26",
+   "assignees": [
+    "Rost"
+   ],
+   "list": "Models",
+   "url": "https://rosmater.github.io/cu/?t=86bcrc6qz",
+   "tags": [],
+   "freq": null
+  },
+  {
+   "id": "86b7m53ew",
+   "name": "MA продлить 1 проксю до 22 числа и прислать скрин Элли",
+   "status": "to do",
+   "priority": "high",
+   "due": "2026-11-15",
+   "hang_since": "2026-10-25",
+   "assignees": [
+    "Rost"
+   ],
+   "list": "General Tasks OF",
+   "url": "https://rosmater.github.io/cu/?t=86b7m53ew",
+   "tags": [],
+   "freq": "periódica",
+   "recurring": true
+  },
+  {
+   "id": "86b92hyc3",
+   "name": "Проверка баланса ОКХ рабочей карты ОФ (отправить Саре деньги)",
+   "status": "to do",
+   "priority": "normal",
+   "due": "2026-10-26",
+   "hang_since": "2026-10-25",
+   "assignees": [
+    "Rost"
+   ],
+   "list": "General Tasks OF",
+   "url": "https://rosmater.github.io/cu/?t=86b92hyc3",
+   "tags": [],
+   "freq": "periódica",
+   "recurring": true
+  },
+  {
+   "id": "86bc8zzeu",
+   "name": "(диалог с Аудри) Переформат ЛолаПоп - Мишель оформить каталог страницу - как успехи?",
+   "status": "to do",
+   "priority": "normal",
+   "due": "2026-10-26",
+   "hang_since": "2026-10-25",
+   "assignees": [
+    "Rost"
+   ],
+   "list": "General Tasks OF",
+   "url": "https://rosmater.github.io/cu/?t=86bc8zzeu",
+   "tags": [],
+   "freq": null
+  },
+  {
+   "id": "86b7ypqbb",
+   "name": "Нет трафика OFTV LolaPop - ждем Кира",
+   "status": "to do",
+   "priority": "normal",
+   "due": "2026-10-28",
+   "hang_since": "2026-10-25",
+   "assignees": [
+    "Rost"
+   ],
+   "list": "Models",
+   "url": "https://rosmater.github.io/cu/?t=86b7ypqbb",
+   "tags": [],
+   "freq": null
+  },
+  {
+   "id": "86b8fkqg2",
+   "name": "БОТ-ЧАСТЬ: Flames - жду моделей (отработали новые?)",
+   "status": "to do",
+   "priority": "normal",
+   "due": "2026-10-26",
+   "hang_since": "2026-10-25",
+   "assignees": [
+    "Rost"
+   ],
+   "list": "General Tasks OF",
+   "url": "https://rosmater.github.io/cu/?t=86b8fkqg2",
+   "tags": [],
+   "freq": "periódica",
+   "recurring": true
+  },
+  {
+   "id": "86b8c2fc1",
+   "name": "PROYECTO: Fetish Rooms + LolaPop (контроль: как идут дела? план?)",
+   "status": "to do",
+   "priority": "normal",
+   "due": "2026-10-28",
+   "hang_since": "2026-10-25",
+   "assignees": [
+    "Rost"
+   ],
+   "list": "General Tasks OF",
+   "url": "https://rosmater.github.io/cu/?t=86b8c2fc1",
+   "tags": [],
+   "freq": "periódica",
+   "recurring": true
+  },
+  {
+   "id": "86b8r70bt",
+   "name": "Просмотр ПОСТОВ и ИСТОРИЙ Мишель и чистка старых публикаций (есть новые запланированные?)",
+   "status": "to do",
+   "priority": "normal",
+   "due": "2027-01-31",
+   "hang_since": "2026-10-25",
+   "assignees": [
+    "Rost"
+   ],
+   "list": "Models",
+   "url": "https://rosmater.github.io/cu/?t=86b8r70bt",
+   "tags": [],
+   "freq": "periódica",
+   "recurring": true
+  },
+  {
+   "id": "86bamwnd3",
+   "name": "Ревизия пользователей кликап",
+   "status": "to do",
+   "priority": "normal",
+   "due": "2026-11-14",
+   "hang_since": "2026-10-25",
+   "assignees": [
+    "Rost"
+   ],
+   "list": "General Tasks OF",
+   "url": "https://rosmater.github.io/cu/?t=86bamwnd3",
+   "tags": [],
+   "freq": "periódica",
+   "recurring": true
+  },
+  {
+   "id": "86bad13qd",
+   "name": "Cеть поиска новых моделей (чеклист в описании)",
+   "status": "to do",
+   "priority": "normal",
+   "due": "2026-11-04",
+   "hang_since": "2026-10-25",
+   "assignees": [
+    "Rost"
+   ],
+   "list": "General Tasks OF",
+   "url": "https://rosmater.github.io/cu/?t=86bad13qd",
+   "tags": [],
+   "freq": "periódica",
+   "recurring": true
+  },
+  {
+   "id": "86bbznkyv",
+   "name": "ТС: фикс - как продвигается?",
+   "status": "to do",
+   "priority": "normal",
+   "due": "2026-10-26",
+   "hang_since": "2026-10-25",
+   "assignees": [
+    "Rost"
+   ],
+   "list": "General Tasks OF",
+   "url": "https://rosmater.github.io/cu/?t=86bbznkyv",
+   "tags": [],
+   "freq": null
+  },
+  {
+   "id": "86b9ckxxk",
+   "name": "ПЛАНЕРКА ОФ (сверка задач ДЕТСКИЙ САД / цели) / ОФТВ когда завершат нужны даты?",
+   "status": "to do",
+   "priority": "normal",
+   "due": "2026-11-04",
+   "hang_since": "2026-10-25",
+   "assignees": [
+    "Rost"
+   ],
+   "list": "Projects OF",
+   "url": "https://rosmater.github.io/cu/?t=86b9ckxxk",
+   "tags": [],
+   "freq": "periódica",
+   "recurring": true
+  },
+  {
+   "id": "86bcpa3xk",
+   "name": "(Решено?) Разобраться с Габриэлой — придумать стратегию (потом - переделать задачу в отчет с 10-15)",
+   "status": "to do",
+   "priority": "normal",
+   "due": "2026-10-28",
+   "hang_since": "2026-10-25",
+   "assignees": [
+    "Rost"
+   ],
+   "list": "Models",
+   "url": "https://rosmater.github.io/cu/?t=86bcpa3xk",
+   "tags": [],
+   "freq": null
+  },
+  {
+   "id": "86bcqufqn",
+   "name": "Control: утром проверять GitHub на новые полезные skills (+ блок-схема)",
+   "status": "to do",
+   "priority": "normal",
+   "due": "2026-10-27",
+   "hang_since": "2026-10-25",
+   "assignees": [
+    "Rost"
+   ],
+   "list": "General Tasks OF",
+   "url": "https://rosmater.github.io/cu/?t=86bcqufqn",
+   "tags": [],
+   "freq": "periódica",
+   "recurring": true
+  },
+  {
+   "id": "86bcqufak",
+   "name": "Hermes Agent — пилот на AX42/VPS (экономия токенов)",
+   "status": "to do",
+   "priority": "normal",
+   "due": "2026-10-27",
+   "hang_since": "2026-10-25",
+   "assignees": [
+    "Rost"
+   ],
+   "list": "General Tasks OF",
+   "url": "https://rosmater.github.io/cu/?t=86bcqufak",
+   "tags": [],
+   "freq": null
+  },
+  {
+   "id": "86bb4d162",
+   "name": "OFTV Paginas de modelos organizar publicaciones (mira descripcion)!!!!!!!!!!!!!!",
+   "status": "to do",
+   "priority": "urgent",
+   "due": "2026-11-25",
+   "hang_since": "2026-10-23",
+   "assignees": [
+    "Michelle Hernández"
+   ],
+   "list": "Models",
+   "url": "https://rosmater.github.io/cu/?t=86bb4d162",
+   "tags": [],
+   "freq": "periódica",
+   "recurring": true
+  },
+  {
+   "id": "86bcdf5ga",
+   "name": "ROS: Diseno de pagina nueva de Lola - 30 videos hasta el fin de mes",
+   "status": "for check",
+   "priority": "normal",
+   "due": "2026-10-23",
+   "hang_since": "2026-10-23",
+   "assignees": [
+    "Michelle Hernández"
+   ],
+   "list": "Models",
+   "url": "https://rosmater.github.io/cu/?t=86bcdf5ga",
+   "tags": [],
+   "freq": null
+  },
+  {
+   "id": "86bcpzbtt",
+   "name": "[ждем от Flames ответ по 2 этапу] Flames m15 — Juliana, 27",
+   "status": "to do",
+   "priority": "normal",
+   "due": null,
+   "hang_since": "2026-10-22",
+   "assignees": [
+    "Rost"
+   ],
+   "list": "General Tasks OF",
+   "url": "https://rosmater.github.io/cu/?t=86bcpzbtt",
+   "tags": [],
+   "freq": null
+  },
+  {
+   "id": "86bawjbgj",
+   "name": "БОТ: Транс модель (платежка, конец октября ОФТВ узнать)",
+   "status": "to do",
+   "priority": "normal",
+   "due": "2026-10-26",
+   "hang_since": "2026-10-22",
+   "assignees": [
+    "Rost"
+   ],
+   "list": "Models",
+   "url": "https://rosmater.github.io/cu/?t=86bawjbgj",
+   "tags": [],
+   "freq": null
+  },
+  {
+   "id": "86b9e0nd6",
+   "name": "GRABACIONES (poner nuevos consejos)",
+   "status": "to do",
+   "priority": "normal",
+   "due": "2026-12-06",
+   "hang_since": "2026-10-21",
+   "assignees": [
+    "Sara Pineda Chanci"
+   ],
+   "list": "General Tasks OF",
+   "url": "https://rosmater.github.io/cu/?t=86b9e0nd6",
+   "tags": [],
+   "freq": "periódica",
+   "recurring": true
+  },
+  {
+   "id": "86bcnuxbv",
+   "name": "БОТ-ЧАСТЬ: 💳 Оплата чаттерам Sofia Lunara (счёт от Лёши в TG 15–20 числа) - Яна",
+   "status": "to do",
+   "priority": "normal",
+   "due": "2026-11-15",
+   "hang_since": "2026-10-21",
+   "assignees": [
+    "Rost"
+   ],
+   "list": "General Tasks OF",
+   "url": "https://rosmater.github.io/cu/?t=86bcnuxbv",
+   "tags": [],
+   "freq": "periódica",
+   "recurring": true
+  },
+  {
+   "id": "86bcjheva",
+   "name": "Pago: комиссия Марсии за Габриэлу",
+   "status": "to do",
+   "priority": "normal",
+   "due": "2026-10-30",
+   "hang_since": "2026-10-19",
+   "assignees": [
+    "Rost"
+   ],
+   "list": "General Tasks OF",
+   "url": "https://rosmater.github.io/cu/?t=86bcjheva",
+   "tags": [],
+   "freq": null
+  },
+  {
+   "id": "86bajv3th",
+   "name": "Planear grabaciones de videos Explícitos",
+   "status": "to do",
+   "priority": "normal",
+   "due": "2026-12-03",
+   "hang_since": "2026-10-19",
+   "assignees": [
+    "Michelle Hernández"
+   ],
+   "list": "Models",
+   "url": "https://rosmater.github.io/cu/?t=86bajv3th",
+   "tags": [],
+   "freq": "periódica",
+   "recurring": true
+  },
+  {
+   "id": "86bb3qyk9",
+   "name": "Mirar si iCloud esta pagado de tarjeta 6619-usdt",
+   "status": "to do",
+   "priority": "normal",
+   "due": "2026-11-18",
+   "hang_since": "2026-10-19",
+   "assignees": [
+    "Sara Pineda Chanci"
+   ],
+   "list": "General Tasks OF",
+   "url": "https://rosmater.github.io/cu/?t=86bb3qyk9",
+   "tags": [],
+   "freq": null
+  },
+  {
+   "id": "86b9fceb4",
+   "name": "PROYECTO: Fetish Rooms + Lolapop",
+   "status": "to do",
+   "priority": "normal",
+   "due": "2026-12-22",
+   "hang_since": "2026-10-19",
+   "assignees": [
+    "Michelle Hernández"
+   ],
+   "list": "General Tasks OF",
+   "url": "https://rosmater.github.io/cu/?t=86b9fceb4",
+   "tags": [],
+   "freq": "periódica",
+   "recurring": true
+  },
+  {
+   "id": "86bbmabqh",
+   "name": "💳 Pagar celular desde Nequi 3143287247 (35000) (celular de Ros) + marcar Ros despues pago",
+   "status": "to do",
+   "priority": "high",
+   "due": "2026-11-10",
+   "hang_since": "2026-10-14",
+   "assignees": [
+    "Sara Pineda Chanci"
+   ],
+   "list": "General Tasks OF",
+   "url": "https://rosmater.github.io/cu/?t=86bbmabqh",
+   "tags": [],
+   "freq": "periódica",
+   "recurring": true
+  },
+  {
+   "id": "86b9kaaw5",
+   "name": "Контракты с сотрудницами - есть новые? / (модели-после ИНН платежки)",
+   "status": "to do",
+   "priority": "normal",
+   "due": "2026-10-25",
+   "hang_since": "2026-10-14",
+   "assignees": [
+    "Rost"
+   ],
+   "list": "General Tasks OF",
+   "url": "https://rosmater.github.io/cu/?t=86b9kaaw5",
+   "tags": [],
+   "freq": null
+  },
+  {
+   "id": "86bbcecg4",
+   "name": "С ИРИНОЙ: ОБСУДИТЬ СПИСОК ДОКУМЕНТОВ / ОТЧЕТЫ + добавить мои личные сроки в напоминалки‼️‼️‼️‼️ 10:30 - Бух Колумбия ответы на вопросы по необходимым документам (новые вопросы)",
+   "status": "to do",
+   "priority": "normal",
+   "due": "2026-10-25",
+   "hang_since": "2026-10-14",
+   "assignees": [
+    "Rost"
+   ],
+   "list": "General Tasks OF",
+   "url": "https://rosmater.github.io/cu/?t=86bbcecg4",
+   "tags": [],
+   "freq": null
+  },
+  {
+   "id": "86bba24gq",
+   "name": "Запуск ОФТВ модели (запускаем или нет?)",
+   "status": "to do",
+   "priority": "normal",
+   "due": "2026-11-09",
+   "hang_since": "2026-10-14",
+   "assignees": [
+    "Rost"
+   ],
+   "list": "Models",
+   "url": "https://rosmater.github.io/cu/?t=86bba24gq",
+   "tags": [],
+   "freq": null
+  },
+  {
+   "id": "86bb4zv3p",
+   "name": "Стримы ОФ-ТС - Джулиана/Катерина + Шейх стримы (жду Буллет/Шейх-RA)",
+   "status": "to do",
+   "priority": "normal",
+   "due": "2026-11-02",
+   "hang_since": "2026-10-14",
+   "assignees": [
+    "Rost"
+   ],
+   "list": "General Tasks OF",
+   "url": "https://rosmater.github.io/cu/?t=86bb4zv3p",
+   "tags": [],
+   "freq": null
+  },
+  {
+   "id": "86b9kgp8y",
+   "name": "Estar pendiente de TikTok y Instagram (Alejandra IA)",
+   "status": "to do",
+   "priority": "normal",
+   "due": null,
+   "hang_since": "2026-10-09",
+   "assignees": [
+    "Sara Pineda Chanci"
+   ],
+   "list": "General Tasks OF",
+   "url": "https://rosmater.github.io/cu/?t=86b9kgp8y",
+   "tags": [],
+   "freq": "periódica",
+   "recurring": true
+  },
+  {
+   "id": "86bbr22g6",
+   "name": "(тормозим?) Мишель: проверить публикацию новых видео (контент закончился?)",
+   "status": "to do",
+   "priority": "normal",
+   "due": "2026-10-26",
+   "hang_since": "2026-10-10",
+   "assignees": [
+    "Rost"
+   ],
+   "list": "Models",
+   "url": "https://rosmater.github.io/cu/?t=86bbr22g6",
+   "tags": [],
+   "freq": null
+  },
+  {
+   "id": "86bagvg08",
+   "name": "Aura проверить кредиты СРОЧНО - тесттим новый сервис",
+   "status": "to do",
+   "priority": "normal",
+   "due": "2026-11-01",
+   "hang_since": "2026-10-05",
+   "assignees": [
+    "Rost"
+   ],
+   "list": "General Tasks OF",
+   "url": "https://rosmater.github.io/cu/?t=86bagvg08",
+   "tags": [],
+   "freq": null
+  },
+  {
+   "id": "86bccqpd9",
+   "name": "ManyVids LolaPop- проверить выплату с платформы",
+   "status": "to do",
+   "priority": "normal",
+   "due": "2026-11-04",
+   "hang_since": "2026-10-04",
+   "assignees": [
+    "Rost"
+   ],
+   "list": "Models",
+   "url": "https://rosmater.github.io/cu/?t=86bccqpd9",
+   "tags": [],
+   "freq": null
+  },
+  {
+   "id": "86b9wxthz",
+   "name": "Заказать кепку и мерч онлифанс - при условии выхода в прибыль 5000 - на 200 долларов (купон)",
+   "status": "to do",
+   "priority": "normal",
+   "due": "2027-01-11",
+   "hang_since": "2026-10-04",
+   "assignees": [
+    "Rost"
+   ],
+   "list": "General Tasks OF",
+   "url": "https://rosmater.github.io/cu/?t=86b9wxthz",
+   "tags": [],
+   "freq": null
+  },
+  {
+   "id": "86b7h082q",
+   "name": "(арабские, франция., германия, резервная) Пароли от всех аккаунтов: (проверить все ли доступы есть + чеклист)",
+   "status": "to do",
+   "priority": "normal",
+   "due": "2026-10-31",
+   "hang_since": "2026-10-01",
+   "assignees": [
+    "Rost"
+   ],
+   "list": "General Tasks OF",
+   "url": "https://rosmater.github.io/cu/?t=86b7h082q",
+   "tags": [],
+   "freq": "periódica",
+   "recurring": true
+  },
+  {
+   "id": "86ba1b7ek",
+   "name": "💳 Linkscale - контроль оплаты (вписались в лимиты - карта?)",
+   "status": "to do",
+   "priority": "normal",
+   "due": "2026-10-27",
+   "hang_since": "2026-09-28",
+   "assignees": [
+    "Rost"
+   ],
+   "list": "General Tasks OF",
+   "url": "https://rosmater.github.io/cu/?t=86ba1b7ek",
+   "tags": [],
+   "freq": "periódica",
+   "recurring": true
+  },
+  {
+   "id": "86b8wnffh",
+   "name": "Manyvids/IWantMyClips - subir videos",
+   "status": "to do",
+   "priority": "normal",
+   "due": "2026-11-26",
+   "hang_since": "2026-09-10",
+   "assignees": [
+    "Michelle Hernández"
+   ],
+   "list": "Models",
+   "url": "https://rosmater.github.io/cu/?t=86b8wnffh",
+   "tags": [],
+   "freq": "periódica",
+   "recurring": true
+  },
+  {
+   "id": "86b9fdw51",
+   "name": "Subir Videos a clip4sale 1 Cada semana",
+   "status": "to do",
+   "priority": "normal",
+   "due": "2026-12-22",
+   "hang_since": "2026-09-07",
+   "assignees": [
+    "Michelle Hernández"
+   ],
+   "list": "Models",
+   "url": "https://rosmater.github.io/cu/?t=86b9fdw51",
+   "tags": [],
+   "freq": "periódica",
+   "recurring": true
+  },
+  {
+   "id": "86bb4zqwy",
+   "name": "Оплата Эдс Павер на 6 месяцев укр картой",
+   "status": "to do",
+   "priority": "normal",
+   "due": "2027-01-17",
+   "hang_since": "2026-08-02",
+   "assignees": [
+    "Rost"
+   ],
+   "list": "General Tasks OF",
+   "url": "https://rosmater.github.io/cu/?t=86bb4zqwy",
+   "tags": [],
+   "freq": null
+  },
+  {
+   "id": "86b9q8wba",
+   "name": "Лил Хост продлить - нужно ли? попросить Кота?",
+   "status": "to do",
+   "priority": "normal",
+   "due": "2027-05-01",
+   "hang_since": "2026-05-06",
+   "assignees": [
+    "Rost"
+   ],
+   "list": "General Tasks OF",
+   "url": "https://rosmater.github.io/cu/?t=86b9q8wba",
+   "tags": [],
+   "freq": null
+  },
+  {
+   "id": "86b7rart0",
+   "name": "MDM обновить сертификат",
+   "status": "to do",
+   "priority": "normal",
+   "due": "2026-11-23",
+   "hang_since": "2026-01-01",
+   "assignees": [
+    "Rost"
+   ],
+   "list": "General Tasks OF",
+   "url": "https://rosmater.github.io/cu/?t=86b7rart0",
+   "tags": [],
+   "freq": "periódica",
+   "recurring": true
+  },
+  {
+   "id": "86bd2vc4v",
+   "name": "Габриэла — переформат сотрудничества, запуск с Лёшей",
+   "status": "to do",
+   "priority": "normal",
+   "due": "2026-11-12",
+   "hang_since": "2026-11-12",
+   "assignees": [
+    "Rost"
+   ],
+   "list": "Models",
+   "url": "https://rosmater.github.io/cu/?t=86bd2vc4v",
+   "tags": [
+    "🎯 фокус"
+   ],
+   "freq": null
+  },
+  {
+   "id": "86bd2vc4n",
+   "name": "Audri — старт OFTV + дата окончания?",
+   "status": "to do",
+   "priority": "normal",
+   "due": "2026-11-12",
+   "hang_since": "2026-11-12",
+   "assignees": [
+    "Rost"
+   ],
+   "list": "Models",
+   "url": "https://rosmater.github.io/cu/?t=86bd2vc4n",
+   "tags": [
+    "🎯 фокус"
+   ],
+   "freq": null
+  },
+  {
+   "id": "86bd2vc4g",
+   "name": "Iniciar OF TV start con Gabriela",
+   "status": "to do",
+   "priority": "normal",
+   "due": "2026-11-13",
+   "hang_since": "2026-11-12",
+   "assignees": [
+    "Michelle Hernández"
+   ],
+   "list": "Models",
+   "url": "https://rosmater.github.io/cu/?t=86bd2vc4g",
+   "tags": [
+    "🎯 фокус"
+   ],
+   "freq": null
+  },
+  {
+   "id": "86bd3atpx",
+   "name": "Мишель — переформатировать работу (OnlyFans)",
+   "status": "to do",
+   "priority": "normal",
+   "due": null,
+   "hang_since": "2026-11-13",
+   "assignees": [
+    "Rost"
+   ],
+   "list": "General Tasks OF",
+   "url": "https://rosmater.github.io/cu/?t=86bd3atpx",
+   "tags": [
+    "🎯 фокус"
+   ],
+   "freq": null
+  },
+  {
+   "id": "86bcgc3ze",
+   "name": "USDT для Novax — переслать выписку для подтверждения адреса",
+   "status": "to do",
+   "priority": "urgent",
+   "due": "2026-11-13",
+   "hang_since": null,
+   "assignees": [
+    "Rost"
+   ],
+   "list": "General Tasks OF",
+   "url": "https://rosmater.github.io/cu/?t=86bcgc3ze",
+   "tags": [
+    "🎯 фокус"
+   ],
+   "freq": "única",
+   "parent": "PARA EMPRESA"
+  }
+ ]
 }
