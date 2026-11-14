@@ -1321,7 +1321,7 @@
    "name": "Анализ чатов Viber, Telegram, WhatsApp — интернет-магазин",
    "status": "to do",
    "priority": "normal",
-   "due": null,
+   "due": "2026-11-14",
    "hang_since": "2026-11-11",
    "assignees": [
     "Rost"
@@ -1336,7 +1336,7 @@
    "name": "Андрей Партнер: подключить к боту + доступ в 1С",
    "status": "to do",
    "priority": "normal",
-   "due": null,
+   "due": "2026-11-14",
    "hang_since": "2026-11-11",
    "assignees": [
     "Rost"
@@ -1354,7 +1354,7 @@
    "name": "Внедрить авто-SMS для возврата старых покупателей",
    "status": "to do",
    "priority": "normal",
-   "due": null,
+   "due": "2026-11-14",
    "hang_since": "2026-11-11",
    "assignees": [
     "Rost"

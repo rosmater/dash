@@ -106,7 +106,7 @@
    "name": "Encontrar repartidor en Bogotá",
    "status": "to do",
    "priority": "normal",
-   "due": null,
+   "due": "2026-11-14",
    "hang_since": "2026-11-14",
    "assignees": [
     "Sara Pineda Chanci"
@@ -125,7 +125,7 @@
    "name": "Empezar envíos por toda Colombia",
    "status": "to do",
    "priority": "normal",
-   "due": null,
+   "due": "2026-11-14",
    "hang_since": "2026-11-14",
    "assignees": [
     "Sara Pineda Chanci"
