@@ -1,6 +1,6 @@
 {
- "fetched": "2026-11-13 21:05 Bogotá",
- "src": "clickup_filter_tasks view_id=8cn3rz8-1914 (workspace view «Ros»)",
+ "fetched": "2026-11-13 21:42 Bogotá",
+ "src": "clickup_filter_tasks view_id=8cn3rz8-1914 (workspace view «Ros») + roles + roles",
  "view": {
   "id": "8cn3rz8-1914",
   "name": "Ros",
@@ -130,7 +130,8 @@
    "due": "2026-10-30",
    "due_ms": 1793350800000,
    "updated": "2026-10-19 19:31",
-   "closed": false
+   "closed": false,
+   "role": "💵 Pago"
   },
   {
    "id": "86bb77hpg",
@@ -154,7 +155,8 @@
    "due": "2026-10-28",
    "due_ms": 1793178000000,
    "updated": "2026-10-25 15:07",
-   "closed": false
+   "closed": false,
+   "role": "💡REMIND"
   },
   {
    "id": "86b84etw8",
@@ -174,7 +176,8 @@
    "due": "2026-11-10",
    "due_ms": 1794301200000,
    "updated": "2026-11-10 18:09",
-   "closed": false
+   "closed": false,
+   "role": "💡REMIND"
   },
   {
    "id": "86bbc7v9v",
@@ -194,7 +197,8 @@
    "due": "2026-11-03",
    "due_ms": 1793696400000,
    "updated": "2026-10-28 11:10",
-   "closed": false
+   "closed": false,
+   "role": "💡REMIND"
   },
   {
    "id": "86bcgbhg0",
@@ -214,7 +218,8 @@
    "due": "2026-11-13",
    "due_ms": 1794560400000,
    "updated": "2026-11-13 11:09",
-   "closed": false
+   "closed": false,
+   "role": "💡REMIND"
   },
   {
    "id": "86bcxunr8",
@@ -236,7 +241,8 @@
    "due": "2026-11-04",
    "due_ms": 1793782800000,
    "updated": "2026-11-03 21:41",
-   "closed": false
+   "closed": false,
+   "role": "💡REMIND"
   },
   {
    "id": "86bayeyr8",
@@ -256,7 +262,8 @@
    "due": "2026-11-01",
    "due_ms": 1793523600000,
    "updated": "2026-07-15 16:19",
-   "closed": false
+   "closed": false,
+   "role": "💡REMIND"
   },
   {
    "id": "86b859rt5",
@@ -280,7 +287,8 @@
    "due": "2026-10-28",
    "due_ms": 1793178000000,
    "updated": "2026-10-14 12:52",
-   "closed": false
+   "closed": false,
+   "role": "💡REMIND"
   },
   {
    "id": "86bbcecg4",
@@ -300,7 +308,8 @@
    "due": "2026-10-25",
    "due_ms": 1792918800000,
    "updated": "2026-10-14 12:51",
-   "closed": false
+   "closed": false,
+   "role": "💡REMIND"
   },
   {
    "id": "86bawjfqf",
@@ -320,7 +329,8 @@
    "due": "2026-10-26",
    "due_ms": 1793005200000,
    "updated": "2026-09-28 14:08",
-   "closed": false
+   "closed": false,
+   "role": "💡REMIND"
   },
   {
    "id": "86b9kaaw5",
@@ -340,7 +350,8 @@
    "due": "2026-10-25",
    "due_ms": 1792918800000,
    "updated": "2026-10-14 12:51",
-   "closed": false
+   "closed": false,
+   "role": "💡REMIND"
   },
   {
    "id": "86bcjaayq",
@@ -360,7 +371,8 @@
    "due": "2026-11-04",
    "due_ms": 1793782800000,
    "updated": "2026-10-14 13:11",
-   "closed": false
+   "closed": false,
+   "role": "💡REMIND"
   },
   {
    "id": "86b6qphf1",
@@ -382,7 +394,8 @@
    "due": "2026-11-05",
    "due_ms": 1793869200000,
    "updated": "2026-11-13 19:07",
-   "closed": false
+   "closed": false,
+   "role": "💡REMIND"
   },
   {
    "id": "86bb82e7z",
@@ -406,7 +419,8 @@
    "due": "2026-10-21",
    "due_ms": 1792573200000,
    "updated": "2026-09-02 09:01",
-   "closed": false
+   "closed": false,
+   "role": "💡REMIND"
   },
   {
    "id": "86bbhn8d4",
@@ -426,7 +440,8 @@
    "due": "2026-10-18",
    "due_ms": 1792314000000,
    "updated": "2026-08-20 11:47",
-   "closed": false
+   "closed": false,
+   "role": "💡REMIND"
   },
   {
    "id": "86bbhwnye",
@@ -446,7 +461,8 @@
    "due": "2026-10-25",
    "due_ms": 1792918800000,
    "updated": "2026-10-14 12:51",
-   "closed": false
+   "closed": false,
+   "role": "💡REMIND"
   },
   {
    "id": "86bbjcbez",
@@ -470,7 +486,8 @@
    "due": "2026-10-25",
    "due_ms": 1792918800000,
    "updated": "2026-10-14 12:52",
-   "closed": false
+   "closed": false,
+   "role": "💡REMIND"
   },
   {
    "id": "86b6qphq3",
@@ -490,7 +507,8 @@
    "due": "2026-10-25",
    "due_ms": 1792918800000,
    "updated": "2026-11-12 23:19",
-   "closed": false
+   "closed": false,
+   "role": "💡REMIND"
   },
   {
    "id": "86bbufwk0",
@@ -510,7 +528,8 @@
    "due": "2026-10-25",
    "due_ms": 1792918800000,
    "updated": "2026-10-14 12:52",
-   "closed": false
+   "closed": false,
+   "role": "💡REMIND"
   },
   {
    "id": "86b9ckxxk",
@@ -530,7 +549,8 @@
    "due": "2026-11-04",
    "due_ms": 1793782800000,
    "updated": "2026-10-25 11:53",
-   "closed": false
+   "closed": false,
+   "role": "🚶GO"
   },
   {
    "id": "86b716gh8",
@@ -552,7 +572,8 @@
    "due": "2026-10-28",
    "due_ms": 1793178000000,
    "updated": "2026-11-13 19:07",
-   "closed": false
+   "closed": false,
+   "role": "🚶GO"
   },
   {
    "id": "86bcmwtt5",
@@ -574,7 +595,8 @@
    "due": "2026-11-03",
    "due_ms": 1793727000000,
    "updated": "2026-11-13 19:07",
-   "closed": false
+   "closed": false,
+   "role": "🚶GO"
   },
   {
    "id": "86bcrqtyk",
@@ -594,7 +616,8 @@
    "due": "2026-10-27",
    "due_ms": 1793134800000,
    "updated": "2026-11-03 21:42",
-   "closed": false
+   "closed": false,
+   "role": "🚶GO"
   },
   {
    "id": "86bd0vyb9",
@@ -616,7 +639,8 @@
    "due": "2026-11-10",
    "due_ms": 1794301200000,
    "updated": "2026-11-13 19:07",
-   "closed": false
+   "closed": false,
+   "role": "🚶GO"
   },
   {
    "id": "86bb3qgvy",
@@ -636,7 +660,8 @@
    "due": "2026-11-09",
    "due_ms": 1794214800000,
    "updated": "2026-11-05 14:04",
-   "closed": false
+   "closed": false,
+   "role": "🚶GO"
   },
   {
    "id": "86bbr22g6",
@@ -656,7 +681,8 @@
    "due": "2026-10-26",
    "due_ms": 1793005200000,
    "updated": "2026-10-10 12:29",
-   "closed": false
+   "closed": false,
+   "role": "🚶GO"
   },
   {
    "id": "86bcma7tp",
@@ -676,7 +702,8 @@
    "due": "2026-11-10",
    "due_ms": 1794344400000,
    "updated": "2026-11-13 09:37",
-   "closed": false
+   "closed": false,
+   "role": "🚶GO"
   },
   {
    "id": "86b6q93pc",
@@ -698,7 +725,8 @@
    "due": "2026-11-03",
    "due_ms": 1793696400000,
    "updated": "2026-11-13 19:07",
-   "closed": false
+   "closed": false,
+   "role": "🚶GO"
   },
   {
    "id": "86b7ub08j",
@@ -718,7 +746,8 @@
    "due": "2026-10-30",
    "due_ms": 1793388600000,
    "updated": "2026-10-23 12:46",
-   "closed": false
+   "closed": false,
+   "role": "📞CALL"
   },
   {
    "id": "86b7k85rt",
@@ -738,7 +767,8 @@
    "due": "2026-11-07",
    "due_ms": 1794042000000,
    "updated": "2026-10-25 12:14",
-   "closed": false
+   "closed": false,
+   "role": "📞CALL"
   },
   {
    "id": "86b6qq6r9",
@@ -758,7 +788,8 @@
    "due": "2026-10-26",
    "due_ms": 1793037600000,
    "updated": "2026-10-26 14:13",
-   "closed": false
+   "closed": false,
+   "role": "📞CALL"
   },
   {
    "id": "86b7k81df",
@@ -778,7 +809,8 @@
    "due": "2026-11-01",
    "due_ms": 1793523600000,
    "updated": "2026-10-25 12:10",
-   "closed": false
+   "closed": false,
+   "role": "📞CALL"
   },
   {
    "id": "86b7gkttx",
@@ -798,7 +830,8 @@
    "due": "2026-10-26",
    "due_ms": 1793005200000,
    "updated": "2026-10-25 17:50",
-   "closed": false
+   "closed": false,
+   "role": "📞CALL"
   },
   {
    "id": "86b7gku15",
@@ -818,7 +851,8 @@
    "due": "2026-11-07",
    "due_ms": 1794067200000,
    "updated": "2026-10-25 12:10",
-   "closed": false
+   "closed": false,
+   "role": "📞CALL"
   },
   {
    "id": "86b7n8jga",
@@ -838,7 +872,8 @@
    "due": "2026-11-05",
    "due_ms": 1793869200000,
    "updated": "2026-10-25 12:10",
-   "closed": false
+   "closed": false,
+   "role": "📞CALL"
   },
   {
    "id": "86b7k81cj",
@@ -858,7 +893,8 @@
    "due": "2026-11-07",
    "due_ms": 1794042000000,
    "updated": "2026-10-25 12:14",
-   "closed": false
+   "closed": false,
+   "role": "📞CALL"
   },
   {
    "id": "86b7k81e5",
@@ -878,7 +914,8 @@
    "due": "2026-11-07",
    "due_ms": 1794042000000,
    "updated": "2026-10-25 12:10",
-   "closed": false
+   "closed": false,
+   "role": "📞CALL"
   },
   {
    "id": "86b7n8kwx",
@@ -898,7 +935,8 @@
    "due": "2026-10-27",
    "due_ms": 1793091600000,
    "updated": "2026-10-25 12:15",
-   "closed": false
+   "closed": false,
+   "role": "📞CALL"
   },
   {
    "id": "86b6zwn9j",
@@ -918,7 +956,8 @@
    "due": "2026-11-03",
    "due_ms": 1793696400000,
    "updated": "2026-10-25 12:17",
-   "closed": false
+   "closed": false,
+   "role": "📞CALL"
   },
   {
    "id": "86bcpt3yj",
@@ -938,7 +977,8 @@
    "due": "2026-10-27",
    "due_ms": 1793091600000,
    "updated": "2026-10-25 19:16",
-   "closed": false
+   "closed": false,
+   "role": "📞CALL"
   },
   {
    "id": "86b7k81bu",
@@ -958,7 +998,8 @@
    "due": "2026-11-07",
    "due_ms": 1794042000000,
    "updated": "2026-10-25 12:10",
-   "closed": false
+   "closed": false,
+   "role": "📞CALL"
   },
   {
    "id": "86b7k8525",
@@ -978,7 +1019,8 @@
    "due": "2026-10-25",
    "due_ms": 1792918800000,
    "updated": "2026-10-25 12:18",
-   "closed": false
+   "closed": false,
+   "role": "📞CALL"
   },
   {
    "id": "86b9tdd1h",
@@ -998,7 +1040,8 @@
    "due": "2026-10-28",
    "due_ms": 1793178000000,
    "updated": "2026-11-03 16:21",
-   "closed": false
+   "closed": false,
+   "role": "📞CALL"
   },
   {
    "id": "86b7wmv85",
@@ -1018,7 +1061,8 @@
    "due": "2026-11-09",
    "due_ms": 1794214800000,
    "updated": "2026-11-08 12:20",
-   "closed": false
+   "closed": false,
+   "role": "📞CALL"
   },
   {
    "id": "86b9dw8uu",
@@ -1038,7 +1082,8 @@
    "due": "2026-11-09",
    "due_ms": 1794214800000,
    "updated": "2026-11-08 12:20",
-   "closed": false
+   "closed": false,
+   "role": "📞CALL"
   },
   {
    "id": "86bb79fmt",
@@ -1058,7 +1103,8 @@
    "due": "2026-10-25",
    "due_ms": 1792918800000,
    "updated": "2026-10-27 22:05",
-   "closed": false
+   "closed": false,
+   "role": "📞CALL"
   },
   {
    "id": "86bd2xjaa",
@@ -1080,7 +1126,8 @@
    "due": "2026-11-13",
    "due_ms": 1794560400000,
    "updated": "2026-11-13 00:28",
-   "closed": false
+   "closed": false,
+   "role": "📞CALL"
   },
   {
    "id": "86bcnt4nr",
@@ -1100,7 +1147,8 @@
    "due": "2026-11-03",
    "due_ms": 1793696400000,
    "updated": "2026-10-25 16:21",
-   "closed": false
+   "closed": false,
+   "role": "TO DO"
   },
   {
    "id": "86bcqufak",
@@ -1120,7 +1168,8 @@
    "due": "2026-10-27",
    "due_ms": 1793091600000,
    "updated": "2026-10-25 10:29",
-   "closed": false
+   "closed": false,
+   "role": "TO DO"
   },
   {
    "id": "86bbbw2fq",
@@ -1140,7 +1189,8 @@
    "due": "2026-11-01",
    "due_ms": 1793523600000,
    "updated": "2026-08-17 13:15",
-   "closed": false
+   "closed": false,
+   "role": "TO DO"
   },
   {
    "id": "86bbjq18f",
@@ -1160,7 +1210,8 @@
    "due": "2026-11-07",
    "due_ms": 1794042000000,
    "updated": "2026-10-25 16:23",
-   "closed": false
+   "closed": false,
+   "role": "TO DO"
   },
   {
    "id": "86b8rn9wf",
@@ -1184,7 +1235,8 @@
    "due": "2026-11-10",
    "due_ms": 1794301200000,
    "updated": "2026-11-09 15:06",
-   "closed": false
+   "closed": false,
+   "role": "TO DO"
   },
   {
    "id": "86bbdx9ue",
@@ -1204,7 +1256,8 @@
    "due": "2026-10-16",
    "due_ms": 1792198800000,
    "updated": "2026-09-19 14:10",
-   "closed": false
+   "closed": false,
+   "role": "TO DO"
   },
   {
    "id": "86bbq6etm",
@@ -1224,7 +1277,8 @@
    "due": "2026-11-07",
    "due_ms": 1794042000000,
    "updated": "2026-10-25 13:18",
-   "closed": false
+   "closed": false,
+   "role": "TO DO"
   },
   {
    "id": "86bcpz5xu",
@@ -1244,7 +1298,8 @@
    "due": "2026-10-26",
    "due_ms": 1793005200000,
    "updated": "2026-10-22 16:16",
-   "closed": false
+   "closed": false,
+   "role": "TO DO"
   },
   {
    "id": "86bcgc3ze",
@@ -1266,7 +1321,8 @@
    "due": "2026-11-13",
    "due_ms": 1794560400000,
    "updated": "2026-11-13 18:44",
-   "closed": false
+   "closed": false,
+   "role": "TO DO"
   },
   {
    "id": "86b7k7jnx",
@@ -1286,7 +1342,8 @@
    "due": "2026-11-02",
    "due_ms": 1793610000000,
    "updated": "2026-11-02 10:44",
-   "closed": false
+   "closed": false,
+   "role": "TO DO"
   },
   {
    "id": "86b7k7jp4",
@@ -1306,7 +1363,8 @@
    "due": "2026-10-19",
    "due_ms": 1792400400000,
    "updated": "2026-10-26 10:55",
-   "closed": false
+   "closed": false,
+   "role": "TO DO"
   },
   {
    "id": "86bbzxnvx",
@@ -1326,7 +1384,8 @@
    "due": "2026-11-13",
    "due_ms": 1794560400000,
    "updated": "2026-11-13 15:01",
-   "closed": false
+   "closed": false,
+   "role": "TO DO"
   },
   {
    "id": "86b7xjwdn",
@@ -1346,7 +1405,8 @@
    "due": "2026-10-25",
    "due_ms": 1792980000000,
    "updated": "2026-09-28 23:01",
-   "closed": false
+   "closed": false,
+   "role": "TO DO"
   },
   {
    "id": "86b7k85dn",
@@ -1366,7 +1426,8 @@
    "due": "2026-11-07",
    "due_ms": 1794042000000,
    "updated": "2026-10-25 13:18",
-   "closed": false
+   "closed": false,
+   "role": "TO DO"
   },
   {
    "id": "86b6qqajb",
@@ -1390,7 +1451,8 @@
    "due": "2026-11-10",
    "due_ms": 1794301200000,
    "updated": "2026-11-10 07:44",
-   "closed": false
+   "closed": false,
+   "role": "TO DO"
   },
   {
    "id": "86b7688n9",
@@ -1410,7 +1472,8 @@
    "due": "2026-10-26",
    "due_ms": 1793005200000,
    "updated": "2026-10-25 16:20",
-   "closed": false
+   "closed": false,
+   "role": "TO DO"
   },
   {
    "id": "86bcnmdvt",
@@ -1432,7 +1495,8 @@
    "due": "2026-11-08",
    "due_ms": 1794189600000,
    "updated": "2026-11-13 19:04",
-   "closed": false
+   "closed": false,
+   "role": "TO DO"
   },
   {
    "id": "86b9ycbby",
@@ -1452,7 +1516,8 @@
    "due": "2026-11-06",
    "due_ms": 1793955600000,
    "updated": "2026-11-06 10:47",
-   "closed": false
+   "closed": false,
+   "role": "TO DO"
   },
   {
    "id": "86bcxke2t",
@@ -1474,7 +1539,8 @@
    "due": "2026-11-09",
    "due_ms": 1794214800000,
    "updated": "2026-11-04 09:13",
-   "closed": false
+   "closed": false,
+   "role": "TO DO"
   },
   {
    "id": "86bd2vc4n",
@@ -1496,7 +1562,8 @@
    "due": "2026-11-12",
    "due_ms": 1794474000000,
    "updated": "2026-11-13 17:52",
-   "closed": false
+   "closed": false,
+   "role": "TO DO"
   },
   {
    "id": "86bd2vc4v",
@@ -1518,7 +1585,8 @@
    "due": "2026-11-12",
    "due_ms": 1794474000000,
    "updated": "2026-11-12 22:18",
-   "closed": false
+   "closed": false,
+   "role": "TO DO"
   },
   {
    "id": "86b7y8n8m",
@@ -1538,7 +1606,8 @@
    "due": "2026-11-01",
    "due_ms": 1793523600000,
    "updated": "2026-11-10 18:38",
-   "closed": false
+   "closed": false,
+   "role": "TO DO"
   },
   {
    "id": "86ba3c1x4",
@@ -1560,7 +1629,8 @@
    "due": "2026-10-15",
    "due_ms": 1792054800000,
    "updated": "2026-11-13 17:54",
-   "closed": false
+   "closed": false,
+   "role": "TO DO"
   },
   {
    "id": "86bcrc6qz",
@@ -1580,7 +1650,8 @@
    "due": "2026-10-26",
    "due_ms": 1793005200000,
    "updated": "2026-10-26 10:49",
-   "closed": false
+   "closed": false,
+   "role": "TO DO"
   },
   {
    "id": "86bcy49kz",
@@ -1600,7 +1671,8 @@
    "due": "2026-11-04",
    "due_ms": 1793782800000,
    "updated": "2026-11-04 10:41",
-   "closed": false
+   "closed": false,
+   "role": "TO DO"
   },
   {
    "id": "86b8aj8e5",
@@ -1620,7 +1692,8 @@
    "due": "2026-11-01",
    "due_ms": 1793584800000,
    "updated": "2026-10-04 08:03",
-   "closed": false
+   "closed": false,
+   "role": "TO DO"
   },
   {
    "id": "86ba2y9ke",
@@ -1640,7 +1713,8 @@
    "due": "2026-10-19",
    "due_ms": 1792400400000,
    "updated": "2026-10-12 13:14",
-   "closed": false
+   "closed": false,
+   "role": "TO DO"
   },
   {
    "id": "86b92hyc3",
@@ -1660,7 +1734,8 @@
    "due": "2026-10-26",
    "due_ms": 1793005200000,
    "updated": "2026-10-25 16:18",
-   "closed": false
+   "closed": false,
+   "role": "TO DO"
   },
   {
    "id": "86b8nwj7t",
@@ -1680,7 +1755,8 @@
    "due": "2026-10-26",
    "due_ms": 1793005200000,
    "updated": "2026-10-14 10:20",
-   "closed": false
+   "closed": false,
+   "role": "TO DO"
   },
   {
    "id": "86bcjkww3",
@@ -1700,7 +1776,8 @@
    "due": "2026-10-18",
    "due_ms": 1792314000000,
    "updated": "2026-10-15 00:39",
-   "closed": false
+   "closed": false,
+   "role": "TO DO"
   },
   {
    "id": "86bbznkyv",
@@ -1720,7 +1797,8 @@
    "due": "2026-10-26",
    "due_ms": 1793005200000,
    "updated": "2026-10-25 12:15",
-   "closed": false
+   "closed": false,
+   "role": "Control"
   },
   {
    "id": "86b95nwka",
@@ -1740,7 +1818,8 @@
    "due": "2026-10-28",
    "due_ms": 1793178000000,
    "updated": "2026-10-25 12:27",
-   "closed": false
+   "closed": false,
+   "role": "Control"
   },
   {
    "id": "86bbcd0d9",
@@ -1760,7 +1839,8 @@
    "due": "2026-10-27",
    "due_ms": 1793091600000,
    "updated": "2026-10-25 12:47",
-   "closed": false
+   "closed": false,
+   "role": "Control"
   },
   {
    "id": "86bahp0w9",
@@ -1780,7 +1860,8 @@
    "due": "2026-10-29",
    "due_ms": 1793264400000,
    "updated": "2026-10-25 12:16",
-   "closed": false
+   "closed": false,
+   "role": "Control"
   },
   {
    "id": "86b7h082q",
@@ -1800,7 +1881,8 @@
    "due": "2026-10-31",
    "due_ms": 1793498400000,
    "updated": "2026-10-01 13:45",
-   "closed": false
+   "closed": false,
+   "role": "Control"
   },
   {
    "id": "86b7k747u",
@@ -1820,7 +1902,8 @@
    "due": "2026-10-28",
    "due_ms": 1793178000000,
    "updated": "2026-10-25 12:47",
-   "closed": false
+   "closed": false,
+   "role": "Control"
   },
   {
    "id": "86b6qqbah",
@@ -1840,7 +1923,8 @@
    "due": "2026-11-04",
    "due_ms": 1793844000000,
    "updated": "2026-10-05 13:41",
-   "closed": false
+   "closed": false,
+   "role": "Control"
   },
   {
    "id": "86b8b332f",
@@ -1860,7 +1944,8 @@
    "due": "2026-11-02",
    "due_ms": 1793610000000,
    "updated": "2026-10-25 12:47",
-   "closed": false
+   "closed": false,
+   "role": "Control"
   },
   {
    "id": "86b8gan2a",
@@ -1880,7 +1965,8 @@
    "due": "2026-10-27",
    "due_ms": 1793152800000,
    "updated": "2026-10-25 12:59",
-   "closed": false
+   "closed": false,
+   "role": "Control"
   },
   {
    "id": "86b8ttzmc",
@@ -1900,7 +1986,8 @@
    "due": "2026-11-11",
    "due_ms": 1794387600000,
    "updated": "2026-11-08 20:47",
-   "closed": false
+   "closed": false,
+   "role": "Control"
   },
   {
    "id": "86bad13qd",
@@ -1920,7 +2007,8 @@
    "due": "2026-11-04",
    "due_ms": 1793782800000,
    "updated": "2026-10-25 12:50",
-   "closed": false
+   "closed": false,
+   "role": "Control"
   },
   {
    "id": "86bcmacku",
@@ -1940,7 +2028,8 @@
    "due": "2026-10-26",
    "due_ms": 1793005200000,
    "updated": "2026-11-11 22:46",
-   "closed": false
+   "closed": false,
+   "role": "Control"
   },
   {
    "id": "86bcpa3xk",
@@ -1960,7 +2049,8 @@
    "due": "2026-10-28",
    "due_ms": 1793178000000,
    "updated": "2026-10-25 11:36",
-   "closed": false
+   "closed": false,
+   "role": "Control"
   },
   {
    "id": "86b70dhaq",
@@ -1980,7 +2070,8 @@
    "due": "2026-10-27",
    "due_ms": 1793091600000,
    "updated": "2026-10-25 13:09",
-   "closed": false
+   "closed": false,
+   "role": "Control"
   },
   {
    "id": "86b7hcb3a",
@@ -2000,7 +2091,8 @@
    "due": "2026-11-03",
    "due_ms": 1793696400000,
    "updated": "2026-09-01 13:18",
-   "closed": false
+   "closed": false,
+   "role": "Control"
   },
   {
    "id": "86b83wzje",
@@ -2020,7 +2112,8 @@
    "due": "2026-10-28",
    "due_ms": 1793178000000,
    "updated": "2026-10-25 13:32",
-   "closed": false
+   "closed": false,
+   "role": "Control"
   },
   {
    "id": "86b6taumx",
@@ -2040,7 +2133,8 @@
    "due": "2026-10-26",
    "due_ms": 1793005200000,
    "updated": "2026-10-14 11:57",
-   "closed": false
+   "closed": false,
+   "role": "Control"
   },
   {
    "id": "86b9ckz7y",
@@ -2060,7 +2154,8 @@
    "due": "2026-10-26",
    "due_ms": 1793005200000,
    "updated": "2026-10-25 13:00",
-   "closed": false
+   "closed": false,
+   "role": "Control"
   },
   {
    "id": "86b89dj3z",
@@ -2084,7 +2179,8 @@
    "due": "2026-10-28",
    "due_ms": 1793178000000,
    "updated": "2026-11-04 11:26",
-   "closed": false
+   "closed": false,
+   "role": "Control"
   },
   {
    "id": "86ba1b7ek",
@@ -2104,7 +2200,8 @@
    "due": "2026-10-27",
    "due_ms": 1793152800000,
    "updated": "2026-09-28 18:04",
-   "closed": false
+   "closed": false,
+   "role": "Control"
   },
   {
    "id": "86b8fkqg2",
@@ -2124,7 +2221,8 @@
    "due": "2026-10-26",
    "due_ms": 1793005200000,
    "updated": "2026-10-25 14:07",
-   "closed": false
+   "closed": false,
+   "role": "Control"
   },
   {
    "id": "86b8c2fc1",
@@ -2144,7 +2242,8 @@
    "due": "2026-10-28",
    "due_ms": 1793178000000,
    "updated": "2026-10-25 14:04",
-   "closed": false
+   "closed": false,
+   "role": "Control"
   },
   {
    "id": "86b7k81d6",
@@ -2164,7 +2263,8 @@
    "due": "2026-11-07",
    "due_ms": 1794042000000,
    "updated": "2026-09-01 13:21",
-   "closed": false
+   "closed": false,
+   "role": "Control"
   },
   {
    "id": "86b6qp6km",
@@ -2184,7 +2284,8 @@
    "due": "2026-10-28",
    "due_ms": 1793178000000,
    "updated": "2026-10-25 14:05",
-   "closed": false
+   "closed": false,
+   "role": "Control"
   },
   {
    "id": "86b7k7vf7",
@@ -2208,7 +2309,8 @@
    "due": "2026-11-02",
    "due_ms": 1793610000000,
    "updated": "2026-10-12 13:55",
-   "closed": false
+   "closed": false,
+   "role": "Control"
   },
   {
    "id": "86bb4zv3p",
@@ -2228,7 +2330,8 @@
    "due": "2026-11-02",
    "due_ms": 1793610000000,
    "updated": "2026-10-14 12:04",
-   "closed": false
+   "closed": false,
+   "role": "Control"
   },
   {
    "id": "86bba24gq",
@@ -2248,7 +2351,8 @@
    "due": "2026-11-09",
    "due_ms": 1794214800000,
    "updated": "2026-10-14 12:06",
-   "closed": false
+   "closed": false,
+   "role": "Control"
   },
   {
    "id": "86b7k85ke",
@@ -2268,7 +2372,8 @@
    "due": "2026-10-27",
    "due_ms": 1793091600000,
    "updated": "2026-10-25 13:15",
-   "closed": false
+   "closed": false,
+   "role": "Control"
   },
   {
    "id": "86bbay300",
@@ -2288,7 +2393,8 @@
    "due": "2026-11-02",
    "due_ms": 1793610000000,
    "updated": "2026-10-14 12:14",
-   "closed": false
+   "closed": false,
+   "role": "Control"
   },
   {
    "id": "86bbhwpa6",
@@ -2314,7 +2420,8 @@
    "due": "2026-10-28",
    "due_ms": 1793178000000,
    "updated": "2026-11-13 00:21",
-   "closed": false
+   "closed": false,
+   "role": "Control"
   },
   {
    "id": "86bb7zwwf",
@@ -2334,7 +2441,8 @@
    "due": "2026-11-02",
    "due_ms": 1793610000000,
    "updated": "2026-10-05 13:42",
-   "closed": false
+   "closed": false,
+   "role": "Control"
   },
   {
    "id": "86bbzx5uq",
@@ -2354,7 +2462,8 @@
    "due": "2026-10-26",
    "due_ms": 1793005200000,
    "updated": "2026-10-25 14:09",
-   "closed": false
+   "closed": false,
+   "role": "Control"
   },
   {
    "id": "86bc8fkbt",
@@ -2378,7 +2487,8 @@
    "due": "2026-11-10",
    "due_ms": 1794362400000,
    "updated": "2026-11-04 11:24",
-   "closed": false
+   "closed": false,
+   "role": "Control"
   },
   {
    "id": "86b70tqp1",
@@ -2398,7 +2508,8 @@
    "due": "2026-11-02",
    "due_ms": 1793610000000,
    "updated": "2026-10-25 14:13",
-   "closed": false
+   "closed": false,
+   "role": "Control"
   },
   {
    "id": "86b7k7q8w",
@@ -2418,7 +2529,8 @@
    "due": "2026-11-02",
    "due_ms": 1793610000000,
    "updated": "2026-10-25 14:25",
-   "closed": false
+   "closed": false,
+   "role": "Control"
   },
   {
    "id": "86bb779rw",
@@ -2438,7 +2550,8 @@
    "due": "2026-11-05",
    "due_ms": 1793933700000,
    "updated": "2026-11-13 00:57",
-   "closed": false
+   "closed": false,
+   "role": "Control"
   },
   {
    "id": "86b7gj8kv",
@@ -2458,7 +2571,8 @@
    "due": "2026-11-09",
    "due_ms": 1794214800000,
    "updated": "2026-10-25 13:17",
-   "closed": false
+   "closed": false,
+   "role": "Control"
   },
   {
    "id": "86bcm9u4k",
@@ -2480,7 +2594,8 @@
    "due": "2026-10-26",
    "due_ms": 1793005200000,
    "updated": "2026-11-13 19:07",
-   "closed": false
+   "closed": false,
+   "role": "Control"
   },
   {
    "id": "86bcn44nh",
@@ -2500,7 +2615,8 @@
    "due": "2026-10-26",
    "due_ms": 1793005200000,
    "updated": "2026-10-25 14:36",
-   "closed": false
+   "closed": false,
+   "role": "Control"
   },
   {
    "id": "86b77wy0k",
@@ -2520,7 +2636,8 @@
    "due": "2026-10-28",
    "due_ms": 1793178000000,
    "updated": "2026-11-04 15:34",
-   "closed": false
+   "closed": false,
+   "role": "Control"
   },
   {
    "id": "86b7ypqbb",
@@ -2540,7 +2657,8 @@
    "due": "2026-10-28",
    "due_ms": 1793178000000,
    "updated": "2026-10-25 14:18",
-   "closed": false
+   "closed": false,
+   "role": "Control"
   },
   {
    "id": "86bagudj7",
@@ -2562,7 +2680,8 @@
    "due": "2026-10-28",
    "due_ms": 1793178000000,
    "updated": "2026-11-13 00:21",
-   "closed": false
+   "closed": false,
+   "role": "Control"
   },
   {
    "id": "86b7th4zc",
@@ -2586,7 +2705,8 @@
    "due": "2026-10-28",
    "due_ms": 1793178000000,
    "updated": "2026-10-25 14:19",
-   "closed": false
+   "closed": false,
+   "role": "Control"
   },
   {
    "id": "86bagvg08",
@@ -2606,7 +2726,8 @@
    "due": "2026-11-01",
    "due_ms": 1793523600000,
    "updated": "2026-10-05 13:55",
-   "closed": false
+   "closed": false,
+   "role": "Control"
   },
   {
    "id": "86b9rnqmh",
@@ -2626,7 +2747,8 @@
    "due": "2026-10-27",
    "due_ms": 1793152800000,
    "updated": "2026-09-28 18:12",
-   "closed": false
+   "closed": false,
+   "role": "Control"
   },
   {
    "id": "86b82evkw",
@@ -2646,7 +2768,8 @@
    "due": "2026-10-27",
    "due_ms": 1793091600000,
    "updated": "2026-10-25 14:20",
-   "closed": false
+   "closed": false,
+   "role": "Control"
   },
   {
    "id": "86baqkyw4",
@@ -2666,7 +2789,8 @@
    "due": "2026-11-11",
    "due_ms": 1794387600000,
    "updated": "2026-11-11 11:40",
-   "closed": false
+   "closed": false,
+   "role": "Control"
   },
   {
    "id": "86bbam834",
@@ -2686,7 +2810,8 @@
    "due": "2026-10-27",
    "due_ms": 1793091600000,
    "updated": "2026-10-25 15:35",
-   "closed": false
+   "closed": false,
+   "role": "Control"
   },
   {
    "id": "86bbzxbz4",
@@ -2706,7 +2831,8 @@
    "due": "2026-10-27",
    "due_ms": 1793091600000,
    "updated": "2026-10-25 16:02",
-   "closed": false
+   "closed": false,
+   "role": "Control"
   },
   {
    "id": "86bbzxcdw",
@@ -2726,7 +2852,8 @@
    "due": "2026-11-09",
    "due_ms": 1794214800000,
    "updated": "2026-10-25 14:22",
-   "closed": false
+   "closed": false,
+   "role": "Control"
   },
   {
    "id": "86bccqpd9",
@@ -2746,7 +2873,8 @@
    "due": "2026-11-04",
    "due_ms": 1793782800000,
    "updated": "2026-10-04 11:15",
-   "closed": false
+   "closed": false,
+   "role": "Control"
   },
   {
    "id": "86b7wpgz2",
@@ -2766,7 +2894,8 @@
    "due": "2026-11-02",
    "due_ms": 1793610000000,
    "updated": "2026-10-25 14:22",
-   "closed": false
+   "closed": false,
+   "role": "Control"
   },
   {
    "id": "86b82r2b5",
@@ -2786,7 +2915,8 @@
    "due": "2026-11-04",
    "due_ms": 1793844000000,
    "updated": "2026-10-12 13:13",
-   "closed": false
+   "closed": false,
+   "role": "Control"
   },
   {
    "id": "86bcpz1dq",
@@ -2806,7 +2936,8 @@
    "due": "2026-10-27",
    "due_ms": 1793091600000,
    "updated": "2026-10-28 12:45",
-   "closed": false
+   "closed": false,
+   "role": "Control"
   },
   {
    "id": "86bcpz1ye",
@@ -2826,7 +2957,8 @@
    "due": "2026-10-27",
    "due_ms": 1793091600000,
    "updated": "2026-10-28 12:44",
-   "closed": false
+   "closed": false,
+   "role": "Control"
   },
   {
    "id": "86bcqufqn",
@@ -2846,7 +2978,8 @@
    "due": "2026-10-27",
    "due_ms": 1793091600000,
    "updated": "2026-10-25 10:29",
-   "closed": false
+   "closed": false,
+   "role": "Control"
   },
   {
    "id": "86bcxum51",
@@ -2866,7 +2999,8 @@
    "due": "2026-11-04",
    "due_ms": 1793782800000,
    "updated": "2026-11-03 21:42",
-   "closed": false
+   "closed": false,
+   "role": "Control"
   },
   {
    "id": "86bcxumtu",
@@ -2888,7 +3022,8 @@
    "due": "2026-11-03",
    "due_ms": 1793696400000,
    "updated": "2026-11-03 21:42",
-   "closed": false
+   "closed": false,
+   "role": "Control"
   },
   {
    "id": "86b83y10c",
@@ -2908,7 +3043,8 @@
    "due": "2026-11-04",
    "due_ms": 1793782800000,
    "updated": "2026-10-05 12:56",
-   "closed": false
+   "closed": false,
+   "role": "Control"
   },
   {
    "id": "86b7gxxed",
@@ -2928,7 +3064,8 @@
    "due": "2026-11-02",
    "due_ms": 1793610000000,
    "updated": "2026-10-25 14:26",
-   "closed": false
+   "closed": false,
+   "role": "Control"
   },
   {
    "id": "86bcn3c3u",
@@ -2948,7 +3085,8 @@
    "due": "2026-11-11",
    "due_ms": 1794387600000,
    "updated": "2026-11-11 22:48",
-   "closed": false
+   "closed": false,
+   "role": "Control"
   },
   {
    "id": "86bbkupz2",
@@ -2968,7 +3106,8 @@
    "due": "2026-11-02",
    "due_ms": 1793610000000,
    "updated": "2026-10-05 13:59",
-   "closed": false
+   "closed": false,
+   "role": "Control"
   },
   {
    "id": "86bc8zzeu",
@@ -2988,7 +3127,8 @@
    "due": "2026-10-26",
    "due_ms": 1793005200000,
    "updated": "2026-10-25 16:05",
-   "closed": false
+   "closed": false,
+   "role": "Control"
   },
   {
    "id": "86bd0u383",
@@ -3008,7 +3148,8 @@
    "due": "2026-11-11",
    "due_ms": 1794387600000,
    "updated": "2026-11-09 15:54",
-   "closed": false
+   "closed": false,
+   "role": "Control"
   },
   {
    "id": "86bd0y140",
@@ -3028,7 +3169,8 @@
    "due": "2026-11-12",
    "due_ms": 1794510000000,
    "updated": "2026-11-12 22:50",
-   "closed": false
+   "closed": false,
+   "role": "Control"
   }
  ]
 }

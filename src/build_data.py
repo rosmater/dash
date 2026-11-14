@@ -838,6 +838,63 @@ def _of_is_focus(t):
 def _of_is_periodic(t):
     f = str(t.get('freq') or t.get('frecuencia') or '').strip().lower().replace('ó','o').replace('é','e')
     return f.startswith('periodica') or f == 'aa3d836e-b0e7-4fbb-b3d2-dc0d79bca754'
+
+ROLE_FIELD = '1469c8d4-a3b4-4925-958a-7f442d9e002f'
+ROLE_ORDER = ['🚶GO','📞CALL','Control','TO DO','💡REMIND','💵 Pago','🥳 Celebraciones']
+
+def _load_role_map():
+    path = os.path.join(_HERE, 'cu_roles.json')
+    try:
+        raw = json.load(open(path, encoding='utf-8'))
+        return {str(k): v for k, v in (raw.get('by_id') or {}).items() if v}
+    except Exception:
+        return {}
+
+ROLE_MAP = _load_role_map()
+
+def _norm_role(s):
+    x = ' '.join(str(s or '').split())
+    if not x:
+        return ''
+    if x in ROLE_ORDER:
+        return x
+    k = x.lower().replace(' ', '')
+    k = ''.join(ch for ch in k if ch.isalnum() or ch in '+')
+    if k in ('go',) or k.endswith('go') and 'pago' not in k:
+        return '🚶GO'
+    if k in ('call',) or k.endswith('call'):
+        return '📞CALL'
+    if k == 'control':
+        return 'Control'
+    if k in ('todo', 'todo'):
+        return 'TO DO'
+    if k == 'remind':
+        return '💡REMIND'
+    if k == 'pago':
+        return '💵 Pago'
+    if 'celebracion' in k:
+        return '🥳 Celebraciones'
+    return x
+
+def _attach_role(tt):
+    if not isinstance(tt, dict):
+        return tt
+    if not str(tt.get('role') or '').strip():
+        r = ROLE_MAP.get(str(tt.get('id') or ''))
+        if r:
+            tt['role'] = r
+    elif _norm_role(tt.get('role')):
+        tt['role'] = _norm_role(tt.get('role'))
+    return tt
+
+def _role_sort_key(x):
+    r = _norm_role((x or {}).get('role'))
+    try:
+        i = ROLE_ORDER.index(r)
+    except ValueError:
+        i = len(ROLE_ORDER)
+    return (i, (x or {}).get('due') or '9999', (x or {}).get('name') or '')
+
 def _dir_board(snap_name, extra_name=None):
     path = os.path.join(_HERE, snap_name)
     if not os.path.exists(path):
@@ -859,6 +916,7 @@ def _dir_board(snap_name, extra_name=None):
     today, mine, staff, routine = [], [], [], []
     for t0 in tasks:
         tt = dict(t0)
+        _attach_role(tt)
         asg = [a for a in (tt.get('assignees') or []) if a]
         tt['who'] = ', '.join(asg) if asg else None
         due = tt.get('due')
@@ -882,9 +940,9 @@ def _dir_board(snap_name, extra_name=None):
         if d == _today_bo:
             return (1, d, name)
         return (2, d, name)
-    today.sort(key=lambda x: (x.get('due') or '9999', x.get('name') or ''))
-    mine.sort(key=_prio_sort_key)
-    staff.sort(key=_prio_sort_key)
+    today.sort(key=_role_sort_key)
+    mine.sort(key=lambda x: _role_sort_key(x)[:1] + _prio_sort_key(x))
+    staff.sort(key=lambda x: _role_sort_key(x)[:1] + _prio_sort_key(x))
     def _person(x):
         if _of_is_rost(x):
             return 'Rost'
@@ -895,7 +953,7 @@ def _dir_board(snap_name, extra_name=None):
         groups.setdefault(_person(x), []).append(x)
     routine_groups = []
     for name, items in groups.items():
-        items.sort(key=lambda x: (x.get('due') or '9999', x.get('name') or ''))
+        items.sort(key=_role_sort_key)
         ov = sum(1 for x in items if x.get('due') and x['due'] < _today_bo)
         routine_groups.append(dict(name=name, n=len(items), overdue=ov, tasks=items))
     routine_groups.sort(key=lambda g: (0 if g['name'] == 'Rost' else 1, -g['overdue'], g['name'].lower()))
@@ -1029,13 +1087,14 @@ def _pers_calls():
     raw = json.load(open(_f)) if os.path.exists(_f) else {}
     cs = [dict(c) for c in (raw.get('calls') or []) if isinstance(c, dict)]
     for c in cs:
+        _attach_role(c)
         asg = [a for a in (c.get('assignees') or []) if a]
         c['who'] = ', '.join(asg) if asg else None
     def _k(x):
         d = x.get('due')
         if not d: return (3, '9999', '')
         return ((0 if d < _today_bo else 1 if d == _today_bo else 2), d, x.get('due_t') or '')
-    cs.sort(key=lambda x: _k(x) + (x.get('name') or '',))
+    cs.sort(key=lambda x: _role_sort_key(x)[:1] + _k(x) + (x.get('name') or '',))
     return cs
 PERSONAL_CALLS = _pers_calls()
 _pc_ids = {c.get('id') for c in PERSONAL_CALLS}
@@ -1396,7 +1455,12 @@ def _load_view_snap(fn):
     _p=os.path.join(os.path.dirname(__file__), fn)
     try:
         _d=json.load(open(_p, encoding='utf-8'))
-        return _d if isinstance(_d, dict) else dict(tasks=_d or [])
+        if not isinstance(_d, dict):
+            _d=dict(tasks=_d or [])
+        for t in (_d.get('tasks') or []):
+            if isinstance(t, dict):
+                _attach_role(t)
+        return _d
     except Exception:
         return dict(tasks=[])
 ROS_VIEW = _load_view_snap('ma_ros.json')

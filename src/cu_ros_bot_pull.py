@@ -59,6 +59,17 @@ BOT_R_OPTS = {
     '0950cd4d-e275-4ba8-8e61-39cd087d438b': 'Пептид',
 }
 
+ROLE = '1469c8d4-a3b4-4925-958a-7f442d9e002f'
+ROLE_OPTS = {
+    '95771463-42ea-45fc-8b87-ad4b48108cbf': '🚶GO',
+    '7698f409-40a0-4264-a318-84592847a99c': '📞CALL',
+    'ca5fa4c2-8451-4703-92e6-4d29d505426a': 'Control',
+    'af2515a6-45b6-42b0-a93c-965fa18868d0': 'TO DO',
+    'd357bce5-88f1-4501-9b1c-8fb5e6b7b260': '💡REMIND',
+    '8b650b89-b754-4ebd-b2e4-bbcba4d9b70c': '💵 Pago',
+    '06d0346a-09cc-41c5-bf1f-0d0589737481': '🥳 Celebraciones',
+}
+
 
 def _now():
     return datetime.datetime.now(BOG).strftime('%Y-%m-%d %H:%M') + ' Bogotá'
@@ -115,6 +126,27 @@ def _cf_bot_r(t):
             return oid, val.get('name') or BOT_R_OPTS.get(oid, '')
         if isinstance(val, str) and val:
             return val, BOT_R_OPTS.get(val, val)
+    return '', ''
+
+
+
+def _cf_role(t):
+    """Return (option_id, option_name) for Role, or ('','')."""
+    if t.get('role') or t.get('role_id'):
+        name = t.get('role') or ROLE_OPTS.get(t.get('role_id') or '', '')
+        return t.get('role_id') or '', name
+    for f in t.get('custom_fields') or t.get('fields') or []:
+        if not isinstance(f, dict):
+            continue
+        fid = str(f.get('id') or f.get('field_id') or '')
+        if fid != ROLE and f.get('name') != 'Role':
+            continue
+        val = f.get('value')
+        if isinstance(val, dict):
+            oid = str(val.get('id') or '')
+            return oid, val.get('name') or ROLE_OPTS.get(oid, '')
+        if isinstance(val, str) and val:
+            return val, ROLE_OPTS.get(val, val)
     return '', ''
 
 
@@ -181,6 +213,7 @@ def compact(t):
         due_s = str(t['due'])[:10]
         name, typ = _status(t)
         oid, bot_r = _cf_bot_r(t)
+        rid, role = _cf_role(t)
         return dict(
             id=t['id'], name=t.get('name') or '', status=name,
             url=t.get('url') or ('https://app.clickup.com/t/' + t['id']),
@@ -193,6 +226,7 @@ def compact(t):
             updated=t.get('updated') or '',
             closed=_is_closed(t),
             bot_r=bot_r, bot_r_id=oid,
+            role=role, role_id=rid,
             transfer=t.get('transfer') or '',
             description=t.get('description') or t.get('text_content') or '',
             last_comment=t.get('last_comment') or '',
@@ -204,6 +238,7 @@ def compact(t):
         pr = t.get('priority') or ''
     name, typ = _status(t)
     oid, bot_r = _cf_bot_r(t)
+    rid, role = _cf_role(t)
     return dict(
         id=t['id'], name=t.get('name') or '', status=name,
         url=t.get('url') or ('https://app.clickup.com/t/' + t['id']),
@@ -217,6 +252,7 @@ def compact(t):
         updated=_fmt(t.get('date_updated'), True) if t.get('date_updated') else (t.get('updated') or ''),
         closed=_is_closed(t),
         bot_r=bot_r, bot_r_id=oid,
+        role=role, role_id=rid,
         transfer=t.get('transfer') or '',
         description=t.get('description') or t.get('text_content') or '',
         last_comment=t.get('last_comment') or '',
@@ -298,6 +334,37 @@ def write_snap(path, name, view_id, filt, tasks, src):
     print(f'{path.name}: {len(tasks)} tasks from {name} ({view_id})')
 
 
+
+def load_roles(path=None):
+    p = Path(path) if path else (HERE / 'cu_roles.json')
+    if not p.exists():
+        return {}
+    raw = json.loads(p.read_text(encoding='utf-8'))
+    by = raw.get('by_id') if isinstance(raw, dict) else {}
+    return {str(k): v for k, v in (by or {}).items() if v}
+
+
+def apply_roles(tasks, roles):
+    """Attach Role from the read-only map without inventing values."""
+    if not roles:
+        return tasks
+    out = []
+    for t in tasks:
+        t = dict(t)
+        rid = str(t.get('id') or '')
+        if rid in roles:
+            t['role'] = roles[rid]
+        elif not t.get('role'):
+            # already-compacted / custom_fields
+            _oid, name = _cf_role(t)
+            if name:
+                t['role'] = name
+                if _oid:
+                    t['role_id'] = _oid
+        out.append(t)
+    return out
+
+
 def enrich_from_file(tasks, path):
     """Merge description/last_comment from an MCP/side dump {id: {description, last_comment}} or a list."""
     raw = json.loads(Path(path).read_text(encoding='utf-8'))
@@ -329,6 +396,7 @@ def main():
     ap.add_argument('--ros-bot-json', help='MCP/filter_tasks dump for view Ros (BOT)')
     ap.add_argument('--keep-if-no-token', action='store_true', default=True)
     ap.add_argument('--enrich-json', help='merge description/last_comment from MCP dump into ma_ros_bot.json')
+    ap.add_argument('--roles-json', help='merge Role custom field from a {by_id} map (default: cu_roles.json if present)')
     a = ap.parse_args()
     token = load_token()
     src_bot = src_ros = ''
@@ -403,6 +471,21 @@ def main():
     else:
         print('cu_ros_bot_pull: no Ros snapshot', file=sys.stderr)
         ok = False
+
+    roles_path = a.roles_json or (str(HERE / 'cu_roles.json') if (HERE / 'cu_roles.json').exists() else None)
+    roles = load_roles(roles_path) if roles_path else {}
+    if roles:
+        for path, name, view_id in ((bot_path, 'Ros (BOT)', ROS_BOT_VIEW), (ros_path, 'Ros', ROS_VIEW)):
+            if not path.exists():
+                continue
+            prev = json.loads(path.read_text(encoding='utf-8'))
+            tasks = apply_roles(prev.get('tasks') or [], roles)
+            n = sum(1 for x in tasks if x.get('role'))
+            src = prev.get('src') or ''
+            if '+ roles' not in src:
+                src = (src + ' + roles').strip(' +')
+            write_snap(path, name, view_id, prev.get('filter') or {}, tasks, src)
+            print(f'{path.name}: Role on {n}/{len(tasks)} tasks')
     return 0 if ok else 1
 
 

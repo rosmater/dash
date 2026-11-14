@@ -334,8 +334,14 @@ def build():
                           tab=_tab(t, pep_ids),
                           bot_r=t.get('bot_r') or '',
                           priority=t.get('priority') or '',
+                          role=t.get('role') or '',
                           thesis=t.get('thesis') or make_thesis(t.get('name') or '', t.get('description') or '', t.get('last_comment') or '')) )
-        T.sort(key=lambda x: (0 if x['need'] == 'rost' else 1, x.get('due') or '9999', x.get('updated') or ''))
+        _RO=['🚶GO','📞CALL','Control','TO DO','💡REMIND','💵 Pago','🥳 Celebraciones']
+        def _rk(x):
+            r=x.get('role') or ''
+            i=_RO.index(r) if r in _RO else len(_RO)
+            return (i, 0 if x['need']=='rost' else 1, x.get('due') or '9999', x.get('updated') or '')
+        T.sort(key=_rk)
         bots.append(dict(name=name, link=links.get(name) or '', inv=fn, inv_updated=upd,
                          routines=R, routines_note='' if rows is not None else 'нет данных (нет файла инвентаря)',
                          tasks=T))
@@ -356,8 +362,14 @@ def build():
                           tab=_tab(t, pep_ids),
                           bot_r=t.get('bot_r') or '',
                           priority=t.get('priority') or '',
+                          role=t.get('role') or '',
                           thesis=t.get('thesis') or make_thesis(t.get('name') or '', t.get('description') or '', t.get('last_comment') or '')) )
-        T.sort(key=lambda x: (0 if x['need'] == 'rost' else 1, x.get('due') or '9999', x.get('updated') or ''))
+        _RO=['🚶GO','📞CALL','Control','TO DO','💡REMIND','💵 Pago','🥳 Celebraciones']
+        def _rk(x):
+            r=x.get('role') or ''
+            i=_RO.index(r) if r in _RO else len(_RO)
+            return (i, 0 if x['need']=='rost' else 1, x.get('due') or '9999', x.get('updated') or '')
+        T.sort(key=_rk)
         bots.append(dict(name=name, link=links.get(name) or '', inv='', inv_updated='',
                          routines=[], routines_note='нет данных' if name == 'без бота' else '',
                          tasks=T))

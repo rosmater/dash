@@ -1,10 +1,10 @@
 {
- "generated": "2026-11-13 21:24",
+ "generated": "2026-11-13 21:42",
  "signal": "Открытые задачи вида ClickUp «Ros (BOT)» (8cn3rz8-3574): status NOT closed AND assignee=Rost AND BOT R IS SET. Группа — поле BOT R.",
- "cu_fetched": "2026-11-13 21:24 Bogotá",
+ "cu_fetched": "2026-11-13 21:39 Bogotá",
  "src": {
   "routines": "/workspace/bot-routines-inventory/<BOT>.md + ROUTINE-GROUPS.md",
-  "tasks": "clickup_filter_tasks view_id=8cn3rz8-3574 (workspace view «Ros (BOT)») + BOT R via task.get_many + enrich tmp/ros_bot_enrich.json"
+  "tasks": "clickup_filter_tasks view_id=8cn3rz8-3574 (workspace view «Ros (BOT)») + BOT R via task.get_many + enrich tmp/ros_bot_enrich.json + roles + roles"
  },
  "bots": [
   {
@@ -235,6 +235,7 @@
      "tab": "realestate",
      "bot_r": "Секретарь",
      "priority": "normal",
+     "role": "Control",
      "thesis": "отправить Яне новые фактуры каждого 25 числа месяца"
     },
     {
@@ -250,6 +251,7 @@
      "tab": "of",
      "bot_r": "Секретарь",
      "priority": "normal",
+     "role": "Control",
      "thesis": "Проверка трекера рабочего времени девочек OF"
     },
     {
@@ -265,6 +267,7 @@
      "tab": "of",
      "bot_r": "Секретарь",
      "priority": "normal",
+     "role": "Control",
      "thesis": "Контроль офиса ОФ"
     },
     {
@@ -280,6 +283,7 @@
      "tab": "tabakevich",
      "bot_r": "Секретарь",
      "priority": "high",
+     "role": "Control",
      "thesis": "запуск Хукашоп сайта в рекламу - как успехи?"
     },
     {
@@ -295,6 +299,7 @@
      "tab": "tabakevich",
      "bot_r": "Секретарь",
      "priority": "urgent",
+     "role": "Control",
      "thesis": "Хукашоп - замена хостинга и бэкапы - проверить состояние (чеклист)"
     },
     {
@@ -310,6 +315,7 @@
      "tab": "tabakevich",
      "bot_r": "Секретарь",
      "priority": "normal",
+     "role": "Control",
      "thesis": "(проблема с картинками) БОТ: Пальма сайт + ускорить / Контекстная реклама"
     },
     {
@@ -325,6 +331,7 @@
      "tab": "tabakevich",
      "bot_r": "Секретарь",
      "priority": "normal",
+     "role": "Control",
      "thesis": "Феликс Шоп - проверить сайт"
     },
     {
@@ -340,6 +347,7 @@
      "tab": "of",
      "bot_r": "Секретарь",
      "priority": "normal",
+     "role": "Control",
      "thesis": "САРА: отвечать на комментарии - как успехи Сара?"
     },
     {
@@ -355,6 +363,7 @@
      "tab": "tabakevich",
      "bot_r": "Секретарь",
      "priority": "normal",
+     "role": "Control",
      "thesis": "Табакевич БЛОКИРОВКА ДОМЕНА: проверить скорость с укр/загран айпишников"
     },
     {
@@ -370,6 +379,7 @@
      "tab": "personal",
      "bot_r": "Секретарь",
      "priority": "urgent",
+     "role": "Control",
      "thesis": "(КОСМО РЕШИТЬ + СЛЕШ) Банки ЛЛЦ письма и ЦРМ - JERZ помощь"
     },
     {
@@ -385,6 +395,7 @@
      "tab": "realestate",
      "bot_r": "Секретарь",
      "priority": "normal",
+     "role": "Control",
      "thesis": "🏠 Установка сигналки на Топасио - случилось? (электричество жду Андрей)"
     },
     {
@@ -400,6 +411,7 @@
      "tab": "realestate",
      "bot_r": "Секретарь",
      "priority": "normal",
+     "role": "Control",
      "thesis": "Окупас Хуан 23 Адвокаты выселение - узнать статус?"
     },
     {
@@ -415,6 +427,7 @@
      "tab": "of",
      "bot_r": "Секретарь",
      "priority": "normal",
+     "role": "Control",
      "thesis": "💳 Оплата чаттерам Никиты (счёт в TG 5–13 числа) Яна получить отчеты"
     },
     {
@@ -430,6 +443,7 @@
      "tab": "of",
      "bot_r": "Секретарь",
      "priority": "normal",
+     "role": "Control",
      "thesis": "МИШЕЛЬ: Bulk Messaging проверить статистику и ответы фанам в сообщениях (потом передать сбор статистики Фетишь)"
     },
     {
@@ -445,37 +459,8 @@
      "tab": "tabakevich",
      "bot_r": "Секретарь",
      "priority": "normal",
+     "role": "Control",
      "thesis": "Проверка кронов задач 1С поиск сбоев"
-    },
-    {
-     "id": "86bacy8cr",
-     "name": "БОТ: С ИРИНОЙ: Просмотр отчета по дебиторке (комменты)",
-     "status": "for check",
-     "list": "Задачи Tabakevich",
-     "updated": "2026-11-12 10:37",
-     "due": "2026-11-18",
-     "need": "rost",
-     "url": "https://app.clickup.com/t/86bacy8cr",
-     "kind": "check",
-     "tab": "tabakevich",
-     "bot_r": "Секретарь",
-     "priority": "normal",
-     "thesis": "С ИРИНОЙ: Просмотр отчета по дебиторке (комменты)"
-    },
-    {
-     "id": "86b6qq509",
-     "name": "БОТ-ЧАСТЬ: Фин подбить баланс (30м) (отчет Алексей)",
-     "status": "in progress",
-     "list": "Personal",
-     "updated": "2026-10-14 13:15",
-     "due": "2026-10-18",
-     "need": "",
-     "url": "https://app.clickup.com/t/86b6qq509",
-     "kind": "work",
-     "tab": "personal",
-     "bot_r": "Секретарь",
-     "priority": "high",
-     "thesis": "Фин подбить баланс (30м) (отчет Алексей)"
     },
     {
      "id": "86bb93ynk",
@@ -490,6 +475,7 @@
      "tab": "realestate",
      "bot_r": "Секретарь",
      "priority": "normal",
+     "role": "Control",
      "thesis": "Новельда: Подать обращение в организацию деокупации / адвокату"
     },
     {
@@ -505,6 +491,7 @@
      "tab": "of",
      "bot_r": "Секретарь",
      "priority": "normal",
+     "role": "Control",
      "thesis": "Транс модель (платежка, конец октября ОФТВ узнать)"
     },
     {
@@ -520,6 +507,7 @@
      "tab": "realestate",
      "bot_r": "Секретарь",
      "priority": "normal",
+     "role": "Control",
      "thesis": "Выселение окупас Двойная Хуан 23 - узнать статус?"
     },
     {
@@ -535,6 +523,7 @@
      "tab": "realestate",
      "bot_r": "Секретарь",
      "priority": "normal",
+     "role": "Control",
      "thesis": "Капает кондиционер — пофиксить (Анатолий)"
     },
     {
@@ -550,22 +539,8 @@
      "tab": "realestate",
      "bot_r": "Секретарь",
      "priority": "normal",
+     "role": "Control",
      "thesis": "ОЛЯ продажа ТРАВЕЛЕЗ: как дела? сигналку поставили?"
-    },
-    {
-     "id": "86bcxtup4",
-     "name": "Мама: исправить актуальные (Коучинг даш)",
-     "status": "to do",
-     "list": "Personal",
-     "updated": "2026-11-03 21:42",
-     "due": "2026-11-03",
-     "need": "",
-     "url": "https://app.clickup.com/t/86bcxtup4",
-     "kind": "work",
-     "tab": "personal",
-     "bot_r": "Секретарь",
-     "priority": "normal",
-     "thesis": "Мама: исправить актуальные (Коучинг даш)"
     },
     {
      "id": "86b9va7c4",
@@ -580,6 +555,7 @@
      "tab": "realestate",
      "bot_r": "Секретарь",
      "priority": "normal",
+     "role": "Control",
      "thesis": "🏠ТОПАСИО РЕМОНТ ДЕЛЕНИЕ - как дела? (ждем отчет)"
     },
     {
@@ -595,6 +571,7 @@
      "tab": "of",
      "bot_r": "Секретарь",
      "priority": "normal",
+     "role": "Control",
      "thesis": "04.11 Rost GO в чате ОФ: трафик есть → закрываем монитор."
     },
     {
@@ -610,6 +587,7 @@
      "tab": "realestate",
      "bot_r": "Секретарь",
      "priority": "normal",
+     "role": "Control",
      "thesis": "Проверить новые обьекты Солвия"
     },
     {
@@ -625,6 +603,7 @@
      "tab": "of",
      "bot_r": "Секретарь",
      "priority": "normal",
+     "role": "Control",
      "thesis": "Агудело-Аврора сделать секстинг паки + запустить траф"
     },
     {
@@ -640,6 +619,7 @@
      "tab": "realestate",
      "bot_r": "Секретарь",
      "priority": "normal",
+     "role": "Control",
      "thesis": "Проверка работы счетчиков и запись данных в таблицу"
     },
     {
@@ -655,22 +635,8 @@
      "tab": "realestate",
      "bot_r": "Секретарь",
      "priority": "normal",
+     "role": "Control",
      "thesis": "Пакистанец долг за коммуналку - Алла как успехи?"
-    },
-    {
-     "id": "86bc1tdu5",
-     "name": "БОТ: IP Royal - пополнить баланс/проверка",
-     "status": "to do",
-     "list": "General Tasks OF",
-     "updated": "2026-11-08 18:04",
-     "due": "2026-11-09",
-     "need": "",
-     "url": "https://app.clickup.com/t/86bc1tdu5",
-     "kind": "work",
-     "tab": "of",
-     "bot_r": "Секретарь",
-     "priority": "urgent",
-     "thesis": "IP Royal - пополнить баланс/проверка"
     },
     {
      "id": "86bcn2ek8",
@@ -685,6 +651,7 @@
      "tab": "of",
      "bot_r": "Секретарь",
      "priority": "normal",
+     "role": "Control",
      "thesis": "контроль Мишель по проверке состояния профилей LolaPop"
     },
     {
@@ -700,6 +667,7 @@
      "tab": "of",
      "bot_r": "Секретарь",
      "priority": "normal",
+     "role": "Control",
      "thesis": "💳 Оплата чаттерам Sofia Lunara (счёт от Лёши в TG 15–20 числа) - Яна"
     },
     {
@@ -715,6 +683,7 @@
      "tab": "of",
      "bot_r": "Секретарь",
      "priority": "normal",
+     "role": "Control",
      "thesis": "RA180 / RA185 - курировать процесс (скрины/новая платежка)"
     },
     {
@@ -730,6 +699,7 @@
      "tab": "personal",
      "bot_r": "Секретарь",
      "priority": "normal",
+     "role": "Control",
      "thesis": "Дима долг собрать/напоминать/брать сроки"
     },
     {
@@ -745,6 +715,7 @@
      "tab": "realestate",
      "bot_r": "Секретарь",
      "priority": "normal",
+     "role": "Control",
      "thesis": "Локаль ремонт (перевод в жилое) - Анатолий как дела?"
     },
     {
@@ -760,6 +731,7 @@
      "tab": "of",
      "bot_r": "Секретарь",
      "priority": "normal",
+     "role": "Control",
      "thesis": "Andrea Cali - как дела по запуску ОФТВ? (напомнить за запуск)"
     },
     {
@@ -775,6 +747,7 @@
      "tab": "tabakevich",
      "bot_r": "Секретарь",
      "priority": "normal",
+     "role": "Control",
      "thesis": "Tabakevich SEO месячный отчет (Andrii)"
     },
     {
@@ -790,6 +763,7 @@
      "tab": "tabakevich",
      "bot_r": "Секретарь",
      "priority": "normal",
+     "role": "Control",
      "thesis": "Отчет по SEO-показателям (трафик, заказы) - готов? (покупка Серпстат)"
     },
     {
@@ -805,7 +779,72 @@
      "tab": "of",
      "bot_r": "Секретарь",
      "priority": "normal",
+     "role": "Control",
      "thesis": "Мишель: OFTV Наладить постинг - все под контролем?"
+    },
+    {
+     "id": "86bacy8cr",
+     "name": "БОТ: С ИРИНОЙ: Просмотр отчета по дебиторке (комменты)",
+     "status": "for check",
+     "list": "Задачи Tabakevich",
+     "updated": "2026-11-12 10:37",
+     "due": "2026-11-18",
+     "need": "rost",
+     "url": "https://app.clickup.com/t/86bacy8cr",
+     "kind": "check",
+     "tab": "tabakevich",
+     "bot_r": "Секретарь",
+     "priority": "normal",
+     "role": "TO DO",
+     "thesis": "С ИРИНОЙ: Просмотр отчета по дебиторке (комменты)"
+    },
+    {
+     "id": "86b6qq509",
+     "name": "БОТ-ЧАСТЬ: Фин подбить баланс (30м) (отчет Алексей)",
+     "status": "in progress",
+     "list": "Personal",
+     "updated": "2026-10-14 13:15",
+     "due": "2026-10-18",
+     "need": "",
+     "url": "https://app.clickup.com/t/86b6qq509",
+     "kind": "work",
+     "tab": "personal",
+     "bot_r": "Секретарь",
+     "priority": "high",
+     "role": "TO DO",
+     "thesis": "Фин подбить баланс (30м) (отчет Алексей)"
+    },
+    {
+     "id": "86bcxtup4",
+     "name": "Мама: исправить актуальные (Коучинг даш)",
+     "status": "to do",
+     "list": "Personal",
+     "updated": "2026-11-03 21:42",
+     "due": "2026-11-03",
+     "need": "",
+     "url": "https://app.clickup.com/t/86bcxtup4",
+     "kind": "work",
+     "tab": "personal",
+     "bot_r": "Секретарь",
+     "priority": "normal",
+     "role": "TO DO",
+     "thesis": "Мама: исправить актуальные (Коучинг даш)"
+    },
+    {
+     "id": "86bc1tdu5",
+     "name": "БОТ: IP Royal - пополнить баланс/проверка",
+     "status": "to do",
+     "list": "General Tasks OF",
+     "updated": "2026-11-08 18:04",
+     "due": "2026-11-09",
+     "need": "",
+     "url": "https://app.clickup.com/t/86bc1tdu5",
+     "kind": "work",
+     "tab": "of",
+     "bot_r": "Секретарь",
+     "priority": "urgent",
+     "role": "TO DO",
+     "thesis": "IP Royal - пополнить баланс/проверка"
     },
     {
      "id": "86b7wu7jq",
@@ -820,6 +859,7 @@
      "tab": "realestate",
      "bot_r": "Секретарь",
      "priority": "normal",
+     "role": "TO DO",
      "thesis": "Алла: сдать квартиру Сагунто (побелка/балкон)"
     }
    ]
@@ -941,6 +981,7 @@
      "tab": "realestate",
      "bot_r": "Помощник по всему",
      "priority": "normal",
+     "role": "TO DO",
      "thesis": "Настроить автообзвон объектов"
     }
    ]
@@ -1039,22 +1080,8 @@
      "tab": "of",
      "bot_r": "ОФ Маркетинг",
      "priority": "urgent",
+     "role": "Control",
      "thesis": "Контроль OF.TV - отчет / запуски / ПЛАН СВЕРКА ЛЕШЕ + отчет ферма"
-    },
-    {
-     "id": "86b9abep9",
-     "name": "С ИРИНОЙ: Проверка статистики / сумм выплат / где плохо? по моделям",
-     "status": "for check",
-     "list": "General Tasks OF",
-     "updated": "2026-11-12 15:46",
-     "due": "2026-11-12",
-     "need": "rost",
-     "url": "https://app.clickup.com/t/86b9abep9",
-     "kind": "check",
-     "tab": "of",
-     "bot_r": "ОФ Маркетинг",
-     "priority": "normal",
-     "thesis": "С ИРИНОЙ: Проверка статистики / сумм выплат / где плохо? по моделям"
     },
     {
      "id": "86bamxnh9",
@@ -1069,22 +1096,8 @@
      "tab": "of",
      "bot_r": "ОФ Маркетинг",
      "priority": "normal",
+     "role": "Control",
      "thesis": "Статистика миле проверять + новые города Кали / Чоко и т д"
-    },
-    {
-     "id": "86b9axevh",
-     "name": "(тестим сбор) БОТ ЧАСТЬ: (ФБ рекомендации) 📊 Проверка статистики ЛолаПоп и принятие решений ",
-     "status": "for check",
-     "list": "General Tasks OF",
-     "updated": "2026-11-10 09:31",
-     "due": "2026-11-16",
-     "need": "rost",
-     "url": "https://app.clickup.com/t/86b9axevh",
-     "kind": "check",
-     "tab": "of",
-     "bot_r": "ОФ Маркетинг",
-     "priority": "normal",
-     "thesis": "(тестим сбор) БОТ ЧАСТЬ: (ФБ рекомендации) 📊 Проверка статистики ЛолаПоп и принятие решений"
     },
     {
      "id": "86b8de8ru",
@@ -1099,7 +1112,40 @@
      "tab": "of",
      "bot_r": "ОФ Маркетинг",
      "priority": "normal",
+     "role": "Control",
      "thesis": "Заявки RA чат проверить (флеймс)"
+    },
+    {
+     "id": "86b9abep9",
+     "name": "С ИРИНОЙ: Проверка статистики / сумм выплат / где плохо? по моделям",
+     "status": "for check",
+     "list": "General Tasks OF",
+     "updated": "2026-11-12 15:46",
+     "due": "2026-11-12",
+     "need": "rost",
+     "url": "https://app.clickup.com/t/86b9abep9",
+     "kind": "check",
+     "tab": "of",
+     "bot_r": "ОФ Маркетинг",
+     "priority": "normal",
+     "role": "TO DO",
+     "thesis": "С ИРИНОЙ: Проверка статистики / сумм выплат / где плохо? по моделям"
+    },
+    {
+     "id": "86b9axevh",
+     "name": "(тестим сбор) БОТ ЧАСТЬ: (ФБ рекомендации) 📊 Проверка статистики ЛолаПоп и принятие решений ",
+     "status": "for check",
+     "list": "General Tasks OF",
+     "updated": "2026-11-10 09:31",
+     "due": "2026-11-16",
+     "need": "rost",
+     "url": "https://app.clickup.com/t/86b9axevh",
+     "kind": "check",
+     "tab": "of",
+     "bot_r": "ОФ Маркетинг",
+     "priority": "normal",
+     "role": "TO DO",
+     "thesis": "(тестим сбор) БОТ ЧАСТЬ: (ФБ рекомендации) 📊 Проверка статистики ЛолаПоп и принятие решений"
     },
     {
      "id": "86bcr1a1r",
@@ -1114,6 +1160,7 @@
      "tab": "of",
      "bot_r": "ОФ Маркетинг",
      "priority": "normal",
+     "role": "TO DO",
      "thesis": "Ежемесячный замер подписчиков Referencias (кто растёт)"
     }
    ]
@@ -1326,6 +1373,7 @@
      "tab": "peptides",
      "bot_r": "Д",
      "priority": "normal",
+     "role": "Control",
      "thesis": "Таргет пептиды - контроль и увеличение"
     }
    ]
