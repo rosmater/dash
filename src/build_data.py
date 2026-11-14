@@ -858,7 +858,7 @@ def _call_open_today(t):
     return day == _today_bo
 of_calls = sorted([t for t in (_oc.get('scheduled_calls') or []) if _call_open_today(t)], key=lambda t: (str(t.get('start') or ''), str(t.get('due_t') or '')))
 
-# t6215u/t6216u/t6219u/t6244u: доска вкладки ОФ / Табакевич — Сегодня / Приоритеты (только тег «🎯 фокус») / Рутина
+# t6215u/t6216u/t6219u/t6244u/t6447u: доска вкладки ОФ / Табакевич — Сегодня / Приоритеты (тег «🎯 фокус» или «🎯») / Рутина
 def _of_is_rost(t):
     for s in (t.get('assignees') or []):
         s = str(s).strip()
@@ -876,7 +876,8 @@ def _of_tag_names(t):
             out.append(s)
     return out
 def _of_is_focus(t):
-    return any('фокус' in s.lower() for s in _of_tag_names(t))
+    # t6447u: принимаем и старое имя «🎯 фокус», и переименованный тег «🎯»
+    return any(s.strip() == '🎯' or 'фокус' in s.lower() for s in _of_tag_names(t))
 def _of_is_periodic(t):
     f = str(t.get('freq') or t.get('frecuencia') or '').strip().lower().replace('ó','o').replace('é','e')
     return f.startswith('periodica') or f == 'aa3d836e-b0e7-4fbb-b3d2-dc0d79bca754'
@@ -1004,7 +1005,7 @@ def _dir_board(snap_name, extra_name=None):
         tt['who'] = ', '.join(asg) if asg else None
         due = tt.get('due')
         rost = _of_is_rost(tt)
-        # t6219u/t6234u: тег «🎯 фокус» только в Приоритетах (не в «Сегодня» и не в Рутине), даже если periodic
+        # t6219u/t6234u/t6447u: тег «🎯 фокус» / «🎯» только в Приоритетах (не в «Сегодня» и не в Рутине), даже если periodic
         if _of_is_focus(tt):
             (mine if rost else staff).append(tt)
         elif _of_is_periodic(tt):
@@ -1107,7 +1108,7 @@ def _tbk_inject_fin(board, fin_block):
         board['routine_overdue'] = sum(g['overdue'] for g in groups)
     return board
 TBK_BOARD = _tbk_inject_fin(_dir_board('tbk_open_tasks.json'), TBKB.get('fin') if isinstance(TBKB, dict) else None)
-# t6270u: доска вкладки Личное — как ОФ (Сегодня у меня / Приоритеты «🎯 фокус» / Рутина); снимок src/personal_open_tasks.json (CU Personal + 86ba3c1x4 Парагвай)
+# t6270u/t6447u: доска вкладки Личное — как ОФ (Сегодня у меня / Приоритеты «🎯 фокус» / «🎯» / Рутина); снимок src/personal_open_tasks.json (CU Personal + 86ba3c1x4 Парагвай)
 PERSONAL_BOARD = _dir_board('personal_open_tasks.json')
 # t6287u: доска вкладки Пептиды — как ОФ/Личное; снимок src/peptides_open_tasks.json.
 # Отдельного ClickUp-пространства Пептиды нет: задачи в OF (parent Peptidos 86bcn2ew9) и Tabakevich (Peso Saludable / пептид).
