@@ -24,8 +24,8 @@
  "counts": {
   "🚶GO": 14,
   "📞CALL": 30,
-  "Control": 127,
-  "TO DO": 77,
+  "Control": 128,
+  "TO DO": 76,
   "💡REMIND": 112,
   "💵 Pago": 2,
   "🥳 Celebraciones": 9
@@ -256,7 +256,7 @@
   "86b806mbf": "TO DO",
   "86b7y8n8m": "TO DO",
   "86b7xjwdn": "TO DO",
-  "86b7wu7jq": "TO DO",
+  "86b7wu7jq": "Control",
   "86b7rcd9t": "TO DO",
   "86b7rart0": "TO DO",
   "86b7n8u79": "TO DO",

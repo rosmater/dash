@@ -1,5 +1,5 @@
 {
- "fetched": "2026-11-14 00:45 Bogotá",
+ "fetched": "2026-11-14 00:47 Bogotá",
  "src": "clickup_filter_tasks view_id=8cn3rz8-1914 (workspace view «Ros») + roles + roles + t6413u add 86b7wu7jq Control",
  "view": {
   "id": "8cn3rz8-1914",
@@ -65,7 +65,8 @@
    "due_ms": null,
    "updated": "2026-11-14 00:45",
    "closed": false,
-   "role": "TO DO"
+   "role": "Control",
+   "role_id": "ca5fa4c2-8451-4703-92e6-4d29d505426a"
   },
   {
    "id": "86bcp3yd9",
