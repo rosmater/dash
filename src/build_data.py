@@ -168,6 +168,48 @@ pep_ads = dict(active=[_ad(a, 'active') for a in _A.get('active', [])],
                stale=not (_A.get('live_check') or {}).get('phone_recheck_today', False),
                cron_failed=bool(_A.get('cron_failed') or (_A.get('live_check') or {}).get('cron_failed')),
                src='Пептид: /workspace/peptides-dash-monitors/ads.json (IG Ad tools + ad-stats.md + ads-audience.md)')
+
+def _tiktok_goal_stats(A):
+    """t6407u: button_clicks TikTok (цель WhatsApp / messaging) из ads.json. Пустые клики не выдумываем."""
+    out = []
+    if not isinstance(A, dict):
+        return out
+    for sec in ('active', 'scheduled', 'archive'):
+        for a in A.get(sec) or []:
+            if not isinstance(a, dict):
+                continue
+            plat = str(a.get('platform') or '')
+            ident = str(a.get('id') or '') + ' ' + str(a.get('creative') or '')
+            if plat.lower() != 'tiktok' and 'tiktok' not in ident.lower() and not ident.lower().startswith('pstt'):
+                continue
+            obj = str(a.get('objective') or '')
+            ol = obj.lower()
+            wa = ('whatsapp' in ol) or ('messaging' in ol) or ('get leads' in ol)
+            snaps = []
+            for key in ('stats_at_morning', 'stats_at_verify'):
+                ss = a.get(key) or {}
+                if not isinstance(ss, dict) or ss.get('button_clicks') is None:
+                    continue
+                try:
+                    clicks = int(ss.get('button_clicks'))
+                except (TypeError, ValueError):
+                    continue
+                snaps.append(dict(
+                    at=ss.get('at'),
+                    button_clicks=clicks,
+                    time_spent=ss.get('time_spent'),
+                    time_spent_hours=ss.get('time_spent_hours'),
+                    spent_cop=ss.get('spent_cop'),
+                    views=ss.get('views'),
+                    src=key,
+                ))
+            out.append(dict(
+                id=a.get('id'), status=a.get('status') or sec, section=sec,
+                objective=obj, started_at=a.get('started_at'),
+                duration_days=a.get('duration_days'), wa_objective=wa, snaps=snaps,
+            ))
+    return out
+pep_ads['tiktok_stats'] = _tiktok_goal_stats(_A)
 pep_replies = dict(as_of=_hm(_R.get('as_of')), stale=str(_R.get('freshness', '')).startswith('STALE'),
                    stale_label=_R.get('stale_label') or 'данные устарели с 22.10 — WA-сводка на паузе', freshness=_R.get('freshness', ''),
                    cron_failed=bool(_R.get('cron_failed')),
