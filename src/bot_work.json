@@ -1,10 +1,10 @@
 {
- "generated": "2026-11-13 21:06",
+ "generated": "2026-11-13 21:24",
  "signal": "Открытые задачи вида ClickUp «Ros (BOT)» (8cn3rz8-3574): status NOT closed AND assignee=Rost AND BOT R IS SET. Группа — поле BOT R.",
- "cu_fetched": "2026-11-13 21:05 Bogotá",
+ "cu_fetched": "2026-11-13 21:24 Bogotá",
  "src": {
   "routines": "/workspace/bot-routines-inventory/<BOT>.md + ROUTINE-GROUPS.md",
-  "tasks": "clickup_filter_tasks view_id=8cn3rz8-3574 (workspace view «Ros (BOT)») + BOT R via task.get_many"
+  "tasks": "clickup_filter_tasks view_id=8cn3rz8-3574 (workspace view «Ros (BOT)») + BOT R via task.get_many + enrich tmp/ros_bot_enrich.json"
  },
  "bots": [
   {
@@ -19,7 +19,10 @@
      "folder": "bundle-sun-lite-06-42",
      "desc": "lite GO + soft TG + 05services monthly nearest-Sunday gate",
      "service": false,
-     "tab": "",
+     "tabs": [
+      "personal"
+     ],
+     "tab": "personal",
      "cu": []
     },
     {
@@ -28,7 +31,10 @@
      "folder": "bundle-wed-early-mega-05-42",
      "desc": "deep HOT + Idealista thin + SEO while waiting + Andrea + Локаль ping",
      "service": false,
-     "tab": "",
+     "tabs": [
+      "personal"
+     ],
+     "tab": "personal",
      "cu": []
     },
     {
@@ -37,7 +43,10 @@
      "folder": "bundle-morning-mega-10-42",
      "desc": "HOT UKR→ESP→TG (+ Palma) + Mon Mail/SIMIT/IPRoyal/Idealista ACTIVE + SEO while waiting + Andrea OFTV + Aurora RA217 + Локаль lean + Topacio luz/Kиверян/Olivino/Alicante/Peptidos (Mon ping / TueThu monitor); Sagunto eviction CLOSED t5716u (86b7wu7jq = Alla rent-out, do not ping Maks/Nazar/Fuchylo); solos paused",
      "service": false,
-     "tab": "",
+     "tabs": [
+      "personal"
+     ],
+     "tab": "personal",
      "cu": [
       {
        "id": "86b7wu7jq",
@@ -52,7 +61,10 @@
      "folder": "bundle-night-hygiene-22-45",
      "desc": "idle → TG restart → Mon prompt-hygiene → Mon DR; solos paused",
      "service": false,
-     "tab": "",
+     "tabs": [
+      "personal"
+     ],
+     "tab": "personal",
      "cu": []
     },
     {
@@ -61,7 +73,10 @@
      "folder": "bju",
      "desc": "нет данных",
      "service": false,
-     "tab": "",
+     "tabs": [
+      "personal"
+     ],
+     "tab": "personal",
      "cu": []
     },
     {
@@ -70,7 +85,8 @@
      "folder": "notion-of-discord",
      "desc": "нет данных",
      "service": true,
-     "tab": "of",
+     "tabs": [],
+     "tab": "",
      "cu": []
     },
     {
@@ -79,6 +95,9 @@
      "folder": "1-10-07-13",
      "desc": "нет данных",
      "service": false,
+     "tabs": [
+      "tabakevich"
+     ],
      "tab": "tabakevich",
      "cu": []
     },
@@ -88,6 +107,9 @@
      "folder": "1-12-00",
      "desc": "нет данных",
      "service": false,
+     "tabs": [
+      "tabakevich"
+     ],
      "tab": "tabakevich",
      "cu": []
     },
@@ -97,7 +119,10 @@
      "folder": "automation-1792370697523",
      "desc": "нет данных",
      "service": false,
-     "tab": "",
+     "tabs": [
+      "tabakevich"
+     ],
+     "tab": "tabakevich",
      "cu": []
     },
     {
@@ -106,7 +131,10 @@
      "folder": "helpcrunch",
      "desc": "нет данных",
      "service": false,
-     "tab": "",
+     "tabs": [
+      "tabakevich"
+     ],
+     "tab": "tabakevich",
      "cu": []
     },
     {
@@ -115,7 +143,10 @@
      "folder": "iphone",
      "desc": "нет данных",
      "service": false,
-     "tab": "",
+     "tabs": [
+      "personal"
+     ],
+     "tab": "personal",
      "cu": []
     },
     {
@@ -124,7 +155,10 @@
      "folder": "wa",
      "desc": "нет данных",
      "service": false,
-     "tab": "",
+     "tabs": [
+      "personal"
+     ],
+     "tab": "personal",
      "cu": []
     },
     {
@@ -133,7 +167,10 @@
      "folder": "ig-tiktok",
      "desc": "нет данных",
      "service": false,
-     "tab": "",
+     "tabs": [
+      "personal"
+     ],
+     "tab": "personal",
      "cu": []
     },
     {
@@ -142,7 +179,8 @@
      "folder": "queue-resume-15-webhook",
      "desc": "нет данных",
      "service": true,
-     "tab": "realestate",
+     "tabs": [],
+     "tab": "",
      "cu": []
     },
     {
@@ -151,7 +189,10 @@
      "folder": "unread-dash-daily",
      "desc": "нет данных",
      "service": false,
-     "tab": "realestate",
+     "tabs": [
+      "personal"
+     ],
+     "tab": "personal",
      "cu": []
     },
     {
@@ -160,7 +201,10 @@
      "folder": "08-00",
      "desc": "нет данных",
      "service": false,
-     "tab": "",
+     "tabs": [
+      "tabakevich"
+     ],
+     "tab": "tabakevich",
      "cu": []
     },
     {
@@ -169,7 +213,10 @@
      "folder": "18-00",
      "desc": "нет данных",
      "service": false,
-     "tab": "",
+     "tabs": [
+      "tabakevich"
+     ],
+     "tab": "tabakevich",
      "cu": []
     }
    ],
@@ -187,7 +234,8 @@
      "kind": "check",
      "tab": "realestate",
      "bot_r": "Секретарь",
-     "priority": "normal"
+     "priority": "normal",
+     "thesis": "отправить Яне новые фактуры каждого 25 числа месяца"
     },
     {
      "id": "86ba7an25",
@@ -201,7 +249,8 @@
      "kind": "check",
      "tab": "of",
      "bot_r": "Секретарь",
-     "priority": "normal"
+     "priority": "normal",
+     "thesis": "Проверка трекера рабочего времени девочек OF"
     },
     {
      "id": "86bcm8ybt",
@@ -215,7 +264,8 @@
      "kind": "check",
      "tab": "of",
      "bot_r": "Секретарь",
-     "priority": "normal"
+     "priority": "normal",
+     "thesis": "Контроль офиса ОФ"
     },
     {
      "id": "86b897mmr",
@@ -229,7 +279,8 @@
      "kind": "check",
      "tab": "tabakevich",
      "bot_r": "Секретарь",
-     "priority": "high"
+     "priority": "high",
+     "thesis": "запуск Хукашоп сайта в рекламу - как успехи?"
     },
     {
      "id": "86b934b1v",
@@ -243,7 +294,8 @@
      "kind": "check",
      "tab": "tabakevich",
      "bot_r": "Секретарь",
-     "priority": "urgent"
+     "priority": "urgent",
+     "thesis": "Хукашоп - замена хостинга и бэкапы - проверить состояние (чеклист)"
     },
     {
      "id": "86b92hrcp",
@@ -257,7 +309,8 @@
      "kind": "check",
      "tab": "tabakevich",
      "bot_r": "Секретарь",
-     "priority": "normal"
+     "priority": "normal",
+     "thesis": "(проблема с картинками) БОТ: Пальма сайт + ускорить / Контекстная реклама"
     },
     {
      "id": "86b8r59kx",
@@ -271,7 +324,8 @@
      "kind": "check",
      "tab": "tabakevich",
      "bot_r": "Секретарь",
-     "priority": "normal"
+     "priority": "normal",
+     "thesis": "Феликс Шоп - проверить сайт"
     },
     {
      "id": "86bae6v4h",
@@ -285,7 +339,8 @@
      "kind": "check",
      "tab": "of",
      "bot_r": "Секретарь",
-     "priority": "normal"
+     "priority": "normal",
+     "thesis": "САРА: отвечать на комментарии - как успехи Сара?"
     },
     {
      "id": "86b8gv8kj",
@@ -299,7 +354,8 @@
      "kind": "check",
      "tab": "tabakevich",
      "bot_r": "Секретарь",
-     "priority": "normal"
+     "priority": "normal",
+     "thesis": "Табакевич БЛОКИРОВКА ДОМЕНА: проверить скорость с укр/загран айпишников"
     },
     {
      "id": "86b6q8m9x",
@@ -313,7 +369,8 @@
      "kind": "check",
      "tab": "personal",
      "bot_r": "Секретарь",
-     "priority": "urgent"
+     "priority": "urgent",
+     "thesis": "(КОСМО РЕШИТЬ + СЛЕШ) Банки ЛЛЦ письма и ЦРМ - JERZ помощь"
     },
     {
      "id": "86ba3bwhg",
@@ -327,7 +384,8 @@
      "kind": "check",
      "tab": "realestate",
      "bot_r": "Секретарь",
-     "priority": "normal"
+     "priority": "normal",
+     "thesis": "🏠 Установка сигналки на Топасио - случилось? (электричество жду Андрей)"
     },
     {
      "id": "86b88jb1f",
@@ -341,7 +399,8 @@
      "kind": "check",
      "tab": "realestate",
      "bot_r": "Секретарь",
-     "priority": "normal"
+     "priority": "normal",
+     "thesis": "Окупас Хуан 23 Адвокаты выселение - узнать статус?"
     },
     {
      "id": "86bcnuxbj",
@@ -355,7 +414,8 @@
      "kind": "check",
      "tab": "of",
      "bot_r": "Секретарь",
-     "priority": "normal"
+     "priority": "normal",
+     "thesis": "💳 Оплата чаттерам Никиты (счёт в TG 5–13 числа) Яна получить отчеты"
     },
     {
      "id": "86bbjyrf5",
@@ -369,7 +429,8 @@
      "kind": "check",
      "tab": "of",
      "bot_r": "Секретарь",
-     "priority": "normal"
+     "priority": "normal",
+     "thesis": "МИШЕЛЬ: Bulk Messaging проверить статистику и ответы фанам в сообщениях (потом передать сбор статистики Фетишь)"
     },
     {
      "id": "86bcgckxu",
@@ -383,7 +444,8 @@
      "kind": "check",
      "tab": "tabakevich",
      "bot_r": "Секретарь",
-     "priority": "normal"
+     "priority": "normal",
+     "thesis": "Проверка кронов задач 1С поиск сбоев"
     },
     {
      "id": "86bacy8cr",
@@ -397,7 +459,8 @@
      "kind": "check",
      "tab": "tabakevich",
      "bot_r": "Секретарь",
-     "priority": "normal"
+     "priority": "normal",
+     "thesis": "С ИРИНОЙ: Просмотр отчета по дебиторке (комменты)"
     },
     {
      "id": "86b6qq509",
@@ -411,7 +474,8 @@
      "kind": "work",
      "tab": "personal",
      "bot_r": "Секретарь",
-     "priority": "high"
+     "priority": "high",
+     "thesis": "Фин подбить баланс (30м) (отчет Алексей)"
     },
     {
      "id": "86bb93ynk",
@@ -425,7 +489,8 @@
      "kind": "work",
      "tab": "realestate",
      "bot_r": "Секретарь",
-     "priority": "normal"
+     "priority": "normal",
+     "thesis": "Новельда: Подать обращение в организацию деокупации / адвокату"
     },
     {
      "id": "86bawjbgj",
@@ -439,7 +504,8 @@
      "kind": "work",
      "tab": "of",
      "bot_r": "Секретарь",
-     "priority": "normal"
+     "priority": "normal",
+     "thesis": "Транс модель (платежка, конец октября ОФТВ узнать)"
     },
     {
      "id": "86bb943nu",
@@ -453,7 +519,8 @@
      "kind": "work",
      "tab": "realestate",
      "bot_r": "Секретарь",
-     "priority": "normal"
+     "priority": "normal",
+     "thesis": "Выселение окупас Двойная Хуан 23 - узнать статус?"
     },
     {
      "id": "86bbzjbuf",
@@ -467,7 +534,8 @@
      "kind": "work",
      "tab": "realestate",
      "bot_r": "Секретарь",
-     "priority": "normal"
+     "priority": "normal",
+     "thesis": "Капает кондиционер — пофиксить (Анатолий)"
     },
     {
      "id": "86baggxqe",
@@ -481,7 +549,8 @@
      "kind": "work",
      "tab": "realestate",
      "bot_r": "Секретарь",
-     "priority": "normal"
+     "priority": "normal",
+     "thesis": "ОЛЯ продажа ТРАВЕЛЕЗ: как дела? сигналку поставили?"
     },
     {
      "id": "86bcxtup4",
@@ -495,7 +564,8 @@
      "kind": "work",
      "tab": "personal",
      "bot_r": "Секретарь",
-     "priority": "normal"
+     "priority": "normal",
+     "thesis": "Мама: исправить актуальные (Коучинг даш)"
     },
     {
      "id": "86b9va7c4",
@@ -509,7 +579,8 @@
      "kind": "work",
      "tab": "realestate",
      "bot_r": "Секретарь",
-     "priority": "normal"
+     "priority": "normal",
+     "thesis": "🏠ТОПАСИО РЕМОНТ ДЕЛЕНИЕ - как дела? (ждем отчет)"
     },
     {
      "id": "86bbzx9x4",
@@ -523,7 +594,8 @@
      "kind": "work",
      "tab": "of",
      "bot_r": "Секретарь",
-     "priority": "normal"
+     "priority": "normal",
+     "thesis": "04.11 Rost GO в чате ОФ: трафик есть → закрываем монитор."
     },
     {
      "id": "86bc1d1wj",
@@ -537,7 +609,8 @@
      "kind": "work",
      "tab": "realestate",
      "bot_r": "Секретарь",
-     "priority": "normal"
+     "priority": "normal",
+     "thesis": "Проверить новые обьекты Солвия"
     },
     {
      "id": "86b9crta7",
@@ -551,7 +624,8 @@
      "kind": "work",
      "tab": "of",
      "bot_r": "Секретарь",
-     "priority": "normal"
+     "priority": "normal",
+     "thesis": "Агудело-Аврора сделать секстинг паки + запустить траф"
     },
     {
      "id": "86bcxprv8",
@@ -565,7 +639,8 @@
      "kind": "work",
      "tab": "realestate",
      "bot_r": "Секретарь",
-     "priority": "normal"
+     "priority": "normal",
+     "thesis": "Проверка работы счетчиков и запись данных в таблицу"
     },
     {
      "id": "86bb8ju09",
@@ -579,7 +654,8 @@
      "kind": "work",
      "tab": "realestate",
      "bot_r": "Секретарь",
-     "priority": "normal"
+     "priority": "normal",
+     "thesis": "Пакистанец долг за коммуналку - Алла как успехи?"
     },
     {
      "id": "86bc1tdu5",
@@ -593,7 +669,8 @@
      "kind": "work",
      "tab": "of",
      "bot_r": "Секретарь",
-     "priority": "urgent"
+     "priority": "urgent",
+     "thesis": "IP Royal - пополнить баланс/проверка"
     },
     {
      "id": "86bcn2ek8",
@@ -607,7 +684,8 @@
      "kind": "work",
      "tab": "of",
      "bot_r": "Секретарь",
-     "priority": "normal"
+     "priority": "normal",
+     "thesis": "контроль Мишель по проверке состояния профилей LolaPop"
     },
     {
      "id": "86bcnuxbv",
@@ -621,7 +699,8 @@
      "kind": "work",
      "tab": "of",
      "bot_r": "Секретарь",
-     "priority": "normal"
+     "priority": "normal",
+     "thesis": "💳 Оплата чаттерам Sofia Lunara (счёт от Лёши в TG 15–20 числа) - Яна"
     },
     {
      "id": "86b9wh8cd",
@@ -635,7 +714,8 @@
      "kind": "work",
      "tab": "of",
      "bot_r": "Секретарь",
-     "priority": "normal"
+     "priority": "normal",
+     "thesis": "RA180 / RA185 - курировать процесс (скрины/новая платежка)"
     },
     {
      "id": "86b6tvyc7",
@@ -649,7 +729,8 @@
      "kind": "work",
      "tab": "personal",
      "bot_r": "Секретарь",
-     "priority": "normal"
+     "priority": "normal",
+     "thesis": "Дима долг собрать/напоминать/брать сроки"
     },
     {
      "id": "86b6k34a6",
@@ -663,7 +744,8 @@
      "kind": "work",
      "tab": "realestate",
      "bot_r": "Секретарь",
-     "priority": "normal"
+     "priority": "normal",
+     "thesis": "Локаль ремонт (перевод в жилое) - Анатолий как дела?"
     },
     {
      "id": "86b9uqgqq",
@@ -677,7 +759,8 @@
      "kind": "work",
      "tab": "of",
      "bot_r": "Секретарь",
-     "priority": "normal"
+     "priority": "normal",
+     "thesis": "Andrea Cali - как дела по запуску ОФТВ? (напомнить за запуск)"
     },
     {
      "id": "86b7k7v1n",
@@ -691,7 +774,8 @@
      "kind": "work",
      "tab": "tabakevich",
      "bot_r": "Секретарь",
-     "priority": "normal"
+     "priority": "normal",
+     "thesis": "Tabakevich SEO месячный отчет (Andrii)"
     },
     {
      "id": "86b9zkaua",
@@ -705,7 +789,8 @@
      "kind": "work",
      "tab": "tabakevich",
      "bot_r": "Секретарь",
-     "priority": "normal"
+     "priority": "normal",
+     "thesis": "Отчет по SEO-показателям (трафик, заказы) - готов? (покупка Серпстат)"
     },
     {
      "id": "86bb3qh0k",
@@ -719,7 +804,8 @@
      "kind": "work",
      "tab": "of",
      "bot_r": "Секретарь",
-     "priority": "normal"
+     "priority": "normal",
+     "thesis": "Мишель: OFTV Наладить постинг - все под контролем?"
     },
     {
      "id": "86b7wu7jq",
@@ -733,7 +819,8 @@
      "kind": "work",
      "tab": "realestate",
      "bot_r": "Секретарь",
-     "priority": "normal"
+     "priority": "normal",
+     "thesis": "Алла: сдать квартиру Сагунто (побелка/балкон)"
     }
    ]
   },
@@ -749,6 +836,7 @@
      "folder": "sites-weekly-mega",
      "desc": "Hookahshop + Palmvape + Felix-shop + Tabakevich weekly bundle + soft Tabakevich availability Wed",
      "service": false,
+     "tabs": [],
      "tab": "",
      "cu": []
     },
@@ -758,6 +846,9 @@
      "folder": "helper-morning-mega",
      "desc": "Cosmo+Slash → inventory → SKIP Sara pack → SKIP Sara originals (STOP 01.10) → FB → Solvia → Debitorzka Wed+Thu (never skip stale due; filled→next Wed) → soft Taba Mon/Tue/Thu → Downloads Mon → Expired domains buy-check Mon-only member12 (sheet 198eWwRc…; available→86b7k7jnx for check+due today; else quiet) → GANA soft FOREVER member11: DOM≥25+not-yet-this-month; CF403→Ads Spain k1h2wt21 Local API-first SAME run (never access-fail without Ads attempt); optional Mon Hetzner / Tue Rorey+Michelle",
      "service": false,
+     "tabs": [
+      "realestate"
+     ],
      "tab": "realestate",
      "cu": []
     },
@@ -767,6 +858,9 @@
      "folder": "helper-sun-lite",
      "desc": "Jibble → CU 86ba7an25; 05services → CU 86b9abep9; RA180/185 CU-only; Tabakevich Sun; GANA weekend catch (DOM≥25 + not-yet-this-month); no TG/WA",
      "service": false,
+     "tabs": [
+      "realestate"
+     ],
      "tab": "realestate",
      "cu": [
       {
@@ -787,6 +881,7 @@
      "folder": "15",
      "desc": "credit-save t5393–97u; cron только 09:07 + hygiene даже если пусто; empty иначе=silence; webhook wake/resume оставить; 15-мин сторож не включать; Truth=/workspace/queue-helper/QUEUE.md",
      "service": true,
+     "tabs": [],
      "tab": "",
      "cu": []
     },
@@ -796,6 +891,7 @@
      "folder": "wa-esp",
      "desc": "нет данных",
      "service": false,
+     "tabs": [],
      "tab": "",
      "cu": []
     },
@@ -805,7 +901,8 @@
      "folder": "queue-resume-15-webhook",
      "desc": "нет данных",
      "service": true,
-     "tab": "realestate",
+     "tabs": [],
+     "tab": "",
      "cu": []
     },
     {
@@ -814,6 +911,7 @@
      "folder": "sites-fail-llm-webhook",
      "desc": "нет данных",
      "service": false,
+     "tabs": [],
      "tab": "",
      "cu": []
     },
@@ -823,6 +921,7 @@
      "folder": "clickup-toast",
      "desc": "нет данных",
      "service": false,
+     "tabs": [],
      "tab": "",
      "cu": []
     }
@@ -841,7 +940,8 @@
      "kind": "work",
      "tab": "realestate",
      "bot_r": "Помощник по всему",
-     "priority": "normal"
+     "priority": "normal",
+     "thesis": "Настроить автообзвон объектов"
     }
    ]
   },
@@ -857,6 +957,9 @@
      "folder": "of-morning-pack-models-seider",
      "desc": "Models→Sheet→Seider; Tue IG/TT; Mon/Wed DMCA; optional CU-text; no Informe (pack-extra 27.10 → Mon early)",
      "service": false,
+     "tabs": [
+      "of"
+     ],
      "tab": "of",
      "cu": []
     },
@@ -866,6 +969,9 @@
      "folder": "of-mon-early-ax42-weekly-iproyal",
      "desc": "Lesha OFTV + Informe LolaPop one AdsPower session (pack-extra 27.10); IPRoyal→COMMS; XL gate",
      "service": false,
+     "tabs": [
+      "of"
+     ],
      "tab": "of",
      "cu": []
     },
@@ -875,6 +981,9 @@
      "folder": "of-sun-lite-mile-irina",
      "desc": "Mile → Irina CU (Irina TG via COMMS); Standing Clear weekly Mile (30.09)",
      "service": false,
+     "tabs": [
+      "of"
+     ],
      "tab": "of",
      "cu": []
     },
@@ -884,7 +993,10 @@
      "folder": "models-inbox-webhook-drain",
      "desc": "нет данных",
      "service": true,
-     "tab": "",
+     "tabs": [
+      "of"
+     ],
+     "tab": "of",
      "cu": []
     },
     {
@@ -893,7 +1005,10 @@
      "folder": "of-referencias",
      "desc": "нет данных",
      "service": false,
-     "tab": "realestate",
+     "tabs": [
+      "of"
+     ],
+     "tab": "of",
      "cu": []
     },
     {
@@ -902,7 +1017,10 @@
      "folder": "of-queue-resume-webhook",
      "desc": "нет данных",
      "service": true,
-     "tab": "realestate",
+     "tabs": [
+      "of"
+     ],
+     "tab": "of",
      "cu": []
     }
    ],
@@ -920,7 +1038,8 @@
      "kind": "check",
      "tab": "of",
      "bot_r": "ОФ Маркетинг",
-     "priority": "urgent"
+     "priority": "urgent",
+     "thesis": "Контроль OF.TV - отчет / запуски / ПЛАН СВЕРКА ЛЕШЕ + отчет ферма"
     },
     {
      "id": "86b9abep9",
@@ -934,7 +1053,8 @@
      "kind": "check",
      "tab": "of",
      "bot_r": "ОФ Маркетинг",
-     "priority": "normal"
+     "priority": "normal",
+     "thesis": "С ИРИНОЙ: Проверка статистики / сумм выплат / где плохо? по моделям"
     },
     {
      "id": "86bamxnh9",
@@ -948,7 +1068,8 @@
      "kind": "check",
      "tab": "of",
      "bot_r": "ОФ Маркетинг",
-     "priority": "normal"
+     "priority": "normal",
+     "thesis": "Статистика миле проверять + новые города Кали / Чоко и т д"
     },
     {
      "id": "86b9axevh",
@@ -962,7 +1083,8 @@
      "kind": "check",
      "tab": "of",
      "bot_r": "ОФ Маркетинг",
-     "priority": "normal"
+     "priority": "normal",
+     "thesis": "(тестим сбор) БОТ ЧАСТЬ: (ФБ рекомендации) 📊 Проверка статистики ЛолаПоп и принятие решений"
     },
     {
      "id": "86b8de8ru",
@@ -976,7 +1098,8 @@
      "kind": "work",
      "tab": "of",
      "bot_r": "ОФ Маркетинг",
-     "priority": "normal"
+     "priority": "normal",
+     "thesis": "Заявки RA чат проверить (флеймс)"
     },
     {
      "id": "86bcr1a1r",
@@ -990,7 +1113,8 @@
      "kind": "work",
      "tab": "of",
      "bot_r": "ОФ Маркетинг",
-     "priority": "normal"
+     "priority": "normal",
+     "thesis": "Ежемесячный замер подписчиков Referencias (кто растёт)"
     }
    ]
   },
@@ -1006,6 +1130,9 @@
      "folder": "peso-saludable-wa",
      "desc": "нет данных",
      "service": false,
+     "tabs": [
+      "peptides"
+     ],
      "tab": "peptides",
      "cu": []
     },
@@ -1015,7 +1142,10 @@
      "folder": "automation-1792561643498",
      "desc": "нет данных",
      "service": false,
-     "tab": "",
+     "tabs": [
+      "peptides"
+     ],
+     "tab": "peptides",
      "cu": []
     },
     {
@@ -1024,6 +1154,9 @@
      "folder": "ig-peso-dm-wa-handoff",
      "desc": "нет данных",
      "service": false,
+     "tabs": [
+      "peptides"
+     ],
      "tab": "peptides",
      "cu": []
     },
@@ -1033,7 +1166,10 @@
      "folder": "queue-resume-webhook",
      "desc": "нет данных",
      "service": true,
-     "tab": "realestate",
+     "tabs": [
+      "peptides"
+     ],
+     "tab": "peptides",
      "cu": []
     },
     {
@@ -1042,6 +1178,9 @@
      "folder": "peso-col",
      "desc": "нет данных",
      "service": false,
+     "tabs": [
+      "peptides"
+     ],
      "tab": "peptides",
      "cu": []
     },
@@ -1051,6 +1190,9 @@
      "folder": "tiktok-pesosaludable-col",
      "desc": "нет данных",
      "service": false,
+     "tabs": [
+      "peptides"
+     ],
      "tab": "peptides",
      "cu": []
     }
@@ -1070,7 +1212,10 @@
      "folder": "onimator-webhook",
      "desc": "нет данных",
      "service": false,
-     "tab": "",
+     "tabs": [
+      "of"
+     ],
+     "tab": "of",
      "cu": []
     },
     {
@@ -1079,7 +1224,10 @@
      "folder": "queue-wake-webhook-resume-15",
      "desc": "нет данных",
      "service": true,
-     "tab": "realestate",
+     "tabs": [
+      "of"
+     ],
+     "tab": "of",
      "cu": []
     }
    ],
@@ -1098,7 +1246,10 @@
      "folder": "tinder",
      "desc": "нет данных",
      "service": false,
-     "tab": "",
+     "tabs": [
+      "personal"
+     ],
+     "tab": "personal",
      "cu": []
     },
     {
@@ -1107,7 +1258,10 @@
      "folder": "redmi-tinder-feabie",
      "desc": "нет данных",
      "service": false,
-     "tab": "realestate",
+     "tabs": [
+      "personal"
+     ],
+     "tab": "personal",
      "cu": []
     },
     {
@@ -1116,7 +1270,10 @@
      "folder": "whatsapp-esp-d",
      "desc": "нет данных",
      "service": false,
-     "tab": "",
+     "tabs": [
+      "personal"
+     ],
+     "tab": "personal",
      "cu": []
     },
     {
@@ -1125,7 +1282,10 @@
      "folder": "13-00-17-00-20-30",
      "desc": "нет данных",
      "service": false,
-     "tab": "",
+     "tabs": [
+      "personal"
+     ],
+     "tab": "personal",
      "cu": []
     },
     {
@@ -1134,7 +1294,10 @@
      "folder": "feabie",
      "desc": "нет данных",
      "service": false,
-     "tab": "",
+     "tabs": [
+      "personal"
+     ],
+     "tab": "personal",
      "cu": []
     },
     {
@@ -1143,7 +1306,8 @@
      "folder": "queue-resume-webhook",
      "desc": "нет данных",
      "service": true,
-     "tab": "realestate",
+     "tabs": [],
+     "tab": "",
      "cu": []
     }
    ],
@@ -1161,7 +1325,8 @@
      "kind": "check",
      "tab": "peptides",
      "bot_r": "Д",
-     "priority": "normal"
+     "priority": "normal",
+     "thesis": "Таргет пептиды - контроль и увеличение"
     }
    ]
   },
@@ -1177,7 +1342,8 @@
      "folder": "queue-resume-webhook",
      "desc": "нет данных",
      "service": true,
-     "tab": "realestate",
+     "tabs": [],
+     "tab": "",
      "cu": []
     }
    ],
@@ -1196,6 +1362,7 @@
      "folder": "ste-1",
      "desc": "Cap 15/day; up to 3 letters per slot; digest member on first Bogotá slot/day (marker DIGEST_POSTED_<date>); gap 20–35 min; window 09–17 recipient local. Picker `ste_send_slot.py` (no rewrite). Catch-up 13:00 and 15:00 if under cap 15; in-slot wait prefer 20–25 min so the 3rd letter finishes. Bounce HOLD ≥5 → rest 1 full Bogotá day then auto-resume (Rost t321 03.11); bounced addresses stay skipped. HOLD inactive (lifted 03.11).",
      "service": false,
+     "tabs": [],
      "tab": "",
      "cu": []
     },
@@ -1205,6 +1372,7 @@
      "folder": "ste-2",
      "desc": "Morning pins/clients/unanswered recon before hygiene.",
      "service": false,
+     "tabs": [],
      "tab": "",
      "cu": []
     },
@@ -1214,6 +1382,7 @@
      "folder": "15",
      "desc": "COMMS ~09:07 reads QUEUE.md and wakes Defense only on real pending/in_progress. Webhook kept. Empty = quiet, no hygiene-for-empty. When pinged or webhook on real work: self-check + daily hygiene if no stamp yet, then finish the work.",
      "service": true,
+     "tabs": [],
      "tab": "",
      "cu": []
     }

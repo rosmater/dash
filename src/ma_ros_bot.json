@@ -1,6 +1,6 @@
 {
- "fetched": "2026-11-13 21:05 Bogotá",
- "src": "clickup_filter_tasks view_id=8cn3rz8-3574 (workspace view «Ros (BOT)») + BOT R via task.get_many",
+ "fetched": "2026-11-13 21:24 Bogotá",
+ "src": "clickup_filter_tasks view_id=8cn3rz8-3574 (workspace view «Ros (BOT)») + BOT R via task.get_many + enrich tmp/ros_bot_enrich.json",
  "view": {
   "id": "8cn3rz8-3574",
   "name": "Ros (BOT)",
@@ -66,7 +66,10 @@
    "closed": false,
    "bot_r": "Секретарь",
    "bot_r_id": "f6a849ca-31e5-44fc-b6e6-5824d366742e",
-   "transfer": "частично"
+   "transfer": "частично",
+   "description": "",
+   "last_comment": "",
+   "thesis": "Фин подбить баланс (30м) (отчет Алексей)"
   },
   {
    "id": "86bctn6z8",
@@ -89,7 +92,10 @@
    "closed": false,
    "bot_r": "Помощник по всему",
    "bot_r_id": "9f513555-1c69-4d5a-a933-e55b55f9340b",
-   "transfer": "да"
+   "transfer": "да",
+   "description": "",
+   "last_comment": "",
+   "thesis": "Настроить автообзвон объектов"
   },
   {
    "id": "86bcxtup4",
@@ -114,7 +120,10 @@
    "closed": false,
    "bot_r": "Секретарь",
    "bot_r_id": "f6a849ca-31e5-44fc-b6e6-5824d366742e",
-   "transfer": ""
+   "transfer": "",
+   "description": "",
+   "last_comment": "",
+   "thesis": "Мама: исправить актуальные (Коучинг даш)"
   },
   {
    "id": "86bcr1a1r",
@@ -139,7 +148,10 @@
    "closed": false,
    "bot_r": "ОФ Маркетинг",
    "bot_r_id": "9a74ed7d-d18a-48ea-904e-38fff2ca52d8",
-   "transfer": "да"
+   "transfer": "да",
+   "description": "",
+   "last_comment": "",
+   "thesis": "Ежемесячный замер подписчиков Referencias (кто растёт)"
   },
   {
    "id": "86bc1tdu5",
@@ -162,7 +174,10 @@
    "closed": false,
    "bot_r": "Секретарь",
    "bot_r_id": "f6a849ca-31e5-44fc-b6e6-5824d366742e",
-   "transfer": "да"
+   "transfer": "да",
+   "description": "",
+   "last_comment": "",
+   "thesis": "IP Royal - пополнить баланс/проверка"
   },
   {
    "id": "86b9abep9",
@@ -185,7 +200,10 @@
    "closed": false,
    "bot_r": "ОФ Маркетинг",
    "bot_r_id": "9a74ed7d-d18a-48ea-904e-38fff2ca52d8",
-   "transfer": "да"
+   "transfer": "да",
+   "description": "",
+   "last_comment": "",
+   "thesis": "С ИРИНОЙ: Проверка статистики / сумм выплат / где плохо? по моделям"
   },
   {
    "id": "86b9axevh",
@@ -208,7 +226,10 @@
    "closed": false,
    "bot_r": "ОФ Маркетинг",
    "bot_r_id": "9a74ed7d-d18a-48ea-904e-38fff2ca52d8",
-   "transfer": "частично"
+   "transfer": "частично",
+   "description": "",
+   "last_comment": "",
+   "thesis": "(тестим сбор) БОТ ЧАСТЬ: (ФБ рекомендации) 📊 Проверка статистики ЛолаПоп и принятие решений"
   },
   {
    "id": "86bacy8cr",
@@ -231,7 +252,10 @@
    "closed": false,
    "bot_r": "Секретарь",
    "bot_r_id": "f6a849ca-31e5-44fc-b6e6-5824d366742e",
-   "transfer": "частично"
+   "transfer": "частично",
+   "description": "",
+   "last_comment": "",
+   "thesis": "С ИРИНОЙ: Просмотр отчета по дебиторке (комменты)"
   },
   {
    "id": "86b7wu7jq",
@@ -254,7 +278,10 @@
    "closed": false,
    "bot_r": "Секретарь",
    "bot_r_id": "f6a849ca-31e5-44fc-b6e6-5824d366742e",
-   "transfer": "на человека"
+   "transfer": "на человека",
+   "description": "",
+   "last_comment": "",
+   "thesis": "Алла: сдать квартиру Сагунто (побелка/балкон)"
   },
   {
    "id": "86b8de8ru",
@@ -277,7 +304,10 @@
    "closed": false,
    "bot_r": "ОФ Маркетинг",
    "bot_r_id": "9a74ed7d-d18a-48ea-904e-38fff2ca52d8",
-   "transfer": "да"
+   "transfer": "да",
+   "description": "",
+   "last_comment": "",
+   "thesis": "Заявки RA чат проверить (флеймс)"
   },
   {
    "id": "86bawjbgj",
@@ -300,7 +330,10 @@
    "closed": false,
    "bot_r": "Секретарь",
    "bot_r_id": "f6a849ca-31e5-44fc-b6e6-5824d366742e",
-   "transfer": "да"
+   "transfer": "да",
+   "description": "",
+   "last_comment": "",
+   "thesis": "Транс модель (платежка, конец октября ОФТВ узнать)"
   },
   {
    "id": "86bb943nu",
@@ -323,7 +356,10 @@
    "closed": false,
    "bot_r": "Секретарь",
    "bot_r_id": "f6a849ca-31e5-44fc-b6e6-5824d366742e",
-   "transfer": "частично"
+   "transfer": "частично",
+   "description": "",
+   "last_comment": "",
+   "thesis": "Выселение окупас Двойная Хуан 23 - узнать статус?"
   },
   {
    "id": "86bbzjbuf",
@@ -346,7 +382,10 @@
    "closed": false,
    "bot_r": "Секретарь",
    "bot_r_id": "f6a849ca-31e5-44fc-b6e6-5824d366742e",
-   "transfer": "частично"
+   "transfer": "частично",
+   "description": "",
+   "last_comment": "",
+   "thesis": "Капает кондиционер — пофиксить (Анатолий)"
   },
   {
    "id": "86bb93ynk",
@@ -369,7 +408,10 @@
    "closed": false,
    "bot_r": "Секретарь",
    "bot_r_id": "f6a849ca-31e5-44fc-b6e6-5824d366742e",
-   "transfer": "да"
+   "transfer": "да",
+   "description": "",
+   "last_comment": "",
+   "thesis": "Новельда: Подать обращение в организацию деокупации / адвокату"
   },
   {
    "id": "86bc24u5z",
@@ -392,7 +434,10 @@
    "closed": false,
    "bot_r": "Секретарь",
    "bot_r_id": "f6a849ca-31e5-44fc-b6e6-5824d366742e",
-   "transfer": "да"
+   "transfer": "да",
+   "description": "",
+   "last_comment": "",
+   "thesis": "отправить Яне новые фактуры каждого 25 числа месяца"
   },
   {
    "id": "86baggxqe",
@@ -415,7 +460,10 @@
    "closed": false,
    "bot_r": "Секретарь",
    "bot_r_id": "f6a849ca-31e5-44fc-b6e6-5824d366742e",
-   "transfer": "частично"
+   "transfer": "частично",
+   "description": "",
+   "last_comment": "",
+   "thesis": "ОЛЯ продажа ТРАВЕЛЕЗ: как дела? сигналку поставили?"
   },
   {
    "id": "86bbzx9x4",
@@ -438,7 +486,10 @@
    "closed": false,
    "bot_r": "Секретарь",
    "bot_r_id": "f6a849ca-31e5-44fc-b6e6-5824d366742e",
-   "transfer": "частично"
+   "transfer": "частично",
+   "description": "",
+   "last_comment": "04.11 Rost GO в чате ОФ: трафик есть → закрываем монитор. Статистику смотрим раз в неделю (обычный OFTV/Markiz цикл). $100 монтаж / 300k Laura — вне этой задачи (не трогал).",
+   "thesis": "04.11 Rost GO в чате ОФ: трафик есть → закрываем монитор."
   },
   {
    "id": "86b9va7c4",
@@ -461,7 +512,10 @@
    "closed": false,
    "bot_r": "Секретарь",
    "bot_r_id": "f6a849ca-31e5-44fc-b6e6-5824d366742e",
-   "transfer": "частично"
+   "transfer": "частично",
+   "description": "",
+   "last_comment": "",
+   "thesis": "🏠ТОПАСИО РЕМОНТ ДЕЛЕНИЕ - как дела? (ждем отчет)"
   },
   {
    "id": "86bc1d1wj",
@@ -484,7 +538,10 @@
    "closed": false,
    "bot_r": "Секретарь",
    "bot_r_id": "f6a849ca-31e5-44fc-b6e6-5824d366742e",
-   "transfer": "да"
+   "transfer": "да",
+   "description": "",
+   "last_comment": "",
+   "thesis": "Проверить новые обьекты Солвия"
   },
   {
    "id": "86b9crta7",
@@ -507,7 +564,10 @@
    "closed": false,
    "bot_r": "Секретарь",
    "bot_r_id": "f6a849ca-31e5-44fc-b6e6-5824d366742e",
-   "transfer": "частично"
+   "transfer": "частично",
+   "description": "",
+   "last_comment": "",
+   "thesis": "Агудело-Аврора сделать секстинг паки + запустить траф"
   },
   {
    "id": "86ba7an25",
@@ -530,7 +590,10 @@
    "closed": false,
    "bot_r": "Секретарь",
    "bot_r_id": "f6a849ca-31e5-44fc-b6e6-5824d366742e",
-   "transfer": "да"
+   "transfer": "да",
+   "description": "",
+   "last_comment": "",
+   "thesis": "Проверка трекера рабочего времени девочек OF"
   },
   {
    "id": "86bcm8ybt",
@@ -553,7 +616,10 @@
    "closed": false,
    "bot_r": "Секретарь",
    "bot_r_id": "f6a849ca-31e5-44fc-b6e6-5824d366742e",
-   "transfer": "да"
+   "transfer": "да",
+   "description": "",
+   "last_comment": "",
+   "thesis": "Контроль офиса ОФ"
   },
   {
    "id": "86b897mmr",
@@ -576,7 +642,10 @@
    "closed": false,
    "bot_r": "Секретарь",
    "bot_r_id": "f6a849ca-31e5-44fc-b6e6-5824d366742e",
-   "transfer": "частично"
+   "transfer": "частично",
+   "description": "",
+   "last_comment": "",
+   "thesis": "запуск Хукашоп сайта в рекламу - как успехи?"
   },
   {
    "id": "86b6z79t1",
@@ -599,7 +668,10 @@
    "closed": false,
    "bot_r": "ОФ Маркетинг",
    "bot_r_id": "9a74ed7d-d18a-48ea-904e-38fff2ca52d8",
-   "transfer": "частично"
+   "transfer": "частично",
+   "description": "",
+   "last_comment": "",
+   "thesis": "Контроль OF.TV - отчет / запуски / ПЛАН СВЕРКА ЛЕШЕ + отчет ферма"
   },
   {
    "id": "86bb8ju09",
@@ -622,7 +694,10 @@
    "closed": false,
    "bot_r": "Секретарь",
    "bot_r_id": "f6a849ca-31e5-44fc-b6e6-5824d366742e",
-   "transfer": "частично"
+   "transfer": "частично",
+   "description": "",
+   "last_comment": "",
+   "thesis": "Пакистанец долг за коммуналку - Алла как успехи?"
   },
   {
    "id": "86bcxprv8",
@@ -647,7 +722,10 @@
    "closed": false,
    "bot_r": "Секретарь",
    "bot_r_id": "f6a849ca-31e5-44fc-b6e6-5824d366742e",
-   "transfer": "да"
+   "transfer": "да",
+   "description": "",
+   "last_comment": "",
+   "thesis": "Проверка работы счетчиков и запись данных в таблицу"
   },
   {
    "id": "86b8r59kx",
@@ -670,7 +748,10 @@
    "closed": false,
    "bot_r": "Секретарь",
    "bot_r_id": "f6a849ca-31e5-44fc-b6e6-5824d366742e",
-   "transfer": "да"
+   "transfer": "да",
+   "description": "",
+   "last_comment": "",
+   "thesis": "Феликс Шоп - проверить сайт"
   },
   {
    "id": "86b92hrcp",
@@ -693,7 +774,10 @@
    "closed": false,
    "bot_r": "Секретарь",
    "bot_r_id": "f6a849ca-31e5-44fc-b6e6-5824d366742e",
-   "transfer": "да"
+   "transfer": "да",
+   "description": "",
+   "last_comment": "",
+   "thesis": "(проблема с картинками) БОТ: Пальма сайт + ускорить / Контекстная реклама"
   },
   {
    "id": "86b934b1v",
@@ -716,7 +800,10 @@
    "closed": false,
    "bot_r": "Секретарь",
    "bot_r_id": "f6a849ca-31e5-44fc-b6e6-5824d366742e",
-   "transfer": "да"
+   "transfer": "да",
+   "description": "",
+   "last_comment": "",
+   "thesis": "Хукашоп - замена хостинга и бэкапы - проверить состояние (чеклист)"
   },
   {
    "id": "86b8gv8kj",
@@ -739,7 +826,10 @@
    "closed": false,
    "bot_r": "Секретарь",
    "bot_r_id": "f6a849ca-31e5-44fc-b6e6-5824d366742e",
-   "transfer": "да"
+   "transfer": "да",
+   "description": "",
+   "last_comment": "",
+   "thesis": "Табакевич БЛОКИРОВКА ДОМЕНА: проверить скорость с укр/загран айпишников"
   },
   {
    "id": "86b6q8m9x",
@@ -762,7 +852,10 @@
    "closed": false,
    "bot_r": "Секретарь",
    "bot_r_id": "f6a849ca-31e5-44fc-b6e6-5824d366742e",
-   "transfer": "частично"
+   "transfer": "частично",
+   "description": "",
+   "last_comment": "",
+   "thesis": "(КОСМО РЕШИТЬ + СЛЕШ) Банки ЛЛЦ письма и ЦРМ - JERZ помощь"
   },
   {
    "id": "86bae6v4h",
@@ -785,7 +878,10 @@
    "closed": false,
    "bot_r": "Секретарь",
    "bot_r_id": "f6a849ca-31e5-44fc-b6e6-5824d366742e",
-   "transfer": "частично"
+   "transfer": "частично",
+   "description": "",
+   "last_comment": "",
+   "thesis": "САРА: отвечать на комментарии - как успехи Сара?"
   },
   {
    "id": "86ba3bwhg",
@@ -808,7 +904,10 @@
    "closed": false,
    "bot_r": "Секретарь",
    "bot_r_id": "f6a849ca-31e5-44fc-b6e6-5824d366742e",
-   "transfer": "частично"
+   "transfer": "частично",
+   "description": "",
+   "last_comment": "",
+   "thesis": "🏠 Установка сигналки на Топасио - случилось? (электричество жду Андрей)"
   },
   {
    "id": "86b88jb1f",
@@ -831,7 +930,10 @@
    "closed": false,
    "bot_r": "Секретарь",
    "bot_r_id": "f6a849ca-31e5-44fc-b6e6-5824d366742e",
-   "transfer": "частично"
+   "transfer": "частично",
+   "description": "",
+   "last_comment": "",
+   "thesis": "Окупас Хуан 23 Адвокаты выселение - узнать статус?"
   },
   {
    "id": "86bbjyrf5",
@@ -854,7 +956,10 @@
    "closed": false,
    "bot_r": "Секретарь",
    "bot_r_id": "f6a849ca-31e5-44fc-b6e6-5824d366742e",
-   "transfer": "да"
+   "transfer": "да",
+   "description": "",
+   "last_comment": "",
+   "thesis": "МИШЕЛЬ: Bulk Messaging проверить статистику и ответы фанам в сообщениях (потом передать сбор статистики Фетишь)"
   },
   {
    "id": "86bcgckxu",
@@ -877,7 +982,10 @@
    "closed": false,
    "bot_r": "Секретарь",
    "bot_r_id": "f6a849ca-31e5-44fc-b6e6-5824d366742e",
-   "transfer": "да"
+   "transfer": "да",
+   "description": "",
+   "last_comment": "",
+   "thesis": "Проверка кронов задач 1С поиск сбоев"
   },
   {
    "id": "86bcn2ek8",
@@ -900,7 +1008,10 @@
    "closed": false,
    "bot_r": "Секретарь",
    "bot_r_id": "f6a849ca-31e5-44fc-b6e6-5824d366742e",
-   "transfer": "да"
+   "transfer": "да",
+   "description": "",
+   "last_comment": "",
+   "thesis": "контроль Мишель по проверке состояния профилей LolaPop"
   },
   {
    "id": "86bcnp3rg",
@@ -923,7 +1034,10 @@
    "closed": false,
    "bot_r": "Д",
    "bot_r_id": "619a552c-f93d-4dc2-92ff-b26079f6fbb3",
-   "transfer": "нет"
+   "transfer": "нет",
+   "description": "",
+   "last_comment": "",
+   "thesis": "Таргет пептиды - контроль и увеличение"
   },
   {
    "id": "86bcnuxbj",
@@ -946,7 +1060,10 @@
    "closed": false,
    "bot_r": "Секретарь",
    "bot_r_id": "f6a849ca-31e5-44fc-b6e6-5824d366742e",
-   "transfer": "частично"
+   "transfer": "частично",
+   "description": "",
+   "last_comment": "",
+   "thesis": "💳 Оплата чаттерам Никиты (счёт в TG 5–13 числа) Яна получить отчеты"
   },
   {
    "id": "86bamxnh9",
@@ -969,7 +1086,10 @@
    "closed": false,
    "bot_r": "ОФ Маркетинг",
    "bot_r_id": "9a74ed7d-d18a-48ea-904e-38fff2ca52d8",
-   "transfer": ""
+   "transfer": "",
+   "description": "",
+   "last_comment": "",
+   "thesis": "Статистика миле проверять + новые города Кали / Чоко и т д"
   },
   {
    "id": "86bcnuxbv",
@@ -992,7 +1112,10 @@
    "closed": false,
    "bot_r": "Секретарь",
    "bot_r_id": "f6a849ca-31e5-44fc-b6e6-5824d366742e",
-   "transfer": "частично"
+   "transfer": "частично",
+   "description": "",
+   "last_comment": "",
+   "thesis": "💳 Оплата чаттерам Sofia Lunara (счёт от Лёши в TG 15–20 числа) - Яна"
   },
   {
    "id": "86b9wh8cd",
@@ -1015,7 +1138,10 @@
    "closed": false,
    "bot_r": "Секретарь",
    "bot_r_id": "f6a849ca-31e5-44fc-b6e6-5824d366742e",
-   "transfer": "частично"
+   "transfer": "частично",
+   "description": "",
+   "last_comment": "",
+   "thesis": "RA180 / RA185 - курировать процесс (скрины/новая платежка)"
   },
   {
    "id": "86b6tvyc7",
@@ -1038,7 +1164,10 @@
    "closed": false,
    "bot_r": "Секретарь",
    "bot_r_id": "f6a849ca-31e5-44fc-b6e6-5824d366742e",
-   "transfer": "да"
+   "transfer": "да",
+   "description": "",
+   "last_comment": "",
+   "thesis": "Дима долг собрать/напоминать/брать сроки"
   },
   {
    "id": "86b6k34a6",
@@ -1061,7 +1190,10 @@
    "closed": false,
    "bot_r": "Секретарь",
    "bot_r_id": "f6a849ca-31e5-44fc-b6e6-5824d366742e",
-   "transfer": "частично"
+   "transfer": "частично",
+   "description": "",
+   "last_comment": "",
+   "thesis": "Локаль ремонт (перевод в жилое) - Анатолий как дела?"
   },
   {
    "id": "86b9uqgqq",
@@ -1084,7 +1216,10 @@
    "closed": false,
    "bot_r": "Секретарь",
    "bot_r_id": "f6a849ca-31e5-44fc-b6e6-5824d366742e",
-   "transfer": "частично"
+   "transfer": "частично",
+   "description": "",
+   "last_comment": "",
+   "thesis": "Andrea Cali - как дела по запуску ОФТВ? (напомнить за запуск)"
   },
   {
    "id": "86b7k7v1n",
@@ -1107,7 +1242,10 @@
    "closed": false,
    "bot_r": "Секретарь",
    "bot_r_id": "f6a849ca-31e5-44fc-b6e6-5824d366742e",
-   "transfer": "частично"
+   "transfer": "частично",
+   "description": "",
+   "last_comment": "",
+   "thesis": "Tabakevich SEO месячный отчет (Andrii)"
   },
   {
    "id": "86b9zkaua",
@@ -1134,7 +1272,10 @@
    "closed": false,
    "bot_r": "Секретарь",
    "bot_r_id": "f6a849ca-31e5-44fc-b6e6-5824d366742e",
-   "transfer": "частично"
+   "transfer": "частично",
+   "description": "",
+   "last_comment": "",
+   "thesis": "Отчет по SEO-показателям (трафик, заказы) - готов? (покупка Серпстат)"
   },
   {
    "id": "86bb3qh0k",
@@ -1157,7 +1298,10 @@
    "closed": false,
    "bot_r": "Секретарь",
    "bot_r_id": "f6a849ca-31e5-44fc-b6e6-5824d366742e",
-   "transfer": "да"
+   "transfer": "да",
+   "description": "",
+   "last_comment": "",
+   "thesis": "Мишель: OFTV Наладить постинг - все под контролем?"
   }
  ]
 }

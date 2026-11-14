@@ -7,11 +7,14 @@
 - задачи: открытые из ClickUp VIEW «Ros (BOT)» (8cn3rz8-3574, снимок src/ma_ros_bot.json).
   Фильтр вида (AND): status NOT closed; assignee ANY Rost 60710247; поле BOT R IS SET.
   Группа = значение BOT R (иначе тег/исполнитель/текст, иначе «без бота»).
-  Вкладка = тема (снимок пептидов / списки / ключевые слова).
+  Вкладка задачи = тема (снимок пептидов / списки / ключевые слова).
+  Рутины: явная карта src/bot_routine_tabs.json (без угадывания; без записи — только Личное/Общий).
+  thesis — короткий тезис из описания/последнего комментария снимка ma_ros_bot.json.
 CLI: python3 src/bot_work_gen.py  → пишет src/bot_work.json. build_data.py вызывает build() при каждой сборке.
   Снимок вида тянет src/cu_ros_bot_pull.py (до build_data в build.sh).
 """
 import json, os, re, datetime
+from cu_ros_bot_pull import make_thesis
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
@@ -60,13 +63,6 @@ TAB_KW = [
     ('of', ['onlyfans', 'of.tv', 'oftv', 'лолап', 'lolapop', 'миле']),
     ('tabakevich', ['табакевич', 'хукашоп', 'hooka', 'пальма', '1с']),
     ('personal', ['мама', 'коуч', 'парагвай', 'банк']),
-]
-RTAB_KW = [
-    ('peptides', ['pep', 'peptid', 'peso']),
-    ('realestate', ['re', 'realty', 'solvia', 'недвиж', 'helper']),
-    ('of', ['of', 'farm', 'lolapop', 'oftv', 'seider']),
-    ('tabakevich', ['tbk', 'tabak', 'hooka', '1c', '1с']),
-    ('personal', ['comms', 'personal', 'calendar', 'coach', 'secretary']),
 ]
 
 
@@ -258,12 +254,34 @@ def _tab(t, pep_ids):
     return 'personal'
 
 
-def _routine_tab(r):
-    blob = ' '.join([(r.get('folder') or ''), (r.get('name') or ''), (r.get('desc') or '')]).lower()
-    for tab, kws in RTAB_KW:
-        if any(k in blob for k in kws):
-            return tab
-    return ''
+def _routine_map():
+    try:
+        d = json.load(open(os.path.join(HERE, 'bot_routine_tabs.json'), encoding='utf-8'))
+    except Exception:
+        return []
+    return d.get('map') or []
+
+
+def _routine_tabs(bot, r):
+    """Explicit tabs from bot_routine_tabs.json. Unmapped → [] (Личное/Общий only)."""
+    name = (r.get('name') or '').strip()
+    folder = (r.get('folder') or '').strip()
+    tabs = []
+    for row in _routine_map():
+        if not isinstance(row, dict):
+            continue
+        if row.get('bot') and row['bot'] != bot:
+            continue
+        if row.get('folder') and row['folder'] != folder:
+            continue
+        if row.get('name') and row['name'] != name:
+            continue
+        if not row.get('folder') and not row.get('name'):
+            continue
+        for tb in row.get('tabs') or []:
+            if tb and tb not in tabs:
+                tabs.append(tb)
+    return tabs
 
 
 def _ros_bot_tasks():
@@ -297,9 +315,10 @@ def build():
                 note = ''
             desc = role or note
             ids = sorted(set(CUID_RX.findall(desc + ' ' + note)))
+            tabs = _routine_tabs(name, r)
             item = dict(name=r['name'], sched=r['sched'], folder=r['folder'], desc=desc or 'нет данных',
                         service=bool(SERVICE_RX.search(r['name'])),
-                        tab=_routine_tab(r),
+                        tabs=tabs, tab=(tabs[0] if tabs else ''),
                         cu=[dict(id=i, name=known[i], url=CU + i) for i in ids if known.get(i)])
             R.append(item)
         T = []
@@ -314,7 +333,8 @@ def build():
                           kind='check' if st == 'for check' else 'work',
                           tab=_tab(t, pep_ids),
                           bot_r=t.get('bot_r') or '',
-                          priority=t.get('priority') or ''))
+                          priority=t.get('priority') or '',
+                          thesis=t.get('thesis') or make_thesis(t.get('name') or '', t.get('description') or '', t.get('last_comment') or '')) )
         T.sort(key=lambda x: (0 if x['need'] == 'rost' else 1, x.get('due') or '9999', x.get('updated') or ''))
         bots.append(dict(name=name, link=links.get(name) or '', inv=fn, inv_updated=upd,
                          routines=R, routines_note='' if rows is not None else 'нет данных (нет файла инвентаря)',
@@ -335,7 +355,8 @@ def build():
                           kind='check' if st == 'for check' else 'work',
                           tab=_tab(t, pep_ids),
                           bot_r=t.get('bot_r') or '',
-                          priority=t.get('priority') or ''))
+                          priority=t.get('priority') or '',
+                          thesis=t.get('thesis') or make_thesis(t.get('name') or '', t.get('description') or '', t.get('last_comment') or '')) )
         T.sort(key=lambda x: (0 if x['need'] == 'rost' else 1, x.get('due') or '9999', x.get('updated') or ''))
         bots.append(dict(name=name, link=links.get(name) or '', inv='', inv_updated='',
                          routines=[], routines_note='нет данных' if name == 'без бота' else '',

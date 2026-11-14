@@ -1,0 +1,322 @@
+{
+  "id": "bot_routine_tabs",
+  "updated": "2026-11-13",
+  "note": "Явная карта рутина → вкладка(и) для блока «На решении у бота». Не угадывать. Нет записи — только Личное и Общий. tab ids: personal, tabakevich, of, peptides, realestate.",
+  "map": [
+    {
+      "bot": "Секретарь",
+      "folder": "iphone",
+      "tabs": [
+        "personal"
+      ]
+    },
+    {
+      "bot": "Секретарь",
+      "folder": "bju",
+      "tabs": [
+        "personal"
+      ]
+    },
+    {
+      "bot": "Секретарь",
+      "folder": "sleep",
+      "tabs": [
+        "personal"
+      ]
+    },
+    {
+      "bot": "Секретарь",
+      "name": "Питание BJU — вечер",
+      "tabs": [
+        "personal"
+      ]
+    },
+    {
+      "bot": "Секретарь",
+      "name": "Шаги с iPhone → статистика",
+      "tabs": [
+        "personal"
+      ]
+    },
+    {
+      "bot": "Секретарь",
+      "folder": "bundle-sun-lite-06-42",
+      "tabs": [
+        "personal"
+      ]
+    },
+    {
+      "bot": "Секретарь",
+      "folder": "bundle-wed-early-mega-05-42",
+      "tabs": [
+        "personal"
+      ]
+    },
+    {
+      "bot": "Секретарь",
+      "folder": "bundle-morning-mega-10-42",
+      "tabs": [
+        "personal"
+      ]
+    },
+    {
+      "bot": "Секретарь",
+      "folder": "bundle-night-hygiene-22-45",
+      "tabs": [
+        "personal"
+      ]
+    },
+    {
+      "bot": "Секретарь",
+      "folder": "wa",
+      "tabs": [
+        "personal"
+      ]
+    },
+    {
+      "bot": "Секретарь",
+      "folder": "unread-dash-daily",
+      "tabs": [
+        "personal"
+      ]
+    },
+    {
+      "bot": "Секретарь",
+      "folder": "ig-tiktok",
+      "tabs": [
+        "personal"
+      ]
+    },
+    {
+      "bot": "Секретарь",
+      "folder": "automation-1792370697523",
+      "tabs": [
+        "tabakevich"
+      ]
+    },
+    {
+      "bot": "Секретарь",
+      "name": "Бинотел — недельный разбор звонков",
+      "tabs": [
+        "tabakevich"
+      ]
+    },
+    {
+      "bot": "Секретарь",
+      "folder": "helpcrunch",
+      "tabs": [
+        "tabakevich"
+      ]
+    },
+    {
+      "bot": "Секретарь",
+      "folder": "1-12-00",
+      "tabs": [
+        "tabakevich"
+      ]
+    },
+    {
+      "bot": "Секретарь",
+      "name": "Кальян — недельный отчёт 1С",
+      "tabs": [
+        "tabakevich"
+      ]
+    },
+    {
+      "bot": "Секретарь",
+      "folder": "1-10-07-13",
+      "tabs": [
+        "tabakevich"
+      ]
+    },
+    {
+      "bot": "Секретарь",
+      "name": "1С фин-отчёты — 10-е число",
+      "tabs": [
+        "tabakevich"
+      ]
+    },
+    {
+      "bot": "Секретарь",
+      "folder": "08-00",
+      "tabs": [
+        "tabakevich"
+      ]
+    },
+    {
+      "bot": "Секретарь",
+      "folder": "18-00",
+      "tabs": [
+        "tabakevich"
+      ]
+    },
+    {
+      "bot": "Секретарь",
+      "name": "Контроль офиса — отчёт готов",
+      "tabs": [
+        "tabakevich"
+      ]
+    },
+    {
+      "bot": "Секретарь",
+      "name": "Контроль офиса — старт пакета",
+      "tabs": [
+        "tabakevich"
+      ]
+    },
+    {
+      "bot": "ОФ Маркетинг",
+      "folder": "of-morning-pack-models-seider",
+      "tabs": [
+        "of"
+      ]
+    },
+    {
+      "bot": "ОФ Маркетинг",
+      "folder": "of-mon-early-ax42-weekly-iproyal",
+      "tabs": [
+        "of"
+      ]
+    },
+    {
+      "bot": "ОФ Маркетинг",
+      "folder": "of-sun-lite-mile-irina",
+      "tabs": [
+        "of"
+      ]
+    },
+    {
+      "bot": "ОФ Маркетинг",
+      "folder": "models-inbox-webhook-drain",
+      "tabs": [
+        "of"
+      ]
+    },
+    {
+      "bot": "ОФ Маркетинг",
+      "folder": "of-referencias",
+      "tabs": [
+        "of"
+      ]
+    },
+    {
+      "bot": "ОФ Маркетинг",
+      "folder": "of-queue-resume-webhook",
+      "tabs": [
+        "of"
+      ]
+    },
+    {
+      "bot": "Фермовод",
+      "folder": "onimator-webhook",
+      "tabs": [
+        "of"
+      ]
+    },
+    {
+      "bot": "Фермовод",
+      "folder": "queue-wake-webhook-resume-15",
+      "tabs": [
+        "of"
+      ]
+    },
+    {
+      "bot": "Пептид",
+      "folder": "peso-saludable-wa",
+      "tabs": [
+        "peptides"
+      ]
+    },
+    {
+      "bot": "Пептид",
+      "folder": "automation-1792561643498",
+      "tabs": [
+        "peptides"
+      ]
+    },
+    {
+      "bot": "Пептид",
+      "name": "Реклама пептидов — сбор+отчёт",
+      "tabs": [
+        "peptides"
+      ]
+    },
+    {
+      "bot": "Пептид",
+      "folder": "ig-peso-dm-wa-handoff",
+      "tabs": [
+        "peptides"
+      ]
+    },
+    {
+      "bot": "Пептид",
+      "folder": "peso-col",
+      "tabs": [
+        "peptides"
+      ]
+    },
+    {
+      "bot": "Пептид",
+      "folder": "tiktok-pesosaludable-col",
+      "tabs": [
+        "peptides"
+      ]
+    },
+    {
+      "bot": "Пептид",
+      "folder": "queue-resume-webhook",
+      "tabs": [
+        "peptides"
+      ]
+    },
+    {
+      "bot": "Помощник по всему",
+      "folder": "helper-morning-mega",
+      "tabs": [
+        "realestate"
+      ]
+    },
+    {
+      "bot": "Помощник по всему",
+      "folder": "helper-sun-lite",
+      "tabs": [
+        "realestate"
+      ]
+    },
+    {
+      "bot": "Дейтинг",
+      "folder": "tinder",
+      "tabs": [
+        "personal"
+      ]
+    },
+    {
+      "bot": "Дейтинг",
+      "folder": "redmi-tinder-feabie",
+      "tabs": [
+        "personal"
+      ]
+    },
+    {
+      "bot": "Дейтинг",
+      "folder": "whatsapp-esp-d",
+      "tabs": [
+        "personal"
+      ]
+    },
+    {
+      "bot": "Дейтинг",
+      "folder": "13-00-17-00-20-30",
+      "tabs": [
+        "personal"
+      ]
+    },
+    {
+      "bot": "Дейтинг",
+      "folder": "feabie",
+      "tabs": [
+        "personal"
+      ]
+    }
+  ]
+}

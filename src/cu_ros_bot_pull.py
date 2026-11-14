@@ -29,6 +29,7 @@ build.sh calls this before build_data.py; missing token + existing snapshot → 
 from __future__ import annotations
 
 import argparse
+import re
 import datetime
 import json
 import sys
@@ -117,6 +118,60 @@ def _cf_bot_r(t):
     return '', ''
 
 
+def _plain(s):
+    s = re.sub(r'<[^>]+>', ' ', s or '')
+    s = re.sub(r'\[([^\]]*)\]\([^)]*\)', r'\1', s)
+    s = re.sub(r'[*_`#]+', '', s)
+    s = re.sub(r'@\w+', '', s)
+    s = re.sub(r'\s+', ' ', s).strip()
+    return s
+
+
+def name_intent(name):
+    s = re.sub(r'^\W*БОТ(?:-ЧАСТЬ| ЧАСТЬ)?\s*:?\s*', '', name or '', flags=re.I)
+    s = re.sub(r'\s+', ' ', s).strip(' -–—')
+    return s or (name or '').strip() or 'нет данных'
+
+
+def make_thesis(name, description='', last_comment=''):
+    """One short Russian line from real description or latest comment; else the name's intent. No invented facts."""
+    def first(s, limit=180):
+        s = _plain(s)
+        if not s:
+            return ''
+        parts = re.split(r'(?<=[.!?…])\s+', s)
+        out = parts[0]
+        if len(out) < 50 and len(parts) > 1:
+            out = (out + ' ' + parts[1]).strip()
+        if len(out) > limit:
+            out = out[:limit].rsplit(' ', 1)[0].rstrip('.,;:') + '…'
+        return out
+    return first(description) or first(last_comment) or name_intent(name)
+
+
+def _latest_comment(comments):
+    best, best_d = '', -1
+    for c in comments or []:
+        if not isinstance(c, dict):
+            continue
+        text = c.get('comment_text') or c.get('comment') or c.get('text') or ''
+        if isinstance(text, list):
+            text = ' '.join(
+                (x.get('text') if isinstance(x, dict) else str(x)) for x in text
+            )
+        text = _plain(text)
+        if not text:
+            continue
+        d = c.get('date') or c.get('date_created') or 0
+        try:
+            d = int(d)
+        except Exception:
+            d = 0
+        if d >= best_d:
+            best, best_d = text, d
+    return best
+
+
 def compact(t):
     lst = t.get('list') or {}
     tags = t.get('tags') or []
@@ -139,6 +194,9 @@ def compact(t):
             closed=_is_closed(t),
             bot_r=bot_r, bot_r_id=oid,
             transfer=t.get('transfer') or '',
+            description=t.get('description') or t.get('text_content') or '',
+            last_comment=t.get('last_comment') or '',
+            thesis=t.get('thesis') or make_thesis(t.get('name') or '', t.get('description') or t.get('text_content') or '', t.get('last_comment') or ''),
         )
     if isinstance(t.get('priority'), dict):
         pr = (t.get('priority') or {}).get('priority') or ''
@@ -160,6 +218,9 @@ def compact(t):
         closed=_is_closed(t),
         bot_r=bot_r, bot_r_id=oid,
         transfer=t.get('transfer') or '',
+        description=t.get('description') or t.get('text_content') or '',
+        last_comment=t.get('last_comment') or '',
+        thesis=t.get('thesis') or make_thesis(t.get('name') or '', t.get('description') or t.get('text_content') or '', t.get('last_comment') or ''),
     )
 
 
@@ -237,11 +298,37 @@ def write_snap(path, name, view_id, filt, tasks, src):
     print(f'{path.name}: {len(tasks)} tasks from {name} ({view_id})')
 
 
+def enrich_from_file(tasks, path):
+    """Merge description/last_comment from an MCP/side dump {id: {description, last_comment}} or a list."""
+    raw = json.loads(Path(path).read_text(encoding='utf-8'))
+    by = {}
+    if isinstance(raw, dict) and 'tasks' in raw:
+        raw = raw['tasks']
+    if isinstance(raw, dict):
+        by = {str(k): (v if isinstance(v, dict) else {'description': str(v)}) for k, v in raw.items()}
+    else:
+        for x in raw or []:
+            if isinstance(x, dict) and x.get('id'):
+                by[str(x['id'])] = x
+    out = []
+    for t in tasks:
+        extra = by.get(str(t.get('id'))) or {}
+        desc = extra.get('description') or extra.get('text_content') or t.get('description') or ''
+        comm = extra.get('last_comment') or t.get('last_comment') or ''
+        if not comm:
+            comm = _latest_comment(extra.get('comments') or [])
+        t = dict(t, description=desc, last_comment=comm, thesis=make_thesis(t.get('name') or '', desc, comm))
+        out.append(t)
+    return out
+
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument('--ros-json', help='MCP/filter_tasks dump for view Ros')
     ap.add_argument('--ros-bot-json', help='MCP/filter_tasks dump for view Ros (BOT)')
     ap.add_argument('--keep-if-no-token', action='store_true', default=True)
+    ap.add_argument('--enrich-json', help='merge description/last_comment from MCP dump into ma_ros_bot.json')
     a = ap.parse_args()
     token = load_token()
     src_bot = src_ros = ''
@@ -275,6 +362,10 @@ def main():
             checked = [t for t in tasks if match_ros_bot(t) or not t.get('assignees')]
             if checked:
                 tasks = checked if all(t.get('assignees') for t in tasks) else tasks
+        if a.enrich_json:
+            tasks = enrich_from_file(tasks, a.enrich_json)
+        else:
+            tasks = [dict(x, thesis=x.get('thesis') or make_thesis(x.get('name') or '', x.get('description') or '', x.get('last_comment') or '')) for x in tasks]
         write_snap(bot_path, 'Ros (BOT)', ROS_BOT_VIEW, {
             'op': 'AND',
             'fields': [
@@ -284,8 +375,13 @@ def main():
             ],
             'show_closed': False,
         }, tasks, src_bot)
-    elif bot_path.exists() and a.keep_if_no_token:
-        print('cu_ros_bot_pull: no fresh Ros (BOT) pull, keeping', bot_path.name)
+    elif bot_path.exists() and (a.enrich_json or a.keep_if_no_token):
+        if a.enrich_json:
+            prev = json.loads(bot_path.read_text(encoding='utf-8'))
+            tasks = enrich_from_file(prev.get('tasks') or [], a.enrich_json)
+            write_snap(bot_path, 'Ros (BOT)', ROS_BOT_VIEW, prev.get('filter') or {}, tasks, (prev.get('src') or '') + ' + enrich ' + a.enrich_json)
+        else:
+            print('cu_ros_bot_pull: no fresh Ros (BOT) pull, keeping', bot_path.name)
     else:
         print('cu_ros_bot_pull: no Ros (BOT) snapshot', file=sys.stderr)
         ok = False
