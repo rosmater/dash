@@ -2512,7 +2512,7 @@ function pepLeadsStripHTML(d){
    return `<td class="${cls}"${t?` title="${esc(t)}"`:''}>${cur==null?'—':num(cur)}${mark}</td>`;
   }).join('');
   const mode=pepLeadsMode();
-  return `<div class="pepleads-wrap" data-plview="${kind}"${mode!==kind?' hidden':''}><table class="pepleads-tbl"><thead><tr><th class="lab"></th>${head}</tr></thead><tbody><tr><td class="lab">WhatsApp</td>${cells('wa')}</tr><tr><td class="lab">Instagram</td>${cells('ig')}</tr><tr class="tot"><td class="lab">Итого</td>${cells('tot')}</tr><tr><td class="lab">Бюджет (COP)</td>${cells('spend')}</tr><tr><td class="lab">Цена диалога (COP)</td>${cells('price')}</tr></tbody></table></div>`;
+  return `<div class="pepleads-wrap" data-plview="${kind}"${mode!==kind?' hidden':''}><table class="pepleads-tbl"><thead><tr><th class="lab"></th>${head}</tr></thead><tbody><tr><td class="lab">WhatsApp</td>${cells('wa')}</tr><tr><td class="lab">Instagram</td>${cells('ig')}</tr><tr class="tot"><td class="lab">Итого нов. диал.</td>${cells('tot')}</tr><tr><td class="lab">Бюджет (COP)</td>${cells('spend')}</tr><tr><td class="lab">Цена диалога (COP)</td>${cells('price')}</tr></tbody></table></div>`;
  };
  const as=L.as_of?String(L.as_of):'';
  const asof=as.length>=10?as.slice(8,10)+'.'+as.slice(5,7)+(as.length>16?' '+as.slice(11,16):''):'';
