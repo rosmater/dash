@@ -125,7 +125,7 @@ footer{margin-top:22px;color:var(--mut);font-size:11.5px;line-height:1.6;border-
 .cal-ev a{color:var(--txt);text-decoration:none}.cal-ev a:hover{color:var(--acc)}.cal-ev.past{opacity:.45}.cal-ev.now{background:#eef4ff;border-radius:8px;padding-left:6px}.cal-ev .ls{color:var(--mut);font-size:11.5px}
 .src{flex:0 0 auto;font-size:10px;font-weight:700;padding:1px 7px;border-radius:99px}.src.gcal{background:#e8f0fe;color:#1a56c4}.src.clickup{background:#f1eaff;color:#6d28d9}
 .calf button{font-size:12px}
-.calnav{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:12px}.cal-head-card{padding:5px 10px}.cal-head-card .calnav,.calnav.cal-head{display:grid;grid-template-columns:max-content minmax(0,1fr) max-content;align-items:center;gap:8px 10px;margin-top:0;overflow:visible}.cal-head-left{display:flex;align-items:center;gap:8px;flex-wrap:nowrap}.cal-head-right{display:flex;justify-content:flex-end;align-items:center}.cal-head .cal-title{font-size:14px;text-transform:capitalize;white-space:nowrap;font-weight:700}.cal-head .cal-snap{min-width:0;margin:0;padding:0 4px;text-align:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:11.5px}.cal-head .seg,.cal-head input,.cal-head .chip,.cal-head .calmark{flex:none}.cal-head input[type=date],.cal-head input[type=month]{padding:4px 6px;font-size:12.5px}@media(max-width:1100px){.cal-head-card .calnav,.calnav.cal-head{grid-template-columns:minmax(0,1fr) max-content}.cal-head-left{grid-column:1;grid-row:1;flex-wrap:wrap}.cal-head-right{grid-column:2;grid-row:1}.cal-head .cal-snap{grid-column:1/-1;grid-row:2;text-align:center;margin:0;padding:0}}@media(max-width:640px){.cal-head-card .calnav,.calnav.cal-head{grid-template-columns:minmax(0,1fr)}.cal-head-left{grid-column:1;grid-row:1;flex-wrap:wrap}.cal-head-right{grid-column:1;grid-row:2;justify-content:flex-end}.cal-head .cal-snap{grid-column:1;grid-row:3;text-align:center;margin:0;padding:0}}.calnav input[type=date],.calnav input[type=month]{font:inherit;font-size:13px;padding:5px 8px;border:1px solid var(--line);border-radius:8px;background:var(--panel);color:var(--txt)}
+.calnav{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:12px}.cal-head-card{padding:5px 10px}.cal-head-card .calnav,.calnav.cal-head{display:grid;grid-template-columns:max-content minmax(0,1fr) max-content;align-items:center;gap:8px 10px;margin-top:0;overflow:visible}.cal-head-left{display:flex;align-items:center;gap:8px;flex-wrap:nowrap}.cal-head-right{display:flex;justify-content:flex-end;align-items:center}.cal-head .cal-title{font-size:14px;text-transform:capitalize;white-space:nowrap;font-weight:700}.cal-head .cal-snap{min-width:0;margin:0;padding:0 4px;text-align:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:11.5px}.cal-head .seg,.cal-head input,.cal-head .chip,.cal-head .calmark,.cal-head .calmark-split{flex:none}.cal-head input[type=date],.cal-head input[type=month]{padding:4px 6px;font-size:12.5px}@media(max-width:1100px){.cal-head-card .calnav,.calnav.cal-head{grid-template-columns:minmax(0,1fr) max-content}.cal-head-left{grid-column:1;grid-row:1;flex-wrap:wrap}.cal-head-right{grid-column:2;grid-row:1}.cal-head .cal-snap{grid-column:1/-1;grid-row:2;text-align:center;margin:0;padding:0}}@media(max-width:640px){.cal-head-card .calnav,.calnav.cal-head{grid-template-columns:minmax(0,1fr)}.cal-head-left{grid-column:1;grid-row:1;flex-wrap:wrap}.cal-head-right{grid-column:1;grid-row:2;justify-content:flex-end}.cal-head .cal-snap{grid-column:1;grid-row:3;text-align:center;margin:0;padding:0}}.calnav input[type=date],.calnav input[type=month]{font:inherit;font-size:13px;padding:5px 8px;border:1px solid var(--line);border-radius:8px;background:var(--panel);color:var(--txt)}
 .tl-wrap{max-height:72vh;overflow-y:auto;padding:8px 10px 8px 4px;margin-bottom:14px}.tl{position:relative}
 .tl-h{position:absolute;left:0;right:0;border-top:1px solid var(--line);height:0}.tl-h span{position:absolute;left:4px;top:-8px;font-size:11px;color:var(--mut);background:var(--panel);padding-right:4px;font-variant-numeric:tabular-nums}
 .tl-ev{position:absolute;box-sizing:border-box;border-radius:8px;padding:3px 8px;font-size:12.5px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;display:flex;gap:8px;justify-content:space-between;align-items:center;min-height:22px;border-left:4px solid #4285f4;background:#e8f0fe}
@@ -294,6 +294,15 @@ a.cw-date-t:hover{color:#5b4fd8}
 .cw-ev.past{opacity:.55}.cw-ev.now{box-shadow:0 0 0 2px #4285f455}.cw-body>.tl-now{left:0;z-index:0}.cw-body>.tl-now:before{left:0}
 .calrecon{}.calrecon .cr-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:4px 0;border-top:1px solid #eef0f5;font-size:13px}.calrecon .cr-ok{color:#127a3e;font-weight:700}.calrecon .cr-no{color:#b42318;font-weight:700}
 .calmark{font:600 12px Inter;border:1px solid var(--line);background:#fff;border-radius:99px;padding:4px 10px;cursor:pointer}.calmark.on{background:#e7f8ee;border-color:#abefc6;color:#127a3e}
+/* t6391u: сплит «Сверить этот день» | 💬 — на любом дне, зелёный после сверки */
+.calmark-split{display:inline-flex;align-items:stretch;border:1px solid var(--line);border-radius:99px;background:#fff;overflow:hidden;padding:0;vertical-align:middle}
+.calmark-split.on{background:#e7f8ee;border-color:#abefc6}
+.calmark-split .calmark{border:0;border-radius:0;background:transparent;box-shadow:none}
+.calmark-split.on .calmark{color:#127a3e;background:transparent;border:0}
+.calmark-split .calmark-chat{display:inline-flex;align-items:center;justify-content:center;padding:2px 8px;border:0;border-left:1px solid #e2e5ea;background:transparent;text-decoration:none;font-size:13px;line-height:1;color:#6b7280;cursor:pointer;flex:none}
+.calmark-split.on .calmark-chat{border-left-color:#abefc6;color:#127a3e}
+.calmark-split .calmark-chat:hover{background:#f3f4f6;color:#374151}
+.calmark-split.on .calmark-chat:hover{background:#d8f3e3}
 /* t6093u / t6095u / t6166u / t6167u: один жёлтый блок как «Требует внимания», не строка на каждое обновление */
 .du-lines.du-attn{background:#fff8dc;border:1px solid #f5d56a;border-left:4px solid #e0a82a;border-radius:10px;padding:5px 10px;margin:0 0 7px;box-shadow:var(--shadow)}
 .du-attn h4{margin:0;line-height:1.25;font-size:13px;color:#8a5a00;display:inline;font-weight:700}
@@ -1407,6 +1416,16 @@ async function calReconLoad(){try{const r=await fetch('calendar_reconciled.json?
 function calReconPast(){const today=bDay(new Date().toISOString());const out=[];let t=calRecon.start||CAL_RECON_START;while(t<today){out.push(t);t=calAdd(t,1)}return out}
 function calReconFirstMiss(){return calReconPast().find(d=>!calReconHas(d))||null}
 function calMarkRecon(d,on){if(!d)return;if(on==null)on=!calReconHas(d);if(!calRecon.dates)calRecon.dates={};if(on)calRecon.dates[d]=true;else delete calRecon.dates[d];calReconSave();try{tapPush({key:'calrecon|'+d,action:'cal_recon',date:d,on:!!on})}catch(e){}}
+function calReconWd(s){return ['вс','пн','вт','ср','чт','пт','сб'][new Date(s+'T12:00:00Z').getUTCDay()]}
+function calReconDd(s){return (s||'').slice(8,10)+'.'+(s||'').slice(5,7)}
+function calReconBot(){try{if(typeof thBot==='function'){const b=thBot({bot:'Секретарь'});if(b&&(b.id||b.link||b.name))return b}}catch(e){}return {name:'Секретарь',id:'d3a12cc9-cf8a-41e5-b34a-76d4ab9eb9fd',link:''}}
+function calReconCtx(d){return 'Календарь '+calReconWd(d)+' '+calReconDd(d)+': в этом дне что-то не так — '}
+function calReconChatA(d){const b=calReconBot(),ctx=calReconCtx(d),agent=b.link||('grokbot://app/v1/agent?id='+(b.id||'d3a12cc9-cf8a-41e5-b34a-76d4ab9eb9fd'));
+ return `<a class="calmark-chat" href="${esc(maPL(b,ctx))}" data-b="${esc(b.name||'Секретарь')}" data-t="${esc(ctx)}" data-l="${esc(agent)}" data-o="${esc(b.name||'Секретарь')}" data-w="Календарь · сверка" data-ctx="${esc(ctx)}" onclick="event.stopPropagation();return cuOpen(this)" title="Написать, что в этом дне не так">💬</a>`}
+function calMarkReconClick(b){const d=b&&b.dataset&&b.dataset.cmark;if(!d)return false;calMarkRecon(d);if(typeof S!=='undefined'&&S.tab==='calendar'){const c=typeof calDir==='function'&&calDir();if(c){calendar(c);return false}}try{keepOpen(render)}catch(e){try{render()}catch(e2){}}return false}
+function calReconSplitHTML(d,labs){const marked=calReconHas(d),onLab=(labs&&labs.on)||'✓ День сверен',offLab=(labs&&labs.off)||'Сверить этот день';
+ const tip='Отметь, что события и разбивка этого дня совпадают с реальностью; 💬 — написать, что не так';
+ return `<span class="calmark-split${marked?' on':''}" title="${esc(tip)}"><button type="button" class="calmark${marked?' on':''}" data-cmark="${d}" onclick="return calMarkReconClick(this)">${marked?onLab:offLab}</button>${calReconChatA(d)}</span>`}
 function calGoDay(d,view){if(d)calDay=d;if(view)calView=view;S.tab='calendar';try{render();const el=document.querySelector('.calnav')||document.querySelector('.tl-wrap');if(el)el.scrollIntoView({block:'start',behavior:'smooth'});else scrollTo({top:0,behavior:'smooth'})}catch(e){}}
 function calGoUnrecon(){const m=calReconFirstMiss();if(!m){try{maToast('Все прошлые дни с '+((calRecon.start||CAL_RECON_START).slice(8,10)+'.'+(calRecon.start||CAL_RECON_START).slice(5,7))+' уже сверены')}catch(e){}return}calGoDay(m,'day')}
 function calReconBlockHTML(){if(window.DASH_HELPER)return '';const L=calReconPast(),nOk=L.filter(calReconHas).length,miss=calReconFirstMiss(),dd=s=>s.slice(8,10)+'.'+s.slice(5,7),WD=['вс','пн','вт','ср','чт','пт','сб'],wd=s=>WD[new Date(s+'T12:00:00Z').getUTCDay()];
@@ -1414,7 +1433,7 @@ function calReconBlockHTML(){if(window.DASH_HELPER)return '';const L=calReconPas
  return `<div class="card calrecon" style="margin-bottom:14px"><h3>🗓️ Сверка календаря <span class="st">${nOk}/${L.length} дней с ${dd(start)}</span></h3>
   <div class="note" style="margin:0 0 8px">Чтобы потом разбирать поведение, календарь должен быть точным. Отметь прошедший день, когда сверил события со снимком.</div>
   <div style="display:flex;gap:8px;flex-wrap:wrap;margin:0 0 8px"><button type="button" class="calmark" onclick="calGoUnrecon()">Сверить календарь</button>${miss?`<span class="note">первый несверенный: ${wd(miss)} ${dd(miss)}</span>`:'<span class="cr-ok">всё сверено</span>'}</div>
-  ${L.map(d=>`<div class="cr-row"><span style="min-width:72px">${wd(d)} ${dd(d)}</span>${calReconHas(d)?'<span class="cr-ok">✓ сверен</span>':'<span class="cr-no">не сверен</span>'}<button type="button" class="calmark${calReconHas(d)?' on':''}" onclick="calMarkRecon('${d}');keepOpen(render)">${calReconHas(d)?'снять отметку':'отметить сверенным'}</button><button type="button" class="tolink" onclick="calGoDay('${d}','day')">открыть день →</button></div>`).join('')}
+  ${L.map(d=>`<div class="cr-row"><span style="min-width:72px">${wd(d)} ${dd(d)}</span>${calReconHas(d)?'<span class="cr-ok">✓ сверен</span>':'<span class="cr-no">не сверен</span>'}${calReconSplitHTML(d,{off:'отметить сверенным',on:'снять отметку'})}<button type="button" class="tolink" onclick="calGoDay('${d}','day')">открыть день →</button></div>`).join('')}
   <div class="note" style="margin-top:6px">Отметки в этом браузере (localStorage) и в calendar_reconciled.json на даше после синка.</div></div>`}
 /* Rost 25.10: таймлайн дня в две колонки — слева Google Календарь, справа задачи ClickUp со временем на тех же промежутках */
 function tlLanes(xs){const lanes=[];xs.forEach(o=>{let i=lanes.findIndex(t=>t<=o.s);if(i<0){i=lanes.length;lanes.push(0)}lanes[i]=o.en;o.l=i});
@@ -1501,12 +1520,11 @@ function calendar(d){const ev=(d.events||[]).filter(e=>!e.all_day),today=bDay(ne
  const WDr=new Intl.DateTimeFormat('ru-RU',{timeZone:'UTC',day:'numeric',month:'long'});
  const bt=(on,a,l)=>`<button data-nav="${a}" class="${on?'on':''}">${l}</button>`;
  const weekLab=WDr.format(new Date(mon+'T12:00:00Z'))+' – '+WDr.format(new Date(calAdd(mon,6)+'T12:00:00Z'));
- const past=k<today,marked=calReconHas(k);
  let h=`<div class="card cal-head-card" style="margin-bottom:14px;background:linear-gradient(135deg,#e8f0fe,var(--panel));border-color:#c6dafc"><div class="calnav cal-head"><div class="cal-head-left"><div class="seg calview">${bt(0,'prev','‹')}${bt(!week&&!month,'day','День')}${bt(week,'week','Неделя')}${bt(month,'month','Месяц')}${bt(0,'next','›')}</div>
  ${month?`<input type="month" id="calpickm" value="${ym}" title="месяц">`:`<input type="date" id="calpick" value="${k}" title="${week?'неделя, в которой этот день':'день'}">`}
  <b class="cal-title">${esc(month?calMonthTitle(ym):week?weekLab:WD.format(new Date(k+'T12:00:00Z')))}</b>
  ${month?(thisM?'<span class="chip" style="background:#4285f4;color:#fff;border-color:#4285f4">Этот месяц</span>':bt(0,'today','Этот месяц')):week?(mon===calMon(today)?'<span class="chip" style="background:#4285f4;color:#fff;border-color:#4285f4">Эта неделя</span>':bt(0,'today','Эта неделя')):(k===today?'<span class="chip" style="background:#4285f4;color:#fff;border-color:#4285f4">Сегодня</span>':bt(0,'today','Сегодня'))}
- ${!week&&!month&&past?`<button type="button" class="calmark${marked?' on':''}" data-cmark="${k}">${marked?'✓ День сверен':'Сверить этот день'}</button>`:''}</div>
+ ${!week&&!month?calReconSplitHTML(k):''}</div>
  <span class="note cal-snap" title="${esc([d.cu_only?'':'GCal '+calSnapShort(d.gcal_fetched_at),'ClickUp '+calSnapShort(d.cu_fetched_at)].filter(Boolean).join(' · '))}">${[d.cu_only?'':'GCal '+calSnapShort(d.gcal_fetched_at),'ClickUp '+calSnapShort(d.cu_fetched_at)].filter(Boolean).join(' · ')}</span>
  <div class="cal-head-right"><div class="seg calf" ${d.cu_only?'hidden':''}>${[['all','Все'],['gcal','Google ('+nG+')'],['clickup','ClickUp ('+nC+')']].map(([s,l])=>`<button data-s="${s}" class="${calSrc===s?'on':''}" title="${esc(srcTip)}">${l}</button>`).join('')}</div></div></div>
  </div>`;
@@ -1522,7 +1540,7 @@ function calendar(d){const ev=(d.events||[]).filter(e=>!e.all_day),today=bDay(ne
  const pk=$('#calpick');if(pk)pk.onchange=()=>{if(pk.value){calDay=pk.value;calMonthCursor=pk.value.slice(0,7);calendar(d)}};
  const pkm=$('#calpickm');if(pkm)pkm.onchange=()=>{if(pkm.value){calSetMonth(pkm.value);calendar(d)}};
  document.querySelectorAll('[data-cday]').forEach(b=>b.onclick=()=>{calDay=b.dataset.cday;calView='day';calendar(d)});
- document.querySelectorAll('[data-cmark]').forEach(b=>b.onclick=()=>{calMarkRecon(b.dataset.cmark);calendar(d)});
+
  if(!week&&!month)tlScroll(sc)}
 /* ===== Режим «Сегодня» (Rost 25.10): рабочий экран; неделя/месяц — только сводка ===== */
 const calDir=()=>Dash.D.directions.find(x=>x.kind==='calendar');
