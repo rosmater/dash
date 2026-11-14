@@ -852,6 +852,44 @@ def _load_role_map():
 
 ROLE_MAP = _load_role_map()
 
+def _load_cu_statuses():
+    path = os.path.join(_HERE, 'cu_statuses.json')
+    try:
+        return json.load(open(path, encoding='utf-8'))
+    except Exception:
+        return {}
+
+CU_STATUSES = _load_cu_statuses()
+
+def _cu_status_name(tt):
+    st = (tt or {}).get('status') or (tt or {}).get('cu_status') or ''
+    if isinstance(st, dict):
+        st = st.get('status') or st.get('name') or ''
+    return str(st).strip()
+
+def _cu_status_color(tt):
+    if not isinstance(tt, dict):
+        return ''
+    if tt.get('status_color'):
+        return tt['status_color']
+    name = _cu_status_name(tt)
+    if not name:
+        return ''
+    lid = str(tt.get('list_id') or '')
+    by = ((CU_STATUSES.get('by_list') or {}).get(lid) or {}).get('colors') or {}
+    if name in by:
+        return by[name]
+    lname = tt.get('list') or ''
+    if isinstance(lname, dict):
+        lname = lname.get('name') or ''
+    lname = str(lname or '').strip()
+    if lname:
+        for rec in (CU_STATUSES.get('by_list') or {}).values():
+            if rec.get('name') == lname and name in (rec.get('colors') or {}):
+                return rec['colors'][name]
+    return (CU_STATUSES.get('colors') or {}).get(name) or ''
+
+
 def _norm_role(s):
     x = ' '.join(str(s or '').split())
     if not x:
@@ -885,6 +923,9 @@ def _attach_role(tt):
             tt['role'] = r
     elif _norm_role(tt.get('role')):
         tt['role'] = _norm_role(tt.get('role'))
+    col = _cu_status_color(tt)
+    if col and not tt.get('status_color'):
+        tt['status_color'] = col
     return tt
 
 def _role_sort_key(x):
@@ -1479,6 +1520,7 @@ data = dict(
     title='Бизнес-дашборд', owner='Rostyslav Yermakov', city='Medellín', version='0.1-mockup',
     generated_at=datetime.datetime.now().astimezone().isoformat(timespec='minutes'),
     timezone='America/Bogota', default_week=CUR_MON.isoformat(), default_month=TODAY.strftime('%Y-%m'),  # UI сам выбирает текущую неделю по дате браузера
+    cu_statuses=CU_STATUSES,  # t6363u: реальные статусы CU и цвета списков
     stage_legend=dict(money='🟢 есть деньги', launched='🟠 запустились, денег пока нет', starting='🟡 стартуем'),  # Rost 24.10
     week_to_month_rule='Неделя (пн–вс) относится к месяцу, в котором её понедельник',
     fx=dict(

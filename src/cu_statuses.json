@@ -1,0 +1,162 @@
+{
+ "field": "status",
+ "fetched_at": "2026-11-13 21:46 Bogotá",
+ "source": "clickup_get_list read-only, workspace 9014731752",
+ "abbrev": {
+  "to do": "tdo",
+  "for check": "chk",
+  "in progress": "inp",
+  "main": "mai",
+  "models": "mdl",
+  "video selfie": "vid",
+  "for posting": "pst",
+  "apeal": "apl",
+  "complete": "cmp",
+  "completed": "cpd",
+  "complete (solo ros)": "csr",
+  "завершено": "зав",
+  "объекты": "объ",
+  "регулярные": "рег",
+  "phone": "phn",
+  "verification": "ver",
+  "block/new-acc": "blk",
+  "disabled": "dis",
+  "new password error": "pwd",
+  "proceso dia 1": "prc",
+  "working": "wrk",
+  "control": "ctl"
+ },
+ "colors": {
+  "to do": "#87909e",
+  "for check": "#ffc53d",
+  "in progress": "#5f55ee",
+  "main": "#1090e0",
+  "models": "#ab4aba",
+  "video selfie": "#ffc53d",
+  "for posting": "#f76808",
+  "apeal": "#ffc53d",
+  "complete": "#008844",
+  "completed": "#008844",
+  "complete (solo ros)": "#008844",
+  "завершено": "#008844",
+  "объекты": "#656f7d",
+  "регулярные": "#b660e0",
+  "phone": "#0091ff",
+  "verification": "#e93d82",
+  "block/new-acc": "#e5484d",
+  "disabled": "#f76808",
+  "new password error": "#ab4aba",
+  "proceso dia 1": "#6647f0",
+  "working": "#30a46c"
+ },
+ "by_list": {
+  "901413854636": {
+   "name": "Personal",
+   "colors": {
+    "to do": "#87909e",
+    "main": "#0091ff",
+    "in progress": "#3e63dd",
+    "for check": "#ffc53d",
+    "complete": "#008844"
+   }
+  },
+  "901412862042": {
+   "name": "Задачи Tabakevich",
+   "colors": {
+    "to do": "#87909e",
+    "main": "#1090e0",
+    "in progress": "#5f55ee",
+    "for check": "#ffc53d",
+    "complete": "#008844"
+   }
+  },
+  "901412862260": {
+   "name": "General Tasks OF",
+   "colors": {
+    "to do": "#87909e",
+    "main": "#1090e0",
+    "models": "#ab4aba",
+    "in progress": "#5f55ee",
+    "for check": "#f8ae00",
+    "complete (solo ros)": "#008844"
+   }
+  },
+  "901412672484": {
+   "name": "Покупка, Ремонт, Продажа-Сдача",
+   "colors": {
+    "to do": "#87909e",
+    "main": "#1090e0",
+    "объекты": "#656f7d",
+    "in progress": "#1090e0",
+    "for check": "#ffc53d",
+    "завершено": "#008844"
+   }
+  },
+  "901412595093": {
+   "name": "Сервисная доска Недвижимость",
+   "colors": {
+    "to do": "#87909e",
+    "регулярные": "#b660e0",
+    "main": "#0091ff",
+    "in progress": "#3e63dd",
+    "for check": "#ffc53d",
+    "complete": "#008844"
+   }
+  },
+  "901412862040": {
+   "name": "Models",
+   "colors": {
+    "to do": "#87909e",
+    "main": "#1090e0",
+    "models": "#ab4aba",
+    "in progress": "#5f55ee",
+    "for check": "#f8ae00",
+    "complete (solo ros)": "#008844"
+   }
+  },
+  "901412862145": {
+   "name": "Projects OF",
+   "colors": {
+    "to do": "#87909e",
+    "main": "#1090e0",
+    "models": "#ab4aba",
+    "in progress": "#5f55ee",
+    "for check": "#f8ae00",
+    "complete (solo ros)": "#008844"
+   }
+  },
+  "901413824023": {
+   "name": "Accs",
+   "colors": {
+    "to do": "#87909e",
+    "phone": "#0091ff",
+    "apeal": "#ffc53d",
+    "video selfie": "#ffc53d",
+    "verification": "#e93d82",
+    "block/new-acc": "#e5484d",
+    "disabled": "#f76808",
+    "new password error": "#ab4aba",
+    "proceso dia 1": "#6647f0",
+    "for posting": "#f76808",
+    "working": "#30a46c",
+    "complete": "#008844"
+   }
+  },
+  "901413598366": {
+   "name": "Юля",
+   "colors": {
+    "to do": "#87909e",
+    "in progress": "#1090e0",
+    "completed": "#008844"
+   }
+  },
+  "901421054196": {
+   "name": "Tasks",
+   "colors": {
+    "to do": "#87909e",
+    "in progress": "#5f55ee",
+    "complete": "#008844"
+   }
+  }
+ }
+}
