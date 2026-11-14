@@ -10,6 +10,42 @@
    "bot": null,
    "dir": "personal",
    "tapped_at": "2026-11-13T23:31:50.520Z"
+  },
+  {
+   "id": "86bd0vyb9",
+   "action": "cu_done_close",
+   "kind": "task",
+   "title": "Забрать капы у ортодонта",
+   "url": "https://app.clickup.com/t/86bd0vyb9",
+   "bot": "Секретарь",
+   "dir": "calendar",
+   "due": "2026-11-10",
+   "tapped_at": "2026-11-14T03:02:51.780Z",
+   "stop_recur": false
+  },
+  {
+   "id": "86bcrqtyk",
+   "action": "cu_done_close",
+   "kind": "task",
+   "title": "Забрать джинсы из ателье",
+   "url": "https://app.clickup.com/t/86bcrqtyk",
+   "bot": "Секретарь",
+   "dir": "calendar",
+   "due": "2026-10-27",
+   "tapped_at": "2026-11-14T03:02:57.419Z",
+   "stop_recur": false
+  },
+  {
+   "id": "86b716gh8",
+   "action": "cu_done_stop",
+   "kind": "task",
+   "title": "Сита ортодонт (28 октября 14:00)",
+   "url": "https://app.clickup.com/t/86b716gh8",
+   "bot": "Секретарь",
+   "dir": "calendar",
+   "due": "2026-10-28",
+   "tapped_at": "2026-11-14T03:03:02.452Z",
+   "stop_recur": true
   }
  ],
  "done": [

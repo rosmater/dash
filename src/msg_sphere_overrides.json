@@ -147,7 +147,7 @@
   },
   "Telegram|Model Support": {
    "sphere": "ОФ",
-   "at": "2026-11-13T22:47:32.182Z"
+   "at": "2026-11-14T01:49:22.530Z"
   },
   "Telegram|Nhobi": {
    "sphere": "Пептиды",
@@ -1082,6 +1082,42 @@
   "WhatsApp ESP|Richard Peptides Diego Ai": {
    "sphere": "Пептиды",
    "at": "2026-11-06T20:23:38.638Z"
+  },
+  "Telegram|Заявки Таргет - Стоматолог": {
+   "sphere": "__unsort",
+   "at": "2026-11-14T04:06:10.091Z"
+  },
+  "Telegram|Walt (ранее Кошелёк)": {
+   "sphere": "__unsort",
+   "at": "2026-11-14T04:06:15.641Z"
+  },
+  "Telegram|Seider:$$": {
+   "sphere": "ОФ",
+   "at": "2026-11-14T04:06:25.774Z"
+  },
+  "WhatsApp ESP|Peptidos": {
+   "sphere": "Пептиды",
+   "at": "2026-11-14T04:06:36.808Z"
+  },
+  "WhatsApp ESP|Leidy Medellin T": {
+   "sphere": "Дейтинг",
+   "at": "2026-11-14T04:06:47.374Z"
+  },
+  "WhatsApp ESP|Сидела Сзади Marcela": {
+   "sphere": "Дейтинг",
+   "at": "2026-11-14T04:07:13.205Z"
+  },
+  "WhatsApp UKR|Юля Вепренцева Учет Андрей": {
+   "sphere": "Табакевич",
+   "at": "2026-11-14T04:07:30.705Z"
+  },
+  "WhatsApp ESP|Modelo Medellin Paisa": {
+   "sphere": "Дейтинг",
+   "at": "2026-11-14T04:07:35.538Z"
+  },
+  "WhatsApp ESP|WhatsApp Business": {
+   "sphere": "Игнор",
+   "at": "2026-11-14T04:07:48.205Z"
   }
  }
 }
