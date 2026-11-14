@@ -1,5 +1,5 @@
 {
- "fetched": "2026-11-13 21:42 Bogotá",
+ "fetched": "2026-11-14 00:05 Bogotá",
  "src": "clickup_filter_tasks view_id=8cn3rz8-3574 (workspace view «Ros (BOT)») + BOT R via task.get_many + enrich tmp/ros_bot_enrich.json + roles + roles",
  "view": {
   "id": "8cn3rz8-3574",
@@ -1069,8 +1069,8 @@
    "due_ms": 1794560400000,
    "updated": "2026-11-13 08:35",
    "closed": false,
-   "bot_r": "Д",
-   "bot_r_id": "619a552c-f93d-4dc2-92ff-b26079f6fbb3",
+   "bot_r": "Пептид",
+   "bot_r_id": "0950cd4d-e275-4ba8-8e61-39cd087d438b",
    "transfer": "нет",
    "description": "",
    "last_comment": "",

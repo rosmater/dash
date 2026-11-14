@@ -1,7 +1,7 @@
 {
- "generated": "2026-11-13 21:42",
+ "generated": "2026-11-14 00:04",
  "signal": "Открытые задачи вида ClickUp «Ros (BOT)» (8cn3rz8-3574): status NOT closed AND assignee=Rost AND BOT R IS SET. Группа — поле BOT R.",
- "cu_fetched": "2026-11-13 21:39 Bogotá",
+ "cu_fetched": "2026-11-14 00:04 Bogotá",
  "src": {
   "routines": "/workspace/bot-routines-inventory/<BOT>.md + ROUTINE-GROUPS.md",
   "tasks": "clickup_filter_tasks view_id=8cn3rz8-3574 (workspace view «Ros (BOT)») + BOT R via task.get_many + enrich tmp/ros_bot_enrich.json + roles + roles"
@@ -1245,7 +1245,24 @@
     }
    ],
    "routines_note": "",
-   "tasks": []
+   "tasks": [
+    {
+     "id": "86bcnp3rg",
+     "name": "БОТ-ЧАСТЬ: Таргет пептиды - контроль и увеличение",
+     "status": "for check",
+     "list": "Задачи Tabakevich",
+     "updated": "2026-11-13 08:35",
+     "due": "2026-11-13",
+     "need": "rost",
+     "url": "https://app.clickup.com/t/86bcnp3rg",
+     "kind": "check",
+     "tab": "peptides",
+     "bot_r": "Пептид",
+     "priority": "normal",
+     "role": "Control",
+     "thesis": "Таргет пептиды - контроль и увеличение"
+    }
+   ]
   },
   {
    "name": "Фермовод",
@@ -1359,24 +1376,7 @@
     }
    ],
    "routines_note": "",
-   "tasks": [
-    {
-     "id": "86bcnp3rg",
-     "name": "БОТ-ЧАСТЬ: Таргет пептиды - контроль и увеличение",
-     "status": "for check",
-     "list": "Задачи Tabakevich",
-     "updated": "2026-11-13 08:35",
-     "due": "2026-11-13",
-     "need": "rost",
-     "url": "https://app.clickup.com/t/86bcnp3rg",
-     "kind": "check",
-     "tab": "peptides",
-     "bot_r": "Д",
-     "priority": "normal",
-     "role": "Control",
-     "thesis": "Таргет пептиды - контроль и увеличение"
-    }
-   ]
+   "tasks": []
   },
   {
    "name": "Юрист / Адвокат / Бухгалтер",
