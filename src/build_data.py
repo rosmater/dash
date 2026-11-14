@@ -1209,8 +1209,9 @@ for ra in _ras:
         term_bits = [note or 'наш доход 0 до 15.01.2027']
     else:
         term_bits = [b for b in (_fmt_pct(last_row.get('pct') or (src_row or {}).get('agency_pct')), '−3% вывод') if b]
-        if 'партнёр' in (rule or ''):
-            term_bits.append('−3% партнёру')
+        # t6334u/t6335u: RA210 и RA212 — партнёру 3% оборота, из них удерживаем 4,5% за вывод
+        if ra in ('RA210', 'RA212') or 'партнёр' in (rule or ''):
+            term_bits.append('партнёру 3% оборота (−4,5% за вывод)')
     if _TS_PLACE.get(ra):
         term_bits.append(_TS_PLACE[ra])
     _ts_models.append(dict(ra=ra, name=_TS_NAME.get(ra, ''), place=_TS_PLACE.get(ra, ''),
