@@ -1,21 +1,21 @@
 {
-  "_doc": "t6272u/t6282u: Личное. tasks = ClickUp Personal Role 🚶GO (open, срок 13–27.11) → «Встречи» (+ gcal_dash.json встречи с людьми). calls = ClickUp Personal Role 📞CALL (все открытые) → «Созвоны» справа от «Сегодня у меня»; CALL не дублируются в «Сегодня у меня»/«Рутине». Обновлять теми же filter_tasks (Role field 1469c8d4…, GO 95771463…, CALL 7698f409…).",
-  "fetched_at": "2026-11-13T18:27:34-05:00",
-  "src": "ClickUp filter_tasks space 90144414983 Role GO due 13–27.11; Role CALL all open",
+  "_doc": "t6272u/t6282u: Личное. tasks = ClickUp Personal Role 🚶GO (open, срок 13–26.11) → «Встречи» (+ gcal_dash.json встречи с людьми). calls = ClickUp Personal Role 📞CALL (все открытые) → «Созвоны» справа от «Сегодня у меня»; CALL не дублируются в «Сегодня у меня»/«Рутине». Обновлять теми же filter_tasks (Role field 1469c8d4…, GO 95771463…, CALL 7698f409…).",
+  "fetched_at": "2026-11-13T19:09:10-05:00",
+  "src": "ClickUp filter_tasks space 90144414983 Role GO due 13–26.11; Role CALL all open",
   "tasks": [
     {
-      "id": "86bd3b4vd",
-      "name": "Контроль у Очоа (челюстно-лицевой) — 9:30",
-      "start": "2026-11-20T10:30:00-05:00",
+      "id": "86b7gjjg1",
+      "name": "Тренировка пн",
+      "start": "2026-11-16T16:00:00-05:00",
       "all_day": false,
-      "due": "2026-11-20",
-      "due_t": "10:30",
-      "priority": "normal",
+      "due": "2026-11-16",
+      "due_t": "16:00",
+      "priority": "urgent",
       "assignees": [
         "Rost"
       ],
       "status": "to do",
-      "url": "https://rosmater.github.io/cu/?t=86bd3b4vd",
+      "url": "https://rosmater.github.io/cu/?t=86b7gjjg1",
       "src": "clickup",
       "tags": []
     },
@@ -68,71 +68,25 @@
       "tags": []
     },
     {
-      "id": "86b7gjjg1",
-      "name": "Тренировка пн",
-      "start": "2026-11-16T16:00:00-05:00",
+      "id": "86bd3b4vd",
+      "name": "Контроль у Очоа (челюстно-лицевой) — 9:30",
+      "start": "2026-11-20T10:30:00-05:00",
       "all_day": false,
-      "due": "2026-11-16",
-      "due_t": "16:00",
-      "priority": "urgent",
+      "due": "2026-11-20",
+      "due_t": "10:30",
+      "priority": "normal",
       "assignees": [
         "Rost"
       ],
       "status": "to do",
-      "url": "https://rosmater.github.io/cu/?t=86b7gjjg1",
+      "url": "https://rosmater.github.io/cu/?t=86bd3b4vd",
       "src": "clickup",
-      "tags": []
+      "tags": [
+        "⚕️ здоровье"
+      ]
     }
   ],
   "calls": [
-    {
-      "id": "86bd3b4vu",
-      "name": "Записаться на профчистку зубов (на 27–30.11)",
-      "start": "2026-11-19",
-      "all_day": true,
-      "due": "2026-11-19",
-      "due_t": null,
-      "priority": "normal",
-      "assignees": [
-        "Rost"
-      ],
-      "status": "to do",
-      "url": "https://rosmater.github.io/cu/?t=86bd3b4vu",
-      "src": "clickup",
-      "tags": []
-    },
-    {
-      "id": "86bd1rddh",
-      "name": "БОТ-ЧАСТЬ: Удалить пластину (запись к врачу)",
-      "start": "2026-11-14",
-      "all_day": true,
-      "due": "2026-11-14",
-      "due_t": null,
-      "priority": "normal",
-      "assignees": [
-        "Rost"
-      ],
-      "status": "to do",
-      "url": "https://rosmater.github.io/cu/?t=86bd1rddh",
-      "src": "clickup",
-      "tags": []
-    },
-    {
-      "id": "86bbt0v0n",
-      "name": "(после теста ЭирДроид) Дима - созвониться насчет Т и автоматизации",
-      "start": "2026-11-14",
-      "all_day": true,
-      "due": "2026-11-14",
-      "due_t": null,
-      "priority": "normal",
-      "assignees": [
-        "Rost"
-      ],
-      "status": "to do",
-      "url": "https://rosmater.github.io/cu/?t=86bbt0v0n",
-      "src": "clickup",
-      "tags": []
-    },
     {
       "id": "86bb79fmt",
       "name": "29.10 Лал Экспо Богота - ВСЕ КУПИТЬ",
@@ -146,137 +100,6 @@
       ],
       "status": "to do",
       "url": "https://rosmater.github.io/cu/?t=86bb79fmt",
-      "src": "clickup",
-      "tags": []
-    },
-    {
-      "id": "86b89dz9q",
-      "name": "Ирина Шекель созвон ВТ",
-      "start": "2026-11-17T16:00:00-05:00",
-      "all_day": false,
-      "due": "2026-11-17",
-      "due_t": "16:00",
-      "priority": "urgent",
-      "assignees": [
-        "Rost",
-        "Ірина Шекель"
-      ],
-      "status": "to do",
-      "url": "https://rosmater.github.io/cu/?t=86b89dz9q",
-      "src": "clickup",
-      "tags": []
-    },
-    {
-      "id": "86b89dz9g",
-      "name": "Ирина Шекель созвон ПН",
-      "start": "2026-11-16T15:50:00-05:00",
-      "all_day": false,
-      "due": "2026-11-16",
-      "due_t": "15:50",
-      "priority": "urgent",
-      "assignees": [
-        "Rost",
-        "Ірина Шекель"
-      ],
-      "status": "to do",
-      "url": "https://rosmater.github.io/cu/?t=86b89dz9g",
-      "src": "clickup",
-      "tags": []
-    },
-    {
-      "id": "86b7zvb9u",
-      "name": "Ирина Шекель созвон ЧТ",
-      "start": "2026-11-19T16:00:00-05:00",
-      "all_day": false,
-      "due": "2026-11-19",
-      "due_t": "16:00",
-      "priority": "urgent",
-      "assignees": [
-        "Rost",
-        "Ірина Шекель"
-      ],
-      "status": "to do",
-      "url": "https://rosmater.github.io/cu/?t=86b7zvb9u",
-      "src": "clickup",
-      "tags": []
-    },
-    {
-      "id": "86b7wmv85",
-      "name": "СОЗВОН АДВОКАТ (1 января проверить) Симка лайф восстановить (ждем реакцию суда - чат с Алевтина)",
-      "start": "2026-11-09",
-      "all_day": true,
-      "due": "2026-11-09",
-      "due_t": null,
-      "priority": "urgent",
-      "assignees": [
-        "Rost"
-      ],
-      "status": "to do",
-      "url": "https://rosmater.github.io/cu/?t=86b7wmv85",
-      "src": "clickup",
-      "tags": []
-    },
-    {
-      "id": "86b7ub08j",
-      "name": "🎓 Испанский занятие (разбор грамматики, поговорить, рассказ)",
-      "start": "2026-10-30T14:30:00-05:00",
-      "all_day": false,
-      "due": "2026-10-30",
-      "due_t": "14:30",
-      "priority": "urgent",
-      "assignees": [
-        "Rost"
-      ],
-      "status": "to do",
-      "url": "https://rosmater.github.io/cu/?t=86b7ub08j",
-      "src": "clickup",
-      "tags": []
-    },
-    {
-      "id": "86b7k868z",
-      "name": "📞 Кот набрать",
-      "start": "2026-11-21",
-      "all_day": true,
-      "due": "2026-11-21",
-      "due_t": null,
-      "priority": "normal",
-      "assignees": [
-        "Rost"
-      ],
-      "status": "to do",
-      "url": "https://rosmater.github.io/cu/?t=86b7k868z",
-      "src": "clickup",
-      "tags": []
-    },
-    {
-      "id": "86b7k85rt",
-      "name": "📞 Маслов, Женя, Славик, Джокер, Ларик, Бобер, Ворон, Элвис, СережаАмазон",
-      "start": "2026-11-07",
-      "all_day": true,
-      "due": "2026-11-07",
-      "due_t": null,
-      "priority": "normal",
-      "assignees": [
-        "Rost"
-      ],
-      "status": "to do",
-      "url": "https://rosmater.github.io/cu/?t=86b7k85rt",
-      "src": "clickup",
-      "tags": []
-    },
-    {
-      "id": "86b7k85bw",
-      "name": "📞 Ваня набрать",
-      "start": "2026-11-21",
-      "all_day": true,
-      "due": "2026-11-21",
-      "due_t": null,
-      "priority": "normal",
-      "assignees": [
-        "Rost"
-      ],
-      "status": "to do",
-      "url": "https://rosmater.github.io/cu/?t=86b7k85bw",
       "src": "clickup",
       "tags": []
     },
@@ -297,18 +120,50 @@
       "tags": []
     },
     {
-      "id": "86b7k81e5",
-      "name": "📞 Дед Валера набрать",
-      "start": "2026-11-07",
+      "id": "86b7gkttx",
+      "name": "📞 Коля набрать (выставка тел + аэротруба)",
+      "start": "2026-10-26",
       "all_day": true,
-      "due": "2026-11-07",
+      "due": "2026-10-26",
       "due_t": null,
-      "priority": "normal",
+      "priority": "high",
       "assignees": [
         "Rost"
       ],
       "status": "to do",
-      "url": "https://rosmater.github.io/cu/?t=86b7k81e5",
+      "url": "https://rosmater.github.io/cu/?t=86b7gkttx",
+      "src": "clickup",
+      "tags": []
+    },
+    {
+      "id": "86b6qq6r9",
+      "name": "🎓 Испанский занятие (поговорить и рассказ)",
+      "start": "2026-10-26T13:00:00-05:00",
+      "all_day": false,
+      "due": "2026-10-26",
+      "due_t": "13:00",
+      "priority": "urgent",
+      "assignees": [
+        "Rost"
+      ],
+      "status": "to do",
+      "url": "https://rosmater.github.io/cu/?t=86b6qq6r9",
+      "src": "clickup",
+      "tags": []
+    },
+    {
+      "id": "86b7ub08j",
+      "name": "🎓 Испанский занятие (разбор грамматики, поговорить, рассказ)",
+      "start": "2026-10-30T14:30:00-05:00",
+      "all_day": false,
+      "due": "2026-10-30",
+      "due_t": "14:30",
+      "priority": "urgent",
+      "assignees": [
+        "Rost"
+      ],
+      "status": "to do",
+      "url": "https://rosmater.github.io/cu/?t=86b7ub08j",
       "src": "clickup",
       "tags": []
     },
@@ -325,6 +180,38 @@
       ],
       "status": "to do",
       "url": "https://rosmater.github.io/cu/?t=86b7k81df",
+      "src": "clickup",
+      "tags": []
+    },
+    {
+      "id": "86b7k85rt",
+      "name": "📞 Маслов, Женя, Славик, Джокер, Ларик, Бобер, Ворон, Элвис, СережаАмазон",
+      "start": "2026-11-07",
+      "all_day": true,
+      "due": "2026-11-07",
+      "due_t": null,
+      "priority": "normal",
+      "assignees": [
+        "Rost"
+      ],
+      "status": "to do",
+      "url": "https://rosmater.github.io/cu/?t=86b7k85rt",
+      "src": "clickup",
+      "tags": []
+    },
+    {
+      "id": "86b7k81e5",
+      "name": "📞 Дед Валера набрать",
+      "start": "2026-11-07",
+      "all_day": true,
+      "due": "2026-11-07",
+      "due_t": null,
+      "priority": "normal",
+      "assignees": [
+        "Rost"
+      ],
+      "status": "to do",
+      "url": "https://rosmater.github.io/cu/?t=86b7k81e5",
       "src": "clickup",
       "tags": []
     },
@@ -361,18 +248,52 @@
       "tags": []
     },
     {
-      "id": "86b7gkttx",
-      "name": "📞 Коля набрать (выставка тел + аэротруба)",
-      "start": "2026-10-26",
+      "id": "86b7wmv85",
+      "name": "СОЗВОН АДВОКАТ (1 января проверить) Симка лайф восстановить (ждем реакцию суда - чат с Алевтина)",
+      "start": "2026-11-09",
       "all_day": true,
-      "due": "2026-10-26",
+      "due": "2026-11-09",
       "due_t": null,
-      "priority": "high",
+      "priority": "urgent",
       "assignees": [
         "Rost"
       ],
       "status": "to do",
-      "url": "https://rosmater.github.io/cu/?t=86b7gkttx",
+      "url": "https://rosmater.github.io/cu/?t=86b7wmv85",
+      "src": "clickup",
+      "tags": []
+    },
+    {
+      "id": "86bd1rddh",
+      "name": "БОТ-ЧАСТЬ: Удалить пластину (запись к врачу)",
+      "start": "2026-11-14",
+      "all_day": true,
+      "due": "2026-11-14",
+      "due_t": null,
+      "priority": "normal",
+      "assignees": [
+        "Rost"
+      ],
+      "status": "to do",
+      "url": "https://rosmater.github.io/cu/?t=86bd1rddh",
+      "src": "clickup",
+      "tags": [
+        "⚕️ здоровье"
+      ]
+    },
+    {
+      "id": "86bbt0v0n",
+      "name": "(после теста ЭирДроид) Дима - созвониться насчет Т и автоматизации",
+      "start": "2026-11-14",
+      "all_day": true,
+      "due": "2026-11-14",
+      "due_t": null,
+      "priority": "normal",
+      "assignees": [
+        "Rost"
+      ],
+      "status": "to do",
+      "url": "https://rosmater.github.io/cu/?t=86bbt0v0n",
       "src": "clickup",
       "tags": []
     },
@@ -394,6 +315,40 @@
       "tags": []
     },
     {
+      "id": "86b89dz9g",
+      "name": "Ирина Шекель созвон ПН",
+      "start": "2026-11-16T15:50:00-05:00",
+      "all_day": false,
+      "due": "2026-11-16",
+      "due_t": "15:50",
+      "priority": "urgent",
+      "assignees": [
+        "Rost",
+        "Ірина Шекель"
+      ],
+      "status": "to do",
+      "url": "https://rosmater.github.io/cu/?t=86b89dz9g",
+      "src": "clickup",
+      "tags": []
+    },
+    {
+      "id": "86b89dz9q",
+      "name": "Ирина Шекель созвон ВТ",
+      "start": "2026-11-17T16:00:00-05:00",
+      "all_day": false,
+      "due": "2026-11-17",
+      "due_t": "16:00",
+      "priority": "urgent",
+      "assignees": [
+        "Rost",
+        "Ірина Шекель"
+      ],
+      "status": "to do",
+      "url": "https://rosmater.github.io/cu/?t=86b89dz9q",
+      "src": "clickup",
+      "tags": []
+    },
+    {
       "id": "86b6z2gn2",
       "name": "Ирина Шекель созвон СР",
       "start": "2026-11-18T15:00:00-05:00",
@@ -411,18 +366,51 @@
       "tags": []
     },
     {
-      "id": "86b6qq6r9",
-      "name": "🎓 Испанский занятие (поговорить и рассказ)",
-      "start": "2026-10-26T13:00:00-05:00",
+      "id": "86b7zvb9u",
+      "name": "Ирина Шекель созвон ЧТ",
+      "start": "2026-11-19T16:00:00-05:00",
       "all_day": false,
-      "due": "2026-10-26",
-      "due_t": "13:00",
+      "due": "2026-11-19",
+      "due_t": "16:00",
       "priority": "urgent",
+      "assignees": [
+        "Rost",
+        "Ірина Шекель"
+      ],
+      "status": "to do",
+      "url": "https://rosmater.github.io/cu/?t=86b7zvb9u",
+      "src": "clickup",
+      "tags": []
+    },
+    {
+      "id": "86b7k868z",
+      "name": "📞 Кот набрать",
+      "start": "2026-11-21",
+      "all_day": true,
+      "due": "2026-11-21",
+      "due_t": null,
+      "priority": "normal",
       "assignees": [
         "Rost"
       ],
       "status": "to do",
-      "url": "https://rosmater.github.io/cu/?t=86b6qq6r9",
+      "url": "https://rosmater.github.io/cu/?t=86b7k868z",
+      "src": "clickup",
+      "tags": []
+    },
+    {
+      "id": "86b7k85bw",
+      "name": "📞 Ваня набрать",
+      "start": "2026-11-21",
+      "all_day": true,
+      "due": "2026-11-21",
+      "due_t": null,
+      "priority": "normal",
+      "assignees": [
+        "Rost"
+      ],
+      "status": "to do",
+      "url": "https://rosmater.github.io/cu/?t=86b7k85bw",
       "src": "clickup",
       "tags": []
     }

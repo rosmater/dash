@@ -1,89 +1,429 @@
 {
-  "_doc": "t6270u: открытые задачи ClickUp-пространства Personal (90144414983) для доски вкладки Личное (Сегодня у меня / Приоритеты: тег «🎯 фокус» / Рутина), как of_open_tasks.json. main/complete исключены. + 86ba3c1x4 Парагвай (пространство Недвижимость) с тегом «🎯 фокус» по слову Rost t6270u. 17 пустых приоритетов → normal (t6235u). Снимок через MCP filter_tasks; обновлять тем же способом. t6286u: 86bcgc3ze (USDT для Novax) перенесена в ClickUp в OF / General Tasks OF (под PARA EMPRESA) — убрана отсюда.",
-  "fetched_at": "2026-11-13T17:55:40-05:00",
-  "src": "ClickUp filter_tasks space 90144414983 include_closed=false (3 pages, 277 incl. main) + 86ba3c1x4",
+  "_doc": "t6270u: открытые задачи ClickUp-пространства Personal (90144414983) для доски вкладки Личное (Сегодня у меня / Приоритеты: тег «🎯 фокус» / Рутина), как of_open_tasks.json. main/complete исключены. + 86ba3c1x4 Парагвай (пространство Недвижимость) с тегом «🎯 фокус» по слову Rost t6270u. Пустой приоритет → normal (t6235u). Снимок через MCP filter_tasks; обновлять тем же способом. t6286u: 86bcgc3ze (USDT для Novax) перенесена в ClickUp в OF / General Tasks OF (под PARA EMPRESA) — убрана отсюда. t6289u: 86bd3b4vu профчистка — Role TO DO, не CALL. t6290u: 86bcnmdvt «Вывести BTC в холодное хранение» — тег «🎯 фокус». t6291u/t6292u: тег «⚕️ здоровье» на медицинских задачах Personal (в т.ч. 86bd3bfmv консультация ортодонта).",
+  "fetched_at": "2026-11-13T19:09:10-05:00",
+  "src": "ClickUp filter_tasks space 90144414983 include_closed=false (3 pages, 278 incl. main) + 86ba3c1x4",
   "tasks": [
     {
-      "id": "86bd1rddh",
-      "name": "БОТ-ЧАСТЬ: Удалить пластину (запись к врачу)",
-      "status": "to do",
+      "id": "86ba3c1x4",
+      "name": "(Контракт на работу, подготовка к ПМЖ) ПАРАГВАЙ (183 дня в году)",
+      "status": "for check",
       "priority": "normal",
-      "due": "2026-11-14",
+      "due": "2026-10-15",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Сервисная доска Недвижимость",
+      "url": "https://rosmater.github.io/cu/?t=86ba3c1x4",
+      "tags": [
+        "🎯 фокус"
+      ],
+      "freq": null
+    },
+    {
+      "id": "86b6qq509",
+      "name": "БОТ-ЧАСТЬ: Фин подбить баланс (30м) (отчет Алексей)",
+      "status": "in progress",
+      "priority": "high",
+      "due": "2026-10-18",
       "assignees": [
         "Rost"
       ],
       "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86bd1rddh",
+      "url": "https://rosmater.github.io/cu/?t=86b6qq509",
       "tags": [],
       "freq": null
     },
     {
-      "id": "86bd0vyb9",
-      "name": "Забрать капы у ортодонта",
+      "id": "86b7k7jp4",
+      "name": "БОТ-ЧАСТЬ: Еженедельный понедельник",
       "status": "to do",
-      "priority": "normal",
-      "due": "2026-11-10",
+      "priority": "high",
+      "due": "2026-10-19",
       "assignees": [
         "Rost"
       ],
       "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86bd0vyb9",
+      "url": "https://rosmater.github.io/cu/?t=86b7k7jp4",
       "tags": [],
       "freq": null
     },
     {
-      "id": "86bd0brbm",
-      "name": "Огна: создать Reddit и подключить к боту на ведение",
+      "id": "86ba2y9ke",
+      "name": "ТрипЭдвайсер (как дела?)",
       "status": "to do",
       "priority": "normal",
-      "due": null,
+      "due": "2026-10-19",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86ba2y9ke",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86bb79fmt",
+      "name": "29.10 Лал Экспо Богота - ВСЕ КУПИТЬ",
+      "status": "to do",
+      "priority": "normal",
+      "due": "2026-10-25",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86bb79fmt",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b7xjwdn",
+      "name": "💳 Аренда Колумбия квартира оплатить (коммунальные)",
+      "status": "to do",
+      "priority": "normal",
+      "due": "2026-10-25",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86b7xjwdn",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b7k8525",
+      "name": "📞 Лио (набрать) - поговорить кто на связи в случае реальной проблемы 2025к",
+      "status": "to do",
+      "priority": "normal",
+      "due": "2026-10-25",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86b7k8525",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b8nwj7t",
+      "name": "Английский лицензия 31.10.2026",
+      "status": "to do",
+      "priority": "low",
+      "due": "2026-10-26",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86b8nwj7t",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86bcm9u4k",
+      "name": "БОТ-ЧАСТЬ: Заменить линзы в компьютерных очках (плано 0.00 + Crizal Sapphire HR)",
+      "status": "to do",
+      "priority": "normal",
+      "due": "2026-10-26",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86bcm9u4k",
+      "tags": [
+        "⚕️ здоровье"
+      ],
+      "freq": null
+    },
+    {
+      "id": "86bcqzpmn",
+      "name": "БОТ: вотчеры мессенджеров — держать живыми без Rost",
+      "status": "to do",
+      "priority": "high",
+      "due": "2026-10-26",
       "assignees": [],
       "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86bd0brbm",
+      "url": "https://rosmater.github.io/cu/?t=86bcqzpmn",
       "tags": [],
       "freq": null
     },
     {
-      "id": "86bcy9d32",
-      "name": "БОТ: Revolut personal — проверить закрытие + вывод остатка",
+      "id": "86b9ckz7y",
+      "name": "Выплата денег себе Кальян (проверить отчет,  дать задачу) жду",
       "status": "to do",
       "priority": "normal",
-      "due": "2026-11-12",
+      "due": "2026-10-26",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86b9ckz7y",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b6taumx",
+      "name": "Контракт Марина - завершение (подсчеты/переоформления) (жду 1000 евро)",
+      "status": "to do",
+      "priority": "normal",
+      "due": "2026-10-26",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86b6taumx",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86bcn44nh",
+      "name": "Коучинг Алекса Херрера - проверка отчета / диалог",
+      "status": "to do",
+      "priority": "normal",
+      "due": "2026-10-26",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86bcn44nh",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b6qq6r9",
+      "name": "🎓 Испанский занятие (поговорить и рассказ)",
+      "status": "to do",
+      "priority": "urgent",
+      "due": "2026-10-26",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86b6qq6r9",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b7688n9",
+      "name": "💳 Аренда Колумбия офис оплатить (кухня и скидка) жду кухню",
+      "status": "to do",
+      "priority": "normal",
+      "due": "2026-10-26",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86b7688n9",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b7gkttx",
+      "name": "📞 Коля набрать (выставка тел + аэротруба)",
+      "status": "to do",
+      "priority": "high",
+      "due": "2026-10-26",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86b7gkttx",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b7k85ke",
+      "name": "(как дела?) 📞 Папа набрать - как дела? (жду Татьяна окно времени связи)",
+      "status": "to do",
+      "priority": "normal",
+      "due": "2026-10-27",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86b7k85ke",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86bcrqtyk",
+      "name": "Забрать джинсы из ателье",
+      "status": "to do",
+      "priority": "normal",
+      "due": "2026-10-27",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86bcrqtyk",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b70dhaq",
+      "name": "Проверить кредитный лимит и закрыть (жду) списались проценты?",
+      "status": "to do",
+      "priority": "high",
+      "due": "2026-10-27",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86b70dhaq",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b9rnqmh",
+      "name": "Проверить оплату фрейм",
+      "status": "to do",
+      "priority": "normal",
+      "due": "2026-10-27",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86b9rnqmh",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b716gh8",
+      "name": "Сита ортодонт (28 октября 14:00)",
+      "status": "to do",
+      "priority": "urgent",
+      "due": "2026-10-28",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86b716gh8",
+      "tags": [
+        "⚕️ здоровье"
+      ],
+      "freq": null
+    },
+    {
+      "id": "86b7ub08j",
+      "name": "🎓 Испанский занятие (разбор грамматики, поговорить, рассказ)",
+      "status": "to do",
+      "priority": "urgent",
+      "due": "2026-10-30",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86b7ub08j",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86bbbw2fq",
+      "name": "Почистить компьютер загрузки - все по папкам в диск",
+      "status": "to do",
+      "priority": "normal",
+      "due": "2026-11-01",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86bbbw2fq",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86bayeyr8",
+      "name": "начать планировать поездку в Парагвай (до 27 января)",
+      "status": "to do",
+      "priority": "normal",
+      "due": "2026-11-01",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86bayeyr8",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b7k81df",
+      "name": "📞 Баба набрать",
+      "status": "to do",
+      "priority": "normal",
+      "due": "2026-11-01",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86b7k81df",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b7k7jnx",
+      "name": "БОТ-ЧАСТЬ: Ежемесячный",
+      "status": "for check",
+      "priority": "normal",
+      "due": "2026-11-02",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86b7k7jnx",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86bcqzp7j",
+      "name": "БОТ: недельный отчёт OF Alexa — статистика + база фанов",
+      "status": "to do",
+      "priority": "normal",
+      "due": "2026-11-02",
       "assignees": [],
       "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86bcy9d32",
-      "tags": [
-        "bot"
-      ],
+      "url": "https://rosmater.github.io/cu/?t=86bcqzp7j",
+      "tags": [],
       "freq": null
     },
     {
-      "id": "86bcxunbw",
-      "name": "Pago: комиссия Maria MR Med (HR MrSupremo) — след. месяц",
+      "id": "86b7wpgz2",
+      "name": "🛑Мама и бабушка сделать тест🛑 MyHeritage проверить статус в кабинете ОТМЕНИТЬ ПОДПИСКУ ГОДОВУЮ НА ОБНОВЛЕНИЯ",
       "status": "to do",
-      "priority": "normal",
-      "due": "2026-12-01",
+      "priority": "low",
+      "due": "2026-11-02",
       "assignees": [
         "Rost"
       ],
       "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86bcxunbw",
-      "tags": [
-        "dating"
-      ],
+      "url": "https://rosmater.github.io/cu/?t=86b7wpgz2",
+      "tags": [],
       "freq": null
     },
     {
-      "id": "86bcxum51",
-      "name": "Вывести деньги из Specie",
+      "id": "86b6q93pc",
+      "name": "КОРЬ ПРОВЕРИТЬ (корь и гепатит бустер + Engerix-B плюс Havrix) Проверить все ли по списку сделано ",
       "status": "to do",
       "priority": "normal",
-      "due": "2026-11-04",
+      "due": "2026-11-03",
       "assignees": [
         "Rost"
       ],
       "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86bcxum51",
+      "url": "https://rosmater.github.io/cu/?t=86b6q93pc",
+      "tags": [
+        "⚕️ здоровье"
+      ],
+      "freq": null
+    },
+    {
+      "id": "86bcnt4nr",
+      "name": "МакбукПро настроить Икс код - освобождение от рутины",
+      "status": "to do",
+      "priority": "normal",
+      "due": "2026-11-03",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86bcnt4nr",
       "tags": [],
       "freq": null
     },
@@ -104,138 +444,16 @@
       "freq": null
     },
     {
-      "id": "86bctqe8h",
-      "name": "БОТ: Live Google Calendar на даш (OAuth, не снимок)",
-      "status": "in progress",
-      "priority": "high",
-      "due": null,
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86bctqe8h",
-      "tags": [
-        "bot"
-      ],
-      "freq": null
-    },
-    {
-      "id": "86bcrqtyk",
-      "name": "Забрать джинсы из ателье",
+      "id": "86b7hcb3a",
+      "name": "Румынский паспорт (была ли аппеляция? вынесли ли решение?)",
       "status": "to do",
-      "priority": "normal",
-      "due": "2026-10-27",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86bcrqtyk",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86bcqzpmn",
-      "name": "БОТ: вотчеры мессенджеров — держать живыми без Rost",
-      "status": "to do",
-      "priority": "high",
-      "due": "2026-10-26",
-      "assignees": [],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86bcqzpmn",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86bcqzp7j",
-      "name": "БОТ: недельный отчёт OF Alexa — статистика + база фанов",
-      "status": "to do",
-      "priority": "normal",
-      "due": "2026-11-02",
-      "assignees": [],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86bcqzp7j",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86bcqw802",
-      "name": "Мама (как дела?)",
-      "status": "to do",
-      "priority": "normal",
-      "due": null,
-      "assignees": [],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86bcqw802",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86bcnt4nr",
-      "name": "МакбукПро настроить Икс код - освобождение от рутины",
-      "status": "to do",
-      "priority": "normal",
+      "priority": "urgent",
       "due": "2026-11-03",
       "assignees": [
         "Rost"
       ],
       "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86bcnt4nr",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86bcnrmt7",
-      "name": "🥊 Бокс 10:00–11:30 (Johann Ruiz)",
-      "status": "to do",
-      "priority": "normal",
-      "due": "2026-11-17",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86bcnrmt7",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86bcnmdvt",
-      "name": "Вывести BTC в холодное хранение",
-      "status": "to do",
-      "priority": "normal",
-      "due": "2026-11-08",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86bcnmdvt",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86bcn44nh",
-      "name": "Коучинг Алекса Херрера - проверка отчета / диалог",
-      "status": "to do",
-      "priority": "normal",
-      "due": "2026-10-26",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86bcn44nh",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86bcn3c3u",
-      "name": "Проверить команду на iPhone для передачи шагов из «Здоровья» боту",
-      "status": "for check",
-      "priority": "normal",
-      "due": "2026-11-11",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86bcn3c3u",
+      "url": "https://rosmater.github.io/cu/?t=86b7hcb3a",
       "tags": [],
       "freq": null
     },
@@ -250,640 +468,14 @@
       ],
       "list": "Personal",
       "url": "https://rosmater.github.io/cu/?t=86bcmwtt5",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86bcma7tp",
-      "name": "Найти лофт побольше в Base Loft (долгосрочная аренда)",
-      "status": "to do",
-      "priority": "high",
-      "due": "2026-11-10",
-      "assignees": [
-        "Rost"
+      "tags": [
+        "⚕️ здоровье"
       ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86bcma7tp",
-      "tags": [],
       "freq": null
     },
     {
-      "id": "86bcm9u4k",
-      "name": "БОТ-ЧАСТЬ: Заменить линзы в компьютерных очках (плано 0.00 + Crizal Sapphire HR)",
-      "status": "to do",
-      "priority": "normal",
-      "due": "2026-10-26",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86bcm9u4k",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86bbt0v0n",
-      "name": "(после теста ЭирДроид) Дима - созвониться насчет Т и автоматизации",
-      "status": "to do",
-      "priority": "normal",
-      "due": "2026-11-14",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86bbt0v0n",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86bbq6fqm",
-      "name": "Седула-виза Колумбия",
-      "status": "to do",
-      "priority": "normal",
-      "due": null,
-      "assignees": [],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86bbq6fqm",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86bbq6fm6",
-      "name": "Кахамар личная",
-      "status": "to do",
-      "priority": "normal",
-      "due": null,
-      "assignees": [],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86bbq6fm6",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86bbq6fkm",
-      "name": "Кахамар бизнес",
-      "status": "to do",
-      "priority": "normal",
-      "due": null,
-      "assignees": [],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86bbq6fkm",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86bbq6fk2",
-      "name": "БанкКолумбия",
-      "status": "to do",
-      "priority": "normal",
-      "due": null,
-      "assignees": [],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86bbq6fk2",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86bbq6fhy",
-      "name": "Эзер фи",
-      "status": "to do",
-      "priority": "normal",
-      "due": null,
-      "assignees": [],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86bbq6fhy",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86bbq6fh8",
-      "name": "Вайтбит",
-      "status": "to do",
-      "priority": "normal",
-      "due": null,
-      "assignees": [],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86bbq6fh8",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86bbq6fgk",
-      "name": "Украина Моно",
-      "status": "to do",
-      "priority": "normal",
-      "due": null,
-      "assignees": [],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86bbq6fgk",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86bbq6fg4",
-      "name": "Украина Приват",
-      "status": "to do",
-      "priority": "normal",
-      "due": null,
-      "assignees": [],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86bbq6fg4",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86bbq6fa5",
-      "name": "Права Тайланд",
-      "status": "to do",
-      "priority": "normal",
-      "due": null,
-      "assignees": [],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86bbq6fa5",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86bbq6f8w",
-      "name": "Права Парагвай",
-      "status": "to do",
-      "priority": "normal",
-      "due": null,
-      "assignees": [],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86bbq6f8w",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86bbq6f86",
-      "name": "Права Колумбия",
-      "status": "to do",
-      "priority": "normal",
-      "due": null,
-      "assignees": [],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86bbq6f86",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86bbq6f7b",
-      "name": "Права Укр",
-      "status": "to do",
-      "priority": "normal",
-      "due": null,
-      "assignees": [],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86bbq6f7b",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86bbq6f6c",
-      "name": "Паспорт Загран 2",
-      "status": "to do",
-      "priority": "normal",
-      "due": null,
-      "assignees": [],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86bbq6f6c",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86bbq6eym",
-      "name": "Паспорт Загран 1",
-      "status": "to do",
-      "priority": "normal",
-      "due": null,
-      "assignees": [],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86bbq6eym",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86bbnb0jv",
-      "name": "Профиль Мил сделать л - Нужен Вотсап другой",
-      "status": "to do",
-      "priority": "normal",
-      "due": "2026-11-16",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86bbnb0jv",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86bbmcdmq",
-      "name": "ББВА - открыть новый счет полноценный",
-      "status": "to do",
-      "priority": "normal",
-      "due": null,
-      "assignees": [],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86bbmcdmq",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86bbjq18f",
-      "name": "(сканы) Кейс вынесли все вещи - подумать и подготовиться / с разрушкением дома",
-      "status": "to do",
-      "priority": "normal",
-      "due": "2026-11-07",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86bbjq18f",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86bbjgn6a",
-      "name": "Алекса Херрера поздравить с ДР",
-      "status": "to do",
-      "priority": "urgent",
-      "due": "2027-03-31",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86bbjgn6a",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86bbbw2fq",
-      "name": "Почистить компьютер загрузки - все по папкам в диск",
-      "status": "to do",
-      "priority": "normal",
-      "due": "2026-11-01",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86bbbw2fq",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86bb79fmt",
-      "name": "29.10 Лал Экспо Богота - ВСЕ КУПИТЬ",
-      "status": "to do",
-      "priority": "normal",
-      "due": "2026-10-25",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86bb79fmt",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86bb6a2yb",
-      "name": "Карен Медельин поздравить с ДР",
-      "status": "to do",
-      "priority": "urgent",
-      "due": "2027-09-25",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86bb6a2yb",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86bayeyr8",
-      "name": "начать планировать поездку в Парагвай (до 27 января)",
-      "status": "to do",
-      "priority": "normal",
-      "due": "2026-11-01",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86bayeyr8",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86bayeenr",
-      "name": "Пополнить местную симку на 10000-20000 (раз в 3 месяца) моно",
-      "status": "to do",
-      "priority": "normal",
-      "due": "2026-12-31",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86bayeenr",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86bappd36",
-      "name": "Иветта Оливино поздравить с ДР",
-      "status": "to do",
-      "priority": "urgent",
-      "due": "2027-01-23",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86bappd36",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86bappcce",
-      "name": "Владислав Оливино поздравить с ДР",
-      "status": "to do",
-      "priority": "urgent",
-      "due": "2026-12-15",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86bappcce",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86ban084e",
-      "name": "Продлить страховку мото до 08/03/2027",
-      "status": "to do",
-      "priority": "normal",
-      "due": "2027-04-05",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86ban084e",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86baebuhx",
-      "name": "Диего поздравить с ДР",
-      "status": "to do",
-      "priority": "urgent",
-      "due": "2027-07-03",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86baebuhx",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86ba2y9ke",
-      "name": "ТрипЭдвайсер (как дела?)",
-      "status": "to do",
-      "priority": "normal",
-      "due": "2026-10-19",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86ba2y9ke",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b9xgyzm",
-      "name": "Проверить резервы и внести данные",
-      "status": "to do",
-      "priority": "normal",
-      "due": "2026-11-15",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b9xgyzm",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b9rnqmh",
-      "name": "Проверить оплату фрейм",
-      "status": "to do",
-      "priority": "normal",
-      "due": "2026-10-27",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b9rnqmh",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b9rnqc2",
-      "name": "Продлить Домен https://nic.ua/ru/my/domains - pp.ua",
-      "status": "to do",
-      "priority": "normal",
-      "due": "2027-04-14",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b9rnqc2",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b9rk01c",
-      "name": "‼️‼️‼️Не забыть за поход на анализы завтра! 10:30‼️‼️‼️",
-      "status": "to do",
-      "priority": "urgent",
-      "due": null,
-      "assignees": [],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b9rk01c",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b9ct4dh",
-      "name": "Инесса Опт поздравить с ДР",
-      "status": "to do",
-      "priority": "urgent",
-      "due": "2027-04-12",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b9ct4dh",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b9ckz7y",
-      "name": "Выплата денег себе Кальян (проверить отчет,  дать задачу) жду",
-      "status": "to do",
-      "priority": "normal",
-      "due": "2026-10-26",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b9ckz7y",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b8q4y3m",
-      "name": "Илья поздравить с ДР",
-      "status": "to do",
-      "priority": "urgent",
-      "due": "2026-12-01",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b8q4y3m",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b8nwjam",
-      "name": "Лицензия 31.10.2027",
-      "status": "to do",
-      "priority": "low",
-      "due": "2027-07-01",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b8nwjam",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b8nwj9p",
-      "name": "Медицина сертификат летный до 13.09.2027 (решить как продлить)",
-      "status": "to do",
-      "priority": "low",
-      "due": "2027-06-15",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b8nwj9p",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b8nwj7t",
-      "name": "Английский лицензия 31.10.2026",
-      "status": "to do",
-      "priority": "low",
-      "due": "2026-10-26",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b8nwj7t",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b8hdvdg",
-      "name": "Мишель (сотрудница ОФ)",
-      "status": "to do",
-      "priority": "urgent",
-      "due": "2027-02-14",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b8hdvdg",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b8fhf5g",
-      "name": "Настя Виталика поздравить с ДР",
-      "status": "to do",
-      "priority": "urgent",
-      "due": "2027-02-09",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b8fhf5g",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b8ddw1x",
-      "name": "‼️Сита ортодонт завтра не забыть + поставить будильник",
-      "status": "to do",
-      "priority": "urgent",
-      "due": null,
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b8ddw1x",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b8dd6a7",
-      "name": "Блоггер - узнать за следующую поездку (жду ответ)",
-      "status": "to do",
-      "priority": "normal",
-      "due": "2027-05-03",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b8dd6a7",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b89dz9q",
-      "name": "Ирина Шекель созвон ВТ",
-      "status": "to do",
-      "priority": "urgent",
-      "due": "2026-11-17",
-      "assignees": [
-        "Rost",
-        "Ірина Шекель"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b89dz9q",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b89dz9g",
-      "name": "Ирина Шекель созвон ПН",
-      "status": "to do",
-      "priority": "urgent",
-      "due": "2026-11-16",
-      "assignees": [
-        "Rost",
-        "Ірина Шекель"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b89dz9g",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b83y10c",
-      "name": "Контроль Марина @ValentinaHozka/@marinaOdsk ОПЛАТЫ - спросить как дела?",
+      "id": "86bcxum51",
+      "name": "Вывести деньги из Specie",
       "status": "to do",
       "priority": "normal",
       "due": "2026-11-04",
@@ -891,7 +483,7 @@
         "Rost"
       ],
       "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b83y10c",
+      "url": "https://rosmater.github.io/cu/?t=86bcxum51",
       "tags": [],
       "freq": null
     },
@@ -910,1087 +502,38 @@
       "freq": null
     },
     {
-      "id": "86b80qmd7",
-      "name": "Богдан кооперасион поздравить с ДР",
-      "status": "to do",
-      "priority": "urgent",
-      "due": "2027-06-23",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b80qmd7",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b80qmb9",
-      "name": "Власов поздравить с ДР",
-      "status": "to do",
-      "priority": "urgent",
-      "due": "2027-06-13",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b80qmb9",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b80qm8a",
-      "name": "Эльвира поздравить с ДР",
-      "status": "to do",
-      "priority": "urgent",
-      "due": "2027-09-28",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b80qm8a",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b80qm7f",
-      "name": "Светлана Чебукина поздравить с ДР",
-      "status": "to do",
-      "priority": "urgent",
-      "due": "2027-03-01",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b80qm7f",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b80qm6h",
-      "name": "Наталья Полякова поздравить с ДР",
-      "status": "to do",
-      "priority": "urgent",
-      "due": "2027-03-31",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b80qm6h",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b80qm61",
-      "name": "Алексей Рей пастор поздравить с ДР",
-      "status": "to do",
-      "priority": "urgent",
-      "due": "2027-03-16",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b80qm61",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b80qm4z",
-      "name": "Литвиненко Наталья поздравить с ДР",
-      "status": "to do",
-      "priority": "urgent",
-      "due": "2027-01-01",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b80qm4z",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b80qm3u",
-      "name": "Ярослав Терещенко поздравить с ДР",
-      "status": "to do",
-      "priority": "urgent",
-      "due": "2027-01-05",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b80qm3u",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b7zvb9u",
-      "name": "Ирина Шекель созвон ЧТ",
-      "status": "to do",
-      "priority": "urgent",
-      "due": "2026-11-19",
-      "assignees": [
-        "Rost",
-        "Ірина Шекель"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b7zvb9u",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b7xjwdn",
-      "name": "💳 Аренда Колумбия квартира оплатить (коммунальные)",
+      "id": "86b83y10c",
+      "name": "Контроль Марина @ValentinaHozka/@marinaOdsk ОПЛАТЫ - спросить как дела?",
       "status": "to do",
       "priority": "normal",
-      "due": "2026-10-25",
+      "due": "2026-11-04",
       "assignees": [
         "Rost"
       ],
       "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b7xjwdn",
+      "url": "https://rosmater.github.io/cu/?t=86b83y10c",
       "tags": [],
       "freq": null
     },
     {
-      "id": "86b7wpgz2",
-      "name": "🛑Мама и бабушка сделать тест🛑 MyHeritage проверить статус в кабинете ОТМЕНИТЬ ПОДПИСКУ ГОДОВУЮ НА ОБНОВЛЕНИЯ",
-      "status": "to do",
-      "priority": "low",
-      "due": "2026-11-02",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b7wpgz2",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b7wnf25",
-      "name": "Энтони Медельин Гера поздравить с ДР",
-      "status": "to do",
-      "priority": "urgent",
-      "due": "2026-12-18",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b7wnf25",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b7wmv85",
-      "name": "СОЗВОН АДВОКАТ (1 января проверить) Симка лайф восстановить (ждем реакцию суда - чат с Алевтина)",
-      "status": "to do",
-      "priority": "urgent",
-      "due": "2026-11-09",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b7wmv85",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b7vk264",
-      "name": "Вася Кишинев поздравить с ДР",
-      "status": "to do",
-      "priority": "urgent",
-      "due": "2026-12-16",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b7vk264",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b7ub08j",
-      "name": "🎓 Испанский занятие (разбор грамматики, поговорить, рассказ)",
-      "status": "to do",
-      "priority": "urgent",
-      "due": "2026-10-30",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b7ub08j",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b7rcd9t",
-      "name": "БОТ-ЧАСТЬ: Анализы Сомос – надо сдавать что то? (записаться)",
-      "status": "in progress",
-      "priority": "normal",
-      "due": "2026-11-20",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b7rcd9t",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b7q2p9a",
-      "name": "Андрей НоН Стоп поздравить с ДР",
-      "status": "to do",
-      "priority": "urgent",
-      "due": "2026-12-04",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b7q2p9a",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b7n8pc5",
-      "name": "Явар нужно ли что то менять?",
-      "status": "to do",
-      "priority": "low",
-      "due": "2026-12-01",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b7n8pc5",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b7k95k6",
-      "name": "Ежедневный чеклист + привычки (помнить 1 час от подготовки к сну)",
+      "id": "86b6qphf1",
+      "name": "Колумбия записатся на СОН ??",
       "status": "to do",
       "priority": "normal",
-      "due": "2026-11-14",
+      "due": "2026-11-05",
       "assignees": [
         "Rost"
       ],
       "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b7k95k6",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b7k8c34",
-      "name": "Стас БД поздравить с ДР",
-      "status": "to do",
-      "priority": "urgent",
-      "due": "2027-09-09",
-      "assignees": [
-        "Rost"
+      "url": "https://rosmater.github.io/cu/?t=86b6qphf1",
+      "tags": [
+        "⚕️ здоровье"
       ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b7k8c34",
-      "tags": [],
       "freq": null
     },
     {
-      "id": "86b7k8c31",
-      "name": "Славик Рекечинский поздравить с ДР",
-      "status": "to do",
-      "priority": "urgent",
-      "due": "2026-12-08",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b7k8c31",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b7k8c2z",
-      "name": "Сережа Черкасов поздравить с ДР",
-      "status": "to do",
-      "priority": "urgent",
-      "due": "2027-09-16",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b7k8c2z",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b7k8c2x",
-      "name": "Сережа Джокер поздравить с ДР",
-      "status": "to do",
-      "priority": "urgent",
-      "due": "2027-08-07",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b7k8c2x",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b7k8c2u",
-      "name": "Серёжа Васильев поздравить с ДР",
-      "status": "to do",
-      "priority": "urgent",
-      "due": "2027-06-13",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b7k8c2u",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b7k8c2r",
-      "name": "Сережа Амазон поздравить с ДР",
-      "status": "to do",
-      "priority": "urgent",
-      "due": "2027-03-14",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b7k8c2r",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b7k8c2p",
-      "name": "Сергей Волков поздравить с ДР",
-      "status": "to do",
-      "priority": "urgent",
-      "due": "2027-07-12",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b7k8c2p",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b7k8c2m",
-      "name": "Саша Ярош поздравить с ДР",
-      "status": "to do",
-      "priority": "urgent",
-      "due": "2027-02-22",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b7k8c2m",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b7k8c2j",
-      "name": "Саша УЧ поздравить с ДР",
-      "status": "to do",
-      "priority": "urgent",
-      "due": "2027-02-01",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b7k8c2j",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b7k8c2f",
-      "name": "Саша Титов поздравить с ДР",
-      "status": "to do",
-      "priority": "urgent",
-      "due": "2027-06-16",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b7k8c2f",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b7k8c2c",
-      "name": "Саша Киви Шейх поздравить с ДР",
-      "status": "to do",
-      "priority": "urgent",
-      "due": "2027-02-22",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b7k8c2c",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b7k8c2a",
-      "name": "Руслан Дядя поздравить с ДР",
-      "status": "to do",
-      "priority": "urgent",
-      "due": "2027-06-12",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b7k8c2a",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b7k8c28",
-      "name": "Рус поздравить с ДР",
-      "status": "to do",
-      "priority": "urgent",
-      "due": "2027-05-25",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b7k8c28",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b7k8c22",
-      "name": "Петруха поздравить с ДР",
-      "status": "to do",
-      "priority": "urgent",
-      "due": "2027-09-05",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b7k8c22",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b7k8c21",
-      "name": "Оля поздравить с ДР",
-      "status": "to do",
-      "priority": "urgent",
-      "due": "2027-06-28",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b7k8c21",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b7k8c1y",
-      "name": "Новинский поздравить с ДР",
-      "status": "to do",
-      "priority": "urgent",
-      "due": "2027-04-02",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b7k8c1y",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b7k8c1w",
-      "name": "Никита Лобач поздравить с ДР",
-      "status": "to do",
-      "priority": "urgent",
-      "due": "2027-03-22",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b7k8c1w",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b7k8c1u",
-      "name": "Наташа Бухгалтер поздравить с ДР",
-      "status": "to do",
-      "priority": "urgent",
-      "due": "2027-07-11",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b7k8c1u",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b7k8c1r",
-      "name": "Наталья Альгирдаса поздравить с ДР",
-      "status": "to do",
-      "priority": "urgent",
-      "due": "2027-04-20",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b7k8c1r",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b7k8c1p",
-      "name": "Миша брат поздравить с ДР",
-      "status": "to do",
-      "priority": "urgent",
-      "due": "2027-04-26",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b7k8c1p",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b7k8c1j",
-      "name": "Марина Дед Валера поздравить с ДР",
-      "status": "to do",
-      "priority": "urgent",
-      "due": "2027-09-05",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b7k8c1j",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b7k8c1g",
-      "name": "Мама поздравить с ДР",
-      "status": "to do",
-      "priority": "urgent",
-      "due": "2027-08-22",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b7k8c1g",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b7k8c1e",
-      "name": "Макс Шостак поздравить с ДР",
-      "status": "to do",
-      "priority": "urgent",
-      "due": "2027-07-25",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b7k8c1e",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b7k8c1c",
-      "name": "Макс Халаф поздравить с ДР",
-      "status": "to do",
-      "priority": "urgent",
-      "due": "2027-04-16",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b7k8c1c",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b7k8c1a",
-      "name": "Макс Соборка поздравить с ДР",
-      "status": "to do",
-      "priority": "urgent",
-      "due": "2027-03-19",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b7k8c1a",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b7k8c18",
-      "name": "Макс Левицкий поздравить с ДР",
-      "status": "to do",
-      "priority": "urgent",
-      "due": "2027-06-09",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b7k8c18",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b7k8c15",
-      "name": "Литвишко поздравить с ДР",
-      "status": "to do",
-      "priority": "urgent",
-      "due": "2027-04-10",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b7k8c15",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b7k8c13",
-      "name": "Лио поздравить с ДР",
-      "status": "to do",
-      "priority": "urgent",
-      "due": "2027-04-09",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b7k8c13",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b7k8c11",
-      "name": "Ларик поздравить с ДР",
-      "status": "to do",
-      "priority": "urgent",
-      "due": "2027-05-08",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b7k8c11",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b7k8c0z",
-      "name": "Ладо поздравить с ДР",
-      "status": "to do",
-      "priority": "urgent",
-      "due": "2027-02-23",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b7k8c0z",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b7k8c0x",
-      "name": "Кот М поздравить с ДР",
-      "status": "to do",
-      "priority": "urgent",
-      "due": "2027-07-02",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b7k8c0x",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b7k8c0v",
-      "name": "Кот Костя поздравить с ДР",
-      "status": "to do",
-      "priority": "urgent",
-      "due": "2027-04-10",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b7k8c0v",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b7k8c0r",
-      "name": "Костя Бобер поздравить с ДР",
-      "status": "to do",
-      "priority": "urgent",
-      "due": "2027-06-12",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b7k8c0r",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b7k8c0p",
-      "name": "Койчев поздравить с ДР",
-      "status": "to do",
-      "priority": "urgent",
-      "due": "2027-04-14",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b7k8c0p",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b7k8c0m",
-      "name": "Ирина Шекель поздравить с ДР",
-      "status": "to do",
-      "priority": "urgent",
-      "due": "2027-06-02",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b7k8c0m",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b7k8c0h",
-      "name": "Ирина Тетя (Германия) поздравить с ДР",
-      "status": "to do",
-      "priority": "urgent",
-      "due": "2027-09-13",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b7k8c0h",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b7k8c0f",
-      "name": "Ирина Ортодонт поздравить с ДР",
-      "status": "to do",
-      "priority": "urgent",
-      "due": "2027-04-20",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b7k8c0f",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b7k8c0d",
-      "name": "Ира ж деда поздравить с ДР",
-      "status": "to do",
-      "priority": "urgent",
-      "due": "2027-08-24",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b7k8c0d",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b7k8c0b",
-      "name": "Игорь Адвокат Львов поздравить с ДР",
-      "status": "to do",
-      "priority": "urgent",
-      "due": "2027-05-28",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b7k8c0b",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b7k8c09",
-      "name": "Женя Чернышенко (Тай) поздравить с ДР",
-      "status": "to do",
-      "priority": "urgent",
-      "due": "2027-06-29",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b7k8c09",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b7k8c07",
-      "name": "Женя Измаил поздравить с ДР",
-      "status": "to do",
-      "priority": "urgent",
-      "due": "2027-07-08",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b7k8c07",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b7k8c05",
-      "name": "Елена Испанский поздравить с ДР",
-      "status": "to do",
-      "priority": "urgent",
-      "due": "2027-04-29",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b7k8c05",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b7k8c03",
-      "name": "Дядя Виталий поздравить с ДР",
-      "status": "to do",
-      "priority": "urgent",
-      "due": "2026-12-24",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b7k8c03",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b7k8bzz",
-      "name": "Диас поздравить с ДР",
-      "status": "to do",
-      "priority": "urgent",
-      "due": "2027-08-01",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b7k8bzz",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b7k8bzx",
-      "name": "Диана поздравить с ДР",
-      "status": "to do",
-      "priority": "urgent",
-      "due": "2027-06-11",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b7k8bzx",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b7k8bzp",
-      "name": "Деня ДЧ поздравить с ДР",
-      "status": "to do",
-      "priority": "urgent",
-      "due": "2026-12-14",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b7k8bzp",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b7k8bzm",
-      "name": "Дед Валера поздравить с ДР",
-      "status": "to do",
-      "priority": "urgent",
-      "due": "2027-02-17",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b7k8bzm",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b7k8bzk",
-      "name": "Голубицкий поздравить с ДР",
-      "status": "to do",
-      "priority": "urgent",
-      "due": "2027-09-01",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b7k8bzk",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b7k8bzd",
-      "name": "Вовка ДР помянуть братишку",
-      "status": "to do",
-      "priority": "urgent",
-      "due": "2027-08-10",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b7k8bzd",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b7k8bz9",
-      "name": "Виолетта поздравить с ДР",
-      "status": "to do",
-      "priority": "urgent",
-      "due": "2027-05-17",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b7k8bz9",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b7k8bz7",
-      "name": "Вика Азия поздравить с ДР",
-      "status": "to do",
-      "priority": "urgent",
-      "due": "2027-02-22",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b7k8bz7",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b7k8bz3",
-      "name": "Баба поздравить с ДР",
-      "status": "to do",
-      "priority": "urgent",
-      "due": "2027-07-01",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b7k8bz3",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b7k8bz1",
-      "name": "Андрей Ремонт поздравить с ДР",
-      "status": "to do",
-      "priority": "urgent",
-      "due": "2026-12-10",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b7k8bz1",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b7k8byy",
-      "name": "Андрей Коп поздравить с ДР",
-      "status": "to do",
-      "priority": "urgent",
-      "due": "2027-01-01",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b7k8byy",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b7k8byw",
-      "name": "Андрей Ворон поздравить с ДР",
-      "status": "to do",
-      "priority": "urgent",
-      "due": "2027-09-05",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b7k8byw",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b7k8byr",
-      "name": "Альгирдас поздравить с ДР",
-      "status": "to do",
-      "priority": "urgent",
-      "due": "2027-08-17",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b7k8byr",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b7k87wp",
-      "name": "Раз в год проверка о ком забыл",
-      "status": "to do",
-      "priority": "normal",
-      "due": "2027-01-09",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b7k87wp",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b7k868z",
-      "name": "📞 Кот набрать",
-      "status": "to do",
-      "priority": "normal",
-      "due": "2026-11-21",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b7k868z",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b7k85rt",
-      "name": "📞 Маслов, Женя, Славик, Джокер, Ларик, Бобер, Ворон, Элвис, СережаАмазон",
+      "id": "86bbjq18f",
+      "name": "(сканы) Кейс вынесли все вещи - подумать и подготовиться / с разрушкением дома",
       "status": "to do",
       "priority": "normal",
       "due": "2026-11-07",
@@ -1998,91 +541,7 @@
         "Rost"
       ],
       "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b7k85rt",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b7k85ke",
-      "name": "(как дела?) 📞 Папа набрать - как дела? (жду Татьяна окно времени связи)",
-      "status": "to do",
-      "priority": "normal",
-      "due": "2026-10-27",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b7k85ke",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b7k85dn",
-      "name": "📞 Миша брат написать",
-      "status": "to do",
-      "priority": "normal",
-      "due": "2026-11-07",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b7k85dn",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b7k85bw",
-      "name": "📞 Ваня набрать",
-      "status": "to do",
-      "priority": "normal",
-      "due": "2026-11-21",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b7k85bw",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b7k8525",
-      "name": "📞 Лио (набрать) - поговорить кто на связи в случае реальной проблемы 2025к",
-      "status": "to do",
-      "priority": "normal",
-      "due": "2026-10-25",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b7k8525",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b7k81e5",
-      "name": "📞 Дед Валера набрать",
-      "status": "to do",
-      "priority": "normal",
-      "due": "2026-11-07",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b7k81e5",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b7k81df",
-      "name": "📞 Баба набрать",
-      "status": "to do",
-      "priority": "normal",
-      "due": "2026-11-01",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b7k81df",
+      "url": "https://rosmater.github.io/cu/?t=86bbjq18f",
       "tags": [],
       "freq": null
     },
@@ -2115,6 +574,48 @@
       "freq": null
     },
     {
+      "id": "86b7k81e5",
+      "name": "📞 Дед Валера набрать",
+      "status": "to do",
+      "priority": "normal",
+      "due": "2026-11-07",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86b7k81e5",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b7k85rt",
+      "name": "📞 Маслов, Женя, Славик, Джокер, Ларик, Бобер, Ворон, Элвис, СережаАмазон",
+      "status": "to do",
+      "priority": "normal",
+      "due": "2026-11-07",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86b7k85rt",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b7k85dn",
+      "name": "📞 Миша брат написать",
+      "status": "to do",
+      "priority": "normal",
+      "due": "2026-11-07",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86b7k85dn",
+      "tags": [],
+      "freq": null
+    },
+    {
       "id": "86b7k81bu",
       "name": "📞 Шейх набрать",
       "status": "to do",
@@ -2129,283 +630,19 @@
       "freq": null
     },
     {
-      "id": "86b7k7qph",
-      "name": "Раз в 3 месяца",
+      "id": "86bcnmdvt",
+      "name": "Вывести BTC в холодное хранение",
       "status": "to do",
       "priority": "normal",
-      "due": "2027-01-11",
+      "due": "2026-11-08",
       "assignees": [
         "Rost"
       ],
       "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b7k7qph",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b7k7jp4",
-      "name": "БОТ-ЧАСТЬ: Еженедельный понедельник",
-      "status": "to do",
-      "priority": "high",
-      "due": "2026-10-19",
-      "assignees": [
-        "Rost"
+      "url": "https://rosmater.github.io/cu/?t=86bcnmdvt",
+      "tags": [
+        "🎯 фокус"
       ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b7k7jp4",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b7k7jnx",
-      "name": "БОТ-ЧАСТЬ: Ежемесячный",
-      "status": "for check",
-      "priority": "normal",
-      "due": "2026-11-02",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b7k7jnx",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b7k7d75",
-      "name": "Полив цветов в квартире",
-      "status": "to do",
-      "priority": "low",
-      "due": "2026-11-01",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b7k7d75",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b7j38pw",
-      "name": "Тренировка ср",
-      "status": "to do",
-      "priority": "urgent",
-      "due": "2026-11-18",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b7j38pw",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b7heg8d",
-      "name": "Сара поздравить с ДР + подарок",
-      "status": "to do",
-      "priority": "urgent",
-      "due": "2027-01-28",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b7heg8d",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b7hcb3a",
-      "name": "Румынский паспорт (была ли аппеляция? вынесли ли решение?)",
-      "status": "to do",
-      "priority": "urgent",
-      "due": "2026-11-03",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b7hcb3a",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b7gkttx",
-      "name": "📞 Коля набрать (выставка тел + аэротруба)",
-      "status": "to do",
-      "priority": "high",
-      "due": "2026-10-26",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b7gkttx",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b7gkq21",
-      "name": "Люба СС поздравить с ДР",
-      "status": "to do",
-      "priority": "urgent",
-      "due": "2027-03-29",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b7gkq21",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b7gkpwg",
-      "name": "Паша поздравить с ДР",
-      "status": "to do",
-      "priority": "urgent",
-      "due": "2027-07-03",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b7gkpwg",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b7gkpq9",
-      "name": "Денис Программист поздравить с ДР",
-      "status": "to do",
-      "priority": "urgent",
-      "due": "2027-04-21",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b7gkpq9",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b7gkpmk",
-      "name": "Алла  поздравить с ДР",
-      "status": "to do",
-      "priority": "urgent",
-      "due": "2027-09-11",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b7gkpmk",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b7gkphe",
-      "name": "Яна Фин поздравить с ДР",
-      "status": "to do",
-      "priority": "urgent",
-      "due": "2027-04-29",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b7gkphe",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b7gkper",
-      "name": "Юля Вепренцева поздравить с ДР",
-      "status": "to do",
-      "priority": "urgent",
-      "due": "2027-01-09",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b7gkper",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b7gkp9c",
-      "name": "Вика (жена Тараса) поздравить с ДР",
-      "status": "to do",
-      "priority": "urgent",
-      "due": "2027-07-29",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b7gkp9c",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b7gkp4m",
-      "name": "Настя СС потеряшка  поздравить с ДР",
-      "status": "to do",
-      "priority": "urgent",
-      "due": "2027-08-18",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b7gkp4m",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b7gkp1b",
-      "name": "Шаман поздравить с ДР",
-      "status": "to do",
-      "priority": "urgent",
-      "due": "2027-08-25",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b7gkp1b",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b7gknv3",
-      "name": "Тигран поздравить с ДР",
-      "status": "to do",
-      "priority": "urgent",
-      "due": "2027-06-30",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b7gknv3",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b7gjjgb",
-      "name": "Тренировка пт",
-      "status": "to do",
-      "priority": "urgent",
-      "due": "2026-11-20",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b7gjjgb",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b7gjjg1",
-      "name": "Тренировка пн",
-      "status": "to do",
-      "priority": "urgent",
-      "due": "2026-11-16",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b7gjjg1",
-      "tags": [],
       "freq": null
     },
     {
@@ -2423,210 +660,132 @@
       "freq": null
     },
     {
-      "id": "86b791cuk",
-      "name": "Элвис поздравить с ДР",
+      "id": "86b7wmv85",
+      "name": "СОЗВОН АДВОКАТ (1 января проверить) Симка лайф восстановить (ждем реакцию суда - чат с Алевтина)",
       "status": "to do",
       "priority": "urgent",
-      "due": "2027-10-29",
+      "due": "2026-11-09",
       "assignees": [
         "Rost"
       ],
       "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b791cuk",
+      "url": "https://rosmater.github.io/cu/?t=86b7wmv85",
       "tags": [],
       "freq": null
     },
     {
-      "id": "86b791cnh",
-      "name": "Стела Тетя поздравить с ДР",
-      "status": "to do",
-      "priority": "urgent",
-      "due": "2027-10-21",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b791cnh",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b791c7w",
-      "name": "Леша Касаткин поздравить с ДР",
-      "status": "to do",
-      "priority": "urgent",
-      "due": "2027-11-10",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b791c7w",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b791c31",
-      "name": "Женя Соларгепс поздравить с ДР",
-      "status": "to do",
-      "priority": "urgent",
-      "due": "2027-11-09",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b791c31",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b791bw0",
-      "name": "Люда Тетя поздравить с ДР",
-      "status": "to do",
-      "priority": "urgent",
-      "due": "2026-11-23",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b791bw0",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b791bp7",
-      "name": "Папа поздравить с ДР",
-      "status": "to do",
-      "priority": "urgent",
-      "due": "2027-11-05",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b791bp7",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b791b8e",
-      "name": "Ира (мама Миши) поздравить с ДР",
-      "status": "to do",
-      "priority": "urgent",
-      "due": "2026-11-16",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b791b8e",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b791a9x",
-      "name": "Дед поздравить с ДР",
-      "status": "to do",
-      "priority": "urgent",
-      "due": "2027-10-05",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b791a9x",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b7919z9",
-      "name": "Тарас поздравить с ДР",
-      "status": "to do",
-      "priority": "urgent",
-      "due": "2027-10-31",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b7919z9",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b7688n9",
-      "name": "💳 Аренда Колумбия офис оплатить (кухня и скидка) жду кухню",
+      "id": "86bd0vyb9",
+      "name": "Забрать капы у ортодонта",
       "status": "to do",
       "priority": "normal",
-      "due": "2026-10-26",
+      "due": "2026-11-10",
       "assignees": [
         "Rost"
       ],
       "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b7688n9",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b73v133",
-      "name": "Кобзов поздравить с ДР",
-      "status": "to do",
-      "priority": "urgent",
-      "due": "2027-10-25",
-      "assignees": [
-        "Rost"
+      "url": "https://rosmater.github.io/cu/?t=86bd0vyb9",
+      "tags": [
+        "⚕️ здоровье"
       ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b73v133",
-      "tags": [],
       "freq": null
     },
     {
-      "id": "86b73hvkm",
-      "name": "(Проверить пополнение всех листов) Аккаунты Телеграмм - Телефоны пополнения (актуализация)",
-      "status": "to do",
-      "priority": "urgent",
-      "due": "2026-12-06",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b73hvkm",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b7174m4",
-      "name": "БАБА ТИЕ (не забыть забрать)",
-      "status": "to do",
-      "priority": "normal",
-      "due": null,
-      "assignees": [],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b7174m4",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b716gh8",
-      "name": "Сита ортодонт (28 октября 14:00)",
-      "status": "to do",
-      "priority": "urgent",
-      "due": "2026-10-28",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b716gh8",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b70dhaq",
-      "name": "Проверить кредитный лимит и закрыть (жду) списались проценты?",
+      "id": "86bcma7tp",
+      "name": "Найти лофт побольше в Base Loft (долгосрочная аренда)",
       "status": "to do",
       "priority": "high",
-      "due": "2026-10-27",
+      "due": "2026-11-10",
       "assignees": [
         "Rost"
       ],
       "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b70dhaq",
+      "url": "https://rosmater.github.io/cu/?t=86bcma7tp",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86bcn3c3u",
+      "name": "Проверить команду на iPhone для передачи шагов из «Здоровья» боту",
+      "status": "for check",
+      "priority": "normal",
+      "due": "2026-11-11",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86bcn3c3u",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b6q8m9x",
+      "name": "БОТ: (КОСМО РЕШИТЬ + СЛЕШ) Банки ЛЛЦ письма и ЦРМ - JERZ помощь",
+      "status": "for check",
+      "priority": "urgent",
+      "due": "2026-11-12",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86b6q8m9x",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86bcy9d32",
+      "name": "БОТ: Revolut personal — проверить закрытие + вывод остатка",
+      "status": "to do",
+      "priority": "normal",
+      "due": "2026-11-12",
+      "assignees": [],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86bcy9d32",
+      "tags": [
+        "bot"
+      ],
+      "freq": null
+    },
+    {
+      "id": "86bbt0v0n",
+      "name": "(после теста ЭирДроид) Дима - созвониться насчет Т и автоматизации",
+      "status": "to do",
+      "priority": "normal",
+      "due": "2026-11-14",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86bbt0v0n",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86bd1rddh",
+      "name": "БОТ-ЧАСТЬ: Удалить пластину (запись к врачу)",
+      "status": "to do",
+      "priority": "normal",
+      "due": "2026-11-14",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86bd1rddh",
+      "tags": [
+        "⚕️ здоровье"
+      ],
+      "freq": null
+    },
+    {
+      "id": "86b7k95k6",
+      "name": "Ежедневный чеклист + привычки (помнить 1 час от подготовки к сну)",
+      "status": "to do",
+      "priority": "normal",
+      "due": "2026-11-14",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86b7k95k6",
       "tags": [],
       "freq": null
     },
@@ -2646,59 +805,16 @@
       "freq": null
     },
     {
-      "id": "86b6z2gn2",
-      "name": "Ирина Шекель созвон СР",
-      "status": "to do",
-      "priority": "urgent",
-      "due": "2026-11-18",
-      "assignees": [
-        "Rost",
-        "Ірина Шекель"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b6z2gn2",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b6xp2ca",
-      "name": "БЕЗОПАСНОСТЬ: Тревожная кнопка-трекер / Сигналка-позже / Теги - нужно что то?",
+      "id": "86b9xgyzm",
+      "name": "Проверить резервы и внести данные",
       "status": "to do",
       "priority": "normal",
-      "due": "2026-11-22",
+      "due": "2026-11-15",
       "assignees": [
         "Rost"
       ],
       "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b6xp2ca",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b6vcfu9",
-      "name": "Андрей Многотуров поздравить с ДР",
-      "status": "to do",
-      "priority": "urgent",
-      "due": "2026-11-19",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b6vcfu9",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b6v8twt",
-      "name": "Максим Колумбия-Канада-Киев поздравить с ДР",
-      "status": "to do",
-      "priority": "urgent",
-      "due": "2027-09-28",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b6v8twt",
+      "url": "https://rosmater.github.io/cu/?t=86b9xgyzm",
       "tags": [],
       "freq": null
     },
@@ -2717,142 +833,280 @@
       "freq": null
     },
     {
-      "id": "86b6taumx",
-      "name": "Контракт Марина - завершение (подсчеты/переоформления) (жду 1000 евро)",
-      "status": "to do",
-      "priority": "normal",
-      "due": "2026-10-26",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b6taumx",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b6qq6r9",
-      "name": "🎓 Испанский занятие (поговорить и рассказ)",
+      "id": "86b791b8e",
+      "name": "Ира (мама Миши) поздравить с ДР",
       "status": "to do",
       "priority": "urgent",
-      "due": "2026-10-26",
+      "due": "2026-11-16",
       "assignees": [
         "Rost"
       ],
       "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b6qq6r9",
+      "url": "https://rosmater.github.io/cu/?t=86b791b8e",
       "tags": [],
       "freq": null
     },
     {
-      "id": "86b6qq509",
-      "name": "БОТ-ЧАСТЬ: Фин подбить баланс (30м) (отчет Алексей)",
+      "id": "86b89dz9g",
+      "name": "Ирина Шекель созвон ПН",
+      "status": "to do",
+      "priority": "urgent",
+      "due": "2026-11-16",
+      "assignees": [
+        "Rost",
+        "Ірина Шекель"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86b89dz9g",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86bbnb0jv",
+      "name": "Профиль Мил сделать л - Нужен Вотсап другой",
+      "status": "to do",
+      "priority": "normal",
+      "due": "2026-11-16",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86bbnb0jv",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b7gjjg1",
+      "name": "Тренировка пн",
+      "status": "to do",
+      "priority": "urgent",
+      "due": "2026-11-16",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86b7gjjg1",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b89dz9q",
+      "name": "Ирина Шекель созвон ВТ",
+      "status": "to do",
+      "priority": "urgent",
+      "due": "2026-11-17",
+      "assignees": [
+        "Rost",
+        "Ірина Шекель"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86b89dz9q",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86bcnrmt7",
+      "name": "🥊 Бокс 10:00–11:30 (Johann Ruiz)",
+      "status": "to do",
+      "priority": "normal",
+      "due": "2026-11-17",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86bcnrmt7",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b6z2gn2",
+      "name": "Ирина Шекель созвон СР",
+      "status": "to do",
+      "priority": "urgent",
+      "due": "2026-11-18",
+      "assignees": [
+        "Rost",
+        "Ірина Шекель"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86b6z2gn2",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b7j38pw",
+      "name": "Тренировка ср",
+      "status": "to do",
+      "priority": "urgent",
+      "due": "2026-11-18",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86b7j38pw",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b6vcfu9",
+      "name": "Андрей Многотуров поздравить с ДР",
+      "status": "to do",
+      "priority": "urgent",
+      "due": "2026-11-19",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86b6vcfu9",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86bd3bfmv",
+      "name": "Выяснить дату консультации ортодонта",
+      "status": "to do",
+      "priority": "normal",
+      "due": "2026-11-19",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86bd3bfmv",
+      "tags": [
+        "⚕️ здоровье"
+      ],
+      "freq": null
+    },
+    {
+      "id": "86bd3b4vu",
+      "name": "Записаться на профчистку зубов (на 27–30.11)",
+      "status": "to do",
+      "priority": "normal",
+      "due": "2026-11-19",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86bd3b4vu",
+      "tags": [
+        "⚕️ здоровье"
+      ],
+      "freq": null
+    },
+    {
+      "id": "86b7zvb9u",
+      "name": "Ирина Шекель созвон ЧТ",
+      "status": "to do",
+      "priority": "urgent",
+      "due": "2026-11-19",
+      "assignees": [
+        "Rost",
+        "Ірина Шекель"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86b7zvb9u",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b7rcd9t",
+      "name": "БОТ-ЧАСТЬ: Анализы Сомос – надо сдавать что то? (записаться)",
       "status": "in progress",
-      "priority": "high",
-      "due": "2026-10-18",
+      "priority": "normal",
+      "due": "2026-11-20",
       "assignees": [
         "Rost"
       ],
       "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b6qq509",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b6qpkvd",
-      "name": "Права книжечка (колумбийская - продлить) (украинская - поискать) - как дела?",
-      "status": "to do",
-      "priority": "high",
-      "due": "2027-06-07",
-      "assignees": [
-        "Rost"
+      "url": "https://rosmater.github.io/cu/?t=86b7rcd9t",
+      "tags": [
+        "⚕️ здоровье"
       ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b6qpkvd",
-      "tags": [],
       "freq": null
     },
     {
-      "id": "86b6qpktf",
-      "name": "Болдеринг внести в план активностей (как нибудь)",
+      "id": "86bd3b4vd",
+      "name": "Контроль у Очоа (челюстно-лицевой) — 9:30",
       "status": "to do",
       "priority": "normal",
-      "due": "2027-01-01",
+      "due": "2026-11-20",
       "assignees": [
         "Rost"
       ],
       "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b6qpktf",
-      "tags": [],
+      "url": "https://rosmater.github.io/cu/?t=86bd3b4vd",
+      "tags": [
+        "⚕️ здоровье"
+      ],
       "freq": null
     },
     {
-      "id": "86b6qphww",
-      "name": "Андрей начать думать про ДР (3 июля)",
+      "id": "86b7gjjgb",
+      "name": "Тренировка пт",
       "status": "to do",
       "priority": "urgent",
-      "due": "2027-06-17",
+      "due": "2026-11-20",
       "assignees": [
         "Rost"
       ],
       "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b6qphww",
+      "url": "https://rosmater.github.io/cu/?t=86b7gjjgb",
       "tags": [],
       "freq": null
     },
     {
-      "id": "86b6qphhd",
-      "name": "красный переулок долг как дела? (узнать сначала сумму долга Вика)",
+      "id": "86b7k85bw",
+      "name": "📞 Ваня набрать",
       "status": "to do",
       "priority": "normal",
-      "due": "2026-11-30",
+      "due": "2026-11-21",
       "assignees": [
         "Rost"
       ],
       "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b6qphhd",
+      "url": "https://rosmater.github.io/cu/?t=86b7k85bw",
       "tags": [],
       "freq": null
     },
     {
-      "id": "86b6qphf1",
-      "name": "Колумбия записатся на СОН ??",
+      "id": "86b7k868z",
+      "name": "📞 Кот набрать",
       "status": "to do",
       "priority": "normal",
-      "due": "2026-11-05",
+      "due": "2026-11-21",
       "assignees": [
         "Rost"
       ],
       "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b6qphf1",
+      "url": "https://rosmater.github.io/cu/?t=86b7k868z",
       "tags": [],
       "freq": null
     },
     {
-      "id": "86b6qphcd",
-      "name": "Заказать ПРЕП",
+      "id": "86b6xp2ca",
+      "name": "БЕЗОПАСНОСТЬ: Тревожная кнопка-трекер / Сигналка-позже / Теги - нужно что то?",
       "status": "to do",
       "priority": "normal",
-      "due": "2026-11-29",
+      "due": "2026-11-22",
       "assignees": [
         "Rost"
       ],
       "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b6qphcd",
+      "url": "https://rosmater.github.io/cu/?t=86b6xp2ca",
       "tags": [],
       "freq": null
     },
     {
-      "id": "86b6qph33",
-      "name": "Одрекс страховку продлить",
+      "id": "86b791bw0",
+      "name": "Люда Тетя поздравить с ДР",
       "status": "to do",
-      "priority": "high",
-      "due": "2027-07-19",
+      "priority": "urgent",
+      "due": "2026-11-23",
       "assignees": [
         "Rost"
       ],
       "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b6qph33",
+      "url": "https://rosmater.github.io/cu/?t=86b791bw0",
       "tags": [],
       "freq": null
     },
@@ -2871,98 +1125,258 @@
       "freq": null
     },
     {
-      "id": "86b6qp6nd",
-      "name": "Витала поздравить с ДР",
+      "id": "86b6qphcd",
+      "name": "Заказать ПРЕП",
+      "status": "to do",
+      "priority": "normal",
+      "due": "2026-11-29",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86b6qphcd",
+      "tags": [
+        "⚕️ здоровье"
+      ],
+      "freq": null
+    },
+    {
+      "id": "86b6qphhd",
+      "name": "красный переулок долг как дела? (узнать сначала сумму долга Вика)",
+      "status": "to do",
+      "priority": "normal",
+      "due": "2026-11-30",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86b6qphhd",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86bcxunbw",
+      "name": "Pago: комиссия Maria MR Med (HR MrSupremo) — след. месяц",
+      "status": "to do",
+      "priority": "normal",
+      "due": "2026-12-01",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86bcxunbw",
+      "tags": [
+        "dating"
+      ],
+      "freq": null
+    },
+    {
+      "id": "86b8q4y3m",
+      "name": "Илья поздравить с ДР",
       "status": "to do",
       "priority": "urgent",
-      "due": "2027-09-26",
+      "due": "2026-12-01",
       "assignees": [
         "Rost"
       ],
       "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b6qp6nd",
+      "url": "https://rosmater.github.io/cu/?t=86b8q4y3m",
       "tags": [],
       "freq": null
     },
     {
-      "id": "86b6qnxn8",
-      "name": "Подать на новую визу колумбия - какой план?",
+      "id": "86b7n8pc5",
+      "name": "Явар нужно ли что то менять?",
+      "status": "to do",
+      "priority": "low",
+      "due": "2026-12-01",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86b7n8pc5",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b7q2p9a",
+      "name": "Андрей НоН Стоп поздравить с ДР",
       "status": "to do",
       "priority": "urgent",
-      "due": "2027-05-01",
+      "due": "2026-12-04",
       "assignees": [
         "Rost"
       ],
       "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b6qnxn8",
+      "url": "https://rosmater.github.io/cu/?t=86b7q2p9a",
       "tags": [],
       "freq": null
     },
     {
-      "id": "86b6q93pc",
-      "name": "КОРЬ ПРОВЕРИТЬ (корь и гепатит бустер + Engerix-B плюс Havrix) Проверить все ли по списку сделано ",
+      "id": "86b73hvkm",
+      "name": "(Проверить пополнение всех листов) Аккаунты Телеграмм - Телефоны пополнения (актуализация)",
       "status": "to do",
-      "priority": "normal",
-      "due": "2026-11-03",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b6q93pc",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b6q93gw",
-      "name": "Сделать вакцину Typhim Vi - Fiebre T Foldea 22.07.28",
-      "status": "to do",
-      "priority": "normal",
-      "due": "2028-07-17",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b6q93gw",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b6q92zn",
-      "name": "Сделать вакцину Verorab бустер + Influenza на 27.09.27",
-      "status": "to do",
-      "priority": "normal",
-      "due": "2027-09-26",
-      "assignees": [
-        "Rost"
-      ],
-      "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b6q92zn",
-      "tags": [],
-      "freq": null
-    },
-    {
-      "id": "86b6q8m9x",
-      "name": "БОТ: (КОСМО РЕШИТЬ + СЛЕШ) Банки ЛЛЦ письма и ЦРМ - JERZ помощь",
-      "status": "for check",
       "priority": "urgent",
-      "due": "2026-11-12",
+      "due": "2026-12-06",
       "assignees": [
         "Rost"
       ],
       "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b6q8m9x",
+      "url": "https://rosmater.github.io/cu/?t=86b73hvkm",
       "tags": [],
       "freq": null
     },
     {
-      "id": "86b6q811a",
-      "name": "Подать заявку на кредит Cajamar",
+      "id": "86b7k8c31",
+      "name": "Славик Рекечинский поздравить с ДР",
+      "status": "to do",
+      "priority": "urgent",
+      "due": "2026-12-08",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86b7k8c31",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b7k8bz1",
+      "name": "Андрей Ремонт поздравить с ДР",
+      "status": "to do",
+      "priority": "urgent",
+      "due": "2026-12-10",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86b7k8bz1",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b7k8bzp",
+      "name": "Деня ДЧ поздравить с ДР",
+      "status": "to do",
+      "priority": "urgent",
+      "due": "2026-12-14",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86b7k8bzp",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86bappcce",
+      "name": "Владислав Оливино поздравить с ДР",
+      "status": "to do",
+      "priority": "urgent",
+      "due": "2026-12-15",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86bappcce",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b7vk264",
+      "name": "Вася Кишинев поздравить с ДР",
+      "status": "to do",
+      "priority": "urgent",
+      "due": "2026-12-16",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86b7vk264",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b7wnf25",
+      "name": "Энтони Медельин Гера поздравить с ДР",
+      "status": "to do",
+      "priority": "urgent",
+      "due": "2026-12-18",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86b7wnf25",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b7k8c03",
+      "name": "Дядя Виталий поздравить с ДР",
+      "status": "to do",
+      "priority": "urgent",
+      "due": "2026-12-24",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86b7k8c03",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86bayeenr",
+      "name": "Пополнить местную симку на 10000-20000 (раз в 3 месяца) моно",
       "status": "to do",
       "priority": "normal",
-      "due": null,
-      "assignees": [],
+      "due": "2026-12-31",
+      "assignees": [
+        "Rost"
+      ],
       "list": "Personal",
-      "url": "https://rosmater.github.io/cu/?t=86b6q811a",
+      "url": "https://rosmater.github.io/cu/?t=86bayeenr",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b7k8byy",
+      "name": "Андрей Коп поздравить с ДР",
+      "status": "to do",
+      "priority": "urgent",
+      "due": "2027-01-01",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86b7k8byy",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b6qpktf",
+      "name": "Болдеринг внести в план активностей (как нибудь)",
+      "status": "to do",
+      "priority": "normal",
+      "due": "2027-01-01",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86b6qpktf",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b80qm4z",
+      "name": "Литвиненко Наталья поздравить с ДР",
+      "status": "to do",
+      "priority": "urgent",
+      "due": "2027-01-01",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86b80qm4z",
       "tags": [],
       "freq": null
     },
@@ -2981,18 +1395,1668 @@
       "freq": null
     },
     {
-      "id": "86ba3c1x4",
-      "name": "(Контракт на работу, подготовка к ПМЖ) ПАРАГВАЙ (183 дня в году)",
-      "status": "for check",
-      "priority": "normal",
-      "due": "2026-10-15",
+      "id": "86b80qm3u",
+      "name": "Ярослав Терещенко поздравить с ДР",
+      "status": "to do",
+      "priority": "urgent",
+      "due": "2027-01-05",
       "assignees": [
         "Rost"
       ],
-      "list": "Сервисная доска Недвижимость",
-      "url": "https://rosmater.github.io/cu/?t=86ba3c1x4",
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86b80qm3u",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b7k87wp",
+      "name": "Раз в год проверка о ком забыл",
+      "status": "to do",
+      "priority": "normal",
+      "due": "2027-01-09",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86b7k87wp",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b7gkper",
+      "name": "Юля Вепренцева поздравить с ДР",
+      "status": "to do",
+      "priority": "urgent",
+      "due": "2027-01-09",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86b7gkper",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b7k7qph",
+      "name": "Раз в 3 месяца",
+      "status": "to do",
+      "priority": "normal",
+      "due": "2027-01-11",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86b7k7qph",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86bappd36",
+      "name": "Иветта Оливино поздравить с ДР",
+      "status": "to do",
+      "priority": "urgent",
+      "due": "2027-01-23",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86bappd36",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b7heg8d",
+      "name": "Сара поздравить с ДР + подарок",
+      "status": "to do",
+      "priority": "urgent",
+      "due": "2027-01-28",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86b7heg8d",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b7k8c2j",
+      "name": "Саша УЧ поздравить с ДР",
+      "status": "to do",
+      "priority": "urgent",
+      "due": "2027-02-01",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86b7k8c2j",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b8fhf5g",
+      "name": "Настя Виталика поздравить с ДР",
+      "status": "to do",
+      "priority": "urgent",
+      "due": "2027-02-09",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86b8fhf5g",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b8hdvdg",
+      "name": "Мишель (сотрудница ОФ)",
+      "status": "to do",
+      "priority": "urgent",
+      "due": "2027-02-14",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86b8hdvdg",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b7k8bzm",
+      "name": "Дед Валера поздравить с ДР",
+      "status": "to do",
+      "priority": "urgent",
+      "due": "2027-02-17",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86b7k8bzm",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b7k8bz7",
+      "name": "Вика Азия поздравить с ДР",
+      "status": "to do",
+      "priority": "urgent",
+      "due": "2027-02-22",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86b7k8bz7",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b7k8c2c",
+      "name": "Саша Киви Шейх поздравить с ДР",
+      "status": "to do",
+      "priority": "urgent",
+      "due": "2027-02-22",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86b7k8c2c",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b7k8c2m",
+      "name": "Саша Ярош поздравить с ДР",
+      "status": "to do",
+      "priority": "urgent",
+      "due": "2027-02-22",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86b7k8c2m",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b7k8c0z",
+      "name": "Ладо поздравить с ДР",
+      "status": "to do",
+      "priority": "urgent",
+      "due": "2027-02-23",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86b7k8c0z",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b80qm7f",
+      "name": "Светлана Чебукина поздравить с ДР",
+      "status": "to do",
+      "priority": "urgent",
+      "due": "2027-03-01",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86b80qm7f",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b7k8c2r",
+      "name": "Сережа Амазон поздравить с ДР",
+      "status": "to do",
+      "priority": "urgent",
+      "due": "2027-03-14",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86b7k8c2r",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b80qm61",
+      "name": "Алексей Рей пастор поздравить с ДР",
+      "status": "to do",
+      "priority": "urgent",
+      "due": "2027-03-16",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86b80qm61",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b7k8c1a",
+      "name": "Макс Соборка поздравить с ДР",
+      "status": "to do",
+      "priority": "urgent",
+      "due": "2027-03-19",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86b7k8c1a",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b7k8c1w",
+      "name": "Никита Лобач поздравить с ДР",
+      "status": "to do",
+      "priority": "urgent",
+      "due": "2027-03-22",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86b7k8c1w",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b7gkq21",
+      "name": "Люба СС поздравить с ДР",
+      "status": "to do",
+      "priority": "urgent",
+      "due": "2027-03-29",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86b7gkq21",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86bbjgn6a",
+      "name": "Алекса Херрера поздравить с ДР",
+      "status": "to do",
+      "priority": "urgent",
+      "due": "2027-03-31",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86bbjgn6a",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b80qm6h",
+      "name": "Наталья Полякова поздравить с ДР",
+      "status": "to do",
+      "priority": "urgent",
+      "due": "2027-03-31",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86b80qm6h",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b7k8c1y",
+      "name": "Новинский поздравить с ДР",
+      "status": "to do",
+      "priority": "urgent",
+      "due": "2027-04-02",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86b7k8c1y",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86ban084e",
+      "name": "Продлить страховку мото до 08/03/2027",
+      "status": "to do",
+      "priority": "normal",
+      "due": "2027-04-05",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86ban084e",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b7k8c13",
+      "name": "Лио поздравить с ДР",
+      "status": "to do",
+      "priority": "urgent",
+      "due": "2027-04-09",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86b7k8c13",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b7k8c0v",
+      "name": "Кот Костя поздравить с ДР",
+      "status": "to do",
+      "priority": "urgent",
+      "due": "2027-04-10",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86b7k8c0v",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b7k8c15",
+      "name": "Литвишко поздравить с ДР",
+      "status": "to do",
+      "priority": "urgent",
+      "due": "2027-04-10",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86b7k8c15",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b9ct4dh",
+      "name": "Инесса Опт поздравить с ДР",
+      "status": "to do",
+      "priority": "urgent",
+      "due": "2027-04-12",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86b9ct4dh",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b7k8c0p",
+      "name": "Койчев поздравить с ДР",
+      "status": "to do",
+      "priority": "urgent",
+      "due": "2027-04-14",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86b7k8c0p",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b9rnqc2",
+      "name": "Продлить Домен https://nic.ua/ru/my/domains - pp.ua",
+      "status": "to do",
+      "priority": "normal",
+      "due": "2027-04-14",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86b9rnqc2",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b7k8c1c",
+      "name": "Макс Халаф поздравить с ДР",
+      "status": "to do",
+      "priority": "urgent",
+      "due": "2027-04-16",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86b7k8c1c",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b7k8c0f",
+      "name": "Ирина Ортодонт поздравить с ДР",
+      "status": "to do",
+      "priority": "urgent",
+      "due": "2027-04-20",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86b7k8c0f",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b7k8c1r",
+      "name": "Наталья Альгирдаса поздравить с ДР",
+      "status": "to do",
+      "priority": "urgent",
+      "due": "2027-04-20",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86b7k8c1r",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b7gkpq9",
+      "name": "Денис Программист поздравить с ДР",
+      "status": "to do",
+      "priority": "urgent",
+      "due": "2027-04-21",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86b7gkpq9",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b7k8c1p",
+      "name": "Миша брат поздравить с ДР",
+      "status": "to do",
+      "priority": "urgent",
+      "due": "2027-04-26",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86b7k8c1p",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b7k8c05",
+      "name": "Елена Испанский поздравить с ДР",
+      "status": "to do",
+      "priority": "urgent",
+      "due": "2027-04-29",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86b7k8c05",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b7gkphe",
+      "name": "Яна Фин поздравить с ДР",
+      "status": "to do",
+      "priority": "urgent",
+      "due": "2027-04-29",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86b7gkphe",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b6qnxn8",
+      "name": "Подать на новую визу колумбия - какой план?",
+      "status": "to do",
+      "priority": "urgent",
+      "due": "2027-05-01",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86b6qnxn8",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b8dd6a7",
+      "name": "Блоггер - узнать за следующую поездку (жду ответ)",
+      "status": "to do",
+      "priority": "normal",
+      "due": "2027-05-03",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86b8dd6a7",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b7k8c11",
+      "name": "Ларик поздравить с ДР",
+      "status": "to do",
+      "priority": "urgent",
+      "due": "2027-05-08",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86b7k8c11",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b7k8bz9",
+      "name": "Виолетта поздравить с ДР",
+      "status": "to do",
+      "priority": "urgent",
+      "due": "2027-05-17",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86b7k8bz9",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b7k8c28",
+      "name": "Рус поздравить с ДР",
+      "status": "to do",
+      "priority": "urgent",
+      "due": "2027-05-25",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86b7k8c28",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b7k8c0b",
+      "name": "Игорь Адвокат Львов поздравить с ДР",
+      "status": "to do",
+      "priority": "urgent",
+      "due": "2027-05-28",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86b7k8c0b",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b7k8c0m",
+      "name": "Ирина Шекель поздравить с ДР",
+      "status": "to do",
+      "priority": "urgent",
+      "due": "2027-06-02",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86b7k8c0m",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b6qpkvd",
+      "name": "Права книжечка (колумбийская - продлить) (украинская - поискать) - как дела?",
+      "status": "to do",
+      "priority": "high",
+      "due": "2027-06-07",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86b6qpkvd",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b7k8c18",
+      "name": "Макс Левицкий поздравить с ДР",
+      "status": "to do",
+      "priority": "urgent",
+      "due": "2027-06-09",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86b7k8c18",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b7k8bzx",
+      "name": "Диана поздравить с ДР",
+      "status": "to do",
+      "priority": "urgent",
+      "due": "2027-06-11",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86b7k8bzx",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b7k8c0r",
+      "name": "Костя Бобер поздравить с ДР",
+      "status": "to do",
+      "priority": "urgent",
+      "due": "2027-06-12",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86b7k8c0r",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b7k8c2a",
+      "name": "Руслан Дядя поздравить с ДР",
+      "status": "to do",
+      "priority": "urgent",
+      "due": "2027-06-12",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86b7k8c2a",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b80qmb9",
+      "name": "Власов поздравить с ДР",
+      "status": "to do",
+      "priority": "urgent",
+      "due": "2027-06-13",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86b80qmb9",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b7k8c2u",
+      "name": "Серёжа Васильев поздравить с ДР",
+      "status": "to do",
+      "priority": "urgent",
+      "due": "2027-06-13",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86b7k8c2u",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b8nwj9p",
+      "name": "Медицина сертификат летный до 13.09.2027 (решить как продлить)",
+      "status": "to do",
+      "priority": "low",
+      "due": "2027-06-15",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86b8nwj9p",
       "tags": [
-        "🎯 фокус"
+        "⚕️ здоровье"
+      ],
+      "freq": null
+    },
+    {
+      "id": "86b7k8c2f",
+      "name": "Саша Титов поздравить с ДР",
+      "status": "to do",
+      "priority": "urgent",
+      "due": "2027-06-16",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86b7k8c2f",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b6qphww",
+      "name": "Андрей начать думать про ДР (3 июля)",
+      "status": "to do",
+      "priority": "urgent",
+      "due": "2027-06-17",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86b6qphww",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b80qmd7",
+      "name": "Богдан кооперасион поздравить с ДР",
+      "status": "to do",
+      "priority": "urgent",
+      "due": "2027-06-23",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86b80qmd7",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b7k8c21",
+      "name": "Оля поздравить с ДР",
+      "status": "to do",
+      "priority": "urgent",
+      "due": "2027-06-28",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86b7k8c21",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b7k8c09",
+      "name": "Женя Чернышенко (Тай) поздравить с ДР",
+      "status": "to do",
+      "priority": "urgent",
+      "due": "2027-06-29",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86b7k8c09",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b7gknv3",
+      "name": "Тигран поздравить с ДР",
+      "status": "to do",
+      "priority": "urgent",
+      "due": "2027-06-30",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86b7gknv3",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b7k8bz3",
+      "name": "Баба поздравить с ДР",
+      "status": "to do",
+      "priority": "urgent",
+      "due": "2027-07-01",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86b7k8bz3",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b8nwjam",
+      "name": "Лицензия 31.10.2027",
+      "status": "to do",
+      "priority": "low",
+      "due": "2027-07-01",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86b8nwjam",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b7k8c0x",
+      "name": "Кот М поздравить с ДР",
+      "status": "to do",
+      "priority": "urgent",
+      "due": "2027-07-02",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86b7k8c0x",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86baebuhx",
+      "name": "Диего поздравить с ДР",
+      "status": "to do",
+      "priority": "urgent",
+      "due": "2027-07-03",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86baebuhx",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b7gkpwg",
+      "name": "Паша поздравить с ДР",
+      "status": "to do",
+      "priority": "urgent",
+      "due": "2027-07-03",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86b7gkpwg",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b7k8c07",
+      "name": "Женя Измаил поздравить с ДР",
+      "status": "to do",
+      "priority": "urgent",
+      "due": "2027-07-08",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86b7k8c07",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b7k8c1u",
+      "name": "Наташа Бухгалтер поздравить с ДР",
+      "status": "to do",
+      "priority": "urgent",
+      "due": "2027-07-11",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86b7k8c1u",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b7k8c2p",
+      "name": "Сергей Волков поздравить с ДР",
+      "status": "to do",
+      "priority": "urgent",
+      "due": "2027-07-12",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86b7k8c2p",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b6qph33",
+      "name": "Одрекс страховку продлить",
+      "status": "to do",
+      "priority": "high",
+      "due": "2027-07-19",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86b6qph33",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b7k8c1e",
+      "name": "Макс Шостак поздравить с ДР",
+      "status": "to do",
+      "priority": "urgent",
+      "due": "2027-07-25",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86b7k8c1e",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b7gkp9c",
+      "name": "Вика (жена Тараса) поздравить с ДР",
+      "status": "to do",
+      "priority": "urgent",
+      "due": "2027-07-29",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86b7gkp9c",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b7k8bzz",
+      "name": "Диас поздравить с ДР",
+      "status": "to do",
+      "priority": "urgent",
+      "due": "2027-08-01",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86b7k8bzz",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b7k8c2x",
+      "name": "Сережа Джокер поздравить с ДР",
+      "status": "to do",
+      "priority": "urgent",
+      "due": "2027-08-07",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86b7k8c2x",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b7k8bzd",
+      "name": "Вовка ДР помянуть братишку",
+      "status": "to do",
+      "priority": "urgent",
+      "due": "2027-08-10",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86b7k8bzd",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b7k8byr",
+      "name": "Альгирдас поздравить с ДР",
+      "status": "to do",
+      "priority": "urgent",
+      "due": "2027-08-17",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86b7k8byr",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b7gkp4m",
+      "name": "Настя СС потеряшка  поздравить с ДР",
+      "status": "to do",
+      "priority": "urgent",
+      "due": "2027-08-18",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86b7gkp4m",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b7k8c1g",
+      "name": "Мама поздравить с ДР",
+      "status": "to do",
+      "priority": "urgent",
+      "due": "2027-08-22",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86b7k8c1g",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b7k8c0d",
+      "name": "Ира ж деда поздравить с ДР",
+      "status": "to do",
+      "priority": "urgent",
+      "due": "2027-08-24",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86b7k8c0d",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b7gkp1b",
+      "name": "Шаман поздравить с ДР",
+      "status": "to do",
+      "priority": "urgent",
+      "due": "2027-08-25",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86b7gkp1b",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b7k8bzk",
+      "name": "Голубицкий поздравить с ДР",
+      "status": "to do",
+      "priority": "urgent",
+      "due": "2027-09-01",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86b7k8bzk",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b7k8byw",
+      "name": "Андрей Ворон поздравить с ДР",
+      "status": "to do",
+      "priority": "urgent",
+      "due": "2027-09-05",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86b7k8byw",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b7k8c1j",
+      "name": "Марина Дед Валера поздравить с ДР",
+      "status": "to do",
+      "priority": "urgent",
+      "due": "2027-09-05",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86b7k8c1j",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b7k8c22",
+      "name": "Петруха поздравить с ДР",
+      "status": "to do",
+      "priority": "urgent",
+      "due": "2027-09-05",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86b7k8c22",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b7k8c34",
+      "name": "Стас БД поздравить с ДР",
+      "status": "to do",
+      "priority": "urgent",
+      "due": "2027-09-09",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86b7k8c34",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b7gkpmk",
+      "name": "Алла  поздравить с ДР",
+      "status": "to do",
+      "priority": "urgent",
+      "due": "2027-09-11",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86b7gkpmk",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b7k8c0h",
+      "name": "Ирина Тетя (Германия) поздравить с ДР",
+      "status": "to do",
+      "priority": "urgent",
+      "due": "2027-09-13",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86b7k8c0h",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b7k8c2z",
+      "name": "Сережа Черкасов поздравить с ДР",
+      "status": "to do",
+      "priority": "urgent",
+      "due": "2027-09-16",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86b7k8c2z",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86bb6a2yb",
+      "name": "Карен Медельин поздравить с ДР",
+      "status": "to do",
+      "priority": "urgent",
+      "due": "2027-09-25",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86bb6a2yb",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b6qp6nd",
+      "name": "Витала поздравить с ДР",
+      "status": "to do",
+      "priority": "urgent",
+      "due": "2027-09-26",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86b6qp6nd",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b6q92zn",
+      "name": "Сделать вакцину Verorab бустер + Influenza на 27.09.27",
+      "status": "to do",
+      "priority": "normal",
+      "due": "2027-09-26",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86b6q92zn",
+      "tags": [
+        "⚕️ здоровье"
+      ],
+      "freq": null
+    },
+    {
+      "id": "86b6v8twt",
+      "name": "Максим Колумбия-Канада-Киев поздравить с ДР",
+      "status": "to do",
+      "priority": "urgent",
+      "due": "2027-09-28",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86b6v8twt",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b80qm8a",
+      "name": "Эльвира поздравить с ДР",
+      "status": "to do",
+      "priority": "urgent",
+      "due": "2027-09-28",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86b80qm8a",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b791a9x",
+      "name": "Дед поздравить с ДР",
+      "status": "to do",
+      "priority": "urgent",
+      "due": "2027-10-05",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86b791a9x",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b791cnh",
+      "name": "Стела Тетя поздравить с ДР",
+      "status": "to do",
+      "priority": "urgent",
+      "due": "2027-10-21",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86b791cnh",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b73v133",
+      "name": "Кобзов поздравить с ДР",
+      "status": "to do",
+      "priority": "urgent",
+      "due": "2027-10-25",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86b73v133",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b791cuk",
+      "name": "Элвис поздравить с ДР",
+      "status": "to do",
+      "priority": "urgent",
+      "due": "2027-10-29",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86b791cuk",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b7919z9",
+      "name": "Тарас поздравить с ДР",
+      "status": "to do",
+      "priority": "urgent",
+      "due": "2027-10-31",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86b7919z9",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b791bp7",
+      "name": "Папа поздравить с ДР",
+      "status": "to do",
+      "priority": "urgent",
+      "due": "2027-11-05",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86b791bp7",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b791c31",
+      "name": "Женя Соларгепс поздравить с ДР",
+      "status": "to do",
+      "priority": "urgent",
+      "due": "2027-11-09",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86b791c31",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b791c7w",
+      "name": "Леша Касаткин поздравить с ДР",
+      "status": "to do",
+      "priority": "urgent",
+      "due": "2027-11-10",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86b791c7w",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b6q93gw",
+      "name": "Сделать вакцину Typhim Vi - Fiebre T Foldea 22.07.28",
+      "status": "to do",
+      "priority": "normal",
+      "due": "2028-07-17",
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86b6q93gw",
+      "tags": [
+        "⚕️ здоровье"
+      ],
+      "freq": null
+    },
+    {
+      "id": "86b7174m4",
+      "name": "БАБА ТИЕ (не забыть забрать)",
+      "status": "to do",
+      "priority": "normal",
+      "due": null,
+      "assignees": [],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86b7174m4",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86bbmcdmq",
+      "name": "ББВА - открыть новый счет полноценный",
+      "status": "to do",
+      "priority": "normal",
+      "due": null,
+      "assignees": [],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86bbmcdmq",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86bctqe8h",
+      "name": "БОТ: Live Google Calendar на даш (OAuth, не снимок)",
+      "status": "in progress",
+      "priority": "high",
+      "due": null,
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86bctqe8h",
+      "tags": [
+        "bot"
+      ],
+      "freq": null
+    },
+    {
+      "id": "86bbq6fk2",
+      "name": "БанкКолумбия",
+      "status": "to do",
+      "priority": "normal",
+      "due": null,
+      "assignees": [],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86bbq6fk2",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86bbq6fh8",
+      "name": "Вайтбит",
+      "status": "to do",
+      "priority": "normal",
+      "due": null,
+      "assignees": [],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86bbq6fh8",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86bbq6fkm",
+      "name": "Кахамар бизнес",
+      "status": "to do",
+      "priority": "normal",
+      "due": null,
+      "assignees": [],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86bbq6fkm",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86bbq6fm6",
+      "name": "Кахамар личная",
+      "status": "to do",
+      "priority": "normal",
+      "due": null,
+      "assignees": [],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86bbq6fm6",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86bcqw802",
+      "name": "Мама (как дела?)",
+      "status": "to do",
+      "priority": "normal",
+      "due": null,
+      "assignees": [],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86bcqw802",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86bd0brbm",
+      "name": "Огна: создать Reddit и подключить к боту на ведение",
+      "status": "to do",
+      "priority": "normal",
+      "due": null,
+      "assignees": [],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86bd0brbm",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86bbq6eym",
+      "name": "Паспорт Загран 1",
+      "status": "to do",
+      "priority": "normal",
+      "due": null,
+      "assignees": [],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86bbq6eym",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86bbq6f6c",
+      "name": "Паспорт Загран 2",
+      "status": "to do",
+      "priority": "normal",
+      "due": null,
+      "assignees": [],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86bbq6f6c",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b6q811a",
+      "name": "Подать заявку на кредит Cajamar",
+      "status": "to do",
+      "priority": "normal",
+      "due": null,
+      "assignees": [],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86b6q811a",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86bbq6f86",
+      "name": "Права Колумбия",
+      "status": "to do",
+      "priority": "normal",
+      "due": null,
+      "assignees": [],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86bbq6f86",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86bbq6f8w",
+      "name": "Права Парагвай",
+      "status": "to do",
+      "priority": "normal",
+      "due": null,
+      "assignees": [],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86bbq6f8w",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86bbq6fa5",
+      "name": "Права Тайланд",
+      "status": "to do",
+      "priority": "normal",
+      "due": null,
+      "assignees": [],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86bbq6fa5",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86bbq6f7b",
+      "name": "Права Укр",
+      "status": "to do",
+      "priority": "normal",
+      "due": null,
+      "assignees": [],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86bbq6f7b",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86bbq6fqm",
+      "name": "Седула-виза Колумбия",
+      "status": "to do",
+      "priority": "normal",
+      "due": null,
+      "assignees": [],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86bbq6fqm",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86bbq6fgk",
+      "name": "Украина Моно",
+      "status": "to do",
+      "priority": "normal",
+      "due": null,
+      "assignees": [],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86bbq6fgk",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86bbq6fg4",
+      "name": "Украина Приват",
+      "status": "to do",
+      "priority": "normal",
+      "due": null,
+      "assignees": [],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86bbq6fg4",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86bbq6fhy",
+      "name": "Эзер фи",
+      "status": "to do",
+      "priority": "normal",
+      "due": null,
+      "assignees": [],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86bbq6fhy",
+      "tags": [],
+      "freq": null
+    },
+    {
+      "id": "86b8ddw1x",
+      "name": "‼️Сита ортодонт завтра не забыть + поставить будильник",
+      "status": "to do",
+      "priority": "urgent",
+      "due": null,
+      "assignees": [
+        "Rost"
+      ],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86b8ddw1x",
+      "tags": [
+        "⚕️ здоровье"
+      ],
+      "freq": null
+    },
+    {
+      "id": "86b9rk01c",
+      "name": "‼️‼️‼️Не забыть за поход на анализы завтра! 10:30‼️‼️‼️",
+      "status": "to do",
+      "priority": "urgent",
+      "due": null,
+      "assignees": [],
+      "list": "Personal",
+      "url": "https://rosmater.github.io/cu/?t=86b9rk01c",
+      "tags": [
+        "⚕️ здоровье"
       ],
       "freq": null
     }
