@@ -598,15 +598,17 @@ details.def-ur > summary::-webkit-details-marker,details.def-ur > summary::marke
 #main .of-today-list,
 #main .pers-bots .bw-list{margin-top:3px;height:auto;max-height:calc(var(--bw-row-h) * 10);overflow-y:auto;-webkit-overflow-scrolling:touch;flex:none}
 #main .of-today-list .trow,
-#main .pers-bots .bw-row{box-sizing:border-box;height:var(--bw-row-h);min-height:var(--bw-row-h);max-height:var(--bw-row-h);padding-top:0;padding-bottom:0;border-bottom:1px solid var(--line);align-items:center}
-#main .of-today-list .trow:last-child,
-#main .pers-bots .bw-row:last-child{border-bottom:1px solid var(--line)}
-/* t6405u/t6406u: клик по строке «На решении у бота» раскрывает, что бот реально делает; свёрнутая остаётся в одну линию. */
-#main .pers-bots .bw-row{cursor:pointer}
-#main .pers-bots .bw-row.open{height:auto;max-height:none;min-height:var(--bw-row-h);flex-wrap:wrap;align-items:flex-start;padding:2px 0 4px}
-#main .pers-bots .bw-more{display:none;flex:1 0 100%;box-sizing:border-box;padding:2px 0 0 2.6em}
+#main .pers-bots .bw-head{box-sizing:border-box;height:var(--bw-row-h);min-height:var(--bw-row-h);max-height:var(--bw-row-h);padding-top:0;padding-bottom:0;border-bottom:0;align-items:center}
+#main .of-today-list .trow{border-bottom:1px solid var(--line)}
+#main .of-today-list .trow:last-child{border-bottom:1px solid var(--line)}
+/* t6405u/t6406u: клик по строке раскрывает работу бота; шапка строки не переносится, пункты — отдельным блоком. */
+#main .pers-bots .bw-row{cursor:pointer;display:flex;flex-direction:column;align-items:stretch;box-sizing:border-box;height:auto;min-height:var(--bw-row-h);max-height:var(--bw-row-h);overflow:hidden;padding:0;border-bottom:1px solid var(--line)}
+#main .pers-bots .bw-row.open{max-height:none;overflow:visible;padding-bottom:4px}
+#main .pers-bots .bw-head{flex:none;width:100%}
+#main .pers-bots .bw-more{display:none;box-sizing:border-box;padding:2px 0 0 2.6em}
 #main .pers-bots .bw-row.open .bw-more{display:block}
 #main .pers-bots .bw-li{display:block;font-size:12px;line-height:1.35;color:#3a4160;padding:1px 0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}
+#main .pers-bots .bw-row:last-child{border-bottom:1px solid var(--line)}
 
 
 /* Rost t6401u: в Календаре «Сегодня» — приоритеты по всем направлениям (только сегодня и просроченные); значок направления в начале строки Ros / Ros bot / этих приоритетов; линия под заголовками Ros и Ros bot; значки CU-строк плотнее.
@@ -2073,7 +2075,7 @@ function persBotWorkHTML(d){const W=d&&d.bot_work;if(!W||!W.bots)return '';const
  rows.sort((a,b)=>roleThenDueSort(a.t,b.t));
  const nT=rows.length,nR=rows.filter(x=>x.t.need==='rost').length;
  const row=x=>{const t=x.t,name=x.bot.name||'';const short=botBadgeShort(name);
-  return `<div class="task trow bw-row"${t.id?' data-tid="'+esc(t.id)+'"':''} onclick="bwRowClick(event)"><span class="bw-badge" title="${esc(name)}">${esc(short)}</span>${recurIcon(t)}${cuTitleHTML(t)}${rolePill(t)}${dueChipHTML(t)}${thBtns(t,{bot:name,dir:tab})}${bwMoreHTML(t)}</div>`};
+  return `<div class="bw-row"${t.id?' data-tid="'+esc(t.id)+'"':''} onclick="bwRowClick(event)"><div class="task trow bw-head"><span class="bw-badge" title="${esc(name)}">${esc(short)}</span>${recurIcon(t)}${cuTitleHTML(t)}${rolePill(t)}${dueChipHTML(t)}${thBtns(t,{bot:name,dir:tab})}</div>${bwMoreHTML(t)}</div>`};
  const tip='Открытые задачи вида ClickUp «Ros (BOT)»: status NOT closed, исполнитель Rost, поле BOT R задано. Значок — бот (первые 4 буквы, полное имя по наведению), сразу название задачи. Сортировка: роль GO→CALL→TO DO→CONTROL, затем срок (просроченные выше). Снимок CU '+(W.cu_fetched||'—')+'.';
  return `<div class="card of-today pers-bots" style="margin-bottom:14px"><h3 title="${esc(tip)}">🤖 На решении у бота <span class="st">${nT}${nR?` · ждут тебя ${nR}`:''}</span></h3><div class="bw-list">${rows.map(row).join('')}</div></div>`}
 function persMeetSplitHTML(d){if(!d||d.id!=='personal'||window.DASH_HELPER)return '';const M=d.meet_split;if(!M)return '';const P=M.personal||[],G=M.dating||[];if(!P.length&&!G.length)return '';const today=dueTodayStr(),wd=['вс','пн','вт','ср','чт','пт','сб'];const when=x=>{const dd=String(x.day||''),dt=new Date(dd+'T12:00:00');const lbl=dd===today?'сегодня':(dd.slice(8,10)+'.'+dd.slice(5,7)+' '+wd[dt.getDay()]);return lbl+(x.time?(' '+x.time+(x.end_time&&x.src==='gcal'?'–'+x.end_time:'')):'')};const row=x=>{const tip=[x.name,when(x),x.src==='gcal'?'Google Календарь':'ClickUp'].join(' · ');const href=x.src==='clickup'&&x.url?cuAppUrl(x.url):x.url;const title=href?`<a href="${esc(href)}" target="_blank" rel="noopener" title="${esc(x.name)}">${esc(x.name)}</a>`:`<b title="${esc(x.name)}">${esc(x.name)}</b>`;return `<div class="task trow"><span class="st ${x.day===today?'due-today':'due-soon'}" style="flex:0 0 auto">${esc(when(x))}</span>${rolePill(x)}${statusPill(x)}${healthBadge(x)}${recurIcon(x)}<span class="trow-title">${title}</span></div>`};const block=(title,ts,empty)=>`<div class="of-prio-sub"><h4>${esc(title)} <span class="st">${ts.length}</span></h4>${ts.length?ts.map(row).join(''):`<div class="empty of-prio-empty">${esc(empty)}</div>`}</div>`;return `<details class="card of-prio" style="margin-bottom:14px" open><summary>Встречи <span class="st">14 дней · личное ${P.length} · дейтинг ${G.length}</span></summary><div class="of-prio-grid">${block('Личное',P,'Встреч нет')}${block('Дейтинг',G,'Свиданий не назначено')}</div></details>`}/* t6272u */
