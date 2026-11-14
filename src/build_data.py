@@ -1209,8 +1209,9 @@ for ra in _ras:
         term_bits = [note or 'наш доход 0 до 15.01.2027']
     else:
         term_bits = [b for b in (_fmt_pct(last_row.get('pct') or (src_row or {}).get('agency_pct')), '−3% вывод') if b]
-        if 'партнёр' in (rule or ''):
-            term_bits.append('−3% партнёру')
+        # t6330u: RA210 и RA212 — партнёрские; 3% от всего оборота модели
+        if ra in ('RA210', 'RA212') or 'партнёр' in (rule or ''):
+            term_bits.append('−3% оборота партнёру')
     if _TS_PLACE.get(ra):
         term_bits.append(_TS_PLACE[ra])
     _ts_models.append(dict(ra=ra, name=_TS_NAME.get(ra, ''), place=_TS_PLACE.get(ra, ''),
@@ -1761,5 +1762,41 @@ except Exception as _e:
 # t6093u / t6095u: версии блоков еженедельного/ежемесячного сбора + data_ver внутри plaintext баланса (уйдёт в шифртекст)
 import data_updates_gen as _dug
 _dug.apply(data)
+# Rost t6325u/t6328u: повторяющаяся = реальное повторение ClickUp (src/cu_recurring.json, task.get_many → reccurence v2.rrule / v1.recurring)
+# ИЛИ Frecuencia = periódica. Проставляем recurring=True на ВСЕХ задачах всех блоков → ↻ в начале строки и кнопка ∞ на всех вкладках.
+def _mark_recurring(root):
+    try:
+        _cr = json.load(open(os.path.join(_HERE, 'cu_recurring.json')))
+        _ids = set((_cr.get('ids') or {}).keys())
+    except Exception:
+        _ids = set()
+    _n = [0]
+    _seen = set()
+    def _w(x, d=0):
+        if d > 14 or id(x) in _seen:
+            return
+        _seen.add(id(x))
+        if isinstance(x, dict):
+            tid = x.get('id')
+            if isinstance(tid, str) and (x.get('name') or x.get('title')):
+                if tid in _ids or _of_is_periodic(x):
+                    if x.get('recurring') is not True:
+                        x['recurring'] = True
+                        _n[0] += 1
+                    if tid in _ids:
+                        x['cu_recur'] = True
+            for v in x.values():
+                if isinstance(v, (dict, list)):
+                    _w(v, d + 1)
+        elif isinstance(x, list):
+            for v in x:
+                if isinstance(v, (dict, list)):
+                    _w(v, d + 1)
+    _w(root)
+    return _n[0]
+try:
+    print('recurring marked (new):', _mark_recurring(data))
+except Exception as _e:
+    print('recurring mark FAIL', _e)
 json.dump(data, open(OUT, 'w'), ensure_ascii=False, indent=1)
 print('wrote', os.path.abspath(OUT), os.path.getsize(OUT))
