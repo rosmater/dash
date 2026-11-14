@@ -773,10 +773,10 @@ function herreraDoneWeeks(p){const W=p.herrera_weeks||p.weeks;if(!W)return null;
  const today=(typeof dueTodayStr==='function')?dueTodayStr():((typeof TODAY!=='undefined'&&TODAY)?TODAY:(typeof bDay==='function'?bDay(new Date().toISOString()):new Date().toISOString().slice(0,10)));
  const [yy,mm,dd]=String(today).slice(0,10).split('-').map(Number);if(!yy)return null;
  const dt=new Date(Date.UTC(yy,mm-1,dd)),dow=(dt.getUTCDay()+6)%7,mon0=new Date(dt);mon0.setUTCDate(dt.getUTCDate()-dow);
- const titles=['Текущая','Прошлая','Позапрошлая','Позапозапрошлая'],byId={};(W.weeks||[]).forEach(w=>{if(w&&w.id)byId[w.id]=w});
+ const titles=['Прошлая','Позапрошлая','Позапозапрошлая'],byId={};(W.weeks||[]).forEach(w=>{if(w&&w.id)byId[w.id]=w});
  const ymd=x=>x.toISOString().slice(0,10);
- const done=titles.map((title,i)=>{const mon=new Date(mon0);mon.setUTCDate(mon0.getUTCDate()-7*i);const sun=new Date(mon);sun.setUTCDate(mon.getUTCDate()+6);const id='W:'+ymd(mon),lab=herreraWeekLab(mon),hit=byId[id];return Object.assign({id,start:ymd(mon),end:ymd(sun),label:lab,values:{},audience:{}},hit||{},{title,id,label:(hit&&hit.label)||lab})});
- return {W,done}}/* Rost t2348u: колонки Текущая + 3 закрытые, словами · даты мелко */
+ const done=titles.map((title,i)=>{const mon=new Date(mon0);mon.setUTCDate(mon0.getUTCDate()-7*(i+1));const sun=new Date(mon);sun.setUTCDate(mon.getUTCDate()+6);const id='W:'+ymd(mon),lab=herreraWeekLab(mon),hit=byId[id];return Object.assign({id,start:ymd(mon),end:ymd(sun),label:lab,values:{},audience:{}},hit||{},{title,id,label:(hit&&hit.label)||lab})});
+ return {W,done}}/* Rost t6318u: только 3 закрытые недели (прошлая / позапрошлая / позапозапрошлая), без текущей */
 function herreraPrevWeek(cols,w){const s=String(w&&w.start||'');const older=(cols||[]).filter(x=>x&&x.start&&String(x.start)<s).sort((a,b)=>String(b.start).localeCompare(String(a.start)));return older[0]||null}
 function herreraAud(w){return (w&&w.audience)||{}}
 function herreraAudSubs(w){const a=herreraAud(w),v=(w&&w.values)||{};const s=a.subs!=null?a.subs:v.of_subs_new;return s==null||s===''?null:+s}
@@ -1498,7 +1498,7 @@ function ofBlocksHTML(d){if(d.id!=='of'||!d.of_blocks)return '';const B=d.of_blo
  const _p0=n=>String(n).padStart(2,'0');
  const curId='W:'+_mon0.toISOString().slice(0,10);
  const curLab=_p0(_mon0.getUTCDate())+'–'+_p0(_sun0.getUTCDate())+'.'+_p0(_mon0.getUTCMonth()+1);
- const weekTitles=['Текущая','Прошлая','Позапрошлая'];
+ const weekTitles=['Прошлая','Позапрошлая','Позапозапрошлая'];/* t6318u: текущей недели нет — только 3 закрытые */
  const weekSkip={id:1,label:1,title:1,src:1,sort:1};
  const weekHas=w=>{if(!w)return false;return Object.keys(w).some(k=>{if(weekSkip[k])return false;const v=w[k];if(v==null||v==='')return false;if(typeof v==='object'){return Object.keys(v).some(kk=>{const x=v[kk];if(x==null||x==='')return false;if(typeof x==='object')return x.fans!=null||x.delta!=null;return true;});}return true;});};
  const labOf=mon=>{const sun=new Date(mon);sun.setUTCDate(mon.getUTCDate()+6);if(mon.getUTCMonth()===sun.getUTCMonth())return _p0(mon.getUTCDate())+'–'+_p0(sun.getUTCDate())+'.'+_p0(mon.getUTCMonth()+1);return _p0(mon.getUTCDate())+'.'+_p0(mon.getUTCMonth()+1)+'–'+_p0(sun.getUTCDate())+'.'+_p0(sun.getUTCMonth()+1);};
@@ -1557,7 +1557,7 @@ function ofBlocksHTML(d){if(d.id!=='of'||!d.of_blocks)return '';const B=d.of_blo
   const pl=x=>x&&x.payout!=null?`<div style="margin-top:4px;font-size:12.5px">выплата ${$u(x.payout)}${x.payout_rate_label?' <span class="note">'+esc(x.payout_rate_label)+'</span>':''} · прибыль ${profitNum(x.profit==null?null:Dash.conv(x.profit,'USD',cur),cur,x.profit_tip)}</div>`:(x?`<div class="note" style="margin-top:4px">выплат с USDT нет</div>`:'');
   /* Rost t747u / t6186u: 3 закрытые недели в один ряд; комментарий только в JS, не в HTML */
   h+=`<div class="card" style="margin-bottom:14px"${duAttr('of.ts')}>${H((tsPart?'Неполная неделя · ':'')+esc(T.title),[T.models_label, tsPart?'ещё идёт':'наш доход'].filter(Boolean).join(' · '))}
-  <div class="grid g3b of-ts-weeks">${T.cur&&!T.prev2?tile('⏳ Текущая (неполная)',wv(T.cur),ws(T.cur)+pl(T.cur)):''}${tile('💵 Прошлая неделя',wv(T.last),ws(T.last)+(dlt!=null?' · '+dlTxt(T.last.net,T.prev.net,{f:v=>$u(v)}):'')/* t5963u */+pl(T.last))}${tile('💵 Позапрошлая неделя',wv(T.prev),ws(T.prev)+(T.prev2?' · '+dlTxt(T.prev.net,T.prev2.net,{f:v=>$u(v)}):'')+pl(T.prev))}${T.prev2?tile('💵 Три недели назад',wv(T.prev2),ws(T.prev2)+pl(T.prev2)):''}</div>
+  <div class="grid g3b of-ts-weeks">${tile('💵 Прошлая неделя',wv(T.last),ws(T.last)+(dlt!=null?' · '+dlTxt(T.last.net,T.prev.net,{f:v=>$u(v)}):'')/* t5963u */+pl(T.last))}${tile('💵 Позапрошлая неделя',wv(T.prev),ws(T.prev)+(T.prev2?' · '+dlTxt(T.prev.net,T.prev2.net,{f:v=>$u(v)}):'')+pl(T.prev))}${T.prev2?tile('💵 Три недели назад',wv(T.prev2),ws(T.prev2)+pl(T.prev2)):''}</div>
   <div class="note" style="margin:6px 0">${esc(T.arpu_note||'')}</div>
   <h5 style="margin:10px 0 4px">${tsPart?'Неполная неделя · ':''}Модели (${T.models.length})${T.models_label?' · '+esc(T.models_label):''}</h5>
   <div class="tblwrap" style="margin-top:6px"><table><tr><th>Модель</th><th>Задачи</th><th class="n">Наш доход</th><th class="n">Доход (прош. нед.)</th><th class="n">Оборот</th><th class="n">%</th><th class="n">Фаны (нетто)</th></tr>
@@ -1595,7 +1595,7 @@ function ofBlocksHTML(d){if(d.id!=='of'||!d.of_blocks)return '';const B=d.of_blo
  /* 4) LolaPop */
  const P=B.lolapop;if(P){const LS=P.last_snapshot,row=(re)=>((LS&&LS.rows)||[]).find(r=>re.test(r[0])),subs=row(/подписк/i),msgs=row(/сообщен|PPV/i),tot=row(/итого/i),tips=row(/чаевые/i),posts=row(/посты/i),mv=row(/ManyVids/i),c4s=row(/Clips4Sale|C4S/i);
   const fromLS=LS?{label:LS.label,inc_subs:subs?subs[2]:null,inc_msgs:msgs?msgs[2]:null,inc_tips:tips?tips[2]:null,inc_posts:posts?posts[2]:null,inc_total:tot?tot[2]:null,mv:mv?mv[2]:null,c4s:c4s?c4s[2]:null,subs_new:null,rebills:null,fans:null,fans_new:null}:null;
-  const lpCols=(()=>{const xs=(P.weeks&&P.weeks.length)?P.weeks:[P.cur,P.last,P.prev,fromLS],T=['Текущая','Прошлая','Позапрошлая','Позапозапрошлая'];return [0,-7,-14,-21].map((days,i)=>{const mon=monShift(days),id='W:'+mon.toISOString().slice(0,10),hit=xs.find(w=>w&&w.id===id)||null;return Object.assign({},hit||{},{title:T[i],id,label:labOf(mon)});});})();/* Rost t2348u: текущая + 3 закрытые, словами + даты мелко; нет данных → «—» */
+  const lpCols=weekCols((P.weeks&&P.weeks.length)?P.weeks:[P.cur,P.last,P.prev,fromLS]);/* t6318u: только 3 закрытые недели через общий weekCols; текущей нет */
   const lpCell=(w,fn,kind)=>{const v=fn(w||{});if(v==null||v==='')return '—';if(kind==='$')return $u(v);if(kind==='pct')return (v*100).toFixed(v<0.1?2:1).replace('.',',')+'%';if(kind==='ig'){const x=(typeof v==='object')?v:{delta:v};if(x.fans==null&&x.delta==null)return '—';const fans=x.fans==null?'—':n(x.fans);let badge='';if(x.delta!=null){const d=Number(x.delta);if(Number.isFinite(d)){const sign=d>0?'+':d<0?'−':'';badge=` <span class="pill" style="font-size:11px;font-weight:700;padding:1px 6px;line-height:1.2;vertical-align:middle;color:${d<0?'#b42318':'#0b7a59'};background:${d<0?'#fee4e2':'#d1fadf'};border:1px solid ${d<0?'#fda29b':'#abefc6'}">${sign}${n(Math.abs(d))}</span>`;}}let ofb='';if(x.of_subs_week!=null||x.of_link||(w&&w.ig_of_note)){const sw=x.of_subs_week;ofb=' '+`<span title="${esc(x.of_link?(x.of_link+' · всего '+(x.of_subs==null?'—':n(x.of_subs))+' · кликов '+(x.of_clicks_week==null?'—':'+'+n(x.of_clicks_week))):((w&&w.ig_of_note)||'нет понедельничного снимка'))}">${lpQ('OF '+(sw==null?'—':(sw>=0?'+':'−')+n(Math.abs(sw))))}</span>`;}/* Rost t6275u: новые подписки OF за неделю по tracking link аккаунта */return `<span style="display:inline-flex;align-items:center;gap:6px;flex-wrap:wrap;justify-content:flex-end">${fans}${badge}${ofb}</span>`;}return n(v)};
   const igAcc=(P.ig_accounts&&P.ig_accounts.length)?P.ig_accounts:[{handle:'lolabig.lolapop'},{handle:'lolapopstarted'},{handle:'lolastartjourney'}];
   const psSites=P.pornstocks_sites||['Pornhub','Tnaflix','Xhamster','Faphouse','Xvideos','Xnxx','Eporner'];
