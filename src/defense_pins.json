@@ -1,7 +1,7 @@
 {
-  "fetched_at": "2026-11-13T13:44:26-05:00",
+  "fetched_at": "2026-11-13T20:46:08-05:00",
   "src": "ClickUp Defense Systems space 90148618420",
-  "checked": "morning recon 13.11 08:00: urgent 86bctg47u + 86bczu31g still overdue (wait Дмитрий); call 86bd2k3xk due 13.11 kept (priority was empty, set normal); Dronamex past; clients/unanswered unchanged (no new live replies per ste-1 03:00/05:00); upsert open Servicios Aereos Montre SA de CV (México) msg 1a1d5b4a38c8abfc; upsert open Military Industries JR msg 1a1d627f4e748438",
+  "checked": "morning recon 13.11 08:00: urgent 86bctg47u + 86bczu31g still overdue (wait Дмитрий); call 86bd2k3xk due 13.11 kept (priority was empty, set normal); Dronamex past; clients/unanswered unchanged (no new live replies per ste-1 03:00/05:00); upsert open Servicios Aereos Montre SA de CV (México) msg 1a1d5b4a38c8abfc; upsert open Military Industries JR msg 1a1d627f4e748438; t558u 13.11 20:46: 86bczu31g renamed «Владислав: получить информацию по запчастям для клиента» (was «Ждем от Дмитрия информацию по запчастям для клиента»); 86bctg47u still overdue (wait Дмитрий).",
   "urgent_tasks": [
     {
       "id": "86bctg47u",
@@ -13,7 +13,7 @@
     },
     {
       "id": "86bczu31g",
-      "name": "Ждем от Дмитрия информацию по запчастям для клиента",
+      "name": "Владислав: получить информацию по запчастям для клиента",
       "url": "https://rosmater.github.io/cu/?t=86bczu31g",
       "status": "to do",
       "priority": "urgent",
