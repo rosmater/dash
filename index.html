@@ -102,14 +102,15 @@ table{width:100%;border-collapse:collapse;font-size:12.5px}th,td{text-align:left
 .pepbal .pepbal-v-inline{margin-left:auto;font-weight:800;font-variant-numeric:tabular-nums;letter-spacing:-.03em;white-space:nowrap}
 .pepbal .pepbal-more{padding:6px 0 2px}
 .pepbal .pepbal-more .pepbal-v{margin:0 0 4px}
-/* t6416u / t6420u: «Лиды с рекламы» — компактная таблица дней/недель/месяцев, новые колонки слева; вотчеры в шапке */
-.pepleads h3{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px}
+/* t6416u / t6420u / t6423u: «Лиды с рекламы» — компактная таблица; тонкая черта под шапкой, плотнее к краям карточки */
+.card.pepleads{padding-top:8px;padding-bottom:8px}
+.pepleads h3{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:0;padding:0 0 6px;border-bottom:1px solid var(--line,#e8eef5)}
 .pepleads h3 .pepleads-title{flex:none}
 .pepleads h3 .pepleads-mode{flex:none;padding:2px;box-shadow:none}
 .pepleads h3 .pepleads-mode button{padding:3px 9px;font-size:12px}
 .pepleads h3 .pepleads-watches{display:flex;flex-wrap:wrap;gap:6px;flex:1;justify-content:center;min-width:140px}
 .pepleads h3 .st{margin-left:auto;flex:none}
-.pepleads-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain;padding:0 0 4px;margin:0 -2px}
+.pepleads-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain;padding:6px 0 0;margin:0 -2px}
 .pepleads-wrap::-webkit-scrollbar{height:6px}
 .pepleads-wrap::-webkit-scrollbar-thumb{background:#d0d5dd;border-radius:99px}
 .pepleads-tbl{border-collapse:collapse;width:max-content;min-width:100%;font-variant-numeric:tabular-nums}
@@ -2393,7 +2394,7 @@ function wwBalHdr(){const P=wwBalSrc();if(!P||!P.low)return '';const tip='Про
 
 function pepAdBalRefresh(){const box=document.getElementById('pep-adbal');if(!box)return;const h=pepAdBalHTML();if(h)box.outerHTML=h}
 
-/* Rost t1101u / t6416u / t6420u: «Лиды с рекламы» — компактная таблица новых диалогов, бюджет и цена диалога; колонки новых слева; Дни / полные прошедшие недели (t6318u) / Месяц */
+/* Rost t1101u / t6416u / t6420u / t6423u: «Лиды с рекламы» — компактная таблица; колонки новых слева; Дни / недели (включая текущую to date — исключение t6318u только в этом блоке) / Месяц */
 function pepLeadsMode(){try{const m=localStorage.getItem('dash_pep_leads_mode');return (m==='week'||m==='month')?m:'days'}catch(e){return 'days'}}
 function pepLeadsSetMode(m){const mode=(m==='week'||m==='month')?m:'days';try{localStorage.setItem('dash_pep_leads_mode',mode)}catch(e){}const box=document.getElementById('pepleads');if(!box)return;box.querySelectorAll('[data-plm]').forEach(b=>b.classList.toggle('on',b.dataset.plm===mode));box.querySelectorAll('[data-plview]').forEach(v=>{v.hidden=v.dataset.plview!==mode});pepLeadsStripMount()}
 function pepLeadsStripMount(){const box=document.getElementById('pepleads');if(!box)return;const mode=pepLeadsMode();const view=box.querySelector('[data-plview="'+mode+'"]');if(view)view.scrollLeft=0;box.querySelectorAll('[data-plm]').forEach(b=>{if(b.dataset.plBound)return;b.dataset.plBound='1';b.onclick=()=>pepLeadsSetMode(b.dataset.plm)})}
@@ -2436,10 +2437,8 @@ function pepLeadsStripHTML(d){
  const curMon=today?monOf(today):null,weekB={},monthB={};
  rows.forEach(r=>{
   const m=monOf(r.date);
-  if(!(curMon&&m===curMon)){
-   if(!weekB[m])weekB[m]={start:m,end:addD(m,6),wa:null,ig:null,tot:null,spend:null,price:null,waDays:0,igDays:0,totDays:0,spendDays:0,n:0,attn:false,spendMissDlg:false};
-   bump(weekB[m],r);
-  }
+  if(!weekB[m])weekB[m]={start:m,end:addD(m,6),wa:null,ig:null,tot:null,spend:null,price:null,waDays:0,igDays:0,totDays:0,spendDays:0,n:0,attn:false,spendMissDlg:false};
+  bump(weekB[m],r);
   const ym=String(r.date||'').slice(0,7);
   if(ym.length===7){
    if(!monthB[ym])monthB[ym]={ym,start:ym+'-01',wa:null,ig:null,tot:null,spend:null,price:null,waDays:0,igDays:0,totDays:0,spendDays:0,n:0,attn:false,spendMissDlg:false,isT:!!(today&&today.slice(0,7)===ym)};
@@ -2447,8 +2446,14 @@ function pepLeadsStripHTML(d){
   }
  });
  const weekNames=['Прошлая','Позапрошлая','Позапозапрошлая'];
- const weeks=Object.keys(weekB).sort().map(k=>weekB[k]).filter(w=>!today||w.end<today);
- weeks.forEach((w,i)=>{finish(w);const fromEnd=weeks.length-1-i;w.title=fromEnd<weekNames.length?weekNames[fromEnd]:'';w.label=fd(w.start)+'–'+fd(w.end)});
+ const weeks=Object.keys(weekB).sort().map(k=>weekB[k]);
+ weeks.forEach((w,i)=>{
+  finish(w);
+  const fromEnd=weeks.length-1-i,isCur=!!(curMon&&w.start===curMon);
+  w.isT=isCur;
+  w.title=isCur?'Текущая':(fromEnd>=1&&fromEnd-1<weekNames.length?weekNames[fromEnd-1]:'');
+  w.label=fd(w.start)+'–'+fd(w.end);
+ });
  weeks.reverse();
  const months=Object.keys(monthB).sort().map(k=>monthB[k]);
  months.forEach((w,i)=>{
