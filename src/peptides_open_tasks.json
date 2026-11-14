@@ -1,7 +1,7 @@
 {
  "_doc": "t6287u: открытые рабочие задачи направления Пептиды (Peso Saludable) для доски вкладки Пептиды (Сегодня у меня / Приоритеты: тег «🎯 фокус» / Рутина), как of_open_tasks.json и personal_open_tasks.json. Отдельного ClickUp-пространства Пептиды нет: задачи живут в OF (parent Peptidos 86bcn2ew9, список General Tasks OF) и Tabakevich (список «Задачи Tabakevich», ветка ПРОЕКТИКИ / БОТ: Пептиды 86bb779rw). complete/main исключены. Пустой приоритет → normal. Снимок Секретаря через MCP get_task/search; не файл бота Пептид (peptides_tasks.json не трогаем).",
- "fetched_at": "2026-11-13T18:49-05:00",
- "src": "ClickUp search «пептид»/«peptidos»/«Peso Saludable» + subtasks 86bcn2ew9 и 86bb779rw; include_closed=false. Тег «🎯 фокус» уже есть в пространствах OF (90144306285) и Tabakevich (90144306286), где лежат эти задачи. freq/recurring: Frecuencia periódica (filter custom field f069396a-…, t6300u).",
+ "fetched_at": "2026-11-14T00:39-05:00",
+ "src": "ClickUp search «пептид»/«peptidos»/«Peso Saludable» + subtasks 86bcn2ew9 и 86bb779rw; include_closed=false. Тег «🎯 фокус» уже есть в пространствах OF (90144306285) и Tabakevich (90144306286), где лежат эти задачи. freq/recurring: Frecuencia periódica (filter custom field f069396a-…, t6300u). t6410u/t6411u: добавлены подзадачи Peptidos 86bd3c1yh, 86bd3ddfj, 86bd3ddfm с тегом «🎯 фокус» (Сара).",
  "tasks": [
   {
    "id": "86bbay300",
@@ -81,6 +81,63 @@
    "url": "https://rosmater.github.io/cu/?t=86bcp2pca",
    "tags": [],
    "freq": null
+  },
+  {
+   "id": "86bd3c1yh",
+   "name": "Iniciar prueba del bot de chat con IA",
+   "status": "to do",
+   "priority": "normal",
+   "due": "2026-11-14",
+   "hang_since": "2026-11-13",
+   "assignees": [
+    "Sara Pineda Chanci"
+   ],
+   "list": "General Tasks OF",
+   "url": "https://rosmater.github.io/cu/?t=86bd3c1yh",
+   "tags": [
+    "🎯 фокус"
+   ],
+   "freq": "única",
+   "parent": "Peptidos",
+   "role": "TO DO"
+  },
+  {
+   "id": "86bd3ddfj",
+   "name": "Encontrar repartidor en Bogotá",
+   "status": "to do",
+   "priority": "normal",
+   "due": null,
+   "hang_since": "2026-11-14",
+   "assignees": [
+    "Sara Pineda Chanci"
+   ],
+   "list": "General Tasks OF",
+   "url": "https://rosmater.github.io/cu/?t=86bd3ddfj",
+   "tags": [
+    "🎯 фокус"
+   ],
+   "freq": "única",
+   "parent": "Peptidos",
+   "role": "TO DO"
+  },
+  {
+   "id": "86bd3ddfm",
+   "name": "Empezar envíos por toda Colombia",
+   "status": "to do",
+   "priority": "normal",
+   "due": null,
+   "hang_since": "2026-11-14",
+   "assignees": [
+    "Sara Pineda Chanci"
+   ],
+   "list": "General Tasks OF",
+   "url": "https://rosmater.github.io/cu/?t=86bd3ddfm",
+   "tags": [
+    "🎯 фокус"
+   ],
+   "freq": "única",
+   "parent": "Peptidos",
+   "role": "TO DO"
   }
  ]
 }
