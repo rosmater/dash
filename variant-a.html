@@ -133,7 +133,7 @@ footer{margin-top:22px;color:var(--mut);font-size:11.5px;line-height:1.6;border-
 .tl-ev a{color:var(--txt);text-decoration:none}.tl-ev a:hover{color:var(--acc)}.tl-ev .tm{color:var(--mut);font-variant-numeric:tabular-nums;font-size:11.5px}.tl-ev .ls{color:var(--mut);font-size:11px}
 .tl-main{flex:1;min-width:0;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}.tl-cu{display:flex;flex-direction:column;gap:2px;align-items:flex-end;max-width:45%;flex:0 1 auto}
 .culink{display:inline-block;font-size:11px;background:#7b68ee;color:#fff!important;border-radius:6px;padding:1px 6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}
-.tl2-head{display:flex;font-size:12px;color:var(--mut);margin:0 0 6px;gap:0}.tl2-head>div{box-sizing:border-box;padding:0 4px}
+/* Rost t6386u: подписи лент дня — у начала своей колонки, сразу после разделителя; не наезжают на соседний блок, многоточие если узко. Горизонтальные отступы как у .tl-wrap, доли 55/45 как у лент. */.tl2-head{display:grid;grid-template-columns:58px minmax(0,5.5fr) minmax(0,4.5fr);padding:0 10px 0 4px;box-sizing:border-box;font-size:12px;color:var(--mut);margin:0 0 6px;gap:0;min-width:0;max-width:100%;overflow:hidden}.tl2-head.cu-only{grid-template-columns:58px minmax(0,1fr)}.tl2-head>div{box-sizing:border-box;padding:0 4px;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;text-align:left}.tl2-head>.tl2-axis{padding:0}/* Неделя: бейджи у начала своей половины колонки, без вылезания в соседний день */.cw-lanes{justify-items:start}.cw-lanes>span{min-width:0;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;justify-self:start}.cw-lanes>.clickup{margin-left:2px}
 .tl-split{position:absolute;top:0;bottom:0;border-left:2px dashed #d9d2ff;z-index:0}
 .tl-cumark{position:absolute;left:44px;width:10px;height:10px;margin-top:-5px;border-radius:3px;background:#7b68ee;box-shadow:0 0 0 2px #fff;z-index:2}.tl-cumark.lg{position:static;display:inline-block;margin:0 4px 0 0;vertical-align:-1px}
 .tl-guide{position:absolute;left:58px;border-top:1px dashed #9d8cff;z-index:2;opacity:.8;pointer-events:none}
@@ -1426,7 +1426,7 @@ function tlHTML(evs,k,o={}){const PX=o.px||46,now=Date.now(),d0=new Date(k+'T00:
  G.forEach(o=>{o.top=y(o.s);o.ht=Math.max(MIN,y(o.en)-o.top)});
  C.forEach(o=>{o.span=o.en>o.s;o.top=y(o.s);o.ht=o.span?Math.max(MIN,y(o.en)-o.top):MIN});
  tlPack(G);tlPack(C);
- let h=`<div class="tl2-head" style="padding-left:${AX}px">${cuOnly?'':`<div style="width:calc(${L})"><span class="src gcal">Google</span> календарь</div>`}<div style="width:calc(${R})"><span class="src clickup">ClickUp</span> задачи со временем</div></div>`;
+ let h=`<div class="tl2-head${cuOnly?' cu-only':''}"><div class="tl2-axis"></div>${cuOnly?'':`<div title="Google · календарь"><span class="src gcal">Google</span> календарь</div>`}<div title="ClickUp · задачи со временем"><span class="src clickup">ClickUp</span> задачи со временем</div></div>`;
  h+=`<div class="card tl-wrap" ${o.h?`style="max-height:${o.h}"`:''}><div class="tl tl2" style="height:${24*PX}px">`;
  for(let i=0;i<24;i++)h+=`<div class="tl-h" style="top:${i*PX}px"><span>${String(i).padStart(2,'0')}:00</span></div>`;
  if(!cuOnly)h+=`<div class="tl-split" style="left:calc(${AX}px + ${L})"></div>`;
