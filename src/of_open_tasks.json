@@ -1107,7 +1107,7 @@
    "name": "[Camila ходила 21.10 — ждём новости] Flames m02 — Camila, 24",
    "status": "to do",
    "priority": "normal",
-   "due": null,
+   "due": "2026-11-13",
    "hang_since": "2026-10-14",
    "assignees": [
     "Rost"
@@ -1186,7 +1186,7 @@
    "name": "[ждем от Flames ответ по 2 этапу] Flames m19 — Valeria, 21",
    "status": "to do",
    "priority": "normal",
-   "due": null,
+   "due": "2026-11-13",
    "hang_since": "2026-10-26",
    "assignees": [
     "Rost"
@@ -1466,7 +1466,7 @@
    "name": "[ждем от Flames ответ по 2 этапу] Flames m15 — Juliana, 27",
    "status": "to do",
    "priority": "normal",
-   "due": null,
+   "due": "2026-11-13",
    "hang_since": "2026-10-22",
    "assignees": [
     "Rost"

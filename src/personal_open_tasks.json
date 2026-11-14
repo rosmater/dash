@@ -2961,7 +2961,7 @@
    "name": "БОТ: Live Google Calendar на даш (OAuth, не снимок)",
    "status": "in progress",
    "priority": "high",
-   "due": null,
+   "due": "2026-11-13",
    "assignees": [
     "Rost"
    ],
@@ -3025,7 +3025,7 @@
    "name": "Мама (как дела?)",
    "status": "to do",
    "priority": "normal",
-   "due": null,
+   "due": "2026-11-13",
    "assignees": [],
    "list": "Personal",
    "url": "https://rosmater.github.io/cu/?t=86bcqw802",
