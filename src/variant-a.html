@@ -622,6 +622,8 @@ details.def-ur > summary::-webkit-details-marker,details.def-ur > summary::marke
 #main .cal-prio-list{margin-top:3px;--bw-row-h:28px;height:auto;max-height:calc(var(--bw-row-h) * 10);overflow-y:auto;-webkit-overflow-scrolling:touch}
 @media(max-width:720px){#main .cal-ros-row>.card{max-height:none}}
 
+/* t6404u */
+#main .cal-prio-list .trow.cal-prio-gsep{margin-top:2px}
 </style><link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%2322c3a6%22/%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%237b5cff%22/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2216%22%20fill%3D%22url%28%23g%29%22/%3E%3Crect%20x%3D%2215%22%20y%3D%2234%22%20width%3D%228%22%20height%3D%2215%22%20rx%3D%223%22%20fill%3D%22%23fff%22/%3E%3Crect%20x%3D%2228%22%20y%3D%2224%22%20width%3D%228%22%20height%3D%2225%22%20rx%3D%223%22%20fill%3D%22%23fff%22/%3E%3Crect%20x%3D%2241%22%20y%3D%2215%22%20width%3D%228%22%20height%3D%2234%22%20rx%3D%223%22%20fill%3D%22%23fff%22%20opacity%3D%22.92%22/%3E%3C/svg%3E">
 </head><body><div class="wrap">
 <header><div class="brand"><div class="logo">R</div><div><h1>Бизнес-дашборд</h1><small id="sub"></small></div></div><div id="bdhdr"></div>
@@ -1277,14 +1279,19 @@ function dirIdOfTask(t){const id=typeof cuTaskId==='function'?cuTaskId(t):((t&&t
 function dirInfoOf(id){return((Dash.D||{}).directions||[]).find(x=>x.id===id)||null}
 function dirIconHTML(t){const info=dirInfoOf(dirIdOfTask(t));if(!info||!info.icon)return '';return `<span class="dir-ico" title="${esc(info.name)}">${info.icon}</span>`}
 function calTodayRow(t){return `<div class="task trow cal-today-row">${dirIconHTML(t)}${taskLeadHTML(t)}${cuTitleHTML(t)}${thBtns(t)}</div>`}
+function calPrioDirOrder(){const skip=new Set(['calendar','messengers','assistants','overview','unsorted']);const seen=new Set(),order=[];
+  for(const d of((Dash.D||{}).directions||[])){if(!d||!d.id||skip.has(d.id)||d.kind==='calendar'||d.kind==='msgs')continue;if(!seen.has(d.id)){seen.add(d.id);order.push(d.id)}}
+  for(const id of['personal','realestate','tabakevich','of','peptides','defense','coaching']){if(!seen.has(id)){seen.add(id);order.push(id)}}
+  return order}
+function calPrioDirSort(a,b){const order=calPrioDirOrder();const ia=order.indexOf(dirIdOfTask(a)),ib=order.indexOf(dirIdOfTask(b));const ra=ia<0?order.length:ia,rb=ib<0?order.length:ib;if(ra!==rb)return ra-rb;return roleThenDueSort(a,b)}
 function calPrioDayHTML(){const today=dueTodayStr();const dueOk=t=>t&&t.due&&String(t.due).slice(0,10)<=today;const mine=[],staff=[],seenM=new Set(),seenS=new Set();
   const add=(arr,seen,t)=>{if(!t||thHidden(t)||cuClosed(t)||!dueOk(t))return;const id=(typeof cuTaskId==='function'&&cuTaskId(t))||t.id||t.name;if(!id||seen.has(id))return;seen.add(id);arr.push(t)};
   for(const d of(Dash.D&&Dash.D.directions)||[]){if(!d||d.kind==='calendar'||d.kind==='msgs'||['messengers','assistants','calendar'].includes(d.id))continue;const B=(typeof boardOf==='function'&&boardOf(d))||d.personal_board||d.of_board||d.tbk_board||d.peptides_board||null;
     if(B&&((B.prio_mine&&B.prio_mine.length)||(B.prio_staff&&B.prio_staff.length))){(B.prio_mine||[]).forEach(x=>add(mine,seenM,x));(B.prio_staff||[]).forEach(x=>add(staff,seenS,x))}
     else{for(const x of d.tasks||[]){if(!isFocus(x))continue;(cuIsRost(x)?add(mine,seenM,x):add(staff,seenS,x))}}}
-  mine.sort(roleThenDueSort);staff.sort(roleThenDueSort);
-  const row=t=>{if(!t||thHidden(t)||cuClosed(t))return '';return `<div class="task trow cal-today-row">${dirIconHTML(t)}${taskLeadHTML(t,{dueHTML:ofDueHangHTML(t)})}${cuTitleHTML(t)}${ofRowBadge(t)}${cuWhoHTML(t,{silent:true})}${thBtns(t)}</div>`};
-  const block=(title,ts)=>`<div class="of-prio-sub"><h4>${esc(title)} <span class="st">${ts.length}</span></h4>${ts.length?`<div class="cal-prio-list">${ts.map(row).join('')}</div>`:'<div class="empty of-prio-empty">Нет приоритетов на сегодня и просроченных</div>'}</div>`;
+  mine.sort(calPrioDirSort);staff.sort(calPrioDirSort);
+  const rowsOf=ts=>{let prev='';return ts.map((t,i)=>{if(!t||thHidden(t)||cuClosed(t))return '';const dir=dirIdOfTask(t);const sep=(i&&dir!==prev)?' cal-prio-gsep':'';prev=dir;return `<div class="task trow cal-today-row${sep}">${dirIconHTML(t)}${taskLeadHTML(t,{dueHTML:ofDueHangHTML(t)})}${cuTitleHTML(t)}${ofRowBadge(t)}${cuWhoHTML(t,{silent:true})}${thBtns(t)}</div>`}).join('')};
+  const block=(title,ts)=>`<div class="of-prio-sub"><h4>${esc(title)} <span class="st">${ts.length}</span></h4>${ts.length?`<div class="cal-prio-list">${rowsOf(ts)}</div>`:'<div class="empty of-prio-empty">Нет приоритетов на сегодня и просроченных</div>'}</div>`;
   return `<div class="card of-prio cal-prio-day" style="margin-bottom:14px"><div class="of-prio-grid">${block('Приоритеты: на решение мне',mine)}${block('Приоритеты: на решение у сотрудников',staff)}</div></div>`}
 function calRosDayHTML(d){const today=dueTodayStr();
   const take=L=>((L||[]).filter(t=>t.due&&String(t.due).slice(0,10)<=today&&!thHidden(t)&&!cuClosed(t)).slice().sort(calRosDaySort));
