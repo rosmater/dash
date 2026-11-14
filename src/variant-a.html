@@ -225,24 +225,27 @@ details.mrow .mbody>.task{padding:5px 0}
 .calview.seg button{padding:5px 10px}.calbreak{margin:8px 0 0}.calbreak .cb-row{display:flex;align-items:center;gap:8px;margin:3px 0;font-size:12.5px}.calbreak .cb-lab{min-width:92px;font-weight:600}.calbreak .cb-bar{flex:1;height:8px;border-radius:99px;background:#eef0f5;overflow:hidden}.calbreak .cb-bar>i{display:block;height:100%;border-radius:99px}.calbreak .cb-hrs{min-width:70px;text-align:right;color:var(--mut);font-variant-numeric:tabular-nums}
 /* Rost t6360u: Role pill; day grid = timeline left, donut breakdown right */
 .role-pill,.status-pill{display:inline-flex;align-items:center;justify-content:center;flex:none;font-size:10px;font-weight:700;line-height:1.15;padding:2px 5px;border-radius:99px;border:1px solid var(--line);color:#3a4160;background:#f7f8fb;white-space:nowrap;min-width:28px;max-width:36px;overflow:hidden;text-overflow:clip;letter-spacing:.02em}.role-pill{font-size:13px;font-weight:500;letter-spacing:0;min-width:22px;max-width:none;padding:1px 4px;overflow:visible;line-height:1.2}.status-pill{color:var(--st,#3a4160);border-color:var(--st,var(--line));background:color-mix(in srgb,var(--st,#94a3b8) 16%,#fff)}
-.cal-day-grid{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(220px,0.8fr);gap:var(--dash-gap);align-items:stretch;margin-bottom:var(--dash-gap)}
+.cal-day-grid{display:grid;grid-template-columns:minmax(0,1fr) max-content;gap:var(--dash-gap);align-items:stretch;margin-bottom:var(--dash-gap)}
 .cal-day-grid>.cal-day-tl,.cal-day-grid>.cal-day-break{min-width:0}
 .cal-day-grid .tl-wrap{max-height:min(64vh,640px);margin-bottom:0}
 .cal-day-grid .tl-ev{font-size:11.5px;padding:2px 6px}
 /* t6376u: Day — Ros | Ros bot tall enough for ≥10 task rows on desktop; title-to-list gap halved. Google stays below. */
 .cal-ros-row>.card{max-height:min(52vh,360px)}
 @media(max-width:720px){.cal-ros-row{grid-template-columns:repeat(2,minmax(0,1fr))}.cal-ros-row>.card{max-height:min(38vh,280px)}}
-.cal-donut-card{margin:0;display:flex;flex-direction:column}
-.cal-donut-wrap{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.cal-donut-card{margin:0;display:flex;flex-direction:column;width:max-content;max-width:100%;box-sizing:border-box}
+.cal-donut-card>.note{margin:0 0 6px;max-width:100%}
+.cal-donut-wrap{display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap}
 .cal-donut{width:168px;height:168px;flex:none}
-.cal-donut-leg{flex:1 1 150px;min-width:0;display:flex;flex-direction:column;gap:3px}
-.cal-donut-leg .cb-leg{display:flex;align-items:center;gap:6px;font-size:12px;line-height:1.25}
+/* Rost t6388u: legend is a tight static 3-col grid (name | time | %), name = max-content, thin row dividers */
+.cal-donut-leg{display:grid;grid-template-columns:max-content max-content max-content;column-gap:10px;row-gap:0;width:max-content;flex:none;margin:0;align-self:center}
+.cal-donut-leg .cb-leg{display:contents}
+.cal-donut-leg .cb-lab{display:flex;align-items:center;gap:6px;font-weight:600;white-space:nowrap;font-size:12px;line-height:1.25;padding:4px 0;border-bottom:1px solid #eef0f4}
 .cal-donut-leg .cb-sw{width:8px;height:8px;border-radius:99px;flex:none}
-.cal-donut-leg .cb-lab{flex:1 1 auto;min-width:0;font-weight:600}
-.cal-donut-leg .cb-hrs{flex:none;color:var(--mut);font-variant-numeric:tabular-nums;white-space:nowrap}
-@media(max-width:720px){.cal-day-grid{grid-template-columns:1fr}.cal-donut-wrap{justify-content:center}}
+.cal-donut-leg .cb-hrs,.cal-donut-leg .cb-pct{color:var(--mut);font-variant-numeric:tabular-nums;white-space:nowrap;font-size:12px;line-height:1.25;padding:4px 0;border-bottom:1px solid #eef0f4;text-align:right}
+.cal-donut-leg .cb-leg:last-child .cb-lab,.cal-donut-leg .cb-leg:last-child .cb-hrs,.cal-donut-leg .cb-leg:last-child .cb-pct{border-bottom:0}
+@media(max-width:720px){.cal-day-grid{grid-template-columns:1fr}.cal-day-grid>.cal-day-break,.cal-week-grid .cal-day-break,.calmonth-row>.cal-donut-card{width:auto;max-width:none}.cal-donut-wrap{justify-content:center}}
 /* t6314u: блок «Месяц» на вкладке Календарь — сетка + сводка за месяц */
-.calmonth-row{display:grid;grid-template-columns:minmax(260px,1.05fr) minmax(240px,1fr);gap:var(--dash-gap);margin:0 0 var(--dash-gap);align-items:stretch}
+.calmonth-row{display:grid;grid-template-columns:minmax(260px,1fr) max-content;gap:var(--dash-gap);margin:0 0 var(--dash-gap);align-items:stretch}
 @media(max-width:720px){.calmonth-row{grid-template-columns:1fr}}
 .calmonth-row>.card{margin:0;display:flex;flex-direction:column}
 .calmonth-hd{display:flex;align-items:center;justify-content:space-between;gap:8px;margin:0 0 8px}
@@ -264,9 +267,11 @@ details.mrow .mbody>.task{padding:5px 0}
 .cm-grid button.cm-d.recon:after{content:'✓';position:absolute;top:2px;right:3px;font-size:9px;color:#16a34a;font-weight:700}
 .cm-grid button.cm-d.on.recon:after{color:#d1fae5}
 
-.cal-week-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(200px,260px);gap:var(--dash-gap);align-items:start;margin-bottom:var(--dash-gap)}
+.cal-week-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(196px,216px);gap:var(--dash-gap);align-items:start;margin-bottom:var(--dash-gap)}
 .cal-week-grid .calweek{max-height:min(64vh,640px);margin:0}
-@media(max-width:720px){.cal-week-grid{grid-template-columns:1fr}}
+.cal-week-grid .cal-day-break{min-width:0;max-width:216px}
+.cal-week-grid .cal-donut-wrap{flex-direction:column;align-items:center;gap:8px}
+@media(max-width:720px){.cal-week-grid{grid-template-columns:1fr}.cal-week-grid .cal-day-break{max-width:none}}
 .calweek{display:grid;grid-template-columns:28px 1fr;border:1px solid var(--line);border-radius:12px;background:var(--panel);overflow:auto;max-height:min(64vh,640px);-webkit-overflow-scrolling:touch}
 .cw-axis-col{position:sticky;left:0;z-index:5;background:var(--panel)}
 .cw-axis-pad{border-right:1px solid var(--line);background:var(--panel)}
@@ -1081,7 +1086,7 @@ function calBreakDonutHTML(evs,days,kind,extraNote){
  if(!rows.length)return `<div class="card cal-donut-card">${head}<div class="note calbreak">В этом периоде в снимке нет событий со временем.</div></div>`;
  const R=34,C=2*Math.PI*R;let off=0;
  const slices=rows.map(({c,ms})=>{const len=Math.max(0,ms/Math.max(total,1)*C);const el=`<circle cx="50" cy="50" r="${R}" fill="none" stroke="${esc(c.color)}" stroke-width="16" stroke-dasharray="${len} ${C}" stroke-dashoffset="${-off}" transform="rotate(-90 50 50)"></circle>`;off+=len;return el}).join('');
- const leg=rows.map(({c,ms})=>{const pct=Math.round(ms/Math.max(total,1)*1000)/10;return `<div class="cb-leg"><span class="cb-sw" style="background:${c.color}"></span><span class="cb-lab">${esc(c.name)}</span><span class="cb-hrs">${calFmtHrs(ms)} · ${String(pct).replace('.',',')}%</span></div>`}).join('');
+ const leg=rows.map(({c,ms})=>{const pct=Math.round(ms/Math.max(total,1)*1000)/10;return `<div class="cb-leg"><span class="cb-lab"><span class="cb-sw" style="background:${c.color}"></span>${esc(c.name)}</span><span class="cb-hrs">${calFmtHrs(ms)}</span><span class="cb-pct">${String(pct).replace('.',',')}%</span></div>`}).join('');
  return `<div class="card cal-donut-card">${head}<div class="note" style="margin:0 0 8px">${note}</div><div class="cal-donut-wrap"><svg class="cal-donut" viewBox="0 0 100 100" role="img" aria-label="${esc(title)}">${slices}</svg><div class="cal-donut-leg">${leg}</div></div></div>`}
 
 function tlWeekHTML(evs,k,o={}){
