@@ -104,13 +104,13 @@ table{width:100%;border-collapse:collapse;font-size:12.5px}th,td{text-align:left
 .pepbal .pepbal-more .pepbal-v{margin:0 0 4px}
 /* t6416u / t6420u / t6423u / t6426u: «Лиды с рекламы» — сетка колонок; текущая — тонкая тёмная рамка, без зелёного подчёркивания */
 .card.pepleads{padding-top:8px;padding-bottom:8px}
-.pepleads h3{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:0;padding:0 0 2px}
+.pepleads h3{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:0;padding:0 0 6px;border-bottom:1px solid var(--line,#e8eef5)}
 .pepleads h3 .pepleads-title{flex:none}
 .pepleads h3 .pepleads-mode{flex:none;padding:2px;box-shadow:none}
 .pepleads h3 .pepleads-mode button{padding:3px 9px;font-size:12px}
 .pepleads h3 .pepleads-watches{display:flex;flex-wrap:wrap;gap:6px;flex:1;justify-content:center;min-width:140px}
 .pepleads h3 .st{margin-left:auto;flex:none}
-.pepleads-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain;padding:0;margin:0 -2px}
+.pepleads-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain;padding:6px 0 0;margin:0 -2px}
 .pepleads-wrap::-webkit-scrollbar{height:6px}
 .pepleads-wrap::-webkit-scrollbar-thumb{background:#d0d5dd;border-radius:99px}
 .pepleads-tbl{border-collapse:collapse;width:max-content;min-width:100%;font-variant-numeric:tabular-nums}
@@ -144,7 +144,8 @@ table{width:100%;border-collapse:collapse;font-size:12.5px}th,td{text-align:left
 .pep-goal-row>summary .alert-txt{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;font:600 13px Inter,system-ui;color:#7c4a03}
 .pep-goal-more{padding:2px 0 6px 2px;font-size:12px;color:var(--mut,#6b7280);line-height:1.45;white-space:normal}
 #main .of-prio-sub h4 + .pep-goal-row{margin-top:3px}
-.card.pepconv{padding-top:10px;margin-bottom:14px}
+.pepconv{margin-bottom:14px}
+.pepconv h3{margin:0 0 6px}
 
 /* t6419u: «обновлено» / «снимок» / GS в шапке «Монитор ответов» и «Итого» */
 #main .card h3.pep-ht,.card h3.pep-ht{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);justify-content:stretch;align-items:center;gap:8px;margin:0 0 6px}
@@ -2544,7 +2545,7 @@ function pepGoalRowsHTML(d){if(!d||d.id!=='peptides')return '';const G=pepGoalsD
  return row(G.dlgTitle,G.dlgMore,G.dlgTip)+row(G.ttTitle,G.ttMore,G.ttTip)}
 function pepConvHTML(d){if(!d||d.id!=='peptides')return '';const cur=Dash.curOf(d),A=d.ads_monitor||{},SM=A.summary,PL=A.plan||{},usd=v=>v==null?'—':fmt(Dash.conv(v,'USD',cur),cur),base=SM&&SM.baseline_cpl_usd,thr=base?base*1.5:null;
  if(!(A.conversion||SM||(PL.assumptions||[]).length))return '';
- return `<div class="card pepconv" style="margin-bottom:14px">${typeof cvTable==='function'?cvTable(A.conversion,base,usd):''}${(PL.assumptions||[]).length?`<div class="note" style="margin-top:6px">💡 Гипотезы: ${PL.assumptions.map(esc).join(' · ')}</div>`:''}</div>`}
+ return `<div class="card pepconv" style="margin-bottom:14px"><h3>Конверсия и гипотезы${SM?` <span class="st">база CPL ${usd(base)} · порог ${usd(thr)}</span>`:''}</h3>${typeof cvTable==='function'?cvTable(A.conversion,base,usd):''}${(PL.assumptions||[]).length?`<div class="note" style="margin-top:6px">💡 Гипотезы: ${PL.assumptions.map(esc).join(' · ')}</div>`:''}</div>`}
 function pepPlanHTML(d){return ''}/* t6414u: отдельный блок «Цели» убран — строки в приоритетах, конверсия под монитором рекламы */
 
 const REP_ST={pending_ping:'ещё не напомнили',awaiting_sara:'ждём ответ',sara_replied:'ответила',bought:'купил(а)',refused:'отказ',no_sara_feedback:'нет ответа'};
