@@ -86,27 +86,6 @@ table{width:100%;border-collapse:collapse;font-size:12.5px}th,td{text-align:left
 .adsmon .admore[open]>summary::before{content:'▾'}
 .adsmon .admore[open]>summary{white-space:normal}
 .adsmon .admore .note{margin:4px 0 0;line-height:1.4;white-space:normal}/* Rost t1092u: карточка баланса Bancolombia на рекламу */.pepbal .pepbal-v{font-size:22px;font-weight:800;letter-spacing:-.03em;margin:2px 0 4px;font-variant-numeric:tabular-nums}.pepbal.warn{border-color:#f79009;background:#fffaeb}.pepbal.out{border-color:#f04438;background:#fef3f2}/* Rost t1101u: лента дневных лидов WA с рекламы */
-.pepleads h3{margin-bottom:8px}
-.pepleads-strip{display:flex;gap:8px;overflow-x:auto;-webkit-overflow-scrolling:touch;scroll-snap-type:x mandatory;scroll-padding-inline:6px;padding:2px 2px 8px;overscroll-behavior-x:contain}
-.pepleads-strip::-webkit-scrollbar{height:6px}
-.pepleads-strip::-webkit-scrollbar-thumb{background:#d0d5dd;border-radius:99px}
-.pepleads-card{flex:0 0 auto;width:108px;scroll-snap-align:start;border:1px solid var(--line);border-radius:12px;padding:7px 6px 6px;background:var(--panel);text-align:center;box-sizing:border-box}
-.pepleads-card .d{font-size:11px;font-weight:600;color:var(--mut);line-height:1.2;white-space:nowrap}
-.pepleads-card .n{font-size:22px;font-weight:800;letter-spacing:-.03em;font-variant-numeric:tabular-nums;line-height:1.15;margin:3px 0 1px}
-.pepleads-card .lab{font-size:10px;color:var(--mut);line-height:1.2}
-.pepleads-card .tot{font-size:10px;color:var(--mut);margin-top:3px;line-height:1.25}
-.pepleads-card .spend,.pepleads-card .cpl{font-size:10px;font-variant-numeric:tabular-nums;line-height:1.25;white-space:nowrap}
-.pepleads-card .spend{margin-top:4px;color:var(--text)}
-.pepleads-card .cpl{margin-top:1px;color:var(--mut)}
-.pepleads-card[title]{cursor:help}
-.pepleads-card.today{border-color:#22d3a6;background:#f3fffb}
-.pepleads-card.today .d{color:#0f766e}
-.pepleads-card.nodata .n{color:var(--mut);font-weight:700}
-/* Rost t1133u: закрытый день с <10 новыми лидами — красная карточка в ленте */
-.pepleads-card.attn{border-color:#f87171;background:#fff1f1;width:118px}
-.pepleads-card.attn .d,.pepleads-card .attnlab{color:#b42318}
-.pepleads-card .attnlab{font-size:10px;font-weight:700;margin-top:3px;line-height:1.2}
-.pepleads-card .misslab{font-size:10px;color:var(--mut);margin-top:3px;line-height:1.2}
 /* t6407u: компактные «Цели» как «Требует внимания» / «Даш и внедрение» — строка, клик раскрывает */
 .pepgoals{margin-bottom:14px}
 .pepgoals h3{margin:0 0 4px}
@@ -124,13 +103,37 @@ table{width:100%;border-collapse:collapse;font-size:12.5px}th,td{text-align:left
 .pepbal .pepbal-v-inline{margin-left:auto;font-weight:800;font-variant-numeric:tabular-nums;letter-spacing:-.03em;white-space:nowrap}
 .pepbal .pepbal-more{padding:6px 0 2px}
 .pepbal .pepbal-more .pepbal-v{margin:0 0 4px}
-/* t6409u: шапка «Лиды с рекламы» — вотчеры по центру, сводка справа; две ленты WA / IG */
-.pepleads h3{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:8px}
+/* t6416u: «Лиды с рекламы» — компактная таблица, колонки дней/недель тянутся вправо; вотчеры в шапке */
+.pepleads h3{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px}
 .pepleads h3 .pepleads-title{flex:none}
+.pepleads h3 .pepleads-mode{flex:none;padding:2px;box-shadow:none}
+.pepleads h3 .pepleads-mode button{padding:3px 9px;font-size:12px}
 .pepleads h3 .pepleads-watches{display:flex;flex-wrap:wrap;gap:6px;flex:1;justify-content:center;min-width:140px}
 .pepleads h3 .st{margin-left:auto;flex:none}
-.pepleads-k{font:700 11.5px Inter,system-ui;color:#64748b;margin:2px 0 4px}
-.pepleads-k+.pepleads-strip{margin-bottom:8px}
+.pepleads-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain;padding:0 0 4px;margin:0 -2px}
+.pepleads-wrap::-webkit-scrollbar{height:6px}
+.pepleads-wrap::-webkit-scrollbar-thumb{background:#d0d5dd;border-radius:99px}
+.pepleads-tbl{border-collapse:collapse;width:max-content;min-width:100%;font-variant-numeric:tabular-nums}
+.pepleads-tbl th,.pepleads-tbl td{padding:4px 8px;text-align:center;white-space:nowrap;border-bottom:1px solid var(--line,#e8eef5);font-size:13px;font-weight:700;line-height:1.2}
+.pepleads-tbl thead th{font-size:10.5px;font-weight:700;color:var(--mut,#6b7280);padding:2px 8px 3px;vertical-align:bottom}
+.pepleads-tbl thead th .d1{display:block;font-weight:700;color:#334155}
+.pepleads-tbl thead th .d2{display:block;font-weight:600;color:#94a3b8;font-size:10px;margin-top:1px}
+.pepleads-tbl .lab{text-align:left;position:sticky;left:0;z-index:1;background:var(--panel,#fff);font-weight:700;color:#475569;padding-left:2px;padding-right:12px;box-shadow:4px 0 8px -6px #0f172a22}
+.pepleads-tbl thead th.lab{box-shadow:none;background:var(--panel,#fff)}
+.pepleads-tbl tbody tr.tot td{font-weight:800}
+.pepleads-tbl tbody tr.tot td.lab{font-weight:800;color:#0f172a}
+.pepleads-tbl td.up{background:#ecfdf3;color:#166534}
+.pepleads-tbl td.down{background:#fef2f2;color:#b91c1c}
+.pepleads-tbl td.same{background:#f8fafc}
+.pepleads-tbl td.nodata{color:var(--mut,#6b7280);font-weight:600;background:transparent}
+.pepleads-tbl th.today,.pepleads-tbl td.today{box-shadow:inset 0 -2px 0 #22d3a6}
+.pepleads-tbl th.today{color:#0f766e;background:#f3fffb}
+.pepleads-tbl th.today .d1{color:#0f766e}
+.pepleads-tbl td.attn,.pepleads-tbl th.attn{background:#fff1f1}
+.pepleads-tbl td.attn.up{background:#ecfdf3}
+.pepleads-tbl td.attn.down{background:#fef2f2}
+.pepleads-tbl .attnmark{color:#b42318;font-size:10px}
+.pepleads-tbl td[title],.pepleads-tbl th[title]{cursor:help}
 .pepleads-empty{font-size:12px;color:var(--mut,#6b7280);padding:4px 0 8px}
 /* t6414u: цели — строки в «Приоритеты: на решение мне» на Пептидах, не отдельный блок и не задачи CU */
 .pep-goal-row{border-bottom:1px solid var(--line,#efe6d2);background:#fffaf0;margin:0 -4px;padding:0 4px}
@@ -2377,9 +2380,89 @@ function wwBalHdr(){const P=wwBalSrc();if(!P||!P.low)return '';const tip='Про
 
 function pepAdBalRefresh(){const box=document.getElementById('pep-adbal');if(!box)return;const h=pepAdBalHTML();if(h)box.outerHTML=h}
 
-/* Rost t1101u: лента лидов WA с рекламы над повторными продажами; по умолчанию прокручена к сегодня */
-function pepLeadsStripHTML(d){if(d.id!=='peptides')return '';const L=d.leads_strip||{},T=d.dialogs_today||{},igInfo=T.ig||{};let days=(L.days||[]).slice();const today=(typeof bDay==='function'?bDay(new Date().toISOString()):(typeof TODAY_BOG!=='undefined'?TODAY_BOG:null));if(today&&!days.some(x=>x.date===today))days=days.concat([{date:today,ads:null,total:null,today:true,no_data:true}]);days.sort((a,b)=>String(b.date||'').localeCompare(String(a.date||'')));if(!days.length)return '';const dw=x=>['вс','пн','вт','ср','чт','пт','сб'][new Date(x+'T12:00:00Z').getUTCDay()],fd=x=>x.slice(8,10)+'.'+x.slice(5,7),num=v=>v==null?'—':esc(Dash.num(v)),hm=x=>{const s=String(x||''),m=s.match(/T(\d{2}:\d{2})/)||s.match(/\s(\d{2}:\d{2})/);return m?m[1]:''};const cards=days.map(r=>{const isT=r.date===today||r.today,empty=r.no_data||(r.ads==null&&r.total==null),isAttn=!!r.attn,attnLab=r.attn_label||'',missLab=(!isT&&r.missing_label)||'',adsShow=empty||r.ads==null?'—':num(r.ads),approx=!!r.spend_approx,spendLine=r.spend==null?'расход —':('расход '+(approx?'≈':'')+num(r.spend)),cplLine=r.cpl==null?'диалог —':('диалог '+(approx?'≈':'')+num(r.cpl));const tip=r.spend_tip?esc(r.spend_tip).replace(/\n/g,'&#10;'):'';return `<div class="pepleads-card${isT?' today':''}${empty?' nodata':''}${isAttn?' attn':''}" data-d="${esc(r.date)}"${tip?` title="${tip}"`:''}><div class="d">${dw(r.date)} ${fd(r.date)}</div><div class="n">${adsShow}</div><div class="lab">с рекламы</div><div class="tot">всего новых ${r.total==null?'—':num(r.total)}</div><div class="spend">${spendLine}</div><div class="cpl">${cplLine}</div>${isAttn&&attnLab?`<div class="attnlab">${esc(attnLab)}</div>`:missLab?`<div class="misslab">${esc(missLab)}</div>`:''}</div>`}).join('');const igRows=(((d.ads_monitor||{}).conversion||{}).ig_days)||[],igBy={};igRows.forEach(r=>{if(r&&r.date)igBy[r.date]=r});if(today&&igInfo.date===today)igBy[today]=Object.assign({},igBy[today]||{date:today},{n:igInfo.new_count!=null?igInfo.new_count:igBy[today]&&igBy[today].n,dialogs:igInfo.count!=null?igInfo.count:(igBy[today]&&igBy[today].dialogs)});const anyIg=igRows.some(r=>r&&(r.n!=null||r.new_dialogs!=null||r.dialogs!=null))||(igInfo.status&&igInfo.status!=='missing');const igCards=days.map(r=>{const row=igBy[r.date]||{},n=row.n!=null?row.n:(row.new_dialogs!=null?row.new_dialogs:null),isT=r.date===today||r.today,empty=n==null;return `<div class="pepleads-card${isT?' today':''}${empty?' nodata':''}" data-d="${esc(r.date)}" title="${esc('IG Direct · '+(empty?'нет данных':('новых '+n)))}"><div class="d">${dw(r.date)} ${fd(r.date)}</div><div class="n">${empty?'—':num(n)}</div><div class="lab">новых IG</div>${empty?`<div class="misslab">нет данных</div>`:''}</div>`}).join('');const as=L.as_of?String(L.as_of):'';const asof=as.length>=10?as.slice(8,10)+'.'+as.slice(5,7)+(as.length>16?' '+as.slice(11,16):''):'';const waSt=T.watcher_status||'missing',waLive=waSt==='live',waTime=hm(T.last_event_at||T.as_of),waTip='WhatsApp Watcher · '+(waLive?'live':waSt)+(waTime?' · '+waTime:'')+(T.as_of?' · снимок '+T.as_of:'');const ist=igInfo.status||'missing',iLive=ist==='live'||ist==='snapshot',igTime=hm(igInfo.last_event_at||igInfo.as_of),igLab=iLive?(ist==='live'?'IG Watcher Live':'IG Watcher снимок'):'IG Watcher',igTip=igLab+' · '+ist+(igTime?' · '+igTime:'')+(igInfo.as_of?' · снимок '+igInfo.as_of:'');const waChip=`<span class="dlgst${waLive?' ok':''}" title="${esc(waTip)}">WhatsApp Watcher${waTime?' '+waTime:''}</span>`;const igChip=`<span class="dlgst${iLive?' ok':''}" title="${esc(igTip)}">${esc(igLab)}${igTime?' '+igTime:''}</span>`;return `<div class="card pepleads" id="pepleads" style="margin-bottom:14px"><h3><span class="pepleads-title">Лиды с рекламы</span><span class="pepleads-watches">${waChip}${igChip}</span>${asof?` <span class="st">сводка ${esc(asof)}</span>`:''}</h3><div class="pepleads-k">WhatsApp</div><div class="pepleads-strip" id="pepleads-strip">${cards}</div><div class="pepleads-k">Instagram</div>${anyIg?`<div class="pepleads-strip" id="pepleads-ig">${igCards}</div>`:'<div class="pepleads-empty">нет данных</div>'}</div>`}
-function pepLeadsStripMount(){}
+/* Rost t1101u / t6416u: «Лиды с рекламы» — компактная таблица новых диалогов, колонки вправо; Дни / полные прошедшие недели (t6318u) */
+function pepLeadsMode(){try{return localStorage.getItem('dash_pep_leads_mode')==='week'?'week':'days'}catch(e){return 'days'}}
+function pepLeadsSetMode(m){try{localStorage.setItem('dash_pep_leads_mode',m==='week'?'week':'days')}catch(e){}const box=document.getElementById('pepleads');if(!box)return;const mode=pepLeadsMode();box.querySelectorAll('[data-plm]').forEach(b=>b.classList.toggle('on',b.dataset.plm===mode));box.querySelectorAll('[data-plview]').forEach(v=>{v.hidden=v.dataset.plview!==mode});pepLeadsStripMount()}
+function pepLeadsStripMount(){const box=document.getElementById('pepleads');if(!box)return;const mode=pepLeadsMode();const view=box.querySelector('[data-plview="'+mode+'"]');if(view)view.scrollLeft=view.scrollWidth;box.querySelectorAll('[data-plm]').forEach(b=>{if(b.dataset.plBound)return;b.dataset.plBound='1';b.onclick=()=>pepLeadsSetMode(b.dataset.plm)})}
+function pepLeadsStripHTML(d){
+ if(d.id!=='peptides')return '';
+ const L=d.leads_strip||{},T=d.dialogs_today||{},igInfo=T.ig||{};
+ let days=(L.days||[]).slice();
+ const today=(typeof bDay==='function'?bDay(new Date().toISOString()):(typeof TODAY_BOG!=='undefined'?TODAY_BOG:null));
+ if(today&&!days.some(x=>x.date===today))days=days.concat([{date:today,ads:null,total:null,today:true,no_data:true}]);
+ days.sort((a,b)=>String(a.date||'').localeCompare(String(b.date||'')));
+ if(!days.length)return '';
+ const dw=x=>['вс','пн','вт','ср','чт','пт','сб'][new Date(x+'T12:00:00Z').getUTCDay()];
+ const fd=x=>x.slice(8,10)+'.'+x.slice(5,7);
+ const num=v=>v==null?'—':esc(Dash.num(v));
+ const hm=x=>{const s=String(x||''),m=s.match(/T(\d{2}:\d{2})/)||s.match(/\s(\d{2}:\d{2})/);return m?m[1]:''};
+ const monOf=iso=>{const dt=new Date(iso+'T12:00:00Z');dt.setUTCDate(dt.getUTCDate()-((dt.getUTCDay()+6)%7));return dt.toISOString().slice(0,10)};
+ const addD=(iso,n)=>{const dt=new Date(iso+'T12:00:00Z');dt.setUTCDate(dt.getUTCDate()+n);return dt.toISOString().slice(0,10)};
+ const igRows=(((d.ads_monitor||{}).conversion||{}).ig_days)||[],igBy={};
+ igRows.forEach(r=>{if(r&&r.date)igBy[r.date]=r});
+ if(igInfo.date){const k=igInfo.date;igBy[k]=Object.assign({},igBy[k]||{date:k},{n:igInfo.new_count!=null?igInfo.new_count:(igBy[k]&&igBy[k].n),dialogs:igInfo.count!=null?igInfo.count:(igBy[k]&&igBy[k].dialogs)})}
+ const rows=days.map(r=>{
+  const ig=igBy[r.date]||{},igN=ig.n!=null?ig.n:(ig.new_dialogs!=null?ig.new_dialogs:null),wa=r.total!=null?r.total:null;
+  const tot=(wa==null&&igN==null)?null:(wa||0)+(igN||0);
+  return Object.assign({},r,{wa,ig:igN,tot,partial:(wa==null)!==(igN==null)&&tot!=null,isT:r.date===today||!!r.today});
+ });
+ const curMon=today?monOf(today):null,buckets={};
+ rows.forEach(r=>{
+  const m=monOf(r.date);if(curMon&&m===curMon)return;
+  if(!buckets[m])buckets[m]={start:m,end:addD(m,6),wa:null,ig:null,tot:null,waDays:0,igDays:0,n:0,attn:false};
+  const b=buckets[m];b.n++;
+  if(r.wa!=null){b.wa=(b.wa||0)+r.wa;b.waDays++}
+  if(r.ig!=null){b.ig=(b.ig||0)+r.ig;b.igDays++}
+  if(r.tot!=null)b.tot=(b.tot||0)+r.tot;
+  if(r.attn){b.attn=true;b.attn_label=r.attn_label||b.attn_label}
+ });
+ const weekNames=['Прошлая','Позапрошлая','Позапозапрошлая'];
+ const weeks=Object.keys(buckets).sort().map(k=>buckets[k]).filter(w=>!today||w.end<today);
+ weeks.forEach((w,i)=>{const fromEnd=weeks.length-1-i;w.title=fromEnd<weekNames.length?weekNames[fromEnd]:'';w.label=fd(w.start)+'–'+fd(w.end);w.partial=(w.waDays<7)||(w.igDays<7)});
+ const dltCls=(cur,prev)=>cur==null?'nodata':(prev==null?'':(cur>prev?'up':cur<prev?'down':'same'));
+ const tip=(c,key,cur,prv,kind)=>{
+  const bits=[];
+  if(key==='wa'){
+   if(kind==='days'){if(c.ads!=null)bits.push('с рекламы '+c.ads);if(c.spend!=null)bits.push((c.spend_approx?'расход ≈':'расход ')+Dash.num(c.spend));if(c.cpl!=null)bits.push((c.spend_approx?'диалог ≈':'диалог ')+Dash.num(c.cpl));if(c.spend_tip)bits.push(c.spend_tip)}
+   if(c.attn_label)bits.push(c.attn_label);if(c.missing_label)bits.push(c.missing_label);
+   if(kind==='week')bits.push('WA: '+(c.waDays||0)+' дн. с данными');
+  }
+  if(key==='ig'){if(cur==null)bits.push('IG Direct · нет данных');if(kind==='week')bits.push('IG: '+(c.igDays||0)+' дн. с данными')}
+  if(key==='tot'){if(c.partial)bits.push(kind==='week'?('WA '+(c.waDays||0)+'/7 · IG '+(c.igDays||0)+'/7 дн.'):'частично: нет данных по одному каналу')}
+  if(cur!=null&&prv!=null){const dlt=cur-prv,unit=kind==='week'?'к предыдущей неделе':'к предыдущему дню';bits.push(dlt===0?('без изменений '+unit):((dlt>0?'+':'')+dlt+' '+unit))}
+  return bits.join(' · ');
+ };
+ const tbl=(cols,kind)=>{
+  const head=cols.map(c=>{
+   const cls=(c.isT?' today':'')+(c.attn?' attn':'');
+   if(kind==='week')return `<th class="${cls}" title="${esc((c.start||'')+' – '+(c.end||''))}"><span class="d1">${esc(c.title||'\xa0')}</span><span class="d2">${esc(c.label)}</span></th>`;
+   return `<th class="${cls}"><span class="d1">${dw(c.date)}</span><span class="d2">${fd(c.date)}</span></th>`;
+  }).join('');
+  const cells=key=>cols.map((c,i)=>{
+   const prev=i?cols[i-1]:null,cur=c[key],prv=prev?prev[key]:null;
+   const cls=dltCls(cur,prv)+(c.isT?' today':'')+(c.attn&&key==='wa'?' attn':'');
+   const t=tip(c,key,cur,prv,kind);
+   const mark=(c.attn&&key==='wa'&&c.attn_label)?' <span class="attnmark">⚠</span>':'';
+   return `<td class="${cls}"${t?` title="${esc(t)}"`:''}>${cur==null?'—':num(cur)}${mark}</td>`;
+  }).join('');
+  const mode=pepLeadsMode();
+  return `<div class="pepleads-wrap" data-plview="${kind}"${mode!==kind?' hidden':''}><table class="pepleads-tbl"><thead><tr><th class="lab">новые</th>${head}</tr></thead><tbody><tr><td class="lab">WhatsApp</td>${cells('wa')}</tr><tr><td class="lab">Instagram</td>${cells('ig')}</tr><tr class="tot"><td class="lab">Итого</td>${cells('tot')}</tr></tbody></table></div>`;
+ };
+ const as=L.as_of?String(L.as_of):'';
+ const asof=as.length>=10?as.slice(8,10)+'.'+as.slice(5,7)+(as.length>16?' '+as.slice(11,16):''):'';
+ const waSt=T.watcher_status||'missing',waLive=waSt==='live',waTime=hm(T.last_event_at||T.as_of);
+ const waTip='WhatsApp Watcher · '+(waLive?'live':waSt)+(waTime?' · '+waTime:'')+(T.as_of?' · снимок '+T.as_of:'');
+ const ist=igInfo.status||'missing',iLive=ist==='live'||ist==='snapshot',igTime=hm(igInfo.last_event_at||igInfo.as_of);
+ const igLab=iLive?(ist==='live'?'IG Watcher Live':'IG Watcher снимок'):'IG Watcher';
+ const igTip=igLab+' · '+ist+(igTime?' · '+igTime:'')+(igInfo.as_of?' · снимок '+igInfo.as_of:'');
+ const waChip=`<span class="dlgst${waLive?' ok':''}" title="${esc(waTip)}">WhatsApp Watcher${waTime?' '+waTime:''}</span>`;
+ const igChip=`<span class="dlgst${iLive?' ok':''}" title="${esc(igTip)}">${esc(igLab)}${igTime?' '+igTime:''}</span>`;
+ const mode=pepLeadsMode();
+ const tog=`<span class="seg pepleads-mode"><button type="button" data-plm="days"${mode==='days'?' class="on"':''}>Дни</button><button type="button" data-plm="week"${mode==='week'?' class="on"':''}>Неделя</button></span>`;
+ const weekView=weeks.length?tbl(weeks,'week'):`<div class="pepleads-empty" data-plview="week"${mode!=='week'?' hidden':''}>нет полных прошедших недель</div>`;
+ return `<div class="card pepleads" id="pepleads" style="margin-bottom:14px"><h3><span class="pepleads-title">Лиды с рекламы</span>${tog}<span class="pepleads-watches">${waChip}${igChip}</span>${asof?` <span class="st">сводка ${esc(asof)}</span>`:''}</h3>${tbl(rows,'days')}${weekView}</div>`;
+}
+
 function pepGoalsData(d){const A=(d&&d.ads_monitor)||{},dd=x=>x&&/^20/.test(String(x))?String(x).slice(8,10)+'.'+String(x).slice(5,7)+(String(x).length>10?' '+String(x).slice(11,16):''):esc(x||'—'),dw=x=>['вс','пн','вт','ср','чт','пт','сб'][new Date(x+'T12:00:00Z').getUTCDay()],avgTxt=v=>v==null?'—':(Math.abs(v-Math.round(v))<1e-9?String(Math.round(v)):v.toFixed(1).replace('.',','));
  const by={};((A.conversion||{}).days||[]).forEach(r=>{if(!r||!r.date)return;const n=r.new_dialogs!=null?r.new_dialogs:r.n;if(n==null||n==='')return;const v=+n;if(Number.isNaN(v))return;by[r.date]={date:r.date,n:v}});((d.leads_strip||{}).days||[]).forEach(r=>{if(!r||!r.date||r.total==null||r.total==='')return;const v=+r.total;if(Number.isNaN(v))return;if(!by[r.date])by[r.date]={date:r.date,n:v}});
  const last3=Object.values(by).sort((a,b)=>String(a.date).localeCompare(String(b.date))).slice(-3);
