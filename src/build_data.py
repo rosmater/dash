@@ -1669,7 +1669,17 @@ for _d in data.get('directions') or []:
 # Rost t6267u: «🤖 Даш и AI внедрение» — бэклог доработок даша / внедрения AI по вкладкам (src/ai_backlog.json, владелец Секретарь)
 try:
     _aib = json.load(open(os.path.join(os.path.dirname(__file__), 'ai_backlog.json')))
-    data['ai_backlog'] = [x for x in (_aib.get('items') or []) if isinstance(x, dict) and x.get('text') and x.get('tab') and str(x.get('status') or 'plan') != 'done' and not x.get('hidden')]
+    def _aib_ok(x):
+        return isinstance(x, dict) and x.get('text') and str(x.get('status') or 'plan') != 'done' and not x.get('hidden')
+    _aib_items = []
+    for _x in (_aib.get('items') or []):
+        if not (_aib_ok(_x) and (_x.get('tab') or _x.get('parent'))):
+            continue
+        if isinstance(_x.get('sub'), list):
+            _x = dict(_x)
+            _x['sub'] = [s for s in _x['sub'] if _aib_ok(s)]
+        _aib_items.append(_x)
+    data['ai_backlog'] = _aib_items
 except Exception as _e:
     print('ai_backlog skip', type(_e).__name__)
     data['ai_backlog'] = []
