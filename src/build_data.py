@@ -1049,6 +1049,16 @@ if _pc_ids:
     PERSONAL_BOARD['routine_n'] = sum(g['n'] for g in _g2)
     PERSONAL_BOARD['routine_overdue'] = sum(g['overdue'] for g in _g2)
 PERSONAL_BOARD['calls'] = PERSONAL_CALLS
+# Rost t6322u: «🤖 На решении у бота» — бот → рутины (инвентари) + CU for check / «БОТ…» in progress; src/bot_work_gen.py
+try:
+    import importlib.util as _ilu
+    _bw_spec = _ilu.spec_from_file_location('bot_work_gen', os.path.join(_HERE, 'bot_work_gen.py'))
+    _bw = _ilu.module_from_spec(_bw_spec); _bw_spec.loader.exec_module(_bw)
+    BOT_WORK = _bw.build()
+except Exception as _e:
+    try: BOT_WORK = json.load(open(os.path.join(_HERE, 'bot_work.json'), encoding='utf-8'))
+    except Exception: BOT_WORK = None
+    print('bot_work: fallback src/bot_work.json', _e)
 # t6286u: одна задача — приоритеты только одной вкладки (по пространству ClickUp). Хозяин id = снимок пространства:
 # of_open_tasks.json → ОФ, tbk_open_tasks.json → Табакевич, personal_open_tasks.json (list «Personal») → Личное.
 # prio_extra / чужие подмешанные задачи с хозяином на другой вкладке из «Приоритетов» убираются.
@@ -1457,6 +1467,7 @@ data = dict(
          scheduled_meetings=personal_meetings,  # Rost t5828u
          personal_board=PERSONAL_BOARD,  # t6270u: доска как на ОФ
          meet_split=PERSONAL_MEET_SPLIT,  # t6272u: Встречи Личное | Дейтинг
+         bot_work=BOT_WORK,  # t6322u: «🤖 На решении у бота»
          meetings_list_url=personal_meetings_list_url,
          monitors=[
            dict(name='Питание / БЖУ', status='active', note='дневник ведётся (today-*.md + Google Sheet); в дашборд — только счёт дней', src='shared-health/nutrition-bju'),

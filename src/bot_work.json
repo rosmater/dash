@@ -1,0 +1,809 @@
+{
+ "generated": "2026-11-13 20:12",
+ "signal": "CU статус «for check» на Rost (снимок src/ma_clickup.json, владелец-бот из sync/bot_attn.jsonl) + задачи «БОТ…» в статусе «in progress» из снимков досок",
+ "cu_fetched": "2026-11-13 09:30 Bogotá",
+ "src": {
+  "routines": "/workspace/bot-routines-inventory/<BOT>.md + ROUTINE-GROUPS.md",
+  "tasks": "data-test-ma.json clickup.tasks + src/*_open_tasks.json"
+ },
+ "bots": [
+  {
+   "name": "Секретарь",
+   "link": "grokbot://app/v1/agent?id=d3a12cc9-cf8a-41e5-b34a-76d4ab9eb9fd",
+   "inv": "COMMS.md",
+   "inv_updated": "2026-11-10 11:00",
+   "routines": [
+    {
+     "name": "Bundle Sat+Sun lite",
+     "sched": "Sat,Sun 06:42",
+     "folder": "bundle-sun-lite-06-42",
+     "desc": "lite GO + soft TG + 05services monthly nearest-Sunday gate",
+     "service": false,
+     "cu": []
+    },
+    {
+     "name": "Bundle Wed early mega",
+     "sched": "Wed 05:42",
+     "folder": "bundle-wed-early-mega-05-42",
+     "desc": "deep HOT + Idealista thin + SEO while waiting + Andrea + Локаль ping",
+     "service": false,
+     "cu": []
+    },
+    {
+     "name": "Bundle morning mega",
+     "sched": "Mon,Tue,Thu,Fri 10:42",
+     "folder": "bundle-morning-mega-10-42",
+     "desc": "HOT UKR→ESP→TG (+ Palma) + Mon Mail/SIMIT/IPRoyal/Idealista ACTIVE + SEO while waiting + Andrea OFTV + Aurora RA217 + Локаль lean + Topacio luz/Kиверян/Olivino/Alicante/Peptidos (Mon ping / TueThu monitor); Sagunto eviction CLOSED t5716u (86b7wu7jq = Alla rent-out, do not ping Maks/Nazar/Fuchylo); solos paused",
+     "service": false,
+     "cu": []
+    },
+    {
+     "name": "Bundle night hygiene",
+     "sched": "Mon–Fri 22:45",
+     "folder": "bundle-night-hygiene-22-45",
+     "desc": "idle → TG restart → Mon prompt-hygiene → Mon DR; solos paused",
+     "service": false,
+     "cu": []
+    },
+    {
+     "name": "Питание BJU — вечер",
+     "sched": "daily 21:10",
+     "folder": "bju",
+     "desc": "нет данных",
+     "service": false,
+     "cu": []
+    },
+    {
+     "name": "Самопроверка очереди — утро",
+     "sched": "daily 09:07",
+     "folder": "notion-of-discord",
+     "desc": "нет данных",
+     "service": true,
+     "cu": []
+    },
+    {
+     "name": "1С фин-отчёты — 10-е число",
+     "sched": "10th monthly 07:13",
+     "folder": "1-10-07-13",
+     "desc": "нет данных",
+     "service": false,
+     "cu": []
+    },
+    {
+     "name": "Кальян — недельный отчёт 1С",
+     "sched": "Mon 10:00",
+     "folder": "1-12-00",
+     "desc": "нет данных",
+     "service": false,
+     "cu": []
+    },
+    {
+     "name": "Бинотел — недельный разбор звонков",
+     "sched": "Mon 02:00",
+     "folder": "automation-1792370697523",
+     "desc": "нет данных",
+     "service": false,
+     "cu": []
+    },
+    {
+     "name": "HelpCrunch — недельный разбор чатов",
+     "sched": "Mon 07:30",
+     "folder": "helpcrunch",
+     "desc": "нет данных",
+     "service": false,
+     "cu": []
+    },
+    {
+     "name": "Шаги с iPhone → статистика",
+     "sched": "webhook",
+     "folder": "iphone",
+     "desc": "нет данных",
+     "service": false,
+     "cu": []
+    },
+    {
+     "name": "WA уведомления → Секретарь",
+     "sched": "webhook",
+     "folder": "wa",
+     "desc": "нет данных",
+     "service": false,
+     "cu": []
+    },
+    {
+     "name": "Дашборд — статистики пн",
+     "sched": "Mon 10:15",
+     "folder": "ig-tiktok",
+     "desc": "нет данных",
+     "service": false,
+     "cu": []
+    },
+    {
+     "name": "QUEUE — готовая работа",
+     "sched": "webhook",
+     "folder": "queue-resume-15-webhook",
+     "desc": "нет данных",
+     "service": true,
+     "cu": []
+    },
+    {
+     "name": "Unread↔dash сверка — утро",
+     "sched": "daily 09:00",
+     "folder": "unread-dash-daily",
+     "desc": "нет данных",
+     "service": false,
+     "cu": []
+    },
+    {
+     "name": "Контроль офиса — отчёт готов",
+     "sched": "Mon 07:00",
+     "folder": "08-00",
+     "desc": "нет данных",
+     "service": false,
+     "cu": []
+    },
+    {
+     "name": "Контроль офиса — старт пакета",
+     "sched": "Sun 18:00",
+     "folder": "18-00",
+     "desc": "нет данных",
+     "service": false,
+     "cu": []
+    }
+   ],
+   "routines_note": "",
+   "tasks": [
+    {
+     "id": "86b897mmr",
+     "name": "БОТ: запуск Хукашоп сайта в рекламу - как успехи?",
+     "status": "for check",
+     "list": "Задачи Tabakevich",
+     "updated": "2026-11-11 08:05",
+     "need": "rost",
+     "url": "https://app.clickup.com/t/86b897mmr",
+     "kind": "check"
+    },
+    {
+     "id": "86bcn3c3u",
+     "name": "Проверить команду на iPhone для передачи шагов из «Здоровья» боту",
+     "status": "for check",
+     "list": "Personal",
+     "updated": "2026-11-11 22:48",
+     "need": "rost",
+     "url": "https://app.clickup.com/t/86bcn3c3u",
+     "kind": "check"
+    },
+    {
+     "id": "86bacy8cr",
+     "name": "БОТ: С ИРИНОЙ: Просмотр отчета по дебиторке (комменты)",
+     "status": "for check",
+     "list": "Задачи Tabakevich",
+     "updated": "2026-11-12 10:37",
+     "need": "rost",
+     "url": "https://app.clickup.com/t/86bacy8cr",
+     "kind": "check"
+    },
+    {
+     "id": "86b88jb1f",
+     "name": "БОТ: Окупас Хуан 23 Адвокаты выселение - узнать статус?",
+     "status": "for check",
+     "list": "Сервисная доска Недвижимость",
+     "updated": "2026-11-12 11:05",
+     "need": "rost",
+     "url": "https://app.clickup.com/t/86b88jb1f",
+     "kind": "check"
+    },
+    {
+     "id": "86bc24u5z",
+     "name": "БОТ: отправить Яне новые фактуры каждого 25 числа месяца",
+     "status": "for check",
+     "list": "Сервисная доска Недвижимость",
+     "updated": "2026-10-28 14:48",
+     "need": "ok",
+     "url": "https://app.clickup.com/t/86bc24u5z",
+     "kind": "check"
+    },
+    {
+     "id": "86b7k7jnx",
+     "name": "БОТ-ЧАСТЬ: Ежемесячный",
+     "status": "for check",
+     "list": "Personal",
+     "updated": "2026-11-02 10:44",
+     "need": "ok",
+     "url": "https://app.clickup.com/t/86b7k7jnx",
+     "kind": "check"
+    },
+    {
+     "id": "86bcgbhg0",
+     "name": "БОТ: Бот в 1С - дать ему больше задач",
+     "status": "for check",
+     "list": "Задачи Tabakevich",
+     "updated": "2026-11-07 06:54",
+     "need": "ok",
+     "url": "https://app.clickup.com/t/86bcgbhg0",
+     "kind": "check"
+    },
+    {
+     "id": "86bcgckxu",
+     "name": "Проверка кронов задач 1С поиск сбоев",
+     "status": "for check",
+     "list": "Задачи Tabakevich",
+     "updated": "2026-11-07 06:54",
+     "need": "ok",
+     "url": "https://app.clickup.com/t/86bcgckxu",
+     "kind": "check"
+    },
+    {
+     "id": "86b6q8m9x",
+     "name": "БОТ: (КОСМО РЕШИТЬ + СЛЕШ) Банки ЛЛЦ письма и ЦРМ - JERZ помощь",
+     "status": "for check",
+     "list": "Personal",
+     "updated": "2026-11-12 10:37",
+     "need": "ok",
+     "url": "https://app.clickup.com/t/86b6q8m9x",
+     "kind": "check"
+    },
+    {
+     "id": "86ba3bwhg",
+     "name": "БОТ: 🏠 Установка сигналки на Топасио - случилось? (электричество жду Андрей)",
+     "status": "for check",
+     "list": "Покупка, Ремонт, Продажа-Сдача",
+     "updated": "2026-11-12 10:56",
+     "need": "ok",
+     "url": "https://app.clickup.com/t/86ba3bwhg",
+     "kind": "check"
+    },
+    {
+     "id": "86bbjyrf5",
+     "name": "БОТ: МИШЕЛЬ: Bulk Messaging проверить статистику и ответы фанам в сообщениях (потом передать сбор статистики Фетишь)",
+     "status": "for check",
+     "list": "Models",
+     "updated": "2026-11-12 10:59",
+     "need": "ok",
+     "url": "https://app.clickup.com/t/86bbjyrf5",
+     "kind": "check"
+    },
+    {
+     "id": "86b6qq509",
+     "name": "БОТ-ЧАСТЬ: Фин подбить баланс (30м) (отчет Алексей)",
+     "status": "in progress",
+     "list": "Personal",
+     "updated": "",
+     "need": "",
+     "url": "https://rosmater.github.io/cu/?t=86b6qq509",
+     "kind": "work",
+     "due": "2026-10-18"
+    },
+    {
+     "id": "86b7rcd9t",
+     "name": "БОТ-ЧАСТЬ: Анализы Сомос – надо сдавать что то? (записаться)",
+     "status": "in progress",
+     "list": "Personal",
+     "updated": "",
+     "need": "",
+     "url": "https://rosmater.github.io/cu/?t=86b7rcd9t",
+     "kind": "work",
+     "due": "2026-11-20"
+    },
+    {
+     "id": "86bctqe8h",
+     "name": "БОТ: Live Google Calendar на даш (OAuth, не снимок)",
+     "status": "in progress",
+     "list": "Personal",
+     "updated": "",
+     "need": "",
+     "url": "https://rosmater.github.io/cu/?t=86bctqe8h",
+     "kind": "work",
+     "due": null
+    }
+   ]
+  },
+  {
+   "name": "Помощник по всему",
+   "link": "grokbot://app/v1/agent?id=fef07752-2a22-4e1a-804b-7590fa230b30",
+   "inv": "HELPER.md",
+   "inv_updated": "2026-11-07 09:03",
+   "routines": [
+    {
+     "name": "Sites weekly mega ср",
+     "sched": "Wed 7:46",
+     "folder": "sites-weekly-mega",
+     "desc": "Hookahshop + Palmvape + Felix-shop + Tabakevich weekly bundle + soft Tabakevich availability Wed",
+     "service": false,
+     "cu": []
+    },
+    {
+     "name": "Helper morning mega пн–чт",
+     "sched": "Mon–Thu 10:28",
+     "folder": "helper-morning-mega",
+     "desc": "Cosmo+Slash → inventory → SKIP Sara pack → SKIP Sara originals (STOP 01.10) → FB → Solvia → Debitorzka Wed+Thu (never skip stale due; filled→next Wed) → soft Taba Mon/Tue/Thu → Downloads Mon → Expired domains buy-check Mon-only member12 (sheet 198eWwRc…; available→86b7k7jnx for check+due today; else quiet) → GANA soft FOREVER member11: DOM≥25+not-yet-this-month; CF403→Ads Spain k1h2wt21 Local API-first SAME run (never access-fail without Ads attempt); optional Mon Hetzner / Tue Rorey+Michelle",
+     "service": false,
+     "cu": [
+      {
+       "id": "86b7k7jnx",
+       "name": "БОТ-ЧАСТЬ: Ежемесячный",
+       "url": "https://app.clickup.com/t/86b7k7jnx"
+      }
+     ]
+    },
+    {
+     "name": "Helper sun lite вс",
+     "sched": "Sun 8:10",
+     "folder": "helper-sun-lite",
+     "desc": "Jibble → CU 86ba7an25; 05services → CU 86b9abep9; RA180/185 CU-only; Tabakevich Sun; GANA weekend catch (DOM≥25 + not-yet-this-month); no TG/WA",
+     "service": false,
+     "cu": [
+      {
+       "id": "86b9abep9",
+       "name": "С ИРИНОЙ: Проверка статистики / сумм выплат / где плохо? по моделям",
+       "url": "https://app.clickup.com/t/86b9abep9"
+      },
+      {
+       "id": "86ba7an25",
+       "name": "БОТ: Проверка трекера рабочего времени девочек OF",
+       "url": "https://app.clickup.com/t/86ba7an25"
+      }
+     ]
+    },
+    {
+     "name": "Самопроверка очереди (ежедневно 09:07)",
+     "sched": "7 9 * * * Bogotá (flexible ±15)",
+     "folder": "15",
+     "desc": "credit-save t5393–97u; cron только 09:07 + hygiene даже если пусто; empty иначе=silence; webhook wake/resume оставить; 15-мин сторож не включать; Truth=/workspace/queue-helper/QUEUE.md",
+     "service": true,
+     "cu": []
+    },
+    {
+     "name": "WA ESP уведомления → Помощник (вебхук)",
+     "sched": "webhook",
+     "folder": "wa-esp",
+     "desc": "нет данных",
+     "service": false,
+     "cu": []
+    },
+    {
+     "name": "QUEUE resume 15мин (webhook)",
+     "sched": "webhook",
+     "folder": "queue-resume-15-webhook",
+     "desc": "нет данных",
+     "service": true,
+     "cu": []
+    },
+    {
+     "name": "Sites fail → LLM (webhook)",
+     "sched": "webhook",
+     "folder": "sites-fail-llm-webhook",
+     "desc": "нет данных",
+     "service": false,
+     "cu": []
+    },
+    {
+     "name": "ClickUp toast → Помощник",
+     "sched": "webhook",
+     "folder": "clickup-toast",
+     "desc": "нет данных",
+     "service": false,
+     "cu": []
+    }
+   ],
+   "routines_note": "",
+   "tasks": [
+    {
+     "id": "86b6qqajb",
+     "name": "БОТ-ЧАСТЬ: С ИРИНОЙ: Проверка фин отчетов и переучетов 10-го (10)",
+     "status": "for check",
+     "list": "Задачи Tabakevich",
+     "updated": "2026-11-10 07:44",
+     "need": "rost",
+     "url": "https://app.clickup.com/t/86b6qqajb",
+     "kind": "check"
+    },
+    {
+     "id": "86b934b1v",
+     "name": "БОТ: Хукашоп - замена хостинга и бэкапы - проверить состояние (чеклист)",
+     "status": "for check",
+     "list": "Задачи Tabakevich",
+     "updated": "2026-11-11 08:05",
+     "need": "ok",
+     "url": "https://app.clickup.com/t/86b934b1v",
+     "kind": "check"
+    },
+    {
+     "id": "86b92hrcp",
+     "name": "(проблема с картинками) БОТ: Пальма сайт + ускорить / Контекстная реклама",
+     "status": "for check",
+     "list": "Задачи Tabakevich",
+     "updated": "2026-11-11 08:06",
+     "need": "ok",
+     "url": "https://app.clickup.com/t/86b92hrcp",
+     "kind": "check"
+    },
+    {
+     "id": "86b8r59kx",
+     "name": "БОТ: Феликс Шоп - проверить сайт",
+     "status": "for check",
+     "list": "Задачи Tabakevich",
+     "updated": "2026-11-11 10:13",
+     "need": "ok",
+     "url": "https://app.clickup.com/t/86b8r59kx",
+     "kind": "check"
+    },
+    {
+     "id": "86b8gv8kj",
+     "name": "БОТ: Табакевич БЛОКИРОВКА ДОМЕНА: проверить скорость с укр/загран айпишников",
+     "status": "for check",
+     "list": "Задачи Tabakevich",
+     "updated": "2026-11-12 10:37",
+     "need": "ok",
+     "url": "https://app.clickup.com/t/86b8gv8kj",
+     "kind": "check"
+    },
+    {
+     "id": "86b9abep9",
+     "name": "С ИРИНОЙ: Проверка статистики / сумм выплат / где плохо? по моделям",
+     "status": "for check",
+     "list": "General Tasks OF",
+     "updated": "2026-11-12 15:46",
+     "need": "ok",
+     "url": "https://app.clickup.com/t/86b9abep9",
+     "kind": "check"
+    }
+   ]
+  },
+  {
+   "name": "ОФ Маркетинг",
+   "link": "grokbot://app/v1/agent?id=6fa03b36-6aa2-4d75-81d6-164804ef329c",
+   "inv": "OF.md",
+   "inv_updated": "2026-11-07 09:11",
+   "routines": [
+    {
+     "name": "OF morning pack (Models+Seider)",
+     "sched": "Mon–Thu 10:40 Bogotá",
+     "folder": "of-morning-pack-models-seider",
+     "desc": "Models→Sheet→Seider; Tue IG/TT; Mon/Wed DMCA; optional CU-text; no Informe (pack-extra 27.10 → Mon early)",
+     "service": false,
+     "cu": []
+    },
+    {
+     "name": "OF Mon early AX42 (weekly AdsPower)",
+     "sched": "Mon 07:15",
+     "folder": "of-mon-early-ax42-weekly-iproyal",
+     "desc": "Lesha OFTV + Informe LolaPop one AdsPower session (pack-extra 27.10); IPRoyal→COMMS; XL gate",
+     "service": false,
+     "cu": []
+    },
+    {
+     "name": "OF Sun lite (Mile)",
+     "sched": "Sun 05:50",
+     "folder": "of-sun-lite-mile-irina",
+     "desc": "Mile → Irina CU (Irina TG via COMMS); Standing Clear weekly Mile (30.09)",
+     "service": false,
+     "cu": []
+    },
+    {
+     "name": "Models inbox webhook drain",
+     "sched": "webhook",
+     "folder": "models-inbox-webhook-drain",
+     "desc": "нет данных",
+     "service": true,
+     "cu": []
+    },
+    {
+     "name": "OF ежемесячный замер Referencias",
+     "sched": "1st ~09:00 (±15)",
+     "folder": "of-referencias",
+     "desc": "нет данных",
+     "service": false,
+     "cu": []
+    },
+    {
+     "name": "OF QUEUE resume (webhook)",
+     "sched": "webhook",
+     "folder": "of-queue-resume-webhook",
+     "desc": "нет данных",
+     "service": true,
+     "cu": []
+    }
+   ],
+   "routines_note": "",
+   "tasks": [
+    {
+     "id": "86bamxnh9",
+     "name": "БОТ: Статистика миле проверять + новые города Кали / Чоко и т д",
+     "status": "for check",
+     "list": "General Tasks OF",
+     "updated": "2026-11-08 05:59",
+     "need": "ok",
+     "url": "https://app.clickup.com/t/86bamxnh9",
+     "kind": "check"
+    },
+    {
+     "id": "86ba7an25",
+     "name": "БОТ: Проверка трекера рабочего времени девочек OF",
+     "status": "for check",
+     "list": "General Tasks OF",
+     "updated": "2026-11-08 08:15",
+     "need": "ok",
+     "url": "https://app.clickup.com/t/86ba7an25",
+     "kind": "check"
+    },
+    {
+     "id": "86bcm8ybt",
+     "name": "БОТ: Контроль офиса ОФ",
+     "status": "for check",
+     "list": "General Tasks OF",
+     "updated": "2026-11-08 18:35",
+     "need": "ok",
+     "url": "https://app.clickup.com/t/86bcm8ybt",
+     "kind": "check"
+    },
+    {
+     "id": "86b6z79t1",
+     "name": "БОТ-ЧАСТЬ: Контроль OF.TV - отчет / запуски / ПЛАН СВЕРКА ЛЕШЕ + отчет ферма",
+     "status": "for check",
+     "list": "General Tasks OF",
+     "updated": "2026-11-09 14:50",
+     "need": "ok",
+     "url": "https://app.clickup.com/t/86b6z79t1",
+     "kind": "check"
+    },
+    {
+     "id": "86b9axevh",
+     "name": "(тестим сбор) БОТ ЧАСТЬ: (ФБ рекомендации) 📊 Проверка статистики ЛолаПоп и принятие решений ",
+     "status": "for check",
+     "list": "General Tasks OF",
+     "updated": "2026-11-10 09:31",
+     "need": "ok",
+     "url": "https://app.clickup.com/t/86b9axevh",
+     "kind": "check"
+    },
+    {
+     "id": "86bae6v4h",
+     "name": "БОТ: САРА: отвечать на комментарии - как успехи Сара?",
+     "status": "for check",
+     "list": "Models",
+     "updated": "2026-11-12 10:35",
+     "need": "ok",
+     "url": "https://app.clickup.com/t/86bae6v4h",
+     "kind": "check"
+    }
+   ]
+  },
+  {
+   "name": "Пептид",
+   "link": "grokbot://app/v1/agent?id=daa16204-faaf-46e9-8a1c-c696291c2b1d",
+   "inv": "PEPTIDE.md",
+   "inv_updated": "2026-11-10 22:40",
+   "routines": [
+    {
+     "name": "Peso Saludable WA — сводка дня",
+     "sched": "daily ~00:07",
+     "folder": "peso-saludable-wa",
+     "desc": "нет данных",
+     "service": false,
+     "cu": []
+    },
+    {
+     "name": "Реклама пептидов — сбор+отчёт",
+     "sched": "daily ~08:00",
+     "folder": "automation-1792561643498",
+     "desc": "нет данных",
+     "service": false,
+     "cu": []
+    },
+    {
+     "name": "IG Peso — DM → WA handoff",
+     "sched": "weekdays ~10:00 and ~17:00",
+     "folder": "ig-peso-dm-wa-handoff",
+     "desc": "нет данных",
+     "service": false,
+     "cu": []
+    },
+    {
+     "name": "QUEUE resume Пептид (webhook)",
+     "sched": "webhook",
+     "folder": "queue-resume-webhook",
+     "desc": "нет данных",
+     "service": true,
+     "cu": []
+    },
+    {
+     "name": "Peso .col — орг. пост через день",
+     "sched": "Mon/Wed/Fri ~11:00",
+     "folder": "peso-col",
+     "desc": "нет данных",
+     "service": false,
+     "cu": []
+    },
+    {
+     "name": "Имя TikTok pesosaludable.col",
+     "sched": "2026-11-14 09:00",
+     "folder": "tiktok-pesosaludable-col",
+     "desc": "нет данных",
+     "service": false,
+     "cu": []
+    }
+   ],
+   "routines_note": "",
+   "tasks": [
+    {
+     "id": "86bb779rw",
+     "name": "БОТ: Пептиды - запуск продаж (Ричард)",
+     "status": "for check",
+     "list": "Задачи Tabakevich",
+     "updated": "2026-11-13 00:57",
+     "need": "ok",
+     "url": "https://app.clickup.com/t/86bb779rw",
+     "kind": "check"
+    },
+    {
+     "id": "86bcnp3rg",
+     "name": "БОТ-ЧАСТЬ: Таргет пептиды - контроль и увеличение",
+     "status": "for check",
+     "list": "Задачи Tabakevich",
+     "updated": "2026-11-13 08:35",
+     "need": "ok",
+     "url": "https://app.clickup.com/t/86bcnp3rg",
+     "kind": "check"
+    }
+   ]
+  },
+  {
+   "name": "Фермовод",
+   "link": "grokbot://app/v1/agent?id=ceac86b3-b3e4-493e-8b5e-0c9372c46066",
+   "inv": "FARM.md",
+   "inv_updated": "",
+   "routines": [
+    {
+     "name": "Onimator webhook",
+     "sched": "серьёзные алерты, webhook",
+     "folder": "onimator-webhook",
+     "desc": "нет данных",
+     "service": false,
+     "cu": []
+    },
+    {
+     "name": "QUEUE wake webhook",
+     "sched": "resume 15мин, webhook",
+     "folder": "queue-wake-webhook-resume-15",
+     "desc": "нет данных",
+     "service": true,
+     "cu": []
+    }
+   ],
+   "routines_note": "",
+   "tasks": [
+    {
+     "id": "86b9ycbby",
+     "name": "БОТ: ПОДКЛЮЧИТЬСЯ К КОМПУ - СЕЙДЕР (как дела?) Запуск 1 телефона с 25 аккаунтами",
+     "status": "for check",
+     "list": "Projects OF",
+     "updated": "2026-11-06 10:47",
+     "need": "rost",
+     "url": "https://app.clickup.com/t/86b9ycbby",
+     "kind": "check"
+    }
+   ]
+  },
+  {
+   "name": "Дейтинг",
+   "link": "grokbot://app/v1/agent?id=826f2d29-4f19-4096-9e4e-c76d6ec801a8",
+   "inv": "DATING.md",
+   "inv_updated": "2026-11-10 14:20",
+   "routines": [
+    {
+     "name": "Утренняя сводка: Tinder, WhatsApp, Feabie",
+     "sched": "daily ~09:30",
+     "folder": "tinder",
+     "desc": "нет данных",
+     "service": false,
+     "cu": []
+    },
+    {
+     "name": "Пинг уведомлений с Redmi: Tinder и Feabie",
+     "sched": "webhook",
+     "folder": "redmi-tinder-feabie",
+     "desc": "нет данных",
+     "service": false,
+     "cu": []
+    },
+    {
+     "name": "Пинг уведомлений WhatsApp ESP",
+     "sched": "webhook",
+     "folder": "whatsapp-esp-d",
+     "desc": "нет данных",
+     "service": false,
+     "cu": []
+    },
+    {
+     "name": "Слоты ответов девушкам",
+     "sched": "webhook",
+     "folder": "13-00-17-00-20-30",
+     "desc": "нет данных",
+     "service": false,
+     "cu": []
+    },
+    {
+     "name": "Пинг Feabie по почте",
+     "sched": "email trigger info@feabie.com",
+     "folder": "feabie",
+     "desc": "нет данных",
+     "service": false,
+     "cu": []
+    },
+    {
+     "name": "QUEUE resume webhook",
+     "sched": "webhook",
+     "folder": "queue-resume-webhook",
+     "desc": "нет данных",
+     "service": true,
+     "cu": []
+    }
+   ],
+   "routines_note": "",
+   "tasks": []
+  },
+  {
+   "name": "Юрист / Адвокат / Бухгалтер",
+   "link": "grokbot://app/v1/agent?id=2a2b453a-50ae-4965-8b08-7f11780a48d1",
+   "inv": "LAWYER.md",
+   "inv_updated": "2026-11-07 18:07",
+   "routines": [
+    {
+     "name": "QUEUE resume — webhook",
+     "sched": "webhook",
+     "folder": "queue-resume-webhook",
+     "desc": "нет данных",
+     "service": true,
+     "cu": []
+    }
+   ],
+   "routines_note": "",
+   "tasks": [
+    {
+     "id": "86ba3c1x4",
+     "name": "(Контракт на работу, подготовка к ПМЖ) ПАРАГВАЙ (183 дня в году)",
+     "status": "for check",
+     "list": "Сервисная доска Недвижимость",
+     "updated": "2026-10-28 18:01",
+     "need": "ok",
+     "url": "https://app.clickup.com/t/86ba3c1x4",
+     "kind": "check"
+    }
+   ]
+  },
+  {
+   "name": "Оборонка",
+   "link": "grokbot://app/v1/agent?id=221f23c8-f2dc-4ae3-8585-50b1404a32af",
+   "inv": "DEFENSE.md",
+   "inv_updated": "2026-11-10",
+   "routines": [
+    {
+     "name": "STE рассылка — до 3 писем за заход",
+     "sched": "0 3,5,7,9,11,13,15 * * * (every 2h 03:00–15:00; weekends OK; flex ±15)",
+     "folder": "ste-1",
+     "desc": "Cap 15/day; up to 3 letters per slot; digest member on first Bogotá slot/day (marker DIGEST_POSTED_<date>); gap 20–35 min; window 09–17 recipient local. Picker `ste_send_slot.py` (no rewrite). Catch-up 13:00 and 15:00 if under cap 15; in-slot wait prefer 20–25 min so the 3rd letter finishes. Bounce HOLD ≥5 → rest 1 full Bogotá day then auto-resume (Rost t321 03.11); bounced addresses stay skipped. HOLD inactive (lifted 03.11).",
+     "service": false,
+     "cu": []
+    },
+    {
+     "name": "STE утренняя сверка даша",
+     "sched": "0 8 * * * (flex ±15)",
+     "folder": "ste-2",
+     "desc": "Morning pins/clients/unanswered recon before hygiene.",
+     "service": false,
+     "cu": []
+    },
+    {
+     "name": "Самопроверка очереди Оборонка — webhook",
+     "sched": "webhook only (daily 09:07 cron removed t5427u; routine not deleted)",
+     "folder": "15",
+     "desc": "COMMS ~09:07 reads QUEUE.md and wakes Defense only on real pending/in_progress. Webhook kept. Empty = quiet, no hygiene-for-empty. When pinged or webhook on real work: self-check + daily hygiene if no stamp yet, then finish the work.",
+     "service": true,
+     "cu": []
+    }
+   ],
+   "routines_note": "",
+   "tasks": []
+  }
+ ]
+}
