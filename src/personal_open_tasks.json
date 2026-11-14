@@ -1,7 +1,7 @@
 {
- "_doc": "t6270u: открытые задачи ClickUp-пространства Personal (90144414983) для доски вкладки Личное (Сегодня у меня / Приоритеты: тег «🎯 фокус» / Рутина), как of_open_tasks.json. main/complete исключены. + 86ba3c1x4 Парагвай (пространство Недвижимость) с тегом «🎯 фокус» по слову Rost t6270u. Пустой приоритет → normal (t6235u). Снимок через MCP filter_tasks; обновлять тем же способом. t6286u: 86bcgc3ze (USDT для Novax) перенесена в ClickUp в OF / General Tasks OF (под PARA EMPRESA) — убрана отсюда. t6289u: 86bd3b4vu профчистка — Role TO DO, не CALL. t6290u: 86bcnmdvt «Вывести BTC в холодное хранение» — тег «🎯 фокус». t6291u/t6292u: тег «⚕️ здоровье» на медицинских задачах Personal (в т.ч. 86bd3bfmv консультация ортодонта).",
- "fetched_at": "2026-11-13T19:09:10-05:00",
- "src": "ClickUp filter_tasks space 90144414983 include_closed=false (3 pages, 278 incl. main) + 86ba3c1x4 freq/recurring: Frecuencia periódica (filter custom field f069396a-…, t6300u).",
+ "_doc": "t6270u: открытые задачи ClickUp-пространства Personal (90144414983) для доски вкладки Личное (Сегодня у меня / Приоритеты: тег «🎯 фокус» / Рутина), как of_open_tasks.json. main/complete исключены. + 86ba3c1x4 Парагвай (пространство Недвижимость) с тегом «🎯 фокус» по слову Rost t6270u. Пустой приоритет → normal (t6235u). Снимок через MCP filter_tasks; обновлять тем же способом. t6286u: 86bcgc3ze (USDT для Novax) перенесена в ClickUp в OF / General Tasks OF (под PARA EMPRESA) — убрана отсюда. t6289u: 86bd3b4vu профчистка — Role TO DO, не CALL. t6290u: 86bcnmdvt «Вывести BTC в холодное хранение» — тег «🎯 фокус». t6291u/t6292u: тег «⚕️ здоровье» на медицинских задачах Personal (в т.ч. 86bd3bfmv консультация ортодонта). t6444u: 86bd3dkrb «Сократить одно рабочее место в ClickUp (ассистентку → гость)» — тег «🎯 фокус», Role TO DO, исполнитель Rost, срок 14.11.",
+ "fetched_at": "2026-11-14T01:43:06-05:00",
+ "src": "ClickUp filter_tasks space 90144414983 include_closed=false (3 pages, 277 incl. main) + 86ba3c1x4 freq/recurring: Frecuencia periódica (filter custom field f069396a-…, t6300u). t6444u refresh.",
  "tasks": [
   {
    "id": "86ba3c1x4",
@@ -255,20 +255,6 @@
    "recurring": true
   },
   {
-   "id": "86bcrqtyk",
-   "name": "Забрать джинсы из ателье",
-   "status": "to do",
-   "priority": "normal",
-   "due": "2026-10-27",
-   "assignees": [
-    "Rost"
-   ],
-   "list": "Personal",
-   "url": "https://rosmater.github.io/cu/?t=86bcrqtyk",
-   "tags": [],
-   "freq": null
-  },
-  {
    "id": "86b70dhaq",
    "name": "Проверить кредитный лимит и закрыть (жду) списались проценты?",
    "status": "to do",
@@ -296,23 +282,6 @@
    "url": "https://rosmater.github.io/cu/?t=86b9rnqmh",
    "tags": [],
    "freq": null
-  },
-  {
-   "id": "86b716gh8",
-   "name": "Сита ортодонт (28 октября 14:00)",
-   "status": "to do",
-   "priority": "urgent",
-   "due": "2026-10-28",
-   "assignees": [
-    "Rost"
-   ],
-   "list": "Personal",
-   "url": "https://rosmater.github.io/cu/?t=86b716gh8",
-   "tags": [
-    "⚕️ здоровье"
-   ],
-   "freq": "periódica",
-   "recurring": true
   },
   {
    "id": "86b7ub08j",
@@ -441,22 +410,6 @@
    "list": "Personal",
    "url": "https://rosmater.github.io/cu/?t=86bcnt4nr",
    "tags": [],
-   "freq": null
-  },
-  {
-   "id": "86bcxtup4",
-   "name": "Мама: исправить актуальные (Коучинг даш)",
-   "status": "to do",
-   "priority": "normal",
-   "due": "2026-11-03",
-   "assignees": [
-    "Rost"
-   ],
-   "list": "Personal",
-   "url": "https://rosmater.github.io/cu/?t=86bcxtup4",
-   "tags": [
-    "bot"
-   ],
    "freq": null
   },
   {
@@ -701,22 +654,6 @@
    "recurring": true
   },
   {
-   "id": "86bd0vyb9",
-   "name": "Забрать капы у ортодонта",
-   "status": "to do",
-   "priority": "normal",
-   "due": "2026-11-10",
-   "assignees": [
-    "Rost"
-   ],
-   "list": "Personal",
-   "url": "https://rosmater.github.io/cu/?t=86bd0vyb9",
-   "tags": [
-    "⚕️ здоровье"
-   ],
-   "freq": null
-  },
-  {
    "id": "86bcma7tp",
    "name": "Найти лофт побольше в Base Loft (долгосрочная аренда)",
    "status": "to do",
@@ -727,20 +664,6 @@
    ],
    "list": "Personal",
    "url": "https://rosmater.github.io/cu/?t=86bcma7tp",
-   "tags": [],
-   "freq": null
-  },
-  {
-   "id": "86bcn3c3u",
-   "name": "Проверить команду на iPhone для передачи шагов из «Здоровья» боту",
-   "status": "for check",
-   "priority": "normal",
-   "due": "2026-11-11",
-   "assignees": [
-    "Rost"
-   ],
-   "list": "Personal",
-   "url": "https://rosmater.github.io/cu/?t=86bcn3c3u",
    "tags": [],
    "freq": null
   },
@@ -770,6 +693,49 @@
    "tags": [
     "bot"
    ],
+   "freq": null
+  },
+  {
+   "id": "86bctqe8h",
+   "name": "БОТ: Live Google Calendar на даш (OAuth, не снимок)",
+   "status": "in progress",
+   "priority": "high",
+   "due": "2026-11-13",
+   "assignees": [
+    "Rost"
+   ],
+   "list": "Personal",
+   "url": "https://rosmater.github.io/cu/?t=86bctqe8h",
+   "tags": [
+    "bot"
+   ],
+   "freq": null
+  },
+  {
+   "id": "86bcqw802",
+   "name": "Мама (как дела?)",
+   "status": "to do",
+   "priority": "normal",
+   "due": "2026-11-13",
+   "assignees": [],
+   "list": "Personal",
+   "url": "https://rosmater.github.io/cu/?t=86bcqw802",
+   "tags": [],
+   "freq": "periódica",
+   "recurring": true
+  },
+  {
+   "id": "86bcn3c3u",
+   "name": "Проверить команду на iPhone для передачи шагов из «Здоровья» боту",
+   "status": "for check",
+   "priority": "normal",
+   "due": "2026-11-13",
+   "assignees": [
+    "Rost"
+   ],
+   "list": "Personal",
+   "url": "https://rosmater.github.io/cu/?t=86bcn3c3u",
+   "tags": [],
    "freq": null
   },
   {
@@ -816,6 +782,48 @@
    "tags": [],
    "freq": "periódica",
    "recurring": true
+  },
+  {
+   "id": "86bd3djyx",
+   "name": "Купить протеин на месяц — Healthy Sports Iso Whey 100% (~120 скупов)",
+   "status": "to do",
+   "priority": "normal",
+   "due": "2026-11-14",
+   "assignees": [
+    "Rost"
+   ],
+   "list": "Personal",
+   "url": "https://rosmater.github.io/cu/?t=86bd3djyx",
+   "tags": [],
+   "freq": null
+  },
+  {
+   "id": "86bd0brbm",
+   "name": "Огна: создать Reddit и подключить к боту на ведение",
+   "status": "to do",
+   "priority": "normal",
+   "due": "2026-11-14",
+   "assignees": [],
+   "list": "Personal",
+   "url": "https://rosmater.github.io/cu/?t=86bd0brbm",
+   "tags": [],
+   "freq": null
+  },
+  {
+   "id": "86bd3dkrb",
+   "name": "Сократить одно рабочее место в ClickUp (ассистентку → гость)",
+   "status": "to do",
+   "priority": "normal",
+   "due": "2026-11-14",
+   "assignees": [
+    "Rost"
+   ],
+   "list": "Personal",
+   "url": "https://rosmater.github.io/cu/?t=86bd3dkrb",
+   "tags": [
+    "🎯 фокус"
+   ],
+   "freq": null
   },
   {
    "id": "86b6z2gn4",
@@ -906,6 +914,21 @@
    "url": "https://rosmater.github.io/cu/?t=86bbnb0jv",
    "tags": [],
    "freq": null
+  },
+  {
+   "id": "86bd3c930",
+   "name": "Разморозить хобби — поиск с металлоискателем (ответить в чате + пересылка оборудования с Украины)",
+   "status": "to do",
+   "priority": "normal",
+   "due": "2026-11-16",
+   "assignees": [
+    "Rost"
+   ],
+   "list": "Personal",
+   "url": "https://rosmater.github.io/cu/?t=86bd3c930",
+   "tags": [],
+   "freq": "periódica",
+   "recurring": true
   },
   {
    "id": "86b7gjjg1",
@@ -2957,22 +2980,6 @@
    "freq": null
   },
   {
-   "id": "86bctqe8h",
-   "name": "БОТ: Live Google Calendar на даш (OAuth, не снимок)",
-   "status": "in progress",
-   "priority": "high",
-   "due": "2026-11-13",
-   "assignees": [
-    "Rost"
-   ],
-   "list": "Personal",
-   "url": "https://rosmater.github.io/cu/?t=86bctqe8h",
-   "tags": [
-    "bot"
-   ],
-   "freq": null
-  },
-  {
    "id": "86bbq6fk2",
    "name": "БанкКолумбия",
    "status": "to do",
@@ -3017,31 +3024,6 @@
    "assignees": [],
    "list": "Personal",
    "url": "https://rosmater.github.io/cu/?t=86bbq6fm6",
-   "tags": [],
-   "freq": null
-  },
-  {
-   "id": "86bcqw802",
-   "name": "Мама (как дела?)",
-   "status": "to do",
-   "priority": "normal",
-   "due": "2026-11-13",
-   "assignees": [],
-   "list": "Personal",
-   "url": "https://rosmater.github.io/cu/?t=86bcqw802",
-   "tags": [],
-   "freq": "periódica",
-   "recurring": true
-  },
-  {
-   "id": "86bd0brbm",
-   "name": "Огна: создать Reddit и подключить к боту на ведение",
-   "status": "to do",
-   "priority": "normal",
-   "due": "2026-11-14",
-   "assignees": [],
-   "list": "Personal",
-   "url": "https://rosmater.github.io/cu/?t=86bd0brbm",
    "tags": [],
    "freq": null
   },
