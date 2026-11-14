@@ -16,7 +16,7 @@
    "note": ""
   },
   "86bd0vyb9": {
-   "state": "pending",
+   "state": "closed",
    "title": "Забрать капы у ортодонта",
    "dir": "calendar",
    "bot": "Секретарь",
@@ -27,10 +27,12 @@
    "cycles": 1,
    "due": "2026-11-10",
    "stop_recur": false,
-   "action": "cu_done"
+   "action": "cu_done",
+   "verdict_at": "2026-11-14T04:16:49Z",
+   "note": ""
   },
   "86bcrqtyk": {
-   "state": "pending",
+   "state": "closed",
    "title": "Забрать джинсы из ателье",
    "dir": "calendar",
    "bot": "Секретарь",
@@ -41,10 +43,12 @@
    "cycles": 1,
    "due": "2026-10-27",
    "stop_recur": false,
-   "action": "cu_done"
+   "action": "cu_done",
+   "verdict_at": "2026-11-14T04:16:49Z",
+   "note": ""
   },
   "86b716gh8": {
-   "state": "pending",
+   "state": "closed",
    "title": "Сита ортодонт (28 октября 14:00)",
    "dir": "calendar",
    "bot": "Секретарь",
@@ -55,7 +59,9 @@
    "cycles": 1,
    "due": "2026-10-28",
    "stop_recur": true,
-   "action": "cu_done_stop"
+   "action": "cu_done_stop",
+   "verdict_at": "2026-11-14T04:16:49Z",
+   "note": ""
   }
  },
  "history": []
