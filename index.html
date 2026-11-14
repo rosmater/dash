@@ -144,7 +144,7 @@ footer{margin-top:22px;color:var(--mut);font-size:11.5px;line-height:1.6;border-
 .tdcard{cursor:pointer}.tdcard .cnt{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
 .g2b{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}@media(max-width:720px){.g2b{grid-template-columns:1fr}}.kpi.bt .v .bst{font-size:15px;font-weight:700;vertical-align:middle;margin-left:6px}.kpi.bt.ok .v .bst{color:#0b7a59}.kpi.bt.at .v .bst{color:#b42318}.kpi.bt.ok .v,.kpi.bt.at .v{font-size:30px;color:inherit}.tfold .tbtn{all:unset;cursor:pointer;display:block;width:100%;font-weight:800;font-size:15px}.tfold .ar{display:inline-block;width:18px;color:var(--acc)}.tfold .tbody{display:none;margin-top:10px}.tfold.open .tbody{display:block}
 .g5{grid-template-columns:repeat(5,1fr)}@media(max-width:980px){.g5{grid-template-columns:repeat(3,1fr)}}@media(max-width:520px){.g5{grid-template-columns:1fr 1fr;gap:10px}}
-.g3b{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}@media(max-width:720px){.g3b{grid-template-columns:1fr}}/* Rost t6186u: ТС партнёрка — 3 закрытые недели в один ряд, равная ширина; на узком — столбиком */.of-ts-weeks{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;align-items:stretch}.of-ts-weeks>.card{min-width:0}@media(max-width:720px){.of-ts-weeks{grid-template-columns:1fr}}.kpi.bt .v{font-size:30px}.kpi.bt.at{border-color:#f5c2c4;background:#fff5f5}.kpi.bt.ok{border-color:#bfe9d8}.kpi.bt.at .v{color:#b42318;font-size:22px}.kpi.bt.ok .v{color:#0b7a59;font-size:22px}.bgoal{border-color:#bfe6f5;background:linear-gradient(135deg,#ecf8fd,var(--panel))}.bgoal .bar{height:10px;border-radius:99px;background:#e6edf5;overflow:hidden}.bgoal .bar i{display:block;height:100%;background:#38bdf8}
+.g3b{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}@media(max-width:720px){.g3b{grid-template-columns:1fr}}/* Rost t6186u: ТС партнёрка — 3 закрытые недели в один ряд, равная ширина; на узком — столбиком */.of-ts-weeks{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;align-items:stretch}.of-ts-weeks>.card{min-width:0}@media(max-width:720px){.of-ts-weeks{grid-template-columns:1fr}}.of-ts-models{min-width:1080px}.of-ts-quad{display:inline-flex;align-items:flex-end;justify-content:flex-end;gap:10px;white-space:nowrap}.of-ts-quad .q{display:inline-flex;flex-direction:column;align-items:flex-end;line-height:1.2}.of-ts-quad .q .l{font-size:10px;font-weight:600;color:#6b7280}.of-ts-quad .q .v{font-size:12.5px;font-weight:650;font-variant-numeric:tabular-nums}.of-ts-terms{white-space:normal;font-size:12px;color:#4b5563;line-height:1.35;max-width:220px}.kpi.bt .v{font-size:30px}.kpi.bt.at{border-color:#f5c2c4;background:#fff5f5}.kpi.bt.ok{border-color:#bfe9d8}.kpi.bt.at .v{color:#b42318;font-size:22px}.kpi.bt.ok .v{color:#0b7a59;font-size:22px}.bgoal{border-color:#bfe6f5;background:linear-gradient(135deg,#ecf8fd,var(--panel))}.bgoal .bar{height:10px;border-radius:99px;background:#e6edf5;overflow:hidden}.bgoal .bar i{display:block;height:100%;background:#38bdf8}
 .pin-hi{background:linear-gradient(135deg,#fff8d6,#fff1f1);border:2px solid #f5b400;border-left:6px solid var(--neg);border-radius:14px;padding:14px 16px;margin-bottom:14px;box-shadow:var(--shadow);display:flex;gap:12px;align-items:center;font-size:17px;font-weight:700}.pin-hi input,.it-hi input,.ck{width:20px;height:20px;cursor:pointer;flex:0 0 auto}.pin-hi.done,.it-hi.done{opacity:.55;text-decoration:line-through}.it-hi{background:#fff8d6;border-left:3px solid var(--neg);padding:4px 8px;border-radius:6px;font-weight:700;font-size:14px;list-style:none;display:flex;gap:8px;align-items:center}
 
 /* Rost 26.10: Мессенджеры / Ассистенты / Боты (из TEST-страницы). Вкладок стало 12 — на десктопе переносим строку, чтобы не прятались за скроллом */
@@ -1842,30 +1842,24 @@ function ofBlocksHTML(d){if(d.id!=='of'||!d.of_blocks)return '';const B=d.of_blo
   </table></div>
 
   ${F.cu_task?`<div class="note" style="margin-top:6px">ClickUp: <a href="${cuAppUrl(F.cu_task.url)}" target="_blank" rel="noopener">${esc(F.cu_task.id)} · ${esc(F.cu_task.name)}</a></div>`:''}</div>`}
- /* 2) ТС — t6320u / t6321u: таблица как у остальных (Прошлая / Позапрошлая / Позапозапрошлая), без текущей недели; условия в конце */
+ /* 2) ТС — t6324u: одна строка на модель; колонка «Условия»; в каждой из 3 закрытых недель рядом наш доход / оборот / фаны / ARPU из 05services */
  const T=B.ts;if(T){
   const tCols=weekCols((T.weeks&&T.weeks.length)?T.weeks:[T.last,T.prev,T.prev2]);
-  const tN=1+tCols.length;
-  const tVal=(w,fn)=>{if(!weekHas(w))return null;const v=fn(w||{});return (v==null||v==='')?null:v};
-  const tCell=(i,fn,kind)=>{const v=tVal(tCols[i],fn),pv=tVal(tCols[i+1],fn);if(v==null)return '—';const html=kind==='$'?$u(v):n(v);return (pv!=null&&Math.abs(Number(v)-Number(pv))>1e-9)?dlV(html,v,pv,{f:kind==='$'?(x=>$u(x)):undefined,br:true}):html};
-  const tHead=tCols.map(c=>`<th class="n">${esc(c.title)}${c.label?`<div class="note">${esc(c.label)}</div>`:''}</th>`).join('');
-  const mNet=(x,id)=>{const w=(x.by_week||{})[id];return w&&w.net!=null?w.net:null};
-  const mCell=(x,i)=>{const id=tCols[i]&&tCols[i].id,v=mNet(x,id),pv=mNet(x,tCols[i+1]&&tCols[i+1].id);if(v==null)return '—';const html=$u(v);return (pv!=null&&Math.abs(Number(v)-Number(pv))>1e-9)?dlV(html,v,pv,{f:z=>$u(z),br:true}):html};
+  const tN=2+tCols.length;
+  const mW=(x,id)=>(x.by_week||{})[id]||null;
+  const qv=(label,html)=>`<span class="q"><span class="l">${label}</span><span class="v">${html}</span></span>`;
+  const mQuad=w=>{if(!w)return '—';const has=[w.net,w.gross,w.fans,w.arpu].some(v=>v!=null&&v!=='');if(!has)return '—';
+    return `<div class="of-ts-quad">${qv('наш',w.net==null?'—':$u(w.net))}${qv('оборот',w.gross==null?'—':$u(w.gross))}${qv('фаны',w.fans==null?'—':n(w.fans))}${qv('ARPU',w.arpu==null?'—':$u(w.arpu))}</div>`;};
+  const totW=id=>{const xs=(T.models||[]).map(x=>mW(x,id)).filter(w=>w&&[w.net,w.gross,w.fans,w.arpu].some(v=>v!=null&&v!==''));if(!xs.length)return null;
+    let net=0,gross=0,fans=0,hn=false,hg=false,hf=false;
+    xs.forEach(w=>{if(w.net!=null){net+=+w.net;hn=true}if(w.gross!=null){gross+=+w.gross;hg=true}if(w.fans!=null){fans+=+w.fans;hf=true}});
+    return {net:hn?Math.round(net*100)/100:null,gross:hg?Math.round(gross*100)/100:null,fans:hf?fans:null,arpu:null};};/* ARPU итога не считаем — в 05services он по модели */
+  const tHead=tCols.map(c=>`<th class="n">${esc(c.title)}${c.label?`<div class="note">${esc(c.label)}</div>`:''}<div class="note">наш · оборот · фаны · ARPU</div></th>`).join('');
   h+=`<div class="card" style="margin-bottom:14px"${duAttr('of.ts')}>${H(esc(T.title),'наш доход')}
-  <div class="tblwrap" style="margin-top:6px"><table style="table-layout:fixed;width:100%">${weekColgroup(tCols)}
-  <tr><th>Показатель</th>${tHead}</tr>
-  <tr><td>Наш доход</td>${tCols.map((c,i)=>`<td class="n">${tCell(i,w=>w.net,'$')}</td>`).join('')}</tr>
-  <tr><td>Оборот</td>${tCols.map((c,i)=>`<td class="n">${tCell(i,w=>w.gross,'$')}</td>`).join('')}</tr>
-  <tr><td>Фаны</td>${tCols.map((c,i)=>`<td class="n">${tCell(i,w=>w.fans,'n')}</td>`).join('')}</tr>
-  </table></div>
-  <h5 style="margin:10px 0 4px">Модели (${(T.models||[]).length})</h5>
-  <div class="tblwrap" style="margin-top:6px"><table><tr><th>Модель</th><th>Задачи</th>${tHead}</tr>
-  ${(T.models||[]).map(x=>`<tr${tsOpen(x)}><td><b>${esc(x.ra)}</b>${x.name?' <span class="note">'+esc(x.name)+'</span>':''}</td><td>${tsList(x)}</td>${tCols.map((c,i)=>`<td class="n">${mCell(x,i)}</td>`).join('')}</tr>${tsDetail(x,tN)}`).join('')}
-  </table></div>
-  <h5 style="margin:14px 0 4px">Условия</h5>
-  ${T.terms_note?`<div class="note" style="margin:0 0 6px;white-space:normal">${esc(T.terms_note)}</div>`:''}
-  <div class="tblwrap"><table><tr><th>Модель</th><th>Площадка</th><th class="n">%</th><th>Правило</th><th>Примечание</th></tr>
-  ${(T.terms||[]).map(x=>`<tr><td><b>${esc(x.ra)}</b>${x.name?' <span class="note">'+esc(x.name)+'</span>':''}</td><td>${esc(x.place||'—')}</td><td class="n">${x.pct==null||x.pct===''?'—':esc(String(x.pct).endsWith('%')?x.pct:String(x.pct)+'%')}</td><td>${esc(x.rule||'—')}</td><td class="note">${esc(x.note||'')}</td></tr>`).join('')}
+  ${T.arpu_note?`<div class="note" style="margin:2px 0 6px;white-space:normal">${esc(T.arpu_note)}</div>`:''}
+  <div class="tblwrap"><table class="of-ts-models"><tr><th>Модель</th><th>Условия</th>${tHead}</tr>
+  ${(T.models||[]).map(x=>`<tr${tsOpen(x)}><td><b>${esc(x.ra)}</b>${x.name?' <span class="note">'+esc(x.name)+'</span>':''} ${tsList(x)}</td><td class="of-ts-terms">${esc(x.terms||'—')}</td>${tCols.map(c=>`<td class="n">${mQuad(mW(x,c.id))}</td>`).join('')}</tr>${tsDetail(x,tN)}`).join('')}
+  <tr style="font-weight:700;background:#f4f7fb"><td>Итого</td><td></td>${tCols.map(c=>`<td class="n">${mQuad(totW(c.id))}</td>`).join('')}</tr>
   </table></div>
 </div>`}
  /* 3) ОФТВ */
