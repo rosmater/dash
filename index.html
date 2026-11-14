@@ -552,6 +552,14 @@ details.def-ur > summary::-webkit-details-marker,details.def-ur > summary::marke
 @media(max-width:720px){.def-ur-more{padding-left:24px}}
 .pill.p-raz{background:#fff;color:#111;border:1px solid #c22f3a;text-decoration:none;font-size:9px;font-weight:600;padding:0 4px;line-height:14px}
 .pill.p-raz:hover{background:#fff5f5}
+/* t6381u: #main .def-board .task a (t6379u) иначе перебивает размер кнопки «разобрать» */
+#main .def-board a.pill.p-raz,
+#main .def-board .task a.pill.p-raz{
+  font-size:9px;font-weight:600;padding:0 4px;line-height:14px;color:#111;text-decoration:none;background:#fff;border:1px solid #c22f3a;cursor:pointer
+}
+#main .def-board a.pill.p-raz:hover,
+#main .def-board .task a.pill.p-raz:hover{color:#111;background:#fff5f5}
+
 .def-ur > summary > .thb{margin:0 0 0 4px;flex:none}
 /* t6377u already folded into .ma-mon>summary .mrec above */
 
