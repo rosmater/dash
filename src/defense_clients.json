@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-13T13:44:26-05:00",
+  "updated_at": "2026-11-14T02:58:01-05:00",
   "note": "Rost 06.11 t453: «Клиенты в процессе» = все живые диалоги с этапом intro/catalog/deal/call, не только «ждут каталог». Закрытые не держим.",
   "clients_in_progress": [
     {
@@ -23,6 +23,17 @@
       "note": "Созвон прошёл 10.11 12:00 Bogotá (Meet odi-oqbo-eaq). Попросили варианты сотрудничества + каталог; отправили 10.11 14:20 оба. Ждём формат и приоритетные модели/заказчиков.",
       "url": "https://rosmater.github.io/cu/?t=86bcu0caf",
       "ctx": "QUEUE.md decsef-call/reply"
+    },
+    {
+      "id": "brunton-alliance-sa-de-cv",
+      "company": "Brunton Alliance SA de CV (México)",
+      "contact": "Lic. Alejandra Govea, Dirección Jurídica <bruntonalliance@gmail.com>",
+      "status": "need_reply",
+      "pipeline": "catalog",
+      "status_label": "Нужен наш ответ",
+      "note": "Lic. Alejandra Govea (Dirección Jurídica) просит официальную презентацию услуг и запчастей для Ми-17/171 и копии сертификатов (авиавласти и/или производитель); основные клиенты — ВС Мексики. Направить в Dirección de Ingeniería. Need Rost (не выдумывать сертификаты).",
+      "url": "https://app.clickup.com/t/86bbzxnvx",
+      "ctx": "dash_reply_upsert 1a1d6abb415f14f8"
     },
     {
       "id": "servicios-aereos-montre-sa-de-cv",

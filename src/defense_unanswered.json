@@ -1,6 +1,6 @@
 {
   "_note": "Живые ответы компаний (STE). Красный «разобрать» = open (мы не ответили). Жёлтый «ждём ответа» = waiting / awaiting_their_reply (наш ответ ушёл). answered/scheduled — снять с внимания. Пишет ste / Оборонка.",
-  "updated_at": "2026-11-13T13:44:26-05:00",
+  "updated_at": "2026-11-14T02:58:01-05:00",
   "unanswered_replies": [
     {
       "company": "TEREM-Letets / TEREM Holding (Bulgaria)",
@@ -19,6 +19,22 @@
       "msg_id": "1a1bf2b0926f76b7",
       "thread_id": "1a1a5ebf6b23a1f8",
       "last_inbound_msg_id": "1a1bf2b0926f76b7"
+    },
+    {
+      "company": "Brunton Alliance SA de CV (México)",
+      "from": "Lic. Alejandra Govea, Dirección Jurídica <bruntonalliance@gmail.com>",
+      "subject": "Re: Overhaul y repuestos Mi-8/17 — SpetsTechnoExport",
+      "received_at": "2026-11-13T15:48:45-05:00",
+      "note": "Lic. Alejandra Govea (Dirección Jurídica) просит официальную презентацию услуг и запчастей для Ми-17/171 и копии сертификатов (авиавласти и/или производитель); основные клиенты — ВС Мексики. Направить в Dirección de Ingeniería. Need Rost (не выдумывать сертификаты).",
+      "url": "https://mail.google.com/mail/u/0/#inbox/1a1d6abb415f14f8",
+      "status": "open",
+      "priority": true,
+      "pipeline": "catalog",
+      "status_label": "Нужен наш ответ",
+      "msg_id": "1a1d6abb415f14f8",
+      "thread_id": "1a1653a5dc656e49",
+      "last_inbound_at": "2026-11-13T15:48:45-05:00",
+      "last_inbound_msg_id": "1a1d6abb415f14f8"
     },
     {
       "company": "Servicios Aereos Montre SA de CV (México)",
