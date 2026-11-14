@@ -103,7 +103,7 @@ table{width:100%;border-collapse:collapse;font-size:12.5px}th,td{text-align:left
 .pepbal .pepbal-v-inline{margin-left:auto;font-weight:800;font-variant-numeric:tabular-nums;letter-spacing:-.03em;white-space:nowrap}
 .pepbal .pepbal-more{padding:6px 0 2px}
 .pepbal .pepbal-more .pepbal-v{margin:0 0 4px}
-/* t6416u: «Лиды с рекламы» — компактная таблица, колонки дней/недель тянутся вправо; вотчеры в шапке */
+/* t6416u / t6420u: «Лиды с рекламы» — компактная таблица дней/недель/месяцев, новые колонки слева; вотчеры в шапке */
 .pepleads h3{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px}
 .pepleads h3 .pepleads-title{flex:none}
 .pepleads h3 .pepleads-mode{flex:none;padding:2px;box-shadow:none}
@@ -118,7 +118,7 @@ table{width:100%;border-collapse:collapse;font-size:12.5px}th,td{text-align:left
 .pepleads-tbl thead th{font-size:10.5px;font-weight:700;color:var(--mut,#6b7280);padding:2px 8px 3px;vertical-align:bottom}
 .pepleads-tbl thead th .d1{display:block;font-weight:700;color:#334155}
 .pepleads-tbl thead th .d2{display:block;font-weight:600;color:#94a3b8;font-size:10px;margin-top:1px}
-.pepleads-tbl .lab{text-align:left;position:sticky;left:0;z-index:1;background:var(--panel,#fff);font-weight:700;color:#475569;padding-left:2px;padding-right:12px;box-shadow:4px 0 8px -6px #0f172a22}
+.pepleads-tbl .lab{text-align:left;position:sticky;left:0;z-index:1;background:var(--panel,#fff);font-weight:700;color:#475569;padding-left:2px;padding-right:10px;box-shadow:4px 0 8px -6px #0f172a22;font-size:12px}
 .pepleads-tbl thead th.lab{box-shadow:none;background:var(--panel,#fff)}
 .pepleads-tbl tbody tr.tot td{font-weight:800}
 .pepleads-tbl tbody tr.tot td.lab{font-weight:800;color:#0f172a}
@@ -144,6 +144,16 @@ table{width:100%;border-collapse:collapse;font-size:12.5px}th,td{text-align:left
 #main .of-prio-sub h4 + .pep-goal-row{margin-top:3px}
 .pepconv{margin-bottom:14px}
 .pepconv h3{margin:0 0 6px}
+
+/* t6419u: «обновлено» / «снимок» / GS в шапке «Монитор ответов» и «Итого» */
+#main .card h3.pep-ht,.card h3.pep-ht{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);justify-content:stretch;align-items:center;gap:8px;margin:0 0 6px}
+.pep-ht .pep-ht-l{justify-self:start;display:flex;align-items:center;gap:6px;flex-wrap:wrap;min-width:0}
+.pep-ht .pep-ht-m{justify-self:center;font-size:11px;font-weight:400;text-transform:none;letter-spacing:0;color:var(--mut);white-space:nowrap;line-height:1.3}
+.pep-ht .pep-ht-r{justify-self:end;display:flex;align-items:center;gap:4px;flex:none}
+a.gs-pill{display:inline-flex;align-items:center;justify-content:center;background:#188038;color:#fff!important;font-size:10px;font-weight:800;letter-spacing:.04em;padding:1px 7px;border-radius:99px;text-decoration:none;line-height:16px;text-transform:none;border:0}
+a.gs-pill:hover{background:#137333;color:#fff!important}
+.pep-info{display:inline-flex;align-items:center;justify-content:center;width:15px;height:15px;border-radius:99px;background:#eef2f6;color:#64748b;font-size:10px;font-weight:700;cursor:help;text-transform:none;letter-spacing:0;border:1px solid var(--line);line-height:1;flex:none}
+@media (max-width:640px){#main .card h3.pep-ht,.card h3.pep-ht{display:flex;flex-wrap:wrap;justify-content:space-between}.pep-ht .pep-ht-m{flex:1 1 100%;text-align:center;order:3}.pep-ht .pep-ht-r{margin-left:auto}}
 
 
 /* Rost t1103u: короткая плашка баланса, подробности в подсказке */
@@ -1698,6 +1708,10 @@ function yDayLabel(d){const y=yDay(d),w=['вс','пн','вт','ср','чт','п�
 /* Пептиды (Rost 25.10): Итого сначала, потом период — Сегодня→за вчера, Неделя→за неделю, Месяц→за месяц. Источник — GSheet PEPTIDOS VENTAS */
 function ledgerKPI(L,inR){let n=0,u=0,rev=0,exp=0;(L.sales||[]).forEach(x=>{if(!inR(x.date))return;n++;u+=x.units||0;rev+=(x.total??x.price)||0;exp+=(x.cogs||0)});
  (L.costs||[]).forEach(c=>{if(c.date?inR(c.date):(inR.month&&inR.month(c.month)))exp+=Dash.conv(c.amount||0,c.cur||L.cur,L.cur)});return {n,u,rev,exp,profit:rev-exp}}
+/* t6419u: зелёные пилюли GS на шапке блоков Пептидов */
+function pepGsPill(href,name){return `<a class="gs-pill" href="${esc(href)}" target="_blank" rel="noopener" title="${esc(name)}">GS</a>`}
+const PEP_SHEET_VENTAS='https://docs.google.com/spreadsheets/d/1VqMt81ZX1ZoSj4maK1o99xUPaDyqTvvEU1KxTw6kO9M/edit#gid=1025277545';
+const PEP_SHEET_EXP='https://docs.google.com/spreadsheets/d/1-X24SE_ZfP7mXm9_WUFRwCo-H45ryI9R2yvYpOu-bIE/edit#gid=0';
 function ledgerHTML(d){const L=d.ledger;if(!L)return '';const cur=Dash.curOf(d),f=v=>fmt(Dash.conv(v,L.cur,cur),cur),m=S.mode,today=bDay(new Date().toISOString());
  const all=Object.assign(()=>true,{month:()=>true});let pr,pl;
  if(m==='today'){const y=yDay(today);pr=Object.assign(x=>x===y,{month:()=>false});pl='За вчера · '+yDayLabel(today)}
@@ -1705,7 +1719,7 @@ function ledgerHTML(d){const L=d.ledger;if(!L)return '';const cur=Dash.curOf(d),
  else{const mo=Dash.pid();pr=Object.assign(x=>x.slice(0,7)===mo,{month:x=>x===mo});pl='За месяц · '+Dash.periodLabel()}
  const T=ledgerKPI(L,all),P=ledgerKPI(L,pr),first=[...(L.sales||[]),...(L.costs||[])].map(x=>x.date).filter(Boolean).sort()[0]||'';
  const tile=(l,v,sub,cls='')=>`<div class="card kpi"><div class="l">${l}</div><div class="v ${cls}">${v}</div><div class="s">${sub}</div></div>`;
- const row=(K,ttl,sub,day,extra='')=>`<h3 style="margin:0 0 8px">${ttl} <span class="st">${esc(sub)}</span></h3><div class="grid ${day?'g3b':extra?'g5':'g4'}">${tile('🛒 Продажи',K.u,'наборов'+(K.u!==K.n?' · сделок '+K.n:''))}${tile('💰 Деньги',f(K.rev),'выручка')}${day?tile('📈 Прибыль',f(K.rev),'без расходов за день'):tile('💸 Расходы',f(K.exp),'таблица расходов + себестоимость')+tile('📈 Прибыль',f(K.profit),'деньги − расходы',K.profit<0?'neg':'')+extra}</div>`;/* Rost 25.10: за вчера без плитки Расходы; прибыль за вчера = выручка */
+ const row=(K,ttl,sub,day,extra='',headMeta='')=>`<h3 class="${headMeta?'pep-ht':''}" style="margin:0 0 8px"><span class="pep-ht-l">${ttl} <span class="st">${esc(sub)}</span></span>${headMeta||''}</h3><div class="grid ${day?'g3b':extra?'g5':'g4'}">${tile('🛒 Продажи',K.u,'наборов'+(K.u!==K.n?' · сделок '+K.n:''))}${tile('💰 Деньги',f(K.rev),'выручка')}${day?tile('📈 Прибыль',f(K.rev),'без расходов за день'):tile('💸 Расходы',f(K.exp),'таблица расходов + себестоимость')+tile('📈 Прибыль',f(K.profit),'деньги − расходы',K.profit<0?'neg':'')+extra}</div>`;/* Rost 25.10: за вчера без плитки Расходы; прибыль за вчера = выручка */
  const RS=d.repeat_sales,rsl=RS?`<div class="note" style="margin:8px 0 0">🔁 Повторные: <b>${(RS.repeat_buyers||[]).length}</b> купили второй раз · пора повторную: <b>${(RS.due_now||[]).length}</b> · скоро: ${(RS.upcoming||[]).length}</div>`:'';
  const CV=(d.ads_monitor||{}).conversion,cv1=CV&&CV.dialogs_since&&CV.sales_since?(CV.dialogs_since/CV.sales_since).toFixed(1).replace('.',','):null;/* Rost 25.10: только новые с 12.10 */
  /* Rost 25.10: KPI «среднее дней до продажи» (дата 1-й коммуникации → дата продажи) + реальная конверсия (без «цели») */
@@ -1714,8 +1728,8 @@ function ledgerHTML(d){const L=d.ledger;if(!L)return '';const cur=Dash.curOf(d),
  /* Rost 25.10 ~10:20: конверсию в Итого не дублируем (она в «План работ» ▼); «Дней до продажи» — в одном ряду с Продажи/Деньги/Расходы/Прибыль */
  /* Rost 25.10 ~10:25: таблицу расходов в дашборд НЕ тянем — только мелкие ссылки на GSheets; комиссия уже внутри TOTAL (320 000) */
  const snap=(L.fetched_at||'').slice(0,10),stale=m==='today'&&snap&&snap<today;
- return `<div class="card" style="margin-bottom:14px">${row(T,'Итого',first?'с '+first.slice(8,10)+'.'+first.slice(5,7)+'.'+first.slice(0,4):'',false,dtT)}${rsl}<div style="height:14px"></div>${row(P,pl,P.n?'':'продаж нет',m==='today')}
- <p class="note" style="margin:10px 0 0;font-size:11px;opacity:.85">Таблицы: <a href="https://docs.google.com/spreadsheets/d/1VqMt81ZX1ZoSj4maK1o99xUPaDyqTvvEU1KxTw6kO9M/edit#gid=1025277545" target="_blank" rel="noopener">PEPTIDOS VENTAS ↗</a> · <a href="https://docs.google.com/spreadsheets/d/1-X24SE_ZfP7mXm9_WUFRwCo-H45ryI9R2yvYpOu-bIE/edit#gid=0" target="_blank" rel="noopener">Expensed Peso Saludable ↗</a> · снимок ${esc(L.fetched_at||'—')}${stale?' <b style="color:#d93025">— снимок не сегодняшний</b>':''}</p></div>`}
+ const itoMeta=`<span class="pep-ht-m">снимок ${esc(L.fetched_at||'—')}${stale?' <b style="color:#d93025">— снимок не сегодняшний</b>':''}</span><span class="pep-ht-r">${pepGsPill(PEP_SHEET_VENTAS,'PEPTIDOS VENTAS')}${pepGsPill(PEP_SHEET_EXP,'Expensed Peso Saludable')}</span>`;
+ return `<div class="card" style="margin-bottom:14px">${row(T,'Итого',first?'с '+first.slice(8,10)+'.'+first.slice(5,7)+'.'+first.slice(0,4):'',false,dtT,itoMeta)}${rsl}<div style="height:14px"></div>${row(P,pl,P.n?'':'продаж нет',m==='today')}</div>`}
 function cvTable(C,base,usd){if(!C||!C.sales_total)return '';const n=v=>v==null?'—':esc(Dash.num(v)),pc=(s,l)=>l&&s!=null?(100*s/l).toFixed(1)+'%':'—',per=(s,l)=>s&&l?(l/s).toFixed(1).replace('.',','):'—';
  /* Rost 25.10: «10→1» был лишь примером формата — НЕ цель. Показываем только факт; детали свёрнуты ▼ */
  const rows=[['С 12.10 · новые запуски (считаем)',C.dialogs_since,C.sales_since,(C.dialogs_exact?'диалоги — last known Пептид':'по РК')+(C.days_missing&&C.days_missing.length?', пауза '+C.days_missing.length+' дн. — last known':'')],['До 12.10 · старый аккаунт (НЕ считаем)',C.leads_archive,C.sales_before,'≈1→27, исключён Rost 25.10'],['Справочно всего', (C.leads_archive||0)+(C.dialogs_since||0), C.sales_total,'архив+новые']];
@@ -2380,10 +2394,10 @@ function wwBalHdr(){const P=wwBalSrc();if(!P||!P.low)return '';const tip='Про
 
 function pepAdBalRefresh(){const box=document.getElementById('pep-adbal');if(!box)return;const h=pepAdBalHTML();if(h)box.outerHTML=h}
 
-/* Rost t1101u / t6416u: «Лиды с рекламы» — компактная таблица новых диалогов, колонки вправо; Дни / полные прошедшие недели (t6318u) */
-function pepLeadsMode(){try{return localStorage.getItem('dash_pep_leads_mode')==='week'?'week':'days'}catch(e){return 'days'}}
-function pepLeadsSetMode(m){try{localStorage.setItem('dash_pep_leads_mode',m==='week'?'week':'days')}catch(e){}const box=document.getElementById('pepleads');if(!box)return;const mode=pepLeadsMode();box.querySelectorAll('[data-plm]').forEach(b=>b.classList.toggle('on',b.dataset.plm===mode));box.querySelectorAll('[data-plview]').forEach(v=>{v.hidden=v.dataset.plview!==mode});pepLeadsStripMount()}
-function pepLeadsStripMount(){const box=document.getElementById('pepleads');if(!box)return;const mode=pepLeadsMode();const view=box.querySelector('[data-plview="'+mode+'"]');if(view)view.scrollLeft=view.scrollWidth;box.querySelectorAll('[data-plm]').forEach(b=>{if(b.dataset.plBound)return;b.dataset.plBound='1';b.onclick=()=>pepLeadsSetMode(b.dataset.plm)})}
+/* Rost t1101u / t6416u / t6420u: «Лиды с рекламы» — компактная таблица новых диалогов, бюджет и цена диалога; колонки новых слева; Дни / полные прошедшие недели (t6318u) / Месяц */
+function pepLeadsMode(){try{const m=localStorage.getItem('dash_pep_leads_mode');return (m==='week'||m==='month')?m:'days'}catch(e){return 'days'}}
+function pepLeadsSetMode(m){const mode=(m==='week'||m==='month')?m:'days';try{localStorage.setItem('dash_pep_leads_mode',mode)}catch(e){}const box=document.getElementById('pepleads');if(!box)return;box.querySelectorAll('[data-plm]').forEach(b=>b.classList.toggle('on',b.dataset.plm===mode));box.querySelectorAll('[data-plview]').forEach(v=>{v.hidden=v.dataset.plview!==mode});pepLeadsStripMount()}
+function pepLeadsStripMount(){const box=document.getElementById('pepleads');if(!box)return;const mode=pepLeadsMode();const view=box.querySelector('[data-plview="'+mode+'"]');if(view)view.scrollLeft=0;box.querySelectorAll('[data-plm]').forEach(b=>{if(b.dataset.plBound)return;b.dataset.plBound='1';b.onclick=()=>pepLeadsSetMode(b.dataset.plm)})}
 function pepLeadsStripHTML(d){
  if(d.id!=='peptides')return '';
  const L=d.leads_strip||{},T=d.dialogs_today||{},igInfo=T.ig||{};
@@ -2398,55 +2412,97 @@ function pepLeadsStripHTML(d){
  const hm=x=>{const s=String(x||''),m=s.match(/T(\d{2}:\d{2})/)||s.match(/\s(\d{2}:\d{2})/);return m?m[1]:''};
  const monOf=iso=>{const dt=new Date(iso+'T12:00:00Z');dt.setUTCDate(dt.getUTCDate()-((dt.getUTCDay()+6)%7));return dt.toISOString().slice(0,10)};
  const addD=(iso,n)=>{const dt=new Date(iso+'T12:00:00Z');dt.setUTCDate(dt.getUTCDate()+n);return dt.toISOString().slice(0,10)};
+ const monNames=['январь','февраль','март','апрель','май','июнь','июль','август','сентябрь','октябрь','ноябрь','декабрь'];
  const igRows=(((d.ads_monitor||{}).conversion||{}).ig_days)||[],igBy={};
  igRows.forEach(r=>{if(r&&r.date)igBy[r.date]=r});
  if(igInfo.date){const k=igInfo.date;igBy[k]=Object.assign({},igBy[k]||{date:k},{n:igInfo.new_count!=null?igInfo.new_count:(igBy[k]&&igBy[k].n),dialogs:igInfo.count!=null?igInfo.count:(igBy[k]&&igBy[k].dialogs)})}
  const rows=days.map(r=>{
   const ig=igBy[r.date]||{},igN=ig.n!=null?ig.n:(ig.new_dialogs!=null?ig.new_dialogs:null),wa=r.total!=null?r.total:null;
   const tot=(wa==null&&igN==null)?null:(wa||0)+(igN||0);
-  return Object.assign({},r,{wa,ig:igN,tot,partial:(wa==null)!==(igN==null)&&tot!=null,isT:r.date===today||!!r.today});
+  const spend=r.spend!=null?+r.spend:null;
+  const price=(spend!=null&&tot)?Math.round(spend/tot):null;
+  return Object.assign({},r,{wa,ig:igN,tot,spend,price,partial:(wa==null)!==(igN==null)&&tot!=null,isT:r.date===today||!!r.today});
  });
- const curMon=today?monOf(today):null,buckets={};
- rows.forEach(r=>{
-  const m=monOf(r.date);if(curMon&&m===curMon)return;
-  if(!buckets[m])buckets[m]={start:m,end:addD(m,6),wa:null,ig:null,tot:null,waDays:0,igDays:0,n:0,attn:false};
-  const b=buckets[m];b.n++;
+ const bump=(b,r)=>{
+  b.n++;
   if(r.wa!=null){b.wa=(b.wa||0)+r.wa;b.waDays++}
   if(r.ig!=null){b.ig=(b.ig||0)+r.ig;b.igDays++}
-  if(r.tot!=null)b.tot=(b.tot||0)+r.tot;
+  if(r.tot!=null){b.tot=(b.tot||0)+r.tot;b.totDays++}
+  if(r.spend!=null){b.spend=(b.spend||0)+r.spend;b.spendDays++;if(r.spend_approx)b.spend_approx=true} if(r.tot!=null&&r.spend==null)b.spendMissDlg=true
   if(r.attn){b.attn=true;b.attn_label=r.attn_label||b.attn_label}
+  if(!b.from||r.date<b.from)b.from=r.date;
+  if(!b.to||r.date>b.to)b.to=r.date;
+ };
+ const finish=b=>{b.price=(b.spend!=null&&b.tot&&!b.spendMissDlg)?Math.round(b.spend/b.tot):null;b.partial=(b.waDays<b.n)||(b.igDays<b.n)||((b.spendDays||0)<b.n)};
+ const curMon=today?monOf(today):null,weekB={},monthB={};
+ rows.forEach(r=>{
+  const m=monOf(r.date);
+  if(!(curMon&&m===curMon)){
+   if(!weekB[m])weekB[m]={start:m,end:addD(m,6),wa:null,ig:null,tot:null,spend:null,price:null,waDays:0,igDays:0,totDays:0,spendDays:0,n:0,attn:false,spendMissDlg:false};
+   bump(weekB[m],r);
+  }
+  const ym=String(r.date||'').slice(0,7);
+  if(ym.length===7){
+   if(!monthB[ym])monthB[ym]={ym,start:ym+'-01',wa:null,ig:null,tot:null,spend:null,price:null,waDays:0,igDays:0,totDays:0,spendDays:0,n:0,attn:false,spendMissDlg:false,isT:!!(today&&today.slice(0,7)===ym)};
+   bump(monthB[ym],r);
+  }
  });
  const weekNames=['Прошлая','Позапрошлая','Позапозапрошлая'];
- const weeks=Object.keys(buckets).sort().map(k=>buckets[k]).filter(w=>!today||w.end<today);
- weeks.forEach((w,i)=>{const fromEnd=weeks.length-1-i;w.title=fromEnd<weekNames.length?weekNames[fromEnd]:'';w.label=fd(w.start)+'–'+fd(w.end);w.partial=(w.waDays<7)||(w.igDays<7)});
- const dltCls=(cur,prev)=>cur==null?'nodata':(prev==null?'':(cur>prev?'up':cur<prev?'down':'same'));
+ const weeks=Object.keys(weekB).sort().map(k=>weekB[k]).filter(w=>!today||w.end<today);
+ weeks.forEach((w,i)=>{finish(w);const fromEnd=weeks.length-1-i;w.title=fromEnd<weekNames.length?weekNames[fromEnd]:'';w.label=fd(w.start)+'–'+fd(w.end)});
+ weeks.reverse();
+ const months=Object.keys(monthB).sort().map(k=>monthB[k]);
+ months.forEach((w,i)=>{
+  finish(w);
+  const fromEnd=months.length-1-i,mi=Math.max(0,parseInt(w.ym.slice(5,7),10)-1);
+  const name=monNames[mi]||w.ym;
+  w.title=fromEnd===0?'Этот месяц':fromEnd===1?'Прошлый':'';
+  w.label=w.from&&w.to?(fd(w.from)+'–'+fd(w.to)):name;
+  w.end=w.to||w.start;
+ });
+ months.reverse();
+ const dayCols=rows.slice().reverse();
+ const dltCls=(cur,prev,invert)=>cur==null?'nodata':(prev==null?'':(cur===prev?'same':((cur>prev)!==!!invert)?'up':'down'));
+ const unitOf=kind=>kind==='week'?'к предыдущей неделе':kind==='month'?'к предыдущему месяцу':'к предыдущему дню';
  const tip=(c,key,cur,prv,kind)=>{
-  const bits=[];
+  const bits=[],unit=unitOf(kind);
   if(key==='wa'){
-   if(kind==='days'){if(c.ads!=null)bits.push('с рекламы '+c.ads);if(c.spend!=null)bits.push((c.spend_approx?'расход ≈':'расход ')+Dash.num(c.spend));if(c.cpl!=null)bits.push((c.spend_approx?'диалог ≈':'диалог ')+Dash.num(c.cpl));if(c.spend_tip)bits.push(c.spend_tip)}
+   if(kind==='days'&&c.ads!=null)bits.push('с рекламы '+c.ads);
    if(c.attn_label)bits.push(c.attn_label);if(c.missing_label)bits.push(c.missing_label);
-   if(kind==='week')bits.push('WA: '+(c.waDays||0)+' дн. с данными');
+   if(kind!=='days')bits.push('WA: '+(c.waDays||0)+' дн. с данными');
   }
-  if(key==='ig'){if(cur==null)bits.push('IG Direct · нет данных');if(kind==='week')bits.push('IG: '+(c.igDays||0)+' дн. с данными')}
-  if(key==='tot'){if(c.partial)bits.push(kind==='week'?('WA '+(c.waDays||0)+'/7 · IG '+(c.igDays||0)+'/7 дн.'):'частично: нет данных по одному каналу')}
-  if(cur!=null&&prv!=null){const dlt=cur-prv,unit=kind==='week'?'к предыдущей неделе':'к предыдущему дню';bits.push(dlt===0?('без изменений '+unit):((dlt>0?'+':'')+dlt+' '+unit))}
+  if(key==='ig'){if(cur==null)bits.push('IG Direct · нет данных');if(kind!=='days')bits.push('IG: '+(c.igDays||0)+' дн. с данными')}
+  if(key==='tot'){if(c.partial)bits.push(kind==='days'?'частично: нет данных по одному каналу':('WA '+(c.waDays||0)+' · IG '+(c.igDays||0)+' из '+(c.n||0)+' дн.'))}
+  if(key==='spend'){
+   if(cur==null)bits.push('нет данных по расходу');
+   if(c.spend_approx)bits.push('примерно (дельты накопительного spend Meta + TikTok)');
+   if(kind!=='days')bits.push('бюджет: '+(c.spendDays||0)+' из '+(c.n||0)+' дн. с данными');
+   if(kind==='days'&&c.spend_tip)bits.push(c.spend_tip);
+  }
+  if(key==='price'){
+   bits.push('расход / новые диалоги (Итого)');
+   if(cur==null)bits.push(c.spendMissDlg?'цену не считаем: нет расхода в части дней с диалогами':c.spend==null?'нет расхода':(!c.tot?'нет диалогов — цену не считаем':'нет данных'));
+   if(c.spend_approx)bits.push('примерно');
+  }
+  if(cur!=null&&prv!=null){const dlt=cur-prv;bits.push(dlt===0?('без изменений '+unit):((dlt>0?'+':'')+Dash.num(dlt)+' '+unit))}
   return bits.join(' · ');
  };
  const tbl=(cols,kind)=>{
   const head=cols.map(c=>{
    const cls=(c.isT?' today':'')+(c.attn?' attn':'');
-   if(kind==='week')return `<th class="${cls}" title="${esc((c.start||'')+' – '+(c.end||''))}"><span class="d1">${esc(c.title||'\xa0')}</span><span class="d2">${esc(c.label)}</span></th>`;
+   if(kind==='week'||kind==='month')return `<th class="${cls}" title="${esc((c.from||c.start||'')+' – '+(c.to||c.end||''))}"><span class="d1">${esc(c.title||'\xa0')}</span><span class="d2">${esc(c.label)}</span></th>`;
    return `<th class="${cls}"><span class="d1">${dw(c.date)}</span><span class="d2">${fd(c.date)}</span></th>`;
   }).join('');
   const cells=key=>cols.map((c,i)=>{
-   const prev=i?cols[i-1]:null,cur=c[key],prv=prev?prev[key]:null;
-   const cls=dltCls(cur,prv)+(c.isT?' today':'')+(c.attn&&key==='wa'?' attn':'');
+   const prev=cols[i+1]||null,cur=c[key],prv=prev?prev[key]:null;
+   const invert=key==='spend'||key==='price';
+   const cls=dltCls(cur,prv,invert)+(c.isT?' today':'')+(c.attn&&key==='wa'?' attn':'');
    const t=tip(c,key,cur,prv,kind);
    const mark=(c.attn&&key==='wa'&&c.attn_label)?' <span class="attnmark">⚠</span>':'';
    return `<td class="${cls}"${t?` title="${esc(t)}"`:''}>${cur==null?'—':num(cur)}${mark}</td>`;
   }).join('');
   const mode=pepLeadsMode();
-  return `<div class="pepleads-wrap" data-plview="${kind}"${mode!==kind?' hidden':''}><table class="pepleads-tbl"><thead><tr><th class="lab">новые</th>${head}</tr></thead><tbody><tr><td class="lab">WhatsApp</td>${cells('wa')}</tr><tr><td class="lab">Instagram</td>${cells('ig')}</tr><tr class="tot"><td class="lab">Итого</td>${cells('tot')}</tr></tbody></table></div>`;
+  return `<div class="pepleads-wrap" data-plview="${kind}"${mode!==kind?' hidden':''}><table class="pepleads-tbl"><thead><tr><th class="lab"></th>${head}</tr></thead><tbody><tr><td class="lab">WhatsApp</td>${cells('wa')}</tr><tr><td class="lab">Instagram</td>${cells('ig')}</tr><tr class="tot"><td class="lab">Итого</td>${cells('tot')}</tr><tr><td class="lab">Бюджет (COP)</td>${cells('spend')}</tr><tr><td class="lab">Цена диалога (COP)</td>${cells('price')}</tr></tbody></table></div>`;
  };
  const as=L.as_of?String(L.as_of):'';
  const asof=as.length>=10?as.slice(8,10)+'.'+as.slice(5,7)+(as.length>16?' '+as.slice(11,16):''):'';
@@ -2458,9 +2514,10 @@ function pepLeadsStripHTML(d){
  const waChip=`<span class="dlgst${waLive?' ok':''}" title="${esc(waTip)}">WhatsApp Watcher${waTime?' '+waTime:''}</span>`;
  const igChip=`<span class="dlgst${iLive?' ok':''}" title="${esc(igTip)}">${esc(igLab)}${igTime?' '+igTime:''}</span>`;
  const mode=pepLeadsMode();
- const tog=`<span class="seg pepleads-mode"><button type="button" data-plm="days"${mode==='days'?' class="on"':''}>Дни</button><button type="button" data-plm="week"${mode==='week'?' class="on"':''}>Неделя</button></span>`;
+ const tog=`<span class="seg pepleads-mode"><button type="button" data-plm="days"${mode==='days'?' class="on"':''}>Дни</button><button type="button" data-plm="week"${mode==='week'?' class="on"':''}>Неделя</button><button type="button" data-plm="month"${mode==='month'?' class="on"':''}>Месяц</button></span>`;
  const weekView=weeks.length?tbl(weeks,'week'):`<div class="pepleads-empty" data-plview="week"${mode!=='week'?' hidden':''}>нет полных прошедших недель</div>`;
- return `<div class="card pepleads" id="pepleads" style="margin-bottom:14px"><h3><span class="pepleads-title">Лиды с рекламы</span>${tog}<span class="pepleads-watches">${waChip}${igChip}</span>${asof?` <span class="st">сводка ${esc(asof)}</span>`:''}</h3>${tbl(rows,'days')}${weekView}</div>`;
+ const monthView=months.length?tbl(months,'month'):`<div class="pepleads-empty" data-plview="month"${mode!=='month'?' hidden':''}>нет данных по месяцам</div>`;
+ return `<div class="card pepleads" id="pepleads" style="margin-bottom:14px"><h3><span class="pepleads-title">Лиды с рекламы</span>${tog}<span class="pepleads-watches">${waChip}${igChip}</span>${asof?` <span class="st">сводка ${esc(asof)}</span>`:''}</h3>${tbl(dayCols,'days')}${weekView}${monthView}</div>`;
 }
 
 function pepGoalsData(d){const A=(d&&d.ads_monitor)||{},dd=x=>x&&/^20/.test(String(x))?String(x).slice(8,10)+'.'+String(x).slice(5,7)+(String(x).length>10?' '+String(x).slice(11,16):''):esc(x||'—'),dw=x=>['вс','пн','вт','ср','чт','пт','сб'][new Date(x+'T12:00:00Z').getUTCDay()],avgTxt=v=>v==null?'—':(Math.abs(v-Math.round(v))<1e-9?String(Math.round(v)):v.toFixed(1).replace('.',','));
@@ -2557,13 +2614,14 @@ hAds+=`<div class="card adsmon" style="margin-bottom:14px"><h3>📣 Монито
  const SP=Object.assign({},SP0,{rows:sr,avg:ok_.length?Math.round(ok_.reduce((a,b)=>a+b,0)/ok_.length):null,avg_n:ok_.length,unanswered:mins_.length-ok_.length,approx:sr.some(r=>r.approx),median_leads:md_,avg_ex_launch:okx_.length?Math.round(okx_.reduce((a,b)=>a+b,0)/okx_.length):null,new_total:sr.reduce((a,r)=>a+(r.new||0),0),days_with_new:sr.filter(r=>r.new!=null).length,first_n:sr.reduce((a,r)=>a+(r.n||0),0),first_le15:sr.reduce((a,r)=>a+(r.le15||0),0),sales_wa:sr.reduce((a,r)=>a+(r.sales_wa||0),0),sales_sheet:sr.reduce((a,r)=>a+(r.sales_sheet||0),0)}),mn=v=>v==null?'—':v<60?String(v).replace('.',',')+' мин':(v/60).toFixed(1).replace('.',',')+' ч',dw=x=>['вс','пн','вт','ср','чт','пт','сб'][new Date(x+'T12:00:00Z').getUTCDay()];
  const kt=(l,v,sub)=>`<div class="card kpi"><div class="l">${l}</div><div class="v">${v}</div><div class="s">${sub}</div></div>`;
  const pct=SP.first_n?Math.round(100*SP.first_le15/SP.first_n):null;
- hQ+=`<div class="card" style="margin-bottom:14px"><h3>💬 Монитор ответов · ${pl_}${Q.stale?` <span class="st" style="color:#a5620a;border-color:#f1d29a">${esc(Q.stale_label||'данные устарели')}</span>`:''}</h3>
+ const qDef=String(SP.definition||'').replace(/\s*\([^()]*\.(json|md|csv)[^()]*\)/g,'');
+ hQ+=`<div class="card" style="margin-bottom:14px"><h3 class="pep-ht"><span class="pep-ht-l">💬 Монитор ответов · ${pl_}${qDef?` <span class="pep-info" title="${esc(qDef)}">ⓘ</span>`:''}${Q.stale?` <span class="st" style="color:#a5620a;border-color:#f1d29a">${esc(Q.stale_label||'данные устарели')}</span>`:''}</span><span class="pep-ht-m">обновлено ${dd(Q.as_of)}</span><span class="pep-ht-r">${pepGsPill(PEP_SHEET_VENTAS,'PEPTIDOS VENTAS')}</span></h3>
  <div class="note" style="margin-bottom:8px">⏰ Рабочее время: ${esc(SP.work_hours||'пн–пт 10:00–18:30 Bogotá')}</div>
  ${sr.length?`<div class="grid g4">${kt('⚡ Среднее время ответа (раб. часы)',(SP.approx?'≈':'')+mn(SP.avg),'<b>цель ≤15 мин</b>'+(SP.avg!=null?(SP.avg<=15?' · ✅ в цели':' · <b style="color:#b42318">выше цели в '+String(Math.round(SP.avg/15*10)/10).replace('.',',')+' раза</b>'):'')+'<br>медиана '+mn(SP.median_leads)+' · без старта 12.10: '+mn(SP.avg_ex_launch)+' · n='+SP.avg_n+(SP.unanswered?' · без ответа '+SP.unanswered:''))}${kt('🆕 Новых диалогов',n(SP.new_total),'за '+SP.days_with_new+' дн. с данными')}${kt('🎯 Ответ ≤15 мин (цель)',pct==null?'—':pct+'%',SP.first_le15+' из '+SP.first_n+' новых лидов')}${kt('🧾 Продажи в диалогах',n(SP.sales_wa),'видно в WA · в таблице '+SP.sales_sheet+(SP.from_new&&SP.from_new.n!=null?' · из новых диалогов '+SP.from_new.n:''))}</div>
  <details style="margin-top:10px"><summary style="cursor:pointer;font-weight:700;font-size:13px">По дням ▼ (${sr.length} дн.)</summary><div class="tblwrap" style="margin-top:8px"><table><tr><th>День</th><th class="n">Новых диалогов</th><th class="n">Первый ответ, среднее</th><th class="n">медиана</th><th class="n">≤15 мин</th><th class="n">Продажи в диалогах (WA)</th><th class="n">Продажи в таблице</th><th>Заметка</th></tr>${sr.map(r=>{const off=r.sales_wa==null&&r.n==null&&r.new==null;return `<tr${off?' style="color:#a5620a"':''}><td>${dw(r.date)} ${dd(r.date)}</td><td class="n">${r.new==null?'нет':n(r.new)}</td><td class="n">${r.avg!=null?mn(r.avg):'—'}</td><td class="n">${r.n?mn(r.med)+' <span class="note">n='+r.n+'</span>':'—'}</td><td class="n">${r.n?r.le15+' из '+r.n:'—'}</td><td class="n">${r.sales_wa==null?'нет':r.sales_wa}</td><td class="n">${r.sales_sheet||0}</td><td style="white-space:normal;min-width:200px"><span class="note">${esc(r.note||'')}</span></td></tr>`}).join('')}<tr style="font-weight:700"><td>Итого</td><td class="n">${n(SP.new_total)}</td><td class="n">${(SP.approx?'≈':'')+mn(SP.avg)}</td><td class="n">${mn(SP.median_leads)}</td><td class="n">${SP.first_le15} из ${SP.first_n}</td><td class="n">${SP.sales_wa}</td><td class="n">${SP.sales_sheet}</td><td></td></tr></table></div>
  ${SP.from_new&&SP.from_new.who?`<div class="note" style="margin-top:6px">🎯 Продажи из новых диалогов (с ${dd(SP.from_new.since)}): <b>${SP.from_new.n}</b> — ${SP.from_new.who.map(esc).join('; ')} · ${esc(SP.from_new.note||'')}</div>`:''}</details>`:'<div class="empty">Нет данных проверки за этот период'+(Q.stale?' — WA-сводка на паузе с 22.10':'')+'</div>'}
  <details style="margin-top:10px"><summary style="cursor:pointer;font-weight:700;font-size:13px">Без ответа сейчас (${qi.length})</summary>${qi.length?qi.map(x=>`<div class="task"><span class="pill ${Q.stale?'p-high':'p-urgent'}">${x.status==='partial_template_only'?'только шаблон':x.status&&x.status.indexOf('unread')>=0?'не прочитан':'без ответа'}</span><div style="flex:1"><b style="font-size:13.5px">${esc(x.who)}</b> <span class="note">· ${dd(x.since)}</span><div class="note">${esc(x.msg)}${x.note?' · '+esc(x.note):''}</div></div></div>`).join(''):'<div class="empty">Неотвеченных нет</div>'}</details>
- <p class="note" style="margin:8px 0 0">${esc(String(SP.definition||'').replace(/\s*\([^()]*\.(json|md|csv)[^()]*\)/g,''))}<br>обновлено ${dd(Q.as_of)}${Q.stale?' · ⚠️ '+esc(Q.stale_label||''):''}</p></div>`;
+</div>`;
  /* Rost 25.10 ~10:25: порядок План работ → Монитор рекламы → Монитор ответов → Итого → Повторные */
  return part==='ads'?hAds:part==='replies'?hQ:part==='repeat'?hRep:hAds+hQ+hRep}/* t6408u: баланс Bancolombia перенесён вниз вкладки */
 function directionToday(d){if(window.DASH_HELPER&&d.id==='personal'){const h=topRowHTML(attnHTML(d))+persBlocksHTML(d);$('#main').innerHTML=h;return;}/* t6061u */
