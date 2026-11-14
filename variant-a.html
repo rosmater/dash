@@ -73,11 +73,12 @@ table{width:100%;border-collapse:collapse;font-size:12.5px}th,td{text-align:left
 .task a{color:var(--txt);text-decoration:none;font-size:13.5px;line-height:1.35}.task a:hover{color:var(--acc)}
 .trow{align-items:center;gap:6px;padding:4px 0;min-width:0}.of-prio-empty{color:#9ca3af;font-size:13px;padding:8px 0}.trow .trow-title{flex:1 1 auto;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.trow .trow-title a,.trow .trow-title b{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:13.5px;line-height:1.3;font-weight:600}.trow .thb{margin:0 0 0 4px;flex:none}.trow>.pill,.trow>.st,.trow>.of-hang,.trow>.note,.trow>.role-pill,.trow>.status-pill,.trow>.recur-ico,.trow>.health-badge{flex:none}.trow .pill{padding:1px 6px;font-size:10px}
 .pill{font-size:10.5px;font-weight:700;padding:2px 8px;border-radius:99px;white-space:nowrap}.p-urgent{background:#ffe3e5;color:#c22f3a}.p-high{background:#fff1d6;color:#a5620a}.p-normal{background:#e3f3fd;color:#1f7fb3}.p-none{background:#fff;color:#94a3b8;border:1px solid #e2e8f0}.st.due-over{color:#b42318;background:transparent;border:1px solid #e11d48}.st.due-today,.st.due-soon{color:#64748b;background:transparent;border-color:#e2e8f0}.pill.p-ig{background:#fce4ec;color:#c2185b}.pill.p-tt{background:#111827;color:#2dd4bf}
-.adsmon table.adtbl{width:100%;table-layout:fixed}
-.adsmon .adtbl th,.adsmon .adtbl td{padding:5px 7px;vertical-align:middle}
+.adsmon table.adtbl{width:100%;table-layout:fixed;border-collapse:collapse}
+.adsmon .adtbl th,.adsmon .adtbl td{padding:5px 7px;vertical-align:middle;border:1px solid #e2e8f0}
+#main .card.adsmon>h3.pep-ht,.card.adsmon>h3.pep-ht{margin-bottom:0}
 .adsmon .adtbl th.n,.adsmon .adtbl td.n{white-space:nowrap;font-variant-numeric:tabular-nums;width:13.2%}
 .adsmon .adtbl th:first-child,.adsmon .adtbl td.adname{width:34%;white-space:nowrap}
-.adsmon tr.adgrp td{background:#f6f7fb;font-weight:700;padding:8px 7px 5px;border-bottom:1px solid var(--line);white-space:normal}
+.adsmon tr.adgrp td{background:#f6f7fb;font-weight:700;padding:8px 7px 5px;border:1px solid #e2e8f0;white-space:normal}
 .adsmon .admore{margin:0}
 .adsmon .admore>summary{cursor:pointer;list-style:none;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .adsmon .admore>summary::-webkit-details-marker{display:none}
@@ -146,6 +147,8 @@ table{width:100%;border-collapse:collapse;font-size:12.5px}th,td{text-align:left
 #main .of-prio-sub h4 + .pep-goal-row{margin-top:3px}
 .pepconv{margin-bottom:14px}
 .pepconv h3{margin:0 0 6px}
+.card.pepconv{padding-bottom:8px}
+.card.pepconv>:last-child{margin-bottom:0}
 
 /* t6419u: «обновлено» / «снимок» / GS в шапке «Монитор ответов» и «Итого» */
 #main .card h3.pep-ht,.card h3.pep-ht{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);justify-content:stretch;align-items:center;gap:8px;margin:0 0 6px}
