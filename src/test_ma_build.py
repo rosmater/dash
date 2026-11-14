@@ -119,8 +119,13 @@ def _tg_status():
     except FileNotFoundError: pass
     up = subprocess.run(['pgrep', '-f', 'tg_watcher.py'], capture_output=True).returncode == 0
     app = subprocess.run(['pgrep', '-f', 'apps/telegram/Telegram/Telegram'], capture_output=True).returncode == 0
+    import datetime as _dtt
+    _idle = _dtt.datetime.now().hour >= 22 or _dtt.datetime.now().hour < 4  # Box idle apps close 22:00 / Telegram daily restart 04:00
     if not up or not app:
-        st, txt = 'red', ('Telegram Desktop не запущен' if not app else 'tg_watcher не запущен') + (f' · последний старт {last_start}' if last_start else '')
+        if _idle:
+            st, txt = 'ok', 'ночное окно 22:00–04:00 · Telegram закрыт по рутине box-idle-apps-close' + (f' · последний старт {last_start}' if last_start else '')
+        else:
+            st, txt = 'red', ('Telegram Desktop не запущен' if not app else 'tg_watcher не запущен') + (f' · последний старт {last_start}' if last_start else '')
     elif not last_notif or (last_start and last_notif < last_start and last_notif[:10] < last_start[:10]):
         st, txt = 'warn', f'запущен {last_start}; уведомлений не ловил с {last_notif or "—"} — проверить, что TG Desktop шлёт уведомления (D-Bus)'
     else:
