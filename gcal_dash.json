@@ -1,12 +1,93 @@
 {
-  "fetched_at": "2026-11-13T19:45-05:00",
+  "fetched_at": "2026-11-13T22:07-05:00",
   "calendar": "zayavki.ua@gmail.com",
   "range": {
-    "start": "2026-10-31",
+    "start": "2026-10-30",
     "end": "2026-12-14",
     "tz": "America/Bogota"
   },
   "events": [
+    {
+      "id": "rmna83ll52lq71h7ifdqmosfbg_20261031T010000Z",
+      "title": "Тусовка",
+      "start": "2026-10-30T20:00:00-05:00",
+      "end": "2026-10-31T03:00:00-05:00",
+      "all_day": false,
+      "url": "https://www.google.com/calendar/event?eid=cm1uYTgzbGw1MmxxNzFoN2lmZHFtb3NmYmdfMjAyNjEwMzFUMDEwMDAwWiB6YXlhdmtpLnVhQG0&ctz=America/Bogota",
+      "location": null
+    },
+    {
+      "id": "n10oqrjni26n4dekbbf6dr5jg0_20261031T080000Z",
+      "title": "Подготовка ко сну",
+      "start": "2026-10-31T03:00:00-05:00",
+      "end": "2026-10-31T04:00:00-05:00",
+      "all_day": false,
+      "url": "https://www.google.com/calendar/event?eid=bjEwb3Fyam5pMjZuNGRla2JiZjZkcjVqZzBfMjAyNjEwMzFUMDgwMDAwWiB6YXlhdmtpLnVhQG0&ctz=America/Bogota",
+      "location": null
+    },
+    {
+      "id": "uqc2p3af6v6biqnr5atj98ajf0_20261031T090000Z",
+      "title": "Сон",
+      "start": "2026-10-31T04:00:00-05:00",
+      "end": "2026-10-31T13:00:00-05:00",
+      "all_day": false,
+      "url": "https://www.google.com/calendar/event?eid=dXFjMnAzYWY2djZiaXFucjVhdGo5OGFqZjBfMjAyNjEwMzFUMDkwMDAwWiB6YXlhdmtpLnVhQG0&ctz=America/Bogota",
+      "location": null
+    },
+    {
+      "id": "jk77alrls910obk8jn9uf3m6js_20261031T180000Z",
+      "title": "Проснуться / Завтрак",
+      "start": "2026-10-31T13:00:00-05:00",
+      "end": "2026-10-31T14:00:00-05:00",
+      "all_day": false,
+      "url": "https://www.google.com/calendar/event?eid=ams3N2FscmxzOTEwb2JrOGpuOXVmM202anNfMjAyNjEwMzFUMTgwMDAwWiB6YXlhdmtpLnVhQG0&ctz=America/Bogota",
+      "location": null
+    },
+    {
+      "id": "t83rmeh3550bhd9tft5agangfo_20261031T190000Z",
+      "title": "Друзья",
+      "start": "2026-10-31T14:00:00-05:00",
+      "end": "2026-10-31T17:00:00-05:00",
+      "all_day": false,
+      "url": "https://www.google.com/calendar/event?eid=dDgzcm1laDM1NTBiaGQ5dGZ0NWFnYW5nZm9fMjAyNjEwMzFUMTkwMDAwWiB6YXlhdmtpLnVhQG0&ctz=America/Bogota",
+      "location": null
+    },
+    {
+      "id": "3sdjcv8h3df1r4809rnb1npp38_20261031T220000Z",
+      "title": "Свободно · после друзей",
+      "start": "2026-10-31T17:00:00-05:00",
+      "end": "2026-10-31T19:00:00-05:00",
+      "all_day": false,
+      "url": "https://www.google.com/calendar/event?eid=M3NkamN2OGgzZGYxcjQ4MDlybmIxbnBwMzhfMjAyNjEwMzFUMjIwMDAwWiB6YXlhdmtpLnVhQG0&ctz=America/Bogota",
+      "location": null
+    },
+    {
+      "id": "m4jbmvtv24bgoifh7rl6j9b69c_20261101T000000Z",
+      "title": "Ужин с девушкой",
+      "start": "2026-10-31T19:00:00-05:00",
+      "end": "2026-10-31T20:00:00-05:00",
+      "all_day": false,
+      "url": "https://www.google.com/calendar/event?eid=bTRqYm12dHYyNGJnb2lmaDdybDZqOWI2OWNfMjAyNjExMDFUMDAwMDAwWiB6YXlhdmtpLnVhQG0&ctz=America/Bogota",
+      "location": null
+    },
+    {
+      "id": "hrtbf2oinooa40llsm1fklm9es_20261101T010000Z",
+      "title": "Алекса",
+      "start": "2026-10-31T20:00:00-05:00",
+      "end": "2026-10-31T22:00:00-05:00",
+      "all_day": false,
+      "url": "https://www.google.com/calendar/event?eid=aHJ0YmYyb2lub29hNDBsbHNtMWZrbG05ZXNfMjAyNjExMDFUMDEwMDAwWiB6YXlhdmtpLnVhQG0&ctz=America/Bogota",
+      "location": null
+    },
+    {
+      "id": "9h5rorn0fmhed2ihstac7jtroo_20261101T030000Z",
+      "title": "Подготовка ко сну",
+      "start": "2026-10-31T22:00:00-05:00",
+      "end": "2026-10-31T23:00:00-05:00",
+      "all_day": false,
+      "url": "https://www.google.com/calendar/event?eid=OWg1cm9ybjBmbWhlZDJpaHN0YWM3anRyb29fMjAyNjExMDFUMDMwMDAwWiB6YXlhdmtpLnVhQG0&ctz=America/Bogota",
+      "location": null
+    },
     {
       "id": "k3uql2kjt9fchb4cqg8vl4acn0_20261101T040000Z",
       "title": "Сон",

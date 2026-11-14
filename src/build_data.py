@@ -1456,12 +1456,17 @@ def _cu_span(t, due):
         return due - datetime.timedelta(milliseconds=te), due
     return (start or due), None
 
+cu_day_only = []
 for t in _cu.get('tasks', []):
     d = datetime.datetime.fromtimestamp(t['due_ms'] / 1000, _BOG)
-    if d.strftime('%H:%M') == '04:00':  # без времени (только дата) — в ленту не берём, они идут через GCal-синк
-        continue
     if 'complete' in (t.get('status') or '') or 'closed' in (t.get('status') or ''): continue
     nm = re.sub(r'\+?\d[\d \-]{6,}\d', '…', t['name']).strip()
+    if d.strftime('%H:%M') == '04:00':  # без времени (только дата) — не на часовой ленте, список сверху дня в «Неделе»
+        asg=[a for a in (t.get('assignees') or []) if a] or ['Rost']
+        cu_day_only.append(dict(src='clickup', title=nm, start=d.date().isoformat(), all_day=True, due=True,
+                                list=t.get('list'), url=f"https://rosmater.github.io/cu/?t={t['id']}",
+                                assignees=asg, status=t.get('status'), priority=t.get('priority'), id=t.get('id')))
+        continue
     if nm.lower() in _seen: continue
     asg=[a for a in (t.get('assignees') or []) if a] or ['Rost']  # cu_cal snapshot = assignee me
     st, en = _cu_span(t, d)
@@ -1492,6 +1497,7 @@ for c in [x for x in cal_events if x['src'] == 'clickup']:
         c['linked'] = True
 cal_events = [x for x in cal_events if not x.get('linked')]
 cal_events.sort(key=lambda x: x['start'])
+cu_day_only.sort(key=lambda x: (x.get('start') or '', x.get('title') or ''))
 def _load_view_snap(fn):
     _p=os.path.join(os.path.dirname(__file__), fn)
     try:
@@ -1512,6 +1518,7 @@ calendar_dir = dict(id='calendar', kind='calendar', name='Календарь', s
     gcal_range=_g.get('range') or {},
     data_issues=[x for x in [None if _g else 'Google Calendar: нет снимка /workspace/gcal_dash.json', None if _cu else 'ClickUp: нет снимка /workspace/cu_cal_dash.json'] if x],
     ros=ROS_VIEW, ros_bot=ROS_BOT_VIEW,  # t6353u: виды Ros / Ros (BOT) — блок в режиме День
+    cu_day_only=cu_day_only,  # t6369u: date-only CU dues (04:00 Bogotá) — compact list at top of each week day
     gcal_url='https://calendar.google.com/calendar/u/0/r/week?authuser=zayavki.ua@gmail.com',
     refresh='Обновить: агент читает Google Calendar (list_events) и ClickUp (filter_tasks) → /workspace/gcal_dash.json, /workspace/cu_cal_dash.json → src/build.sh → пуш')
 
