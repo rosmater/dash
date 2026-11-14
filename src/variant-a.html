@@ -102,7 +102,7 @@ table{width:100%;border-collapse:collapse;font-size:12.5px}th,td{text-align:left
 .pepbal .pepbal-v-inline{margin-left:auto;font-weight:800;font-variant-numeric:tabular-nums;letter-spacing:-.03em;white-space:nowrap}
 .pepbal .pepbal-more{padding:6px 0 2px}
 .pepbal .pepbal-more .pepbal-v{margin:0 0 4px}
-/* t6416u / t6420u / t6423u: «Лиды с рекламы» — компактная таблица; тонкая черта под шапкой, плотнее к краям карточки */
+/* t6416u / t6420u / t6423u / t6426u: «Лиды с рекламы» — сетка колонок; текущая — тонкая тёмная рамка, без зелёного подчёркивания */
 .card.pepleads{padding-top:8px;padding-bottom:8px}
 .pepleads h3{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:0;padding:0 0 6px;border-bottom:1px solid var(--line,#e8eef5)}
 .pepleads h3 .pepleads-title{flex:none}
@@ -114,7 +114,7 @@ table{width:100%;border-collapse:collapse;font-size:12.5px}th,td{text-align:left
 .pepleads-wrap::-webkit-scrollbar{height:6px}
 .pepleads-wrap::-webkit-scrollbar-thumb{background:#d0d5dd;border-radius:99px}
 .pepleads-tbl{border-collapse:collapse;width:max-content;min-width:100%;font-variant-numeric:tabular-nums}
-.pepleads-tbl th,.pepleads-tbl td{padding:4px 8px;text-align:center;white-space:nowrap;border-bottom:1px solid var(--line,#e8eef5);font-size:13px;font-weight:700;line-height:1.2}
+.pepleads-tbl th,.pepleads-tbl td{padding:4px 8px;text-align:center;white-space:nowrap;border:1px solid var(--line,#e8eef5);font-size:13px;font-weight:700;line-height:1.2}
 .pepleads-tbl thead th{font-size:10.5px;font-weight:700;color:var(--mut,#6b7280);padding:2px 8px 3px;vertical-align:bottom}
 .pepleads-tbl thead th .d1{display:block;font-weight:700;color:#334155}
 .pepleads-tbl thead th .d2{display:block;font-weight:600;color:#94a3b8;font-size:10px;margin-top:1px}
@@ -126,9 +126,11 @@ table{width:100%;border-collapse:collapse;font-size:12.5px}th,td{text-align:left
 .pepleads-tbl td.down{background:#fef2f2;color:#b91c1c}
 .pepleads-tbl td.same{background:#f8fafc}
 .pepleads-tbl td.nodata{color:var(--mut,#6b7280);font-weight:600;background:transparent}
-.pepleads-tbl th.today,.pepleads-tbl td.today{box-shadow:inset 0 -2px 0 #22d3a6}
-.pepleads-tbl th.today{color:#0f766e;background:#f3fffb}
-.pepleads-tbl th.today .d1{color:#0f766e}
+.pepleads-tbl th.today{color:#111}
+.pepleads-tbl th.today .d1{color:#111}
+.pepleads-tbl th.today{box-shadow:inset 1px 1px 0 #111,inset -1px 0 0 #111}
+.pepleads-tbl td.today{box-shadow:inset 1px 0 0 #111,inset -1px 0 0 #111}
+.pepleads-tbl tbody tr:last-child td.today{box-shadow:inset 1px 0 0 #111,inset -1px -1px 0 #111}
 .pepleads-tbl td.attn,.pepleads-tbl th.attn{background:#fff1f1}
 .pepleads-tbl td.attn.up{background:#ecfdf3}
 .pepleads-tbl td.attn.down{background:#fef2f2}
@@ -2115,7 +2117,7 @@ function wwBalHdr(){const P=wwBalSrc();if(!P||!P.low)return '';const tip='Про
 
 function pepAdBalRefresh(){const box=document.getElementById('pep-adbal');if(!box)return;const h=pepAdBalHTML();if(h)box.outerHTML=h}
 
-/* Rost t1101u / t6416u / t6420u / t6423u: «Лиды с рекламы» — компактная таблица; колонки новых слева; Дни / недели (включая текущую to date — исключение t6318u только в этом блоке) / Месяц */
+/* Rost t1101u / t6416u / t6420u / t6423u / t6426u: «Лиды с рекламы» — компактная таблица; колонки новых слева; Дни / недели (включая текущую to date — исключение t6318u только в этом блоке) / Месяц */
 function pepLeadsMode(){try{const m=localStorage.getItem('dash_pep_leads_mode');return (m==='week'||m==='month')?m:'days'}catch(e){return 'days'}}
 function pepLeadsSetMode(m){const mode=(m==='week'||m==='month')?m:'days';try{localStorage.setItem('dash_pep_leads_mode',mode)}catch(e){}const box=document.getElementById('pepleads');if(!box)return;box.querySelectorAll('[data-plm]').forEach(b=>b.classList.toggle('on',b.dataset.plm===mode));box.querySelectorAll('[data-plview]').forEach(v=>{v.hidden=v.dataset.plview!==mode});pepLeadsStripMount()}
 function pepLeadsStripMount(){const box=document.getElementById('pepleads');if(!box)return;const mode=pepLeadsMode();const view=box.querySelector('[data-plview="'+mode+'"]');if(view)view.scrollLeft=0;box.querySelectorAll('[data-plm]').forEach(b=>{if(b.dataset.plBound)return;b.dataset.plBound='1';b.onclick=()=>pepLeadsSetMode(b.dataset.plm)})}
@@ -2149,12 +2151,12 @@ function pepLeadsStripHTML(d){
   if(r.wa!=null){b.wa=(b.wa||0)+r.wa;b.waDays++}
   if(r.ig!=null){b.ig=(b.ig||0)+r.ig;b.igDays++}
   if(r.tot!=null){b.tot=(b.tot||0)+r.tot;b.totDays++}
-  if(r.spend!=null){b.spend=(b.spend||0)+r.spend;b.spendDays++;if(r.spend_approx)b.spend_approx=true} if(r.tot!=null&&r.spend==null)b.spendMissDlg=true
+  if(r.spend!=null){b.spend=(b.spend||0)+r.spend;b.spendDays++;if(r.spend_approx)b.spend_approx=true;if(r.tot!=null&&!r.partial){b.priceSpend=(b.priceSpend||0)+r.spend;b.priceTot=(b.priceTot||0)+r.tot;b.priceDays++}else{b.spendWithoutDlg=true;b.spendOrphan=(b.spendOrphan||0)+r.spend}} if(r.tot!=null&&!r.partial&&r.spend==null)b.spendMissDlg=true
   if(r.attn){b.attn=true;b.attn_label=r.attn_label||b.attn_label}
   if(!b.from||r.date<b.from)b.from=r.date;
   if(!b.to||r.date>b.to)b.to=r.date;
  };
- const finish=b=>{b.price=(b.spend!=null&&b.tot&&!b.spendMissDlg)?Math.round(b.spend/b.tot):null;b.partial=(b.waDays<b.n)||(b.igDays<b.n)||((b.spendDays||0)<b.n)};
+ const finish=b=>{b.price=(b.priceSpend!=null&&b.priceTot&&!b.spendMissDlg)?Math.round(b.priceSpend/b.priceTot):null;b.partial=(b.waDays<b.n)||(b.igDays<b.n)||((b.spendDays||0)<b.n)};
  const curMon=today?monOf(today):null,weekB={},monthB={};
  rows.forEach(r=>{
   const m=monOf(r.date);
@@ -2202,11 +2204,13 @@ function pepLeadsStripHTML(d){
    if(cur==null)bits.push('нет данных по расходу');
    if(c.spend_approx)bits.push('примерно (дельты накопительного spend Meta + TikTok)');
    if(kind!=='days')bits.push('бюджет: '+(c.spendDays||0)+' из '+(c.n||0)+' дн. с данными');
+   if(kind!=='days'&&c.spendWithoutDlg&&c.spendOrphan)bits.push('в сумму входит расход за дни без полных данных по диалогам: '+Dash.num(c.spendOrphan)+' COP (в цену диалога не входит)');
    if(kind==='days'&&c.spend_tip)bits.push(c.spend_tip);
   }
   if(key==='price'){
-   bits.push('расход / новые диалоги (Итого)');
+   bits.push(kind==='days'?'расход / новые диалоги (Итого)':'расход / новые диалоги только за дни с полными данными по диалогам');
    if(cur==null)bits.push(c.spendMissDlg?'цену не считаем: нет расхода в части дней с диалогами':c.spend==null?'нет расхода':(!c.tot?'нет диалогов — цену не считаем':'нет данных'));
+   if(kind!=='days'&&c.priceSpend!=null&&c.spend!=null&&c.priceSpend!==c.spend)bits.push('в цене расход '+Dash.num(c.priceSpend)+' из бюджета '+Dash.num(c.spend));
    if(c.spend_approx)bits.push('примерно');
   }
   if(cur!=null&&prv!=null){const dlt=cur-prv;bits.push(dlt===0?('без изменений '+unit):((dlt>0?'+':'')+Dash.num(dlt)+' '+unit))}
