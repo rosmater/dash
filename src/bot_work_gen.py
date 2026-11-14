@@ -4,10 +4,12 @@
 Источники (только реальные, без выдуманного; нет данных → «нет данных»):
 - рутины: /workspace/bot-routines-inventory/<BOT>.md (живые инвентари, только enabled) +
   роль/состав пакета из ROUTINE-GROUPS.md (по folder) → подсказка;
-- задачи: data-test-ma.json → clickup.tasks (снимок src/ma_clickup.json: CU статус «for check», исполнитель Rost 60710247;
-  поле bot = владелец из sync/bot_attn.jsonl / ключевых слов; need=rost|ok) +
-  задачи «БОТ…» в статусе «in progress» из снимков досок (personal/tbk/of/peptides_open_tasks.json).
+- задачи: открытые из ClickUp VIEW «Ros (BOT)» (8cn3rz8-3574, снимок src/ma_ros_bot.json).
+  Фильтр вида (AND): status NOT closed; assignee ANY Rost 60710247; поле BOT R IS SET.
+  Группа = значение BOT R (иначе тег/исполнитель/текст, иначе «без бота»).
+  Вкладка = тема (снимок пептидов / списки / ключевые слова).
 CLI: python3 src/bot_work_gen.py  → пишет src/bot_work.json. build_data.py вызывает build() при каждой сборке.
+  Снимок вида тянет src/cu_ros_bot_pull.py (до build_data в build.sh).
 """
 import json, os, re, datetime
 
@@ -34,6 +36,38 @@ OWN_KW = [('Фермовод', ['сейдер', 'seider', 'onimator', 'nomix']),
           ('Юрист / Адвокат / Бухгалтер', ['парагвай']),
           ('Пептид', ['пептид', 'peso saludable'])]
 LIST_OWN = [('Personal', 'Секретарь'), ('Tabakevich', 'Помощник по всему'), ('OF', 'ОФ Маркетинг'), ('Models', 'ОФ Маркетинг')]
+BOT_R_DISP = {
+    'Секретарь': 'Секретарь',
+    'Помощник по всему': 'Помощник по всему',
+    'Оборонный проект': 'Оборонка',
+    'Юрист / Адвокат': 'Юрист / Адвокат / Бухгалтер',
+    'ОФ Маркетинг': 'ОФ Маркетинг',
+    'Д': 'Дейтинг',
+    'Пептид': 'Пептид',
+}
+LIST_TAB = [
+    ('Personal', 'personal'),
+    ('Сервисная доска Недвижимость', 'realestate'),
+    ('Покупка, Ремонт, Продажа-Сдача', 'realestate'),
+    ('General Tasks OF', 'of'),
+    ('Models', 'of'),
+    ('Projects OF', 'of'),
+    ('Задачи Tabakevich', 'tabakevich'),
+]
+TAB_KW = [
+    ('peptides', ['пептид', 'peso saludable']),
+    ('realestate', ['недвиж', 'solvia', 'сагунт', 'новельд', 'топасио', 'окупас']),
+    ('of', ['onlyfans', 'of.tv', 'oftv', 'лолап', 'lolapop', 'миле']),
+    ('tabakevich', ['табакевич', 'хукашоп', 'hooka', 'пальма', '1с']),
+    ('personal', ['мама', 'коуч', 'парагвай', 'банк']),
+]
+RTAB_KW = [
+    ('peptides', ['pep', 'peptid', 'peso']),
+    ('realestate', ['re', 'realty', 'solvia', 'недвиж', 'helper']),
+    ('of', ['of', 'farm', 'lolapop', 'oftv', 'seider']),
+    ('tabakevich', ['tbk', 'tabak', 'hooka', '1c', '1с']),
+    ('personal', ['comms', 'personal', 'calendar', 'coach', 'secretary']),
+]
 
 
 def _read(p):
@@ -178,37 +212,82 @@ def _snap_inprogress():
     return out
 
 
+def _pep_ids():
+    ids = set()
+    try:
+        d = json.load(open(os.path.join(HERE, 'peptides_open_tasks.json'), encoding='utf-8'))
+        for t in (d.get('tasks') if isinstance(d, dict) else d) or []:
+            if isinstance(t, dict) and t.get('id'):
+                ids.add(t['id'])
+    except Exception:
+        pass
+    return ids
+
+
 def _owner(t):
+    br = (t.get('bot_r') or '').strip()
+    if br:
+        return BOT_R_DISP.get(br, br)
+    for tag in t.get('tags') or []:
+        name = tag.get('name') if isinstance(tag, dict) else str(tag)
+        n = (name or '').strip()
+        if n and n.lower() != 'bot' and (n in BOT_R_DISP or n in dict(BOTS)):
+            return BOT_R_DISP.get(n, n)
+    for a in t.get('assignees') or []:
+        un = (a.get('username') if isinstance(a, dict) else '') or ''
+        if un in BOT_R_DISP or un in dict(BOTS):
+            return BOT_R_DISP.get(un, un)
     nl = (t.get('name') or '').lower()
     for o, kws in OWN_KW:
         if any(k in nl for k in kws):
             return o
+    return 'без бота'
+
+
+def _tab(t, pep_ids):
+    if t.get('id') in pep_ids:
+        return 'peptides'
+    nl = (t.get('name') or '').lower()
+    for tab, kws in TAB_KW:
+        if any(k in nl for k in kws):
+            return tab
     lst = t.get('list') or ''
-    for k, o in LIST_OWN:
+    for k, tab in LIST_TAB:
         if k.lower() in lst.lower():
-            return o
-    return 'Помощник по всему'
+            return tab
+    return 'personal'
+
+
+def _routine_tab(r):
+    blob = ' '.join([(r.get('folder') or ''), (r.get('name') or ''), (r.get('desc') or '')]).lower()
+    for tab, kws in RTAB_KW:
+        if any(k in blob for k in kws):
+            return tab
+    return ''
+
+
+def _ros_bot_tasks():
+    try:
+        d = json.load(open(os.path.join(HERE, 'ma_ros_bot.json'), encoding='utf-8'))
+    except Exception:
+        return [], '', ''
+    tasks = d.get('tasks') if isinstance(d, dict) else d
+    return list(tasks or []), (d.get('fetched') if isinstance(d, dict) else '') or '', (d.get('src') if isinstance(d, dict) else '') or ''
 
 
 def build():
-    links, cu_tasks, cu_fetched = _bot_links()
+    links, _cu_tasks, _cu_fetched = _bot_links()
     roles = group_roles()
+    ros_tasks, ros_fetched, ros_src = _ros_bot_tasks()
+    pep_ids = _pep_ids()
     known = {}
-    for t in cu_tasks:
-        known[t['id']] = t.get('name') or ''
-    ip = _snap_inprogress()
-    for i, t in ip.items():
-        known.setdefault(i, t.get('name') or '')
-    for fn in ('personal_open_tasks.json', 'tbk_open_tasks.json', 'of_open_tasks.json', 'peptides_open_tasks.json', 'of_cu_tasks.json'):
-        try:
-            d = json.load(open(os.path.join(HERE, fn), encoding='utf-8'))
-        except Exception:
-            continue
-        for t in (d.get('tasks') if isinstance(d, dict) else d) or []:
-            if isinstance(t, dict) and t.get('id') and not str(t.get('status') or '').lower().startswith('complete'):
-                known.setdefault(t['id'], t.get('name') or '')
+    for t in ros_tasks:
+        if t.get('id'):
+            known[t['id']] = t.get('name') or ''
     bots = []
+    seen_bots = set()
     for name, fn, mode in BOTS:
+        seen_bots.add(name)
         rows, upd = parse_inventory(fn, mode)
         R = []
         for r in rows or []:
@@ -218,28 +297,56 @@ def build():
                 note = ''
             desc = role or note
             ids = sorted(set(CUID_RX.findall(desc + ' ' + note)))
-            R.append(dict(name=r['name'], sched=r['sched'], folder=r['folder'], desc=desc or 'нет данных',
-                          service=bool(SERVICE_RX.search(r['name'])),
-                          cu=[dict(id=i, name=known[i], url=CU + i) for i in ids if known.get(i)]))  # только открытые задачи из снимков (закрытые id в тексте не показываем)
+            item = dict(name=r['name'], sched=r['sched'], folder=r['folder'], desc=desc or 'нет данных',
+                        service=bool(SERVICE_RX.search(r['name'])),
+                        tab=_routine_tab(r),
+                        cu=[dict(id=i, name=known[i], url=CU + i) for i in ids if known.get(i)])
+            R.append(item)
         T = []
-        for t in cu_tasks:
-            if (t.get('bot') or '') == name:
-                T.append(dict(id=t['id'], name=t.get('name', ''), status=t.get('status', ''), list=t.get('list', ''),
-                              updated=t.get('updated', ''), need=t.get('need', 'rost'), url=CU + t['id'], kind='check'))
-        for i, t in ip.items():
-            if _owner(t) == name and not any(x['id'] == i for x in T):
-                T.append(dict(id=i, name=t.get('name', ''), status=t.get('status', ''), list=t.get('list', ''),
-                              updated='', need='', url=t.get('url') or CU + i, kind='work', due=t.get('due')))
-        T.sort(key=lambda x: (0 if x['need'] == 'rost' else 1, x['kind'] != 'check', x.get('updated') or ''), reverse=False)
+        for t in ros_tasks:
+            if _owner(t) != name:
+                continue
+            st = (t.get('status') or '').lower()
+            T.append(dict(id=t['id'], name=t.get('name', ''), status=t.get('status', ''), list=t.get('list', ''),
+                          updated=t.get('updated', ''), due=t.get('due') or '',
+                          need='rost' if st == 'for check' else '',
+                          url=t.get('url') or CU + t['id'],
+                          kind='check' if st == 'for check' else 'work',
+                          tab=_tab(t, pep_ids),
+                          bot_r=t.get('bot_r') or '',
+                          priority=t.get('priority') or ''))
+        T.sort(key=lambda x: (0 if x['need'] == 'rost' else 1, x.get('due') or '9999', x.get('updated') or ''))
         bots.append(dict(name=name, link=links.get(name) or '', inv=fn, inv_updated=upd,
                          routines=R, routines_note='' if rows is not None else 'нет данных (нет файла инвентаря)',
                          tasks=T))
+    extra = {}
+    for t in ros_tasks:
+        o = _owner(t)
+        if o not in seen_bots:
+            extra.setdefault(o, []).append(t)
+    for name, ts in extra.items():
+        T = []
+        for t in ts:
+            st = (t.get('status') or '').lower()
+            T.append(dict(id=t['id'], name=t.get('name', ''), status=t.get('status', ''), list=t.get('list', ''),
+                          updated=t.get('updated', ''), due=t.get('due') or '',
+                          need='rost' if st == 'for check' else '',
+                          url=t.get('url') or CU + t['id'],
+                          kind='check' if st == 'for check' else 'work',
+                          tab=_tab(t, pep_ids),
+                          bot_r=t.get('bot_r') or '',
+                          priority=t.get('priority') or ''))
+        T.sort(key=lambda x: (0 if x['need'] == 'rost' else 1, x.get('due') or '9999', x.get('updated') or ''))
+        bots.append(dict(name=name, link=links.get(name) or '', inv='', inv_updated='',
+                         routines=[], routines_note='нет данных' if name == 'без бота' else '',
+                         tasks=T))
     return dict(
         generated=datetime.datetime.now().strftime('%Y-%m-%d %H:%M'),
-        signal='CU статус «for check» на Rost (снимок src/ma_clickup.json, владелец-бот из sync/bot_attn.jsonl) + задачи «БОТ…» в статусе «in progress» из снимков досок',
-        cu_fetched=cu_fetched,
-        src=dict(routines=INV + '/<BOT>.md + ROUTINE-GROUPS.md', tasks='data-test-ma.json clickup.tasks + src/*_open_tasks.json'),
+        signal='Открытые задачи вида ClickUp «Ros (BOT)» (8cn3rz8-3574): status NOT closed AND assignee=Rost AND BOT R IS SET. Группа — поле BOT R.',
+        cu_fetched=ros_fetched,
+        src=dict(routines=INV + '/<BOT>.md + ROUTINE-GROUPS.md', tasks=ros_src or 'src/ma_ros_bot.json'),
         bots=bots)
+
 
 
 if __name__ == '__main__':

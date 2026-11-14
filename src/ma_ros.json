@@ -1,0 +1,3034 @@
+{
+ "fetched": "2026-11-13 21:05 Bogotá",
+ "src": "clickup_filter_tasks view_id=8cn3rz8-1914 (workspace view «Ros»)",
+ "view": {
+  "id": "8cn3rz8-1914",
+  "name": "Ros",
+  "type": "list",
+  "parent": "workspace:9014731752"
+ },
+ "filter": {
+  "op": "AND",
+  "fields": [
+   {
+    "field": "status",
+    "op": "NOT",
+    "values": [
+     {
+      "type": "closed"
+     }
+    ]
+   },
+   {
+    "field": "dueDate",
+    "op": "EQ",
+    "values": [
+     {
+      "op": "earlier",
+      "note": "saved in the view (ClickUp evaluates it live)"
+     }
+    ]
+   },
+   {
+    "field": "assignee",
+    "op": "ANY",
+    "values": [
+     60710247
+    ]
+   },
+   {
+    "field": "cf_8f51644a-de28-4b84-a204-f0ec1903f337",
+    "op": "NOT SET",
+    "name": "BOT R"
+   }
+  ],
+  "show_closed": false
+ },
+ "count": 145,
+ "tasks": [
+  {
+   "id": "86bcp3yd9",
+   "name": "Вернуть залог Наталье Поляковой (Оливино 3)",
+   "status": "to do",
+   "url": "https://app.clickup.com/t/86bcp3yd9",
+   "priority": "normal",
+   "list": "Покупка, Ремонт, Продажа-Сдача",
+   "list_id": "901412672484",
+   "tags": [],
+   "assignees": [
+    {
+     "id": 60710247,
+     "username": "Rost"
+    }
+   ],
+   "due": "2026-11-04",
+   "due_ms": 1793782800000,
+   "updated": "2026-10-26 01:32",
+   "closed": false
+  },
+  {
+   "id": "86bctgc67",
+   "name": "Созвон Dronamex — Juan Carlos Pérez Juárez",
+   "status": "to do",
+   "url": "https://app.clickup.com/t/86bctgc67",
+   "priority": "high",
+   "list": "Tasks",
+   "list_id": "901421054196",
+   "tags": [
+    "ste",
+    "оборонка",
+    "созвон"
+   ],
+   "assignees": [
+    {
+     "id": 60710247,
+     "username": "Rost"
+    }
+   ],
+   "due": "2026-10-28",
+   "due_ms": 1793217600000,
+   "updated": "2026-11-06 02:44",
+   "closed": false
+  },
+  {
+   "id": "86bcxx9bj",
+   "name": "БОТ: 1С «Проект улучшений» — чек-лист 53 пункта + монитор Греческая (отчёт 04.11)",
+   "status": "to do",
+   "url": "https://app.clickup.com/t/86bcxx9bj",
+   "priority": "normal",
+   "list": "Задачи Tabakevich",
+   "list_id": "901412862042",
+   "tags": [
+    "bot"
+   ],
+   "assignees": [
+    {
+     "id": 60710247,
+     "username": "Rost"
+    }
+   ],
+   "due": "2026-11-05",
+   "due_ms": 1793933700000,
+   "updated": "2026-11-04 10:01",
+   "closed": false
+  },
+  {
+   "id": "86bcjheva",
+   "name": "Pago: комиссия Марсии за Габриэлу",
+   "status": "to do",
+   "url": "https://app.clickup.com/t/86bcjheva",
+   "priority": "normal",
+   "list": "General Tasks OF",
+   "list_id": "901412862260",
+   "tags": [],
+   "assignees": [
+    {
+     "id": 60710247,
+     "username": "Rost"
+    }
+   ],
+   "due": "2026-10-30",
+   "due_ms": 1793350800000,
+   "updated": "2026-10-19 19:31",
+   "closed": false
+  },
+  {
+   "id": "86bb77hpg",
+   "name": "(С ИРИНОЙ: покрутить) ФИН РЕЗ ПО НЕДВИЖИМОСТИ: сделать полноценный - все учитывать",
+   "status": "to do",
+   "url": "https://app.clickup.com/t/86bb77hpg",
+   "priority": "normal",
+   "list": "Сервисная доска Недвижимость",
+   "list_id": "901412595093",
+   "tags": [],
+   "assignees": [
+    {
+     "id": 60710247,
+     "username": "Rost"
+    },
+    {
+     "id": 62671471,
+     "username": "Ірина Шекель"
+    }
+   ],
+   "due": "2026-10-28",
+   "due_ms": 1793178000000,
+   "updated": "2026-10-25 15:07",
+   "closed": false
+  },
+  {
+   "id": "86b84etw8",
+   "name": "ЗАРПЛАТА сотрудницам/моделям подсчет и выплатить",
+   "status": "to do",
+   "url": "https://app.clickup.com/t/86b84etw8",
+   "priority": "normal",
+   "list": "General Tasks OF",
+   "list_id": "901412862260",
+   "tags": [],
+   "assignees": [
+    {
+     "id": 60710247,
+     "username": "Rost"
+    }
+   ],
+   "due": "2026-11-10",
+   "due_ms": 1794301200000,
+   "updated": "2026-11-10 18:09",
+   "closed": false
+  },
+  {
+   "id": "86bbc7v9v",
+   "name": "‼️запланировать‼️ПЕРЕДАТЬ ДЕНЬГИ НА РЕМОНТ‼️ 5000 Дима",
+   "status": "to do",
+   "url": "https://app.clickup.com/t/86bbc7v9v",
+   "priority": "normal",
+   "list": "Покупка, Ремонт, Продажа-Сдача",
+   "list_id": "901412672484",
+   "tags": [],
+   "assignees": [
+    {
+     "id": 60710247,
+     "username": "Rost"
+    }
+   ],
+   "due": "2026-11-03",
+   "due_ms": 1793696400000,
+   "updated": "2026-10-28 11:10",
+   "closed": false
+  },
+  {
+   "id": "86bcgbhg0",
+   "name": "БОТ: Бот в 1С - дать ему больше задач",
+   "status": "for check",
+   "url": "https://app.clickup.com/t/86bcgbhg0",
+   "priority": "normal",
+   "list": "Задачи Tabakevich",
+   "list_id": "901412862042",
+   "tags": [],
+   "assignees": [
+    {
+     "id": 60710247,
+     "username": "Rost"
+    }
+   ],
+   "due": "2026-11-13",
+   "due_ms": 1794560400000,
+   "updated": "2026-11-13 11:09",
+   "closed": false
+  },
+  {
+   "id": "86bcxunr8",
+   "name": "REMIND: LolaPop — как работаем, если передадим страницы",
+   "status": "to do",
+   "url": "https://app.clickup.com/t/86bcxunr8",
+   "priority": "normal",
+   "list": "General Tasks OF",
+   "list_id": "901412862260",
+   "tags": [
+    "bot"
+   ],
+   "assignees": [
+    {
+     "id": 60710247,
+     "username": "Rost"
+    }
+   ],
+   "due": "2026-11-04",
+   "due_ms": 1793782800000,
+   "updated": "2026-11-03 21:41",
+   "closed": false
+  },
+  {
+   "id": "86bayeyr8",
+   "name": "начать планировать поездку в Парагвай (до 27 января)",
+   "status": "to do",
+   "url": "https://app.clickup.com/t/86bayeyr8",
+   "priority": "normal",
+   "list": "Personal",
+   "list_id": "901413854636",
+   "tags": [],
+   "assignees": [
+    {
+     "id": 60710247,
+     "username": "Rost"
+    }
+   ],
+   "due": "2026-11-01",
+   "due_ms": 1793523600000,
+   "updated": "2026-07-15 16:19",
+   "closed": false
+  },
+  {
+   "id": "86b859rt5",
+   "name": "ВОСТАНОВИТЬ ДОСТУПЫ: СММ, Инесса, отчет по постам проверка (посты в инстаграм)",
+   "status": "to do",
+   "url": "https://app.clickup.com/t/86b859rt5",
+   "priority": "normal",
+   "list": "Задачи Tabakevich",
+   "list_id": "901412862042",
+   "tags": [],
+   "assignees": [
+    {
+     "id": 62671471,
+     "username": "Ірина Шекель"
+    },
+    {
+     "id": 60710247,
+     "username": "Rost"
+    }
+   ],
+   "due": "2026-10-28",
+   "due_ms": 1793178000000,
+   "updated": "2026-10-14 12:52",
+   "closed": false
+  },
+  {
+   "id": "86bbcecg4",
+   "name": "С ИРИНОЙ: ОБСУДИТЬ СПИСОК ДОКУМЕНТОВ / ОТЧЕТЫ + добавить мои личные сроки в напоминалки‼️‼️‼️‼️ 10:30 - Бух Колумбия ответы на вопросы по необходимым документам (новые вопросы)",
+   "status": "to do",
+   "url": "https://app.clickup.com/t/86bbcecg4",
+   "priority": "normal",
+   "list": "General Tasks OF",
+   "list_id": "901412862260",
+   "tags": [],
+   "assignees": [
+    {
+     "id": 60710247,
+     "username": "Rost"
+    }
+   ],
+   "due": "2026-10-25",
+   "due_ms": 1792918800000,
+   "updated": "2026-10-14 12:51",
+   "closed": false
+  },
+  {
+   "id": "86bawjfqf",
+   "name": "ПОСЛЕ ТОПАСИО: решить по ремонту (ждем смету Анатолий) План новой деокуп квартиры",
+   "status": "to do",
+   "url": "https://app.clickup.com/t/86bawjfqf",
+   "priority": "normal",
+   "list": "Покупка, Ремонт, Продажа-Сдача",
+   "list_id": "901412672484",
+   "tags": [],
+   "assignees": [
+    {
+     "id": 60710247,
+     "username": "Rost"
+    }
+   ],
+   "due": "2026-10-26",
+   "due_ms": 1793005200000,
+   "updated": "2026-09-28 14:08",
+   "closed": false
+  },
+  {
+   "id": "86b9kaaw5",
+   "name": "Контракты с сотрудницами - есть новые? / (модели-после ИНН платежки)",
+   "status": "to do",
+   "url": "https://app.clickup.com/t/86b9kaaw5",
+   "priority": "normal",
+   "list": "General Tasks OF",
+   "list_id": "901412862260",
+   "tags": [],
+   "assignees": [
+    {
+     "id": 60710247,
+     "username": "Rost"
+    }
+   ],
+   "due": "2026-10-25",
+   "due_ms": 1792918800000,
+   "updated": "2026-10-14 12:51",
+   "closed": false
+  },
+  {
+   "id": "86bcjaayq",
+   "name": "БОТ-подумать: выгрузка запись с камер есть ли возможность анализа АИ движений и цена анализа всех аудио",
+   "status": "to do",
+   "url": "https://app.clickup.com/t/86bcjaayq",
+   "priority": "normal",
+   "list": "Задачи Tabakevich",
+   "list_id": "901412862042",
+   "tags": [],
+   "assignees": [
+    {
+     "id": 60710247,
+     "username": "Rost"
+    }
+   ],
+   "due": "2026-11-04",
+   "due_ms": 1793782800000,
+   "updated": "2026-10-14 13:11",
+   "closed": false
+  },
+  {
+   "id": "86b6qphf1",
+   "name": "Колумбия записатся на СОН ??",
+   "status": "to do",
+   "url": "https://app.clickup.com/t/86b6qphf1",
+   "priority": "normal",
+   "list": "Personal",
+   "list_id": "901413854636",
+   "tags": [
+    "⚕️ здоровье"
+   ],
+   "assignees": [
+    {
+     "id": 60710247,
+     "username": "Rost"
+    }
+   ],
+   "due": "2026-11-05",
+   "due_ms": 1793869200000,
+   "updated": "2026-11-13 19:07",
+   "closed": false
+  },
+  {
+   "id": "86bb82e7z",
+   "name": "Порядок в квартирах (инструменты порядка - купить, прописать, найти)",
+   "status": "to do",
+   "url": "https://app.clickup.com/t/86bb82e7z",
+   "priority": "normal",
+   "list": "Покупка, Ремонт, Продажа-Сдача",
+   "list_id": "901412672484",
+   "tags": [],
+   "assignees": [
+    {
+     "id": 60710247,
+     "username": "Rost"
+    },
+    {
+     "id": 62671471,
+     "username": "Ірина Шекель"
+    }
+   ],
+   "due": "2026-10-21",
+   "due_ms": 1792573200000,
+   "updated": "2026-09-02 09:01",
+   "closed": false
+  },
+  {
+   "id": "86bbhn8d4",
+   "name": "Меркадо Либре Латам подумать",
+   "status": "main",
+   "url": "https://app.clickup.com/t/86bbhn8d4",
+   "priority": "normal",
+   "list": "Задачи Tabakevich",
+   "list_id": "901412862042",
+   "tags": [],
+   "assignees": [
+    {
+     "id": 60710247,
+     "username": "Rost"
+    }
+   ],
+   "due": "2026-10-18",
+   "due_ms": 1792314000000,
+   "updated": "2026-08-20 11:47",
+   "closed": false
+  },
+  {
+   "id": "86bbhwnye",
+   "name": "Синхронизация всех складов что нам даст в интернет магазине - есть человек у него нет работы - процесс не совершенен",
+   "status": "to do",
+   "url": "https://app.clickup.com/t/86bbhwnye",
+   "priority": "normal",
+   "list": "Задачи Tabakevich",
+   "list_id": "901412862042",
+   "tags": [],
+   "assignees": [
+    {
+     "id": 60710247,
+     "username": "Rost"
+    }
+   ],
+   "due": "2026-10-25",
+   "due_ms": 1792918800000,
+   "updated": "2026-10-14 12:51",
+   "closed": false
+  },
+  {
+   "id": "86bbjcbez",
+   "name": "Покрутить как изьять деньги из оборота с учетом магазинов",
+   "status": "to do",
+   "url": "https://app.clickup.com/t/86bbjcbez",
+   "priority": "normal",
+   "list": "Задачи Tabakevich",
+   "list_id": "901412862042",
+   "tags": [],
+   "assignees": [
+    {
+     "id": 60710247,
+     "username": "Rost"
+    },
+    {
+     "id": 62671471,
+     "username": "Ірина Шекель"
+    }
+   ],
+   "due": "2026-10-25",
+   "due_ms": 1792918800000,
+   "updated": "2026-10-14 12:52",
+   "closed": false
+  },
+  {
+   "id": "86b6qphq3",
+   "name": "Конкурентов проверить (стать конкурентнее - вопрос Артема - Андрей поговорить)",
+   "status": "to do",
+   "url": "https://app.clickup.com/t/86b6qphq3",
+   "priority": "normal",
+   "list": "Задачи Tabakevich",
+   "list_id": "901412862042",
+   "tags": [],
+   "assignees": [
+    {
+     "id": 60710247,
+     "username": "Rost"
+    }
+   ],
+   "due": "2026-10-25",
+   "due_ms": 1792918800000,
+   "updated": "2026-11-12 23:19",
+   "closed": false
+  },
+  {
+   "id": "86bbufwk0",
+   "name": "(ждем инфу) Киев аналитика - какой план дальше?",
+   "status": "to do",
+   "url": "https://app.clickup.com/t/86bbufwk0",
+   "priority": "normal",
+   "list": "Задачи Tabakevich",
+   "list_id": "901412862042",
+   "tags": [],
+   "assignees": [
+    {
+     "id": 60710247,
+     "username": "Rost"
+    }
+   ],
+   "due": "2026-10-25",
+   "due_ms": 1792918800000,
+   "updated": "2026-10-14 12:52",
+   "closed": false
+  },
+  {
+   "id": "86b9ckxxk",
+   "name": "ПЛАНЕРКА ОФ (сверка задач ДЕТСКИЙ САД / цели) / ОФТВ когда завершат нужны даты?",
+   "status": "to do",
+   "url": "https://app.clickup.com/t/86b9ckxxk",
+   "priority": "normal",
+   "list": "Projects OF",
+   "list_id": "901412862145",
+   "tags": [],
+   "assignees": [
+    {
+     "id": 60710247,
+     "username": "Rost"
+    }
+   ],
+   "due": "2026-11-04",
+   "due_ms": 1793782800000,
+   "updated": "2026-10-25 11:53",
+   "closed": false
+  },
+  {
+   "id": "86b716gh8",
+   "name": "Сита ортодонт (28 октября 14:00)",
+   "status": "to do",
+   "url": "https://app.clickup.com/t/86b716gh8",
+   "priority": "urgent",
+   "list": "Personal",
+   "list_id": "901413854636",
+   "tags": [
+    "⚕️ здоровье"
+   ],
+   "assignees": [
+    {
+     "id": 60710247,
+     "username": "Rost"
+    }
+   ],
+   "due": "2026-10-28",
+   "due_ms": 1793178000000,
+   "updated": "2026-11-13 19:07",
+   "closed": false
+  },
+  {
+   "id": "86bcmwtt5",
+   "name": "Снимок зуба (томография Cone Beam CT) в Oralvission — от ортодонта Маурисио Морено",
+   "status": "to do",
+   "url": "https://app.clickup.com/t/86bcmwtt5",
+   "priority": "normal",
+   "list": "Personal",
+   "list_id": "901413854636",
+   "tags": [
+    "⚕️ здоровье"
+   ],
+   "assignees": [
+    {
+     "id": 60710247,
+     "username": "Rost"
+    }
+   ],
+   "due": "2026-11-03",
+   "due_ms": 1793727000000,
+   "updated": "2026-11-13 19:07",
+   "closed": false
+  },
+  {
+   "id": "86bcrqtyk",
+   "name": "Забрать джинсы из ателье",
+   "status": "to do",
+   "url": "https://app.clickup.com/t/86bcrqtyk",
+   "priority": "normal",
+   "list": "Personal",
+   "list_id": "901413854636",
+   "tags": [],
+   "assignees": [
+    {
+     "id": 60710247,
+     "username": "Rost"
+    }
+   ],
+   "due": "2026-10-27",
+   "due_ms": 1793134800000,
+   "updated": "2026-11-03 21:42",
+   "closed": false
+  },
+  {
+   "id": "86bd0vyb9",
+   "name": "Забрать капы у ортодонта",
+   "status": "to do",
+   "url": "https://app.clickup.com/t/86bd0vyb9",
+   "priority": "normal",
+   "list": "Personal",
+   "list_id": "901413854636",
+   "tags": [
+    "⚕️ здоровье"
+   ],
+   "assignees": [
+    {
+     "id": 60710247,
+     "username": "Rost"
+    }
+   ],
+   "due": "2026-11-10",
+   "due_ms": 1794301200000,
+   "updated": "2026-11-13 19:07",
+   "closed": false
+  },
+  {
+   "id": "86bb3qgvy",
+   "name": "Кому делаем? Переделать паки контента у всех моделей (завершить ТЗ - жду Леша/Никита)",
+   "status": "to do",
+   "url": "https://app.clickup.com/t/86bb3qgvy",
+   "priority": "normal",
+   "list": "General Tasks OF",
+   "list_id": "901412862260",
+   "tags": [],
+   "assignees": [
+    {
+     "id": 60710247,
+     "username": "Rost"
+    }
+   ],
+   "due": "2026-11-09",
+   "due_ms": 1794214800000,
+   "updated": "2026-11-05 14:04",
+   "closed": false
+  },
+  {
+   "id": "86bbr22g6",
+   "name": "(тормозим?) Мишель: проверить публикацию новых видео (контент закончился?)",
+   "status": "to do",
+   "url": "https://app.clickup.com/t/86bbr22g6",
+   "priority": "normal",
+   "list": "Models",
+   "list_id": "901412862040",
+   "tags": [],
+   "assignees": [
+    {
+     "id": 60710247,
+     "username": "Rost"
+    }
+   ],
+   "due": "2026-10-26",
+   "due_ms": 1793005200000,
+   "updated": "2026-10-10 12:29",
+   "closed": false
+  },
+  {
+   "id": "86bcma7tp",
+   "name": "Найти лофт побольше в Base Loft (долгосрочная аренда)",
+   "status": "to do",
+   "url": "https://app.clickup.com/t/86bcma7tp",
+   "priority": "high",
+   "list": "Personal",
+   "list_id": "901413854636",
+   "tags": [],
+   "assignees": [
+    {
+     "id": 60710247,
+     "username": "Rost"
+    }
+   ],
+   "due": "2026-11-10",
+   "due_ms": 1794344400000,
+   "updated": "2026-11-13 09:37",
+   "closed": false
+  },
+  {
+   "id": "86b6q93pc",
+   "name": "КОРЬ ПРОВЕРИТЬ (корь и гепатит бустер + Engerix-B плюс Havrix) Проверить все ли по списку сделано ",
+   "status": "to do",
+   "url": "https://app.clickup.com/t/86b6q93pc",
+   "priority": "normal",
+   "list": "Personal",
+   "list_id": "901413854636",
+   "tags": [
+    "⚕️ здоровье"
+   ],
+   "assignees": [
+    {
+     "id": 60710247,
+     "username": "Rost"
+    }
+   ],
+   "due": "2026-11-03",
+   "due_ms": 1793696400000,
+   "updated": "2026-11-13 19:07",
+   "closed": false
+  },
+  {
+   "id": "86b7ub08j",
+   "name": "🎓 Испанский занятие (разбор грамматики, поговорить, рассказ)",
+   "status": "to do",
+   "url": "https://app.clickup.com/t/86b7ub08j",
+   "priority": "urgent",
+   "list": "Personal",
+   "list_id": "901413854636",
+   "tags": [],
+   "assignees": [
+    {
+     "id": 60710247,
+     "username": "Rost"
+    }
+   ],
+   "due": "2026-10-30",
+   "due_ms": 1793388600000,
+   "updated": "2026-10-23 12:46",
+   "closed": false
+  },
+  {
+   "id": "86b7k85rt",
+   "name": "📞 Маслов, Женя, Славик, Джокер, Ларик, Бобер, Ворон, Элвис, СережаАмазон",
+   "status": "to do",
+   "url": "https://app.clickup.com/t/86b7k85rt",
+   "priority": "normal",
+   "list": "Personal",
+   "list_id": "901413854636",
+   "tags": [],
+   "assignees": [
+    {
+     "id": 60710247,
+     "username": "Rost"
+    }
+   ],
+   "due": "2026-11-07",
+   "due_ms": 1794042000000,
+   "updated": "2026-10-25 12:14",
+   "closed": false
+  },
+  {
+   "id": "86b6qq6r9",
+   "name": "🎓 Испанский занятие (поговорить и рассказ)",
+   "status": "to do",
+   "url": "https://app.clickup.com/t/86b6qq6r9",
+   "priority": "urgent",
+   "list": "Personal",
+   "list_id": "901413854636",
+   "tags": [],
+   "assignees": [
+    {
+     "id": 60710247,
+     "username": "Rost"
+    }
+   ],
+   "due": "2026-10-26",
+   "due_ms": 1793037600000,
+   "updated": "2026-10-26 14:13",
+   "closed": false
+  },
+  {
+   "id": "86b7k81df",
+   "name": "📞 Баба набрать",
+   "status": "to do",
+   "url": "https://app.clickup.com/t/86b7k81df",
+   "priority": "normal",
+   "list": "Personal",
+   "list_id": "901413854636",
+   "tags": [],
+   "assignees": [
+    {
+     "id": 60710247,
+     "username": "Rost"
+    }
+   ],
+   "due": "2026-11-01",
+   "due_ms": 1793523600000,
+   "updated": "2026-10-25 12:10",
+   "closed": false
+  },
+  {
+   "id": "86b7gkttx",
+   "name": "📞 Коля набрать (выставка тел + аэротруба)",
+   "status": "to do",
+   "url": "https://app.clickup.com/t/86b7gkttx",
+   "priority": "high",
+   "list": "Personal",
+   "list_id": "901413854636",
+   "tags": [],
+   "assignees": [
+    {
+     "id": 60710247,
+     "username": "Rost"
+    }
+   ],
+   "due": "2026-10-26",
+   "due_ms": 1793005200000,
+   "updated": "2026-10-25 17:50",
+   "closed": false
+  },
+  {
+   "id": "86b7gku15",
+   "name": "📞 Денис планерка",
+   "status": "to do",
+   "url": "https://app.clickup.com/t/86b7gku15",
+   "priority": "normal",
+   "list": "Задачи Tabakevich",
+   "list_id": "901412862042",
+   "tags": [],
+   "assignees": [
+    {
+     "id": 60710247,
+     "username": "Rost"
+    }
+   ],
+   "due": "2026-11-07",
+   "due_ms": 1794067200000,
+   "updated": "2026-10-25 12:10",
+   "closed": false
+  },
+  {
+   "id": "86b7n8jga",
+   "name": "📞 ЮЛЯ -  планерка",
+   "status": "to do",
+   "url": "https://app.clickup.com/t/86b7n8jga",
+   "priority": "normal",
+   "list": "Задачи Tabakevich",
+   "list_id": "901412862042",
+   "tags": [],
+   "assignees": [
+    {
+     "id": 60710247,
+     "username": "Rost"
+    }
+   ],
+   "due": "2026-11-05",
+   "due_ms": 1793869200000,
+   "updated": "2026-10-25 12:10",
+   "closed": false
+  },
+  {
+   "id": "86b7k81cj",
+   "name": "📞 Витала набрать (Андрей вычеркнуть) ШТРАФ В СУДЕ НА ЗСУ / (будки и ю420 и права книжечка) По безопасности что?",
+   "status": "to do",
+   "url": "https://app.clickup.com/t/86b7k81cj",
+   "priority": "normal",
+   "list": "Personal",
+   "list_id": "901413854636",
+   "tags": [],
+   "assignees": [
+    {
+     "id": 60710247,
+     "username": "Rost"
+    }
+   ],
+   "due": "2026-11-07",
+   "due_ms": 1794042000000,
+   "updated": "2026-10-25 12:14",
+   "closed": false
+  },
+  {
+   "id": "86b7k81e5",
+   "name": "📞 Дед Валера набрать",
+   "status": "to do",
+   "url": "https://app.clickup.com/t/86b7k81e5",
+   "priority": "normal",
+   "list": "Personal",
+   "list_id": "901413854636",
+   "tags": [],
+   "assignees": [
+    {
+     "id": 60710247,
+     "username": "Rost"
+    }
+   ],
+   "due": "2026-11-07",
+   "due_ms": 1794042000000,
+   "updated": "2026-10-25 12:10",
+   "closed": false
+  },
+  {
+   "id": "86b7n8kwx",
+   "name": "(ОБСУДИТЬ КОМПРОМИСС) ВЫВОД С ОБОРОТА 300к📞 АНДРЕЙ - планерка (Ю420 + ЗП Саши+8% + Традиции) + Черновцы-как так вышло?",
+   "status": "to do",
+   "url": "https://app.clickup.com/t/86b7n8kwx",
+   "priority": "high",
+   "list": "Задачи Tabakevich",
+   "list_id": "901412862042",
+   "tags": [],
+   "assignees": [
+    {
+     "id": 60710247,
+     "username": "Rost"
+    }
+   ],
+   "due": "2026-10-27",
+   "due_ms": 1793091600000,
+   "updated": "2026-10-25 12:15",
+   "closed": false
+  },
+  {
+   "id": "86b6zwn9j",
+   "name": "АНДРЕЙ - обсудить идею по Одесским Традициям (подумать про Пиво и Креветки)",
+   "status": "to do",
+   "url": "https://app.clickup.com/t/86b6zwn9j",
+   "priority": "high",
+   "list": "Задачи Tabakevich",
+   "list_id": "901412862042",
+   "tags": [],
+   "assignees": [
+    {
+     "id": 60710247,
+     "username": "Rost"
+    }
+   ],
+   "due": "2026-11-03",
+   "due_ms": 1793696400000,
+   "updated": "2026-10-25 12:17",
+   "closed": false
+  },
+  {
+   "id": "86bcpt3yj",
+   "name": "БОТ-ЧАСТЬ: АНДРЕЙ: Посчитать % оплат налом и безналом в магазинах (общий + по магазинам) → перевод на нал со скидкой",
+   "status": "to do",
+   "url": "https://app.clickup.com/t/86bcpt3yj",
+   "priority": "normal",
+   "list": "Задачи Tabakevich",
+   "list_id": "901412862042",
+   "tags": [],
+   "assignees": [
+    {
+     "id": 60710247,
+     "username": "Rost"
+    }
+   ],
+   "due": "2026-10-27",
+   "due_ms": 1793091600000,
+   "updated": "2026-10-25 19:16",
+   "closed": false
+  },
+  {
+   "id": "86b7k81bu",
+   "name": "📞 Шейх набрать",
+   "status": "to do",
+   "url": "https://app.clickup.com/t/86b7k81bu",
+   "priority": "normal",
+   "list": "Personal",
+   "list_id": "901413854636",
+   "tags": [],
+   "assignees": [
+    {
+     "id": 60710247,
+     "username": "Rost"
+    }
+   ],
+   "due": "2026-11-07",
+   "due_ms": 1794042000000,
+   "updated": "2026-10-25 12:10",
+   "closed": false
+  },
+  {
+   "id": "86b7k8525",
+   "name": "📞 Лио (набрать) - поговорить кто на связи в случае реальной проблемы 2025к",
+   "status": "to do",
+   "url": "https://app.clickup.com/t/86b7k8525",
+   "priority": "normal",
+   "list": "Personal",
+   "list_id": "901413854636",
+   "tags": [],
+   "assignees": [
+    {
+     "id": 60710247,
+     "username": "Rost"
+    }
+   ],
+   "due": "2026-10-25",
+   "due_ms": 1792918800000,
+   "updated": "2026-10-25 12:18",
+   "closed": false
+  },
+  {
+   "id": "86b9tdd1h",
+   "name": "(ПЕРЕФОРМАТ НА СИГАРЕТЫ) Проект вендинг-автомат - Сережа как дела? (жду отписку по этому вопросу)",
+   "status": "to do",
+   "url": "https://app.clickup.com/t/86b9tdd1h",
+   "priority": "normal",
+   "list": "Задачи Tabakevich",
+   "list_id": "901412862042",
+   "tags": [],
+   "assignees": [
+    {
+     "id": 60710247,
+     "username": "Rost"
+    }
+   ],
+   "due": "2026-10-28",
+   "due_ms": 1793178000000,
+   "updated": "2026-11-03 16:21",
+   "closed": false
+  },
+  {
+   "id": "86b7wmv85",
+   "name": "СОЗВОН АДВОКАТ (1 января проверить) Симка лайф восстановить (ждем реакцию суда - чат с Алевтина)",
+   "status": "to do",
+   "url": "https://app.clickup.com/t/86b7wmv85",
+   "priority": "urgent",
+   "list": "Personal",
+   "list_id": "901413854636",
+   "tags": [],
+   "assignees": [
+    {
+     "id": 60710247,
+     "username": "Rost"
+    }
+   ],
+   "due": "2026-11-09",
+   "due_ms": 1794214800000,
+   "updated": "2026-11-08 12:20",
+   "closed": false
+  },
+  {
+   "id": "86b9dw8uu",
+   "name": "Яна - 🛑🛑🛑 вывести Паксум ТС (жду саппорт куда отправить)",
+   "status": "to do",
+   "url": "https://app.clickup.com/t/86b9dw8uu",
+   "priority": "normal",
+   "list": "General Tasks OF",
+   "list_id": "901412862260",
+   "tags": [],
+   "assignees": [
+    {
+     "id": 60710247,
+     "username": "Rost"
+    }
+   ],
+   "due": "2026-11-09",
+   "due_ms": 1794214800000,
+   "updated": "2026-11-08 12:20",
+   "closed": false
+  },
+  {
+   "id": "86bb79fmt",
+   "name": "29.10 Лал Экспо Богота - ВСЕ КУПИТЬ",
+   "status": "to do",
+   "url": "https://app.clickup.com/t/86bb79fmt",
+   "priority": "normal",
+   "list": "Personal",
+   "list_id": "901413854636",
+   "tags": [],
+   "assignees": [
+    {
+     "id": 60710247,
+     "username": "Rost"
+    }
+   ],
+   "due": "2026-10-25",
+   "due_ms": 1792918800000,
+   "updated": "2026-10-27 22:05",
+   "closed": false
+  },
+  {
+   "id": "86bd2xjaa",
+   "name": "Серёжа — решить поднятие зарплаты (до 100к)",
+   "status": "to do",
+   "url": "https://app.clickup.com/t/86bd2xjaa",
+   "priority": "normal",
+   "list": "Задачи Tabakevich",
+   "list_id": "901412862042",
+   "tags": [
+    "🎯 фокус"
+   ],
+   "assignees": [
+    {
+     "id": 60710247,
+     "username": "Rost"
+    }
+   ],
+   "due": "2026-11-13",
+   "due_ms": 1794560400000,
+   "updated": "2026-11-13 00:28",
+   "closed": false
+  },
+  {
+   "id": "86bcnt4nr",
+   "name": "МакбукПро настроить Икс код - освобождение от рутины",
+   "status": "to do",
+   "url": "https://app.clickup.com/t/86bcnt4nr",
+   "priority": "normal",
+   "list": "Personal",
+   "list_id": "901413854636",
+   "tags": [],
+   "assignees": [
+    {
+     "id": 60710247,
+     "username": "Rost"
+    }
+   ],
+   "due": "2026-11-03",
+   "due_ms": 1793696400000,
+   "updated": "2026-10-25 16:21",
+   "closed": false
+  },
+  {
+   "id": "86bcqufak",
+   "name": "Hermes Agent — пилот на AX42/VPS (экономия токенов)",
+   "status": "to do",
+   "url": "https://app.clickup.com/t/86bcqufak",
+   "priority": "normal",
+   "list": "General Tasks OF",
+   "list_id": "901412862260",
+   "tags": [],
+   "assignees": [
+    {
+     "id": 60710247,
+     "username": "Rost"
+    }
+   ],
+   "due": "2026-10-27",
+   "due_ms": 1793091600000,
+   "updated": "2026-10-25 10:29",
+   "closed": false
+  },
+  {
+   "id": "86bbbw2fq",
+   "name": "Почистить компьютер загрузки - все по папкам в диск",
+   "status": "to do",
+   "url": "https://app.clickup.com/t/86bbbw2fq",
+   "priority": "normal",
+   "list": "Personal",
+   "list_id": "901413854636",
+   "tags": [],
+   "assignees": [
+    {
+     "id": 60710247,
+     "username": "Rost"
+    }
+   ],
+   "due": "2026-11-01",
+   "due_ms": 1793523600000,
+   "updated": "2026-08-17 13:15",
+   "closed": false
+  },
+  {
+   "id": "86bbjq18f",
+   "name": "(сканы) Кейс вынесли все вещи - подумать и подготовиться / с разрушкением дома",
+   "status": "to do",
+   "url": "https://app.clickup.com/t/86bbjq18f",
+   "priority": "normal",
+   "list": "Personal",
+   "list_id": "901413854636",
+   "tags": [],
+   "assignees": [
+    {
+     "id": 60710247,
+     "username": "Rost"
+    }
+   ],
+   "due": "2026-11-07",
+   "due_ms": 1794042000000,
+   "updated": "2026-10-25 16:23",
+   "closed": false
+  },
+  {
+   "id": "86b8rn9wf",
+   "name": "С ИРИНОЙ: Подсчеты ОФ (внести данные) + выплатить комиссию за новых моделей",
+   "status": "to do",
+   "url": "https://app.clickup.com/t/86b8rn9wf",
+   "priority": "normal",
+   "list": "General Tasks OF",
+   "list_id": "901412862260",
+   "tags": [],
+   "assignees": [
+    {
+     "id": 60710247,
+     "username": "Rost"
+    },
+    {
+     "id": 62671471,
+     "username": "Ірина Шекель"
+    }
+   ],
+   "due": "2026-11-10",
+   "due_ms": 1794301200000,
+   "updated": "2026-11-09 15:06",
+   "closed": false
+  },
+  {
+   "id": "86bbdx9ue",
+   "name": "Заполнить Направления отчет по движению к целям",
+   "status": "to do",
+   "url": "https://app.clickup.com/t/86bbdx9ue",
+   "priority": "normal",
+   "list": "Задачи Tabakevich",
+   "list_id": "901412862042",
+   "tags": [],
+   "assignees": [
+    {
+     "id": 60710247,
+     "username": "Rost"
+    }
+   ],
+   "due": "2026-10-16",
+   "due_ms": 1792198800000,
+   "updated": "2026-09-19 14:10",
+   "closed": false
+  },
+  {
+   "id": "86bbq6etm",
+   "name": "Сроки документов (наполнить)",
+   "status": "main",
+   "url": "https://app.clickup.com/t/86bbq6etm",
+   "priority": "normal",
+   "list": "Personal",
+   "list_id": "901413854636",
+   "tags": [],
+   "assignees": [
+    {
+     "id": 60710247,
+     "username": "Rost"
+    }
+   ],
+   "due": "2026-11-07",
+   "due_ms": 1794042000000,
+   "updated": "2026-10-25 13:18",
+   "closed": false
+  },
+  {
+   "id": "86bcpz5xu",
+   "name": "Передать продажу Лос Пуэблос в Аллегрию",
+   "status": "объекты",
+   "url": "https://app.clickup.com/t/86bcpz5xu",
+   "priority": "normal",
+   "list": "Покупка, Ремонт, Продажа-Сдача",
+   "list_id": "901412672484",
+   "tags": [],
+   "assignees": [
+    {
+     "id": 60710247,
+     "username": "Rost"
+    }
+   ],
+   "due": "2026-10-26",
+   "due_ms": 1793005200000,
+   "updated": "2026-10-22 16:16",
+   "closed": false
+  },
+  {
+   "id": "86bcgc3ze",
+   "name": "USDT для Novax — переслать выписку для подтверждения адреса",
+   "status": "to do",
+   "url": "https://app.clickup.com/t/86bcgc3ze",
+   "priority": "urgent",
+   "list": "General Tasks OF",
+   "list_id": "901412862260",
+   "tags": [
+    "🎯 фокус"
+   ],
+   "assignees": [
+    {
+     "id": 60710247,
+     "username": "Rost"
+    }
+   ],
+   "due": "2026-11-13",
+   "due_ms": 1794560400000,
+   "updated": "2026-11-13 18:44",
+   "closed": false
+  },
+  {
+   "id": "86b7k7jnx",
+   "name": "БОТ-ЧАСТЬ: Ежемесячный",
+   "status": "for check",
+   "url": "https://app.clickup.com/t/86b7k7jnx",
+   "priority": "normal",
+   "list": "Personal",
+   "list_id": "901413854636",
+   "tags": [],
+   "assignees": [
+    {
+     "id": 60710247,
+     "username": "Rost"
+    }
+   ],
+   "due": "2026-11-02",
+   "due_ms": 1793610000000,
+   "updated": "2026-11-02 10:44",
+   "closed": false
+  },
+  {
+   "id": "86b7k7jp4",
+   "name": "БОТ-ЧАСТЬ: Еженедельный понедельник",
+   "status": "to do",
+   "url": "https://app.clickup.com/t/86b7k7jp4",
+   "priority": "high",
+   "list": "Personal",
+   "list_id": "901413854636",
+   "tags": [],
+   "assignees": [
+    {
+     "id": 60710247,
+     "username": "Rost"
+    }
+   ],
+   "due": "2026-10-19",
+   "due_ms": 1792400400000,
+   "updated": "2026-10-26 10:55",
+   "closed": false
+  },
+  {
+   "id": "86bbzxnvx",
+   "name": "БОТ-ЧАСТЬ: Рассылка / Сбор баз / Мониторинг тендеров - план 50 писем в неделю + участие в тендерах",
+   "status": "to do",
+   "url": "https://app.clickup.com/t/86bbzxnvx",
+   "priority": "normal",
+   "list": "Tasks",
+   "list_id": "901421054196",
+   "tags": [],
+   "assignees": [
+    {
+     "id": 60710247,
+     "username": "Rost"
+    }
+   ],
+   "due": "2026-11-13",
+   "due_ms": 1794560400000,
+   "updated": "2026-11-13 15:01",
+   "closed": false
+  },
+  {
+   "id": "86b7xjwdn",
+   "name": "💳 Аренда Колумбия квартира оплатить (коммунальные)",
+   "status": "to do",
+   "url": "https://app.clickup.com/t/86b7xjwdn",
+   "priority": "normal",
+   "list": "Personal",
+   "list_id": "901413854636",
+   "tags": [],
+   "assignees": [
+    {
+     "id": 60710247,
+     "username": "Rost"
+    }
+   ],
+   "due": "2026-10-25",
+   "due_ms": 1792980000000,
+   "updated": "2026-09-28 23:01",
+   "closed": false
+  },
+  {
+   "id": "86b7k85dn",
+   "name": "📞 Миша брат написать",
+   "status": "to do",
+   "url": "https://app.clickup.com/t/86b7k85dn",
+   "priority": "normal",
+   "list": "Personal",
+   "list_id": "901413854636",
+   "tags": [],
+   "assignees": [
+    {
+     "id": 60710247,
+     "username": "Rost"
+    }
+   ],
+   "due": "2026-11-07",
+   "due_ms": 1794042000000,
+   "updated": "2026-10-25 13:18",
+   "closed": false
+  },
+  {
+   "id": "86b6qqajb",
+   "name": "БОТ-ЧАСТЬ: С ИРИНОЙ: Проверка фин отчетов и переучетов 10-го (10)",
+   "status": "for check",
+   "url": "https://app.clickup.com/t/86b6qqajb",
+   "priority": "normal",
+   "list": "Задачи Tabakevich",
+   "list_id": "901412862042",
+   "tags": [],
+   "assignees": [
+    {
+     "id": 60710247,
+     "username": "Rost"
+    },
+    {
+     "id": 62671471,
+     "username": "Ірина Шекель"
+    }
+   ],
+   "due": "2026-11-10",
+   "due_ms": 1794301200000,
+   "updated": "2026-11-10 07:44",
+   "closed": false
+  },
+  {
+   "id": "86b7688n9",
+   "name": "💳 Аренда Колумбия офис оплатить (кухня и скидка) жду кухню",
+   "status": "to do",
+   "url": "https://app.clickup.com/t/86b7688n9",
+   "priority": "normal",
+   "list": "Personal",
+   "list_id": "901413854636",
+   "tags": [],
+   "assignees": [
+    {
+     "id": 60710247,
+     "username": "Rost"
+    }
+   ],
+   "due": "2026-10-26",
+   "due_ms": 1793005200000,
+   "updated": "2026-10-25 16:20",
+   "closed": false
+  },
+  {
+   "id": "86bcnmdvt",
+   "name": "Вывести BTC в холодное хранение",
+   "status": "to do",
+   "url": "https://app.clickup.com/t/86bcnmdvt",
+   "priority": "normal",
+   "list": "Personal",
+   "list_id": "901413854636",
+   "tags": [
+    "🎯 фокус"
+   ],
+   "assignees": [
+    {
+     "id": 60710247,
+     "username": "Rost"
+    }
+   ],
+   "due": "2026-11-08",
+   "due_ms": 1794189600000,
+   "updated": "2026-11-13 19:04",
+   "closed": false
+  },
+  {
+   "id": "86b9ycbby",
+   "name": "БОТ: ПОДКЛЮЧИТЬСЯ К КОМПУ - СЕЙДЕР (как дела?) Запуск 1 телефона с 25 аккаунтами",
+   "status": "for check",
+   "url": "https://app.clickup.com/t/86b9ycbby",
+   "priority": "normal",
+   "list": "Projects OF",
+   "list_id": "901412862145",
+   "tags": [],
+   "assignees": [
+    {
+     "id": 60710247,
+     "username": "Rost"
+    }
+   ],
+   "due": "2026-11-06",
+   "due_ms": 1793955600000,
+   "updated": "2026-11-06 10:47",
+   "closed": false
+  },
+  {
+   "id": "86bcxke2t",
+   "name": "Оплатить окна 1 — Травертино / 2 Собираем на локаль",
+   "status": "to do",
+   "url": "https://app.clickup.com/t/86bcxke2t",
+   "priority": "normal",
+   "list": "Покупка, Ремонт, Продажа-Сдача",
+   "list_id": "901412672484",
+   "tags": [
+    "bot"
+   ],
+   "assignees": [
+    {
+     "id": 60710247,
+     "username": "Rost"
+    }
+   ],
+   "due": "2026-11-09",
+   "due_ms": 1794214800000,
+   "updated": "2026-11-04 09:13",
+   "closed": false
+  },
+  {
+   "id": "86bd2vc4n",
+   "name": "Audri — старт OFTV + дата окончания?",
+   "status": "to do",
+   "url": "https://app.clickup.com/t/86bd2vc4n",
+   "priority": "normal",
+   "list": "Models",
+   "list_id": "901412862040",
+   "tags": [
+    "🎯 фокус"
+   ],
+   "assignees": [
+    {
+     "id": 60710247,
+     "username": "Rost"
+    }
+   ],
+   "due": "2026-11-12",
+   "due_ms": 1794474000000,
+   "updated": "2026-11-13 17:52",
+   "closed": false
+  },
+  {
+   "id": "86bd2vc4v",
+   "name": "Габриэла — переформат сотрудничества, запуск с Лёшей",
+   "status": "to do",
+   "url": "https://app.clickup.com/t/86bd2vc4v",
+   "priority": "normal",
+   "list": "Models",
+   "list_id": "901412862040",
+   "tags": [
+    "🎯 фокус"
+   ],
+   "assignees": [
+    {
+     "id": 60710247,
+     "username": "Rost"
+    }
+   ],
+   "due": "2026-11-12",
+   "due_ms": 1794474000000,
+   "updated": "2026-11-12 22:18",
+   "closed": false
+  },
+  {
+   "id": "86b7y8n8m",
+   "name": "БОТ-ЧАСТЬ: Расчет с Аудри 30 процентов (скрины, подсчеты)",
+   "status": "to do",
+   "url": "https://app.clickup.com/t/86b7y8n8m",
+   "priority": "normal",
+   "list": "Models",
+   "list_id": "901412862040",
+   "tags": [],
+   "assignees": [
+    {
+     "id": 60710247,
+     "username": "Rost"
+    }
+   ],
+   "due": "2026-11-01",
+   "due_ms": 1793523600000,
+   "updated": "2026-11-10 18:38",
+   "closed": false
+  },
+  {
+   "id": "86ba3c1x4",
+   "name": "(Контракт на работу, подготовка к ПМЖ) ПАРАГВАЙ (183 дня в году)",
+   "status": "for check",
+   "url": "https://app.clickup.com/t/86ba3c1x4",
+   "priority": "normal",
+   "list": "Сервисная доска Недвижимость",
+   "list_id": "901412595093",
+   "tags": [
+    "🎯 фокус"
+   ],
+   "assignees": [
+    {
+     "id": 60710247,
+     "username": "Rost"
+    }
+   ],
+   "due": "2026-10-15",
+   "due_ms": 1792054800000,
+   "updated": "2026-11-13 17:54",
+   "closed": false
+  },
+  {
+   "id": "86bcrc6qz",
+   "name": "Разобрать заявку и отправить на 1 этап если норм",
+   "status": "to do",
+   "url": "https://app.clickup.com/t/86bcrc6qz",
+   "priority": "normal",
+   "list": "Models",
+   "list_id": "901412862040",
+   "tags": [],
+   "assignees": [
+    {
+     "id": 60710247,
+     "username": "Rost"
+    }
+   ],
+   "due": "2026-10-26",
+   "due_ms": 1793005200000,
+   "updated": "2026-10-26 10:49",
+   "closed": false
+  },
+  {
+   "id": "86bcy49kz",
+   "name": "Разобрать заявку и отправить на 1 этап если норм",
+   "status": "to do",
+   "url": "https://app.clickup.com/t/86bcy49kz",
+   "priority": "normal",
+   "list": "Models",
+   "list_id": "901412862040",
+   "tags": [],
+   "assignees": [
+    {
+     "id": 60710247,
+     "username": "Rost"
+    }
+   ],
+   "due": "2026-11-04",
+   "due_ms": 1793782800000,
+   "updated": "2026-11-04 10:41",
+   "closed": false
+  },
+  {
+   "id": "86b8aj8e5",
+   "name": "Табакевич УТМ с неактуальных категорий проверить",
+   "status": "to do",
+   "url": "https://app.clickup.com/t/86b8aj8e5",
+   "priority": "normal",
+   "list": "Задачи Tabakevich",
+   "list_id": "901412862042",
+   "tags": [],
+   "assignees": [
+    {
+     "id": 60710247,
+     "username": "Rost"
+    }
+   ],
+   "due": "2026-11-01",
+   "due_ms": 1793584800000,
+   "updated": "2026-10-04 08:03",
+   "closed": false
+  },
+  {
+   "id": "86ba2y9ke",
+   "name": "ТрипЭдвайсер (как дела?)",
+   "status": "to do",
+   "url": "https://app.clickup.com/t/86ba2y9ke",
+   "priority": "normal",
+   "list": "Personal",
+   "list_id": "901413854636",
+   "tags": [],
+   "assignees": [
+    {
+     "id": 60710247,
+     "username": "Rost"
+    }
+   ],
+   "due": "2026-10-19",
+   "due_ms": 1792400400000,
+   "updated": "2026-10-12 13:14",
+   "closed": false
+  },
+  {
+   "id": "86b92hyc3",
+   "name": "Проверка баланса ОКХ рабочей карты ОФ (отправить Саре деньги)",
+   "status": "to do",
+   "url": "https://app.clickup.com/t/86b92hyc3",
+   "priority": "normal",
+   "list": "General Tasks OF",
+   "list_id": "901412862260",
+   "tags": [],
+   "assignees": [
+    {
+     "id": 60710247,
+     "username": "Rost"
+    }
+   ],
+   "due": "2026-10-26",
+   "due_ms": 1793005200000,
+   "updated": "2026-10-25 16:18",
+   "closed": false
+  },
+  {
+   "id": "86b8nwj7t",
+   "name": "Английский лицензия 31.10.2026",
+   "status": "to do",
+   "url": "https://app.clickup.com/t/86b8nwj7t",
+   "priority": "low",
+   "list": "Personal",
+   "list_id": "901413854636",
+   "tags": [],
+   "assignees": [
+    {
+     "id": 60710247,
+     "username": "Rost"
+    }
+   ],
+   "due": "2026-10-26",
+   "due_ms": 1793005200000,
+   "updated": "2026-10-14 10:20",
+   "closed": false
+  },
+  {
+   "id": "86bcjkww3",
+   "name": "Автоматизация контроля офиса",
+   "status": "to do",
+   "url": "https://app.clickup.com/t/86bcjkww3",
+   "priority": "normal",
+   "list": "Задачи Tabakevich",
+   "list_id": "901412862042",
+   "tags": [],
+   "assignees": [
+    {
+     "id": 60710247,
+     "username": "Rost"
+    }
+   ],
+   "due": "2026-10-18",
+   "due_ms": 1792314000000,
+   "updated": "2026-10-15 00:39",
+   "closed": false
+  },
+  {
+   "id": "86bbznkyv",
+   "name": "ТС: фикс - как продвигается?",
+   "status": "to do",
+   "url": "https://app.clickup.com/t/86bbznkyv",
+   "priority": "normal",
+   "list": "General Tasks OF",
+   "list_id": "901412862260",
+   "tags": [],
+   "assignees": [
+    {
+     "id": 60710247,
+     "username": "Rost"
+    }
+   ],
+   "due": "2026-10-26",
+   "due_ms": 1793005200000,
+   "updated": "2026-10-25 12:15",
+   "closed": false
+  },
+  {
+   "id": "86b95nwka",
+   "name": "🕵🏻 вендинг-закон? (КОНТРОЛЬ ЗАДАЧ - И среда созвон) Cережа поговорить - Продажа бизнеса (Лена/В/Адвокат) - ЖДУ ИНФО В О ШТРАФЕ и суде",
+   "status": "to do",
+   "url": "https://app.clickup.com/t/86b95nwka",
+   "priority": "normal",
+   "list": "Задачи Tabakevich",
+   "list_id": "901412862042",
+   "tags": [],
+   "assignees": [
+    {
+     "id": 60710247,
+     "username": "Rost"
+    }
+   ],
+   "due": "2026-10-28",
+   "due_ms": 1793178000000,
+   "updated": "2026-10-25 12:27",
+   "closed": false
+  },
+  {
+   "id": "86bbcd0d9",
+   "name": "ОЛЯ: ВЫСЕЛИТЬ: Провести беседу с Аби Гари насчет звуков и стиралки.",
+   "status": "to do",
+   "url": "https://app.clickup.com/t/86bbcd0d9",
+   "priority": "normal",
+   "list": "Покупка, Ремонт, Продажа-Сдача",
+   "list_id": "901412672484",
+   "tags": [],
+   "assignees": [
+    {
+     "id": 60710247,
+     "username": "Rost"
+    }
+   ],
+   "due": "2026-10-27",
+   "due_ms": 1793091600000,
+   "updated": "2026-10-25 12:47",
+   "closed": false
+  },
+  {
+   "id": "86bahp0w9",
+   "name": "👩🏼 ОЛЯ: Переоформление квартиры Топасио 1",
+   "status": "to do",
+   "url": "https://app.clickup.com/t/86bahp0w9",
+   "priority": "normal",
+   "list": "Покупка, Ремонт, Продажа-Сдача",
+   "list_id": "901412672484",
+   "tags": [],
+   "assignees": [
+    {
+     "id": 60710247,
+     "username": "Rost"
+    }
+   ],
+   "due": "2026-10-29",
+   "due_ms": 1793264400000,
+   "updated": "2026-10-25 12:16",
+   "closed": false
+  },
+  {
+   "id": "86b7h082q",
+   "name": "(арабские, франция., германия, резервная) Пароли от всех аккаунтов: (проверить все ли доступы есть + чеклист)",
+   "status": "to do",
+   "url": "https://app.clickup.com/t/86b7h082q",
+   "priority": "normal",
+   "list": "General Tasks OF",
+   "list_id": "901412862260",
+   "tags": [],
+   "assignees": [
+    {
+     "id": 60710247,
+     "username": "Rost"
+    }
+   ],
+   "due": "2026-10-31",
+   "due_ms": 1793498400000,
+   "updated": "2026-10-01 13:45",
+   "closed": false
+  },
+  {
+   "id": "86b7k747u",
+   "name": "👩🏼 ОЛЯ - как дела? подсчеты? (банк список кахамар) - финансы + пройтись по списочку задач",
+   "status": "to do",
+   "url": "https://app.clickup.com/t/86b7k747u",
+   "priority": "normal",
+   "list": "Сервисная доска Недвижимость",
+   "list_id": "901412595093",
+   "tags": [],
+   "assignees": [
+    {
+     "id": 60710247,
+     "username": "Rost"
+    }
+   ],
+   "due": "2026-10-28",
+   "due_ms": 1793178000000,
+   "updated": "2026-10-25 12:47",
+   "closed": false
+  },
+  {
+   "id": "86b6qqbah",
+   "name": "Согласование ЗП 5-10го (20)",
+   "status": "to do",
+   "url": "https://app.clickup.com/t/86b6qqbah",
+   "priority": "normal",
+   "list": "Задачи Tabakevich",
+   "list_id": "901412862042",
+   "tags": [],
+   "assignees": [
+    {
+     "id": 60710247,
+     "username": "Rost"
+    }
+   ],
+   "due": "2026-11-04",
+   "due_ms": 1793844000000,
+   "updated": "2026-10-05 13:41",
+   "closed": false
+  },
+  {
+   "id": "86b8b332f",
+   "name": "Обыск (проверка чеклиста как двигается)",
+   "status": "to do",
+   "url": "https://app.clickup.com/t/86b8b332f",
+   "priority": "normal",
+   "list": "Задачи Tabakevich",
+   "list_id": "901412862042",
+   "tags": [],
+   "assignees": [
+    {
+     "id": 60710247,
+     "username": "Rost"
+    }
+   ],
+   "due": "2026-11-02",
+   "due_ms": 1793610000000,
+   "updated": "2026-10-25 12:47",
+   "closed": false
+  },
+  {
+   "id": "86b8gan2a",
+   "name": "🏠 АЛЕКСЕЙ РЕМОНТ ИСПАНИЯ: подсчет-проверка / контроль задач? (вести диалог)",
+   "status": "to do",
+   "url": "https://app.clickup.com/t/86b8gan2a",
+   "priority": "normal",
+   "list": "Сервисная доска Недвижимость",
+   "list_id": "901412595093",
+   "tags": [],
+   "assignees": [
+    {
+     "id": 60710247,
+     "username": "Rost"
+    }
+   ],
+   "due": "2026-10-27",
+   "due_ms": 1793152800000,
+   "updated": "2026-10-25 12:59",
+   "closed": false
+  },
+  {
+   "id": "86b8ttzmc",
+   "name": "ЯНА (Мила в контроле?) 📊 Испания-фин-недвижка проверка отчета: должники + подтверждение оплат + коммунальные с 15-го",
+   "status": "to do",
+   "url": "https://app.clickup.com/t/86b8ttzmc",
+   "priority": "high",
+   "list": "Покупка, Ремонт, Продажа-Сдача",
+   "list_id": "901412672484",
+   "tags": [],
+   "assignees": [
+    {
+     "id": 60710247,
+     "username": "Rost"
+    }
+   ],
+   "due": "2026-11-11",
+   "due_ms": 1794387600000,
+   "updated": "2026-11-08 20:47",
+   "closed": false
+  },
+  {
+   "id": "86bad13qd",
+   "name": "Cеть поиска новых моделей (чеклист в описании)",
+   "status": "to do",
+   "url": "https://app.clickup.com/t/86bad13qd",
+   "priority": "normal",
+   "list": "General Tasks OF",
+   "list_id": "901412862260",
+   "tags": [],
+   "assignees": [
+    {
+     "id": 60710247,
+     "username": "Rost"
+    }
+   ],
+   "due": "2026-11-04",
+   "due_ms": 1793782800000,
+   "updated": "2026-10-25 12:50",
+   "closed": false
+  },
+  {
+   "id": "86bcmacku",
+   "name": "БОТ-ЧАСТЬ: ИМ контроль работы и менеджеров",
+   "status": "to do",
+   "url": "https://app.clickup.com/t/86bcmacku",
+   "priority": "normal",
+   "list": "Задачи Tabakevich",
+   "list_id": "901412862042",
+   "tags": [],
+   "assignees": [
+    {
+     "id": 60710247,
+     "username": "Rost"
+    }
+   ],
+   "due": "2026-10-26",
+   "due_ms": 1793005200000,
+   "updated": "2026-11-11 22:46",
+   "closed": false
+  },
+  {
+   "id": "86bcpa3xk",
+   "name": "(Решено?) Разобраться с Габриэлой — придумать стратегию (потом - переделать задачу в отчет с 10-15)",
+   "status": "to do",
+   "url": "https://app.clickup.com/t/86bcpa3xk",
+   "priority": "normal",
+   "list": "Models",
+   "list_id": "901412862040",
+   "tags": [],
+   "assignees": [
+    {
+     "id": 60710247,
+     "username": "Rost"
+    }
+   ],
+   "due": "2026-10-28",
+   "due_ms": 1793178000000,
+   "updated": "2026-10-25 11:36",
+   "closed": false
+  },
+  {
+   "id": "86b70dhaq",
+   "name": "Проверить кредитный лимит и закрыть (жду) списались проценты?",
+   "status": "to do",
+   "url": "https://app.clickup.com/t/86b70dhaq",
+   "priority": "high",
+   "list": "Personal",
+   "list_id": "901413854636",
+   "tags": [],
+   "assignees": [
+    {
+     "id": 60710247,
+     "username": "Rost"
+    }
+   ],
+   "due": "2026-10-27",
+   "due_ms": 1793091600000,
+   "updated": "2026-10-25 13:09",
+   "closed": false
+  },
+  {
+   "id": "86b7hcb3a",
+   "name": "Румынский паспорт (была ли аппеляция? вынесли ли решение?)",
+   "status": "to do",
+   "url": "https://app.clickup.com/t/86b7hcb3a",
+   "priority": "urgent",
+   "list": "Personal",
+   "list_id": "901413854636",
+   "tags": [],
+   "assignees": [
+    {
+     "id": 60710247,
+     "username": "Rost"
+    }
+   ],
+   "due": "2026-11-03",
+   "due_ms": 1793696400000,
+   "updated": "2026-09-01 13:18",
+   "closed": false
+  },
+  {
+   "id": "86b83wzje",
+   "name": "Андрей МАРКЕТПЛЕЙСЫ - как дела? над чем работают? (что продалось больше всего?)",
+   "status": "to do",
+   "url": "https://app.clickup.com/t/86b83wzje",
+   "priority": "normal",
+   "list": "Задачи Tabakevich",
+   "list_id": "901412862042",
+   "tags": [],
+   "assignees": [
+    {
+     "id": 60710247,
+     "username": "Rost"
+    }
+   ],
+   "due": "2026-10-28",
+   "due_ms": 1793178000000,
+   "updated": "2026-10-25 13:32",
+   "closed": false
+  },
+  {
+   "id": "86b6taumx",
+   "name": "Контракт Марина - завершение (подсчеты/переоформления) (жду 1000 евро)",
+   "status": "to do",
+   "url": "https://app.clickup.com/t/86b6taumx",
+   "priority": "normal",
+   "list": "Personal",
+   "list_id": "901413854636",
+   "tags": [],
+   "assignees": [
+    {
+     "id": 60710247,
+     "username": "Rost"
+    }
+   ],
+   "due": "2026-10-26",
+   "due_ms": 1793005200000,
+   "updated": "2026-10-14 11:57",
+   "closed": false
+  },
+  {
+   "id": "86b9ckz7y",
+   "name": "Выплата денег себе Кальян (проверить отчет,  дать задачу) жду",
+   "status": "to do",
+   "url": "https://app.clickup.com/t/86b9ckz7y",
+   "priority": "normal",
+   "list": "Personal",
+   "list_id": "901413854636",
+   "tags": [],
+   "assignees": [
+    {
+     "id": 60710247,
+     "username": "Rost"
+    }
+   ],
+   "due": "2026-10-26",
+   "due_ms": 1793005200000,
+   "updated": "2026-10-25 13:00",
+   "closed": false
+  },
+  {
+   "id": "86b89dj3z",
+   "name": "(пока с Ладо) С ИРИНОЙ: Просмотр итогов по отзывам ИМ: (реже смотреть, после стабилизации)",
+   "status": "to do",
+   "url": "https://app.clickup.com/t/86b89dj3z",
+   "priority": "normal",
+   "list": "Задачи Tabakevich",
+   "list_id": "901412862042",
+   "tags": [],
+   "assignees": [
+    {
+     "id": 60710247,
+     "username": "Rost"
+    },
+    {
+     "id": 62671471,
+     "username": "Ірина Шекель"
+    }
+   ],
+   "due": "2026-10-28",
+   "due_ms": 1793178000000,
+   "updated": "2026-11-04 11:26",
+   "closed": false
+  },
+  {
+   "id": "86ba1b7ek",
+   "name": "💳 Linkscale - контроль оплаты (вписались в лимиты - карта?)",
+   "status": "to do",
+   "url": "https://app.clickup.com/t/86ba1b7ek",
+   "priority": "normal",
+   "list": "General Tasks OF",
+   "list_id": "901412862260",
+   "tags": [],
+   "assignees": [
+    {
+     "id": 60710247,
+     "username": "Rost"
+    }
+   ],
+   "due": "2026-10-27",
+   "due_ms": 1793152800000,
+   "updated": "2026-09-28 18:04",
+   "closed": false
+  },
+  {
+   "id": "86b8fkqg2",
+   "name": "БОТ-ЧАСТЬ: Flames - жду моделей (отработали новые?)",
+   "status": "to do",
+   "url": "https://app.clickup.com/t/86b8fkqg2",
+   "priority": "normal",
+   "list": "General Tasks OF",
+   "list_id": "901412862260",
+   "tags": [],
+   "assignees": [
+    {
+     "id": 60710247,
+     "username": "Rost"
+    }
+   ],
+   "due": "2026-10-26",
+   "due_ms": 1793005200000,
+   "updated": "2026-10-25 14:07",
+   "closed": false
+  },
+  {
+   "id": "86b8c2fc1",
+   "name": "PROYECTO: Fetish Rooms + LolaPop (контроль: как идут дела? план?)",
+   "status": "to do",
+   "url": "https://app.clickup.com/t/86b8c2fc1",
+   "priority": "normal",
+   "list": "General Tasks OF",
+   "list_id": "901412862260",
+   "tags": [],
+   "assignees": [
+    {
+     "id": 60710247,
+     "username": "Rost"
+    }
+   ],
+   "due": "2026-10-28",
+   "due_ms": 1793178000000,
+   "updated": "2026-10-25 14:04",
+   "closed": false
+  },
+  {
+   "id": "86b7k81d6",
+   "name": "ДОЛЛАРЫ КУПИТЬ НА КАРТЕ 📞 Мама набрать (ЛИО даты сделок и расходы)",
+   "status": "to do",
+   "url": "https://app.clickup.com/t/86b7k81d6",
+   "priority": "normal",
+   "list": "Personal",
+   "list_id": "901413854636",
+   "tags": [],
+   "assignees": [
+    {
+     "id": 60710247,
+     "username": "Rost"
+    }
+   ],
+   "due": "2026-11-07",
+   "due_ms": 1794042000000,
+   "updated": "2026-09-01 13:21",
+   "closed": false
+  },
+  {
+   "id": "86b6qp6km",
+   "name": "💳 Оплата аренда? Коммунальные Ролан + счетчик разобраться",
+   "status": "to do",
+   "url": "https://app.clickup.com/t/86b6qp6km",
+   "priority": "normal",
+   "list": "Покупка, Ремонт, Продажа-Сдача",
+   "list_id": "901412672484",
+   "tags": [],
+   "assignees": [
+    {
+     "id": 60710247,
+     "username": "Rost"
+    }
+   ],
+   "due": "2026-10-28",
+   "due_ms": 1793178000000,
+   "updated": "2026-10-25 14:05",
+   "closed": false
+  },
+  {
+   "id": "86b7k7vf7",
+   "name": "ОЛЯ ПОХОД - Жду Оксана об оплате IBI - проверка долгов и оплата (ОПЛАТИТЬ 1300 евро - с карты)",
+   "status": "регулярные",
+   "url": "https://app.clickup.com/t/86b7k7vf7",
+   "priority": "normal",
+   "list": "Сервисная доска Недвижимость",
+   "list_id": "901412595093",
+   "tags": [],
+   "assignees": [
+    {
+     "id": 60710247,
+     "username": "Rost"
+    },
+    {
+     "id": 88447808,
+     "username": null
+    }
+   ],
+   "due": "2026-11-02",
+   "due_ms": 1793610000000,
+   "updated": "2026-10-12 13:55",
+   "closed": false
+  },
+  {
+   "id": "86bb4zv3p",
+   "name": "Стримы ОФ-ТС - Джулиана/Катерина + Шейх стримы (жду Буллет/Шейх-RA)",
+   "status": "to do",
+   "url": "https://app.clickup.com/t/86bb4zv3p",
+   "priority": "normal",
+   "list": "General Tasks OF",
+   "list_id": "901412862260",
+   "tags": [],
+   "assignees": [
+    {
+     "id": 60710247,
+     "username": "Rost"
+    }
+   ],
+   "due": "2026-11-02",
+   "due_ms": 1793610000000,
+   "updated": "2026-10-14 12:04",
+   "closed": false
+  },
+  {
+   "id": "86bba24gq",
+   "name": "Запуск ОФТВ модели (запускаем или нет?)",
+   "status": "to do",
+   "url": "https://app.clickup.com/t/86bba24gq",
+   "priority": "normal",
+   "list": "Models",
+   "list_id": "901412862040",
+   "tags": [],
+   "assignees": [
+    {
+     "id": 60710247,
+     "username": "Rost"
+    }
+   ],
+   "due": "2026-11-09",
+   "due_ms": 1794214800000,
+   "updated": "2026-10-14 12:06",
+   "closed": false
+  },
+  {
+   "id": "86b7k85ke",
+   "name": "(как дела?) 📞 Папа набрать - как дела? (жду Татьяна окно времени связи)",
+   "status": "to do",
+   "url": "https://app.clickup.com/t/86b7k85ke",
+   "priority": "normal",
+   "list": "Personal",
+   "list_id": "901413854636",
+   "tags": [],
+   "assignees": [
+    {
+     "id": 60710247,
+     "username": "Rost"
+    }
+   ],
+   "due": "2026-10-27",
+   "due_ms": 1793091600000,
+   "updated": "2026-10-25 13:15",
+   "closed": false
+  },
+  {
+   "id": "86bbay300",
+   "name": "ЖДУ ПРАЙС Украина ПЕПТИДЫ от Андрея (жду прайс и отписку)",
+   "status": "to do",
+   "url": "https://app.clickup.com/t/86bbay300",
+   "priority": "normal",
+   "list": "Задачи Tabakevich",
+   "list_id": "901412862042",
+   "tags": [],
+   "assignees": [
+    {
+     "id": 60710247,
+     "username": "Rost"
+    }
+   ],
+   "due": "2026-11-02",
+   "due_ms": 1793610000000,
+   "updated": "2026-10-14 12:14",
+   "closed": false
+  },
+  {
+   "id": "86bbhwpa6",
+   "name": "(поговорить с Юлей как решить этот вопрос или считать процент меньше) Проверить общий кошелек Наташа для денег на безопасность",
+   "status": "to do",
+   "url": "https://app.clickup.com/t/86bbhwpa6",
+   "priority": "normal",
+   "list": "Задачи Tabakevich",
+   "list_id": "901412862042",
+   "tags": [
+    "🎯 фокус"
+   ],
+   "assignees": [
+    {
+     "id": 60710247,
+     "username": "Rost"
+    },
+    {
+     "id": 62671471,
+     "username": "Ірина Шекель"
+    }
+   ],
+   "due": "2026-10-28",
+   "due_ms": 1793178000000,
+   "updated": "2026-11-13 00:21",
+   "closed": false
+  },
+  {
+   "id": "86bb7zwwf",
+   "name": "Украли с карты - жду разбирательства и что смогут вернуть",
+   "status": "to do",
+   "url": "https://app.clickup.com/t/86bb7zwwf",
+   "priority": "normal",
+   "list": "Сервисная доска Недвижимость",
+   "list_id": "901412595093",
+   "tags": [],
+   "assignees": [
+    {
+     "id": 60710247,
+     "username": "Rost"
+    }
+   ],
+   "due": "2026-11-02",
+   "due_ms": 1793610000000,
+   "updated": "2026-10-05 13:42",
+   "closed": false
+  },
+  {
+   "id": "86bbzx5uq",
+   "name": "Интим - прогулять балансы (спросить за перестановку балансов)",
+   "status": "to do",
+   "url": "https://app.clickup.com/t/86bbzx5uq",
+   "priority": "normal",
+   "list": "Задачи Tabakevich",
+   "list_id": "901412862042",
+   "tags": [],
+   "assignees": [
+    {
+     "id": 60710247,
+     "username": "Rost"
+    }
+   ],
+   "due": "2026-10-26",
+   "due_ms": 1793005200000,
+   "updated": "2026-10-25 14:09",
+   "closed": false
+  },
+  {
+   "id": "86bc8fkbt",
+   "name": "Алла: помочь решить с тем что топят квартиранты сверху кооперасион",
+   "status": "to do",
+   "url": "https://app.clickup.com/t/86bc8fkbt",
+   "priority": "normal",
+   "list": "Сервисная доска Недвижимость",
+   "list_id": "901412595093",
+   "tags": [],
+   "assignees": [
+    {
+     "id": 60710247,
+     "username": "Rost"
+    },
+    {
+     "id": 62671471,
+     "username": "Ірина Шекель"
+    }
+   ],
+   "due": "2026-11-10",
+   "due_ms": 1794362400000,
+   "updated": "2026-11-04 11:24",
+   "closed": false
+  },
+  {
+   "id": "86b70tqp1",
+   "name": "(ждем 3 аукцион Шейх) 🏠🏠🏠 АУКЦИОНЫ: переписка, канал тг / СПИСКИ: ср/вс (чат новые списки)",
+   "status": "to do",
+   "url": "https://app.clickup.com/t/86b70tqp1",
+   "priority": "urgent",
+   "list": "Сервисная доска Недвижимость",
+   "list_id": "901412595093",
+   "tags": [],
+   "assignees": [
+    {
+     "id": 60710247,
+     "username": "Rost"
+    }
+   ],
+   "due": "2026-11-02",
+   "due_ms": 1793610000000,
+   "updated": "2026-10-25 14:13",
+   "closed": false
+  },
+  {
+   "id": "86b7k7q8w",
+   "name": "[слито в 86bcj512x] БОТ-ЧАСТЬ: Смокиджин устранить нюансы в работе",
+   "status": "to do",
+   "url": "https://app.clickup.com/t/86b7k7q8w",
+   "priority": "normal",
+   "list": "Задачи Tabakevich",
+   "list_id": "901412862042",
+   "tags": [],
+   "assignees": [
+    {
+     "id": 60710247,
+     "username": "Rost"
+    }
+   ],
+   "due": "2026-11-02",
+   "due_ms": 1793610000000,
+   "updated": "2026-10-25 14:25",
+   "closed": false
+  },
+  {
+   "id": "86bb779rw",
+   "name": "БОТ: Пептиды - запуск продаж (Ричард)",
+   "status": "for check",
+   "url": "https://app.clickup.com/t/86bb779rw",
+   "priority": "normal",
+   "list": "Задачи Tabakevich",
+   "list_id": "901412862042",
+   "tags": [],
+   "assignees": [
+    {
+     "id": 60710247,
+     "username": "Rost"
+    }
+   ],
+   "due": "2026-11-05",
+   "due_ms": 1793933700000,
+   "updated": "2026-11-13 00:57",
+   "closed": false
+  },
+  {
+   "id": "86b7gj8kv",
+   "name": "Продлить страховку Елена",
+   "status": "to do",
+   "url": "https://app.clickup.com/t/86b7gj8kv",
+   "priority": "urgent",
+   "list": "Personal",
+   "list_id": "901413854636",
+   "tags": [],
+   "assignees": [
+    {
+     "id": 60710247,
+     "username": "Rost"
+    }
+   ],
+   "due": "2026-11-09",
+   "due_ms": 1794214800000,
+   "updated": "2026-10-25 13:17",
+   "closed": false
+  },
+  {
+   "id": "86bcm9u4k",
+   "name": "БОТ-ЧАСТЬ: Заменить линзы в компьютерных очках (плано 0.00 + Crizal Sapphire HR)",
+   "status": "to do",
+   "url": "https://app.clickup.com/t/86bcm9u4k",
+   "priority": "normal",
+   "list": "Personal",
+   "list_id": "901413854636",
+   "tags": [
+    "⚕️ здоровье"
+   ],
+   "assignees": [
+    {
+     "id": 60710247,
+     "username": "Rost"
+    }
+   ],
+   "due": "2026-10-26",
+   "due_ms": 1793005200000,
+   "updated": "2026-11-13 19:07",
+   "closed": false
+  },
+  {
+   "id": "86bcn44nh",
+   "name": "Коучинг Алекса Херрера - проверка отчета / диалог",
+   "status": "to do",
+   "url": "https://app.clickup.com/t/86bcn44nh",
+   "priority": "normal",
+   "list": "Personal",
+   "list_id": "901413854636",
+   "tags": [],
+   "assignees": [
+    {
+     "id": 60710247,
+     "username": "Rost"
+    }
+   ],
+   "due": "2026-10-26",
+   "due_ms": 1793005200000,
+   "updated": "2026-10-25 14:36",
+   "closed": false
+  },
+  {
+   "id": "86b77wy0k",
+   "name": "СЕРЕЖА: 🕵🏻 ПРОЕКТ Сбор контактов: тест на всех магазинах - Сережа как дела?",
+   "status": "main",
+   "url": "https://app.clickup.com/t/86b77wy0k",
+   "priority": "normal",
+   "list": "Задачи Tabakevich",
+   "list_id": "901412862042",
+   "tags": [],
+   "assignees": [
+    {
+     "id": 60710247,
+     "username": "Rost"
+    }
+   ],
+   "due": "2026-10-28",
+   "due_ms": 1793178000000,
+   "updated": "2026-11-04 15:34",
+   "closed": false
+  },
+  {
+   "id": "86b7ypqbb",
+   "name": "Нет трафика OFTV LolaPop - ждем Кира",
+   "status": "to do",
+   "url": "https://app.clickup.com/t/86b7ypqbb",
+   "priority": "normal",
+   "list": "Models",
+   "list_id": "901412862040",
+   "tags": [],
+   "assignees": [
+    {
+     "id": 60710247,
+     "username": "Rost"
+    }
+   ],
+   "due": "2026-10-28",
+   "due_ms": 1793178000000,
+   "updated": "2026-10-25 14:18",
+   "closed": false
+  },
+  {
+   "id": "86bagudj7",
+   "name": "ПРОБЛЕМА ЗАКРЫТИЕ СМЕН: Юля тестирования с программистами",
+   "status": "to do",
+   "url": "https://app.clickup.com/t/86bagudj7",
+   "priority": "normal",
+   "list": "Задачи Tabakevich",
+   "list_id": "901412862042",
+   "tags": [
+    "🎯 фокус"
+   ],
+   "assignees": [
+    {
+     "id": 60710247,
+     "username": "Rost"
+    }
+   ],
+   "due": "2026-10-28",
+   "due_ms": 1793178000000,
+   "updated": "2026-11-13 00:21",
+   "closed": false
+  },
+  {
+   "id": "86b7th4zc",
+   "name": "(рей пастор заселить) Los Pueblos / ЗАПУСК В АРЕНДУ - (Оля контакты жильцов и подписанные сканы)",
+   "status": "to do",
+   "url": "https://app.clickup.com/t/86b7th4zc",
+   "priority": "normal",
+   "list": "Покупка, Ремонт, Продажа-Сдача",
+   "list_id": "901412672484",
+   "tags": [],
+   "assignees": [
+    {
+     "id": 60710247,
+     "username": "Rost"
+    },
+    {
+     "id": 62671471,
+     "username": "Ірина Шекель"
+    }
+   ],
+   "due": "2026-10-28",
+   "due_ms": 1793178000000,
+   "updated": "2026-10-25 14:19",
+   "closed": false
+  },
+  {
+   "id": "86bagvg08",
+   "name": "Aura проверить кредиты СРОЧНО - тесттим новый сервис",
+   "status": "to do",
+   "url": "https://app.clickup.com/t/86bagvg08",
+   "priority": "normal",
+   "list": "General Tasks OF",
+   "list_id": "901412862260",
+   "tags": [],
+   "assignees": [
+    {
+     "id": 60710247,
+     "username": "Rost"
+    }
+   ],
+   "due": "2026-11-01",
+   "due_ms": 1793523600000,
+   "updated": "2026-10-05 13:55",
+   "closed": false
+  },
+  {
+   "id": "86b9rnqmh",
+   "name": "Проверить оплату фрейм",
+   "status": "to do",
+   "url": "https://app.clickup.com/t/86b9rnqmh",
+   "priority": "normal",
+   "list": "Personal",
+   "list_id": "901413854636",
+   "tags": [],
+   "assignees": [
+    {
+     "id": 60710247,
+     "username": "Rost"
+    }
+   ],
+   "due": "2026-10-27",
+   "due_ms": 1793152800000,
+   "updated": "2026-09-28 18:12",
+   "closed": false
+  },
+  {
+   "id": "86b82evkw",
+   "name": "Интим - передача прав собственности (инстаграм и клауд)",
+   "status": "to do",
+   "url": "https://app.clickup.com/t/86b82evkw",
+   "priority": "normal",
+   "list": "Задачи Tabakevich",
+   "list_id": "901412862042",
+   "tags": [],
+   "assignees": [
+    {
+     "id": 60710247,
+     "username": "Rost"
+    }
+   ],
+   "due": "2026-10-27",
+   "due_ms": 1793091600000,
+   "updated": "2026-10-25 14:20",
+   "closed": false
+  },
+  {
+   "id": "86baqkyw4",
+   "name": "Алла: Страховой случай Лос Пуэблос - как продвигается?",
+   "status": "to do",
+   "url": "https://app.clickup.com/t/86baqkyw4",
+   "priority": "high",
+   "list": "Покупка, Ремонт, Продажа-Сдача",
+   "list_id": "901412672484",
+   "tags": [],
+   "assignees": [
+    {
+     "id": 60710247,
+     "username": "Rost"
+    }
+   ],
+   "due": "2026-11-11",
+   "due_ms": 1794387600000,
+   "updated": "2026-11-11 11:40",
+   "closed": false
+  },
+  {
+   "id": "86bbam834",
+   "name": "АЛЛА ПРОБИВ: Травля клопов проверка результата - спросить жильцов были новые?",
+   "status": "to do",
+   "url": "https://app.clickup.com/t/86bbam834",
+   "priority": "normal",
+   "list": "Покупка, Ремонт, Продажа-Сдача",
+   "list_id": "901412672484",
+   "tags": [],
+   "assignees": [
+    {
+     "id": 60710247,
+     "username": "Rost"
+    }
+   ],
+   "due": "2026-10-27",
+   "due_ms": 1793091600000,
+   "updated": "2026-10-25 15:35",
+   "closed": false
+  },
+  {
+   "id": "86bbzxbz4",
+   "name": "🏠Solvia Шейх - как провигается сделка? СРОЧНО",
+   "status": "to do",
+   "url": "https://app.clickup.com/t/86bbzxbz4",
+   "priority": "normal",
+   "list": "Сервисная доска Недвижимость",
+   "list_id": "901412595093",
+   "tags": [],
+   "assignees": [
+    {
+     "id": 60710247,
+     "username": "Rost"
+    }
+   ],
+   "due": "2026-10-27",
+   "due_ms": 1793091600000,
+   "updated": "2026-10-25 16:02",
+   "closed": false
+  },
+  {
+   "id": "86bbzxcdw",
+   "name": "🏠Solvia Мурсия - есть списки обьектов? (не отвечает, нужен вотсап)",
+   "status": "to do",
+   "url": "https://app.clickup.com/t/86bbzxcdw",
+   "priority": "normal",
+   "list": "Сервисная доска Недвижимость",
+   "list_id": "901412595093",
+   "tags": [],
+   "assignees": [
+    {
+     "id": 60710247,
+     "username": "Rost"
+    }
+   ],
+   "due": "2026-11-09",
+   "due_ms": 1794214800000,
+   "updated": "2026-10-25 14:22",
+   "closed": false
+  },
+  {
+   "id": "86bccqpd9",
+   "name": "ManyVids LolaPop- проверить выплату с платформы",
+   "status": "to do",
+   "url": "https://app.clickup.com/t/86bccqpd9",
+   "priority": "normal",
+   "list": "Models",
+   "list_id": "901412862040",
+   "tags": [],
+   "assignees": [
+    {
+     "id": 60710247,
+     "username": "Rost"
+    }
+   ],
+   "due": "2026-11-04",
+   "due_ms": 1793782800000,
+   "updated": "2026-10-04 11:15",
+   "closed": false
+  },
+  {
+   "id": "86b7wpgz2",
+   "name": "🛑Мама и бабушка сделать тест🛑 MyHeritage проверить статус в кабинете ОТМЕНИТЬ ПОДПИСКУ ГОДОВУЮ НА ОБНОВЛЕНИЯ",
+   "status": "to do",
+   "url": "https://app.clickup.com/t/86b7wpgz2",
+   "priority": "low",
+   "list": "Personal",
+   "list_id": "901413854636",
+   "tags": [],
+   "assignees": [
+    {
+     "id": 60710247,
+     "username": "Rost"
+    }
+   ],
+   "due": "2026-11-02",
+   "due_ms": 1793610000000,
+   "updated": "2026-10-25 14:22",
+   "closed": false
+  },
+  {
+   "id": "86b82r2b5",
+   "name": "Ирина оплата (все пришло?) - проверка отчета и решение",
+   "status": "to do",
+   "url": "https://app.clickup.com/t/86b82r2b5",
+   "priority": "normal",
+   "list": "Personal",
+   "list_id": "901413854636",
+   "tags": [],
+   "assignees": [
+    {
+     "id": 60710247,
+     "username": "Rost"
+    }
+   ],
+   "due": "2026-11-04",
+   "due_ms": 1793844000000,
+   "updated": "2026-10-12 13:13",
+   "closed": false
+  },
+  {
+   "id": "86bcpz1dq",
+   "name": "ОЛЯ — ВИКТОР: решить вопрос с оплатой (почему не платят) + чтоб вышли на связь с экономистом",
+   "status": "объекты",
+   "url": "https://app.clickup.com/t/86bcpz1dq",
+   "priority": "normal",
+   "list": "Покупка, Ремонт, Продажа-Сдача",
+   "list_id": "901412672484",
+   "tags": [],
+   "assignees": [
+    {
+     "id": 60710247,
+     "username": "Rost"
+    }
+   ],
+   "due": "2026-10-27",
+   "due_ms": 1793091600000,
+   "updated": "2026-10-28 12:45",
+   "closed": false
+  },
+  {
+   "id": "86bcpz1ye",
+   "name": "ОЛЯ — МИЛА: не платит за квартиру, есть проблемы ДОГОВОРИТЬСЯ ВЫСЕЛИТЬ",
+   "status": "объекты",
+   "url": "https://app.clickup.com/t/86bcpz1ye",
+   "priority": "normal",
+   "list": "Покупка, Ремонт, Продажа-Сдача",
+   "list_id": "901412672484",
+   "tags": [],
+   "assignees": [
+    {
+     "id": 60710247,
+     "username": "Rost"
+    }
+   ],
+   "due": "2026-10-27",
+   "due_ms": 1793091600000,
+   "updated": "2026-10-28 12:44",
+   "closed": false
+  },
+  {
+   "id": "86bcqufqn",
+   "name": "Control: утром проверять GitHub на новые полезные skills (+ блок-схема)",
+   "status": "to do",
+   "url": "https://app.clickup.com/t/86bcqufqn",
+   "priority": "normal",
+   "list": "General Tasks OF",
+   "list_id": "901412862260",
+   "tags": [],
+   "assignees": [
+    {
+     "id": 60710247,
+     "username": "Rost"
+    }
+   ],
+   "due": "2026-10-27",
+   "due_ms": 1793091600000,
+   "updated": "2026-10-25 10:29",
+   "closed": false
+  },
+  {
+   "id": "86bcxum51",
+   "name": "Вывести деньги из Specie",
+   "status": "to do",
+   "url": "https://app.clickup.com/t/86bcxum51",
+   "priority": "normal",
+   "list": "Personal",
+   "list_id": "901413854636",
+   "tags": [],
+   "assignees": [
+    {
+     "id": 60710247,
+     "username": "Rost"
+    }
+   ],
+   "due": "2026-11-04",
+   "due_ms": 1793782800000,
+   "updated": "2026-11-03 21:42",
+   "closed": false
+  },
+  {
+   "id": "86bcxumtu",
+   "name": "Control: Новембер-Шейх — сколько готовы платить за удаление контента с интернета / мес",
+   "status": "to do",
+   "url": "https://app.clickup.com/t/86bcxumtu",
+   "priority": "normal",
+   "list": "General Tasks OF",
+   "list_id": "901412862260",
+   "tags": [
+    "bot"
+   ],
+   "assignees": [
+    {
+     "id": 60710247,
+     "username": "Rost"
+    }
+   ],
+   "due": "2026-11-03",
+   "due_ms": 1793696400000,
+   "updated": "2026-11-03 21:42",
+   "closed": false
+  },
+  {
+   "id": "86b83y10c",
+   "name": "Контроль Марина @ValentinaHozka/@marinaOdsk ОПЛАТЫ - спросить как дела?",
+   "status": "to do",
+   "url": "https://app.clickup.com/t/86b83y10c",
+   "priority": "normal",
+   "list": "Personal",
+   "list_id": "901413854636",
+   "tags": [],
+   "assignees": [
+    {
+     "id": 60710247,
+     "username": "Rost"
+    }
+   ],
+   "due": "2026-11-04",
+   "due_ms": 1793782800000,
+   "updated": "2026-10-05 12:56",
+   "closed": false
+  },
+  {
+   "id": "86b7gxxed",
+   "name": "(Оля идти в банк) Отказы от страховки Плата 9 и Киверян (Киверян-отправить письмо / моя не исчезла из кабинета)",
+   "status": "to do",
+   "url": "https://app.clickup.com/t/86b7gxxed",
+   "priority": "normal",
+   "list": "Сервисная доска Недвижимость",
+   "list_id": "901412595093",
+   "tags": [],
+   "assignees": [
+    {
+     "id": 60710247,
+     "username": "Rost"
+    }
+   ],
+   "due": "2026-11-02",
+   "due_ms": 1793610000000,
+   "updated": "2026-10-25 14:26",
+   "closed": false
+  },
+  {
+   "id": "86bcn3c3u",
+   "name": "Проверить команду на iPhone для передачи шагов из «Здоровья» боту",
+   "status": "for check",
+   "url": "https://app.clickup.com/t/86bcn3c3u",
+   "priority": "normal",
+   "list": "Personal",
+   "list_id": "901413854636",
+   "tags": [],
+   "assignees": [
+    {
+     "id": 60710247,
+     "username": "Rost"
+    }
+   ],
+   "due": "2026-11-11",
+   "due_ms": 1794387600000,
+   "updated": "2026-11-11 22:48",
+   "closed": false
+  },
+  {
+   "id": "86bbkupz2",
+   "name": "(Сара тему - коврик) МОТО доукомплектовать (собрать набор, посчитать цену)",
+   "status": "main",
+   "url": "https://app.clickup.com/t/86bbkupz2",
+   "priority": "normal",
+   "list": "Personal",
+   "list_id": "901413854636",
+   "tags": [],
+   "assignees": [
+    {
+     "id": 60710247,
+     "username": "Rost"
+    }
+   ],
+   "due": "2026-11-02",
+   "due_ms": 1793610000000,
+   "updated": "2026-10-05 13:59",
+   "closed": false
+  },
+  {
+   "id": "86bc8zzeu",
+   "name": "(диалог с Аудри) Переформат ЛолаПоп - Мишель оформить каталог страницу - как успехи?",
+   "status": "to do",
+   "url": "https://app.clickup.com/t/86bc8zzeu",
+   "priority": "normal",
+   "list": "General Tasks OF",
+   "list_id": "901412862260",
+   "tags": [],
+   "assignees": [
+    {
+     "id": 60710247,
+     "username": "Rost"
+    }
+   ],
+   "due": "2026-10-26",
+   "due_ms": 1793005200000,
+   "updated": "2026-10-25 16:05",
+   "closed": false
+  },
+  {
+   "id": "86bd0u383",
+   "name": "Контроль: подключение света Пуэрто Сагунто (Андрей, электричество)",
+   "status": "to do",
+   "url": "https://app.clickup.com/t/86bd0u383",
+   "priority": "normal",
+   "list": "Сервисная доска Недвижимость",
+   "list_id": "901412595093",
+   "tags": [],
+   "assignees": [
+    {
+     "id": 60710247,
+     "username": "Rost"
+    }
+   ],
+   "due": "2026-11-11",
+   "due_ms": 1794387600000,
+   "updated": "2026-11-09 15:54",
+   "closed": false
+  },
+  {
+   "id": "86bd0y140",
+   "name": "Проверить: пришли ли Саре деньги на OKX + пришли ли $10 на кошелёк",
+   "status": "to do",
+   "url": "https://app.clickup.com/t/86bd0y140",
+   "priority": "normal",
+   "list": "General Tasks OF",
+   "list_id": "901412862260",
+   "tags": [],
+   "assignees": [
+    {
+     "id": 60710247,
+     "username": "Rost"
+    }
+   ],
+   "due": "2026-11-12",
+   "due_ms": 1794510000000,
+   "updated": "2026-11-12 22:50",
+   "closed": false
+  }
+ ]
+}

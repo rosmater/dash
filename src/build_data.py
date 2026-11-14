@@ -153,7 +153,8 @@ _OBJ = {'Profile visits': 'Визиты профиля', 'Conversations (app)': 
 _A, _R = _j('ads.json'), _j('replies.json')
 def _ad(a, st):
     ss = a.get('stats_at_verify') or {}
-    return dict(name=a.get('creative') or a.get('id'), account=a.get('account', ''), status=st,
+    real = str(a.get('status') or '').strip()
+    return dict(id=a.get('id') or '', name=a.get('creative') or a.get('id'), account=a.get('account', ''), platform=a.get('platform') or '', status=real or st,
                 start=_hm(a.get('started_at') or a.get('launch_at') or a.get('start')), end=a.get('finishes_approx', ''),
                 days=a.get('duration_days'), objective=next((v for k, v in _OBJ.items() if str(a.get('objective', '')).startswith(k)), a.get('objective', '')), audience=a.get('audience', ''),
                 budget=a.get('budget_cop_total') or a.get('budget_cop'), day_budget=a.get('budget_cop_day'),
@@ -1391,11 +1392,21 @@ for c in [x for x in cal_events if x['src'] == 'clickup']:
         c['linked'] = True
 cal_events = [x for x in cal_events if not x.get('linked')]
 cal_events.sort(key=lambda x: x['start'])
+def _load_view_snap(fn):
+    _p=os.path.join(os.path.dirname(__file__), fn)
+    try:
+        _d=json.load(open(_p, encoding='utf-8'))
+        return _d if isinstance(_d, dict) else dict(tasks=_d or [])
+    except Exception:
+        return dict(tasks=[])
+ROS_VIEW = _load_view_snap('ma_ros.json')
+ROS_BOT_VIEW = _load_view_snap('ma_ros_bot.json')
 calendar_dir = dict(id='calendar', kind='calendar', name='Календарь', subtitle='Google Календарь + задачи ClickUp со временем · Богота',
     currency='USD', color='#4285f4', icon='📅', no_overview_totals=True, periods={}, breakdowns=[], goals=[], tasks=[], gaps=[],
     events=cal_events, gcal_fetched_at=_g.get('fetched_at'), cu_fetched_at=_cu.get('fetched_at'),
     gcal_range=_g.get('range') or {},
     data_issues=[x for x in [None if _g else 'Google Calendar: нет снимка /workspace/gcal_dash.json', None if _cu else 'ClickUp: нет снимка /workspace/cu_cal_dash.json'] if x],
+    ros=ROS_VIEW, ros_bot=ROS_BOT_VIEW,  # t6353u: виды Ros / Ros (BOT) — блок в режиме День
     gcal_url='https://calendar.google.com/calendar/u/0/r/week?authuser=zayavki.ua@gmail.com',
     refresh='Обновить: агент читает Google Calendar (list_events) и ClickUp (filter_tasks) → /workspace/gcal_dash.json, /workspace/cu_cal_dash.json → src/build.sh → пуш')
 
@@ -1423,6 +1434,7 @@ data = dict(
          ],
          tasks=tasks(['86bb779rw']),  # Rost 25.10: на Пептидах только задачи Rost (assignee 60710247 / «Я:»); 86bc8rxd8 (Сара) убрана
          peptides_board=PEPTIDES_BOARD,  # t6287u: доска как на ОФ/Личном
+         bot_work=BOT_WORK,  # t6349u: «🤖 На решении у бота»
          gaps=[],  # Rost 25.10: ЗП Сары внесут позже — не attn; не-киты COGS 100k; TG Target gap убран
          ),
     dict(id='of', stage='money', name='ОФ', subtitle='OnlyFans · агентство моделей', currency='USD', color='#a78bfa', icon='🎬',
@@ -1436,6 +1448,7 @@ data = dict(
          ],
          tasks=tasks(['86bcn2d1t', '86b6z79t1', '86b7heru3', '86b9abep9', '86bcn2g2q', '86b9wh8cd', '86bd2v24a']),  # 86bd2v24a Сейдер iPhone/Xcode (t6216u); 86bc1tdu5 IPRoyal → COMMS BOT R
          of_board=OF_BOARD,
+         bot_work=BOT_WORK,  # t6349u: «🤖 На решении у бота»
          of_blocks=OFB,
          scheduled_calls=of_calls,  # Rost t5810u
          gaps=of_gaps_extra),  # t703u/t704u: known-rule notes (office/IPRoyal, RA185/RA222) removed — not attn
@@ -1448,6 +1461,7 @@ data = dict(
          ],
          tasks=tasks(['86b7wu7jq', '86b6qz12h', '86b88jb1f', '86baqkyw4', '86bc1d1wj', '86b9va7c4', '86b8ttzmc']),
          re_blocks=REB, fact_1c=RE_FACT,  # Rost 25.10: блоки Недвижимости; t5985u: из чего сложилось
+         bot_work=BOT_WORK,  # t6349u: «🤖 На решении у бота»
          gaps=[]),  # t5732u: EUR confirmed; t5733u/t5734u: no Colombia rental portfolio (gaps empty); t5736u: Base Loft = personal CU 86bcma7tp (not RE table); t5723u: weekly note removed — monthly is the rule,
     dict(id='tabakevich', stage='money', name='Табакевич', subtitle='Украина · e-shop + магазин', currency='USD', color='#38bdf8', icon='💨',
          overview_note='Табакевич: валовая прибыль всего направления (до опер. расходов, ФОТ и доли партнёра), не доход Rost.',
@@ -1459,6 +1473,7 @@ data = dict(
          ],
          tasks=tasks(['86b6u7p2v', '86b7n8kwx', '86bcj512x', '86bcgckxu', '86b92hrcp', '86b8gv8kj']),
          tbk_board=TBK_BOARD,  # t6244u: доска как на ОФ
+         bot_work=BOT_WORK,  # t6349u: «🤖 На решении у бота»
          tbk_blocks=TBKB, fact_1c=TBK_FACT,  # Rost 25.10: блоки Табакевича (над мониторами/показателями)
          monitors_title='Из «Перемен к лучшему»', monitors_sub='Кальян · Направления · статус сен',
          # Rost 25.10: по очереди из листа «Направления» таблицы ПЕРЕМЕНЫ К ЛУЧШЕМУ → мониторы на вкладке
