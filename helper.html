@@ -602,6 +602,27 @@ details.def-ur > summary::-webkit-details-marker,details.def-ur > summary::marke
 #main .of-today-list .trow:last-child,
 #main .pers-bots .bw-row:last-child{border-bottom:1px solid var(--line)}
 
+
+/* Rost t6401u: в Календаре «Сегодня» — приоритеты по всем направлениям (только сегодня и просроченные); значок направления в начале строки Ros / Ros bot / этих приоритетов; линия под заголовками Ros и Ros bot; значки CU-строк плотнее.
+   t6403u: меньше левый и правый внутренний отступ у блоков Сегодня календаря (примерно вдвое). */
+.task.trow,.ln.trow{gap:2px}
+.trow .thb{margin:0 0 0 2px}
+.recur-ico{margin:0}
+.trow>.pill,.trow>.st,.trow>.of-hang,.trow>.note,.trow>.role-pill,.trow>.status-pill,.trow>.recur-ico,.trow>.health-badge,.trow>.dir-ico{margin:0}
+.thb .th-ico,.thb a.th-ico,.thb button.th-ico{padding:2px 3px}
+.dir-ico{flex:none;display:inline-flex;align-items:center;justify-content:center;font-size:14px;line-height:1;width:1.2em;padding:0}
+#main .cal-ros-row{align-items:start}
+#main .cal-ros-row>.card{max-height:none;overflow:visible;height:auto;align-self:start;padding:0}
+#main .cal-ros-row>.card>h3{margin:0;padding:6px 8px 3px;border-bottom:1px solid var(--line)}
+#main .cal-ros-row>.card>:not(h3){margin-left:8px;margin-right:8px}
+#main .cal-ros-row>.card>:last-child{margin-bottom:6px}
+#main .cal-ros-list{margin-top:3px;margin-left:8px;margin-right:8px;margin-bottom:6px;--bw-row-h:28px;height:auto;max-height:calc(var(--bw-row-h) * 10);overflow-y:auto;-webkit-overflow-scrolling:touch}
+#main .cal-ros-list .trow,#main .cal-prio-list .trow{box-sizing:border-box;height:var(--bw-row-h,28px);min-height:var(--bw-row-h,28px);max-height:var(--bw-row-h,28px);padding-top:0;padding-bottom:0;border-bottom:1px solid var(--line);align-items:center}
+#main .cal-prio-day.card.of-prio{padding:2px}
+#main .cal-prio-day .of-prio-sub{padding:2px 3px}
+#main .cal-prio-list{margin-top:3px;--bw-row-h:28px;height:auto;max-height:calc(var(--bw-row-h) * 10);overflow-y:auto;-webkit-overflow-scrolling:touch}
+@media(max-width:720px){#main .cal-ros-row>.card{max-height:none}}
+
 </style><link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%2322c3a6%22/%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%237b5cff%22/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2216%22%20fill%3D%22url%28%23g%29%22/%3E%3Crect%20x%3D%2215%22%20y%3D%2234%22%20width%3D%228%22%20height%3D%2215%22%20rx%3D%223%22%20fill%3D%22%23fff%22/%3E%3Crect%20x%3D%2228%22%20y%3D%2224%22%20width%3D%228%22%20height%3D%2225%22%20rx%3D%223%22%20fill%3D%22%23fff%22/%3E%3Crect%20x%3D%2241%22%20y%3D%2215%22%20width%3D%228%22%20height%3D%2234%22%20rx%3D%223%22%20fill%3D%22%23fff%22%20opacity%3D%22.92%22/%3E%3C/svg%3E">
 </head><body><div class="wrap">
 <header><div class="brand"><div class="logo">R</div><div><h1>Бизнес-дашборд</h1><small id="sub"></small></div></div><div id="bdhdr"></div>
@@ -1527,10 +1548,28 @@ function calMonthBlockHTML(evs,k){
   ${sum}
  </div>`}
 function calSetMonth(ym){calMonthCursor=ym;const today=bDay(new Date().toISOString()),days=calMonthDays(ym);if(today.slice(0,7)===ym){calDay=today;return}const keep=(calDay||today).slice(8,10),cand=ym+'-'+keep;calDay=days.includes(cand)?cand:(days[0]||ym+'-01')}
+function dirTaskMap(){if(dirTaskMap._c&&dirTaskMap._d===Dash.D)return dirTaskMap._c;const map={},D=Dash.D||{},order=['peptides','personal','realestate','tabakevich','of','defense','coaching'];
+  const walk=(dirId,obj)=>{if(!obj)return;if(Array.isArray(obj)){for(const t of obj){const id=t&&(t.id||(typeof cuTaskId==='function'&&cuTaskId(t)));if(id&&!map[id])map[id]=dirId;if(t&&t.tasks)walk(dirId,t.tasks)}return}if(typeof obj==='object'){for(const k of['today','prio_mine','prio_staff','tasks','urgent_tasks','scheduled_calls','routine'])walk(dirId,obj[k]);for(const g of obj.routine_groups||[])walk(dirId,g.tasks||g)}};
+  const dirs=[...(D.directions||[])].slice().sort((a,b)=>{const ia=order.indexOf(a.id),ib=order.indexOf(b.id);return(ia<0?99:ia)-(ib<0?99:ib)});
+  for(const d of dirs){if(!d||!d.id||d.kind==='calendar'||d.kind==='msgs'||['messengers','assistants','calendar'].includes(d.id))continue;walk(d.id,d.tasks);walk(d.id,typeof boardOf==='function'?boardOf(d):null);walk(d.id,d.personal_board);walk(d.id,d.of_board);walk(d.id,d.tbk_board);walk(d.id,d.peptides_board);walk(d.id,d.board)}
+  dirTaskMap._c=map;dirTaskMap._d=Dash.D;return map}
+const DIR_LIST_TAB=[['Personal','personal'],['Сервисная доска Недвижимость','realestate'],['Покупка, Ремонт, Продажа-Сдача','realestate'],['General Tasks OF','of'],['Models','of'],['Projects OF','of'],['Задачи Tabakevich','tabakevich'],['Юля','tabakevich'],['SEO','tabakevich'],['Tasks','defense']];
+function dirIdOfTask(t){const id=typeof cuTaskId==='function'?cuTaskId(t):((t&&t.id)||'');const cache=dirTaskMap();if(id&&cache[id])return cache[id];const lst=String((t&&t.list)||'').toLowerCase();for(const[k,tab]of DIR_LIST_TAB){if(lst&&lst.includes(String(k).toLowerCase()))return tab}return ''}
+function dirInfoOf(id){return((Dash.D||{}).directions||[]).find(x=>x.id===id)||null}
+function dirIconHTML(t){const info=dirInfoOf(dirIdOfTask(t));if(!info||!info.icon)return '';return `<span class="dir-ico" title="${esc(info.name)}">${info.icon}</span>`}
+function calTodayRow(t){return `<div class="task trow cal-today-row">${dirIconHTML(t)}${taskLeadHTML(t)}${cuTitleHTML(t)}${thBtns(t)}</div>`}
+function calPrioDayHTML(){const today=dueTodayStr();const dueOk=t=>t&&t.due&&String(t.due).slice(0,10)<=today;const mine=[],staff=[],seenM=new Set(),seenS=new Set();
+  const add=(arr,seen,t)=>{if(!t||thHidden(t)||cuClosed(t)||!dueOk(t))return;const id=(typeof cuTaskId==='function'&&cuTaskId(t))||t.id||t.name;if(!id||seen.has(id))return;seen.add(id);arr.push(t)};
+  for(const d of(Dash.D&&Dash.D.directions)||[]){if(!d||d.kind==='calendar'||d.kind==='msgs'||['messengers','assistants','calendar'].includes(d.id))continue;const B=(typeof boardOf==='function'&&boardOf(d))||d.personal_board||d.of_board||d.tbk_board||d.peptides_board||null;
+    if(B&&((B.prio_mine&&B.prio_mine.length)||(B.prio_staff&&B.prio_staff.length))){(B.prio_mine||[]).forEach(x=>add(mine,seenM,x));(B.prio_staff||[]).forEach(x=>add(staff,seenS,x))}
+    else{for(const x of d.tasks||[]){if(!isFocus(x))continue;(cuIsRost(x)?add(mine,seenM,x):add(staff,seenS,x))}}}
+  mine.sort(roleThenDueSort);staff.sort(roleThenDueSort);
+  const row=t=>{if(!t||thHidden(t)||cuClosed(t))return '';return `<div class="task trow cal-today-row">${dirIconHTML(t)}${taskLeadHTML(t,{dueHTML:ofDueHangHTML(t)})}${cuTitleHTML(t)}${ofRowBadge(t)}${cuWhoHTML(t,{silent:true})}${thBtns(t)}</div>`};
+  const block=(title,ts)=>`<div class="of-prio-sub"><h4>${esc(title)} <span class="st">${ts.length}</span></h4>${ts.length?`<div class="cal-prio-list">${ts.map(row).join('')}</div>`:'<div class="empty of-prio-empty">Нет приоритетов на сегодня и просроченных</div>'}</div>`;
+  return `<div class="card of-prio cal-prio-day" style="margin-bottom:14px"><div class="of-prio-grid">${block('Приоритеты: на решение мне',mine)}${block('Приоритеты: на решение у сотрудников',staff)}</div></div>`}
 function calRosDayHTML(d){const today=dueTodayStr();
   const take=L=>((L||[]).filter(t=>t.due&&String(t.due).slice(0,10)<=today&&!thHidden(t)&&!cuClosed(t)).slice().sort(calRosDaySort));
-  const row=t=>`<div class="task trow">${taskLeadHTML(t)}${cuTitleHTML(t)}${thBtns(t)}</div>`;
-  const col=(title,ts,empty)=>`<div class="card"><h3>${esc(title)} <span class="st">${ts.length}</span></h3>${ts.length?ts.map(row).join(''):`<div class="empty">${esc(empty)}</div>`}</div>`;
+  const col=(title,ts,empty)=>`<div class="card"><h3>${esc(title)} <span class="st">${ts.length}</span></h3><div class="cal-ros-list">${ts.length?ts.map(calTodayRow).join(''):`<div class="empty">${esc(empty)}</div>`}</div></div>`;
   const A=take((d.ros&&d.ros.tasks)||[]),B=take((d.ros_bot&&d.ros_bot.tasks)||[]);
   return `<div class="cal-ros-row">${col('Ros',A,'Нет задач на сегодня и просроченных')}${col('Ros bot',B,'Нет задач на сегодня и просроченных')}</div>`}
 function calSnapShort(s){const m=String(s||'').match(/(\d{4})-(\d{2})-(\d{2})[T ](\d{2}):(\d{2})/);return m?(m[3]+'.'+m[2]+' '+m[4]+':'+m[5]):(s?String(s):'—')}
@@ -1556,7 +1595,7 @@ function calendar(d){const ev=(d.events||[]).filter(e=>!e.all_day),today=bDay(ne
  let sc=0;
  if(month){h+=calMonthBlockHTML(ev,k)}
  else if(week){h+=`<div class="cal-week-grid">${tlWeekHTML(ev,k,{cuOnly:d.cu_only,src:calSrc,dated:d.cu_day_only||[]})}<div class="cal-day-break">${calBreakDonutHTML(ev,days,'week')}</div></div>`}
- else{h+=calRosDayHTML(d);const t=tlHTML(ev,k,{cuOnly:d.cu_only,src:calSrc,px:32,h:'min(64vh,640px)'});h+=`<div class="cal-day-grid"><div class="cal-day-tl">${t.h}</div><div class="cal-day-break">${calBreakDonutHTML(ev,[k])}</div></div>`;sc=t.sc}
+ else{h+=calRosDayHTML(d)+calPrioDayHTML();const t=tlHTML(ev,k,{cuOnly:d.cu_only,src:calSrc,px:32,h:'min(64vh,640px)'});h+=`<div class="cal-day-grid"><div class="cal-day-tl">${t.h}</div><div class="cal-day-break">${calBreakDonutHTML(ev,[k])}</div></div>`;sc=t.sc}
  const sub=$('#sub');if(sub)sub.textContent=month?'Календарь · месяц':week?'Календарь · неделя':'Календарь · день';
  $('#main').innerHTML=h;
  document.querySelectorAll('[data-cmonth-day]').forEach(b=>b.onclick=()=>{calMonthCursor=b.dataset.cmonthDay.slice(0,7);calGoDay(b.dataset.cmonthDay,'day')});
