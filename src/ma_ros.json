@@ -1,6 +1,6 @@
 {
- "fetched": "2026-11-13 21:42 Bogotá",
- "src": "clickup_filter_tasks view_id=8cn3rz8-1914 (workspace view «Ros») + roles + roles",
+ "fetched": "2026-11-14 00:45 Bogotá",
+ "src": "clickup_filter_tasks view_id=8cn3rz8-1914 (workspace view «Ros») + roles + roles + t6413u add 86b7wu7jq Control",
  "view": {
   "id": "8cn3rz8-1914",
   "name": "Ros",
@@ -44,8 +44,29 @@
   ],
   "show_closed": false
  },
- "count": 145,
+ "count": 146,
  "tasks": [
+  {
+   "id": "86b7wu7jq",
+   "name": "Алла: сдать квартиру Сагунто (побелка/балкон)",
+   "status": "to do",
+   "url": "https://app.clickup.com/t/86b7wu7jq",
+   "priority": "normal",
+   "list": "Сервисная доска Недвижимость",
+   "list_id": "901412595093",
+   "tags": [],
+   "assignees": [
+    {
+     "id": 60710247,
+     "username": "Rost"
+    }
+   ],
+   "due": "",
+   "due_ms": null,
+   "updated": "2026-11-14 00:45",
+   "closed": false,
+   "role": "TO DO"
+  },
   {
    "id": "86bcp3yd9",
    "name": "Вернуть залог Наталье Поляковой (Оливино 3)",

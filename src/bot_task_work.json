@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-14 00:34",
+ "generated": "2026-11-14 00:45",
  "tz": "America/Bogota",
  "src": "bot-routines-inventory + ROUTINE-GROUPS/CALENDAR + knowledge KB READMEs + queue scripts; not ClickUp descriptions",
  "tasks": {
@@ -161,9 +161,5 @@
    "Раз в две недели пингует Michelle по расписанию постинга OFTV, обновляет даты окончаний и пишет RU-digest в эту задачу"
   ]
  },
- "missing": [
-  "86bctn6z8",
-  "86bcxtup4",
-  "86b7wu7jq"
- ]
+ "missing": []
 }

@@ -1,6 +1,6 @@
 {
- "fetched": "2026-11-14 00:05 Bogotá",
- "src": "clickup_filter_tasks view_id=8cn3rz8-3574 (workspace view «Ros (BOT)») + BOT R via task.get_many + enrich tmp/ros_bot_enrich.json + roles + roles",
+ "fetched": "2026-11-14 00:45 Bogotá",
+ "src": "clickup_filter_tasks view_id=8cn3rz8-3574 (workspace view «Ros (BOT)») + BOT R via task.get_many + enrich tmp/ros_bot_enrich.json + roles + roles + t6413u drop 86bctn6z8,86bcxtup4,86b7wu7jq",
  "view": {
   "id": "8cn3rz8-3574",
   "name": "Ros (BOT)",
@@ -43,7 +43,7 @@
   "show_closed": false,
   "not": "Role, tags, «Передать на бота» are not part of this view filter. Contrast: view «Ros» (8cn3rz8-1914) is the same open+assignee=Rost set with BOT R NOT SET."
  },
- "count": 48,
+ "count": 45,
  "tasks": [
   {
    "id": "86b6qq509",
@@ -70,62 +70,6 @@
    "description": "",
    "last_comment": "",
    "thesis": "Фин подбить баланс (30м) (отчет Алексей)",
-   "role": "TO DO"
-  },
-  {
-   "id": "86bctn6z8",
-   "name": "БОТ: Настроить автообзвон объектов",
-   "status": "to do",
-   "url": "https://app.clickup.com/t/86bctn6z8",
-   "priority": "normal",
-   "list": "Сервисная доска Недвижимость",
-   "list_id": "901412595093",
-   "tags": [],
-   "assignees": [
-    {
-     "id": 60710247,
-     "username": "Rost"
-    }
-   ],
-   "due": "2026-10-28",
-   "due_ms": 1793178000000,
-   "updated": "2026-10-27 20:27",
-   "closed": false,
-   "bot_r": "Помощник по всему",
-   "bot_r_id": "9f513555-1c69-4d5a-a933-e55b55f9340b",
-   "transfer": "да",
-   "description": "",
-   "last_comment": "",
-   "thesis": "Настроить автообзвон объектов",
-   "role": "TO DO"
-  },
-  {
-   "id": "86bcxtup4",
-   "name": "Мама: исправить актуальные (Коучинг даш)",
-   "status": "to do",
-   "url": "https://app.clickup.com/t/86bcxtup4",
-   "priority": "normal",
-   "list": "Personal",
-   "list_id": "901413854636",
-   "tags": [
-    "bot"
-   ],
-   "assignees": [
-    {
-     "id": 60710247,
-     "username": "Rost"
-    }
-   ],
-   "due": "2026-11-03",
-   "due_ms": 1793696400000,
-   "updated": "2026-11-03 21:42",
-   "closed": false,
-   "bot_r": "Секретарь",
-   "bot_r_id": "f6a849ca-31e5-44fc-b6e6-5824d366742e",
-   "transfer": "",
-   "description": "",
-   "last_comment": "",
-   "thesis": "Мама: исправить актуальные (Коучинг даш)",
    "role": "TO DO"
   },
   {
@@ -263,33 +207,6 @@
    "description": "",
    "last_comment": "",
    "thesis": "С ИРИНОЙ: Просмотр отчета по дебиторке (комменты)",
-   "role": "TO DO"
-  },
-  {
-   "id": "86b7wu7jq",
-   "name": "Алла: сдать квартиру Сагунто (побелка/балкон)",
-   "status": "to do",
-   "url": "https://app.clickup.com/t/86b7wu7jq",
-   "priority": "normal",
-   "list": "Сервисная доска Недвижимость",
-   "list_id": "901412595093",
-   "tags": [],
-   "assignees": [
-    {
-     "id": 60710247,
-     "username": "Rost"
-    }
-   ],
-   "due": "",
-   "due_ms": null,
-   "updated": "2026-11-08 19:44",
-   "closed": false,
-   "bot_r": "Секретарь",
-   "bot_r_id": "f6a849ca-31e5-44fc-b6e6-5824d366742e",
-   "transfer": "на человека",
-   "description": "",
-   "last_comment": "",
-   "thesis": "Алла: сдать квартиру Сагунто (побелка/балкон)",
    "role": "TO DO"
   },
   {
