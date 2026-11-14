@@ -1851,8 +1851,8 @@ function ofBlocksHTML(d){if(d.id!=='of'||!d.of_blocks)return '';const B=d.of_blo
   const tN=2+tCols.length;
   const mW=(x,id)=>(x.by_week||{})[id]||null;
   const qv=(label,html)=>`<span class="q"><span class="l">${label}</span><span class="v">${html}</span></span>`;
-  const mQuad=w=>{if(!w)return '—';const has=[w.net,w.gross,w.fans,w.arpu].some(v=>v!=null&&v!=='');if(!has)return '—';
-    return `<div class="of-ts-quad">${qv('наш',w.net==null?'—':$u(w.net))}${qv('оборот',w.gross==null?'—':$u(w.gross))}${qv('фаны',w.fans==null?'—':n(w.fans))}${qv('ARPU',w.arpu==null?'—':$u(w.arpu))}</div>`;};
+  const mQuad=(w,opt)=>{opt=opt||{};if(!w)return '—';const showA=opt.arpu!==false;const has=[w.net,w.gross,w.fans,showA?w.arpu:null].some(v=>v!=null&&v!=='');if(!has)return '—';
+    return `<div class="of-ts-quad">${qv('наш',w.net==null?'—':$u(w.net))}${qv('оборот',w.gross==null?'—':$u(w.gross))}${qv('фаны',w.fans==null?'—':n(w.fans))}${showA?qv('ARPU',w.arpu==null?'—':$u(w.arpu)):''}</div>`;};
   const totW=id=>{const xs=(T.models||[]).map(x=>mW(x,id)).filter(w=>w&&[w.net,w.gross,w.fans,w.arpu].some(v=>v!=null&&v!==''));if(!xs.length)return null;
     let net=0,gross=0,fans=0,hn=false,hg=false,hf=false;
     xs.forEach(w=>{if(w.net!=null){net+=+w.net;hn=true}if(w.gross!=null){gross+=+w.gross;hg=true}if(w.fans!=null){fans+=+w.fans;hf=true}});
@@ -1862,7 +1862,7 @@ function ofBlocksHTML(d){if(d.id!=='of'||!d.of_blocks)return '';const B=d.of_blo
   ${T.arpu_note?`<div class="note" style="margin:2px 0 6px;white-space:normal">${esc(T.arpu_note)}</div>`:''}
   <div class="tblwrap"><table class="of-ts-models"><tr><th>Модель</th><th>Условия</th>${tHead}</tr>
   ${(T.models||[]).map(x=>`<tr${tsOpen(x)}><td><b>${esc(x.ra)}</b>${x.name?' <span class="note">'+esc(x.name)+'</span>':''} ${tsList(x)}</td><td class="of-ts-terms">${esc(x.terms||'—')}</td>${tCols.map(c=>`<td class="n">${mQuad(mW(x,c.id))}</td>`).join('')}</tr>${tsDetail(x,tN)}`).join('')}
-  <tr style="font-weight:700;background:#f4f7fb"><td>Итого</td><td></td>${tCols.map(c=>`<td class="n">${mQuad(totW(c.id))}</td>`).join('')}</tr>
+  <tr style="font-weight:700;background:#f4f7fb"><td>Итого</td><td></td>${tCols.map(c=>`<td class="n">${mQuad(totW(c.id),{arpu:false})}</td>`).join('')}</tr>
   </table></div>
 </div>`}
  /* 3) ОФТВ */

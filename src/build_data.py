@@ -1195,7 +1195,24 @@ for ra in _ras:
             if src_row: break
     if src_row:
         rule = src_row.get('rule') or ''
-    term_bits = [b for b in ((note or rule), _TS_PLACE.get(ra, '')) if b]
+    def _fmt_pct(p):
+        if p is None or str(p).strip() == '':
+            return None
+        try:
+            v = float(p)
+            return f"{int(v)}%" if v == int(v) else f"{v}%"
+        except (TypeError, ValueError):
+            s = str(p).strip()
+            return s if s.endswith('%') else s + '%'
+    # t6329u: условия простыми словами, не «×0.97×0.97 партнёр»
+    if ra == 'RA185':
+        term_bits = [note or 'наш доход 0 до 15.01.2027']
+    else:
+        term_bits = [b for b in (_fmt_pct(last_row.get('pct') or (src_row or {}).get('agency_pct')), '−3% вывод') if b]
+        if 'партнёр' in (rule or ''):
+            term_bits.append('−3% партнёру')
+    if _TS_PLACE.get(ra):
+        term_bits.append(_TS_PLACE[ra])
     _ts_models.append(dict(ra=ra, name=_TS_NAME.get(ra, ''), place=_TS_PLACE.get(ra, ''),
                            gross=last_row.get('gross'), pct=last_row.get('pct'), net=last_row.get('net'),
                            fans_new=last_row.get('fans'), prev_net=prev_row.get('net'), prev_gross=prev_row.get('gross'),
