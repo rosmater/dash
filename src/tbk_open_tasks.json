@@ -1,7 +1,7 @@
 {
  "_doc": "t6244u/t6259u/t6260u: открытые рабочие задачи пространства Tabakevich (90144306286, списки «Задачи Tabakevich» / «Юля» / «SEO») для доски вкладки Табакевич, как of_open_tasks.json. complete/main/models исключены. Тег «🎯 фокус» на задачах прежнего блока «На решение» (86bbhwpa6, 86bagudj7, 86bd1xnvc) и на новой 86bd2xjaa (Серёжа, Role=CALL). Снимок обновлён 13.11 00:24 Богота. t6261u: закрыт дубль 86bcptcp4 (complete; ведём в 86bd2xjaa).",
  "fetched_at": "2026-11-14T02:16:15-05:00",
- "src": "cu_snap_sync dump tbk_p1.json (full)",
+ "src": "cu_snap_sync MCP filter_tasks space 90144306286 full (2 pages, 14.11 02:16 Богота) · тег «🎯» уже новое имя",
  "tasks": [
   {
    "id": "86b7ype93",

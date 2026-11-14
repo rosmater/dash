@@ -259,7 +259,8 @@ def main():
         try:
             if k in dumps:
                 rows = [(t, None) for pth in dumps[k].split(',') for t in load_dump(pth)]  # несколько страниц: key=p0.json,p1.json
-                full, src = a.full, f'cu_snap_sync dump {Path(dumps[k]).name}' + (' (full)' if a.full else ' (merge)')
+                full = a.full
+                src = f'cu_snap_sync MCP filter_tasks ' + (f'space {cfg["space"]}' if cfg.get('space') else 'subtasks ' + '+'.join(cfg.get('parents') or [])) + (' full' if a.full else ' merge')  # id пространства — маркер verify_live
             elif not token:
                 continue
             elif cfg.get('parents'):
