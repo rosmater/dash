@@ -1116,12 +1116,15 @@ def _ra_nums(s):
     for m in re.finditer(r'RA\s?(\d{3})((?:\s?/\s?(?:RA\s?)?\d{3})*)', s, re.I):
         out.add(m.group(1)); out |= set(re.findall(r'\d{3}', m.group(2) or ''))
     return out
-# ТС: две последние закрытые недели + текущая неполная
+# ТС: только 3 закрытые недели (t6318u / t6320u / t6321u) — текущую неполную не показываем
 _wk_full = sorted([k for k, v in of_periods.items() if v['status'] == 'full'])
 _wk_part = sorted([k for k, v in of_periods.items() if v['status'] != 'full'])
 RA185_INCOME_FROM = datetime.date(2027, 1, 15)  # income-rules.md / Rost t5593u
+# Имена и площадка — из knowledge/05services-weekly/README.md; формулы — income-rules.md
+_TS_NAME = {'RA210': 'Tati Kare', 'RA212': 'Katherine', 'RA213': 'Laura', 'RA217': 'Juliana', 'RA221': 'Gabriela', 'RA222': 'Valentina TRANS'}
+_TS_PLACE = {**{r: 'виртуально' for r in ('RA130', 'RA180', 'RA185')}, **{r: 'Колумбия' for r in ('RA210', 'RA212', 'RA213', 'RA217', 'RA221', 'RA222')}}
 def _ts_week(k):
-    if not k: return None
+    if not k or k not in of_periods: return None
     b = next((x for x in of_break if x['period'] == k), None); rows = b['rows'] if b else []
     try:
         ws = datetime.date.fromisoformat(k.split(':', 1)[1])
@@ -1134,30 +1137,63 @@ def _ts_week(k):
     act = [r for r in rows if _in_arpu(r)]
     net = sum(float(r[3] or 0) for r in act)
     gross = sum(float(r[1] or 0) for r in act)
+    fans = sum(int(float(r[4] or 0)) for r in act)
     w = next((x for x in weeks if 'W:' + x['id'] == k), None)
     _po = next((e for e in of_periods[k]['expenses'] if e.get('kind') == 'payout'), None)
     _inc = of_periods[k]['income'][0]['amount']
     _pay = dict(payout=_po['usdt'], payout_rate=_po.get('fx_rate'), payout_rate_label=_po.get('fx_label'), payout_unpaid_n=_po.get('unpaid_n', 0),
                 profit=round(_inc - _po['usdt'], 2), profit_tip=OF_PROFIT_TIP) if _po else dict(payout=None, profit=None)
     return dict(id=k, label=w['label'] if w else k[2:], status=of_periods[k]['status'], net=round(net, 2), gross=round(gross, 2),
-                models=len(act), arpu=round(net / len(act), 2) if act else None, arpu_gross=round(gross / len(act), 2) if act else None, **_pay)
+                fans=fans, models=len(act), arpu=round(net / len(act), 2) if act else None, arpu_gross=round(gross / len(act), 2) if act else None, **_pay)
 _ts_last, _ts_prev = (_wk_full[-1] if _wk_full else None), (_wk_full[-2] if len(_wk_full) > 1 else None)
-_ts_cur = _wk_part[-1] if _wk_part and (not _ts_last or _wk_part[-1] > _ts_last) else None
-_lb = next((x for x in of_break if x['period'] == (_ts_cur or _ts_last)), {'rows': []})
-# t6194u: prev_net = previous period, not the same week. When there is a current partial week,
-# models are that week vs last full; when there isn't, models are last full vs the week before it.
-_cmp_week = _ts_last if _ts_cur else _ts_prev
-_pb = {r[0]: r for r in next((x for x in of_break if x['period'] == _cmp_week), {'rows': []})['rows']}
+_ts_prev2 = _wk_full[-3] if len(_wk_full) > 2 else None
+_ts_weeks = [_ts_week(k) for k in _wk_full]
+# по моделям: союз последних 3 закрытых недель (без текущей)
+_last3 = [k for k in (_ts_last, _ts_prev, _ts_prev2) if k]
+_ts_by = {}
+for b in of_break:
+    if b['period'] not in _wk_full:
+        continue
+    for r in b['rows']:
+        _ts_by.setdefault(r[0], {})[b['period']] = dict(gross=r[1], pct=r[2], net=r[3], fans=r[4])
+_ras = []
+for k in _last3:
+    for r in next((x for x in of_break if x['period'] == k), {'rows': []})['rows']:
+        if r[0] not in _ras:
+            _ras.append(r[0])
 _ts_models = []
-for r in _lb['rows']:
-    num = r[0][2:]
+for ra in _ras:
+    num = ra[2:]
     ts_tasks = [_cut(t) for t in _ocu_open if num in (_ra_nums(t['name']) | _ra_nums(t.get('parent')))]
-    p = _pb.get(r[0])
-    note = 'наш доход 0 до 15.01.2027' if r[0] == 'RA185' else ''
-    _ts_models.append(dict(ra=r[0], gross=r[1], pct=r[2], net=r[3], fans_new=r[4], prev_net=p[3] if p else None, prev_gross=p[1] if p else None, tasks=ts_tasks, note=note))
-OFB['ts'].update(last=_ts_week(_ts_last), prev=_ts_week(_ts_prev), prev2=_ts_week(_wk_full[-3] if len(_wk_full) > 2 else None), cur=_ts_week(_ts_cur),  # Rost t747u: всегда 3 закрытые недели
-                  models=_ts_models,
-                 models_week=(_ts_cur or _ts_last), models_label=(_ts_week(_ts_cur or _ts_last) or {}).get('label'), src=of_src, cu_fetched_at=_OCU['fetched_at'])
+    last_row = (_ts_by.get(ra) or {}).get(_ts_last) or {}
+    prev_row = (_ts_by.get(ra) or {}).get(_ts_prev) or {}
+    note = 'наш доход 0 до 15.01.2027' if ra == 'RA185' else ''
+    _ts_models.append(dict(ra=ra, name=_TS_NAME.get(ra, ''), place=_TS_PLACE.get(ra, ''),
+                           gross=last_row.get('gross'), pct=last_row.get('pct'), net=last_row.get('net'),
+                           fans_new=last_row.get('fans'), prev_net=prev_row.get('net'), prev_gross=prev_row.get('gross'),
+                           by_week=_ts_by.get(ra) or {}, tasks=ts_tasks, note=note))
+# Условия партнёрки — в конец блока (t6321u). Правило берём из последней закрытой недели в history, не выдумываем %.
+_ts_terms, _seen_term = [], set()
+for ra in _ras:
+    row = (_ts_by.get(ra) or {}).get(_ts_last) or (_ts_by.get(ra) or {}).get(_ts_prev) or (_ts_by.get(ra) or {}).get(_ts_prev2) or {}
+    rule = ''
+    src_rows = by_week.get((_ts_last or '')[2:], []) if _ts_last else []
+    src_row = next((x for x in (src_rows or []) if x.get('ra') == ra), None)
+    if not src_row:
+        for wk in (_ts_prev, _ts_prev2):
+            if not wk: continue
+            src_row = next((x for x in by_week.get(wk[2:], []) if x.get('ra') == ra), None)
+            if src_row: break
+    if src_row:
+        rule = src_row.get('rule') or ''
+    note = 'наш доход 0 до 15.01.2027 (фаза трафика; с этой даты уточнить %)' if ra == 'RA185' else ''
+    _ts_terms.append(dict(ra=ra, name=_TS_NAME.get(ra, ''), place=_TS_PLACE.get(ra, ''),
+                          pct=row.get('pct'), rule=rule, note=note))
+    _seen_term.add(ra)
+_ts_terms_note = 'Наш доход = оборот модели на 05services за закрытую неделю пн–вс × доля агентства с карточки, затем −3% на вывод. У RA210 дополнительно ещё −3% партнёрский вычет. RA185 не даёт наш доход до 15.01.2027. RA215 и RA216 не считаем.'
+OFB['ts'].update(last=_ts_week(_ts_last), prev=_ts_week(_ts_prev), prev2=_ts_week(_ts_prev2), cur=None,  # t6318u: текущую неделю не отдаём в блок
+                  weeks=_ts_weeks, models=_ts_models, terms=_ts_terms, terms_note=_ts_terms_note,
+                 models_week=_ts_last, models_label=(_ts_week(_ts_last) or {}).get('label'), src=of_src, cu_fetched_at=_OCU['fetched_at'])
 # ОФТВ: задачи по моделям / направлению
 _O = OFB['oftv']; _used = set()
 for m in _O['models']:

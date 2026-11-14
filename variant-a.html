@@ -1828,20 +1828,30 @@ function ofBlocksHTML(d){if(d.id!=='of'||!d.of_blocks)return '';const B=d.of_blo
   </table></div>
 
   ${F.cu_task?`<div class="note" style="margin-top:6px">ClickUp: <a href="${cuAppUrl(F.cu_task.url)}" target="_blank" rel="noopener">${esc(F.cu_task.id)} · ${esc(F.cu_task.name)}</a></div>`:''}</div>`}
- /* 2) ТС */
- const T=B.ts;if(T&&T.last){const w=x=>x?`${$u(x.net)}`:'—',ws=x=>x?`${esc(x.label)} · оборот ${$u(x.gross)} · моделей ${x.models}`:'';
-  const dlt=T.prev&&T.last?T.last.net-T.prev.net:null;
-  const tsPart=!!(T.cur&&T.models_week&&T.models_week===T.cur.id);
-  const arpu=x=>x&&x.arpu!=null?`<span class="pill" style="font-size:11px;font-weight:700;padding:2px 7px;line-height:1.2;vertical-align:middle;color:#374151;background:#f3f4f6;border:1px solid #e5e7eb">ARPU ${$u(x.arpu)}</span>`:'';
-  const wv=x=>x?`<span style="display:inline-flex;align-items:center;gap:8px;flex-wrap:wrap">${$u(x.net)}${arpu(x)}</span>`:'—';
-  const pl=x=>x&&x.payout!=null?`<div style="margin-top:4px;font-size:12.5px">выплата ${$u(x.payout)}${x.payout_rate_label?' <span class="note">'+esc(x.payout_rate_label)+'</span>':''} · прибыль ${profitNum(x.profit==null?null:Dash.conv(x.profit,'USD',cur),cur,x.profit_tip)}</div>`:(x?`<div class="note" style="margin-top:4px">выплат с USDT нет</div>`:'');
-  /* Rost t747u / t6186u: 3 закрытые недели в один ряд; комментарий только в JS, не в HTML */
-  h+=`<div class="card" style="margin-bottom:14px"${duAttr('of.ts')}>${H((tsPart?'Неполная неделя · ':'')+esc(T.title),[T.models_label, tsPart?'ещё идёт':'наш доход'].filter(Boolean).join(' · '))}
-  <div class="grid g3b of-ts-weeks">${tile('💵 Прошлая неделя',wv(T.last),ws(T.last)+(dlt!=null?' · '+dlTxt(T.last.net,T.prev.net,{f:v=>$u(v)}):'')/* t5963u */+pl(T.last))}${tile('💵 Позапрошлая неделя',wv(T.prev),ws(T.prev)+(T.prev2?' · '+dlTxt(T.prev.net,T.prev2.net,{f:v=>$u(v)}):'')+pl(T.prev))}${T.prev2?tile('💵 Три недели назад',wv(T.prev2),ws(T.prev2)+pl(T.prev2)):''}</div>
-  <div class="note" style="margin:6px 0">${esc(T.arpu_note||'')}</div>
-  <h5 style="margin:10px 0 4px">${tsPart?'Неполная неделя · ':''}Модели (${T.models.length})${T.models_label?' · '+esc(T.models_label):''}</h5>
-  <div class="tblwrap" style="margin-top:6px"><table><tr><th>Модель</th><th>Задачи</th><th class="n">Наш доход</th><th class="n">Доход (прош. нед.)</th><th class="n">Оборот</th><th class="n">%</th><th class="n">Фаны (нетто)</th></tr>
-  ${T.models.map(x=>`<tr${tsOpen(x)}><td><b>${esc(x.ra)}</b>${raPlace(x.ra)}${x.note?' <span class="note">'+esc(x.note)+'</span>':''}</td><td>${tsList(x)}</td><td class="n">${x.prev_net!=null&&x.net!=null&&Math.abs(Number(x.net)-Number(x.prev_net))>1e-9?dlV($u(x.net),x.net,x.prev_net,{f:v=>$u(v),br:true}):$u(x.net)}</td><td class="n">${x.prev_net!=null?$u(x.prev_net):'—'}</td><td class="n">${$u(x.gross)}</td><td class="n">${esc(x.pct)}</td><td class="n">${n(x.fans_new)}</td></tr>${tsDetail(x,7)}`).join('')}
+ /* 2) ТС — t6320u / t6321u: таблица как у остальных (Прошлая / Позапрошлая / Позапозапрошлая), без текущей недели; условия в конце */
+ const T=B.ts;if(T){
+  const tCols=weekCols((T.weeks&&T.weeks.length)?T.weeks:[T.last,T.prev,T.prev2]);
+  const tN=1+tCols.length;
+  const tVal=(w,fn)=>{if(!weekHas(w))return null;const v=fn(w||{});return (v==null||v==='')?null:v};
+  const tCell=(i,fn,kind)=>{const v=tVal(tCols[i],fn),pv=tVal(tCols[i+1],fn);if(v==null)return '—';const html=kind==='$'?$u(v):n(v);return (pv!=null&&Math.abs(Number(v)-Number(pv))>1e-9)?dlV(html,v,pv,{f:kind==='$'?(x=>$u(x)):undefined,br:true}):html};
+  const tHead=tCols.map(c=>`<th class="n">${esc(c.title)}${c.label?`<div class="note">${esc(c.label)}</div>`:''}</th>`).join('');
+  const mNet=(x,id)=>{const w=(x.by_week||{})[id];return w&&w.net!=null?w.net:null};
+  const mCell=(x,i)=>{const id=tCols[i]&&tCols[i].id,v=mNet(x,id),pv=mNet(x,tCols[i+1]&&tCols[i+1].id);if(v==null)return '—';const html=$u(v);return (pv!=null&&Math.abs(Number(v)-Number(pv))>1e-9)?dlV(html,v,pv,{f:z=>$u(z),br:true}):html};
+  h+=`<div class="card" style="margin-bottom:14px"${duAttr('of.ts')}>${H(esc(T.title),'наш доход')}
+  <div class="tblwrap" style="margin-top:6px"><table style="table-layout:fixed;width:100%">${weekColgroup(tCols)}
+  <tr><th>Показатель</th>${tHead}</tr>
+  <tr><td>Наш доход</td>${tCols.map((c,i)=>`<td class="n">${tCell(i,w=>w.net,'$')}</td>`).join('')}</tr>
+  <tr><td>Оборот</td>${tCols.map((c,i)=>`<td class="n">${tCell(i,w=>w.gross,'$')}</td>`).join('')}</tr>
+  <tr><td>Фаны</td>${tCols.map((c,i)=>`<td class="n">${tCell(i,w=>w.fans,'n')}</td>`).join('')}</tr>
+  </table></div>
+  <h5 style="margin:10px 0 4px">Модели (${(T.models||[]).length})</h5>
+  <div class="tblwrap" style="margin-top:6px"><table><tr><th>Модель</th><th>Задачи</th>${tHead}</tr>
+  ${(T.models||[]).map(x=>`<tr${tsOpen(x)}><td><b>${esc(x.ra)}</b>${x.name?' <span class="note">'+esc(x.name)+'</span>':''}</td><td>${tsList(x)}</td>${tCols.map((c,i)=>`<td class="n">${mCell(x,i)}</td>`).join('')}</tr>${tsDetail(x,tN)}`).join('')}
+  </table></div>
+  <h5 style="margin:14px 0 4px">Условия</h5>
+  ${T.terms_note?`<div class="note" style="margin:0 0 6px;white-space:normal">${esc(T.terms_note)}</div>`:''}
+  <div class="tblwrap"><table><tr><th>Модель</th><th>Площадка</th><th class="n">%</th><th>Правило</th><th>Примечание</th></tr>
+  ${(T.terms||[]).map(x=>`<tr><td><b>${esc(x.ra)}</b>${x.name?' <span class="note">'+esc(x.name)+'</span>':''}</td><td>${esc(x.place||'—')}</td><td class="n">${x.pct==null||x.pct===''?'—':esc(String(x.pct).endsWith('%')?x.pct:String(x.pct)+'%')}</td><td>${esc(x.rule||'—')}</td><td class="note">${esc(x.note||'')}</td></tr>`).join('')}
   </table></div>
 </div>`}
  /* 3) ОФТВ */
