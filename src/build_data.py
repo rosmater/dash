@@ -1219,7 +1219,7 @@ if not _F['current'].get('as_of'):
 
 # ---------- Календарь (Rost 25.10): Google Calendar + ClickUp-задачи со временем, одна лента ----------
 # Снимки делает агент через коннекторы (MCP не вызывается из build.sh):
-#   /workspace/gcal_dash.json  — Google Calendar list_events (primary zayavki.ua), ~14 дней, America/Bogota
+#   /workspace/gcal_dash.json  — Google Calendar list_events (primary zayavki.ua), с 1-го текущего месяца Боготы до max(конец месяца, сегодня+14), America/Bogota (t6314u)
 #   /workspace/cu_cal_dash.json — ClickUp filter_tasks (assignee me, due в том же окне)
 def _load(pth):
     try: return json.load(open(pth))
@@ -1318,6 +1318,7 @@ cal_events.sort(key=lambda x: x['start'])
 calendar_dir = dict(id='calendar', kind='calendar', name='Календарь', subtitle='Google Календарь + задачи ClickUp со временем · Богота',
     currency='USD', color='#4285f4', icon='📅', no_overview_totals=True, periods={}, breakdowns=[], goals=[], tasks=[], gaps=[],
     events=cal_events, gcal_fetched_at=_g.get('fetched_at'), cu_fetched_at=_cu.get('fetched_at'),
+    gcal_range=_g.get('range') or {},
     data_issues=[x for x in [None if _g else 'Google Calendar: нет снимка /workspace/gcal_dash.json', None if _cu else 'ClickUp: нет снимка /workspace/cu_cal_dash.json'] if x],
     gcal_url='https://calendar.google.com/calendar/u/0/r/week?authuser=zayavki.ua@gmail.com',
     refresh='Обновить: агент читает Google Calendar (list_events) и ClickUp (filter_tasks) → /workspace/gcal_dash.json, /workspace/cu_cal_dash.json → src/build.sh → пуш')

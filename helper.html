@@ -222,6 +222,29 @@ details.mrow .mbody>.task{padding:5px 0}
 .tbk-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px;margin-bottom:14px}.tbk-grp{border:2px solid #c9c1f5;border-radius:16px;padding:10px 10px 0;margin-bottom:14px;background:#7c5cff0a}.tbk-grp-h{font-weight:800;font-size:15px;margin:0 4px 10px;color:#4b3bb8}.tbk-sub{border-top:1px dashed var(--line);margin-top:10px;padding-top:2px}.vu{color:#3f8f63}.vd{color:#c0665f}.dl{font-size:11px;font-weight:600;white-space:nowrap;color:#8a94a6}.dl.vu{color:#3f8f63}.dl.vd{color:#c0665f}
 /* Rost t5965u: Недвижимость — Монитор Solvia слева, Цель справа, один ряд; на узком — столбиком */.re-row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-bottom:14px;align-items:stretch}.re-row>.card{margin:0}@media(max-width:720px){.re-row{grid-template-columns:1fr}}/* Rost t5966u: компактная строка ссылок/статуса вместо большой плашки названия вкладки */.tab-head{display:flex;justify-content:flex-end;align-items:center;flex-wrap:wrap;gap:6px 10px;margin:0 0 10px;min-height:0}.tab-head .note{margin:0}/* Rost t5967u: свёрнутая «🔴 Требует внимания · N» уже и ниже (~половина), красный акцент слева сохраняем */.attn{padding:5px 10px;border-radius:10px}.attn h4{margin:0;line-height:1.25}.attn .attnd>summary{display:flex;align-items:center;gap:6px;margin:0;padding:1px 0;color:inherit;font-size:inherit;line-height:1.25}.attn .attnd[open]>summary{margin-bottom:6px}/* Rost t5970u–t5972u: зазоры между блоками вдвое меньше — и горизонталь (карточки в ряд), и вертикаль (друг под другом), в том числе после «🔴 Требует внимания» */#main .grid,#main .g2b,#main .g3b,#main .dlgrow,#main .mcols2,#main .pcol,#main .tbk-row,#main .re-row{gap:7px}#main .mcols{column-gap:7px}#main .attn,#main .tbk-grp,#main .tbk-row,#main .re-row,#main .dlgrow,#main .cal-day,#main .tl-wrap,#main .pin-hi{margin-bottom:7px}#main .tab-head{margin-bottom:5px}#main .mcols2 .card,#main .mcols>.card{margin-bottom:7px}#main>[style*="margin-bottom:14px"],#main [style*="margin-bottom:14px"]{margin-bottom:7px!important}#main [style*="margin-top:14px"]{margin-top:7px!important}#main [style*="margin:14px 0"]{margin-top:7px!important;margin-bottom:5px!important}#main>div[style="height:14px"],#main div[style="height:14px"]{height:7px!important}#main .grid>.card,#main .tbk-row>.card,#main .re-row>.card,#main .dlgrow>.card,#main .g2b>.card,#main .g3b>.card,#main .pcol>.card{margin-bottom:0!important}@media(max-width:520px){#main .g4{gap:5px}}/* Rost t5973u: вдвое меньше вертикальный зазор между шапкой (логотип / периоды / Календарь / Мессенджеры) и рядом направлений; у таблеток направлений — вдвое меньше внутренний отступ */header{margin-bottom:6px}nav.tabs{padding-top:4px}nav.tabs button{padding:5px 8px}/* Rost t5974u: вдвое меньше отступ от верхнего края экрана до шапки */.wrap{padding-top:10px}@media(max-width:520px){.wrap{padding-top:7px}}/* Rost t5975u: вдвое меньше внутренний отступ у кнопок верхнего ряда шапки (Сегодня/Неделя/Месяц, Календарь, Мессенджеры / Ассистенты) */header .seg{padding:2px}header .seg button{padding:4px 7px}#mode button+button:before,#mabtn button+button:before{top:4px;bottom:4px}/* Rost t1055u 11.11: вдвое меньше вертикальный зазор между рядом направлений (Общий / Личное / … / Коучинг) и блоком «Требует внимания» */nav.tabs{margin-bottom:9px;padding-bottom:3px}/* Rost t1057u 11.11: стрелки ‹ › внутри кнопок Неделя/Месяц — листать уже существующие периоды */#mode button{display:inline-flex;align-items:center;gap:1px}#mode button .pnav{display:inline-flex;align-items:center;justify-content:center;min-width:12px;padding:0 2px;margin:0;border:0;background:none;color:inherit;font:700 12px/1 Inter;cursor:pointer;user-select:none;opacity:.75}#mode button .pnav:hover{opacity:1}#mode button .pnav.sp{visibility:hidden;pointer-events:none;cursor:default}/* Rost t5983u: display:inline-flex у .seg и у #mode button (стрелки ‹ ›, t1057u/c7f602de) перебивал атрибут hidden — недоступные Сегодня/Неделя/Месяц снова были видны; скрытые чипы и весь ряд #mode при одном периоде должны быть display:none */#mode[hidden],#mode button[hidden],.seg[hidden]{display:none!important}/* Rost t6070u–t6072u / t6071u: неделя, категории, сверка; без Google-входа */
 .calview.seg button{padding:5px 10px}.calbreak{margin:8px 0 0}.calbreak .cb-row{display:flex;align-items:center;gap:8px;margin:3px 0;font-size:12.5px}.calbreak .cb-lab{min-width:92px;font-weight:600}.calbreak .cb-bar{flex:1;height:8px;border-radius:99px;background:#eef0f5;overflow:hidden}.calbreak .cb-bar>i{display:block;height:100%;border-radius:99px}.calbreak .cb-hrs{min-width:70px;text-align:right;color:var(--mut);font-variant-numeric:tabular-nums}
+/* t6314u: блок «Месяц» на вкладке Календарь — сетка + сводка за месяц */
+.calmonth-row{display:grid;grid-template-columns:minmax(260px,1.05fr) minmax(240px,1fr);gap:7px;margin:0 0 7px;align-items:stretch}
+@media(max-width:720px){.calmonth-row{grid-template-columns:1fr}}
+.calmonth-row>.card{margin:0;display:flex;flex-direction:column}
+.calmonth-hd{display:flex;align-items:center;justify-content:space-between;gap:8px;margin:0 0 8px}
+.calmonth-hd h3{margin:0;font-size:15px;display:flex;align-items:center;gap:8px}
+.calmonth-hd h3 .st{font-weight:600;text-transform:capitalize}
+.calmonth-nav{display:inline-flex;align-items:center;gap:2px}
+.calmonth-nav button{min-width:28px;height:28px;padding:0 6px;border:1px solid var(--line);border-radius:8px;background:var(--panel);color:var(--txt);font:700 14px/1 Inter,system-ui;cursor:pointer}
+.calmonth-nav button:hover{background:#f3f6fb;border-color:#c9d4ea}
+.cm-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:3px;text-align:center}
+.cm-grid .cm-wd{font-size:11px;color:var(--mut);font-weight:700;padding:4px 0;text-transform:lowercase}
+.cm-grid button.cm-d{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:36px;padding:4px 0 8px;border:1px solid transparent;border-radius:8px;background:transparent;color:var(--txt);font:600 13px/1 Inter,system-ui;cursor:pointer}
+.cm-grid button.cm-d:hover{background:#f3f6fb;border-color:#d5dcea}
+.cm-grid button.cm-d.out{color:#b0b6c4;font-weight:500}
+.cm-grid button.cm-d.today{box-shadow:0 0 0 2px #4285f422;border-color:#4285f4}
+.cm-grid button.cm-d.on{background:#4285f4;color:#fff;border-color:#4285f4}
+.cm-grid button.cm-d.on.today{box-shadow:0 0 0 2px #4285f455}
+.cm-grid button.cm-d .cm-dot{position:absolute;bottom:4px;width:4px;height:4px;border-radius:99px;background:#4285f4}
+.cm-grid button.cm-d.on .cm-dot{background:#fff}
+.cm-grid button.cm-d.recon:after{content:'✓';position:absolute;top:2px;right:3px;font-size:9px;color:#16a34a;font-weight:700}
+.cm-grid button.cm-d.on.recon:after{color:#d1fae5}
+
 .calweek{display:grid;grid-template-columns:36px 1fr;border:1px solid var(--line);border-radius:12px;background:var(--panel);overflow:auto;max-height:min(70vh,760px);-webkit-overflow-scrolling:touch}
 .cw-axis{position:relative;min-height:calc(24 * 22px);border-right:1px solid var(--line);background:var(--panel)}
 .cw-axis .tl-h{font-size:10px;color:var(--mut)}
@@ -1133,7 +1156,7 @@ const BOG='America/Bogota';const bDay=iso=>iso.length===10?iso:new Intl.DateTime
 const bTime=iso=>new Date(iso).toLocaleTimeString('ru-RU',{timeZone:BOG,hour:'2-digit',minute:'2-digit'});
 const calAdd=(k,n)=>{const t=new Date(k+'T12:00:00Z');t.setUTCDate(t.getUTCDate()+n);return t.toISOString().slice(0,10)};
 /* Rost t6071u: категории по названию события (в снимке нет colorId / отдельного календаря). */
-let calSrc='all',calDay=null,calView='day';
+let calSrc='all',calDay=null,calView='day',calMonthCursor=null;
 const CAL_CATS=[
  {id:'sleep',name:'Сон',color:'#6366f1',bg:'#eef2ff',re:/сон|подготовк\w* ко сну/i},
  {id:'sport',name:'Спорт',color:'#10b981',bg:'#ecfdf5',re:/зал|турник|бокс/i},
@@ -1151,7 +1174,7 @@ function calCatStyle(title){const c=calCat(title);return `border-left-color:${c.
 const calMon=k=>{const t=new Date(k+'T12:00:00Z');t.setUTCDate(t.getUTCDate()-((t.getUTCDay()+6)%7));return t.toISOString().slice(0,10)};
 const calWeekDays=k=>[...Array(7)].map((_,i)=>calAdd(calMon(k),i));
 function calFmtHrs(ms){const h=ms/36e5;if(!h)return '0 ч';const n=Math.round(h*10)/10;return (Number.isInteger(n)?String(n):n.toFixed(1).replace('.',','))+' ч'}
-function calBreakHTML(evs,days){
+function calBreakHTML(evs,days,kind,extraNote){
  const g=(evs||[]).filter(e=>e&&e.src==='gcal'&&!e.all_day&&e.start&&!/ :: /.test(e.title||'')&&!(e.title||'').startsWith('🔄'));
  const msCat=Object.fromEntries(CAL_CATS.map(c=>[c.id,0]));let covered=0,total=days.length*864e5;
  days.forEach(k=>{const d0=new Date(k+'T00:00:00-05:00').getTime(),d1=d0+864e5;
@@ -1162,7 +1185,7 @@ function calBreakHTML(evs,days){
  if(gap>30*1e3)rows.push({c:{id:'gap',name:'Не размечено',color:'#cbd5e1',bg:'#f8fafc'},ms:gap});
  if(!rows.length)return `<div class="note calbreak">В этом периоде в снимке нет событий со временем.</div>`;
  const max=Math.max(...rows.map(x=>x.ms),1);
- return `<div class="calbreak"><div class="note" style="margin:0 0 4px">Разбивка ${days.length===1?'дня':'недели'} · часы и % от ${days.length*24} ч</div>${rows.map(({c,ms})=>{const pct=Math.round(ms/total*1000)/10,w=Math.max(2,ms/max*100);return `<div class="cb-row"><span class="cb-lab" style="color:${c.color}">${esc(c.name)}</span><span class="cb-bar"><i style="width:${w}%;background:${c.color}"></i></span><span class="cb-hrs">${calFmtHrs(ms)} · ${String(pct).replace('.',',')}%</span></div>`}).join('')}</div>`}
+ return `<div class="calbreak"><div class="note" style="margin:0 0 4px">Разбивка ${kind==='month'||(!kind&&days.length>7)?'месяца':days.length===1?'дня':'недели'} · часы и % от ${days.length*24} ч</div>${extraNote?`<div class="note" style="margin:0 0 6px">${extraNote}</div>`:''}${rows.map(({c,ms})=>{const pct=Math.round(ms/total*1000)/10,w=Math.max(2,ms/max*100);return `<div class="cb-row"><span class="cb-lab" style="color:${c.color}">${esc(c.name)}</span><span class="cb-bar"><i style="width:${w}%;background:${c.color}"></i></span><span class="cb-hrs">${calFmtHrs(ms)} · ${String(pct).replace('.',',')}%</span></div>`}).join('')}</div>`}
 function tlWeekHTML(evs,k,o={}){
  const days=calWeekDays(k),PX=22,now=Date.now(),today=bDay(new Date().toISOString()),src=o.src||'all',cuOnly=!!o.cuOnly;
  const WD=new Intl.DateTimeFormat('ru-RU',{timeZone:'UTC',weekday:'short',day:'numeric'});
@@ -1186,7 +1209,7 @@ async function calReconLoad(){try{const r=await fetch('calendar_reconciled.json?
 function calReconPast(){const today=bDay(new Date().toISOString());const out=[];let t=calRecon.start||CAL_RECON_START;while(t<today){out.push(t);t=calAdd(t,1)}return out}
 function calReconFirstMiss(){return calReconPast().find(d=>!calReconHas(d))||null}
 function calMarkRecon(d,on){if(!d)return;if(on==null)on=!calReconHas(d);if(!calRecon.dates)calRecon.dates={};if(on)calRecon.dates[d]=true;else delete calRecon.dates[d];calReconSave();try{tapPush({key:'calrecon|'+d,action:'cal_recon',date:d,on:!!on})}catch(e){}}
-function calGoDay(d,view){if(d)calDay=d;if(view)calView=view;S.tab='calendar';try{render();scrollTo({top:0,behavior:'smooth'})}catch(e){}}
+function calGoDay(d,view){if(d)calDay=d;if(view)calView=view;S.tab='calendar';try{render();const el=document.querySelector('.calnav')||document.querySelector('.tl-wrap');if(el)el.scrollIntoView({block:'start',behavior:'smooth'});else scrollTo({top:0,behavior:'smooth'})}catch(e){}}
 function calGoUnrecon(){const m=calReconFirstMiss();if(!m){try{maToast('Все прошлые дни с '+((calRecon.start||CAL_RECON_START).slice(8,10)+'.'+(calRecon.start||CAL_RECON_START).slice(5,7))+' уже сверены')}catch(e){}return}calGoDay(m,'day')}
 function calReconBlockHTML(){if(window.DASH_HELPER)return '';const L=calReconPast(),nOk=L.filter(calReconHas).length,miss=calReconFirstMiss(),dd=s=>s.slice(8,10)+'.'+s.slice(5,7),WD=['вс','пн','вт','ср','чт','пт','сб'],wd=s=>WD[new Date(s+'T12:00:00Z').getUTCDay()];
  const start=calRecon.start||CAL_RECON_START;
@@ -1225,6 +1248,42 @@ function tlHTML(evs,k,o={}){const PX=46,now=Date.now(),d0=new Date(k+'T00:00:00-
  h+=`</div>${G.length||C.length?'':`<div class="empty" style="padding:14px">${o.empty||'На этот день событий со временем нет в снимке.'}</div>`}</div>`;
  return {h,nG:G.length,nC:C.length,sc:k===today?Math.max(0,y(now)-120):7*PX}}
 function tlScroll(sc){requestAnimationFrame(()=>document.querySelectorAll('.tl-wrap').forEach(w=>w.scrollTop=sc))}
+
+/* t6314u: сетка месяца + сводка тех же категорий (сон, спорт, девушка…), что у дня/недели */
+function calMonthDays(ym){const [y,m]=ym.split('-').map(Number);const first=ym+'-01';const next=m===12?`${y+1}-01-01`:`${y}-${String(m+1).padStart(2,'0')}-01`;const days=[];for(let d=first;d<next;d=calAdd(d,1))days.push(d);return days}
+function calMonthShift(ym,n){const [y,m]=ym.split('-').map(Number);const dt=new Date(Date.UTC(y,m-1+n,1));return dt.toISOString().slice(0,7)}
+function calSnapRange(){const r=(typeof calDir==='function'&&calDir()||{}).gcal_range||{};return {a:r.start||null,b:r.end||null}}
+function calDaysInSnap(days){const {a,b}=calSnapRange();if(!a||!b)return days.slice();return days.filter(d=>d>=a&&d<=b)}
+function calMonthTitle(ym){try{const mon=new Intl.DateTimeFormat('ru-RU',{timeZone:'UTC',month:'long'}).format(new Date(ym+'-01T12:00:00Z'));return mon+' '+ym.slice(0,4)}catch(e){return ym}}
+function calMonthBlockHTML(evs,k){
+ const today=bDay(new Date().toISOString());
+ const ym=calMonthCursor||((k||today).slice(0,7));
+ const monthDays=calMonthDays(ym), snap=calDaysInSnap(monthDays);
+ const first=monthDays[0], lead=(new Date(first+'T12:00:00Z').getUTCDay()+6)%7;
+ const cells=[], start=calAdd(first,-lead), n=Math.ceil((lead+monthDays.length)/7)*7;
+ for(let i=0;i<n;i++)cells.push(calAdd(start,i));
+ const has=new Set();
+ (evs||[]).forEach(e=>{if(!e||e.all_day||!e.start||(e.src&&e.src!=='gcal'))return;if(/ :: /.test(e.title||'')||(e.title||'').startsWith('🔄'))return;has.add(bDay(e.start))});
+ const WD=['пн','вт','ср','чт','пт','сб','вс'];
+ const miss=monthDays.length-snap.length;
+ const dd=s=>s.slice(8,10)+'.'+s.slice(5,7);
+ let note='';
+ if(!snap.length){note='В снимке календаря нет дней этого месяца — цифры не подставляем.';}
+ else if(miss){note=`В снимке ${snap.length} из ${monthDays.length} дн. (${dd(snap[0])}–${dd(snap[snap.length-1])}) — остальные дни в сводку не входят.`;}
+ const grid=`<div class="cm-grid">${WD.map(w=>`<div class="cm-wd">${w}</div>`).join('')}${cells.map(d=>{
+  const out=d.slice(0,7)!==ym, isT=d===today, on=d===k;
+  const cls=['cm-d',out?'out':'',isT?'today':'',on?'on':'',calReconHas(d)?'recon':''].filter(Boolean).join(' ');
+  const tip=[dd(d),isT?'сегодня':'',has.has(d)?'есть события':'',calReconHas(d)?'сверен':''].filter(Boolean).join(' · ');
+  return `<button type="button" class="${cls}" data-cmonth-day="${d}" title="${esc(tip)}">${Number(d.slice(8,10))}${has.has(d)?'<span class="cm-dot"></span>':''}</button>`;
+ }).join('')}</div>`;
+ const sum=snap.length?calBreakHTML(evs,snap,'month',note):`<div class="note calbreak">${note||'В этом месяце в снимке нет событий со временем.'}</div>`;
+ const thisM=today.slice(0,7)===ym;
+ return `<div class="calmonth-row" id="calmonth">
+  <div class="card"><div class="calmonth-hd"><h3>Месяц <span class="st">${esc(calMonthTitle(ym))}</span>${thisM?'<span class="chip" style="background:#4285f4;color:#fff;border-color:#4285f4;font-size:11px;font-weight:700">этот месяц</span>':''}</h3>
+   <div class="calmonth-nav"><button type="button" data-cmonth-nav="-1" title="предыдущий месяц">‹</button><button type="button" data-cmonth-nav="0" title="текущий месяц" ${thisM?'hidden':''}>сегодня</button><button type="button" data-cmonth-nav="1" title="следующий месяц">›</button></div></div>
+   <div class="note" style="margin:0 0 6px">Нажми день — откроется его таймлайн ниже.</div>${grid}</div>
+  <div class="card"><h3>Сводка за месяц</h3>${sum}</div>
+ </div>`}
 function calendar(d){const ev=(d.events||[]).filter(e=>!e.all_day),today=bDay(new Date().toISOString()),tmr=calAdd(today,1);
  if(!calDay)calDay=today;const k=calDay,week=calView==='week',days=week?calWeekDays(k):[k],mon=calMon(k);
  const nG=ev.filter(e=>e.src==='gcal').length,nC=ev.filter(e=>e.src==='clickup').length+ev.reduce((a,e)=>a+(e.cu||[]).length,0);
@@ -1246,10 +1305,13 @@ function calendar(d){const ev=(d.events||[]).filter(e=>!e.all_day),today=bDay(ne
  let sc=0;
  if(week){h+=tlWeekHTML(ev,k,{cuOnly:d.cu_only,src:calSrc})}
  else{const t=tlHTML(ev,k,{cuOnly:d.cu_only,src:calSrc});h+=t.h+thCalDayList(ev,k);sc=t.sc}
+  h=calMonthBlockHTML(ev,k)+h;
  $('#main').innerHTML=h;
+ document.querySelectorAll('[data-cmonth-day]').forEach(b=>b.onclick=()=>{calMonthCursor=b.dataset.cmonthDay.slice(0,7);calGoDay(b.dataset.cmonthDay,'day')});
+ document.querySelectorAll('[data-cmonth-nav]').forEach(b=>b.onclick=()=>{const n=+b.dataset.cmonthNav,cur=calMonthCursor||(calDay||bDay(new Date().toISOString())).slice(0,7);calMonthCursor=n===0?bDay(new Date().toISOString()).slice(0,7):calMonthShift(cur,n);calendar(d)});
  document.querySelectorAll('.calf button').forEach(b=>b.onclick=()=>{calSrc=b.dataset.s;calendar(d)});
- document.querySelectorAll('[data-nav]').forEach(b=>b.onclick=()=>{const a=b.dataset.nav;if(a==='day'||a==='week'){calView=a;calendar(d);return}if(a==='prev')calDay=calAdd(week?mon:k,week?-7:-1);else if(a==='next')calDay=calAdd(week?mon:k,week?7:1);else if(a==='today')calDay=today;calendar(d)});
- const pk=$('#calpick');if(pk)pk.onchange=()=>{if(pk.value){calDay=pk.value;calendar(d)}};
+ document.querySelectorAll('[data-nav]').forEach(b=>b.onclick=()=>{const a=b.dataset.nav;if(a==='day'||a==='week'){calView=a;calendar(d);return}if(a==='prev')calDay=calAdd(week?mon:k,week?-7:-1);else if(a==='next')calDay=calAdd(week?mon:k,week?7:1);else if(a==='today')calDay=today;calMonthCursor=(calDay||today).slice(0,7);calendar(d)});
+ const pk=$('#calpick');if(pk)pk.onchange=()=>{if(pk.value){calDay=pk.value;calMonthCursor=pk.value.slice(0,7);calendar(d)}};
  document.querySelectorAll('[data-cday]').forEach(b=>b.onclick=()=>{calDay=b.dataset.cday;calView='day';calendar(d)});
  document.querySelectorAll('[data-cmark]').forEach(b=>b.onclick=()=>{calMarkRecon(b.dataset.cmark);calendar(d)});
  if(!week)tlScroll(sc)}
