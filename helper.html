@@ -80,7 +80,7 @@ table{width:100%;border-collapse:collapse;font-size:12.5px}th,td{text-align:left
 .adsmon .adtbl th.n,.adsmon .adtbl td.n{white-space:nowrap;font-variant-numeric:tabular-nums;width:13.2%}
 .adsmon .adtbl th.adacc,.adsmon .adtbl td.adacc{width:15%;white-space:normal;vertical-align:top;padding:5px 7px;line-height:1.25;background:#fafbfc}
 .adsmon .adacc-plat{display:block;font-size:12px;font-weight:700;color:#111}
-.adsmon .adacc-h{display:block;font-size:11px;font-weight:500;color:#475569;margin-top:1px;word-break:break-word}
+.adsmon .adacc-h{display:block;font-size:11px;font-weight:500;color:#475569;margin-top:1px;word-break:break-word}.adsmon .adtbl td.adacc.adacc-ig{background:linear-gradient(165deg,#fdf2f8 0%,#fce7f3 72%,#f6e9ff 100%)}.adsmon .adtbl td.adacc.adacc-ig .adacc-plat{color:#c13584}.adsmon .adtbl td.adacc.adacc-ig .adacc-h{color:#9d4a7a}.adsmon .adtbl td.adacc.adacc-tt{background:linear-gradient(165deg,#effaf9 0%,#f7f8f8 55%,#fff1f4 100%)}.adsmon .adtbl td.adacc.adacc-tt .adacc-plat{color:#111}.adsmon .adtbl td.adacc.adacc-tt .adacc-h{color:#475569}
 .adsmon .adtbl td.adname,.adsmon .adtbl th:nth-child(2){width:28%;white-space:nowrap}
 .adsmon tr.adgrp td{background:#f6f7fb;font-weight:700;padding:5px 7px;border:1px solid #e2e8f0;white-space:normal}
 .adsmon .admore{margin:0}
@@ -149,9 +149,10 @@ table{width:100%;border-collapse:collapse;font-size:12.5px}th,td{text-align:left
 .pep-goal-row>summary .alert-txt{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;font:600 13px Inter,system-ui;color:#7c4a03}
 .pep-goal-more{padding:2px 0 6px 2px;font-size:12px;color:var(--mut,#6b7280);line-height:1.45;white-space:normal}
 #main .of-prio-sub h4 + .pep-goal-row{margin-top:3px}
-#main .card.pepconv{padding-top:4px;padding-bottom:6px;margin-bottom:14px}
+#main .card.pepconv{padding:6px 8px;margin-bottom:14px}
 .card.pepconv>:last-child{margin-bottom:0}
-.card.pepconv>details{margin-top:0}
+.card.pepconv>details{margin:0}
+.card.pepconv>details>summary{margin:0;padding:0;line-height:1.35}
 /* t6433u: «Повторные продажи» — свёрнуто, CU/GS в шапке */
 #main .card.peprep{padding:4px 8px}
 .peprep>summary.peprep-sum{display:flex;align-items:center;gap:8px;flex-wrap:wrap;cursor:pointer;list-style:none;margin:0;padding:0;font-size:13px;color:var(--mut);font-weight:600;text-transform:uppercase;letter-spacing:.06em}
@@ -1800,7 +1801,7 @@ function cvTable(C,base,usd){if(!C||!C.sales_total)return '';const n=v=>v==null?
  /* Rost 27.10: + IG Direct диалоги (отдельно с 27.10, null = не считали) */
  rows.splice(1,0,['  + Instagram Direct с '+(C.ig_dialogs_since_from?C.ig_dialogs_since_from.slice(8,10)+'.'+C.ig_dialogs_since_from.slice(5,7):'27.10'),C.ig_dialogs_since,null,C.ig_dialogs_since==null?'IG ещё не считаем':'новые в Direct'],['С 12.10 · WA + Instagram',C.ig_dialogs_since==null?null:C.dialogs_since_with_ig,C.ig_dialogs_since==null?null:C.sales_since,C.ig_dialogs_since==null?'появится после первого IG-замера':'все каналы']);
  const ds=(C.days||[]).filter(x=>x.n!=null),avg=ds.length?C.dialogs_since/ds.length:null,l7=ds.slice(-7),a7=l7.length?l7.reduce((a,x)=>a+x.n,0)/l7.length:null;
- return `<details style="margin-top:10px"><summary style="cursor:pointer;font-weight:700;font-size:13px">📊 Конверсия сейчас: ≈ ${per(C.sales_since,C.dialogs_since)} диалогов → 1 продажа <span class="note" style="font-weight:400">(только новые с 12.10: ${n(C.sales_since)} наборов / ${n(C.dialogs_since)} диалогов · старый архив ≈1→27 не считаем · сегодня WA ${n(C.wa_dialogs_today)} / IG ${n(C.ig_dialogs_today)}) ▼ подробнее</span></summary>
+ return `<details><summary style="cursor:pointer;font-weight:700;font-size:13px">📊 Конверсия сейчас: ≈ ${per(C.sales_since,C.dialogs_since)} диалогов → 1 продажа <span class="note" style="font-weight:400">(только новые с 12.10: ${n(C.sales_since)} наборов / ${n(C.dialogs_since)} диалогов · старый архив ≈1→27 не считаем · сегодня WA ${n(C.wa_dialogs_today)} / IG ${n(C.ig_dialogs_today)}) ▼ подробнее</span></summary>
  <div class="tblwrap" style="margin-top:6px"><table><tr><th>Период</th><th class="n">Диалоги / лиды</th><th class="n">Наборы</th><th class="n">Конверсия</th><th class="n">Диалогов → 1 продажа</th></tr>${rows.map((r,i)=>`<tr${i==rows.length-1?' style="font-weight:700"':''}><td>${esc(r[0])}${r[3]?` <span class="note">· ${esc(r[3])}</span>`:''}</td><td class="n">${n(r[1])}</td><td class="n">${n(r[2])}</td><td class="n">${pc(r[2],r[1])}</td><td class="n">${per(r[2],r[1])}</td></tr>`).join('')}</table></div>
  ${ds.length?`<div class="note" style="margin-top:6px">💬 Новых диалогов в день: в среднем <b>${avg.toFixed(1)}</b> за ${ds.length} дн. с данными · последние ${l7.length} дн. с данными: <b>${a7.toFixed(1)}</b>${C.days_missing&&C.days_missing.length?` · <b style="color:#a5620a">нет данных: ${C.days_missing.map(x=>x.slice(8,10)+'.'+x.slice(5,7)).join(', ')}</b>`:''}</div>
  <div class="tblwrap" style="margin-top:4px"><table><tr><th>День</th>${(C.days||[]).map(x=>`<th class="n">${x.date.slice(8,10)}.${x.date.slice(5,7)}</th>`).join('')}</tr><tr><td>Диалоги</td>${(C.days||[]).map(x=>`<td class="n" style="${x.n==null?'color:#a5620a':''}">${x.n==null?'нет':x.n}</td>`).join('')}</tr></table></div>`:''}
@@ -2668,7 +2669,7 @@ function pepMonHTML(d,part){if(d.id!=='peptides')return '';const cur=Dash.curOf(
  const leadCell=a=>{const tip=[lead(a)+(a.conversations!=null?' диал.':''), (a.dialogs_new_ig!=null||a.dialogs_new_wa!=null)?('новые IG '+dlgN(a.dialogs_new_ig)+' · WA '+dlgN(a.dialogs_new_wa)):'', (S.mode==='today'&&(a.dialogs_yesterday_ig!=null||a.dialogs_yesterday_wa!=null))?('вчера: IG '+dlgN(a.dialogs_yesterday_ig)+' · WA '+dlgN(a.dialogs_yesterday_wa)):''].filter(Boolean).join(' · ');return `<span title="${esc(tip)}" style="cursor:help">${lead(a)}</span>`};
  const budCell=a=>{const tip=[a.budget!=null?'всего '+f(a.budget):'',a.day_budget?f(a.day_budget)+'/день':''].filter(Boolean).join(' · ');const main=a.day_budget!=null?f(a.day_budget)+'/д':f(a.budget);return `<span title="${esc(tip)}">${main}</span>`};
  const tr=(a,acc)=>`<tr>${acc||''}<td class="adname"><details class="admore"><summary title="${esc(extraTip(a))}"><b>${esc(a.name)}</b></summary><div class="note">${extraHTML(a)}</div></details></td><td class="n">${budCell(a)}</td><td class="n">${f(a.spent)}</td><td class="n">${n(a.views)}</td><td class="n">${leadCell(a)}</td><td class="n" title="${esc(cplTip(a))}">${cpl(a)}</td></tr>`;
- const accCell=(plat,acc,rs)=>`<td class="adacc"${rs>1?` rowspan="${rs}"`:''}><span class="adacc-plat">${esc(plat||'')}</span><span class="adacc-h">${esc(acc||'без аккаунта')}</span></td>`;
+ const accCell=(plat,acc,rs)=>{const pc=plat==='TikTok'?' adacc-tt':plat==='Instagram'?' adacc-ig':'';return `<td class="adacc${pc}"${rs>1?` rowspan="${rs}"`:''}><span class="adacc-plat">${esc(plat||'')}</span><span class="adacc-h">${esc(acc||'без аккаунта')}</span></td>`};
  const groupBody=rows=>{const G=[],ix={};rows.forEach(a=>{const k=platOf(a)+'\0'+(a.account||'');if(!(k in ix)){ix[k]=G.length;G.push({plat:platOf(a),acc:a.account||'',rows:[]})}G[ix[k]].rows.push(a)});return G.map(g=>{const n=g.rows.length,lead=accCell(g.plat,g.acc,n);return g.rows.map((a,i)=>tr(a,i? '':lead)).join('')}).join('')};
  const groupTables=(rows,extra)=>`<div class="tblwrap"><table class="adtbl">${TH}${extra||''}${groupBody(rows)}</table></div>`;
  const act=(A.active||[]).concat(A.scheduled||[]),ar=A.archive||[],T=A.totals||{};
@@ -2678,7 +2679,7 @@ function pepMonHTML(d,part){if(d.id!=='peptides')return '';const cur=Dash.curOf(
 hAds+=`<div class="card adsmon" style="margin-bottom:14px"><h3 class="pep-ht"><span class="pep-ht-l">📣 Монитор рекламных кампаний <span class="st">активных ${(A.active||[]).length}</span>${(A.scheduled||[]).length?` <span class="st">запланировано ${(A.scheduled||[]).length}</span>`:''}${SM&&SM.baseline_cpl_usd?` <span class="st">база CPL ${usd(SM.baseline_cpl_usd)} · порог +50% ${usd(SM.baseline_cpl_usd*1.5)}</span>`:''}</span><span class="pep-ht-m">обновлено ${dd(A.as_of)}</span></h3>
  ${act.length?groupTables(act):'<div class="empty">Активных кампаний нет</div>'}
  ${A.stale?`<div class="note" style="color:#a5620a;margin-top:4px">⚠️ Последняя проверка в IG ${dd(A.last_verify)} — сегодня телефон не перепроверяли</div>`:''}
- <details style="margin-top:10px"><summary style="cursor:pointer;font-weight:700;font-size:13px">Архив · завершённые (${ar.length+(SM?1:0)})${SM?' · старый аккаунт: '+n(SM.leads)+' лидов, CPA '+usd(SM.cpa_usd)+', '+usd(SM.spent_usd):''}</summary><div style="margin-top:6px"><div class="tblwrap"><table class="adtbl">${TH}${smRow||''}${ar.length?groupBody(ar):''}${totRow||''}</table></div></div></details>
+ <details style="margin-top:10px"><summary style="cursor:pointer;font-weight:700;font-size:13px">Архив · завершённые ${ar.length+(SM?1:0)}</summary><div style="margin-top:6px"><div class="tblwrap"><table class="adtbl">${TH}${smRow||''}${ar.length?groupBody(ar):''}${totRow||''}</table></div></div></details>
 </div>`;
  /* монитор ответов (Rost 25.10 / t6424u / t6428u): скользящие 7 дней; среднее первого ответа только пн–пт 10:00–18:30; сб не рабочий; «⏰ РВ» в шапке */
  const qi=Q.items||[],SP0=Q.speed||{},m_=S.mode,td_=bDay(new Date().toISOString());let inR_,pl_,winA,winB;
