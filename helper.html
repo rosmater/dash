@@ -46,7 +46,7 @@ nav.tabs button.on{color:color-mix(in srgb,var(--c,#7c5cff) 55%,#000);border-col
 .dlgc h3{margin-bottom:6px}.dlgsts{display:flex;flex-wrap:wrap;gap:4px;margin:0 0 8px}.dlgst{font-size:10.5px;font-weight:700;padding:2px 7px;border-radius:99px;border:1px solid #f1d29a;color:#a5620a;background:#fffaf0;white-space:nowrap}.dlgst.ok{border-color:#a6e3c4;color:#127a4a;background:#f0fbf5}.dlgt{display:grid;grid-template-columns:auto 1fr 1fr;gap:4px 6px;align-items:center}.dlgt .dh{font-size:11px;font-weight:700;color:var(--mut);text-align:center;letter-spacing:.04em}.dlgt .dl{font-size:12px;color:var(--mut);white-space:nowrap;padding-right:4px}.dlgt .dc{background:linear-gradient(135deg,#f6f4ff,#fbfbfe);border:1px solid #ecebf7;border-radius:10px;padding:6px 8px;text-align:center;line-height:1.15}.dlgt .dc b{display:block;font-size:22px;font-weight:800;letter-spacing:-.02em}.dlgt .dc i{display:block;font-style:normal;font-size:10.5px;color:var(--mut);margin-top:1px}.dlgf{margin:8px 0 0;font-size:11.5px;line-height:1.35}
 .dlgrow{display:grid;grid-template-columns:minmax(240px,1fr) 2.6fr;gap:14px;align-items:stretch;margin-bottom:14px}.dlgrow>.card{margin-bottom:0!important}.dlgrow>.card:first-child .grid.g4{grid-template-columns:1fr}@media(max-width:900px){.dlgrow{grid-template-columns:1fr}}
 @media(max-width:980px){.g4{grid-template-columns:repeat(2,1fr)}.g2,.g2e{grid-template-columns:1fr}}
-.pers-top{display:grid;grid-template-columns:minmax(0,55fr) minmax(0,45fr);gap:14px;align-items:stretch}.pers-top>.card{min-width:0;min-height:0}.pers-top3{grid-template-columns:minmax(0,27.5fr) minmax(0,45fr) minmax(0,27.5fr)}.pers-top>.card{margin-bottom:14px}@media(max-width:1200px){.pers-top3{grid-template-columns:minmax(0,55fr) minmax(0,45fr)}.pers-top3>.pers-calls{grid-column:1/-1}}@media(max-width:860px){.pers-top,.pers-top3{grid-template-columns:1fr}.pers-top3>.pers-calls{grid-column:auto}}/* t6392u/t6397u: 🤖 На решении у бота = 45% ряда (Личное 27.5/45/27.5, иначе 55/45); на мобильном — на всю ширину */
+.pers-top{display:grid;grid-template-columns:minmax(0,55fr) minmax(0,45fr);gap:14px;align-items:start}.pers-top>.card{min-width:0;min-height:0;align-self:start;height:auto}.pers-top3{grid-template-columns:minmax(0,27.5fr) minmax(0,45fr) minmax(0,27.5fr)}.pers-top>.card{margin-bottom:14px}@media(max-width:1200px){.pers-top3{grid-template-columns:minmax(0,55fr) minmax(0,45fr)}.pers-top3>.pers-calls{grid-column:1/-1}}@media(max-width:860px){.pers-top,.pers-top3{grid-template-columns:1fr}.pers-top3>.pers-calls{grid-column:auto}}/* t6392u/t6397u: 🤖 На решении у бота = 45% ряда (Личное 27.5/45/27.5, иначе 55/45); на мобильном — на всю ширину */
 .card.pers-bots{overflow:visible}.pers-bots h3{margin-bottom:8px}.pers-bots .bw-list{max-height:min(72vh,620px);overflow-y:auto;-webkit-overflow-scrolling:touch}.pers-bots .bw-row{gap:6px;padding:2px 0;min-width:0}.pers-bots .bw-badge{flex:none;display:inline-flex;align-items:center;justify-content:center;box-sizing:border-box;min-width:2.7em;padding:1px 5px;border-radius:99px;font-size:10px;font-weight:700;letter-spacing:.01em;line-height:1.25;background:#eef2ff;color:#4338ca;border:1px solid #e0e7ff;white-space:nowrap}.pers-bots .bw-badge{position:relative}.pers-bots .bw-badge[title]:hover::after{content:attr(title);position:absolute;left:0;top:calc(100% + 8px);bottom:auto;z-index:6;background:#1b2033;color:#fff;font-size:11px;font-weight:600;letter-spacing:0;line-height:1.3;padding:3px 7px;border-radius:6px;white-space:nowrap;box-shadow:0 4px 12px #1b203340;pointer-events:none}.pers-bots .bw-row .trow-title{flex:1 1 auto;min-width:0}.pers-bots .bw-red{color:#b42318;font-weight:700}.pers-calls .trow .pill{display:none}/* t6392u: плоский список задач, значок бота 4 буквы */
 .of-prio-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px;align-items:stretch;margin-top:0}.of-prio-sub{border:1px solid var(--line);border-radius:7px;padding:5px 6px;background:#fafbff;box-sizing:border-box;min-width:0}.of-prio-sub h4{margin:0 0 4px;font-size:14px;font-weight:800;display:flex;align-items:center;justify-content:space-between;gap:8px}@media(max-width:700px){.of-prio-grid{grid-template-columns:1fr}}.of-prio>summary{cursor:pointer;font-weight:700;font-size:14px;display:flex;flex-wrap:wrap;align-items:center;gap:8px}.of-prio[open]>summary{margin-bottom:8px}
 .of-today-list{max-height:min(294px,35vh);overflow-y:auto;-webkit-overflow-scrolling:touch}.of-hang{font-weight:700}.of-hang.hang-yellow{color:#9a5b07;background:#fff6d6;border-color:#f1d29a}.of-hang.hang-red{color:#b42318;background:#fff1f1;border-color:#fda29b}.of-routine{margin-top:14px}.of-routine>summary{cursor:pointer;font-weight:700;font-size:14px;list-style:none;display:flex;flex-wrap:wrap;align-items:center;gap:8px}.of-routine>summary::-webkit-details-marker{display:none}.of-routine>summary::before{content:"▸";color:#94a3b8}.of-routine[open]>summary::before{content:"▾"}.of-routine-person{margin-top:10px;padding-top:8px;border-top:1px solid var(--line)}.of-routine-person>summary{cursor:pointer;font-size:13px;font-weight:700;list-style:none;display:flex;flex-wrap:wrap;align-items:center;gap:6px}
@@ -580,18 +580,23 @@ details.def-ur > summary::-webkit-details-marker,details.def-ur > summary::marke
 
 /* Rost t6396u: плотнее «Приоритеты» (меньше воздух у заголовка и до/после списка; внутренний блок-в-блоке — padding и радиус вдвое меньше).
    Тонкая линия под заголовком «Сегодня у меня» и такая же у «На решении у бота»; первый пункт ближе к линии; чуть меньше низ блока бота.
-   t6398u: оба блока одной высоты, список ровно на 10 строк, остальное прокручивается внутри. */
-#main .card.of-prio{padding:4px}
+   t6398u: список максимум 10 строк с прокруткой.
+   t6399u: 10 строк — потолок, не фиксированная высота; короткий список (2–3 задачи или пусто) обрезается по последней задаче, без пустого низа и без растягивания до соседа. */
+#main .card.of-prio{padding:2px 4px 2px}
 #main .of-prio-grid{margin-top:0;gap:6px}
-#main .of-prio-sub{padding:5px 6px;border-radius:7px}
-#main .of-prio-sub h4{margin:0 0 4px}
-#main .of-prio-empty{padding:4px 0}
+#main .of-prio-sub{padding:2px 6px 2px;border-radius:7px}
+#main .of-prio-sub h4{margin:0;padding:0 0 3px;border-bottom:1px solid var(--line)}
+#main .of-prio-sub h4 + .trow,#main .of-prio-sub h4 + .of-prio-empty{margin-top:3px}
+#main .of-prio-empty{padding:3px 0 1px}
+/* t6400u: линия под заголовком приоритетов, как у «Сегодня у меня»; ещё меньше верх внешнего и внутреннего блока; низ внутреннего после последней задачи вдвое меньше (5px → 2px). */
+#main .pers-top{align-items:start}
+#main .pers-top>.card,#main .of-today,#main .pers-bots{align-self:start;height:auto;min-height:0}
 #main .of-today,
-#main .pers-bots{--bw-row-h:28px;display:flex;flex-direction:column;padding-bottom:4px;min-height:0}
+#main .pers-bots{--bw-row-h:28px;display:flex;flex-direction:column;padding-bottom:4px}
 #main .of-today>h3,
-#main .pers-bots>h3{margin:0;padding:0 0 3px;border-bottom:1px solid var(--line)}
+#main .pers-bots>h3{margin:0;padding:0 0 3px;border-bottom:1px solid var(--line);flex:none}
 #main .of-today-list,
-#main .pers-bots .bw-list{margin-top:3px;height:calc(var(--bw-row-h) * 10);max-height:calc(var(--bw-row-h) * 10);overflow-y:auto;-webkit-overflow-scrolling:touch;flex:none}
+#main .pers-bots .bw-list{margin-top:3px;height:auto;max-height:calc(var(--bw-row-h) * 10);overflow-y:auto;-webkit-overflow-scrolling:touch;flex:none}
 #main .of-today-list .trow,
 #main .pers-bots .bw-row{box-sizing:border-box;height:var(--bw-row-h);min-height:var(--bw-row-h);max-height:var(--bw-row-h);padding-top:0;padding-bottom:0;border-bottom:1px solid var(--line);align-items:center}
 #main .of-today-list .trow:last-child,
