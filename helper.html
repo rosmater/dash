@@ -475,6 +475,60 @@ header .bdi{white-space:nowrap}
 #main .def-board details.card.okfold > summary{margin-top:0}
 #main .def-board > .card.tfold .tbtn{margin:0;line-height:1.25}
 #main .def-board .bgoal .bar:last-child{margin-bottom:0}
+/* t6379u: одинаковые заголовки пунктов во всех списках Оборонки; чёрные, по наведению синие как ссылка */
+#main .def-board .def-tit,
+#main .def-board .sc-ln a.alert-txt,
+#main .def-board .sc-ln .alert-txt,
+#main .def-board .def-urg a,
+#main .def-board .task a,
+#main .def-board .task b,
+#main .def-board .def-ur-line,
+#main .def-board .def-ur-line b,
+#main .def-board .cudated .trow-title a,
+#main .def-board .cudated .trow-title b,
+#main .def-board .tfold a,
+#main .def-board table a{
+  font-family:Inter,system-ui,-apple-system,sans-serif;
+  font-size:13.5px;
+  font-weight:600;
+  line-height:1.35;
+  color:var(--txt,#1b2033);
+  text-decoration:none;
+}
+#main .def-board a.def-tit,
+#main .def-board .sc-ln a.alert-txt,
+#main .def-board .def-urg a,
+#main .def-board .task a,
+#main .def-board .cudated a,
+#main .def-board .tfold a,
+#main .def-board table a{cursor:pointer}
+#main .def-board a.def-tit:hover,
+#main .def-board .sc-ln a.alert-txt:hover,
+#main .def-board .def-urg a:hover,
+#main .def-board .task a:hover,
+#main .def-board .cudated a:hover,
+#main .def-board .tfold a:hover,
+#main .def-board table a:hover{color:#2563eb}
+/* t6379u: в «Срочных задачах» вдвое меньше вертикальные зазоры */
+#main .def-board .def-urg-h{margin-bottom:3px}
+#main .def-board .def-urg-row{display:flex;align-items:center;flex-wrap:wrap;column-gap:8px;row-gap:2px;padding:1px 0}
+#main .def-board .def-urg-row .chip{margin-left:auto}
+/* t6380u: Цель — две компактные строки */
+#main .def-board .bgoal-r1{display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:10px 12px}
+#main .def-board .bgoal-title{font-size:16px;font-weight:800;white-space:nowrap;color:var(--txt,#1b2033)}
+#main .def-board .bgoal-ass{min-width:0;text-align:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:#64748b;font-size:13px;line-height:1.3}
+#main .def-board .bgoal-score{font-size:16px;font-weight:800;white-space:nowrap;color:var(--txt,#1b2033)}
+#main .def-board .bgoal-r2{display:flex;align-items:center;gap:8px;margin-top:6px;font-size:13px;color:var(--txt,#1b2033)}
+#main .def-board .bgoal-lab{flex:none;white-space:nowrap}
+#main .def-board .bgoal-n{flex:none;font-variant-numeric:tabular-nums;font-weight:700}
+#main .def-board .bgoal-bar{flex:1 1 auto;min-width:48px;height:8px;margin:0}
+#main .def-board .bgoal-bar i{background:#94a3b8}
+@media(max-width:720px){
+  #main .def-board .bgoal-r1{grid-template-columns:minmax(0,1fr) auto;gap:4px 10px}
+  #main .def-board .bgoal-title{grid-column:1;font-size:15px}
+  #main .def-board .bgoal-score{grid-column:2;grid-row:1}
+  #main .def-board .bgoal-ass{grid-column:1/-1;text-align:left}
+}
 details.def-ur.task{display:block;padding:6px 0;align-items:stretch}
 details.def-ur > summary{display:flex;align-items:center;gap:8px;min-width:0;cursor:pointer;list-style:none;margin:0}
 details.def-ur > summary::-webkit-details-marker,details.def-ur > summary::marker{display:none;content:none}
@@ -1194,18 +1248,19 @@ function board(d){const b=d.board,st=boardSt(b),fd=x=>x?new Intl.DateTimeFormat(
  const urCtx=r=>`[Из дашборда · Оборонка · ответить компании] ${urBody(r)}`;
  const urPill=r=>{const b=urBot(),c=urCtx(r);return `<a class="pill p-raz" href="${esc(maPL(b,c))}" data-o="${esc(b.name||'Оборонка')}" data-w="Оборонка · ответить компании" data-ctx="${esc(urBody(r).replace(/\n/g,' '))}" data-t="${esc(c)}" data-l="${esc(b.link||'')}" data-b="${esc(b.name||'Оборонка')}" onclick="event.stopPropagation();return maGo(this)" title="Открыть чат «${esc(b.name||'Оборонка')}» и разобрать ответ">разобрать</a>`};
  /* Rost 27.10 defpins: условные пины наверху — пусто = блока нет в DOM */
- const UT=b.urgent_tasks||[],SC=b.scheduled_calls||[],pdt=t=>{const _st=t.start&&String(t.start).length>=16?String(t.start).slice(11,16):'',_dt=t.due_t&&t.due_t!=='00:00'&&t.due_t!=='04:00'?t.due_t:'',_tm=_st&&_dt&&_st!==_dt?_st+'–'+_dt:(_st||_dt);return t.due?esc(String(t.due).slice(8,10)+'.'+String(t.due).slice(5,7)+(_tm?' '+_tm:'')):(t.start?esc(String(t.start).slice(0,16).replace('T',' ')):'')},prow=(t,ic)=>`<div style="display:flex;gap:8px;align-items:center;font-size:14.5px;font-weight:600;padding:3px 0;flex-wrap:wrap"><span>${ic}</span>${t.url?`<a href="${esc(cuAppUrl(t.url))}" target="_blank" rel="noopener">${esc(t.name||'задача')}</a>`:esc(t.name||'задача')}${pdt(t)?`<span class="note">· ${pdt(t)} (Богота)</span>`:''}${t.status?`<span class="chip st-at" style="margin-left:auto">${esc(t.status)}</span>`:''}</div>`;
+ const UT=b.urgent_tasks||[],SC=b.scheduled_calls||[],pdt=t=>{const _st=t.start&&String(t.start).length>=16?String(t.start).slice(11,16):'',_dt=t.due_t&&t.due_t!=='00:00'&&t.due_t!=='04:00'?t.due_t:'',_tm=_st&&_dt&&_st!==_dt?_st+'–'+_dt:(_st||_dt);return t.due?esc(String(t.due).slice(8,10)+'.'+String(t.due).slice(5,7)+(_tm?' '+_tm:'')):(t.start?esc(String(t.start).slice(0,16).replace('T',' ')):'')},prow=(t,ic)=>`<div class="def-urg-row"><span>${ic}</span>${t.url?`<a class="def-tit" href="${esc(cuAppUrl(t.url))}" target="_blank" rel="noopener">${esc(t.name||'задача')}</a>`:`<span class="def-tit">${esc(t.name||'задача')}</span>`}${pdt(t)?`<span class="note def-urg-sub">· ${pdt(t)} (Богота)</span>`:''}${t.status?`<span class="chip st-at">${esc(t.status)}</span>`:''}</div>`;
  let h=topRowHTML(attnHTML(d));/* t6375u: «Требует внимания» самый верх; созвоны сразу под ним (раньше t557u pinned calls on top) */
  h+=scCallsHTML(SC,d);
  /* Rost 27.10: pins почти белые (Rost: «сделай их более белыми») */
- if(UT.length)h+=`<div class="card" style="margin-bottom:14px;border-color:#dceaf5;background:linear-gradient(135deg,#f7fbfe,var(--panel))"><div style="font-size:17px;font-weight:800;color:#0b5a73;margin-bottom:6px">🔥 Срочные задачи <span class="st">${UT.length}</span></div>${UT.map(t=>prow(t,'🔴')).join('')}</div>`;
+ if(UT.length)h+=`<div class="card def-urg" style="margin-bottom:14px;border-color:#dceaf5;background:linear-gradient(135deg,#f7fbfe,var(--panel))"><div class="def-urg-h" style="font-size:17px;font-weight:800;color:#0b5a73">🔥 Срочные задачи <span class="st">${UT.length}</span></div>${UT.map(t=>prow(t,'🔴')).join('')}</div>`;
  /* Rost 06.11 t453: Клиенты в процессе = все живые диалоги с меткой этапа intro/catalog/deal/call (не только «ждут каталог») */
  const CIP=(b.clients_in_progress||[]).filter(c=>c&&c.company&&!['closed','done'].includes(String(c.status||'').toLowerCase()));
  const stageMeta={intro:['Знакомство / начало','#eef6ff','#1e4b7a','#c5daf0'],catalog:['Каталог','#e8f6ee','#1b5c38','#b7ddc6'],awaiting_catalog:['Ждут каталог','#eef6ff','#1e4b7a','#c5daf0'],catalog_sent:['Каталог отправлен','#e8f6ee','#1b5c38','#b7ddc6'],deal:['Детали сделки','#f6efdf','#7c6a46','#e9dcbc'],call:['Созвон','#f3eef8','#5b3d7a','#ddd0ea']};
  const stagePill=x=>{const k=String((x&&(x.pipeline||x.status))||'').toLowerCase();const m=stageMeta[k];const lab=(x&&x.status_label)||(m&&m[0])||'';if(!lab)return '';const bg=m?m[1]:'#eef6ff',fg=m?m[2]:'#1e4b7a',bd=m?m[3]:'#c5daf0';return `<span class="pill" style="background:${bg};color:${fg};border:1px solid ${bd}">${esc(lab)}</span>`};
  if(CIP.length)h+=`<details class="card okfold" style="margin-bottom:14px;border-color:#d5e6f5;background:linear-gradient(135deg,#f5faff,var(--panel))"><summary style="cursor:pointer;color:#0b5a73;font-weight:800;font-size:17px">📂 Клиенты в процессе <span class="st">${CIP.length}</span></summary>${CIP.map(c=>`<div class="task">${stagePill(c)}<div style="flex:1"><b style="font-size:13.5px">${c.url?`<a href="${esc(cuAppUrl(c.url))}" target="_blank" rel="noopener">${esc(c.company||'компания')}</a>`:esc(c.company||'компания')}</b>${c.contact?` <span class="note">· ${esc(c.contact)}</span>`:''}${c.promised_at?`<div class="note">обещали ${esc(String(c.promised_at).slice(8,10)+'.'+String(c.promised_at).slice(5,7))}</div>`:''}${c.note?`<div class="note">${esc(c.note)}</div>`:''}${c.url||c.id?thBtns({id:c.id,name:c.company||c.subject||c.name,url:c.url}):''}</div></div>`).join('')}</details>`;
 
- h+=`<div class="card bgoal" style="margin-bottom:14px"><div style="display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap"><div style="font-size:18px;font-weight:800">🎯 ${esc(b.goal)}</div><b style="font-size:16px">${b.deals||0} / ${b.goal_target||1}</b></div><div class="bar" style="margin-top:8px"><i style="width:${pct}%"></i></div>${b.assumption?`<div class="note" style="margin-top:8px">💡 ${esc(b.assumption)}</div><div style="display:flex;justify-content:space-between;font-size:13px;margin-top:4px"><span>Доставлено к ориентиру</span><b>${Dash.num(b.sent_total||0)} / ${Dash.num(b.assumption_per_deal||500)}</b></div><div class="bar" style="margin-top:4px"><i style="width:${Math.min(100,(b.sent_total||0)/(b.assumption_per_deal||500)*100)}%;background:#94a3b8"></i></div>`:''}</div>`;
+ const ass=b.assumption||'',sent=b.sent_total||0,ori=b.assumption_per_deal||500,delPct=Math.min(100,sent/ori*100);
+ h+=`<div class="card bgoal" style="margin-bottom:14px"><div class="bgoal-r1"><div class="bgoal-title">🎯 ${esc(b.goal)}</div><div class="bgoal-ass" title="${esc(ass?('💡 '+ass):'')}">${ass?esc('💡 '+ass):''}</div><b class="bgoal-score">${b.deals||0} / ${b.goal_target||1}</b></div>${ass?`<div class="bgoal-r2"><span class="bgoal-lab">Доставлено к ориентиру</span><b class="bgoal-n">${Dash.num(sent)}</b><div class="bar bgoal-bar" title="${esc(Dash.num(sent)+' / '+Dash.num(ori))}"><i style="width:${delPct}%"></i></div><b class="bgoal-n">${Dash.num(ori)}</b></div>`:''}</div>`;
  h+=`<div class="grid g2b">${tile('📤 Всего разослано (доставлено)',`${Dash.num(b.sent_total)} <span class="bst ${st.stale?'at':(st.ok?'ok':'')}">${st.stale?'🔴 данные устарели':(st.ok?'🟢 активна':'⏸ 0 вчера')}</span>`,`<b style="font-size:15px;color:${st.n>0?'#0b7a59':'#64748b'}">+${st.n} за вчера</b> <span class="note">(${esc(st.yl)}, Богота)</span><br>последнее ${fd(b.last_sent_at)} · сегодня ${(b.sent_by_day||{})[bDay(new Date().toISOString())]||0}${b.failed_excluded?' · без '+b.failed_excluded+' bounce':''}${st.stale?' · ⚠ '+esc(st.why):(!st.ok?' · запуск по плану, не attn':'')}`,st.stale?'#e11d48':(st.ok?'#16a34a':'#94a3b8'),st.stale?'at':(st.ok?'ok':''))}
  ${tile('💬 Ответили',`<span style="color:#94a3b8">${Dash.num(b.replies)}</span>`,/* Rost t4007u: без списка компаний (кто ждёт/кому ответить — блоки ниже) */`${b.replies_companies&&b.replies_companies.length?[UR.length?`<b style="color:#b42318">✍️ ответить: ${UR.length}</b>`:'',URW.length?`<span style="color:#8a7350">⏳ ждём ответа: ${URW.length}</span>`:'',b.auto_replies?`+${b.auto_replies} автоответ(а) не считаем`:''].filter(Boolean).join(' · '):'пока никто'}`,UR.length?'#e11d48':(URW.length?'#d9c49a':'#7c5cff'),UR.length?'at':'')}</div>`;
  /* Rost t4007u: блоки «ответить» и «ждём ответа» видны всегда (раньше при 0 пропадали — после перевода Dronamex в waiting 16:13 «разобрать» исчез целиком) */
