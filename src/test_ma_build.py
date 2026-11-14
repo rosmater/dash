@@ -1812,7 +1812,24 @@ try:
                 ov = None
             if ov == '__unsort':
                 _parked.add(tit.lower())
-        only_sphere_miss = [k for k in only_sphere_miss if k not in _parked]
+        # t6387u: чаты в «Игнор» / ignored — как ✕ в 📥: list и live могут совпадать
+        # (даш 12/29 vs live 12/29), но life-сферы их не содержат. Это не сбой сверки.
+        _ignored = set()
+        for g in data.get('messengers') or []:
+            ign_sph = g.get('sphere') == 'Игнор'
+            for r in g.get('rows') or []:
+                if r.get('channel') != _ch:
+                    continue
+                if not (ign_sph or r.get('ignored')):
+                    continue
+                nm = (r.get('live_title') or r.get('chat') or r.get('sender') or '').strip().lower()
+                if nm:
+                    _ignored.add(nm)
+        only_sphere_miss = [k for k in only_sphere_miss if k not in _parked and k not in _ignored]
+        if _ignored:
+            note_bits_ign = 'в игноре (не сбой): ' + ', '.join(sorted(_ignored)[:8])
+        else:
+            note_bits_ign = ''
         count_diff = sorted(k for k in set(dash_map) & set(live_map) if dash_map[k] != live_map[k])
         sphere_count_diff = sorted(k for k in set(sphere_map) & set(live_map) if sphere_map[k] != live_map[k])
         lc, ls = len(live_map), sum(live_map.values())
@@ -1836,6 +1853,7 @@ try:
         if only_live: note_bits.append('нет на list: ' + ', '.join(only_live[:8]))
         if only_sphere_extra: note_bits.append('лишнее в сферах: ' + ', '.join(only_sphere_extra[:8]))
         if only_sphere_miss: note_bits.append('нет в сферах: ' + ', '.join(only_sphere_miss[:8]))
+        if note_bits_ign: note_bits.append(note_bits_ign)
         if count_diff: note_bits.append('счётчик list: ' + ', '.join(f'{k} {dash_map[k]}≠{live_map[k]}' for k in count_diff[:8]))
         if sphere_count_diff: note_bits.append('счётчик сфер: ' + ', '.join(f'{k} {sphere_map[k]}≠{live_map[k]}' for k in sphere_count_diff[:8]))
         if ok:
@@ -1990,3 +2008,15 @@ except Exception as _e:
 
 json.dump(data, open(os.path.join(ROOT, 'data-test-ma.json'), 'w'), ensure_ascii=False, indent=1)
 print('rows', sum(len(g['rows']) for g in data['messengers']), 'groups', [g['sphere'] for g in data['messengers']])
+# t6387u: сбой монитора мессенджеров → QUEUE + webhook (дедуп 60 мин, без LLM)
+try:
+    import subprocess as _sp_ft
+    _trig = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'messenger_fault_trigger.py')
+    _data_p = os.path.join(ROOT, 'data-test-ma.json')
+    import sys as _sys_ft
+    _rft = _sp_ft.run([_sys_ft.executable, _trig, '--data', _data_p], timeout=45, capture_output=True, text=True)
+    _o = ((_rft.stdout or '') + (_rft.stderr or '')).strip()
+    if _o:
+        print('fault trigger:', _o.splitlines()[-1][:240])
+except Exception as _e_ft:
+    print('fault trigger skip', type(_e_ft).__name__)
