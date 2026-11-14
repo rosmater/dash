@@ -1173,6 +1173,14 @@ for b in of_break:
                 arpu = float(raw['arpu'])  # серия «ARPU» с графика 05services, не наш расчёт
             except (TypeError, ValueError):
                 arpu = None
+        # t6336u: когда нетто фанов ≤ 0, 05services копирует «Доход» в серию «ARPU» — это не средний чек, на даше «—»
+        if raw is not None and arpu is not None:
+            try:
+                inc = float(raw.get('income_usd') or 0)
+            except (TypeError, ValueError):
+                inc = 0
+            if inc and abs(arpu - inc) < max(0.05, abs(inc) * 1e-6):
+                arpu = None
         _ts_by.setdefault(r[0], {})[b['period']] = dict(gross=r[1], pct=r[2], net=r[3], fans=r[4], arpu=arpu)
 _ras = []
 for k in _last3:
@@ -1205,25 +1213,26 @@ for ra in _ras:
             s = str(p).strip()
             return s if s.endswith('%') else s + '%'
     # t6329u: условия простыми словами, не «×0.97×0.97 партнёр»
+    # t6338u: в колонке «Условия» только доля; вывод/партнёр — в подсказке; площадка — тег у имени
+    share = _fmt_pct(last_row.get('pct') or (src_row or {}).get('agency_pct'))
+    tip_bits = []
     if ra == 'RA185':
-        term_bits = [note or 'наш доход 0 до 15.01.2027']
+        share = share or '0%'
+        tip_bits = [note or 'наш доход 0 до 15.01.2027']
     else:
-        term_bits = [b for b in (_fmt_pct(last_row.get('pct') or (src_row or {}).get('agency_pct')), '−3% вывод') if b]
-        # t6334u/t6335u: RA210 и RA212 — партнёру 3% оборота, из них удерживаем 4,5% за вывод
+        tip_bits.append('−3% вывод')
         if ra in ('RA210', 'RA212') or 'партнёр' in (rule or ''):
-            term_bits.append('партнёру 3% оборота (−4,5% за вывод)')
-    if _TS_PLACE.get(ra):
-        term_bits.append(_TS_PLACE[ra])
+            tip_bits.append('партнёру 3% оборота (−4,5% за вывод)')
+    terms_tip = ' · '.join(tip_bits)
     _ts_models.append(dict(ra=ra, name=_TS_NAME.get(ra, ''), place=_TS_PLACE.get(ra, ''),
                            gross=last_row.get('gross'), pct=last_row.get('pct'), net=last_row.get('net'),
                            fans_new=last_row.get('fans'), prev_net=prev_row.get('net'), prev_gross=prev_row.get('gross'),
                            by_week=_ts_by.get(ra) or {}, tasks=ts_tasks, note=note, rule=rule,
-                           terms=' · '.join(term_bits)))
+                           share=share or '—', terms_tip=terms_tip, terms=share or '—'))
 # t6324u: условия — колонка в таблице моделей, отдельный блок не отдаём; ARPU только из history.csv (серия 05services)
 OFB['ts'].update(last=_ts_week(_ts_last), prev=_ts_week(_ts_prev), prev2=_ts_week(_ts_prev2), cur=None,  # t6318u: текущую неделю не отдаём в блок
                   weeks=_ts_weeks, models=_ts_models,
                  models_week=_ts_last, models_label=(_ts_week(_ts_last) or {}).get('label'),
-                 arpu_note='ARPU — показатель из статистики 05services (график анкеты), не расчёт даша',
                  src=of_src, cu_fetched_at=_OCU['fetched_at'])
 # ОФТВ: задачи по моделям / направлению
 _O = OFB['oftv']; _used = set()
