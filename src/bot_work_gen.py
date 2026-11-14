@@ -284,6 +284,27 @@ def _routine_tabs(bot, r):
     return tabs
 
 
+def _load_task_work():
+    try:
+        d = json.load(open(os.path.join(HERE, 'bot_task_work.json'), encoding='utf-8'))
+    except Exception:
+        return {}
+    raw = d.get('tasks') if isinstance(d, dict) else d
+    out = {}
+    for k, v in (raw or {}).items():
+        if isinstance(v, dict):
+            v = v.get('bullets') or []
+        xs = []
+        for x in v or []:
+            s = (x.get('text') if isinstance(x, dict) else x) or ''
+            s = ' '.join(str(s).split())
+            if s:
+                xs.append(s)
+        if xs:
+            out[k] = xs
+    return out
+
+
 def _ros_bot_tasks():
     try:
         d = json.load(open(os.path.join(HERE, 'ma_ros_bot.json'), encoding='utf-8'))
@@ -294,6 +315,7 @@ def _ros_bot_tasks():
 
 
 def build():
+    workmap = _load_task_work()
     links, _cu_tasks, _cu_fetched = _bot_links()
     roles = group_roles()
     ros_tasks, ros_fetched, ros_src = _ros_bot_tasks()
@@ -335,7 +357,8 @@ def build():
                           bot_r=t.get('bot_r') or '',
                           priority=t.get('priority') or '',
                           role=t.get('role') or '',
-                          thesis=t.get('thesis') or make_thesis(t.get('name') or '', t.get('description') or '', t.get('last_comment') or '')) )
+                          thesis=t.get('thesis') or make_thesis(t.get('name') or '', t.get('description') or '', t.get('last_comment') or ''),
+                          bullets=list(workmap.get(t['id']) or [])) )
         _RO=['🚶GO','📞CALL','Control','TO DO','💡REMIND','💵 Pago','🥳 Celebraciones']
         def _rk(x):
             r=x.get('role') or ''
@@ -363,7 +386,8 @@ def build():
                           bot_r=t.get('bot_r') or '',
                           priority=t.get('priority') or '',
                           role=t.get('role') or '',
-                          thesis=t.get('thesis') or make_thesis(t.get('name') or '', t.get('description') or '', t.get('last_comment') or '')) )
+                          thesis=t.get('thesis') or make_thesis(t.get('name') or '', t.get('description') or '', t.get('last_comment') or ''),
+                          bullets=list(workmap.get(t['id']) or [])) )
         _RO=['🚶GO','📞CALL','Control','TO DO','💡REMIND','💵 Pago','🥳 Celebraciones']
         def _rk(x):
             r=x.get('role') or ''

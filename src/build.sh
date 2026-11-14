@@ -6,6 +6,7 @@ bash src/guard_stale_src.sh; _g=$?; [ $_g -eq 10 ] && exec bash src/build.sh "$@
 git rev-parse HEAD > "$(git rev-parse --git-dir)/dash-build-base" 2>/dev/null  # t6157u: база сборки — pre-push hook сверяет, что после неё в origin не менялся src/
   # t1111u: не собирать из отставшего src/ (10 = подтянул, пересобрать свежим build.sh)
 python3 src/cu_ros_bot_pull.py || echo "cu_ros_bot_pull: keeping existing ma_ros / ma_ros_bot snapshots"
+python3 src/bot_task_work_gen.py || echo "bot_task_work_gen: keeping existing bot_task_work.json"
 python3 src/build_data.py
 # t6387u: сбой монитора мессенджеров → QUEUE + webhook (даже если test_ma_build не вызывался)
 python3 src/messenger_fault_trigger.py || echo "messenger_fault_trigger: skip"
