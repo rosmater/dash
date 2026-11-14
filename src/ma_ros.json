@@ -1,6 +1,6 @@
 {
  "fetched": "2026-11-14 00:50 Bogotá",
- "src": "clickup_filter_tasks view_id=8cn3rz8-1914 (workspace view «Ros») + roles + roles + t6413u add 86b7wu7jq Control",
+ "src": "clickup_filter_tasks view_id=8cn3rz8-1914 (workspace view «Ros») + roles + roles + t6413u add 86b7wu7jq Control · t6454u: тег «🎯 фокус» переименован в ClickUp в «🎯» (14.11) — имя в снимке обновлено без нового пула.",
  "view": {
   "id": "8cn3rz8-1914",
   "name": "Ros",
@@ -1137,7 +1137,7 @@
    "list": "Задачи Tabakevich",
    "list_id": "901412862042",
    "tags": [
-    "🎯 фокус"
+    "🎯"
    ],
    "assignees": [
     {
@@ -1332,7 +1332,7 @@
    "list": "General Tasks OF",
    "list_id": "901412862260",
    "tags": [
-    "🎯 фокус"
+    "🎯"
    ],
    "assignees": [
     {
@@ -1506,7 +1506,7 @@
    "list": "Personal",
    "list_id": "901413854636",
    "tags": [
-    "🎯 фокус"
+    "🎯"
    ],
    "assignees": [
     {
@@ -1573,7 +1573,7 @@
    "list": "Models",
    "list_id": "901412862040",
    "tags": [
-    "🎯 фокус"
+    "🎯"
    ],
    "assignees": [
     {
@@ -1596,7 +1596,7 @@
    "list": "Models",
    "list_id": "901412862040",
    "tags": [
-    "🎯 фокус"
+    "🎯"
    ],
    "assignees": [
     {
@@ -1640,7 +1640,7 @@
    "list": "Сервисная доска Недвижимость",
    "list_id": "901412595093",
    "tags": [
-    "🎯 фокус"
+    "🎯"
    ],
    "assignees": [
     {
@@ -2427,7 +2427,7 @@
    "list": "Задачи Tabakevich",
    "list_id": "901412862042",
    "tags": [
-    "🎯 фокус"
+    "🎯"
    ],
    "assignees": [
     {
@@ -2691,7 +2691,7 @@
    "list": "Задачи Tabakevich",
    "list_id": "901412862042",
    "tags": [
-    "🎯 фокус"
+    "🎯"
    ],
    "assignees": [
     {

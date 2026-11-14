@@ -327,8 +327,10 @@ def _load_dump(path):
     raise ValueError('no tasks in ' + path)
 
 
-def write_snap(path, name, view_id, filt, tasks, src):
-    out = dict(fetched=_now(), src=src, view=dict(id=view_id, name=name, type='list', parent='workspace:9014731752'),
+def write_snap(path, name, view_id, filt, tasks, src, fetched=None):
+    # t6454u: «fetched» = время реального снимка ClickUp. Переналожение ролей / enrich без нового пула
+    # не должно делать снимок «свежим» (раньше каждая сборка ставила fetched=сейчас при старых данных).
+    out = dict(fetched=fetched or _now(), src=src, view=dict(id=view_id, name=name, type='list', parent='workspace:9014731752'),
                filter=filt, count=len(tasks), tasks=tasks)
     path.write_text(json.dumps(out, ensure_ascii=False, indent=1), encoding='utf-8')
     print(f'{path.name}: {len(tasks)} tasks from {name} ({view_id})')
@@ -447,7 +449,7 @@ def main():
         if a.enrich_json:
             prev = json.loads(bot_path.read_text(encoding='utf-8'))
             tasks = enrich_from_file(prev.get('tasks') or [], a.enrich_json)
-            write_snap(bot_path, 'Ros (BOT)', ROS_BOT_VIEW, prev.get('filter') or {}, tasks, (prev.get('src') or '') + ' + enrich ' + a.enrich_json)
+            write_snap(bot_path, 'Ros (BOT)', ROS_BOT_VIEW, prev.get('filter') or {}, tasks, (prev.get('src') or '') + ' + enrich ' + a.enrich_json, fetched=prev.get('fetched'))
         else:
             print('cu_ros_bot_pull: no fresh Ros (BOT) pull, keeping', bot_path.name)
     else:
@@ -482,9 +484,11 @@ def main():
             tasks = apply_roles(prev.get('tasks') or [], roles)
             n = sum(1 for x in tasks if x.get('role'))
             src = prev.get('src') or ''
-            if '+ roles' not in src:
+            if not re.search(r'(^|\+\s*)roles(\s|$|\+)', src):
                 src = (src + ' + roles').strip(' +')
-            write_snap(path, name, view_id, prev.get('filter') or {}, tasks, src)
+            if tasks == (prev.get('tasks') or []) and src == (prev.get('src') or ''):
+                continue  # t6454u: ничего не поменялось — файл не трогаем (нет ложной свежести и лишних коммитов)
+            write_snap(path, name, view_id, prev.get('filter') or {}, tasks, src, fetched=prev.get('fetched'))
             print(f'{path.name}: Role on {n}/{len(tasks)} tasks')
     return 0 if ok else 1
 

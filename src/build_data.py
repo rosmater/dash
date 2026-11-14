@@ -883,7 +883,7 @@ def _of_is_periodic(t):
     return f.startswith('periodica') or f == 'aa3d836e-b0e7-4fbb-b3d2-dc0d79bca754'
 
 ROLE_FIELD = '1469c8d4-a3b4-4925-958a-7f442d9e002f'
-ROLE_ORDER = ['🚶GO','📞CALL','Control','TO DO','💡REMIND','💵 Pago','🥳 Celebraciones']
+ROLE_ORDER = ['🚶GO','📞CALL','TO DO','Control','💡REMIND','💵 Pago','🥳 Celebraciones']  # t6384u: GO → CALL → TO DO → CONTROL (как в variant-a.html)
 
 def _load_role_map():
     path = os.path.join(_HERE, 'cu_roles.json')
@@ -1094,7 +1094,7 @@ def _tbk_inject_fin(board, fin_block):
         today_ids.add(fid)
     if extra:
         board['today'] = list(board.get('today') or []) + extra
-        board['today'].sort(key=lambda x: (x.get('due') or '9999', x.get('name') or ''))
+        board['today'].sort(key=_role_sort_key)  # t6454u: после финсводок порядок как везде — роль, потом срок (t6384u)
         extra_ids = {t['id'] for t in extra}
         groups = []
         for g in board.get('routine_groups') or []:

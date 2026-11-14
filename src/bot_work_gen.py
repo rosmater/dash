@@ -359,7 +359,7 @@ def build():
                           role=t.get('role') or '',
                           thesis=t.get('thesis') or make_thesis(t.get('name') or '', t.get('description') or '', t.get('last_comment') or ''),
                           bullets=list(workmap.get(t['id']) or [])) )
-        _RO=['🚶GO','📞CALL','Control','TO DO','💡REMIND','💵 Pago','🥳 Celebraciones']
+        _RO=['🚶GO','📞CALL','TO DO','Control','💡REMIND','💵 Pago','🥳 Celebraciones']
         def _rk(x):
             r=x.get('role') or ''
             i=_RO.index(r) if r in _RO else len(_RO)
@@ -388,7 +388,7 @@ def build():
                           role=t.get('role') or '',
                           thesis=t.get('thesis') or make_thesis(t.get('name') or '', t.get('description') or '', t.get('last_comment') or ''),
                           bullets=list(workmap.get(t['id']) or [])) )
-        _RO=['🚶GO','📞CALL','Control','TO DO','💡REMIND','💵 Pago','🥳 Celebraciones']
+        _RO=['🚶GO','📞CALL','TO DO','Control','💡REMIND','💵 Pago','🥳 Celebraciones']
         def _rk(x):
             r=x.get('role') or ''
             i=_RO.index(r) if r in _RO else len(_RO)

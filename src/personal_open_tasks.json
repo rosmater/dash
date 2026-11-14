@@ -1,7 +1,7 @@
 {
  "_doc": "t6270u: открытые задачи ClickUp-пространства Personal (90144414983) для доски вкладки Личное (Сегодня у меня / Приоритеты: тег «🎯 фокус» / Рутина), как of_open_tasks.json. main/complete исключены. + 86ba3c1x4 Парагвай (пространство Недвижимость) с тегом «🎯 фокус» по слову Rost t6270u. Пустой приоритет → normal (t6235u). Снимок через MCP filter_tasks; обновлять тем же способом. t6286u: 86bcgc3ze (USDT для Novax) перенесена в ClickUp в OF / General Tasks OF (под PARA EMPRESA) — убрана отсюда. t6289u: 86bd3b4vu профчистка — Role TO DO, не CALL. t6290u: 86bcnmdvt «Вывести BTC в холодное хранение» — тег «🎯 фокус». t6291u/t6292u: тег «⚕️ здоровье» на медицинских задачах Personal (в т.ч. 86bd3bfmv консультация ортодонта). t6444u: 86bd3dkrb «Сократить одно рабочее место в ClickUp (ассистентку → гость)» — тег «🎯 фокус», Role TO DO, исполнитель Rost, срок 14.11.",
  "fetched_at": "2026-11-14T01:43:06-05:00",
- "src": "ClickUp filter_tasks space 90144414983 include_closed=false (3 pages, 277 incl. main) + 86ba3c1x4 freq/recurring: Frecuencia periódica (filter custom field f069396a-…, t6300u). t6444u refresh.",
+ "src": "ClickUp filter_tasks space 90144414983 include_closed=false (3 pages, 277 incl. main) + 86ba3c1x4 freq/recurring: Frecuencia periódica (filter custom field f069396a-…, t6300u). t6444u refresh. · t6454u: тег «🎯 фокус» переименован в ClickUp в «🎯» (14.11) — имя в снимке обновлено без нового пула.",
  "tasks": [
   {
    "id": "86ba3c1x4",
@@ -15,7 +15,7 @@
    "list": "Сервисная доска Недвижимость",
    "url": "https://rosmater.github.io/cu/?t=86ba3c1x4",
    "tags": [
-    "🎯 фокус"
+    "🎯"
    ],
    "freq": null
   },
@@ -619,7 +619,7 @@
    "list": "Personal",
    "url": "https://rosmater.github.io/cu/?t=86bcnmdvt",
    "tags": [
-    "🎯 фокус"
+    "🎯"
    ],
    "freq": null
   },
@@ -821,7 +821,7 @@
    "list": "Personal",
    "url": "https://rosmater.github.io/cu/?t=86bd3dkrb",
    "tags": [
-    "🎯 фокус"
+    "🎯"
    ],
    "freq": null
   },

@@ -125,6 +125,15 @@ def once():
                 if lines: log('queue-guard', r.returncode, ' | '.join(lines)[-400:])
             # Q-alive: if last.json stale somehow after run, still ok; alive.sh is for external cron
     except Exception as e: log('queue-guard err', type(e).__name__, str(e)[:200])
+    # Rost t6454u: ClickUp → доски без LLM (src/cu_snap_sync.py --auto: раз в 2 ч 06–22 Богота, вт — полная сверка;
+    # без токена ClickUp — мгновенный no-op). Пересборка + пуш только при изменениях.
+    try:
+        with open(f'{R}/sync/.lock', 'w') as lk:
+            fcntl.flock(lk, fcntl.LOCK_EX)
+            r = subprocess.run([sys.executable, f'{R}/src/cu_snap_sync.py', '--auto'], capture_output=True, text=True, timeout=900)
+            o = (r.stdout + r.stderr).strip()
+            if o or r.returncode: log('cu-snap-sync', r.returncode, o[-400:].replace('\n', ' | '))
+    except Exception as e: log('cu-snap-sync err', type(e).__name__, str(e)[:200])
     # Rost t4169–71: сбой вотчера → авто-починка TG на боксе + QUEUE watcher-fix-* (троттл 10 мин внутри скрипта)
     try:
         r = subprocess.run([sys.executable, '/workspace/notify-watchers/health/watcher_autoheal.py'], capture_output=True, text=True, timeout=300)

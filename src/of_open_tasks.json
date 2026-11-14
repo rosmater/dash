@@ -1,7 +1,7 @@
 {
  "_doc": "t6215u/t6216u: открытые рабочие задачи пространства OF для доски вкладки ОФ (не of_cu_tasks.json). Снимок Секретаря. complete/main/models/ДР исключены. t6286u: + 86bcgc3ze (перенесена из Personal под PARA EMPRESA 13.11 18:4x).",
  "fetched_at": "2026-11-13T17:56:25-05:00",
- "src": "ClickUp filter_tasks space 90144306285, include_closed=false, statuses to do/for check (2 pages); Frecuencia periódica отдельным filter; hang_since с прошлого снимка freq/recurring: Frecuencia periódica (filter custom field f069396a-…, t6300u).",
+ "src": "ClickUp filter_tasks space 90144306285, include_closed=false, statuses to do/for check (2 pages); Frecuencia periódica отдельным filter; hang_since с прошлого снимка freq/recurring: Frecuencia periódica (filter custom field f069396a-…, t6300u). · t6454u: тег «🎯 фокус» переименован в ClickUp в «🎯» (14.11) — имя в снимке обновлено без нового пула.",
  "tasks": [
   {
    "id": "86b6pbedx",
@@ -16,7 +16,7 @@
    "list": "Projects OF",
    "url": "https://rosmater.github.io/cu/?t=86b6pbedx",
    "tags": [
-    "🎯 фокус"
+    "🎯"
    ],
    "freq": null
   },
@@ -33,7 +33,7 @@
    "list": "General Tasks OF",
    "url": "https://rosmater.github.io/cu/?t=86bd2v24a",
    "tags": [
-    "🎯 фокус"
+    "🎯"
    ],
    "freq": null
   },
@@ -1860,7 +1860,7 @@
    "list": "Models",
    "url": "https://rosmater.github.io/cu/?t=86bd2vc4v",
    "tags": [
-    "🎯 фокус"
+    "🎯"
    ],
    "freq": null
   },
@@ -1877,7 +1877,7 @@
    "list": "Models",
    "url": "https://rosmater.github.io/cu/?t=86bd2vc4n",
    "tags": [
-    "🎯 фокус"
+    "🎯"
    ],
    "freq": null
   },
@@ -1894,7 +1894,7 @@
    "list": "Models",
    "url": "https://rosmater.github.io/cu/?t=86bd2vc4g",
    "tags": [
-    "🎯 фокус"
+    "🎯"
    ],
    "freq": null
   },
@@ -1911,7 +1911,7 @@
    "list": "General Tasks OF",
    "url": "https://rosmater.github.io/cu/?t=86bd3atpx",
    "tags": [
-    "🎯 фокус"
+    "🎯"
    ],
    "freq": null
   },
@@ -1928,7 +1928,7 @@
    "list": "General Tasks OF",
    "url": "https://rosmater.github.io/cu/?t=86bcgc3ze",
    "tags": [
-    "🎯 фокус"
+    "🎯"
    ],
    "freq": "única",
    "parent": "PARA EMPRESA"
