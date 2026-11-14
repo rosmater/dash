@@ -528,14 +528,15 @@ header .bdi{white-space:nowrap}
   #main .def-board .bgoal-score{grid-column:2;grid-row:1}
   #main .def-board .bgoal-ass{grid-column:1/-1;text-align:left}
 }
-details.def-ur.task{display:block;padding:6px 0;align-items:stretch}
-details.def-ur > summary{display:flex;align-items:center;gap:8px;min-width:0;cursor:pointer;list-style:none;margin:0}
+details.def-ur.task{display:block;padding:3px 0;align-items:stretch}
+details.def-ur > summary{display:flex;align-items:center;gap:6px;min-width:0;cursor:pointer;list-style:none;margin:0}
+#main .def-board details.def-ur > summary .def-ur-line{line-height:16px}
 details.def-ur > summary::-webkit-details-marker,details.def-ur > summary::marker{display:none;content:none}
 .def-ur-line{flex:1 1 auto;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:13.5px;font-weight:600;color:var(--txt,#1b2033)}
 .def-ur-line b{color:inherit;font-weight:600}
 .def-ur-more{padding:4px 0 0 76px}
 @media(max-width:720px){.def-ur-more{padding-left:24px}}
-.pill.p-raz{background:#fff;color:#111;border:1px solid #c22f3a;text-decoration:none;font-size:10px;font-weight:600;padding:1px 6px;line-height:1.2}
+.pill.p-raz{background:#fff;color:#111;border:1px solid #c22f3a;text-decoration:none;font-size:9px;font-weight:600;padding:0 4px;line-height:14px}
 .pill.p-raz:hover{background:#fff5f5}
 .def-ur > summary > .thb{margin:0 0 0 4px;flex:none}
 /* t6377u already folded into .ma-mon>summary .mrec above */
