@@ -315,7 +315,11 @@ details:not(.bqd):not(.ilg)[open]>summary::before{content:"▾"!important;color:
 .aib-ln{padding:3px 0;border-top:1px solid #e8f0fb;font:500 13px Inter,system-ui;color:var(--txt)}
 .aib-ln:first-of-type{border-top:0}
 .aib-st{flex:none;font-size:11px;color:#7b93b3;min-width:1.2em;text-align:center}.aib-st.chk{color:#b45309}
-.aib-tab .aib-dir{font:700 12.5px Inter,system-ui;color:#475569;margin:8px 0 2px}.aib-tab .aib-dir:first-of-type{margin-top:2px}
+.aib-tab .aib-dir,.aib-tab .aib-fold>summary{font:700 12.5px Inter,system-ui;color:#475569;margin:8px 0 2px}.aib-tab .aib-dir:first-of-type,.aib-tab .aib-fold:first-of-type>summary{margin-top:2px}
+/* Rost t6315u: на вкладке 🤖 каждое направление — выпадающий список (по умолчанию свёрнут, состояние в localStorage) */
+.aib-tab .aib-fold{margin:0}
+.aib-tab .aib-fold>summary{cursor:pointer;display:flex;align-items:center;gap:2px}
+.aib-tab .aib-fold[open]>summary{margin-bottom:2px}
 .aib-tab.card{background:#f9fbff;border-color:#e0ecfb}
 .aib-ln.aib-sub{padding-left:16px}
 .aib-ln>.th-ico{margin-left:2px}
@@ -1580,17 +1584,16 @@ function aibBlockHTML(tab){if(window.DASH_HELPER||tab===AIB_TAB)return '';const 
  return `<details class="top-chip aib-attn"><summary style="cursor:pointer" title="Даш и AI внедрение">${topChipH('🤖 Даш и AI внедрение · '+it.length,'🤖 '+it.length)}</summary><div class="top-chip-body">${body}</div></details>`}
 function aibMount(){const m=$('#main');if(!m||S.tab===AIB_TAB)return;const h=aibBlockHTML(S.tab);if(!h)return;const r=m.querySelector(':scope>.top-row');if(r){r.insertAdjacentHTML('beforeend',h);return}
  const row=`<div class="top-row">${h}</div>`,th=m.querySelector(':scope>.tab-head');if(th)th.insertAdjacentHTML('afterend',row);else m.insertAdjacentHTML('afterbegin',row)}
-/* Rost t6300u: аудит «✓ решено → закрытие в ClickUp» на вкладке 🤖 */
-function dpAuditHTML(){const P=dpSrv(),I=P.items||{},L=dpLS(),now=Date.now(),c={hide:0,failed:0,returned:0,ttl:0,closed:0,err:0,lost:0},rows=[];
- for(const id in I){const S=I[id],st=dpState(id,now);const k=S.st==='closed'?'closed':st.hide?'hide':st.mark||'';if(k&&c[k]!=null)c[k]++;if(k&&k!=='closed')rows.push([id,S.title||id,k,S.t])}
- for(const id in L){if(I[id]&&(Date.parse(I[id].t)||0)>=L[id].t-10*60e3)continue;const st=dpState(id,now);const k=st.hide?'hide':st.mark||'';if(k&&c[k]!=null)c[k]++;if(k)rows.push([id,L[id].n||id,k+' (браузер)',new Date(L[id].t).toISOString()])}
- const lab={hide:'закрывается',failed:'⚠ не закрылась',returned:'⚠ не закрылась',ttl:'⏳ не закрылась',err:'⚠ не отправлено',lost:'⚠ не дошло'};
- return `<div class="card aib-tab dp-audit"><h3 style="margin:0 0 4px">✓ Решено → закрытие в ClickUp</h3><div class="note">закрывается ${c.hide} · не закрылись ${c.failed||c.returned} · не подтверждены за ${+P.ttl_hours||24} ч ${c.ttl} · подтверждено закрытых ${c.closed}${c.err+c.lost?` · не дошли ${c.err+c.lost}`:''}</div>${rows.map(([id,n,k,t])=>`<div class="ln" style="font-size:12.5px">${esc(lab[k.split(' ')[0]]||k)}${/браузер/.test(k)?' · только в этом браузере':''} — <a href="https://app.clickup.com/t/${esc(id)}" target="_blank" rel="noopener">${esc(n)}</a> <span class="note">✓ ${esc(String(t||'').slice(0,16).replace('T',' '))} UTC</span></div>`).join('')}<div class="note" style="margin-top:4px">Источник: src/done_pending.json (сборка ${esc(String(P.built_at||'').slice(0,16).replace('T',' '))} UTC). Скрытие временное: если закрытие в ClickUp не подтвердится, задача сама вернётся через ${+P.ttl_hours||24} ч.</div></div>`}
+/* Rost t6300u: аудит «✓ решено → закрытие в ClickUp» — функция оставлена, на вкладке 🤖 не показывается (t6315u: без технических футеров «решено / источник») */
+function dpAuditHTML(){return ''}
+function aibFoldOpen(k){try{return localStorage.getItem('aib_fold_'+k)==='1'}catch(e){return false}}
+function aibFoldToggle(el){try{localStorage.setItem('aib_fold_'+el.dataset.k,el.open?'1':'0')}catch(e){}}
 function aibTab(){const D=Dash.D,A=aibItems(),dirs=[{id:'general',name:'Общее (вне направлений)',icon:'📌'},{id:'overview',name:'Общий',icon:'✦'},...(D.directions||[])];/* Rost t6271u: «Общее» — только на вкладке 🤖, первым */
- if(!A.length){$('#main').innerHTML=`<div class="card aib-tab"><h3 style="margin:0 0 4px">🤖 Даш и AI внедрение</h3><div class="note">Пока пусто: доработок дашборда и внедрений AI в плане нет. Пункты появятся здесь и на своих вкладках, как только Rost их надиктует.</div></div>`+dpAuditHTML();return}
+ if(!A.length){$('#main').innerHTML=`<div class="card aib-tab"><h3 style="margin:0 0 4px">🤖 Даш и AI внедрение</h3><div class="note">Пока пусто: доработок дашборда и внедрений AI в плане нет. Пункты появятся здесь и на своих вкладках, как только Rost их надиктует.</div></div>`;return}
  const known=new Set(dirs.map(d=>d.id)),other=[...new Set(A.map(x=>x.tab).filter(t=>!known.has(t)))].map(t=>({id:t,name:t,icon:'❓'}));
- const grp=(g,n)=>{const xs=aibGrp(A,g);if(!xs.length)return '';return `<div class="card aib-tab"><h3 style="margin:0 0 4px">${n} · ${xs.length}</h3>${dirs.concat(other).map(d=>{const ys=xs.filter(x=>x.tab===d.id);return ys.length?`<div class="aib-dir">${d.icon||''} ${esc(d.name)} · ${ys.length}</div>${ys.map(aibLn).join('')}`:''}).join('')}</div>`};
- $('#main').innerHTML=AIB_G.map(([g,n])=>grp(g,n)).join('')+dpAuditHTML()}
+ /* Rost t6315u: группы «Доработка дашборда» / «Внедрение AI» открыты; каждое направление — выпадающий список (свёрнут, состояние в localStorage) */
+ const grp=(g,n)=>{const xs=aibGrp(A,g);if(!xs.length)return '';return `<div class="card aib-tab"><h3 style="margin:0 0 4px">${n} · ${xs.length}</h3>${dirs.concat(other).map(d=>{const ys=xs.filter(x=>x.tab===d.id);if(!ys.length)return '';const k=g+':'+d.id;return `<details class="aib-fold"${aibFoldOpen(k)?' open':''} data-k="${esc(k)}" ontoggle="aibFoldToggle(this)"><summary>${d.icon||''} ${esc(d.name)} <span class="note">· ${ys.length}</span></summary>${ys.map(aibLn).join('')}</details>`}).join('')}</div>`};
+ $('#main').innerHTML=AIB_G.map(([g,n])=>grp(g,n)).join('')}
 /* Rost 25.10 ~23:55: блоки «Личное». hide_from_helper → в helper.html не показываем (плюс вырезаются из data-asst при шифровании) */
 function persAttn(d){const B=d.personal_blocks;if(!B)return [];const out=[];/* плановые поездки/НГ — не attn */
  ((B.decisions&&B.decisions.items)||[]).forEach(x=>{if(x.placeholder||!x.cu||DONE.test(String(x.status||'')))return;if(x.due&&x.due<TODAY)out.push({grp:'🧭 На решение',text:(x.slot?x.slot+' — ':'')+x.name,url:x.url,why:'просрочено',cls:''})});
