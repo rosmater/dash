@@ -6,7 +6,7 @@
   "week_start": "monday",
   "updated": "2026-11-12",
   "next_collect": "2026-11-16",
-  "next_collect_note": "Пн 16.11 ~10:15 Богота: OF Statistics custom range UTC пн–вс. Обязательно записать of_subs, of_messages, of_tips, of_posts, of_total (net; gross — в notes). Тем же заходом Statistics → Reach: viewers_total, viewers_guests, viewers_users, viewers_usa, usa_guests, usa_users, subs (новые за неделю). Дополнительно добрать разбивку дохода и Reach за 02–08.11 (сейчас пусто) и при возможности за 19–25.10 (снимок 26.10 «últimos 7 días» не совпадает с неделей, в таблицу не ставили).",
+  "next_collect_note": "Пн 16.11 ~10:15 Богота: OF Statistics custom range UTC пн–вс. Обязательно записать of_subs, of_messages, of_tips, of_posts, of_total (net; gross — в notes). Тем же заходом Statistics → Reach: viewers_total, viewers_guests, viewers_users, viewers_usa, usa_guests, usa_users, subs (новые за неделю). Дополнительно добрать разбивку дохода и Reach за 02–08.11 (сейчас пусто) и при возможности за 19–25.10 (снимок 26.10 «últimos 7 días» не совпадает с неделей, в таблицу не ставили). ‼ Rost t6319u (13.11): на этом прогоне замерить ВСЁ, чтобы на даше были заполнены все колонки и все строки по всем трём закрытым неделям (26.10–01.11, 02–08.11, 09–15.11): разбивка дохода OF, Аудитория OF (Statistics → Reach: viewers total/guests/users, USA и гости/пользователи США, новые подписки), конверсии Viewers→Subs и Users→Subs, Earnings chats. Пропуски за прошлые недели добрать через custom range. Текущую неделю не показывать (t6318u).",
   "metrics": [
     {
       "id": "ig1",
