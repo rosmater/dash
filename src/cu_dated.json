@@ -1,6 +1,6 @@
 {
- "generated": "2026-11-13 09:30",
- "source": "live filter_tasks 2026-11-13 (t5019+t5594u); base mapping cu-rost-dated.csv 27.10",
+ "generated": "2026-11-13 22:46",
+ "source": "live filter_tasks 2026-11-13 (t5019+t5594u); base mapping cu-rost-dated.csv 27.10; cu_due_sync",
  "note": "TZ cu-dash-sort §2: mapped, not shown elsewhere on dash",
  "by_dir": {
   "personal": [
@@ -3114,7 +3114,7 @@
     "name": "БОТ: 🏠 Установка сигналки на Топасио - случилось? (электричество жду Андрей)",
     "url": "https://app.clickup.com/t/86ba3bwhg",
     "status": "for check",
-    "due": "2026-11-12",
+    "due": "2026-11-13",
     "due_t": "04:00",
     "parent": "86b6j4f2n",
     "list": "Покупка, Ремонт, Продажа-Сдача",
@@ -3769,7 +3769,7 @@
     "name": "БОТ: МИШЕЛЬ: Bulk Messaging проверить статистику и ответы фанам в сообщениях (потом передать сбор статистики Фетишь)",
     "url": "https://app.clickup.com/t/86bbjyrf5",
     "status": "for check",
-    "due": "2026-11-12",
+    "due": "2026-11-13",
     "due_t": "04:00",
     "parent": "",
     "list": "Models",
@@ -3840,7 +3840,7 @@
     "id": "86bcnuxbj",
     "name": "БОТ-ЧАСТЬ: 💳 Оплата чаттерам Никиты (счёт в TG 5–13 числа) Яна получить отчеты",
     "url": "https://app.clickup.com/t/86bcnuxbj",
-    "status": "to do",
+    "status": "for check",
     "due": "2026-11-13",
     "due_t": "04:00",
     "parent": "",

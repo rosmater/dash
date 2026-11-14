@@ -1,8 +1,8 @@
 {
  "_note": "Rost t4153–55: ClickUp «инбокс» для Мессенджеров -> src/ma_cu_inbox.json.\nВход (кладёт агент после MCP-опроса, tier 2 по cu-inbox-tier.sh): notify-watchers/clickup-pulse/inbox-raw/{tasks,comments}-<date>.json\nКатегории: comment (Комменты) / mention (@) / assigned (Назначили) / forcheck (for check) / other (Прочее).\nУ КАЖДОЙ строки две ссылки (t4154u HARD): comment_url (app.clickup.com/t/<id>?comment=<cid>) + task_url (rosmater.github.io/cu/?t=<id>).\nТолько метаданные: текст коммента в даш НЕ пишем (только флаги @/assigned).",
- "fetched": "2026-11-12 22:42 Bogotá",
- "since": "2026-11-10 22:42 Bogotá",
- "src": "morning-mega 2026-11-12 TIER=2 COMMS WIDE: narrow user-Clickup assignees=60710247+me (26 in-window, page0 oldest < since so no page1) + user-Clickup--private (0 in-window, 1 stale 17tqamewwdp); since inbox_last_build 2026-11-10T22:46:57-05:00 (IGNORE Helper last_check 10:45 single-task 86bcma7tp)",
+ "fetched": "2026-11-13 22:45 Bogotá",
+ "since": "2026-11-11 22:45 Bogotá",
+ "src": "night-hygiene-2026-11-13 narrow (Rost-assigned, updated since 10:51)",
  "tier": "2",
  "kinds": [
   [
@@ -32,36 +32,36 @@
  ],
  "counts": {
   "mention": 2,
-  "comment": 3
+  "comment": 2
  },
  "items": [
   {
-   "task_id": "86b8c9bhm",
-   "task": "💳 Pago a Katherine RA 207/212 - la cantidad exacta en la tabla (adjuntar captura de pantalla a comentarios)",
+   "task_id": "86bd2vc4g",
+   "task": "Iniciar OF TV start con Gabriela",
    "list": "Models",
    "list_id": "901412862040",
    "status": "to do",
-   "task_url": "https://rosmater.github.io/cu/?t=86b8c9bhm",
-   "task_app": "https://app.clickup.com/t/86b8c9bhm",
+   "task_url": "https://rosmater.github.io/cu/?t=86bd2vc4g",
+   "task_app": "https://app.clickup.com/t/86bd2vc4g",
    "kind": "mention",
-   "at": "2026-11-12 14:24",
-   "who": "Sara Pineda Chanci",
-   "comment_id": "90140281304188",
-   "comment_url": "https://app.clickup.com/t/86b8c9bhm?comment=90140281304188"
+   "at": "2026-11-13 15:07",
+   "who": "Michelle Hernández ",
+   "comment_id": "90140281907305",
+   "comment_url": "https://app.clickup.com/t/86bd2vc4g?comment=90140281907305"
   },
   {
-   "task_id": "86b8c9bhm",
-   "task": "💳 Pago a Katherine RA 207/212 - la cantidad exacta en la tabla (adjuntar captura de pantalla a comentarios)",
+   "task_id": "86bd2vc4g",
+   "task": "Iniciar OF TV start con Gabriela",
    "list": "Models",
    "list_id": "901412862040",
    "status": "to do",
-   "task_url": "https://rosmater.github.io/cu/?t=86b8c9bhm",
-   "task_app": "https://app.clickup.com/t/86b8c9bhm",
+   "task_url": "https://rosmater.github.io/cu/?t=86bd2vc4g",
+   "task_app": "https://app.clickup.com/t/86bd2vc4g",
    "kind": "comment",
-   "at": "2026-11-12 14:24",
-   "who": "Sara Pineda Chanci",
-   "comment_id": "90140281304188",
-   "comment_url": "https://app.clickup.com/t/86b8c9bhm?comment=90140281304188",
+   "at": "2026-11-13 15:07",
+   "who": "Michelle Hernández ",
+   "comment_id": "90140281907305",
+   "comment_url": "https://app.clickup.com/t/86bd2vc4g?comment=90140281907305",
    "n_new": 1
   },
   {
@@ -73,10 +73,10 @@
    "task_url": "https://rosmater.github.io/cu/?t=86bcn2d1t",
    "task_app": "https://app.clickup.com/t/86bcn2d1t",
    "kind": "mention",
-   "at": "2026-11-12 11:31",
+   "at": "2026-11-13 13:50",
    "who": "Michelle Hernández ",
-   "comment_id": "90140281217490",
-   "comment_url": "https://app.clickup.com/t/86bcn2d1t?comment=90140281217490"
+   "comment_id": "90140281868906",
+   "comment_url": "https://app.clickup.com/t/86bcn2d1t?comment=90140281868906"
   },
   {
    "task_id": "86bcn2d1t",
@@ -87,48 +87,33 @@
    "task_url": "https://rosmater.github.io/cu/?t=86bcn2d1t",
    "task_app": "https://app.clickup.com/t/86bcn2d1t",
    "kind": "comment",
-   "at": "2026-11-12 11:31",
+   "at": "2026-11-13 13:50",
    "who": "Michelle Hernández ",
-   "comment_id": "90140281217490",
-   "comment_url": "https://app.clickup.com/t/86bcn2d1t?comment=90140281217490",
-   "n_new": 1
-  },
-  {
-   "task_id": "86bbfudj2",
-   "task": "86bbfudj2",
-   "list": "",
-   "list_id": "",
-   "status": "",
-   "task_url": "https://rosmater.github.io/cu/?t=86bbfudj2",
-   "task_app": "https://app.clickup.com/t/86bbfudj2",
-   "kind": "comment",
-   "at": "2026-11-12 10:38",
-   "who": "Sara Pineda Chanci",
-   "comment_id": "90140281186985",
-   "comment_url": "https://app.clickup.com/t/86bbfudj2?comment=90140281186985",
+   "comment_id": "90140281868906",
+   "comment_url": "https://app.clickup.com/t/86bcn2d1t?comment=90140281868906",
    "n_new": 1
   }
  ],
  "threads": [
   {
-   "task_id": "86b8c9bhm",
-   "task": "💳 Pago a Katherine RA 207/212 - la cantidad exacta en la tabla (adjuntar captura de pantalla a comentarios)",
+   "task_id": "86bd2vc4g",
+   "task": "Iniciar OF TV start con Gabriela",
    "list": "Models",
    "status": "to do",
-   "task_url": "https://rosmater.github.io/cu/?t=86b8c9bhm",
-   "task_app": "https://app.clickup.com/t/86b8c9bhm",
+   "task_url": "https://rosmater.github.io/cu/?t=86bd2vc4g",
+   "task_app": "https://app.clickup.com/t/86bd2vc4g",
    "list_id": "901412862040",
    "kinds": [
     "mention",
     "comment"
    ],
-   "at": "2026-11-12 14:24",
-   "who": "Sara Pineda Chanci",
-   "comment_url": "https://app.clickup.com/t/86b8c9bhm?comment=90140281304188",
+   "at": "2026-11-13 15:07",
+   "who": "Michelle Hernández ",
+   "comment_url": "https://app.clickup.com/t/86bd2vc4g?comment=90140281907305",
    "sub": "",
    "n_new": 1,
-   "mention_at": "2026-11-12 14:24",
-   "author": "Sara Pineda Chanci",
+   "mention_at": "2026-11-13 15:07",
+   "author": "Michelle Hernández ",
    "author_bot": false
   },
   {
@@ -143,33 +128,13 @@
     "mention",
     "comment"
    ],
-   "at": "2026-11-12 11:31",
+   "at": "2026-11-13 13:50",
    "who": "Michelle Hernández ",
-   "comment_url": "https://app.clickup.com/t/86bcn2d1t?comment=90140281217490",
+   "comment_url": "https://app.clickup.com/t/86bcn2d1t?comment=90140281868906",
    "sub": "",
    "n_new": 1,
-   "mention_at": "2026-11-12 11:31",
+   "mention_at": "2026-11-13 13:50",
    "author": "Michelle Hernández ",
-   "author_bot": false
-  },
-  {
-   "task_id": "86bbfudj2",
-   "task": "86bbfudj2",
-   "list": "",
-   "status": "",
-   "task_url": "https://rosmater.github.io/cu/?t=86bbfudj2",
-   "task_app": "https://app.clickup.com/t/86bbfudj2",
-   "list_id": "",
-   "kinds": [
-    "comment"
-   ],
-   "at": "2026-11-12 10:38",
-   "who": "Sara Pineda Chanci",
-   "comment_url": "https://app.clickup.com/t/86bbfudj2?comment=90140281186985",
-   "sub": "",
-   "n_new": 1,
-   "mention_at": "",
-   "author": "Sara Pineda Chanci",
    "author_bot": false
   }
  ]
