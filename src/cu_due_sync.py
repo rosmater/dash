@@ -21,7 +21,7 @@ On a change it:
   b) updates due/due_t/status on existing rows in src/cu_dated.json
   c) rebuilds calendar.events (build_data rules + t5824u: all-day gcal-sync
      titles do NOT block timed CU) and patches cu_dated into data*.enc.json
-  d) git -C dash-gh pull --rebase && commit && push (never force)
+  d) git -C dash-gh pull --rebase --autostash && commit && push (never force)
 
 Flags: --dry (report only), --no-push (patch locally, skip git),
        --out PATH (default /workspace/cu_cal_dash.json).
@@ -338,7 +338,7 @@ def surgical_patch(events, cu_at, gcal_at, by_dir):
 
 def git_push(note: str):
     subprocess.run(['git', 'checkout', 'main'], cwd=GH, check=False, capture_output=True)
-    r = subprocess.run(['git', 'pull', '--rebase', 'origin', 'main'], cwd=GH, capture_output=True, text=True)
+    r = subprocess.run(['git', 'pull', '--rebase', '--autostash', 'origin', 'main'], cwd=GH, capture_output=True, text=True)
     if r.returncode != 0:
         subprocess.run(['git', 'rebase', '--abort'], cwd=GH, capture_output=True)
         raise SystemExit(f'git pull --rebase failed: {r.stderr or r.stdout}')

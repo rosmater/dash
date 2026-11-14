@@ -33,6 +33,10 @@ WEBHOOK_AUTH = Path('/workspace/queue/bin/webhook-resume-15min.auth')
 HANDLER = Path('/workspace/queue/comms-action-handler.json')
 DEDUP_SEC = 60 * 60
 SIM_DETAIL = 'SIMULATED t6387u test'
+# Live test hook (t6390u): if this file exists, treat its text as a monitor fault.
+# Harmless no-op when the flag is absent. Does not touch watcher/reconcile data.
+# Remove the file to clear the test fault.
+TEST_FLAG = Path('/workspace/dash-gh/src/messenger_fault_TEST.flag')
 
 LIVE_CH = [
     ('wa_ukr', 'WhatsApp UKR', 'WA UKR'),
@@ -242,7 +246,9 @@ def _dedup(sig: str, st: dict, now: datetime) -> bool:
 def _append_queue(detail: str, now: datetime) -> str:
     slug = 'messenger-fault-' + now.strftime('%Y%m%d-%H%M')
     line = (f'- [pending] PRIORITY {slug} — messenger monitor fault: {detail}'
-            f' — fix headless, rebuild dash, report one line\n')
+            f' — fix headless; in /workspace/dash-gh use `git pull --rebase --autostash`'
+            f' (never plain `git pull --rebase`), then src/build.sh + dash_push for YOUR'
+            f' files only, report one line\n')
     text = QUEUE.read_text(encoding='utf-8') if QUEUE.exists() else ''
     # don't add a second open item with the same slug
     if slug in text and '[pending]' in text:
@@ -310,6 +316,13 @@ def main(argv=None) -> int:
 
     now = _now()
     details = compute_faults(recon, watchers, now)
+    if TEST_FLAG.exists() and not args.simulate_fault:
+        try:
+            flag_detail = TEST_FLAG.read_text(encoding='utf-8').strip()
+        except OSError:
+            flag_detail = ''
+        flag_detail = flag_detail or 'TEST flag present — искусственный сбой, удалить'
+        details = [flag_detail] + [d for d in details if d != flag_detail]
     if args.simulate_fault:
         details = [SIM_DETAIL]
 
